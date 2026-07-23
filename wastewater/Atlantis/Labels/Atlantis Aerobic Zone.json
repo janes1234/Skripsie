@@ -1,1 +1,1643 @@
-{"_via_settings":{"ui":{"annotation_editor_height":25,"annotation_editor_fontsize":0.8,"leftsidebar_width":18,"image_grid":{"img_height":80,"rshape_fill":"none","rshape_fill_opacity":0.3,"rshape_stroke":"yellow","rshape_stroke_width":2,"show_region_shape":true,"show_image_policy":"all"},"image":{"region_label":"__via_region_id__","region_color":"__via_default_region_color__","region_label_font":"10px Sans","on_image_annotation_editor_placement":"NEAR_REGION"}},"core":{"buffer_size":18,"filepath":{},"default_filepath":""},"project":{"name":"Atlantis BR Aerobic Zone"}},"_via_img_metadata":{"Atlantis 01_2015.jpg229852":{"filename":"Atlantis 01_2015.jpg","size":229852,"regions":[{"shape_attributes":{"name":"rect","x":511,"y":195,"width":527,"height":252},"region_attributes":{"aerobic zone":"Dysfunctional"}},{"shape_attributes":{"name":"rect","x":498,"y":521,"width":539,"height":272},"region_attributes":{"aerobic zone":"Dysfunctional"}}],"file_attributes":{}},"Atlantis 01_2017.jpg2674795":{"filename":"Atlantis 01_2017.jpg","size":2674795,"regions":[{"shape_attributes":{"name":"rect","x":2669,"y":1086,"width":2932,"height":1381},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":2661,"y":2894,"width":2855,"height":1396},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 01_2019.jpg3469910":{"filename":"Atlantis 01_2019.jpg","size":3469910,"regions":[{"shape_attributes":{"name":"rect","x":2707,"y":931,"width":2839,"height":1381},"region_attributes":{"aerobic zone":"Dysfunctional"}},{"shape_attributes":{"name":"rect","x":2684,"y":2669,"width":2832,"height":1544},"region_attributes":{"aerobic zone":"Dysfunctional"}}],"file_attributes":{}},"Atlantis 01_2021.jpg2734737":{"filename":"Atlantis 01_2021.jpg","size":2734737,"regions":[{"shape_attributes":{"name":"rect","x":2661,"y":1086,"width":2878,"height":1474},"region_attributes":{"aerobic zone":"Dysfunctional"}},{"shape_attributes":{"name":"rect","x":2630,"y":2863,"width":2863,"height":1412},"region_attributes":{"aerobic zone":"Dysfunctional"}}],"file_attributes":{}},"Atlantis 01_2022.jpg315400":{"filename":"Atlantis 01_2022.jpg","size":315400,"regions":[{"shape_attributes":{"name":"rect","x":500,"y":174,"width":528,"height":265},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":497,"y":500,"width":528,"height":269},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 01_2023.jpg416781":{"filename":"Atlantis 01_2023.jpg","size":416781,"regions":[{"shape_attributes":{"name":"rect","x":507,"y":197,"width":531,"height":255},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":510,"y":527,"width":526,"height":258},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 02_2014.jpg227819":{"filename":"Atlantis 02_2014.jpg","size":227819,"regions":[{"shape_attributes":{"name":"rect","x":501,"y":195,"width":539,"height":249},"region_attributes":{"aerobic zone":"Dysfunctional"}},{"shape_attributes":{"name":"rect","x":495,"y":524,"width":533,"height":266},"region_attributes":{"aerobic zone":"Dysfunctional"}}],"file_attributes":{}},"Atlantis 02_2015.jpg229900":{"filename":"Atlantis 02_2015.jpg","size":229900,"regions":[{"shape_attributes":{"name":"rect","x":508,"y":178,"width":542,"height":245},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":507,"y":505,"width":523,"height":261},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 02_2018.jpg2538528":{"filename":"Atlantis 02_2018.jpg","size":2538528,"regions":[{"shape_attributes":{"name":"rect","x":2738,"y":985,"width":2863,"height":1373},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":2723,"y":2762,"width":2832,"height":1396},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 02_2019.jpg3260412":{"filename":"Atlantis 02_2019.jpg","size":3260412,"regions":[{"shape_attributes":{"name":"rect","x":2661,"y":993,"width":2909,"height":1396},"region_attributes":{"aerobic zone":"Dysfunctional"}},{"shape_attributes":{"name":"rect","x":2653,"y":2715,"width":2816,"height":1435},"region_attributes":{"aerobic zone":"Dysfunctional"}}],"file_attributes":{}},"Atlantis 02_2021.jpg2969065":{"filename":"Atlantis 02_2021.jpg","size":2969065,"regions":[{"shape_attributes":{"name":"rect","x":2645,"y":1125,"width":2925,"height":1427},"region_attributes":{"aerobic zone":"Dysfunctional"}},{"shape_attributes":{"name":"rect","x":2622,"y":2886,"width":2855,"height":1412},"region_attributes":{"aerobic zone":"Dysfunctional"}}],"file_attributes":{}},"Atlantis 02_2022.jpg306257":{"filename":"Atlantis 02_2022.jpg","size":306257,"regions":[{"shape_attributes":{"name":"rect","x":497,"y":178,"width":543,"height":252},"region_attributes":{"aerobic zone":"Dysfunctional"}},{"shape_attributes":{"name":"rect","x":495,"y":504,"width":536,"height":265},"region_attributes":{"aerobic zone":"Dysfunctional"}}],"file_attributes":{}},"Atlantis 02_2025.jpg448810":{"filename":"Atlantis 02_2025.jpg","size":448810,"regions":[{"shape_attributes":{"name":"rect","x":500,"y":200,"width":530,"height":250},"region_attributes":{"aerobic zone":"Suboptimal"}},{"shape_attributes":{"name":"rect","x":501,"y":527,"width":528,"height":250},"region_attributes":{"aerobic zone":"Empty"}}],"file_attributes":{}},"Atlantis 03_2018.jpg2664631":{"filename":"Atlantis 03_2018.jpg","size":2664631,"regions":[{"shape_attributes":{"name":"rect","x":2676,"y":1047,"width":2925,"height":1319},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":2638,"y":2800,"width":2800,"height":1389},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 03_2020.jpg3463688":{"filename":"Atlantis 03_2020.jpg","size":3463688,"regions":[{"shape_attributes":{"name":"rect","x":2700,"y":931,"width":2808,"height":1350},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":2700,"y":2684,"width":2762,"height":1443},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 03_2021.jpg3106093":{"filename":"Atlantis 03_2021.jpg","size":3106093,"regions":[{"shape_attributes":{"name":"rect","x":2754,"y":1032,"width":2785,"height":1427},"region_attributes":{"aerobic zone":"Suboptimal"}},{"shape_attributes":{"name":"rect","x":2731,"y":2777,"width":2762,"height":1412},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 03_2024.jpg635521":{"filename":"Atlantis 03_2024.jpg","size":635521,"regions":[{"shape_attributes":{"name":"rect","x":497,"y":195,"width":533,"height":256},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":495,"y":527,"width":537,"height":258},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 04_2017.jpg2761190":{"filename":"Atlantis 04_2017.jpg","size":2761190,"regions":[{"shape_attributes":{"name":"rect","x":2715,"y":1164,"width":2824,"height":1327},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":2684,"y":2971,"width":2824,"height":1350},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 04_2018.jpg2882138":{"filename":"Atlantis 04_2018.jpg","size":2882138,"regions":[{"shape_attributes":{"name":"rect","x":2638,"y":985,"width":2917,"height":1427},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":2614,"y":2847,"width":2886,"height":1350},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 04_2022.jpg316888":{"filename":"Atlantis 04_2022.jpg","size":316888,"regions":[{"shape_attributes":{"name":"rect","x":489,"y":197,"width":533,"height":249},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":481,"y":518,"width":533,"height":265},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 05_2014.jpg227642":{"filename":"Atlantis 05_2014.jpg","size":227642,"regions":[{"shape_attributes":{"name":"rect","x":501,"y":197,"width":539,"height":242},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":495,"y":520,"width":530,"height":262},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 05_2016.jpg2761901":{"filename":"Atlantis 05_2016.jpg","size":2761901,"regions":[{"shape_attributes":{"name":"rect","x":2676,"y":1086,"width":2832,"height":1303},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":2630,"y":2917,"width":2894,"height":1342},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 05_2017.jpg2812840":{"filename":"Atlantis 05_2017.jpg","size":2812840,"regions":[{"shape_attributes":{"name":"rect","x":2700,"y":1148,"width":2878,"height":1404},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":2684,"y":2925,"width":2824,"height":1420},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 05_2019.jpg3032313":{"filename":"Atlantis 05_2019.jpg","size":3032313,"regions":[{"shape_attributes":{"name":"rect","x":2661,"y":1102,"width":2894,"height":1435},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":2645,"y":2855,"width":2839,"height":1396},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 05_2022.jpg329349":{"filename":"Atlantis 05_2022.jpg","size":329349,"regions":[{"shape_attributes":{"name":"rect","x":494,"y":507,"width":534,"height":268},"region_attributes":{"aerobic zone":"Suboptimal"}},{"shape_attributes":{"name":"rect","x":497,"y":181,"width":537,"height":265},"region_attributes":{"aerobic zone":"Suboptimal"}}],"file_attributes":{}},"Atlantis 06_2014.jpg226137":{"filename":"Atlantis 06_2014.jpg","size":226137,"regions":[{"shape_attributes":{"name":"rect","x":501,"y":219,"width":540,"height":249},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":494,"y":556,"width":528,"height":252},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 06_2016.jpg2688058":{"filename":"Atlantis 06_2016.jpg","size":2688058,"regions":[{"shape_attributes":{"name":"rect","x":2614,"y":1040,"width":2878,"height":1396},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":2583,"y":2824,"width":2901,"height":1404},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 06_2018.jpg2981194":{"filename":"Atlantis 06_2018.jpg","size":2981194,"regions":[{"shape_attributes":{"name":"rect","x":2653,"y":1125,"width":2940,"height":1358},"region_attributes":{"aerobic zone":"Suboptimal"}},{"shape_attributes":{"name":"rect","x":2622,"y":2855,"width":2808,"height":1474},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 06_2019.jpg2830271":{"filename":"Atlantis 06_2019.jpg","size":2830271,"regions":[{"shape_attributes":{"name":"rect","x":2645,"y":884,"width":2855,"height":1373},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":2614,"y":2723,"width":2870,"height":1373},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 06_2021.jpg3530399":{"filename":"Atlantis 06_2021.jpg","size":3530399,"regions":[{"shape_attributes":{"name":"rect","x":2661,"y":1148,"width":2870,"height":1381},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":2622,"y":2894,"width":2793,"height":1412},"region_attributes":{"aerobic zone":"Suboptimal"}}],"file_attributes":{}},"Atlantis 07_2015.jpg214774":{"filename":"Atlantis 07_2015.jpg","size":214774,"regions":[{"shape_attributes":{"name":"rect","x":501,"y":203,"width":536,"height":245},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":498,"y":530,"width":518,"height":259},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 07_2016.jpg2841923":{"filename":"Atlantis 07_2016.jpg","size":2841923,"regions":[{"shape_attributes":{"name":"rect","x":2676,"y":1055,"width":2863,"height":1365},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":2676,"y":2886,"width":2863,"height":1365},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 07_2018.jpg2982504":{"filename":"Atlantis 07_2018.jpg","size":2982504,"regions":[{"shape_attributes":{"name":"rect","x":2661,"y":1055,"width":2847,"height":1427},"region_attributes":{"aerobic zone":"Suboptimal"}},{"shape_attributes":{"name":"rect","x":2645,"y":2847,"width":2793,"height":1365},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 07_2019.jpg3074084":{"filename":"Atlantis 07_2019.jpg","size":3074084,"regions":[{"shape_attributes":{"name":"rect","x":2676,"y":1195,"width":2863,"height":1389},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":2638,"y":2940,"width":2808,"height":1435},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 07_2020.jpg3516136":{"filename":"Atlantis 07_2020.jpg","size":3516136,"regions":[{"shape_attributes":{"name":"rect","x":2630,"y":1055,"width":2839,"height":1365},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":2622,"y":2793,"width":2777,"height":1420},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 07_2021.jpg3274581":{"filename":"Atlantis 07_2021.jpg","size":3274581,"regions":[{"shape_attributes":{"name":"rect","x":2544,"y":1055,"width":2839,"height":1404},"region_attributes":{"aerobic zone":"Suboptimal"}},{"shape_attributes":{"name":"rect","x":2521,"y":2870,"width":2832,"height":1373},"region_attributes":{"aerobic zone":"Suboptimal"}}],"file_attributes":{}},"Atlantis 07_2022.jpg306948":{"filename":"Atlantis 07_2022.jpg","size":306948,"regions":[{"shape_attributes":{"name":"rect","x":491,"y":536,"width":542,"height":248},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":492,"y":194,"width":542,"height":245},"region_attributes":{"aerobic zone":"Suboptimal"}}],"file_attributes":{}},"Atlantis 08_2009.jpg368160":{"filename":"Atlantis 08_2009.jpg","size":368160,"regions":[{"shape_attributes":{"name":"rect","x":495,"y":197,"width":543,"height":255},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":497,"y":526,"width":524,"height":262},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 08_2016.jpg2823255":{"filename":"Atlantis 08_2016.jpg","size":2823255,"regions":[{"shape_attributes":{"name":"rect","x":2653,"y":1024,"width":2886,"height":1381},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":2607,"y":2808,"width":2878,"height":1365},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 08_2017.jpg2758124":{"filename":"Atlantis 08_2017.jpg","size":2758124,"regions":[{"shape_attributes":{"name":"rect","x":2630,"y":1055,"width":2894,"height":1334},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":2622,"y":2863,"width":2870,"height":1350},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 08_2018.jpg2991860":{"filename":"Atlantis 08_2018.jpg","size":2991860,"regions":[{"shape_attributes":{"name":"rect","x":2645,"y":892,"width":2901,"height":1358},"region_attributes":{"aerobic zone":"Suboptimal"}},{"shape_attributes":{"name":"rect","x":2607,"y":2669,"width":2863,"height":1334},"region_attributes":{"aerobic zone":"Suboptimal"}}],"file_attributes":{}},"Atlantis 08_2020.jpg3137433":{"filename":"Atlantis 08_2020.jpg","size":3137433,"regions":[{"shape_attributes":{"name":"rect","x":2645,"y":985,"width":2909,"height":1365},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":2614,"y":2738,"width":2847,"height":1427},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 08_2022.jpg448662":{"filename":"Atlantis 08_2022.jpg","size":448662,"regions":[{"shape_attributes":{"name":"rect","x":501,"y":191,"width":539,"height":256},"region_attributes":{"aerobic zone":"Suboptimal"}},{"shape_attributes":{"name":"rect","x":498,"y":515,"width":539,"height":265},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 09_2017.jpg3022360":{"filename":"Atlantis 09_2017.jpg","size":3022360,"regions":[{"shape_attributes":{"name":"rect","x":2622,"y":1086,"width":2909,"height":1358},"region_attributes":{"aerobic zone":"Dysfunctional"}},{"shape_attributes":{"name":"rect","x":2599,"y":2847,"width":2886,"height":1404},"region_attributes":{"aerobic zone":"Dysfunctional"}}],"file_attributes":{}},"Atlantis 09_2019.jpg2983180":{"filename":"Atlantis 09_2019.jpg","size":2983180,"regions":[{"shape_attributes":{"name":"rect","x":2661,"y":1055,"width":2793,"height":1365},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":2653,"y":2855,"width":2824,"height":1365},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 09_2020.jpg3188028":{"filename":"Atlantis 09_2020.jpg","size":3188028,"regions":[{"shape_attributes":{"name":"rect","x":2692,"y":1086,"width":2832,"height":1365},"region_attributes":{"aerobic zone":"Suboptimal"}},{"shape_attributes":{"name":"rect","x":2653,"y":2832,"width":2855,"height":1412},"region_attributes":{"aerobic zone":"Suboptimal"}}],"file_attributes":{}},"Atlantis 09_2022.jpg321118":{"filename":"Atlantis 09_2022.jpg","size":321118,"regions":[{"shape_attributes":{"name":"rect","x":507,"y":214,"width":527,"height":261},"region_attributes":{"aerobic zone":"Suboptimal"}},{"shape_attributes":{"name":"rect","x":505,"y":546,"width":531,"height":259},"region_attributes":{"aerobic zone":"Suboptimal"}}],"file_attributes":{}},"Atlantis 10_2014.jpg226107":{"filename":"Atlantis 10_2014.jpg","size":226107,"regions":[{"shape_attributes":{"name":"rect","x":513,"y":198,"width":539,"height":250},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":511,"y":530,"width":524,"height":255},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 10_2017.jpg3048177":{"filename":"Atlantis 10_2017.jpg","size":3048177,"regions":[{"shape_attributes":{"name":"rect","x":2700,"y":1024,"width":2824,"height":1381},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":2684,"y":2816,"width":2870,"height":1389},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 10_2020.jpg2980008":{"filename":"Atlantis 10_2020.jpg","size":2980008,"regions":[{"shape_attributes":{"name":"rect","x":2645,"y":1032,"width":2855,"height":1373},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":2630,"y":2847,"width":2839,"height":1350},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 11_2014.jpg218084":{"filename":"Atlantis 11_2014.jpg","size":218084,"regions":[{"shape_attributes":{"name":"rect","x":508,"y":226,"width":557,"height":252},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":507,"y":562,"width":543,"height":249},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 11_2015.jpg233857":{"filename":"Atlantis 11_2015.jpg","size":233857,"regions":[{"shape_attributes":{"name":"rect","x":500,"y":193,"width":540,"height":259},"region_attributes":{"aerobic zone":"Dysfunctional"}},{"shape_attributes":{"name":"rect","x":494,"y":520,"width":536,"height":274},"region_attributes":{"aerobic zone":"Dysfunctional"}}],"file_attributes":{}},"Atlantis 11_2016.jpg2724832":{"filename":"Atlantis 11_2016.jpg","size":2724832,"regions":[{"shape_attributes":{"name":"rect","x":2684,"y":1125,"width":2886,"height":1396},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":2653,"y":2925,"width":2847,"height":1381},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 11_2021.jpg4214898":{"filename":"Atlantis 11_2021.jpg","size":4214898,"regions":[{"shape_attributes":{"name":"rect","x":2700,"y":1040,"width":2808,"height":1381},"region_attributes":{"aerobic zone":"Dysfunctional"}},{"shape_attributes":{"name":"rect","x":2676,"y":2769,"width":2816,"height":1466},"region_attributes":{"aerobic zone":"Dysfunctional"}}],"file_attributes":{}},"Atlantis 12_2017.jpg2636916":{"filename":"Atlantis 12_2017.jpg","size":2636916,"regions":[{"shape_attributes":{"name":"rect","x":2669,"y":2832,"width":2777,"height":1404},"region_attributes":{"aerobic zone":"Suboptimal"}},{"shape_attributes":{"name":"rect","x":2676,"y":1047,"width":2832,"height":1381},"region_attributes":{"aerobic zone":"Suboptimal"}}],"file_attributes":{}},"Atlantis 12_2018.jpg2867078":{"filename":"Atlantis 12_2018.jpg","size":2867078,"regions":[{"shape_attributes":{"name":"rect","x":2746,"y":2692,"width":2777,"height":1451},"region_attributes":{"aerobic zone":"Functional"}},{"shape_attributes":{"name":"rect","x":2754,"y":931,"width":2847,"height":1334},"region_attributes":{"aerobic zone":"Functional"}}],"file_attributes":{}},"Atlantis 12_2019.jpg2889381":{"filename":"Atlantis 12_2019.jpg","size":2889381,"regions":[{"shape_attributes":{"name":"rect","x":2769,"y":1055,"width":2800,"height":1365},"region_attributes":{"aerobic zone":"Dysfunctional"}},{"shape_attributes":{"name":"rect","x":2777,"y":2824,"width":2762,"height":1373},"region_attributes":{"aerobic zone":"Dysfunctional"}}],"file_attributes":{}}},"_via_attributes":{"region":{"aerobic zone":{"type":"dropdown","description":"aerobic part of biological reactor","options":{"Functional":"leopard print","Suboptimal":"a third of surface or more has no leopard print or unsure","Dysfunctional":"two thirds of surface has no leopard print or clearly dysfunctional","Empty":"aerobic zone is empty"},"default_options":{"Functional":true}}},"file":{}},"_via_data_format_version":"2.0.10","_via_image_id_list":["Atlantis 01_2015.jpg229852","Atlantis 01_2017.jpg2674795","Atlantis 01_2019.jpg3469910","Atlantis 01_2021.jpg2734737","Atlantis 01_2022.jpg315400","Atlantis 01_2023.jpg416781","Atlantis 02_2014.jpg227819","Atlantis 02_2015.jpg229900","Atlantis 02_2018.jpg2538528","Atlantis 02_2019.jpg3260412","Atlantis 02_2021.jpg2969065","Atlantis 02_2022.jpg306257","Atlantis 02_2025.jpg448810","Atlantis 03_2018.jpg2664631","Atlantis 03_2020.jpg3463688","Atlantis 03_2021.jpg3106093","Atlantis 03_2024.jpg635521","Atlantis 04_2017.jpg2761190","Atlantis 04_2018.jpg2882138","Atlantis 04_2022.jpg316888","Atlantis 05_2014.jpg227642","Atlantis 05_2016.jpg2761901","Atlantis 05_2017.jpg2812840","Atlantis 05_2019.jpg3032313","Atlantis 05_2022.jpg329349","Atlantis 06_2014.jpg226137","Atlantis 06_2016.jpg2688058","Atlantis 06_2018.jpg2981194","Atlantis 06_2019.jpg2830271","Atlantis 06_2021.jpg3530399","Atlantis 07_2015.jpg214774","Atlantis 07_2016.jpg2841923","Atlantis 07_2018.jpg2982504","Atlantis 07_2019.jpg3074084","Atlantis 07_2020.jpg3516136","Atlantis 07_2021.jpg3274581","Atlantis 07_2022.jpg306948","Atlantis 08_2009.jpg368160","Atlantis 08_2016.jpg2823255","Atlantis 08_2017.jpg2758124","Atlantis 08_2018.jpg2991860","Atlantis 08_2020.jpg3137433","Atlantis 08_2022.jpg448662","Atlantis 09_2017.jpg3022360","Atlantis 09_2019.jpg2983180","Atlantis 09_2020.jpg3188028","Atlantis 09_2022.jpg321118","Atlantis 10_2014.jpg226107","Atlantis 10_2017.jpg3048177","Atlantis 10_2020.jpg2980008","Atlantis 11_2014.jpg218084","Atlantis 11_2015.jpg233857","Atlantis 11_2016.jpg2724832","Atlantis 11_2021.jpg4214898","Atlantis 12_2017.jpg2636916","Atlantis 12_2018.jpg2867078","Atlantis 12_2019.jpg2889381"]}
+{
+  "_via_settings": {
+    "ui": {
+      "annotation_editor_height": 25,
+      "annotation_editor_fontsize": 0.8,
+      "leftsidebar_width": 18,
+      "image_grid": {
+        "img_height": 80,
+        "rshape_fill": "none",
+        "rshape_fill_opacity": 0.3,
+        "rshape_stroke": "yellow",
+        "rshape_stroke_width": 2,
+        "show_region_shape": true,
+        "show_image_policy": "all"
+      },
+      "image": {
+        "region_label": "__via_region_id__",
+        "region_color": "__via_default_region_color__",
+        "region_label_font": "10px Sans",
+        "on_image_annotation_editor_placement": "NEAR_REGION"
+      }
+    },
+    "core": { "buffer_size": 18, "filepath": {}, "default_filepath": "" },
+    "project": { "name": "Atlantis BR Aerobic Zone" }
+  },
+  "_via_img_metadata": {
+    "Atlantis 01_2015.jpg229852": {
+      "filename": "Atlantis 01_2015.jpg",
+      "size": 229852,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 511,
+            "y": 195,
+            "width": 527,
+            "height": 252
+          },
+          "region_attributes": { "aerobic zone": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 498,
+            "y": 521,
+            "width": 539,
+            "height": 272
+          },
+          "region_attributes": { "aerobic zone": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 01_2017.jpg2674795": {
+      "filename": "Atlantis 01_2017.jpg",
+      "size": 2674795,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2669,
+            "y": 1086,
+            "width": 2932,
+            "height": 1381
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2661,
+            "y": 2894,
+            "width": 2855,
+            "height": 1396
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 01_2019.jpg3469910": {
+      "filename": "Atlantis 01_2019.jpg",
+      "size": 3469910,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2707,
+            "y": 931,
+            "width": 2839,
+            "height": 1381
+          },
+          "region_attributes": { "aerobic zone": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2684,
+            "y": 2669,
+            "width": 2832,
+            "height": 1544
+          },
+          "region_attributes": { "aerobic zone": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 01_2021.jpg2734737": {
+      "filename": "Atlantis 01_2021.jpg",
+      "size": 2734737,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2661,
+            "y": 1086,
+            "width": 2878,
+            "height": 1474
+          },
+          "region_attributes": { "aerobic zone": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2630,
+            "y": 2863,
+            "width": 2863,
+            "height": 1412
+          },
+          "region_attributes": { "aerobic zone": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 01_2022.jpg315400": {
+      "filename": "Atlantis 01_2022.jpg",
+      "size": 315400,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 500,
+            "y": 174,
+            "width": 528,
+            "height": 265
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 497,
+            "y": 500,
+            "width": 528,
+            "height": 269
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 01_2023.jpg416781": {
+      "filename": "Atlantis 01_2023.jpg",
+      "size": 416781,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 507,
+            "y": 197,
+            "width": 531,
+            "height": 255
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 510,
+            "y": 527,
+            "width": 526,
+            "height": 258
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 02_2014.jpg227819": {
+      "filename": "Atlantis 02_2014.jpg",
+      "size": 227819,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 501,
+            "y": 195,
+            "width": 539,
+            "height": 249
+          },
+          "region_attributes": { "aerobic zone": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 495,
+            "y": 524,
+            "width": 533,
+            "height": 266
+          },
+          "region_attributes": { "aerobic zone": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 02_2015.jpg229900": {
+      "filename": "Atlantis 02_2015.jpg",
+      "size": 229900,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 508,
+            "y": 178,
+            "width": 542,
+            "height": 245
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 507,
+            "y": 505,
+            "width": 523,
+            "height": 261
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 02_2018.jpg2538528": {
+      "filename": "Atlantis 02_2018.jpg",
+      "size": 2538528,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2738,
+            "y": 985,
+            "width": 2863,
+            "height": 1373
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2723,
+            "y": 2762,
+            "width": 2832,
+            "height": 1396
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 02_2019.jpg3260412": {
+      "filename": "Atlantis 02_2019.jpg",
+      "size": 3260412,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2661,
+            "y": 993,
+            "width": 2909,
+            "height": 1396
+          },
+          "region_attributes": { "aerobic zone": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2653,
+            "y": 2715,
+            "width": 2816,
+            "height": 1435
+          },
+          "region_attributes": { "aerobic zone": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 02_2021.jpg2969065": {
+      "filename": "Atlantis 02_2021.jpg",
+      "size": 2969065,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2645,
+            "y": 1125,
+            "width": 2925,
+            "height": 1427
+          },
+          "region_attributes": { "aerobic zone": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2622,
+            "y": 2886,
+            "width": 2855,
+            "height": 1412
+          },
+          "region_attributes": { "aerobic zone": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 02_2022.jpg306257": {
+      "filename": "Atlantis 02_2022.jpg",
+      "size": 306257,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 497,
+            "y": 178,
+            "width": 543,
+            "height": 252
+          },
+          "region_attributes": { "aerobic zone": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 495,
+            "y": 504,
+            "width": 536,
+            "height": 265
+          },
+          "region_attributes": { "aerobic zone": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 02_2025.jpg448810": {
+      "filename": "Atlantis 02_2025.jpg",
+      "size": 448810,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 500,
+            "y": 200,
+            "width": 530,
+            "height": 250
+          },
+          "region_attributes": { "aerobic zone": "Suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 501,
+            "y": 527,
+            "width": 528,
+            "height": 250
+          },
+          "region_attributes": { "aerobic zone": "Empty" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 03_2018.jpg2664631": {
+      "filename": "Atlantis 03_2018.jpg",
+      "size": 2664631,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2676,
+            "y": 1047,
+            "width": 2925,
+            "height": 1319
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2638,
+            "y": 2800,
+            "width": 2800,
+            "height": 1389
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 03_2020.jpg3463688": {
+      "filename": "Atlantis 03_2020.jpg",
+      "size": 3463688,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2700,
+            "y": 931,
+            "width": 2808,
+            "height": 1350
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2700,
+            "y": 2684,
+            "width": 2762,
+            "height": 1443
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 03_2021.jpg3106093": {
+      "filename": "Atlantis 03_2021.jpg",
+      "size": 3106093,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2754,
+            "y": 1032,
+            "width": 2785,
+            "height": 1427
+          },
+          "region_attributes": { "aerobic zone": "Suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2731,
+            "y": 2777,
+            "width": 2762,
+            "height": 1412
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 03_2024.jpg635521": {
+      "filename": "Atlantis 03_2024.jpg",
+      "size": 635521,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 497,
+            "y": 195,
+            "width": 533,
+            "height": 256
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 495,
+            "y": 527,
+            "width": 537,
+            "height": 258
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 04_2017.jpg2761190": {
+      "filename": "Atlantis 04_2017.jpg",
+      "size": 2761190,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2715,
+            "y": 1164,
+            "width": 2824,
+            "height": 1327
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2684,
+            "y": 2971,
+            "width": 2824,
+            "height": 1350
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 04_2018.jpg2882138": {
+      "filename": "Atlantis 04_2018.jpg",
+      "size": 2882138,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2638,
+            "y": 985,
+            "width": 2917,
+            "height": 1427
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2614,
+            "y": 2847,
+            "width": 2886,
+            "height": 1350
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 04_2022.jpg316888": {
+      "filename": "Atlantis 04_2022.jpg",
+      "size": 316888,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 489,
+            "y": 197,
+            "width": 533,
+            "height": 249
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 481,
+            "y": 518,
+            "width": 533,
+            "height": 265
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 05_2014.jpg227642": {
+      "filename": "Atlantis 05_2014.jpg",
+      "size": 227642,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 501,
+            "y": 197,
+            "width": 539,
+            "height": 242
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 495,
+            "y": 520,
+            "width": 530,
+            "height": 262
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 05_2016.jpg2761901": {
+      "filename": "Atlantis 05_2016.jpg",
+      "size": 2761901,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2676,
+            "y": 1086,
+            "width": 2832,
+            "height": 1303
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2630,
+            "y": 2917,
+            "width": 2894,
+            "height": 1342
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 05_2017.jpg2812840": {
+      "filename": "Atlantis 05_2017.jpg",
+      "size": 2812840,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2700,
+            "y": 1148,
+            "width": 2878,
+            "height": 1404
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2684,
+            "y": 2925,
+            "width": 2824,
+            "height": 1420
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 05_2019.jpg3032313": {
+      "filename": "Atlantis 05_2019.jpg",
+      "size": 3032313,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2661,
+            "y": 1102,
+            "width": 2894,
+            "height": 1435
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2645,
+            "y": 2855,
+            "width": 2839,
+            "height": 1396
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 05_2022.jpg329349": {
+      "filename": "Atlantis 05_2022.jpg",
+      "size": 329349,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 494,
+            "y": 507,
+            "width": 534,
+            "height": 268
+          },
+          "region_attributes": { "aerobic zone": "Suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 497,
+            "y": 181,
+            "width": 537,
+            "height": 265
+          },
+          "region_attributes": { "aerobic zone": "Suboptimal" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 06_2014.jpg226137": {
+      "filename": "Atlantis 06_2014.jpg",
+      "size": 226137,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 501,
+            "y": 219,
+            "width": 540,
+            "height": 249
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 494,
+            "y": 556,
+            "width": 528,
+            "height": 252
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 06_2016.jpg2688058": {
+      "filename": "Atlantis 06_2016.jpg",
+      "size": 2688058,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2614,
+            "y": 1040,
+            "width": 2878,
+            "height": 1396
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2583,
+            "y": 2824,
+            "width": 2901,
+            "height": 1404
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 06_2018.jpg2981194": {
+      "filename": "Atlantis 06_2018.jpg",
+      "size": 2981194,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2653,
+            "y": 1125,
+            "width": 2940,
+            "height": 1358
+          },
+          "region_attributes": { "aerobic zone": "Suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2622,
+            "y": 2855,
+            "width": 2808,
+            "height": 1474
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 06_2019.jpg2830271": {
+      "filename": "Atlantis 06_2019.jpg",
+      "size": 2830271,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2645,
+            "y": 884,
+            "width": 2855,
+            "height": 1373
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2614,
+            "y": 2723,
+            "width": 2870,
+            "height": 1373
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 06_2021.jpg3530399": {
+      "filename": "Atlantis 06_2021.jpg",
+      "size": 3530399,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2661,
+            "y": 1148,
+            "width": 2870,
+            "height": 1381
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2622,
+            "y": 2894,
+            "width": 2793,
+            "height": 1412
+          },
+          "region_attributes": { "aerobic zone": "Suboptimal" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 07_2015.jpg214774": {
+      "filename": "Atlantis 07_2015.jpg",
+      "size": 214774,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 501,
+            "y": 203,
+            "width": 536,
+            "height": 245
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 498,
+            "y": 530,
+            "width": 518,
+            "height": 259
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 07_2016.jpg2841923": {
+      "filename": "Atlantis 07_2016.jpg",
+      "size": 2841923,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2676,
+            "y": 1055,
+            "width": 2863,
+            "height": 1365
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2676,
+            "y": 2886,
+            "width": 2863,
+            "height": 1365
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 07_2018.jpg2982504": {
+      "filename": "Atlantis 07_2018.jpg",
+      "size": 2982504,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2661,
+            "y": 1055,
+            "width": 2847,
+            "height": 1427
+          },
+          "region_attributes": { "aerobic zone": "Suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2645,
+            "y": 2847,
+            "width": 2793,
+            "height": 1365
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 07_2019.jpg3074084": {
+      "filename": "Atlantis 07_2019.jpg",
+      "size": 3074084,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2676,
+            "y": 1195,
+            "width": 2863,
+            "height": 1389
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2638,
+            "y": 2940,
+            "width": 2808,
+            "height": 1435
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 07_2020.jpg3516136": {
+      "filename": "Atlantis 07_2020.jpg",
+      "size": 3516136,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2630,
+            "y": 1055,
+            "width": 2839,
+            "height": 1365
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2622,
+            "y": 2793,
+            "width": 2777,
+            "height": 1420
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 07_2021.jpg3274581": {
+      "filename": "Atlantis 07_2021.jpg",
+      "size": 3274581,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2544,
+            "y": 1055,
+            "width": 2839,
+            "height": 1404
+          },
+          "region_attributes": { "aerobic zone": "Suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2521,
+            "y": 2870,
+            "width": 2832,
+            "height": 1373
+          },
+          "region_attributes": { "aerobic zone": "Suboptimal" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 07_2022.jpg306948": {
+      "filename": "Atlantis 07_2022.jpg",
+      "size": 306948,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 491,
+            "y": 536,
+            "width": 542,
+            "height": 248
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 492,
+            "y": 194,
+            "width": 542,
+            "height": 245
+          },
+          "region_attributes": { "aerobic zone": "Suboptimal" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 08_2009.jpg368160": {
+      "filename": "Atlantis 08_2009.jpg",
+      "size": 368160,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 495,
+            "y": 197,
+            "width": 543,
+            "height": 255
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 497,
+            "y": 526,
+            "width": 524,
+            "height": 262
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 08_2016.jpg2823255": {
+      "filename": "Atlantis 08_2016.jpg",
+      "size": 2823255,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2653,
+            "y": 1024,
+            "width": 2886,
+            "height": 1381
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2607,
+            "y": 2808,
+            "width": 2878,
+            "height": 1365
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 08_2017.jpg2758124": {
+      "filename": "Atlantis 08_2017.jpg",
+      "size": 2758124,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2630,
+            "y": 1055,
+            "width": 2894,
+            "height": 1334
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2622,
+            "y": 2863,
+            "width": 2870,
+            "height": 1350
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 08_2018.jpg2991860": {
+      "filename": "Atlantis 08_2018.jpg",
+      "size": 2991860,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2645,
+            "y": 892,
+            "width": 2901,
+            "height": 1358
+          },
+          "region_attributes": { "aerobic zone": "Suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2607,
+            "y": 2669,
+            "width": 2863,
+            "height": 1334
+          },
+          "region_attributes": { "aerobic zone": "Suboptimal" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 08_2020.jpg3137433": {
+      "filename": "Atlantis 08_2020.jpg",
+      "size": 3137433,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2645,
+            "y": 985,
+            "width": 2909,
+            "height": 1365
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2614,
+            "y": 2738,
+            "width": 2847,
+            "height": 1427
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 08_2022.jpg448662": {
+      "filename": "Atlantis 08_2022.jpg",
+      "size": 448662,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 501,
+            "y": 191,
+            "width": 539,
+            "height": 256
+          },
+          "region_attributes": { "aerobic zone": "Suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 498,
+            "y": 515,
+            "width": 539,
+            "height": 265
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 09_2017.jpg3022360": {
+      "filename": "Atlantis 09_2017.jpg",
+      "size": 3022360,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2622,
+            "y": 1086,
+            "width": 2909,
+            "height": 1358
+          },
+          "region_attributes": { "aerobic zone": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2599,
+            "y": 2847,
+            "width": 2886,
+            "height": 1404
+          },
+          "region_attributes": { "aerobic zone": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 09_2019.jpg2983180": {
+      "filename": "Atlantis 09_2019.jpg",
+      "size": 2983180,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2661,
+            "y": 1055,
+            "width": 2793,
+            "height": 1365
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2653,
+            "y": 2855,
+            "width": 2824,
+            "height": 1365
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 09_2020.jpg3188028": {
+      "filename": "Atlantis 09_2020.jpg",
+      "size": 3188028,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2692,
+            "y": 1086,
+            "width": 2832,
+            "height": 1365
+          },
+          "region_attributes": { "aerobic zone": "Suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2653,
+            "y": 2832,
+            "width": 2855,
+            "height": 1412
+          },
+          "region_attributes": { "aerobic zone": "Suboptimal" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 09_2022.jpg321118": {
+      "filename": "Atlantis 09_2022.jpg",
+      "size": 321118,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 507,
+            "y": 214,
+            "width": 527,
+            "height": 261
+          },
+          "region_attributes": { "aerobic zone": "Suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 505,
+            "y": 546,
+            "width": 531,
+            "height": 259
+          },
+          "region_attributes": { "aerobic zone": "Suboptimal" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 10_2014.jpg226107": {
+      "filename": "Atlantis 10_2014.jpg",
+      "size": 226107,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 513,
+            "y": 198,
+            "width": 539,
+            "height": 250
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 511,
+            "y": 530,
+            "width": 524,
+            "height": 255
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 10_2017.jpg3048177": {
+      "filename": "Atlantis 10_2017.jpg",
+      "size": 3048177,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2700,
+            "y": 1024,
+            "width": 2824,
+            "height": 1381
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2684,
+            "y": 2816,
+            "width": 2870,
+            "height": 1389
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 10_2020.jpg2980008": {
+      "filename": "Atlantis 10_2020.jpg",
+      "size": 2980008,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2645,
+            "y": 1032,
+            "width": 2855,
+            "height": 1373
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2630,
+            "y": 2847,
+            "width": 2839,
+            "height": 1350
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 11_2014.jpg218084": {
+      "filename": "Atlantis 11_2014.jpg",
+      "size": 218084,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 508,
+            "y": 226,
+            "width": 557,
+            "height": 252
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 507,
+            "y": 562,
+            "width": 543,
+            "height": 249
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 11_2015.jpg233857": {
+      "filename": "Atlantis 11_2015.jpg",
+      "size": 233857,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 500,
+            "y": 193,
+            "width": 540,
+            "height": 259
+          },
+          "region_attributes": { "aerobic zone": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 494,
+            "y": 520,
+            "width": 536,
+            "height": 274
+          },
+          "region_attributes": { "aerobic zone": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 11_2016.jpg2724832": {
+      "filename": "Atlantis 11_2016.jpg",
+      "size": 2724832,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2684,
+            "y": 1125,
+            "width": 2886,
+            "height": 1396
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2653,
+            "y": 2925,
+            "width": 2847,
+            "height": 1381
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 11_2021.jpg4214898": {
+      "filename": "Atlantis 11_2021.jpg",
+      "size": 4214898,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2700,
+            "y": 1040,
+            "width": 2808,
+            "height": 1381
+          },
+          "region_attributes": { "aerobic zone": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2676,
+            "y": 2769,
+            "width": 2816,
+            "height": 1466
+          },
+          "region_attributes": { "aerobic zone": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 12_2017.jpg2636916": {
+      "filename": "Atlantis 12_2017.jpg",
+      "size": 2636916,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2669,
+            "y": 2832,
+            "width": 2777,
+            "height": 1404
+          },
+          "region_attributes": { "aerobic zone": "Suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2676,
+            "y": 1047,
+            "width": 2832,
+            "height": 1381
+          },
+          "region_attributes": { "aerobic zone": "Suboptimal" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 12_2018.jpg2867078": {
+      "filename": "Atlantis 12_2018.jpg",
+      "size": 2867078,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2746,
+            "y": 2692,
+            "width": 2777,
+            "height": 1451
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2754,
+            "y": 931,
+            "width": 2847,
+            "height": 1334
+          },
+          "region_attributes": { "aerobic zone": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Atlantis 12_2019.jpg2889381": {
+      "filename": "Atlantis 12_2019.jpg",
+      "size": 2889381,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2769,
+            "y": 1055,
+            "width": 2800,
+            "height": 1365
+          },
+          "region_attributes": { "aerobic zone": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 2777,
+            "y": 2824,
+            "width": 2762,
+            "height": 1373
+          },
+          "region_attributes": { "aerobic zone": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    }
+  },
+  "_via_attributes": {
+    "region": {
+      "aerobic zone": {
+        "type": "dropdown",
+        "description": "aerobic part of biological reactor",
+        "options": {
+          "Functional": "leopard print",
+          "Suboptimal": "a third of surface or more has no leopard print or unsure",
+          "Dysfunctional": "two thirds of surface has no leopard print or clearly dysfunctional",
+          "Empty": "aerobic zone is empty"
+        },
+        "default_options": { "Functional": true }
+      }
+    },
+    "file": {}
+  },
+  "_via_data_format_version": "2.0.10",
+  "_via_image_id_list": [
+    "Atlantis 01_2015.jpg229852",
+    "Atlantis 01_2017.jpg2674795",
+    "Atlantis 01_2019.jpg3469910",
+    "Atlantis 01_2021.jpg2734737",
+    "Atlantis 01_2022.jpg315400",
+    "Atlantis 01_2023.jpg416781",
+    "Atlantis 02_2014.jpg227819",
+    "Atlantis 02_2015.jpg229900",
+    "Atlantis 02_2018.jpg2538528",
+    "Atlantis 02_2019.jpg3260412",
+    "Atlantis 02_2021.jpg2969065",
+    "Atlantis 02_2022.jpg306257",
+    "Atlantis 02_2025.jpg448810",
+    "Atlantis 03_2018.jpg2664631",
+    "Atlantis 03_2020.jpg3463688",
+    "Atlantis 03_2021.jpg3106093",
+    "Atlantis 03_2024.jpg635521",
+    "Atlantis 04_2017.jpg2761190",
+    "Atlantis 04_2018.jpg2882138",
+    "Atlantis 04_2022.jpg316888",
+    "Atlantis 05_2014.jpg227642",
+    "Atlantis 05_2016.jpg2761901",
+    "Atlantis 05_2017.jpg2812840",
+    "Atlantis 05_2019.jpg3032313",
+    "Atlantis 05_2022.jpg329349",
+    "Atlantis 06_2014.jpg226137",
+    "Atlantis 06_2016.jpg2688058",
+    "Atlantis 06_2018.jpg2981194",
+    "Atlantis 06_2019.jpg2830271",
+    "Atlantis 06_2021.jpg3530399",
+    "Atlantis 07_2015.jpg214774",
+    "Atlantis 07_2016.jpg2841923",
+    "Atlantis 07_2018.jpg2982504",
+    "Atlantis 07_2019.jpg3074084",
+    "Atlantis 07_2020.jpg3516136",
+    "Atlantis 07_2021.jpg3274581",
+    "Atlantis 07_2022.jpg306948",
+    "Atlantis 08_2009.jpg368160",
+    "Atlantis 08_2016.jpg2823255",
+    "Atlantis 08_2017.jpg2758124",
+    "Atlantis 08_2018.jpg2991860",
+    "Atlantis 08_2020.jpg3137433",
+    "Atlantis 08_2022.jpg448662",
+    "Atlantis 09_2017.jpg3022360",
+    "Atlantis 09_2019.jpg2983180",
+    "Atlantis 09_2020.jpg3188028",
+    "Atlantis 09_2022.jpg321118",
+    "Atlantis 10_2014.jpg226107",
+    "Atlantis 10_2017.jpg3048177",
+    "Atlantis 10_2020.jpg2980008",
+    "Atlantis 11_2014.jpg218084",
+    "Atlantis 11_2015.jpg233857",
+    "Atlantis 11_2016.jpg2724832",
+    "Atlantis 11_2021.jpg4214898",
+    "Atlantis 12_2017.jpg2636916",
+    "Atlantis 12_2018.jpg2867078",
+    "Atlantis 12_2019.jpg2889381"
+  ]
+}
