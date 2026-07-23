@@ -1,1 +1,4782 @@
-{"_via_settings":{"ui":{"annotation_editor_height":25,"annotation_editor_fontsize":0.8,"leftsidebar_width":18,"image_grid":{"img_height":80,"rshape_fill":"none","rshape_fill_opacity":0.3,"rshape_stroke":"yellow","rshape_stroke_width":2,"show_region_shape":true,"show_image_policy":"all"},"image":{"region_label":"__via_region_id__","region_color":"__via_default_region_color__","region_label_font":"10px Sans","on_image_annotation_editor_placement":"NEAR_REGION"}},"core":{"buffer_size":"18","filepath":{},"default_filepath":""},"project":{"name":"Waterval BR Aerobic Zone (Top)"}},"_via_img_metadata":{"Waterval 01_2012.jpg4076502":{"filename":"Waterval 01_2012.jpg","size":4076502,"regions":[{"shape_attributes":{"name":"rect","x":1769,"y":470,"width":1479,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1783,"y":1058,"width":1479,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1776,"y":1618,"width":1479,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1776,"y":2260,"width":1479,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1776,"y":2827,"width":1479,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1769,"y":3408,"width":1479,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3339,"y":470,"width":1313,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3339,"y":1044,"width":1313,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3352,"y":1624,"width":1313,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":2253,"width":1313,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3387,"y":2813,"width":1313,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3387,"y":3394,"width":1313,"height":553},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 01_2013.jpg2933944":{"filename":"Waterval 01_2013.jpg","size":2933944,"regions":[{"shape_attributes":{"name":"rect","x":1825,"y":484,"width":1479,"height":539},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1825,"y":1058,"width":1479,"height":539},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1832,"y":1645,"width":1479,"height":539},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1832,"y":2281,"width":1479,"height":539},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1825,"y":2855,"width":1479,"height":539},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1825,"y":3429,"width":1479,"height":539},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3353,"y":491,"width":1417,"height":539},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3346,"y":1071,"width":1417,"height":539},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3353,"y":1645,"width":1417,"height":539},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3367,"y":2254,"width":1417,"height":539},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3367,"y":2827,"width":1417,"height":539},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3360,"y":3415,"width":1417,"height":539},"region_attributes":{"aerobic zone":"dysfunctional"}}],"file_attributes":{}},"Waterval 01_2023.jpg4145272":{"filename":"Waterval 01_2023.jpg","size":4145272,"regions":[{"shape_attributes":{"name":"rect","x":1825,"y":394,"width":1493,"height":588},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1825,"y":995,"width":1493,"height":588},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1811,"y":1590,"width":1493,"height":512},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1811,"y":2191,"width":1493,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1804,"y":2758,"width":1493,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1811,"y":3325,"width":1493,"height":588},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3360,"y":387,"width":1362,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3353,"y":975,"width":1362,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3367,"y":1548,"width":1362,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3360,"y":2177,"width":1362,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3360,"y":2751,"width":1362,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3367,"y":3332,"width":1362,"height":560},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 02_2025.jpg4178610":{"filename":"Waterval 02_2025.jpg","size":4178610,"regions":[{"shape_attributes":{"name":"rect","x":1811,"y":408,"width":1479,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1818,"y":988,"width":1479,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1818,"y":1548,"width":1479,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1839,"y":2191,"width":1479,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1832,"y":2751,"width":1479,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1825,"y":3325,"width":1479,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3360,"y":401,"width":1403,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3360,"y":981,"width":1403,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3360,"y":1555,"width":1403,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3353,"y":2185,"width":1403,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3353,"y":2744,"width":1403,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3360,"y":3325,"width":1403,"height":574},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 03_2022.jpg3672308":{"filename":"Waterval 03_2022.jpg","size":3672308,"regions":[{"shape_attributes":{"name":"rect","x":1811,"y":470,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1804,"y":1044,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1811,"y":1597,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1811,"y":2233,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1818,"y":2813,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1825,"y":3394,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3387,"y":456,"width":1327,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3401,"y":1043,"width":1327,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3401,"y":1610,"width":1327,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3429,"y":2239,"width":1327,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3415,"y":2806,"width":1327,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3415,"y":3380,"width":1327,"height":553},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 04_2012.jpg2926732":{"filename":"Waterval 04_2012.jpg","size":2926732,"regions":[{"shape_attributes":{"name":"rect","x":1894,"y":512,"width":1452,"height":539},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1894,"y":1093,"width":1452,"height":539},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1894,"y":1659,"width":1452,"height":539},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1908,"y":2295,"width":1424,"height":539},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1908,"y":2869,"width":1424,"height":539},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1915,"y":3443,"width":1424,"height":539},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3422,"y":498,"width":1383,"height":546},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3422,"y":1086,"width":1383,"height":546},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3422,"y":1646,"width":1383,"height":546},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3415,"y":2268,"width":1383,"height":546},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3422,"y":2848,"width":1383,"height":546},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3415,"y":3436,"width":1383,"height":546},"region_attributes":{"aerobic zone":"dysfunctional"}}],"file_attributes":{}},"Waterval 04_2020.jpg3160118":{"filename":"Waterval 04_2020.jpg","size":3160118,"regions":[{"shape_attributes":{"name":"rect","x":1839,"y":581,"width":1472,"height":525},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1839,"y":1134,"width":1472,"height":525},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1846,"y":1687,"width":1472,"height":525},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1832,"y":2364,"width":1472,"height":525},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1825,"y":2931,"width":1472,"height":525},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1839,"y":3512,"width":1472,"height":525},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3408,"y":574,"width":1307,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3401,"y":1119,"width":1307,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3401,"y":1694,"width":1307,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3422,"y":2357,"width":1307,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3422,"y":2931,"width":1307,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3436,"y":3498,"width":1307,"height":546},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 04_2021.jpg3877746":{"filename":"Waterval 04_2021.jpg","size":3877746,"regions":[{"shape_attributes":{"name":"rect","x":1860,"y":539,"width":1459,"height":567},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1867,"y":1126,"width":1459,"height":567},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1860,"y":1693,"width":1459,"height":567},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1867,"y":2330,"width":1459,"height":546},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1874,"y":2896,"width":1459,"height":567},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1867,"y":3470,"width":1459,"height":567},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3415,"y":539,"width":1341,"height":560},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3415,"y":1119,"width":1341,"height":560},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3422,"y":1707,"width":1341,"height":560},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3408,"y":2322,"width":1341,"height":560},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3408,"y":2882,"width":1341,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3415,"y":3463,"width":1341,"height":560},"region_attributes":{"aerobic zone":"dysfunctional"}}],"file_attributes":{}},"Waterval 04_2024.jpg4663945":{"filename":"Waterval 04_2024.jpg","size":4663945,"regions":[{"shape_attributes":{"name":"rect","x":1818,"y":408,"width":1472,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1818,"y":1009,"width":1472,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1818,"y":1569,"width":1472,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1832,"y":2205,"width":1472,"height":532},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1832,"y":2758,"width":1472,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1839,"y":3353,"width":1472,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3387,"y":408,"width":1341,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3387,"y":995,"width":1341,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":1576,"width":1341,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3401,"y":2205,"width":1341,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3394,"y":2772,"width":1341,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3401,"y":3339,"width":1341,"height":546},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 05_2012.jpg3135692":{"filename":"Waterval 05_2012.jpg","size":3135692,"regions":[{"shape_attributes":{"name":"rect","x":1894,"y":491,"width":1445,"height":532},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1894,"y":1072,"width":1445,"height":532},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1894,"y":1645,"width":1445,"height":532},"region_attributes":{"aerobic zone":"suboptimal"}},{"shape_attributes":{"name":"rect","x":1887,"y":2274,"width":1445,"height":532},"region_attributes":{"aerobic zone":"suboptimal"}},{"shape_attributes":{"name":"rect","x":1887,"y":2834,"width":1445,"height":532},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1901,"y":3422,"width":1445,"height":532},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3422,"y":1065,"width":1362,"height":532},"region_attributes":{"aerobic zone":"suboptimal"}},{"shape_attributes":{"name":"rect","x":3422,"y":1645,"width":1362,"height":532},"region_attributes":{"aerobic zone":"suboptimal"}},{"shape_attributes":{"name":"rect","x":3415,"y":2274,"width":1362,"height":532},"region_attributes":{"aerobic zone":"suboptimal"}},{"shape_attributes":{"name":"rect","x":3408,"y":2834,"width":1362,"height":532},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3422,"y":3415,"width":1362,"height":532},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3415,"y":498,"width":1362,"height":532},"region_attributes":{"aerobic zone":"dysfunctional"}}],"file_attributes":{}},"Waterval 05_2015.jpg2834235":{"filename":"Waterval 05_2015.jpg","size":2834235,"regions":[{"shape_attributes":{"name":"rect","x":1514,"y":636,"width":1735,"height":532},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1521,"y":1224,"width":1735,"height":532},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1521,"y":1804,"width":1735,"height":532},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1528,"y":2420,"width":1735,"height":532},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1521,"y":2993,"width":1735,"height":532},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1528,"y":3560,"width":1735,"height":532},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3325,"y":629,"width":1396,"height":553},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3318,"y":1203,"width":1396,"height":574},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3318,"y":1790,"width":1396,"height":525},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3318,"y":2413,"width":1396,"height":539},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3332,"y":2972,"width":1396,"height":553},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3339,"y":3554,"width":1396,"height":553},"region_attributes":{"aerobic zone":"dysfunctional"}}],"file_attributes":{}},"Waterval 05_2016.jpg2994366":{"filename":"Waterval 05_2016.jpg","size":2994366,"regions":[{"shape_attributes":{"name":"rect","x":1818,"y":663,"width":1459,"height":532},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1811,"y":1237,"width":1459,"height":532},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1839,"y":1817,"width":1459,"height":532},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1811,"y":2453,"width":1459,"height":532},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1804,"y":3013,"width":1459,"height":532},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1832,"y":3587,"width":1459,"height":532},"region_attributes":{"aerobic zone":"suboptimal"}},{"shape_attributes":{"name":"rect","x":3380,"y":650,"width":1348,"height":553},"region_attributes":{"aerobic zone":"suboptimal"}},{"shape_attributes":{"name":"rect","x":3387,"y":1244,"width":1348,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":1818,"width":1348,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3394,"y":2447,"width":1348,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3401,"y":3000,"width":1348,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3401,"y":3560,"width":1348,"height":553},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 05_2017.jpg2871979":{"filename":"Waterval 05_2017.jpg","size":2871979,"regions":[{"shape_attributes":{"name":"rect","x":1839,"y":581,"width":1466,"height":553},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1839,"y":1162,"width":1466,"height":553},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1839,"y":1742,"width":1466,"height":553},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1790,"y":2392,"width":1466,"height":525},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1804,"y":2938,"width":1466,"height":553},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1811,"y":3512,"width":1466,"height":553},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3346,"y":588,"width":1403,"height":560},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3346,"y":1168,"width":1403,"height":560},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3353,"y":1749,"width":1403,"height":560},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3353,"y":2364,"width":1403,"height":539},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3360,"y":2945,"width":1403,"height":532},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3367,"y":3505,"width":1403,"height":560},"region_attributes":{"aerobic zone":"dysfunctional"}}],"file_attributes":{}},"Waterval 05_2018.jpg3081868":{"filename":"Waterval 05_2018.jpg","size":3081868,"regions":[{"shape_attributes":{"name":"rect","x":1783,"y":477,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1790,"y":1044,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1797,"y":1611,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1784,"y":2261,"width":1486,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1790,"y":2806,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1790,"y":3401,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3360,"y":470,"width":1341,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3360,"y":1051,"width":1341,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3353,"y":1624,"width":1341,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3367,"y":2253,"width":1341,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3353,"y":2827,"width":1341,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3360,"y":3401,"width":1341,"height":553},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 05_2020.jpg4110198":{"filename":"Waterval 05_2020.jpg","size":4110198,"regions":[{"shape_attributes":{"name":"rect","x":1832,"y":608,"width":1466,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1825,"y":1189,"width":1466,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1818,"y":1770,"width":1466,"height":512},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1839,"y":2406,"width":1466,"height":525},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1839,"y":2959,"width":1466,"height":539},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1846,"y":3539,"width":1466,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":602,"width":1376,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3373,"y":1189,"width":1376,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3373,"y":1770,"width":1376,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3394,"y":2385,"width":1376,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3394,"y":2952,"width":1376,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3387,"y":3526,"width":1376,"height":560},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 05_2025.jpg4970180":{"filename":"Waterval 05_2025.jpg","size":4970180,"regions":[{"shape_attributes":{"name":"rect","x":1867,"y":422,"width":1459,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1846,"y":1010,"width":1459,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1853,"y":1597,"width":1459,"height":518},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1846,"y":2219,"width":1459,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1846,"y":2793,"width":1459,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1846,"y":3360,"width":1459,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3387,"y":415,"width":1369,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":1016,"width":1369,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":1597,"width":1369,"height":532},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3401,"y":2212,"width":1369,"height":539},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3394,"y":2772,"width":1369,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3387,"y":3346,"width":1369,"height":560},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 06_2012.jpg2819316":{"filename":"Waterval 06_2012.jpg","size":2819316,"regions":[{"shape_attributes":{"name":"rect","x":1825,"y":429,"width":1486,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1825,"y":1030,"width":1486,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1825,"y":1618,"width":1486,"height":525},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1811,"y":2247,"width":1486,"height":505},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1818,"y":2772,"width":1486,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1818,"y":3367,"width":1486,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3373,"y":428,"width":1362,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":1030,"width":1362,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":1604,"width":1362,"height":525},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3387,"y":2226,"width":1362,"height":539},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":2785,"width":1362,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":3380,"width":1362,"height":574},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 06_2013.jpg2736547":{"filename":"Waterval 06_2013.jpg","size":2736547,"regions":[{"shape_attributes":{"name":"rect","x":1845,"y":519,"width":1452,"height":553},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1852,"y":1100,"width":1452,"height":553},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1852,"y":1660,"width":1452,"height":553},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1852,"y":2282,"width":1452,"height":553},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1852,"y":2856,"width":1452,"height":553},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1880,"y":3457,"width":1452,"height":553},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3394,"y":498,"width":1369,"height":574},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3394,"y":1092,"width":1369,"height":574},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3394,"y":1680,"width":1369,"height":539},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3394,"y":2281,"width":1369,"height":574},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3394,"y":2848,"width":1369,"height":574},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3401,"y":3429,"width":1369,"height":574},"region_attributes":{"aerobic zone":"dysfunctional"}}],"file_attributes":{}},"Waterval 06_2014.jpg3124908":{"filename":"Waterval 06_2014.jpg","size":3124908,"regions":[{"shape_attributes":{"name":"rect","x":1804,"y":512,"width":1486,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1811,"y":1099,"width":1486,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1804,"y":1659,"width":1486,"height":532},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1797,"y":2302,"width":1486,"height":518},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1804,"y":2855,"width":1486,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1797,"y":3436,"width":1486,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3373,"y":512,"width":1383,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3366,"y":1085,"width":1383,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3367,"y":1659,"width":1383,"height":532},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3387,"y":2281,"width":1383,"height":525},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":2841,"width":1383,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3387,"y":3429,"width":1383,"height":560},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 06_2015.jpg2930456":{"filename":"Waterval 06_2015.jpg","size":2930456,"regions":[{"shape_attributes":{"name":"rect","x":1783,"y":615,"width":1472,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1790,"y":1209,"width":1472,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1777,"y":1790,"width":1472,"height":532},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1777,"y":2420,"width":1472,"height":532},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1790,"y":2958,"width":1472,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1797,"y":3546,"width":1472,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3346,"y":615,"width":1390,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3346,"y":1202,"width":1390,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3346,"y":1784,"width":1390,"height":525},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3353,"y":2391,"width":1390,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3353,"y":2965,"width":1390,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3339,"y":3539,"width":1390,"height":553},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 06_2018.jpg4078355":{"filename":"Waterval 06_2018.jpg","size":4078355,"regions":[{"shape_attributes":{"name":"rect","x":1811,"y":470,"width":1479,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1825,"y":1044,"width":1479,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1818,"y":1624,"width":1479,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1811,"y":2274,"width":1479,"height":539},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1825,"y":2813,"width":1479,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1832,"y":3401,"width":1479,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3346,"y":484,"width":1383,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3339,"y":1051,"width":1383,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3346,"y":1618,"width":1383,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3367,"y":2254,"width":1383,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3360,"y":2813,"width":1383,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3360,"y":3401,"width":1383,"height":567},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 06_2021.jpg3804992":{"filename":"Waterval 06_2021.jpg","size":3804992,"regions":[{"shape_attributes":{"name":"rect","x":1804,"y":463,"width":1500,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1797,"y":1030,"width":1500,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1811,"y":1597,"width":1500,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1818,"y":2226,"width":1500,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1825,"y":2806,"width":1500,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1825,"y":3374,"width":1500,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3374,"y":449,"width":1348,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":1030,"width":1348,"height":588},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":1618,"width":1348,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3367,"y":2254,"width":1348,"height":518},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":2786,"width":1348,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3387,"y":3360,"width":1348,"height":588},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 07_2011.jpg3059707":{"filename":"Waterval 07_2011.jpg","size":3059707,"regions":[{"shape_attributes":{"name":"rect","x":1804,"y":567,"width":1514,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1811,"y":1147,"width":1514,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1811,"y":1700,"width":1514,"height":553},"region_attributes":{"aerobic zone":"suboptimal"}},{"shape_attributes":{"name":"rect","x":1804,"y":2343,"width":1514,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1811,"y":2910,"width":1514,"height":553},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":1818,"y":3484,"width":1514,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":553,"width":1383,"height":553},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3387,"y":1140,"width":1383,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":1700,"width":1383,"height":553},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3373,"y":2343,"width":1383,"height":553},"region_attributes":{"aerobic zone":"suboptimal"}},{"shape_attributes":{"name":"rect","x":3380,"y":2910,"width":1383,"height":553},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3380,"y":3477,"width":1383,"height":553},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 07_2012.jpg3364229":{"filename":"Waterval 07_2012.jpg","size":3364229,"regions":[{"shape_attributes":{"name":"rect","x":1894,"y":449,"width":1424,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1901,"y":1037,"width":1424,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1894,"y":1604,"width":1424,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1887,"y":2247,"width":1424,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1873,"y":2813,"width":1424,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1873,"y":3401,"width":1424,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":456,"width":1376,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":1030,"width":1376,"height":588},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3387,"y":1625,"width":1376,"height":532},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3394,"y":2247,"width":1376,"height":539},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3401,"y":2793,"width":1376,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3394,"y":3380,"width":1376,"height":588},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 07_2016 (2).jpg3225254":{"filename":"Waterval 07_2016 (2).jpg","size":3225254,"regions":[{"shape_attributes":{"name":"rect","x":1839,"y":449,"width":1486,"height":581},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1839,"y":1044,"width":1486,"height":581},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1839,"y":1631,"width":1486,"height":525},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1818,"y":2274,"width":1486,"height":532},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1818,"y":2821,"width":1486,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1832,"y":3394,"width":1486,"height":581},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3381,"y":449,"width":1383,"height":581},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3374,"y":1036,"width":1383,"height":581},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3367,"y":1631,"width":1383,"height":512},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3387,"y":2247,"width":1383,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3374,"y":2800,"width":1383,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3374,"y":3380,"width":1383,"height":581},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 07_2016.jpg3239155":{"filename":"Waterval 07_2016.jpg","size":3239155,"regions":[{"shape_attributes":{"name":"rect","x":1804,"y":581,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1804,"y":1183,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1811,"y":1756,"width":1486,"height":525},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1832,"y":2385,"width":1486,"height":532},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1825,"y":2945,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1825,"y":3533,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3353,"y":574,"width":1417,"height":581},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3346,"y":1168,"width":1417,"height":581},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3339,"y":1756,"width":1417,"height":525},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3360,"y":2364,"width":1417,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3353,"y":2924,"width":1417,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3360,"y":3512,"width":1417,"height":581},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 07_2021.jpg3847458":{"filename":"Waterval 07_2021.jpg","size":3847458,"regions":[{"shape_attributes":{"name":"rect","x":1846,"y":436,"width":1486,"height":581},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1846,"y":1030,"width":1486,"height":581},"region_attributes":{"aerobic zone":"suboptimal"}},{"shape_attributes":{"name":"rect","x":1846,"y":1625,"width":1486,"height":532},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1839,"y":2261,"width":1486,"height":512},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1846,"y":2786,"width":1486,"height":581},"region_attributes":{"aerobic zone":"suboptimal"}},{"shape_attributes":{"name":"rect","x":1839,"y":3374,"width":1486,"height":581},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":443,"width":1369,"height":574},"region_attributes":{"aerobic zone":"suboptimal"}},{"shape_attributes":{"name":"rect","x":3387,"y":1030,"width":1369,"height":574},"region_attributes":{"aerobic zone":"suboptimal"}},{"shape_attributes":{"name":"rect","x":3387,"y":1611,"width":1369,"height":525},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":2247,"width":1369,"height":525},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":2779,"width":1369,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3387,"y":3374,"width":1369,"height":574},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 08_2011.jpg4094493":{"filename":"Waterval 08_2011.jpg","size":4094493,"regions":[{"shape_attributes":{"name":"rect","x":1839,"y":498,"width":1472,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1832,"y":1085,"width":1472,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1839,"y":1652,"width":1472,"height":539},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1839,"y":2295,"width":1472,"height":518},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1839,"y":2848,"width":1472,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1839,"y":3429,"width":1472,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3408,"y":484,"width":1362,"height":546},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3394,"y":1079,"width":1362,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3387,"y":1659,"width":1362,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":2295,"width":1362,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3373,"y":2848,"width":1362,"height":546},"region_attributes":{"aerobic zone":"dysfunctional"}},{"shape_attributes":{"name":"rect","x":3387,"y":3429,"width":1362,"height":546},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 08_2013.jpg3966089":{"filename":"Waterval 08_2013.jpg","size":3966089,"regions":[{"shape_attributes":{"name":"rect","x":1846,"y":394,"width":1479,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1853,"y":981,"width":1479,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1860,"y":1555,"width":1479,"height":539},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1839,"y":2205,"width":1479,"height":525},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1846,"y":2751,"width":1479,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1839,"y":3325,"width":1479,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3366,"y":387,"width":1376,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3366,"y":981,"width":1376,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3374,"y":1562,"width":1376,"height":525},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3394,"y":2191,"width":1376,"height":539},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3387,"y":2737,"width":1376,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3394,"y":3318,"width":1376,"height":574},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 08_2015.jpg2835725":{"filename":"Waterval 08_2015.jpg","size":2835725,"regions":[{"shape_attributes":{"name":"rect","x":1839,"y":539,"width":1466,"height":539},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1846,"y":1134,"width":1466,"height":539},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1853,"y":1694,"width":1466,"height":539},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1860,"y":2350,"width":1466,"height":539},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1860,"y":2903,"width":1466,"height":539},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1846,"y":3484,"width":1466,"height":539},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3374,"y":526,"width":1403,"height":595},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3367,"y":1134,"width":1403,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3367,"y":1694,"width":1403,"height":539},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":2337,"width":1403,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3367,"y":2903,"width":1403,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3367,"y":3457,"width":1403,"height":595},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 08_2019.jpg3851329":{"filename":"Waterval 08_2019.jpg","size":3851329,"regions":[{"shape_attributes":{"name":"rect","x":1818,"y":422,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1818,"y":1010,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1818,"y":1583,"width":1486,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1811,"y":2233,"width":1486,"height":512},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1818,"y":2779,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1811,"y":3360,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3353,"y":436,"width":1355,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3360,"y":1002,"width":1355,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3367,"y":1576,"width":1355,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3367,"y":2226,"width":1355,"height":525},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3360,"y":2765,"width":1355,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3360,"y":3346,"width":1355,"height":567},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 08_2021.jpg3781257":{"filename":"Waterval 08_2021.jpg","size":3781257,"regions":[{"shape_attributes":{"name":"rect","x":1811,"y":436,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1804,"y":1017,"width":1486,"height":560},"region_attributes":{"aerobic zone":"suboptimal"}},{"shape_attributes":{"name":"rect","x":1804,"y":1590,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1811,"y":2226,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1811,"y":2800,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1818,"y":3367,"width":1486,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3367,"y":443,"width":1376,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3374,"y":1023,"width":1376,"height":553},"region_attributes":{"aerobic zone":"suboptimal"}},{"shape_attributes":{"name":"rect","x":3367,"y":1590,"width":1376,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3367,"y":2219,"width":1376,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3360,"y":2786,"width":1376,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3367,"y":3367,"width":1376,"height":553},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 09_2015.jpg2953823":{"filename":"Waterval 09_2015.jpg","size":2953823,"regions":[{"shape_attributes":{"name":"rect","x":1811,"y":580,"width":1493,"height":581},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1818,"y":1168,"width":1493,"height":581},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1804,"y":1755,"width":1493,"height":581},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1811,"y":2378,"width":1493,"height":581},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1825,"y":2972,"width":1493,"height":581},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1832,"y":3553,"width":1493,"height":581},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3298,"y":581,"width":1417,"height":581},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3311,"y":1176,"width":1417,"height":581},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3304,"y":1763,"width":1417,"height":581},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3318,"y":2385,"width":1417,"height":581},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3332,"y":2966,"width":1417,"height":581},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3339,"y":3533,"width":1417,"height":581},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 09_2016.jpg2800488":{"filename":"Waterval 09_2016.jpg","size":2800488,"regions":[{"shape_attributes":{"name":"rect","x":1839,"y":539,"width":1500,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1825,"y":1141,"width":1493,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1818,"y":1694,"width":1493,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1846,"y":2330,"width":1493,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1853,"y":2911,"width":1493,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1832,"y":3492,"width":1493,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3366,"y":553,"width":1396,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3373,"y":1120,"width":1396,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3373,"y":1694,"width":1396,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3387,"y":2323,"width":1396,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3394,"y":2903,"width":1396,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":3484,"width":1396,"height":560},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 09_2017.jpg3919338":{"filename":"Waterval 09_2017.jpg","size":3919338,"regions":[{"shape_attributes":{"name":"rect","x":1811,"y":442,"width":1493,"height":595},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1818,"y":1043,"width":1493,"height":595},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1804,"y":1638,"width":1493,"height":518},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1811,"y":2254,"width":1493,"height":539},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1811,"y":2792,"width":1493,"height":595},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1811,"y":3380,"width":1493,"height":595},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3353,"y":429,"width":1376,"height":601},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3353,"y":1030,"width":1376,"height":595},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3353,"y":1638,"width":1376,"height":525},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3367,"y":2254,"width":1376,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3367,"y":2800,"width":1376,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3353,"y":3367,"width":1376,"height":601},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 10_2017.jpg2810062":{"filename":"Waterval 10_2017.jpg","size":2810062,"regions":[{"shape_attributes":{"name":"rect","x":1880,"y":311,"width":1390,"height":581},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1880,"y":906,"width":1390,"height":581},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1901,"y":1486,"width":1390,"height":560},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1887,"y":2129,"width":1390,"height":553},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1887,"y":2696,"width":1390,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1887,"y":3263,"width":1390,"height":581},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3353,"y":304,"width":1383,"height":608},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3360,"y":919,"width":1383,"height":574},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3367,"y":1493,"width":1383,"height":539},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3367,"y":2115,"width":1383,"height":539},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3367,"y":2682,"width":1383,"height":525},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3360,"y":3235,"width":1383,"height":608},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}},"Waterval 12_2018.jpg3152488":{"filename":"Waterval 12_2018.jpg","size":3152488,"regions":[{"shape_attributes":{"name":"rect","x":1846,"y":415,"width":1493,"height":608},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1846,"y":1030,"width":1493,"height":608},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1860,"y":1631,"width":1493,"height":512},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1832,"y":2233,"width":1493,"height":567},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1839,"y":2807,"width":1493,"height":546},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":1839,"y":3360,"width":1493,"height":608},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3394,"y":429,"width":1390,"height":595},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3394,"y":1037,"width":1390,"height":595},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3394,"y":1625,"width":1390,"height":539},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3373,"y":2185,"width":1390,"height":595},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3380,"y":2772,"width":1390,"height":595},"region_attributes":{"aerobic zone":"functional"}},{"shape_attributes":{"name":"rect","x":3387,"y":3360,"width":1390,"height":595},"region_attributes":{"aerobic zone":"functional"}}],"file_attributes":{}}},"_via_attributes":{"region":{"aerobic zone":{"type":"dropdown","description":"aerobic part of biological reactor","options":{"functional":"leopard prints","dysfunctional":"two thirds or more of surface has no leopard print","suboptimal":"a third or more of surface has no leopard print or unsure"},"default_options":{"functional":true}}},"file":{}},"_via_data_format_version":"2.0.10","_via_image_id_list":["Waterval 01_2012.jpg4076502","Waterval 01_2013.jpg2933944","Waterval 01_2023.jpg4145272","Waterval 02_2025.jpg4178610","Waterval 03_2022.jpg3672308","Waterval 04_2012.jpg2926732","Waterval 04_2020.jpg3160118","Waterval 04_2021.jpg3877746","Waterval 04_2024.jpg4663945","Waterval 05_2012.jpg3135692","Waterval 05_2015.jpg2834235","Waterval 05_2016.jpg2994366","Waterval 05_2017.jpg2871979","Waterval 05_2018.jpg3081868","Waterval 05_2020.jpg4110198","Waterval 05_2025.jpg4970180","Waterval 06_2012.jpg2819316","Waterval 06_2013.jpg2736547","Waterval 06_2014.jpg3124908","Waterval 06_2015.jpg2930456","Waterval 06_2018.jpg4078355","Waterval 06_2021.jpg3804992","Waterval 07_2011.jpg3059707","Waterval 07_2012.jpg3364229","Waterval 07_2016 (2).jpg3225254","Waterval 07_2016.jpg3239155","Waterval 07_2021.jpg3847458","Waterval 08_2011.jpg4094493","Waterval 08_2013.jpg3966089","Waterval 08_2015.jpg2835725","Waterval 08_2019.jpg3851329","Waterval 08_2021.jpg3781257","Waterval 09_2015.jpg2953823","Waterval 09_2016.jpg2800488","Waterval 09_2017.jpg3919338","Waterval 10_2017.jpg2810062","Waterval 12_2018.jpg3152488"]}
+{
+  "_via_settings": {
+    "ui": {
+      "annotation_editor_height": 25,
+      "annotation_editor_fontsize": 0.8,
+      "leftsidebar_width": 18,
+      "image_grid": {
+        "img_height": 80,
+        "rshape_fill": "none",
+        "rshape_fill_opacity": 0.3,
+        "rshape_stroke": "yellow",
+        "rshape_stroke_width": 2,
+        "show_region_shape": true,
+        "show_image_policy": "all"
+      },
+      "image": {
+        "region_label": "__via_region_id__",
+        "region_color": "__via_default_region_color__",
+        "region_label_font": "10px Sans",
+        "on_image_annotation_editor_placement": "NEAR_REGION"
+      }
+    },
+    "core": { "buffer_size": "18", "filepath": {}, "default_filepath": "" },
+    "project": { "name": "Waterval BR Aerobic Zone (Top)" }
+  },
+  "_via_img_metadata": {
+    "Waterval 01_2012.jpg4076502": {
+      "filename": "Waterval 01_2012.jpg",
+      "size": 4076502,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1769,
+            "y": 470,
+            "width": 1479,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1783,
+            "y": 1058,
+            "width": 1479,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1776,
+            "y": 1618,
+            "width": 1479,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1776,
+            "y": 2260,
+            "width": 1479,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1776,
+            "y": 2827,
+            "width": 1479,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1769,
+            "y": 3408,
+            "width": 1479,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3339,
+            "y": 470,
+            "width": 1313,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3339,
+            "y": 1044,
+            "width": 1313,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3352,
+            "y": 1624,
+            "width": 1313,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 2253,
+            "width": 1313,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 2813,
+            "width": 1313,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 3394,
+            "width": 1313,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 01_2013.jpg2933944": {
+      "filename": "Waterval 01_2013.jpg",
+      "size": 2933944,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1825,
+            "y": 484,
+            "width": 1479,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1825,
+            "y": 1058,
+            "width": 1479,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1832,
+            "y": 1645,
+            "width": 1479,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1832,
+            "y": 2281,
+            "width": 1479,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1825,
+            "y": 2855,
+            "width": 1479,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1825,
+            "y": 3429,
+            "width": 1479,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3353,
+            "y": 491,
+            "width": 1417,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3346,
+            "y": 1071,
+            "width": 1417,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3353,
+            "y": 1645,
+            "width": 1417,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 2254,
+            "width": 1417,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 2827,
+            "width": 1417,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3360,
+            "y": 3415,
+            "width": 1417,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 01_2023.jpg4145272": {
+      "filename": "Waterval 01_2023.jpg",
+      "size": 4145272,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1825,
+            "y": 394,
+            "width": 1493,
+            "height": 588
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1825,
+            "y": 995,
+            "width": 1493,
+            "height": 588
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 1590,
+            "width": 1493,
+            "height": 512
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 2191,
+            "width": 1493,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1804,
+            "y": 2758,
+            "width": 1493,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 3325,
+            "width": 1493,
+            "height": 588
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3360,
+            "y": 387,
+            "width": 1362,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3353,
+            "y": 975,
+            "width": 1362,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 1548,
+            "width": 1362,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3360,
+            "y": 2177,
+            "width": 1362,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3360,
+            "y": 2751,
+            "width": 1362,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 3332,
+            "width": 1362,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 02_2025.jpg4178610": {
+      "filename": "Waterval 02_2025.jpg",
+      "size": 4178610,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 408,
+            "width": 1479,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1818,
+            "y": 988,
+            "width": 1479,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1818,
+            "y": 1548,
+            "width": 1479,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 2191,
+            "width": 1479,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1832,
+            "y": 2751,
+            "width": 1479,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1825,
+            "y": 3325,
+            "width": 1479,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3360,
+            "y": 401,
+            "width": 1403,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3360,
+            "y": 981,
+            "width": 1403,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3360,
+            "y": 1555,
+            "width": 1403,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3353,
+            "y": 2185,
+            "width": 1403,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3353,
+            "y": 2744,
+            "width": 1403,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3360,
+            "y": 3325,
+            "width": 1403,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 03_2022.jpg3672308": {
+      "filename": "Waterval 03_2022.jpg",
+      "size": 3672308,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 470,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1804,
+            "y": 1044,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 1597,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 2233,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1818,
+            "y": 2813,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1825,
+            "y": 3394,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 456,
+            "width": 1327,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3401,
+            "y": 1043,
+            "width": 1327,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3401,
+            "y": 1610,
+            "width": 1327,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3429,
+            "y": 2239,
+            "width": 1327,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3415,
+            "y": 2806,
+            "width": 1327,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3415,
+            "y": 3380,
+            "width": 1327,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 04_2012.jpg2926732": {
+      "filename": "Waterval 04_2012.jpg",
+      "size": 2926732,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1894,
+            "y": 512,
+            "width": 1452,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1894,
+            "y": 1093,
+            "width": 1452,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1894,
+            "y": 1659,
+            "width": 1452,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1908,
+            "y": 2295,
+            "width": 1424,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1908,
+            "y": 2869,
+            "width": 1424,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1915,
+            "y": 3443,
+            "width": 1424,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3422,
+            "y": 498,
+            "width": 1383,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3422,
+            "y": 1086,
+            "width": 1383,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3422,
+            "y": 1646,
+            "width": 1383,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3415,
+            "y": 2268,
+            "width": 1383,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3422,
+            "y": 2848,
+            "width": 1383,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3415,
+            "y": 3436,
+            "width": 1383,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 04_2020.jpg3160118": {
+      "filename": "Waterval 04_2020.jpg",
+      "size": 3160118,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 581,
+            "width": 1472,
+            "height": 525
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 1134,
+            "width": 1472,
+            "height": 525
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1846,
+            "y": 1687,
+            "width": 1472,
+            "height": 525
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1832,
+            "y": 2364,
+            "width": 1472,
+            "height": 525
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1825,
+            "y": 2931,
+            "width": 1472,
+            "height": 525
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 3512,
+            "width": 1472,
+            "height": 525
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3408,
+            "y": 574,
+            "width": 1307,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3401,
+            "y": 1119,
+            "width": 1307,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3401,
+            "y": 1694,
+            "width": 1307,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3422,
+            "y": 2357,
+            "width": 1307,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3422,
+            "y": 2931,
+            "width": 1307,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3436,
+            "y": 3498,
+            "width": 1307,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 04_2021.jpg3877746": {
+      "filename": "Waterval 04_2021.jpg",
+      "size": 3877746,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1860,
+            "y": 539,
+            "width": 1459,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1867,
+            "y": 1126,
+            "width": 1459,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1860,
+            "y": 1693,
+            "width": 1459,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1867,
+            "y": 2330,
+            "width": 1459,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1874,
+            "y": 2896,
+            "width": 1459,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1867,
+            "y": 3470,
+            "width": 1459,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3415,
+            "y": 539,
+            "width": 1341,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3415,
+            "y": 1119,
+            "width": 1341,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3422,
+            "y": 1707,
+            "width": 1341,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3408,
+            "y": 2322,
+            "width": 1341,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3408,
+            "y": 2882,
+            "width": 1341,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3415,
+            "y": 3463,
+            "width": 1341,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 04_2024.jpg4663945": {
+      "filename": "Waterval 04_2024.jpg",
+      "size": 4663945,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1818,
+            "y": 408,
+            "width": 1472,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1818,
+            "y": 1009,
+            "width": 1472,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1818,
+            "y": 1569,
+            "width": 1472,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1832,
+            "y": 2205,
+            "width": 1472,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1832,
+            "y": 2758,
+            "width": 1472,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 3353,
+            "width": 1472,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 408,
+            "width": 1341,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 995,
+            "width": 1341,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 1576,
+            "width": 1341,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3401,
+            "y": 2205,
+            "width": 1341,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3394,
+            "y": 2772,
+            "width": 1341,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3401,
+            "y": 3339,
+            "width": 1341,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 05_2012.jpg3135692": {
+      "filename": "Waterval 05_2012.jpg",
+      "size": 3135692,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1894,
+            "y": 491,
+            "width": 1445,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1894,
+            "y": 1072,
+            "width": 1445,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1894,
+            "y": 1645,
+            "width": 1445,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1887,
+            "y": 2274,
+            "width": 1445,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1887,
+            "y": 2834,
+            "width": 1445,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1901,
+            "y": 3422,
+            "width": 1445,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3422,
+            "y": 1065,
+            "width": 1362,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3422,
+            "y": 1645,
+            "width": 1362,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3415,
+            "y": 2274,
+            "width": 1362,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3408,
+            "y": 2834,
+            "width": 1362,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3422,
+            "y": 3415,
+            "width": 1362,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3415,
+            "y": 498,
+            "width": 1362,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 05_2015.jpg2834235": {
+      "filename": "Waterval 05_2015.jpg",
+      "size": 2834235,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1514,
+            "y": 636,
+            "width": 1735,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1521,
+            "y": 1224,
+            "width": 1735,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1521,
+            "y": 1804,
+            "width": 1735,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1528,
+            "y": 2420,
+            "width": 1735,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1521,
+            "y": 2993,
+            "width": 1735,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1528,
+            "y": 3560,
+            "width": 1735,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3325,
+            "y": 629,
+            "width": 1396,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3318,
+            "y": 1203,
+            "width": 1396,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3318,
+            "y": 1790,
+            "width": 1396,
+            "height": 525
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3318,
+            "y": 2413,
+            "width": 1396,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3332,
+            "y": 2972,
+            "width": 1396,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3339,
+            "y": 3554,
+            "width": 1396,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 05_2016.jpg2994366": {
+      "filename": "Waterval 05_2016.jpg",
+      "size": 2994366,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1818,
+            "y": 663,
+            "width": 1459,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 1237,
+            "width": 1459,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 1817,
+            "width": 1459,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 2453,
+            "width": 1459,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1804,
+            "y": 3013,
+            "width": 1459,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1832,
+            "y": 3587,
+            "width": 1459,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 650,
+            "width": 1348,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 1244,
+            "width": 1348,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 1818,
+            "width": 1348,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3394,
+            "y": 2447,
+            "width": 1348,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3401,
+            "y": 3000,
+            "width": 1348,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3401,
+            "y": 3560,
+            "width": 1348,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 05_2017.jpg2871979": {
+      "filename": "Waterval 05_2017.jpg",
+      "size": 2871979,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 581,
+            "width": 1466,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 1162,
+            "width": 1466,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 1742,
+            "width": 1466,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1790,
+            "y": 2392,
+            "width": 1466,
+            "height": 525
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1804,
+            "y": 2938,
+            "width": 1466,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 3512,
+            "width": 1466,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3346,
+            "y": 588,
+            "width": 1403,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3346,
+            "y": 1168,
+            "width": 1403,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3353,
+            "y": 1749,
+            "width": 1403,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3353,
+            "y": 2364,
+            "width": 1403,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3360,
+            "y": 2945,
+            "width": 1403,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 3505,
+            "width": 1403,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 05_2018.jpg3081868": {
+      "filename": "Waterval 05_2018.jpg",
+      "size": 3081868,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1783,
+            "y": 477,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1790,
+            "y": 1044,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1797,
+            "y": 1611,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1784,
+            "y": 2261,
+            "width": 1486,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1790,
+            "y": 2806,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1790,
+            "y": 3401,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3360,
+            "y": 470,
+            "width": 1341,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3360,
+            "y": 1051,
+            "width": 1341,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3353,
+            "y": 1624,
+            "width": 1341,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 2253,
+            "width": 1341,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3353,
+            "y": 2827,
+            "width": 1341,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3360,
+            "y": 3401,
+            "width": 1341,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 05_2020.jpg4110198": {
+      "filename": "Waterval 05_2020.jpg",
+      "size": 4110198,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1832,
+            "y": 608,
+            "width": 1466,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1825,
+            "y": 1189,
+            "width": 1466,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1818,
+            "y": 1770,
+            "width": 1466,
+            "height": 512
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 2406,
+            "width": 1466,
+            "height": 525
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 2959,
+            "width": 1466,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1846,
+            "y": 3539,
+            "width": 1466,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 602,
+            "width": 1376,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3373,
+            "y": 1189,
+            "width": 1376,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3373,
+            "y": 1770,
+            "width": 1376,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3394,
+            "y": 2385,
+            "width": 1376,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3394,
+            "y": 2952,
+            "width": 1376,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 3526,
+            "width": 1376,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 05_2025.jpg4970180": {
+      "filename": "Waterval 05_2025.jpg",
+      "size": 4970180,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1867,
+            "y": 422,
+            "width": 1459,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1846,
+            "y": 1010,
+            "width": 1459,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1853,
+            "y": 1597,
+            "width": 1459,
+            "height": 518
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1846,
+            "y": 2219,
+            "width": 1459,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1846,
+            "y": 2793,
+            "width": 1459,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1846,
+            "y": 3360,
+            "width": 1459,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 415,
+            "width": 1369,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 1016,
+            "width": 1369,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 1597,
+            "width": 1369,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3401,
+            "y": 2212,
+            "width": 1369,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3394,
+            "y": 2772,
+            "width": 1369,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 3346,
+            "width": 1369,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 06_2012.jpg2819316": {
+      "filename": "Waterval 06_2012.jpg",
+      "size": 2819316,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1825,
+            "y": 429,
+            "width": 1486,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1825,
+            "y": 1030,
+            "width": 1486,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1825,
+            "y": 1618,
+            "width": 1486,
+            "height": 525
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 2247,
+            "width": 1486,
+            "height": 505
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1818,
+            "y": 2772,
+            "width": 1486,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1818,
+            "y": 3367,
+            "width": 1486,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3373,
+            "y": 428,
+            "width": 1362,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 1030,
+            "width": 1362,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 1604,
+            "width": 1362,
+            "height": 525
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 2226,
+            "width": 1362,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 2785,
+            "width": 1362,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 3380,
+            "width": 1362,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 06_2013.jpg2736547": {
+      "filename": "Waterval 06_2013.jpg",
+      "size": 2736547,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1845,
+            "y": 519,
+            "width": 1452,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1852,
+            "y": 1100,
+            "width": 1452,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1852,
+            "y": 1660,
+            "width": 1452,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1852,
+            "y": 2282,
+            "width": 1452,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1852,
+            "y": 2856,
+            "width": 1452,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1880,
+            "y": 3457,
+            "width": 1452,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3394,
+            "y": 498,
+            "width": 1369,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3394,
+            "y": 1092,
+            "width": 1369,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3394,
+            "y": 1680,
+            "width": 1369,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3394,
+            "y": 2281,
+            "width": 1369,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3394,
+            "y": 2848,
+            "width": 1369,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3401,
+            "y": 3429,
+            "width": 1369,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 06_2014.jpg3124908": {
+      "filename": "Waterval 06_2014.jpg",
+      "size": 3124908,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1804,
+            "y": 512,
+            "width": 1486,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 1099,
+            "width": 1486,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1804,
+            "y": 1659,
+            "width": 1486,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1797,
+            "y": 2302,
+            "width": 1486,
+            "height": 518
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1804,
+            "y": 2855,
+            "width": 1486,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1797,
+            "y": 3436,
+            "width": 1486,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3373,
+            "y": 512,
+            "width": 1383,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3366,
+            "y": 1085,
+            "width": 1383,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 1659,
+            "width": 1383,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 2281,
+            "width": 1383,
+            "height": 525
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 2841,
+            "width": 1383,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 3429,
+            "width": 1383,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 06_2015.jpg2930456": {
+      "filename": "Waterval 06_2015.jpg",
+      "size": 2930456,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1783,
+            "y": 615,
+            "width": 1472,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1790,
+            "y": 1209,
+            "width": 1472,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1777,
+            "y": 1790,
+            "width": 1472,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1777,
+            "y": 2420,
+            "width": 1472,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1790,
+            "y": 2958,
+            "width": 1472,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1797,
+            "y": 3546,
+            "width": 1472,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3346,
+            "y": 615,
+            "width": 1390,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3346,
+            "y": 1202,
+            "width": 1390,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3346,
+            "y": 1784,
+            "width": 1390,
+            "height": 525
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3353,
+            "y": 2391,
+            "width": 1390,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3353,
+            "y": 2965,
+            "width": 1390,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3339,
+            "y": 3539,
+            "width": 1390,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 06_2018.jpg4078355": {
+      "filename": "Waterval 06_2018.jpg",
+      "size": 4078355,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 470,
+            "width": 1479,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1825,
+            "y": 1044,
+            "width": 1479,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1818,
+            "y": 1624,
+            "width": 1479,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 2274,
+            "width": 1479,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1825,
+            "y": 2813,
+            "width": 1479,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1832,
+            "y": 3401,
+            "width": 1479,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3346,
+            "y": 484,
+            "width": 1383,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3339,
+            "y": 1051,
+            "width": 1383,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3346,
+            "y": 1618,
+            "width": 1383,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 2254,
+            "width": 1383,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3360,
+            "y": 2813,
+            "width": 1383,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3360,
+            "y": 3401,
+            "width": 1383,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 06_2021.jpg3804992": {
+      "filename": "Waterval 06_2021.jpg",
+      "size": 3804992,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1804,
+            "y": 463,
+            "width": 1500,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1797,
+            "y": 1030,
+            "width": 1500,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 1597,
+            "width": 1500,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1818,
+            "y": 2226,
+            "width": 1500,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1825,
+            "y": 2806,
+            "width": 1500,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1825,
+            "y": 3374,
+            "width": 1500,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3374,
+            "y": 449,
+            "width": 1348,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 1030,
+            "width": 1348,
+            "height": 588
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 1618,
+            "width": 1348,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 2254,
+            "width": 1348,
+            "height": 518
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 2786,
+            "width": 1348,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 3360,
+            "width": 1348,
+            "height": 588
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 07_2011.jpg3059707": {
+      "filename": "Waterval 07_2011.jpg",
+      "size": 3059707,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1804,
+            "y": 567,
+            "width": 1514,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 1147,
+            "width": 1514,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 1700,
+            "width": 1514,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1804,
+            "y": 2343,
+            "width": 1514,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 2910,
+            "width": 1514,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1818,
+            "y": 3484,
+            "width": 1514,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 553,
+            "width": 1383,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 1140,
+            "width": 1383,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 1700,
+            "width": 1383,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3373,
+            "y": 2343,
+            "width": 1383,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 2910,
+            "width": 1383,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 3477,
+            "width": 1383,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 07_2012.jpg3364229": {
+      "filename": "Waterval 07_2012.jpg",
+      "size": 3364229,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1894,
+            "y": 449,
+            "width": 1424,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1901,
+            "y": 1037,
+            "width": 1424,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1894,
+            "y": 1604,
+            "width": 1424,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1887,
+            "y": 2247,
+            "width": 1424,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1873,
+            "y": 2813,
+            "width": 1424,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1873,
+            "y": 3401,
+            "width": 1424,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 456,
+            "width": 1376,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 1030,
+            "width": 1376,
+            "height": 588
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 1625,
+            "width": 1376,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3394,
+            "y": 2247,
+            "width": 1376,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3401,
+            "y": 2793,
+            "width": 1376,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3394,
+            "y": 3380,
+            "width": 1376,
+            "height": 588
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 07_2016 (2).jpg3225254": {
+      "filename": "Waterval 07_2016 (2).jpg",
+      "size": 3225254,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 449,
+            "width": 1486,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 1044,
+            "width": 1486,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 1631,
+            "width": 1486,
+            "height": 525
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1818,
+            "y": 2274,
+            "width": 1486,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1818,
+            "y": 2821,
+            "width": 1486,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1832,
+            "y": 3394,
+            "width": 1486,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3381,
+            "y": 449,
+            "width": 1383,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3374,
+            "y": 1036,
+            "width": 1383,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 1631,
+            "width": 1383,
+            "height": 512
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 2247,
+            "width": 1383,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3374,
+            "y": 2800,
+            "width": 1383,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3374,
+            "y": 3380,
+            "width": 1383,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 07_2016.jpg3239155": {
+      "filename": "Waterval 07_2016.jpg",
+      "size": 3239155,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1804,
+            "y": 581,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1804,
+            "y": 1183,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 1756,
+            "width": 1486,
+            "height": 525
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1832,
+            "y": 2385,
+            "width": 1486,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1825,
+            "y": 2945,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1825,
+            "y": 3533,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3353,
+            "y": 574,
+            "width": 1417,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3346,
+            "y": 1168,
+            "width": 1417,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3339,
+            "y": 1756,
+            "width": 1417,
+            "height": 525
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3360,
+            "y": 2364,
+            "width": 1417,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3353,
+            "y": 2924,
+            "width": 1417,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3360,
+            "y": 3512,
+            "width": 1417,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 07_2021.jpg3847458": {
+      "filename": "Waterval 07_2021.jpg",
+      "size": 3847458,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1846,
+            "y": 436,
+            "width": 1486,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1846,
+            "y": 1030,
+            "width": 1486,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1846,
+            "y": 1625,
+            "width": 1486,
+            "height": 532
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 2261,
+            "width": 1486,
+            "height": 512
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1846,
+            "y": 2786,
+            "width": 1486,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 3374,
+            "width": 1486,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 443,
+            "width": 1369,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 1030,
+            "width": 1369,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 1611,
+            "width": 1369,
+            "height": 525
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 2247,
+            "width": 1369,
+            "height": 525
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 2779,
+            "width": 1369,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 3374,
+            "width": 1369,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 08_2011.jpg4094493": {
+      "filename": "Waterval 08_2011.jpg",
+      "size": 4094493,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 498,
+            "width": 1472,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1832,
+            "y": 1085,
+            "width": 1472,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 1652,
+            "width": 1472,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 2295,
+            "width": 1472,
+            "height": 518
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 2848,
+            "width": 1472,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 3429,
+            "width": 1472,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3408,
+            "y": 484,
+            "width": 1362,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3394,
+            "y": 1079,
+            "width": 1362,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 1659,
+            "width": 1362,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 2295,
+            "width": 1362,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3373,
+            "y": 2848,
+            "width": 1362,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 3429,
+            "width": 1362,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 08_2013.jpg3966089": {
+      "filename": "Waterval 08_2013.jpg",
+      "size": 3966089,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1846,
+            "y": 394,
+            "width": 1479,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1853,
+            "y": 981,
+            "width": 1479,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1860,
+            "y": 1555,
+            "width": 1479,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 2205,
+            "width": 1479,
+            "height": 525
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1846,
+            "y": 2751,
+            "width": 1479,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 3325,
+            "width": 1479,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3366,
+            "y": 387,
+            "width": 1376,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3366,
+            "y": 981,
+            "width": 1376,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3374,
+            "y": 1562,
+            "width": 1376,
+            "height": 525
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3394,
+            "y": 2191,
+            "width": 1376,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 2737,
+            "width": 1376,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3394,
+            "y": 3318,
+            "width": 1376,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 08_2015.jpg2835725": {
+      "filename": "Waterval 08_2015.jpg",
+      "size": 2835725,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 539,
+            "width": 1466,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1846,
+            "y": 1134,
+            "width": 1466,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1853,
+            "y": 1694,
+            "width": 1466,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1860,
+            "y": 2350,
+            "width": 1466,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1860,
+            "y": 2903,
+            "width": 1466,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1846,
+            "y": 3484,
+            "width": 1466,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3374,
+            "y": 526,
+            "width": 1403,
+            "height": 595
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 1134,
+            "width": 1403,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 1694,
+            "width": 1403,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 2337,
+            "width": 1403,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 2903,
+            "width": 1403,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 3457,
+            "width": 1403,
+            "height": 595
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 08_2019.jpg3851329": {
+      "filename": "Waterval 08_2019.jpg",
+      "size": 3851329,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1818,
+            "y": 422,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1818,
+            "y": 1010,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1818,
+            "y": 1583,
+            "width": 1486,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 2233,
+            "width": 1486,
+            "height": 512
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1818,
+            "y": 2779,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 3360,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3353,
+            "y": 436,
+            "width": 1355,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3360,
+            "y": 1002,
+            "width": 1355,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 1576,
+            "width": 1355,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 2226,
+            "width": 1355,
+            "height": 525
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3360,
+            "y": 2765,
+            "width": 1355,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3360,
+            "y": 3346,
+            "width": 1355,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 08_2021.jpg3781257": {
+      "filename": "Waterval 08_2021.jpg",
+      "size": 3781257,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 436,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1804,
+            "y": 1017,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1804,
+            "y": 1590,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 2226,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 2800,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1818,
+            "y": 3367,
+            "width": 1486,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 443,
+            "width": 1376,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3374,
+            "y": 1023,
+            "width": 1376,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "suboptimal" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 1590,
+            "width": 1376,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 2219,
+            "width": 1376,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3360,
+            "y": 2786,
+            "width": 1376,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 3367,
+            "width": 1376,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 09_2015.jpg2953823": {
+      "filename": "Waterval 09_2015.jpg",
+      "size": 2953823,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 580,
+            "width": 1493,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1818,
+            "y": 1168,
+            "width": 1493,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1804,
+            "y": 1755,
+            "width": 1493,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 2378,
+            "width": 1493,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1825,
+            "y": 2972,
+            "width": 1493,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1832,
+            "y": 3553,
+            "width": 1493,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3298,
+            "y": 581,
+            "width": 1417,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3311,
+            "y": 1176,
+            "width": 1417,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3304,
+            "y": 1763,
+            "width": 1417,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3318,
+            "y": 2385,
+            "width": 1417,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3332,
+            "y": 2966,
+            "width": 1417,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3339,
+            "y": 3533,
+            "width": 1417,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 09_2016.jpg2800488": {
+      "filename": "Waterval 09_2016.jpg",
+      "size": 2800488,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 539,
+            "width": 1500,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1825,
+            "y": 1141,
+            "width": 1493,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1818,
+            "y": 1694,
+            "width": 1493,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1846,
+            "y": 2330,
+            "width": 1493,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1853,
+            "y": 2911,
+            "width": 1493,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1832,
+            "y": 3492,
+            "width": 1493,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3366,
+            "y": 553,
+            "width": 1396,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3373,
+            "y": 1120,
+            "width": 1396,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3373,
+            "y": 1694,
+            "width": 1396,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 2323,
+            "width": 1396,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3394,
+            "y": 2903,
+            "width": 1396,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 3484,
+            "width": 1396,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 09_2017.jpg3919338": {
+      "filename": "Waterval 09_2017.jpg",
+      "size": 3919338,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 442,
+            "width": 1493,
+            "height": 595
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1818,
+            "y": 1043,
+            "width": 1493,
+            "height": 595
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1804,
+            "y": 1638,
+            "width": 1493,
+            "height": 518
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 2254,
+            "width": 1493,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 2792,
+            "width": 1493,
+            "height": 595
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1811,
+            "y": 3380,
+            "width": 1493,
+            "height": 595
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3353,
+            "y": 429,
+            "width": 1376,
+            "height": 601
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3353,
+            "y": 1030,
+            "width": 1376,
+            "height": 595
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3353,
+            "y": 1638,
+            "width": 1376,
+            "height": 525
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 2254,
+            "width": 1376,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 2800,
+            "width": 1376,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3353,
+            "y": 3367,
+            "width": 1376,
+            "height": 601
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 10_2017.jpg2810062": {
+      "filename": "Waterval 10_2017.jpg",
+      "size": 2810062,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1880,
+            "y": 311,
+            "width": 1390,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1880,
+            "y": 906,
+            "width": 1390,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1901,
+            "y": 1486,
+            "width": 1390,
+            "height": 560
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1887,
+            "y": 2129,
+            "width": 1390,
+            "height": 553
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1887,
+            "y": 2696,
+            "width": 1390,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1887,
+            "y": 3263,
+            "width": 1390,
+            "height": 581
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3353,
+            "y": 304,
+            "width": 1383,
+            "height": 608
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3360,
+            "y": 919,
+            "width": 1383,
+            "height": 574
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 1493,
+            "width": 1383,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 2115,
+            "width": 1383,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3367,
+            "y": 2682,
+            "width": 1383,
+            "height": 525
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3360,
+            "y": 3235,
+            "width": 1383,
+            "height": 608
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 12_2018.jpg3152488": {
+      "filename": "Waterval 12_2018.jpg",
+      "size": 3152488,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1846,
+            "y": 415,
+            "width": 1493,
+            "height": 608
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1846,
+            "y": 1030,
+            "width": 1493,
+            "height": 608
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1860,
+            "y": 1631,
+            "width": 1493,
+            "height": 512
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1832,
+            "y": 2233,
+            "width": 1493,
+            "height": 567
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 2807,
+            "width": 1493,
+            "height": 546
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 1839,
+            "y": 3360,
+            "width": 1493,
+            "height": 608
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3394,
+            "y": 429,
+            "width": 1390,
+            "height": 595
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3394,
+            "y": 1037,
+            "width": 1390,
+            "height": 595
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3394,
+            "y": 1625,
+            "width": 1390,
+            "height": 539
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3373,
+            "y": 2185,
+            "width": 1390,
+            "height": 595
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3380,
+            "y": 2772,
+            "width": 1390,
+            "height": 595
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 3387,
+            "y": 3360,
+            "width": 1390,
+            "height": 595
+          },
+          "region_attributes": { "aerobic zone": "functional" }
+        }
+      ],
+      "file_attributes": {}
+    }
+  },
+  "_via_attributes": {
+    "region": {
+      "aerobic zone": {
+        "type": "dropdown",
+        "description": "aerobic part of biological reactor",
+        "options": {
+          "functional": "leopard prints",
+          "dysfunctional": "two thirds or more of surface has no leopard print",
+          "suboptimal": "a third or more of surface has no leopard print or unsure"
+        },
+        "default_options": { "functional": true }
+      }
+    },
+    "file": {}
+  },
+  "_via_data_format_version": "2.0.10",
+  "_via_image_id_list": [
+    "Waterval 01_2012.jpg4076502",
+    "Waterval 01_2013.jpg2933944",
+    "Waterval 01_2023.jpg4145272",
+    "Waterval 02_2025.jpg4178610",
+    "Waterval 03_2022.jpg3672308",
+    "Waterval 04_2012.jpg2926732",
+    "Waterval 04_2020.jpg3160118",
+    "Waterval 04_2021.jpg3877746",
+    "Waterval 04_2024.jpg4663945",
+    "Waterval 05_2012.jpg3135692",
+    "Waterval 05_2015.jpg2834235",
+    "Waterval 05_2016.jpg2994366",
+    "Waterval 05_2017.jpg2871979",
+    "Waterval 05_2018.jpg3081868",
+    "Waterval 05_2020.jpg4110198",
+    "Waterval 05_2025.jpg4970180",
+    "Waterval 06_2012.jpg2819316",
+    "Waterval 06_2013.jpg2736547",
+    "Waterval 06_2014.jpg3124908",
+    "Waterval 06_2015.jpg2930456",
+    "Waterval 06_2018.jpg4078355",
+    "Waterval 06_2021.jpg3804992",
+    "Waterval 07_2011.jpg3059707",
+    "Waterval 07_2012.jpg3364229",
+    "Waterval 07_2016 (2).jpg3225254",
+    "Waterval 07_2016.jpg3239155",
+    "Waterval 07_2021.jpg3847458",
+    "Waterval 08_2011.jpg4094493",
+    "Waterval 08_2013.jpg3966089",
+    "Waterval 08_2015.jpg2835725",
+    "Waterval 08_2019.jpg3851329",
+    "Waterval 08_2021.jpg3781257",
+    "Waterval 09_2015.jpg2953823",
+    "Waterval 09_2016.jpg2800488",
+    "Waterval 09_2017.jpg3919338",
+    "Waterval 10_2017.jpg2810062",
+    "Waterval 12_2018.jpg3152488"
+  ]
+}

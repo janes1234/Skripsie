@@ -1,0 +1,37 @@
+\mychapter{Introduction}{Introduction}{}\label{chap:introduction}
+
+\section{Background}
+Municipal wastewater treatment works (WWTW) are made up of several process units that work together in sequence. Larger plants usually rely on the activated sludge process, which uses biological reactors full of suspended solids (activated sludge) plus secondary settling tanks called clarifiers.
+
+Inside the biological reactors, treatment happens in unaerated and aerobic zones. The aerobic zones need mechanical aeration to push oxygen into the water so bacteria can break down waste. There are several ways to do this, but Fine Bubble Diffused Aeration (FBDA) is one of the most common. Once the water has been aerated, it moves into circular clarifiers, which separate clear effluent from the sludge. Gravity pulls the sludge down into a central hopper, where it gets sent back to the bioreactor to treat more incoming wastewater.
+
+Interestingly, someone who knows what to look for can tell a lot about how these systems are performing just from aerial or satellite photos. A healthy FBDA unit churns the surface into a "leopard print" pattern, while a struggling one looks noticeably smoother. Clarifiers tell a similar story: when they're working well, they separate out the solids and leave behind a clear liquid that looks black from above. When they're not working, solids escape into the effluent and the surface turns green, cloudy, or uneven.
+
+\section{Problem Statement}
+Right now, checking on how well WWTW units are running mostly comes down to on-site sensors, physical inspections, or someone experienced reading aerial photos by eye. That's slow, and it doesn't scale well once you're trying to keep tabs on multiple facilities at once. The question this project asks is simple: can a computer vision system pick up on the same visual cues a trained person would (the aerator's "leopard print," the clarifier's colour) and use them to judge performance? This project tests whether historical satellite imagery can be used to automatically monitor how well FBDA aerators and clarifiers are functioning.
+
+\section{Objectives}
+To answer that question, the project sets out to do three things:
+
+\begin{enumerate}
+    \item Prepare the data and extract features by working with a set of labelled Google Earth satellite images taken on different dates to capture the visual states of WWTW components.
+    \item Classify the states using a CNN by training a convolutional neural network to sort Aerobic Zones into three categories (Functional, Suboptimal, Dysfunctional) and Clarifiers into four categories (Functional, Dysfunctional, Scum, Empty), based on how their surfaces look.
+    \item Test whether it actually works .......
+\end{enumerate}
+
+
+\section{Summary of Work}
+
+\section{Scope}
+Included: Fine Bubble Diffused Aeration (FBDA) in aerobic zones, and secondary clarifiers. The project only looks at the Atlantis, Cape Flats, and Waterval WWTW facilities.
+
+Excluded: Surface-mounted aerators and anaerobic zones aren't covered. There's no live satellite feed, no physical water sampling, and no hardware devices deployed on site — everything is based on the historical Google Earth imagery already available.
+
+\section{Roadmap}
+\begin{itemize}[label=$\circ$]
+    \item Chapter 2 (Literature Review): Looks at existing monitoring solutions for wastewater management, remote sensing tech, and the computer vision concepts this project builds on.
+    \item Chapter 3 (System Methods): Covers the system's architecture, how the dataset is structured, and the metrics used to judge the model's performance.
+    \item Chapter 4 (Detailed Design): Gets into the technical details of the image processing pipeline and the classification logic.
+    \item Chapter 5 (Results): Presents the data, the performance numbers, and what they say about how accurately the system classifies each unit.
+    \item Chapter 6 (Conclusion): Wraps up the findings, checks how well the objectives were met, and suggests where future versions of this kind of monitoring could go.
+\end{itemize}

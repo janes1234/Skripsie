@@ -1,1 +1,1631 @@
-{"_via_settings":{"ui":{"annotation_editor_height":25,"annotation_editor_fontsize":0.8,"leftsidebar_width":18,"image_grid":{"img_height":80,"rshape_fill":"none","rshape_fill_opacity":0.3,"rshape_stroke":"yellow","rshape_stroke_width":2,"show_region_shape":true,"show_image_policy":"all"},"image":{"region_label":"clarifier","region_color":"__via_default_region_color__","region_label_font":"10px Sans","on_image_annotation_editor_placement":"NEAR_REGION"}},"core":{"buffer_size":18,"filepath":{},"default_filepath":""},"project":{"name":"Waterval clarifiers (top)"}},"_via_img_metadata":{"Waterval 01_2012.jpg4076502":{"filename":"Waterval 01_2012.jpg","size":4076502,"regions":[{"shape_attributes":{"name":"circle","cx":5876,"cy":1134,"r":580.74},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7528,"cy":1140,"r":580.74},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5897,"cy":3277,"r":580.74},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7549,"cy":3242,"r":580.74},"region_attributes":{"clarifier":"Functional"}}],"file_attributes":{}},"Waterval 01_2013.jpg2933944":{"filename":"Waterval 01_2013.jpg","size":2933944,"regions":[{"shape_attributes":{"name":"circle","cx":5903,"cy":1154,"r":580.74},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7555,"cy":1147,"r":580.74},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5924,"cy":3290,"r":580.74},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7555,"cy":3276,"r":580.74},"region_attributes":{"clarifier":"Dysfunctional"}}],"file_attributes":{}},"Waterval 01_2023.jpg4145272":{"filename":"Waterval 01_2023.jpg","size":4145272,"regions":[{"shape_attributes":{"name":"circle","cx":5897,"cy":1065,"r":587.652},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7542,"cy":1065,"r":587.652},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5897,"cy":3208,"r":587.652},"region_attributes":{"clarifier":"Stagnant"}},{"shape_attributes":{"name":"circle","cx":7549,"cy":3194,"r":587.652},"region_attributes":{"clarifier":"Functional"}}],"file_attributes":{}},"Waterval 02_2025.jpg4178610":{"filename":"Waterval 02_2025.jpg","size":4178610,"regions":[{"shape_attributes":{"name":"circle","cx":5911,"cy":1079,"r":587.652},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7549,"cy":1065,"r":587.652},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5931,"cy":3229,"r":587.652},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7549,"cy":3194,"r":587.652},"region_attributes":{"clarifier":"Functional"}}],"file_attributes":{}},"Waterval 03_2022.jpg3672308":{"filename":"Waterval 03_2022.jpg","size":3672308,"regions":[{"shape_attributes":{"name":"circle","cx":5913,"cy":1127,"r":587.652},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7563,"cy":1127,"r":587.652},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5921,"cy":3265,"r":587.652},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7556,"cy":3251,"r":587.652},"region_attributes":{"clarifier":"Functional"}}],"file_attributes":{}},"Waterval 04_2012.jpg2926732":{"filename":"Waterval 04_2012.jpg","size":2926732,"regions":[{"shape_attributes":{"name":"circle","cx":5966,"cy":1169,"r":587.652},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7604,"cy":1176,"r":587.652},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":5993,"cy":3319,"r":587.652},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7604,"cy":3298,"r":587.652},"region_attributes":{"clarifier":"Dysfunctional"}}],"file_attributes":{}},"Waterval 04_2020.jpg3160118":{"filename":"Waterval 04_2020.jpg","size":3160118,"regions":[{"shape_attributes":{"name":"circle","cx":5924,"cy":1231,"r":587.652},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7576,"cy":1244,"r":587.652},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5931,"cy":3346,"r":587.652},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7576,"cy":3346,"r":587.652},"region_attributes":{"clarifier":"Functional"}}],"file_attributes":{}},"Waterval 04_2021.jpg3877746":{"filename":"Waterval 04_2021.jpg","size":3877746,"regions":[{"shape_attributes":{"name":"circle","cx":7591,"cy":1217,"r":587.652},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":5945,"cy":3346,"r":587.652},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7576,"cy":3346,"r":587.652},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5958,"cy":1217,"r":587.652},"region_attributes":{"clarifier":"Dysfunctional"}}],"file_attributes":{}},"Waterval 04_2024.jpg4663945":{"filename":"Waterval 04_2024.jpg","size":4663945,"regions":[{"shape_attributes":{"name":"circle","cx":5926,"cy":1080,"r":587.652},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7562,"cy":1080,"r":587.652},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5926,"cy":3211,"r":587.652},"region_attributes":{"clarifier":"Stagnant"}},{"shape_attributes":{"name":"circle","cx":7562,"cy":3204,"r":587.652},"region_attributes":{"clarifier":"Functional"}}],"file_attributes":{}},"Waterval 05_2012.jpg3135692":{"filename":"Waterval 05_2012.jpg","size":3135692,"regions":[{"shape_attributes":{"name":"circle","cx":5952,"cy":1165,"r":601.438},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7590,"cy":1158,"r":601.438},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":5959,"cy":3294,"r":601.438},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7590,"cy":3315,"r":601.438},"region_attributes":{"clarifier":"Functional"}}],"file_attributes":{}},"Waterval 05_2015.jpg2834235":{"filename":"Waterval 05_2015.jpg","size":2834235,"regions":[{"shape_attributes":{"name":"circle","cx":7521,"cy":1296,"r":587.652},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5890,"cy":3419,"r":587.652},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7528,"cy":3398,"r":587.652},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5876,"cy":1290,"r":587.652},"region_attributes":{"clarifier":"Dysfunctional"}}],"file_attributes":{}},"Waterval 05_2016.jpg2994366":{"filename":"Waterval 05_2016.jpg","size":2994366,"regions":[{"shape_attributes":{"name":"circle","cx":5897,"cy":1318,"r":587.652},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7542,"cy":1317,"r":587.652},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5917,"cy":3453,"r":587.652},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7556,"cy":3439,"r":587.652},"region_attributes":{"clarifier":"Functional"}}],"file_attributes":{}},"Waterval 05_2017.jpg2871979":{"filename":"Waterval 05_2017.jpg","size":2871979,"regions":[{"shape_attributes":{"name":"circle","cx":5890,"cy":1255,"r":587.652},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7549,"cy":1269,"r":587.652},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":5897,"cy":3398,"r":601.438},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7549,"cy":3398,"r":587.652},"region_attributes":{"clarifier":"Functional"}}],"file_attributes":{}},"Waterval 05_2018.jpg3081868":{"filename":"Waterval 05_2018.jpg","size":3081868,"regions":[{"shape_attributes":{"name":"circle","cx":5876,"cy":1145,"r":587.652},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7514,"cy":1137,"r":587.652},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5890,"cy":3274,"r":587.652},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7528,"cy":3253,"r":587.652},"region_attributes":{"clarifier":"Functional"}}],"file_attributes":{}},"Waterval 05_2020.jpg4110198":{"filename":"Waterval 05_2020.jpg","size":4110198,"regions":[{"shape_attributes":{"name":"circle","cx":7577,"cy":1290,"r":587.652},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":5945,"cy":3419,"r":587.652},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7570,"cy":3405,"r":587.652},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5932,"cy":1283,"r":587.652},"region_attributes":{"clarifier":"Dysfunctional"}}],"file_attributes":{}},"Waterval 05_2025.jpg4970180":{"filename":"Waterval 05_2025.jpg","size":4970180,"regions":[{"shape_attributes":{"name":"circle","cx":5925,"cy":1100,"r":601.438},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7570,"cy":1114,"r":601.438},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5932,"cy":3250,"r":601.438},"region_attributes":{"clarifier":"Stagnant"}},{"shape_attributes":{"name":"circle","cx":7577,"cy":3229,"r":601.438},"region_attributes":{"clarifier":"Dysfunctional"}}],"file_attributes":{}},"Waterval 06_2012.jpg2819316":{"filename":"Waterval 06_2012.jpg","size":2819316,"regions":[{"shape_attributes":{"name":"circle","cx":5918,"cy":1127,"r":584},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7556,"cy":1141,"r":584},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":5925,"cy":3263,"r":584},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7563,"cy":3277,"r":584},"region_attributes":{"clarifier":"Dysfunctional"}}],"file_attributes":{}},"Waterval 06_2013.jpg2736547":{"filename":"Waterval 06_2013.jpg","size":2736547,"regions":[{"shape_attributes":{"name":"circle","cx":5931,"cy":1196,"r":586},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7562,"cy":1203,"r":586},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":5944,"cy":3325,"r":586},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7562,"cy":3339,"r":586},"region_attributes":{"clarifier":"Dysfunctional"}}],"file_attributes":{}},"Waterval 06_2014.jpg3124908":{"filename":"Waterval 06_2014.jpg","size":3124908,"regions":[{"shape_attributes":{"name":"circle","cx":5919,"cy":1187,"r":586},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7548,"cy":1194,"r":586},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":5919,"cy":3318,"r":586},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7562,"cy":3311,"r":586},"region_attributes":{"clarifier":"Dysfunctional"}}],"file_attributes":{}},"Waterval 06_2015.jpg2930456":{"filename":"Waterval 06_2015.jpg","size":2930456,"regions":[{"shape_attributes":{"name":"circle","cx":5884,"cy":1286,"r":586},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7534,"cy":1258,"r":590.183},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5891,"cy":3410,"r":586},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7541,"cy":3389,"r":586},"region_attributes":{"clarifier":"Functional"}}],"file_attributes":{}},"Waterval 06_2018.jpg4078355":{"filename":"Waterval 06_2018.jpg","size":4078355,"regions":[{"shape_attributes":{"name":"circle","cx":5911,"cy":1154,"r":585},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7556,"cy":1161,"r":585},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":5925,"cy":3283,"r":585},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7556,"cy":3283,"r":585},"region_attributes":{"clarifier":"Dysfunctional"}}],"file_attributes":{}},"Waterval 06_2021.jpg3804992":{"filename":"Waterval 06_2021.jpg","size":3804992,"regions":[{"shape_attributes":{"name":"circle","cx":7556,"cy":3284,"r":599},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7549,"cy":1148,"r":599},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5918,"cy":3270,"r":599},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5904,"cy":1120,"r":599},"region_attributes":{"clarifier":"Functional"}}],"file_attributes":{}},"Waterval 07_2011.jpg3059707":{"filename":"Waterval 07_2011.jpg","size":3059707,"regions":[{"shape_attributes":{"name":"circle","cx":7556,"cy":1217,"r":587.774},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":5918,"cy":3353,"r":587.774},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7563,"cy":3346,"r":587.774},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":5918,"cy":1231,"r":587.774},"region_attributes":{"clarifier":"Stagnant"}}],"file_attributes":{}},"Waterval 07_2012.jpg3364229":{"filename":"Waterval 07_2012.jpg","size":3364229,"regions":[{"shape_attributes":{"name":"circle","cx":5925,"cy":1141,"r":590},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7563,"cy":1148,"r":590},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":5938,"cy":3277,"r":590},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7556,"cy":3263,"r":590},"region_attributes":{"clarifier":"Dysfunctional"}}],"file_attributes":{}},"Waterval 07_2016.jpg3239155":{"filename":"Waterval 07_2016.jpg","size":3239155,"regions":[{"shape_attributes":{"name":"circle","cx":5918,"cy":1272,"r":608.39},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7549,"cy":1265,"r":608.39},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5918,"cy":3394,"r":608.39},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7549,"cy":3380,"r":608.39},"region_attributes":{"clarifier":"Functional"}}],"file_attributes":{}},"Waterval 07_2021.jpg3847458":{"filename":"Waterval 07_2021.jpg","size":3847458,"regions":[{"shape_attributes":{"name":"circle","cx":5932,"cy":1127,"r":588},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7570,"cy":1134,"r":588},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5946,"cy":3270,"r":588},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7577,"cy":3256,"r":588},"region_attributes":{"clarifier":"Functional"}}],"file_attributes":{}},"Waterval 08_2011.jpg4094493":{"filename":"Waterval 08_2011.jpg","size":4094493,"regions":[{"shape_attributes":{"name":"circle","cx":5911,"cy":1162,"r":601.478},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7563,"cy":1169,"r":601.478},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":5932,"cy":3305,"r":601.478},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7570,"cy":3284,"r":601.478},"region_attributes":{"clarifier":"Functional"}}],"file_attributes":{}},"Waterval 08_2013.jpg3966089":{"filename":"Waterval 08_2013.jpg","size":3966089,"regions":[{"shape_attributes":{"name":"circle","cx":5952,"cy":1072,"r":599},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":5965,"cy":3208,"r":599},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7597,"cy":1079,"r":599},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7590,"cy":3194,"r":599},"region_attributes":{"clarifier":"Functional"}}],"file_attributes":{}},"Waterval 08_2015.jpg2835725":{"filename":"Waterval 08_2015.jpg","size":2835725,"regions":[{"shape_attributes":{"name":"circle","cx":5918,"cy":1217,"r":594.887},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7563,"cy":1224,"r":594.887},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":5925,"cy":3353,"r":594.887},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7563,"cy":3353,"r":594.887},"region_attributes":{"clarifier":"Functional"}}],"file_attributes":{}},"Waterval 08_2019.jpg3851329":{"filename":"Waterval 08_2019.jpg","size":3851329,"regions":[{"shape_attributes":{"name":"circle","cx":7542,"cy":1114,"r":584},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5904,"cy":3243,"r":584},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7549,"cy":3243,"r":584},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5897,"cy":1107,"r":584},"region_attributes":{"clarifier":"Dysfunctional"}}],"file_attributes":{}},"Waterval 08_2021.jpg3781257":{"filename":"Waterval 08_2021.jpg","size":3781257,"regions":[{"shape_attributes":{"name":"circle","cx":5911,"cy":1120,"r":605},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7549,"cy":1120,"r":605},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":5918,"cy":3256,"r":605},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7556,"cy":3256,"r":605},"region_attributes":{"clarifier":"Functional"}}],"file_attributes":{}},"Waterval 09_2015.jpg2953823":{"filename":"Waterval 09_2015.jpg","size":2953823,"regions":[{"shape_attributes":{"name":"circle","cx":5905,"cy":1273,"r":584},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7543,"cy":1280,"r":584},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":5918,"cy":3423,"r":584},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7536,"cy":3402,"r":584},"region_attributes":{"clarifier":"Dysfunctional"}}],"file_attributes":{}},"Waterval 09_2016.jpg2800488":{"filename":"Waterval 09_2016.jpg","size":2800488,"regions":[{"shape_attributes":{"name":"circle","cx":5932,"cy":1217,"r":588},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7570,"cy":1231,"r":588},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5939,"cy":3360,"r":588},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7577,"cy":3346,"r":588},"region_attributes":{"clarifier":"Functional"}}],"file_attributes":{}},"Waterval 09_2017.jpg3919338":{"filename":"Waterval 09_2017.jpg","size":3919338,"regions":[{"shape_attributes":{"name":"circle","cx":5903,"cy":1120,"r":583},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7521,"cy":1127,"r":583},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5917,"cy":3270,"r":583},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7528,"cy":3256,"r":583},"region_attributes":{"clarifier":"Functional"}}],"file_attributes":{}},"Waterval 10_2017.jpg2810062":{"filename":"Waterval 10_2017.jpg","size":2810062,"regions":[{"shape_attributes":{"name":"circle","cx":5905,"cy":1003,"r":583},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7529,"cy":1003,"r":583},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":5918,"cy":3146,"r":583},"region_attributes":{"clarifier":"Functional"}},{"shape_attributes":{"name":"circle","cx":7536,"cy":3146,"r":583},"region_attributes":{"clarifier":"Functional"}}],"file_attributes":{}},"Waterval 12_2018.jpg3152488":{"filename":"Waterval 12_2018.jpg","size":3152488,"regions":[{"shape_attributes":{"name":"circle","cx":5932,"cy":1114,"r":566.915},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7570,"cy":1121,"r":566.915},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":5938,"cy":3250,"r":566.915},"region_attributes":{"clarifier":"Dysfunctional"}},{"shape_attributes":{"name":"circle","cx":7563,"cy":3250,"r":566.915},"region_attributes":{"clarifier":"Dysfunctional"}}],"file_attributes":{}}},"_via_attributes":{"region":{"clarifier":{"type":"dropdown","description":"secondary settling tank","options":{"Empty":"Shadows visible inside clarifier","Stagnant":"Green","Functional":"Black","Dysfunctional":"Partially or completely white surface"},"default_options":{"Functional":true}}},"file":{}},"_via_data_format_version":"2.0.10","_via_image_id_list":["Waterval 01_2012.jpg4076502","Waterval 01_2013.jpg2933944","Waterval 01_2023.jpg4145272","Waterval 02_2025.jpg4178610","Waterval 03_2022.jpg3672308","Waterval 04_2012.jpg2926732","Waterval 04_2020.jpg3160118","Waterval 04_2021.jpg3877746","Waterval 04_2024.jpg4663945","Waterval 05_2012.jpg3135692","Waterval 05_2015.jpg2834235","Waterval 05_2016.jpg2994366","Waterval 05_2017.jpg2871979","Waterval 05_2018.jpg3081868","Waterval 05_2020.jpg4110198","Waterval 05_2025.jpg4970180","Waterval 06_2012.jpg2819316","Waterval 06_2013.jpg2736547","Waterval 06_2014.jpg3124908","Waterval 06_2015.jpg2930456","Waterval 06_2018.jpg4078355","Waterval 06_2021.jpg3804992","Waterval 07_2011.jpg3059707","Waterval 07_2012.jpg3364229","Waterval 07_2016.jpg3239155","Waterval 07_2021.jpg3847458","Waterval 08_2011.jpg4094493","Waterval 08_2013.jpg3966089","Waterval 08_2015.jpg2835725","Waterval 08_2019.jpg3851329","Waterval 08_2021.jpg3781257","Waterval 09_2015.jpg2953823","Waterval 09_2016.jpg2800488","Waterval 09_2017.jpg3919338","Waterval 10_2017.jpg2810062","Waterval 12_2018.jpg3152488"]}
+{
+  "_via_settings": {
+    "ui": {
+      "annotation_editor_height": 25,
+      "annotation_editor_fontsize": 0.8,
+      "leftsidebar_width": 18,
+      "image_grid": {
+        "img_height": 80,
+        "rshape_fill": "none",
+        "rshape_fill_opacity": 0.3,
+        "rshape_stroke": "yellow",
+        "rshape_stroke_width": 2,
+        "show_region_shape": true,
+        "show_image_policy": "all"
+      },
+      "image": {
+        "region_label": "clarifier",
+        "region_color": "__via_default_region_color__",
+        "region_label_font": "10px Sans",
+        "on_image_annotation_editor_placement": "NEAR_REGION"
+      }
+    },
+    "core": { "buffer_size": 18, "filepath": {}, "default_filepath": "" },
+    "project": { "name": "Waterval clarifiers (top)" }
+  },
+  "_via_img_metadata": {
+    "Waterval 01_2012.jpg4076502": {
+      "filename": "Waterval 01_2012.jpg",
+      "size": 4076502,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5876,
+            "cy": 1134,
+            "r": 580.74
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7528,
+            "cy": 1140,
+            "r": 580.74
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5897,
+            "cy": 3277,
+            "r": 580.74
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7549,
+            "cy": 3242,
+            "r": 580.74
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 01_2013.jpg2933944": {
+      "filename": "Waterval 01_2013.jpg",
+      "size": 2933944,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5903,
+            "cy": 1154,
+            "r": 580.74
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7555,
+            "cy": 1147,
+            "r": 580.74
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5924,
+            "cy": 3290,
+            "r": 580.74
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7555,
+            "cy": 3276,
+            "r": 580.74
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 01_2023.jpg4145272": {
+      "filename": "Waterval 01_2023.jpg",
+      "size": 4145272,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5897,
+            "cy": 1065,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7542,
+            "cy": 1065,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5897,
+            "cy": 3208,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Stagnant" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7549,
+            "cy": 3194,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 02_2025.jpg4178610": {
+      "filename": "Waterval 02_2025.jpg",
+      "size": 4178610,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5911,
+            "cy": 1079,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7549,
+            "cy": 1065,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5931,
+            "cy": 3229,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7549,
+            "cy": 3194,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 03_2022.jpg3672308": {
+      "filename": "Waterval 03_2022.jpg",
+      "size": 3672308,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5913,
+            "cy": 1127,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7563,
+            "cy": 1127,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5921,
+            "cy": 3265,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7556,
+            "cy": 3251,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 04_2012.jpg2926732": {
+      "filename": "Waterval 04_2012.jpg",
+      "size": 2926732,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5966,
+            "cy": 1169,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7604,
+            "cy": 1176,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5993,
+            "cy": 3319,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7604,
+            "cy": 3298,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 04_2020.jpg3160118": {
+      "filename": "Waterval 04_2020.jpg",
+      "size": 3160118,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5924,
+            "cy": 1231,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7576,
+            "cy": 1244,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5931,
+            "cy": 3346,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7576,
+            "cy": 3346,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 04_2021.jpg3877746": {
+      "filename": "Waterval 04_2021.jpg",
+      "size": 3877746,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7591,
+            "cy": 1217,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5945,
+            "cy": 3346,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7576,
+            "cy": 3346,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5958,
+            "cy": 1217,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 04_2024.jpg4663945": {
+      "filename": "Waterval 04_2024.jpg",
+      "size": 4663945,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5926,
+            "cy": 1080,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7562,
+            "cy": 1080,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5926,
+            "cy": 3211,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Stagnant" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7562,
+            "cy": 3204,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 05_2012.jpg3135692": {
+      "filename": "Waterval 05_2012.jpg",
+      "size": 3135692,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5952,
+            "cy": 1165,
+            "r": 601.438
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7590,
+            "cy": 1158,
+            "r": 601.438
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5959,
+            "cy": 3294,
+            "r": 601.438
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7590,
+            "cy": 3315,
+            "r": 601.438
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 05_2015.jpg2834235": {
+      "filename": "Waterval 05_2015.jpg",
+      "size": 2834235,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7521,
+            "cy": 1296,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5890,
+            "cy": 3419,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7528,
+            "cy": 3398,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5876,
+            "cy": 1290,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 05_2016.jpg2994366": {
+      "filename": "Waterval 05_2016.jpg",
+      "size": 2994366,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5897,
+            "cy": 1318,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7542,
+            "cy": 1317,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5917,
+            "cy": 3453,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7556,
+            "cy": 3439,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 05_2017.jpg2871979": {
+      "filename": "Waterval 05_2017.jpg",
+      "size": 2871979,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5890,
+            "cy": 1255,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7549,
+            "cy": 1269,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5897,
+            "cy": 3398,
+            "r": 601.438
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7549,
+            "cy": 3398,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 05_2018.jpg3081868": {
+      "filename": "Waterval 05_2018.jpg",
+      "size": 3081868,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5876,
+            "cy": 1145,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7514,
+            "cy": 1137,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5890,
+            "cy": 3274,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7528,
+            "cy": 3253,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 05_2020.jpg4110198": {
+      "filename": "Waterval 05_2020.jpg",
+      "size": 4110198,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7577,
+            "cy": 1290,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5945,
+            "cy": 3419,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7570,
+            "cy": 3405,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5932,
+            "cy": 1283,
+            "r": 587.652
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 05_2025.jpg4970180": {
+      "filename": "Waterval 05_2025.jpg",
+      "size": 4970180,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5925,
+            "cy": 1100,
+            "r": 601.438
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7570,
+            "cy": 1114,
+            "r": 601.438
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5932,
+            "cy": 3250,
+            "r": 601.438
+          },
+          "region_attributes": { "clarifier": "Stagnant" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7577,
+            "cy": 3229,
+            "r": 601.438
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 06_2012.jpg2819316": {
+      "filename": "Waterval 06_2012.jpg",
+      "size": 2819316,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5918,
+            "cy": 1127,
+            "r": 584
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7556,
+            "cy": 1141,
+            "r": 584
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5925,
+            "cy": 3263,
+            "r": 584
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7563,
+            "cy": 3277,
+            "r": 584
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 06_2013.jpg2736547": {
+      "filename": "Waterval 06_2013.jpg",
+      "size": 2736547,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5931,
+            "cy": 1196,
+            "r": 586
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7562,
+            "cy": 1203,
+            "r": 586
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5944,
+            "cy": 3325,
+            "r": 586
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7562,
+            "cy": 3339,
+            "r": 586
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 06_2014.jpg3124908": {
+      "filename": "Waterval 06_2014.jpg",
+      "size": 3124908,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5919,
+            "cy": 1187,
+            "r": 586
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7548,
+            "cy": 1194,
+            "r": 586
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5919,
+            "cy": 3318,
+            "r": 586
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7562,
+            "cy": 3311,
+            "r": 586
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 06_2015.jpg2930456": {
+      "filename": "Waterval 06_2015.jpg",
+      "size": 2930456,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5884,
+            "cy": 1286,
+            "r": 586
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7534,
+            "cy": 1258,
+            "r": 590.183
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5891,
+            "cy": 3410,
+            "r": 586
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7541,
+            "cy": 3389,
+            "r": 586
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 06_2018.jpg4078355": {
+      "filename": "Waterval 06_2018.jpg",
+      "size": 4078355,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5911,
+            "cy": 1154,
+            "r": 585
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7556,
+            "cy": 1161,
+            "r": 585
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5925,
+            "cy": 3283,
+            "r": 585
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7556,
+            "cy": 3283,
+            "r": 585
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 06_2021.jpg3804992": {
+      "filename": "Waterval 06_2021.jpg",
+      "size": 3804992,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7556,
+            "cy": 3284,
+            "r": 599
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7549,
+            "cy": 1148,
+            "r": 599
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5918,
+            "cy": 3270,
+            "r": 599
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5904,
+            "cy": 1120,
+            "r": 599
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 07_2011.jpg3059707": {
+      "filename": "Waterval 07_2011.jpg",
+      "size": 3059707,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7556,
+            "cy": 1217,
+            "r": 587.774
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5918,
+            "cy": 3353,
+            "r": 587.774
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7563,
+            "cy": 3346,
+            "r": 587.774
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5918,
+            "cy": 1231,
+            "r": 587.774
+          },
+          "region_attributes": { "clarifier": "Stagnant" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 07_2012.jpg3364229": {
+      "filename": "Waterval 07_2012.jpg",
+      "size": 3364229,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5925,
+            "cy": 1141,
+            "r": 590
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7563,
+            "cy": 1148,
+            "r": 590
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5938,
+            "cy": 3277,
+            "r": 590
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7556,
+            "cy": 3263,
+            "r": 590
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 07_2016.jpg3239155": {
+      "filename": "Waterval 07_2016.jpg",
+      "size": 3239155,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5918,
+            "cy": 1272,
+            "r": 608.39
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7549,
+            "cy": 1265,
+            "r": 608.39
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5918,
+            "cy": 3394,
+            "r": 608.39
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7549,
+            "cy": 3380,
+            "r": 608.39
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 07_2021.jpg3847458": {
+      "filename": "Waterval 07_2021.jpg",
+      "size": 3847458,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5932,
+            "cy": 1127,
+            "r": 588
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7570,
+            "cy": 1134,
+            "r": 588
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5946,
+            "cy": 3270,
+            "r": 588
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7577,
+            "cy": 3256,
+            "r": 588
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 08_2011.jpg4094493": {
+      "filename": "Waterval 08_2011.jpg",
+      "size": 4094493,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5911,
+            "cy": 1162,
+            "r": 601.478
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7563,
+            "cy": 1169,
+            "r": 601.478
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5932,
+            "cy": 3305,
+            "r": 601.478
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7570,
+            "cy": 3284,
+            "r": 601.478
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 08_2013.jpg3966089": {
+      "filename": "Waterval 08_2013.jpg",
+      "size": 3966089,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5952,
+            "cy": 1072,
+            "r": 599
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5965,
+            "cy": 3208,
+            "r": 599
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7597,
+            "cy": 1079,
+            "r": 599
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7590,
+            "cy": 3194,
+            "r": 599
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 08_2015.jpg2835725": {
+      "filename": "Waterval 08_2015.jpg",
+      "size": 2835725,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5918,
+            "cy": 1217,
+            "r": 594.887
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7563,
+            "cy": 1224,
+            "r": 594.887
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5925,
+            "cy": 3353,
+            "r": 594.887
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7563,
+            "cy": 3353,
+            "r": 594.887
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 08_2019.jpg3851329": {
+      "filename": "Waterval 08_2019.jpg",
+      "size": 3851329,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7542,
+            "cy": 1114,
+            "r": 584
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5904,
+            "cy": 3243,
+            "r": 584
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7549,
+            "cy": 3243,
+            "r": 584
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5897,
+            "cy": 1107,
+            "r": 584
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 08_2021.jpg3781257": {
+      "filename": "Waterval 08_2021.jpg",
+      "size": 3781257,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5911,
+            "cy": 1120,
+            "r": 605
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7549,
+            "cy": 1120,
+            "r": 605
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5918,
+            "cy": 3256,
+            "r": 605
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7556,
+            "cy": 3256,
+            "r": 605
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 09_2015.jpg2953823": {
+      "filename": "Waterval 09_2015.jpg",
+      "size": 2953823,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5905,
+            "cy": 1273,
+            "r": 584
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7543,
+            "cy": 1280,
+            "r": 584
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5918,
+            "cy": 3423,
+            "r": 584
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7536,
+            "cy": 3402,
+            "r": 584
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 09_2016.jpg2800488": {
+      "filename": "Waterval 09_2016.jpg",
+      "size": 2800488,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5932,
+            "cy": 1217,
+            "r": 588
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7570,
+            "cy": 1231,
+            "r": 588
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5939,
+            "cy": 3360,
+            "r": 588
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7577,
+            "cy": 3346,
+            "r": 588
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 09_2017.jpg3919338": {
+      "filename": "Waterval 09_2017.jpg",
+      "size": 3919338,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5903,
+            "cy": 1120,
+            "r": 583
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7521,
+            "cy": 1127,
+            "r": 583
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5917,
+            "cy": 3270,
+            "r": 583
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7528,
+            "cy": 3256,
+            "r": 583
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 10_2017.jpg2810062": {
+      "filename": "Waterval 10_2017.jpg",
+      "size": 2810062,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5905,
+            "cy": 1003,
+            "r": 583
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7529,
+            "cy": 1003,
+            "r": 583
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5918,
+            "cy": 3146,
+            "r": 583
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7536,
+            "cy": 3146,
+            "r": 583
+          },
+          "region_attributes": { "clarifier": "Functional" }
+        }
+      ],
+      "file_attributes": {}
+    },
+    "Waterval 12_2018.jpg3152488": {
+      "filename": "Waterval 12_2018.jpg",
+      "size": 3152488,
+      "regions": [
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5932,
+            "cy": 1114,
+            "r": 566.915
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7570,
+            "cy": 1121,
+            "r": 566.915
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 5938,
+            "cy": 3250,
+            "r": 566.915
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        },
+        {
+          "shape_attributes": {
+            "name": "circle",
+            "cx": 7563,
+            "cy": 3250,
+            "r": 566.915
+          },
+          "region_attributes": { "clarifier": "Dysfunctional" }
+        }
+      ],
+      "file_attributes": {}
+    }
+  },
+  "_via_attributes": {
+    "region": {
+      "clarifier": {
+        "type": "dropdown",
+        "description": "secondary settling tank",
+        "options": {
+          "Empty": "Shadows visible inside clarifier",
+          "Stagnant": "Green",
+          "Functional": "Black",
+          "Dysfunctional": "Partially or completely white surface"
+        },
+        "default_options": { "Functional": true }
+      }
+    },
+    "file": {}
+  },
+  "_via_data_format_version": "2.0.10",
+  "_via_image_id_list": [
+    "Waterval 01_2012.jpg4076502",
+    "Waterval 01_2013.jpg2933944",
+    "Waterval 01_2023.jpg4145272",
+    "Waterval 02_2025.jpg4178610",
+    "Waterval 03_2022.jpg3672308",
+    "Waterval 04_2012.jpg2926732",
+    "Waterval 04_2020.jpg3160118",
+    "Waterval 04_2021.jpg3877746",
+    "Waterval 04_2024.jpg4663945",
+    "Waterval 05_2012.jpg3135692",
+    "Waterval 05_2015.jpg2834235",
+    "Waterval 05_2016.jpg2994366",
+    "Waterval 05_2017.jpg2871979",
+    "Waterval 05_2018.jpg3081868",
+    "Waterval 05_2020.jpg4110198",
+    "Waterval 05_2025.jpg4970180",
+    "Waterval 06_2012.jpg2819316",
+    "Waterval 06_2013.jpg2736547",
+    "Waterval 06_2014.jpg3124908",
+    "Waterval 06_2015.jpg2930456",
+    "Waterval 06_2018.jpg4078355",
+    "Waterval 06_2021.jpg3804992",
+    "Waterval 07_2011.jpg3059707",
+    "Waterval 07_2012.jpg3364229",
+    "Waterval 07_2016.jpg3239155",
+    "Waterval 07_2021.jpg3847458",
+    "Waterval 08_2011.jpg4094493",
+    "Waterval 08_2013.jpg3966089",
+    "Waterval 08_2015.jpg2835725",
+    "Waterval 08_2019.jpg3851329",
+    "Waterval 08_2021.jpg3781257",
+    "Waterval 09_2015.jpg2953823",
+    "Waterval 09_2016.jpg2800488",
+    "Waterval 09_2017.jpg3919338",
+    "Waterval 10_2017.jpg2810062",
+    "Waterval 12_2018.jpg3152488"
+  ]
+}
