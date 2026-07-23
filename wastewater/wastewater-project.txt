@@ -1,0 +1,18 @@
+Municipal wastewater treatment works are made up of several process units, each designed for a specific function along the treatment train. Activated sludge is used most for larger treatment plants, and consists of biological reactors with suspended solids (activated sludge) and clarifiers. Biological reactors comprise unaerated zones and aerobic zones. In this project the focus will be on the aerobic zones of the biological reactors and the clarifiers.
+
+*** See "labelled-treatment-works.pdf" for a satellite image of a treatment works with important components labelled.
+
+Aerobic zones in biological reactors allow oxygen to diffuse into the water, by means of mechanical aeration. Different mechanisms of aeration include surface mounted aerators, or Fine Bubble Diffused Aeration (FBDA). In this project, only FBDA will be considered.
+
+Clarifiers are round tanks which are fed from the bioreactors and are designed to separate treated effluent from the activated sludge. Within the clarifiers, the activated sludge settles to the bottom under force of gravity, and is collected to a central hopper, before being returned to the bioreactor to treat incoming wastewater.
+
+To the trained eye, aerial images of aerators and clarifiers can reveal their status and process performance. For example, if an FBDA unit is functional, the surface of the water displays patterns that resemble leopard prints. If it is not working properly, the surface is much smoother. In a similar manner, the surface of a clarifier that is performing well seems almost pitch black, because all light is absorbed into clear liquid. If the clarifier fails, and solids escape, light reflects from these particles, which can be clearly seen.
+
+The aim of this project is to investigate the feasibility of automatically monitoring the performance of aerators and clarifiers for three specific facilities (Atlantis, Cape Flats, and Waterval). For these facilities, the process units in question have been manually identified and labelled at multiple dates. The satellite images were sourced from Google Earth. 
+
+
+
+ 
+
+ 
+
