@@ -1,0 +1,78 @@
+\mychapter{System Methods}{System Methods}{}
+\label{chap:systemmethods}
+
+\section{Dataset}
+
+The dataset used in this project consists of satellite imagery sourced from Google Earth, covering three WWTW facilities: Atlantis, Cape Flats, and Waterval. Each image is a snapshot of a facility's biological reactors at a particular point in time, with filenames encoding the capture date in a \texttt{month\_year} format (e.g.\ \texttt{03\_2024} for March 2024). Where more than one image was available for the same month, this is indicated with a number in brackets, e.g.\ \texttt{Waterval 07\_2016 (2)}.
+
+Each biological reactor in the dataset consists of an aerobic zone and one or more clarifiers, and these are the two components the project focuses on classifying.
+
+\subsection{Annotations}
+
+Images were manually annotated using the VGG Image Annotator (VIA2) tool. Aerobic zones were labelled using rectangular bounding boxes, while clarifiers were labelled using circular regions, reflecting the physical shape of each structure. Each annotation carries a region attribute indicating the visible state of that component at the time the image was captured.
+
+Aerobic zones were labelled into one of three categories, based on how much of the surface exhibits the characteristic "leopard print" aeration pattern:
+
+\begin{itemize}
+    \item \textbf{Functional}: the surface shows the leopard print pattern.
+    \item \textbf{Suboptimal}: a third or more of the surface shows no leopard print, or the state is unclear.
+    \item \textbf{Dysfunctional}: two thirds or more of the surface shows no leopard print, or is clearly dysfunctional.
+\end{itemize}
+
+Clarifiers were labelled into one of four categories, based on surface colour and visibility:
+
+\begin{itemize}
+    \item \textbf{Functional}: surface appears uniformly black.
+    \item \textbf{Dysfunctional}: surface appears green.
+    \item \textbf{Scum}: surface is not uniformly black.
+    \item \textbf{Empty}: shadows are visible inside the tank.
+\end{itemize}
+
+Annotations are stored as VIA2 project files in JSON format. Each entry records the image filename, file size, and a list of regions, where each region specifies its shape (rectangle or circle), pixel coordinates, and the associated class label. An example entry for an aerobic zone annotation is shown below:
+
+\begin{verbatim}
+"Atlantis 01_2019.jpg3469910": {
+  "filename": "Atlantis 01_2019.jpg",
+  "size": 3469910,
+  "regions": [
+    {
+      "shape_attributes": {
+        "name": "rect",
+        "x": 2707, "y": 931,
+        "width": 2839, "height": 1381
+      },
+      "region_attributes": { "aerobic zone": "Dysfunctional" }
+    }
+  ],
+  "file_attributes": {}
+}
+\end{verbatim}
+
+\subsection{Facility Structure}
+
+The three facilities differ slightly in how their data is organised, reflecting differences in plant layout.
+
+\textbf{Atlantis} consists of a single biological reactor, so its 48 images are stored in one folder with no subdivisions. Aerobic zone and clarifier labels are each stored in a single JSON file. An unlabelled overview image of the plant is also included for reference.
+
+\textbf{Cape Flats} consists of four separate reactor units (CF1–CF4), each with its own image folder and containing between 92 and 100 images. Each unit has its own aerobic zone and clarifier label file, giving eight JSON files in total. An overview image of the whole plant is included, along with a version showing the unit numbering, to make it clear which physical unit each folder corresponds to.
+
+\textbf{Waterval} consists of two reactor units, referred to as Top and Bottom, with 37 and 36 images respectively. As with Cape Flats, each unit has its own aerobic zone and clarifier label file. An unlabelled overview of the full plant is also included.
+
+Table~\ref{tab:dataset_summary} summarises the structure of the dataset across the three facilities.
+
+\begin{table}[h]
+\centering
+\caption{Summary of the dataset by facility}
+\label{tab:dataset_summary}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Facility} & \textbf{Units} & \textbf{Images} & \textbf{Label files} \\
+\midrule
+Atlantis   & 1 & 48                 & 2 \\
+Cape Flats & 4 & 382 (96+94+92+100) & 8 \\
+Waterval   & 2 & 73 (37+36)         & 4 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This structural difference between facilities — a single unit at Atlantis, four at Cape Flats, and two at Waterval — is factored into the data pipeline described in Section~\ref{sec:pipeline}, since each facility's images and labels need to be parsed slightly differently before they can be fed into the CNN.

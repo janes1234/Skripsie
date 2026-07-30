@@ -1,0 +1,68 @@
+\documentclass[a4paper,12pt]{stb-thesis}
+
+\input{imports}
+
+\MFUnocap{of} 
+\MFUnocap{using}
+\MFUnocap{vs.}
+\MFUnocap{for}
+\MFUnocap{and}
+\MFUnocap{the}
+
+\definecolor{reviewercolor}{HTML}{008000}
+\definecolor{candidatecolor}{HTML}{6699CC}
+\newcommand{\reviewer}[1]{\textcolor{reviewercolor}{#1}}
+\newcommand{\candidate}[1]{\textcolor{candidatecolor}{#1}}
+\newcommand{\revtodo}[1]{\todo[color=reviewercolor]{Reviewer: #1}}
+\newcommand{\candidatetodo}[1]{\todo[color=candidatecolor]{Candidate: #1}}
+
+\title{Some thesis title}
+\author{Jacob Johannes}{Mostert}
+\newcommand{\Studentnumber}{12345678}
+\faculty{Faculty of Engineering}
+\degree{PhD (Electronic Engineering)}{Doctor of Philosophy (Electronic Engineering)}
+\supervisor[c]{Prof.\ Name Surname}
+
+\input{frontmatter/defined_acronyms}
+\input{frontmatter/definitions}
+
+\begin{document}
+
+\input{frontmatter/title_page}
+\input{frontmatter/dedication}
+\pagenumbering{roman}
+\input{frontmatter/acknowledgements}
+\input{frontmatter/declaration}
+\input{frontmatter/abstract}
+
+\clearpage
+\renewcommand{\contentsname}{Table of Contents}
+\addcontentsline{toc}{chapter}{Table of contents}
+\tableofcontents
+\newpage
+\addcontentsline{toc}{chapter}{List of figures}
+\listoffigures
+\addcontentsline{toc}{chapter}{List of tables}
+\listoftables
+\clearpage
+
+\input{frontmatter/nomenclature}
+\pagenumbering{arabic}
+
+\input{chapters/Chapter1}
+\input{chapters/Chapter2}
+\input{chapters/Chapter3}
+\input{chapters/conclusion}
+
+
+\chapter*{References}\markboth{}{\scshape References}
+\addcontentsline{toc}{chapter}{References}
+\renewcommand{\bibsection}{}
+\nocite{*}
+\bibliographystyle{unsrt}
+\bibliography{mybib}
+
+\appendix
+\input{appendices/appendices}
+
+\end{document}
