@@ -18,6 +18,7 @@ structure suitable for CNN training:
 """
 
 import json
+from collections import defaultdict
 from pathlib import Path
 from PIL import Image
 
@@ -80,6 +81,7 @@ FACILITIES = {
 }
 
 LABELS_SUBDIR = "Labels"
+IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".tif", ".tiff"}
 
 # ------------------------------------------------------------------------------
 
@@ -102,6 +104,14 @@ def load_via2_json(path: Path) -> dict:
         data = json.load(f)
     # VIA2 project files nest the per-image entries under this key
     return data.get("_via_img_metadata", data)
+
+
+def count_images_on_disk(images_dir: Path) -> int:
+    """Count image files actually present in a directory (for a sanity check
+    against how many the prep script manages to process)."""
+    if not images_dir.exists():
+        return 0
+    return sum(1 for p in images_dir.iterdir() if p.suffix.lower() in IMAGE_EXTENSIONS)
 
 
 def region_bbox(shape_attributes: dict) -> tuple[int, int, int, int]:
@@ -153,29 +163,23 @@ def process_json_file(
     unit_label: str,
     counters: dict,
     excluded_counters: dict,
+    facility_class_counts: dict,
     valid_classes: set,
     excluded_classes: set,
 ):
-    """Crop every region in one VIA2 JSON file and save it under its class folder."""
+    """Crop every region in one VIA2 JSON file and save it under its class folder.
+
+    Returns (images_processed, images_missing) so the caller can check the count
+    of images actually processed against how many image files exist on disk.
+    """
+    images_processed = 0
+    images_missing = 0
+
     if not json_path.exists():
         print(f"  [skip] label file not found: {json_path}")
-        return
+        return images_processed, images_missing
 
     img_metadata = load_via2_json(json_path)
-
-    # One-time diagnostic: if the very first expected image isn't found,
-    # print what's actually in the folder so filename mismatches are easy to spot
-    if img_metadata and not images_dir.exists():
-        print(f"  [warn] images directory does not exist at all: {images_dir}")
-    elif img_metadata:
-        first_entry = next(iter(img_metadata.values()))
-        first_filename = first_entry.get("filename", "")
-        if first_filename and not (images_dir / first_filename).exists():
-            actual_files = sorted(p.name for p in images_dir.glob("*"))[:10]
-            print(f"  [diagnostic] expected filename not found: '{first_filename}'")
-            print(f"  [diagnostic] first 10 actual files in {images_dir}:")
-            for f in actual_files:
-                print(f"      {f}")
 
     for entry in img_metadata.values():
         filename = entry.get("filename")
@@ -184,7 +188,7 @@ def process_json_file(
 
         image_path = images_dir / filename
         if not image_path.exists():
-            print(f"  [warn] image not found, skipping: {image_path}")
+            images_missing += 1
             continue
 
         try:
@@ -192,6 +196,8 @@ def process_json_file(
         except Exception as e:
             print(f"  [warn] could not open {image_path}: {e}")
             continue
+
+        images_processed += 1
 
         for i, region in enumerate(entry.get("regions", [])):
             shape_attrs = region.get("shape_attributes", {})
@@ -238,6 +244,22 @@ def process_json_file(
             crop.save(class_dir / out_name, quality=95)
 
             counters[label] = counters.get(label, 0) + 1
+            facility_class_counts[facility_name][label] += 1
+
+    return images_processed, images_missing
+
+
+def print_facility_breakdown(title: str, facility_class_counts: dict, classes: set):
+    """Print a per-facility x per-class table, e.g. how many 'Dysfunctional'
+    crops came from Atlantis vs Cape Flats vs Waterval."""
+    print(f"\n{title} — per facility, per class:")
+    class_list = sorted(classes)
+    header = f"  {'Facility':<12}" + "".join(f"{c:>15}" for c in class_list)
+    print(header)
+    for facility_name in FACILITIES:
+        counts = facility_class_counts.get(facility_name, {})
+        row = f"  {facility_name:<12}" + "".join(f"{counts.get(c, 0):>15}" for c in class_list)
+        print(row)
 
 
 def main():
@@ -245,6 +267,14 @@ def main():
     clarifier_counts = {}
     aerobic_excluded = {}
     clarifier_excluded = {}
+    aerobic_by_facility = defaultdict(lambda: defaultdict(int))
+    clarifier_by_facility = defaultdict(lambda: defaultdict(int))
+
+    # Running totals for the "images on disk" vs "images processed" sanity check
+    total_images_on_disk = 0
+    total_images_processed = 0
+    total_images_missing = 0
+    mismatches = []
 
     for facility_name, facility_cfg in FACILITIES.items():
         facility_root = RAW_DATA_ROOT / facility_name
@@ -256,12 +286,13 @@ def main():
             unit_label = unit["images_dir"] if unit["images_dir"] else facility_name
             images_dir = facility_root / unit["images_dir"] if unit["images_dir"] else facility_root
 
-            print(f" -- unit: {unit_label} ({images_dir})")
+            on_disk = count_images_on_disk(images_dir)
+            print(f" -- unit: {unit_label} ({images_dir}) — {on_disk} image(s) on disk")
 
             aerobic_json = labels_root / unit["aerobic_json"]
             clarifier_json = labels_root / unit["clarifier_json"]
 
-            process_json_file(
+            aerobic_processed, aerobic_missing = process_json_file(
                 json_path=aerobic_json,
                 images_dir=images_dir,
                 attr_key=AEROBIC_ATTR_KEY,
@@ -270,11 +301,12 @@ def main():
                 unit_label=unit_label,
                 counters=aerobic_counts,
                 excluded_counters=aerobic_excluded,
+                facility_class_counts=aerobic_by_facility,
                 valid_classes=AEROBIC_CLASSES,
                 excluded_classes=EXCLUDED_AEROBIC_CLASSES,
             )
 
-            process_json_file(
+            clarifier_processed, clarifier_missing = process_json_file(
                 json_path=clarifier_json,
                 images_dir=images_dir,
                 attr_key=CLARIFIER_ATTR_KEY,
@@ -283,16 +315,50 @@ def main():
                 unit_label=unit_label,
                 counters=clarifier_counts,
                 excluded_counters=clarifier_excluded,
+                facility_class_counts=clarifier_by_facility,
                 valid_classes=CLARIFIER_CLASSES,
                 excluded_classes=EXCLUDED_CLARIFIER_CLASSES,
             )
 
+            # Each image on disk should show up in both the aerobic and the
+            # clarifier JSON for this unit, so compare against both.
+            total_images_on_disk += on_disk
+            total_images_processed += aerobic_processed + clarifier_processed
+            total_images_missing += aerobic_missing + clarifier_missing
+
+            if aerobic_processed != on_disk:
+                mismatches.append(
+                    f"{facility_name}/{unit_label}: {on_disk} image(s) on disk, "
+                    f"{aerobic_processed} matched in aerobic JSON"
+                )
+            if clarifier_processed != on_disk:
+                mismatches.append(
+                    f"{facility_name}/{unit_label}: {on_disk} image(s) on disk, "
+                    f"{clarifier_processed} matched in clarifier JSON"
+                )
+
     print("\n=== Done ===")
     print("Aerobic zone crops per class:", aerobic_counts)
     print("Clarifier crops per class:   ", clarifier_counts)
+
     print("\nExcluded (not saved):")
     print("Aerobic zone excluded:", aerobic_excluded if aerobic_excluded else "none")
     print("Clarifier excluded:   ", clarifier_excluded if clarifier_excluded else "none")
+
+    print_facility_breakdown("Aerobic zone", aerobic_by_facility, AEROBIC_CLASSES)
+    print_facility_breakdown("Clarifier", clarifier_by_facility, CLARIFIER_CLASSES)
+
+    print("\n=== Image count sanity check ===")
+    print(f"Images found on disk (all units):      {total_images_on_disk}")
+    print(f"Images matched in JSON + opened OK:     {total_images_processed}")
+    print(f"Images referenced in JSON but missing:  {total_images_missing}")
+    if mismatches:
+        print("\nMismatches (images on disk != images matched in a JSON file):")
+        for m in mismatches:
+            print(f"  - {m}")
+    else:
+        print("No mismatches — every image on disk was matched in both JSON files.")
+
     print(f"\nOutput written to: {OUTPUT_ROOT.resolve()}")
 
 
