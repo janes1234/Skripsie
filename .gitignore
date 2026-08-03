@@ -25,6 +25,7 @@ TestResults.xml
 #Dataset
 wastewater/
 cnn_dataset/
+cnn_dataset_split/
 
 #python
 .venv/
