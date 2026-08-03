@@ -9,13 +9,11 @@ structure suitable for CNN training:
             Functional/
             Suboptimal/
             Dysfunctional/
-            Empty/
         clarifier/
             Functional/
             Dysfunctional/
             Scum/
             Empty/
-            Stagnant/
 
 """
 
@@ -85,9 +83,13 @@ LABELS_SUBDIR = "Labels"
 
 # ------------------------------------------------------------------------------
 
-
 AEROBIC_CLASSES = {"Functional", "Suboptimal", "Dysfunctional", "Empty"}
 CLARIFIER_CLASSES = {"Functional", "Dysfunctional", "Scum", "Empty", "Stagnant"}
+
+# Classes that are valid annotations but too rare to include in the training set.
+# Regions with these labels are counted and reported, but not cropped/saved.
+EXCLUDED_AEROBIC_CLASSES = {"Empty"}
+EXCLUDED_CLARIFIER_CLASSES = {"Stagnant"}
 
 
 def normalize_label(raw_label: str) -> str:
@@ -150,7 +152,9 @@ def process_json_file(
     facility_name: str,
     unit_label: str,
     counters: dict,
+    excluded_counters: dict,
     valid_classes: set,
+    excluded_classes: set,
 ):
     """Crop every region in one VIA2 JSON file and save it under its class folder."""
     if not json_path.exists():
@@ -205,6 +209,12 @@ def process_json_file(
                     f"(not in {sorted(valid_classes)}) — check this annotation manually"
                 )
 
+            # Skip regions belonging to excluded classes, but still count them
+            # so the totals can be reported at the end
+            if label in excluded_classes:
+                excluded_counters[label] = excluded_counters.get(label, 0) + 1
+                continue
+
             try:
                 box = region_bbox(shape_attrs)
             except ValueError as e:
@@ -233,6 +243,8 @@ def process_json_file(
 def main():
     aerobic_counts = {}
     clarifier_counts = {}
+    aerobic_excluded = {}
+    clarifier_excluded = {}
 
     for facility_name, facility_cfg in FACILITIES.items():
         facility_root = RAW_DATA_ROOT / facility_name
@@ -257,7 +269,9 @@ def main():
                 facility_name=facility_name,
                 unit_label=unit_label,
                 counters=aerobic_counts,
+                excluded_counters=aerobic_excluded,
                 valid_classes=AEROBIC_CLASSES,
+                excluded_classes=EXCLUDED_AEROBIC_CLASSES,
             )
 
             process_json_file(
@@ -268,12 +282,17 @@ def main():
                 facility_name=facility_name,
                 unit_label=unit_label,
                 counters=clarifier_counts,
+                excluded_counters=clarifier_excluded,
                 valid_classes=CLARIFIER_CLASSES,
+                excluded_classes=EXCLUDED_CLARIFIER_CLASSES,
             )
 
     print("\n=== Done ===")
     print("Aerobic zone crops per class:", aerobic_counts)
     print("Clarifier crops per class:   ", clarifier_counts)
+    print("\nExcluded (not saved):")
+    print("Aerobic zone excluded:", aerobic_excluded if aerobic_excluded else "none")
+    print("Clarifier excluded:   ", clarifier_excluded if clarifier_excluded else "none")
     print(f"\nOutput written to: {OUTPUT_ROOT.resolve()}")
 
 

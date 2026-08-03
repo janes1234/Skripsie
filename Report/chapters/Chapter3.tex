@@ -3,7 +3,7 @@
 
 \section{Dataset}
 
-The dataset used in this project consists of satellite imagery sourced from Google Earth, covering three WWTW facilities: Atlantis, Cape Flats, and Waterval. Each image is a snapshot of a facility's biological reactors at a particular point in time, with filenames encoding the capture date in a \texttt{month\_year} format (e.g.\ \texttt{03\_2024} for March 2024). Where more than one image was available for the same month, this is indicated with a number in brackets, e.g.\ \texttt{Waterval 07\_2016 (2)}.
+The dataset used in this project consists of satellite imagery sourced from Google Earth, covering three WWTW facilities: Atlantis, Cape Flats, and Waterval. Each image is a snapshot of a facility's biological reactors at a particular point in time, with filenames encoding the capture date in a \texttt{month\_year} format.
 
 Each biological reactor in the dataset consists of an aerobic zone and one or more clarifiers, and these are the two components the project focuses on classifying.
 
@@ -52,27 +52,98 @@ Annotations are stored as VIA2 project files in JSON format. Each entry records 
 
 The three facilities differ slightly in how their data is organised, reflecting differences in plant layout.
 
-\textbf{Atlantis} consists of a single biological reactor, so its 48 images are stored in one folder with no subdivisions. Aerobic zone and clarifier labels are each stored in a single JSON file. An unlabelled overview image of the plant is also included for reference.
+\textbf{Atlantis} consists of a single biological reactor, so its 48 images are stored in one folder with no subdivisions. Aerobic zone and clarifier labels are each stored in a single JSON file.
 
-\textbf{Cape Flats} consists of four separate reactor units (CF1–CF4), each with its own image folder and containing between 92 and 100 images. Each unit has its own aerobic zone and clarifier label file, giving eight JSON files in total. An overview image of the whole plant is included, along with a version showing the unit numbering, to make it clear which physical unit each folder corresponds to.
+\textbf{Cape Flats} consists of four separate reactor units (CF1–CF4), each with its own image folder and containing between 92 and 100 images. Each unit has its own aerobic zone and clarifier label file.
 
-\textbf{Waterval} consists of two reactor units, referred to as Top and Bottom, with 37 and 36 images respectively. As with Cape Flats, each unit has its own aerobic zone and clarifier label file. An unlabelled overview of the full plant is also included.
+\textbf{Waterval} consists of two reactor units, referred to as Top and Bottom, with 37 and 36 images respectively. Each unit has its own aerobic zone and clarifier label file.
 
 Table~\ref{tab:dataset_summary} summarises the structure of the dataset across the three facilities.
 
 \begin{table}[h]
 \centering
-\caption{Summary of the dataset by facility}
-\label{tab:dataset_summary}
+\caption{Summary of the dataset by facility}\label{tab:dataset_summary}
 \begin{tabular}{lccc}
 \toprule
-\textbf{Facility} & \textbf{Units} & \textbf{Images} & \textbf{Label files} \\
+\textbf{Facility} & \textbf{Units} & \textbf{Images} \\
 \midrule
-Atlantis   & 1 & 48                 & 2 \\
-Cape Flats & 4 & 382 (96+94+92+100) & 8 \\
-Waterval   & 2 & 73 (37+36)         & 4 \\
+Atlantis   & 1 & 48                 \\
+Cape Flats & 4 & 382 (96+94+92+100) \\
+Waterval   & 2 & 73 (37+36)         \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 This structural difference between facilities — a single unit at Atlantis, four at Cape Flats, and two at Waterval — is factored into the data pipeline described in Section~\ref{sec:pipeline}, since each facility's images and labels need to be parsed slightly differently before they can be fed into the CNN.
+
+
+\subsection{Data Preparation}\label{sec:pipeline}
+
+Before the labelled regions can be used to train a CNN, they need to be extracted from the full facility images and organised by class. This is handled by a preparation script (\texttt{prep.py}), which reads the VIA2 annotation files, crops out each labelled region, and saves the crops into a folder structure that can be loaded directly with \texttt{torchvision.datasets.ImageFolder}.
+
+The script processes each facility one unit at a time, since Atlantis, Cape Flats, and Waterval each have a different number of units and label files. For every unit, it opens the aerobic zone and clarifier JSON files separately and works through each image entry in turn.
+
+For each labelled region in an image, the script performs the following steps:
+
+\begin{itemize}
+    \item Reads the shape attributes of the region. Aerobic zones are stored as rectangles, defined by an x and y coordinate along with a width and height. Clarifiers are stored as circles, defined by a centre point and a radius.
+    \item Converts the shape into a bounding box that can be used to crop the image, since Python's Image Library crop function requires a rectangular box even for the circular clarifier regions.
+    \item Clamps the box to the edges of the image, in case a region was drawn slightly outside the image bounds during annotation.
+    \item Reads the class label from the region attributes and checks it against the expected set of classes for that component. Labels are also normalised, so that small inconsistencies in capitalisation from the manual annotation process do not create extra classes.
+    \item Crops the region out of the source image and saves it as a JPG file inside the folder matching its class label.
+\end{itemize}
+
+Each output filename encodes the facility, unit, and original image name, so that a crop can always be traced back to the source image it came from. For example, a crop from unit CF2 at Cape Flats would be saved with a filename beginning \texttt{CapeFlats\_Images-CF2\_...}, followed by the original image name and a region number.
+
+The result is a folder structure with one top-level folder per component and one subfolder per class:
+
+\begin{verbatim}
+cnn_dataset/
+    aerobic_zone/
+        Functional/
+        Suboptimal/
+        Dysfunctional/
+    clarifier/
+        Functional/
+        Dysfunctional/
+        Scum/
+        Empty/
+\end{verbatim}
+
+This structure means the aerobic zone and clarifier crops are treated as two separate classification problems, each with its own set of class folders, rather than a single combined dataset.
+
+Table~\ref{tab:aerobic_counts} and Table~\ref{tab:clarifier_counts} summarise the number of crops produced for each class once the full dataset was processed.
+
+\begin{table}[h]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \caption{Aerobic zone crops per class}\label{tab:aerobic_counts}
+        \begin{tabular}{lc}
+        \toprule
+        \textbf{Class} & \textbf{Crops} \\
+        \midrule
+        Functional    & 693 \\
+        Suboptimal    & 223 \\
+        Dysfunctional & 805 \\
+        \bottomrule
+        \end{tabular}
+    \end{minipage}\hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \caption{Clarifier crops per class}\label{tab:clarifier_counts}
+        \begin{tabular}{lc}
+        \toprule
+        \textbf{Class} & \textbf{Crops} \\
+        \midrule
+        Functional    & 827 \\
+        Dysfunctional & 229 \\
+        Scum          & 679 \\
+        Empty         & 115 \\
+        \bottomrule
+        \end{tabular}
+    \end{minipage}
+\end{table}
+
+\subsubsection{Excluded from the dataset}
+During processing, two annotated classes were found to have too few examples to be usable for training. The aerobic zone dataset contained a single region labelled \textbf{Empty}, and the clarifier dataset contained four regions labelled \textbf{Stagnant}. Both classes were therefore excluded from the final dataset, and the corresponding regions were not cropped or saved. A class with only one or a handful of examples cannot be meaningfully split into training, validation, and test sets, and would not give the CNN enough examples to learn a reliable representation of that class. Including such a small class also risks skewing the overall class balance and encouraging the model to simply ignore it during training, since the loss contribution from so few examples is negligible compared to the other classes. The excluded regions were still counted separately by the preparation script, so their presence in the original annotations is not lost, but they play no further part in the classification task.

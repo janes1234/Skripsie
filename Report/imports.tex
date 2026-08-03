@@ -1,9 +1,7 @@
-% Page layout
-\usepackage[left=3cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
 %\usepackage{cite}
 \usepackage{afterpage}
 \newcommand\blankpage{%
-	\null
+	\null{}
 	\thispagestyle{empty}%
 	\addtocounter{page}{-1}%
 	\newpage}
@@ -13,8 +11,7 @@
 \setcounter{tocdepth}{3}
 
 % Figures
-\usepackage[margin=\the\parindent,small,bf,rm]{caption}
-\usepackage{graphicx}
+\usepackage[margin=\parindent, font=small, labelfont=bf, textfont=rm]{caption}
 \usepackage{pdfpages}
 \setlength{\abovecaptionskip}{8pt}  % spacing above and below captions
 \usepackage{subfig}
@@ -26,7 +23,7 @@
 \usepackage{setspace}
 \newcommand{\myemph}[1]{{\sffamily\bfseries#1}}
 \sloppy
-\onehalfspacing
+\onehalfspacing{}
 \usepackage{enumitem}
 %\setlist[enumerate]{noitemsep, topsep=0pt, partopsep=0pt}
 \usepackage{listings,xfp}
@@ -105,10 +102,10 @@
 % Table of contents
 \usepackage{xcolor,titletoc}
 \makeatletter
-\let\originall@chapter\l@chapter
+\let\originall@chapter\l@chapter{}
 \def\l@chapter#1#2{\originall@chapter{{\rmfamily #1}}{#2}}
 \makeatother
-\let \savenumberline \numberline
+\let \savenumberline \numberline{}
 \def \numberline#1{\savenumberline{#1.}}
 
 % Nomenclaure
@@ -116,7 +113,7 @@
 \usepackage{multicol}
 %\usepackage{scrextend}
 \usepackage{ragged2e}
-\newlength\myitemwidth
+\newlength\myitemwidth{}
 \setlength\myitemwidth{5cm}
 \newlist{myacronymlist}{description}{1}
 \setlist[myacronymlist]{
@@ -147,7 +144,7 @@
 		\acroifT{foreign}{\acrowrite{foreign}, }%
 		\acrowrite{short}%
 		\acroifT{alt}{}%
-		\acrogroupcite
+		\acrogroupcite{}
 		)%
 	}%
 	{\acrowrite{short}}%
