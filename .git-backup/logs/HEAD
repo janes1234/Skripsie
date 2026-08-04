@@ -1,0 +1,16 @@
+0000000000000000000000000000000000000000 8f3139dbe186a9a19ba3c8e6e876b7d3cd7bfe0e Janes <janesmostert@gmail.com> 1785414264 +0200	commit (initial): Recovered project files and added prep file
+8f3139dbe186a9a19ba3c8e6e876b7d3cd7bfe0e 914d6d14c9e07f43288b1652e4ebe7dee782591c Janes <janesmostert@gmail.com> 1785428391 +0200	commit: base cnn
+914d6d14c9e07f43288b1652e4ebe7dee782591c d8f8ae4431997e8d73fd16a7441df6397f0fcb10 Janes <janesmostert@gmail.com> 1785430121 +0200	commit: trained clarifier
+d8f8ae4431997e8d73fd16a7441df6397f0fcb10 f06beddbb434e39bcf76f7f070016dbc8814af76 Janes <janesmostert@gmail.com> 1785430162 +0200	commit: forgot to save
+f06beddbb434e39bcf76f7f070016dbc8814af76 0b87e821d4789d7fa9b82732c96ec61af6dc5451 Janes <janesmostert@gmail.com> 1785495404 +0200	commit: made changes
+0b87e821d4789d7fa9b82732c96ec61af6dc5451 9d144d6c97e69150f76b32139b8b3122d5d58a04 Janes <janesmostert@gmail.com> 1785495443 +0200	pull (start): checkout 9d144d6c97e69150f76b32139b8b3122d5d58a04
+9d144d6c97e69150f76b32139b8b3122d5d58a04 9d144d6c97e69150f76b32139b8b3122d5d58a04 Janes <janesmostert@gmail.com> 1785495443 +0200	pull (finish): returning to refs/heads/main
+9d144d6c97e69150f76b32139b8b3122d5d58a04 e2aade873ec08c4c106e4f52892b45f32ca61ab3 Janes <janesmostert@gmail.com> 1785752663 +0200	pull origin main: Fast-forward
+e2aade873ec08c4c106e4f52892b45f32ca61ab3 33df0c89407db6b1832761aa3af15021617a5a3e Janes <janesmostert@gmail.com> 1785761638 +0200	commit: trained new data
+33df0c89407db6b1832761aa3af15021617a5a3e 3b4b95d146f92ec003a25263de0c89ca166e0194 Janes <janesmostert@gmail.com> 1785761674 +0200	commit: traned some data
+3b4b95d146f92ec003a25263de0c89ca166e0194 41adf46b08188a89840a6fee91f87c03e2c9e345 Janes <janesmostert@gmail.com> 1785761681 +0200	pull (start): checkout 41adf46b08188a89840a6fee91f87c03e2c9e345
+41adf46b08188a89840a6fee91f87c03e2c9e345 b028288c4a3e4f4bb828b87ec2cced0f1bc5dc49 Janes <janesmostert@gmail.com> 1785761681 +0200	pull (pick): trained new data
+b028288c4a3e4f4bb828b87ec2cced0f1bc5dc49 9d829d880e8a5adf8b9d0590904707d73f200ba0 Janes <janesmostert@gmail.com> 1785761681 +0200	pull (pick): traned some data
+9d829d880e8a5adf8b9d0590904707d73f200ba0 9d829d880e8a5adf8b9d0590904707d73f200ba0 Janes <janesmostert@gmail.com> 1785761681 +0200	pull (finish): returning to refs/heads/main
+9d829d880e8a5adf8b9d0590904707d73f200ba0 c041d0fd659d45421c8f239a99fd9e90fd5cb90c Janes <janesmostert@gmail.com> 1785783217 +0200	commit: added resnet18
+c041d0fd659d45421c8f239a99fd9e90fd5cb90c 15a6f3caef3f0952df99f929f601bcf8ccac9f9e Janes <janesmostert@gmail.com> 1785783229 +0200	commit: added resnet18
