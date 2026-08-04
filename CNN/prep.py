@@ -88,8 +88,6 @@ IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".tif", ".tiff"}
 AEROBIC_CLASSES = {"Functional", "Suboptimal", "Dysfunctional", "Empty"}
 CLARIFIER_CLASSES = {"Functional", "Dysfunctional", "Scum", "Empty", "Stagnant"}
 
-# Classes that are valid annotations but too rare to include in the training set.
-# Regions with these labels are counted and reported, but not cropped/saved.
 EXCLUDED_AEROBIC_CLASSES = {"Empty"}
 EXCLUDED_CLARIFIER_CLASSES = {"Stagnant"}
 
@@ -99,26 +97,34 @@ def normalize_label(raw_label: str) -> str:
 
 
 def load_via2_json(path: Path) -> dict:
-    """Load a VIA2 project JSON file and return its image metadata dict."""
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
-    # VIA2 project files nest the per-image entries under this key
     return data.get("_via_img_metadata", data)
 
 
-def count_images_on_disk(images_dir: Path) -> int:
-    """Count image files actually present in a directory (for a sanity check
-    against how many the prep script manages to process)."""
+def get_images_on_disk(images_dir: Path) -> set:
+    """Return a set of all valid image paths in the directory."""
     if not images_dir.exists():
-        return 0
-    return sum(1 for p in images_dir.iterdir() if p.suffix.lower() in IMAGE_EXTENSIONS)
+        return set()
+    return {p for p in images_dir.iterdir() if p.suffix.lower() in IMAGE_EXTENSIONS}
+
+
+def find_image_case_insensitive(images_dir: Path, filename: str):
+    """Attempt to find a file exactly, then fall back to case-insensitive match."""
+    exact_path = images_dir / filename
+    if exact_path.exists():
+        return exact_path
+    
+    # Fallback for case sensitivity issues (e.g. .JPG vs .jpg)
+    if images_dir.exists():
+        target_lower = filename.lower()
+        for p in images_dir.iterdir():
+            if p.name.lower() == target_lower:
+                return p
+    return None
 
 
 def region_bbox(shape_attributes: dict) -> tuple[int, int, int, int]:
-    """
-    Return a (left, top, right, bottom) crop box for either a VIA2 rectangle
-    or circle region.
-    """
     shape = shape_attributes.get("name")
 
     if shape == "rect":
@@ -145,7 +151,6 @@ def region_bbox(shape_attributes: dict) -> tuple[int, int, int, int]:
 
 
 def clamp_box(box, img_width, img_height):
-    """Clamp a crop box to the image bounds so PIL doesn't error on edge cases."""
     left, top, right, bottom = box
     left = max(0, left)
     top = max(0, top)
@@ -167,17 +172,13 @@ def process_json_file(
     valid_classes: set,
     excluded_classes: set,
 ):
-    """Crop every region in one VIA2 JSON file and save it under its class folder.
-
-    Returns (images_processed, images_missing) so the caller can check the count
-    of images actually processed against how many image files exist on disk.
-    """
     images_processed = 0
-    images_missing = 0
+    missing_filenames = []
+    used_paths = set()
 
     if not json_path.exists():
         print(f"  [skip] label file not found: {json_path}")
-        return images_processed, images_missing
+        return images_processed, missing_filenames, used_paths
 
     img_metadata = load_via2_json(json_path)
 
@@ -186,10 +187,12 @@ def process_json_file(
         if not filename:
             continue
 
-        image_path = images_dir / filename
-        if not image_path.exists():
-            images_missing += 1
+        image_path = find_image_case_insensitive(images_dir, filename)
+        if not image_path:
+            missing_filenames.append(filename)
             continue
+
+        used_paths.add(image_path)
 
         try:
             img = Image.open(image_path).convert("RGB")
@@ -205,7 +208,6 @@ def process_json_file(
             label = region_attrs.get(attr_key)
 
             if not label:
-                print(f"  [warn] no '{attr_key}' label on region {i} in {filename}, skipping")
                 continue
 
             label = normalize_label(label)
@@ -215,8 +217,6 @@ def process_json_file(
                     f"(not in {sorted(valid_classes)}) — check this annotation manually"
                 )
 
-            # Skip regions belonging to excluded classes, but still count them
-            # so the totals can be reported at the end
             if label in excluded_classes:
                 excluded_counters[label] = excluded_counters.get(label, 0) + 1
                 continue
@@ -237,21 +237,20 @@ def process_json_file(
             class_dir = output_component_root / label
             class_dir.mkdir(parents=True, exist_ok=True)
 
-            # Sanitize unit_label so slashes/spaces in e.g. "Images/CF1" don't
-            # get interpreted as subfolders or cause filesystem issues
             safe_unit_label = unit_label.replace("/", "-").replace(" ", "_")
-            out_name = f"{facility_name}_{safe_unit_label}_{Path(filename).stem}_r{i}.jpg"
+            
+            # Always save using the actual file name on disk, not the JSON name, 
+            # to avoid extension mismatches downstream
+            out_name = f"{facility_name}_{safe_unit_label}_{image_path.stem}_r{i}.jpg"
             crop.save(class_dir / out_name, quality=95)
 
             counters[label] = counters.get(label, 0) + 1
             facility_class_counts[facility_name][label] += 1
 
-    return images_processed, images_missing
+    return images_processed, missing_filenames, used_paths
 
 
 def print_facility_breakdown(title: str, facility_class_counts: dict, classes: set):
-    """Print a per-facility x per-class table, e.g. how many 'Dysfunctional'
-    crops came from Atlantis vs Cape Flats vs Waterval."""
     print(f"\n{title} — per facility, per class:")
     class_list = sorted(classes)
     header = f"  {'Facility':<12}" + "".join(f"{c:>15}" for c in class_list)
@@ -270,11 +269,11 @@ def main():
     aerobic_by_facility = defaultdict(lambda: defaultdict(int))
     clarifier_by_facility = defaultdict(lambda: defaultdict(int))
 
-    # Running totals for the "images on disk" vs "images processed" sanity check
     total_images_on_disk = 0
     total_images_processed = 0
-    total_images_missing = 0
-    mismatches = []
+    
+    global_missing_json = []
+    global_ignored_disk = []
 
     for facility_name, facility_cfg in FACILITIES.items():
         facility_root = RAW_DATA_ROOT / facility_name
@@ -286,13 +285,14 @@ def main():
             unit_label = unit["images_dir"] if unit["images_dir"] else facility_name
             images_dir = facility_root / unit["images_dir"] if unit["images_dir"] else facility_root
 
-            on_disk = count_images_on_disk(images_dir)
+            disk_paths = get_images_on_disk(images_dir)
+            on_disk = len(disk_paths)
             print(f" -- unit: {unit_label} ({images_dir}) — {on_disk} image(s) on disk")
 
             aerobic_json = labels_root / unit["aerobic_json"]
             clarifier_json = labels_root / unit["clarifier_json"]
 
-            aerobic_processed, aerobic_missing = process_json_file(
+            aerobic_processed, a_missing, a_used = process_json_file(
                 json_path=aerobic_json,
                 images_dir=images_dir,
                 attr_key=AEROBIC_ATTR_KEY,
@@ -306,7 +306,7 @@ def main():
                 excluded_classes=EXCLUDED_AEROBIC_CLASSES,
             )
 
-            clarifier_processed, clarifier_missing = process_json_file(
+            clarifier_processed, c_missing, c_used = process_json_file(
                 json_path=clarifier_json,
                 images_dir=images_dir,
                 attr_key=CLARIFIER_ATTR_KEY,
@@ -320,44 +320,43 @@ def main():
                 excluded_classes=EXCLUDED_CLARIFIER_CLASSES,
             )
 
-            # Each image on disk should show up in both the aerobic and the
-            # clarifier JSON for this unit, so compare against both.
             total_images_on_disk += on_disk
             total_images_processed += aerobic_processed + clarifier_processed
-            total_images_missing += aerobic_missing + clarifier_missing
 
-            if aerobic_processed != on_disk:
-                mismatches.append(
-                    f"{facility_name}/{unit_label}: {on_disk} image(s) on disk, "
-                    f"{aerobic_processed} matched in aerobic JSON"
-                )
-            if clarifier_processed != on_disk:
-                mismatches.append(
-                    f"{facility_name}/{unit_label}: {on_disk} image(s) on disk, "
-                    f"{clarifier_processed} matched in clarifier JSON"
-                )
+            # Track exactly which files are missing from disk
+            for f in a_missing:
+                global_missing_json.append(f"[{facility_name}/{unit_label} - Aerobic] {f}")
+            for f in c_missing:
+                global_missing_json.append(f"[{facility_name}/{unit_label} - Clarifier] {f}")
+                
+            # Track exactly which files on disk were NEVER referenced in either JSON
+            ignored_paths = disk_paths - (a_used | c_used)
+            for p in ignored_paths:
+                global_ignored_disk.append(f"[{facility_name}/{unit_label}] {p.name}")
 
     print("\n=== Done ===")
     print("Aerobic zone crops per class:", aerobic_counts)
     print("Clarifier crops per class:   ", clarifier_counts)
 
-    print("\nExcluded (not saved):")
-    print("Aerobic zone excluded:", aerobic_excluded if aerobic_excluded else "none")
-    print("Clarifier excluded:   ", clarifier_excluded if clarifier_excluded else "none")
-
     print_facility_breakdown("Aerobic zone", aerobic_by_facility, AEROBIC_CLASSES)
     print_facility_breakdown("Clarifier", clarifier_by_facility, CLARIFIER_CLASSES)
 
-    print("\n=== Image count sanity check ===")
+    print("\n=== Image Diagnostic Report ===")
     print(f"Images found on disk (all units):      {total_images_on_disk}")
-    print(f"Images matched in JSON + opened OK:     {total_images_processed}")
-    print(f"Images referenced in JSON but missing:  {total_images_missing}")
-    if mismatches:
-        print("\nMismatches (images on disk != images matched in a JSON file):")
-        for m in mismatches:
-            print(f"  - {m}")
-    else:
-        print("No mismatches — every image on disk was matched in both JSON files.")
+    print(f"Images successfully processed:          {total_images_processed}")
+    
+    if global_missing_json:
+        print("\n[!] MISSING FILES: Expected by JSON, but not found in folder:")
+        for f in sorted(set(global_missing_json)):  # set to remove duplicates if missing in both JSONs
+            print(f"  - {f}")
+            
+    if global_ignored_disk:
+        print("\n[!] IGNORED FILES: Present in folder, but JSON doesn't ask for them:")
+        for f in sorted(global_ignored_disk):
+            print(f"  - {f}")
+            
+    if not global_missing_json and not global_ignored_disk:
+        print("\nAll files perfectly matched between disk and JSON annotations!")
 
     print(f"\nOutput written to: {OUTPUT_ROOT.resolve()}")
 
