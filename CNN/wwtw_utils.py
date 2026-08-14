@@ -47,7 +47,7 @@ print(f"Using device: {device}")
 # ------------------------- CONFIG -------------------------
 
 DATASET_ROOT = Path("../cnn_dataset_split")   # adjust if your output folder is elsewhere
-COMPONENT = "clarifier"              # "aerobic_zone" or "clarifier"
+COMPONENT = "aerobic_zone"              # "aerobic_zone" or "clarifier"
 
 # (height, width) — aerobic zones are ~2:1 (wide rectangles), clarifiers are
 # closer to square since they're circular tank crops. Adjust if your actual
@@ -72,7 +72,7 @@ RESULTS_DIR = Path("../results")   # where per-model results_*.pkl files are wri
 # ------------------------------------------------------------------
 
 data_dir = DATASET_ROOT / COMPONENT
-assert data_dir.exists(), f"Dataset folder not found: {data_dir}. Run prep.py first."
+assert data_dir.exists(), f"Dataset folder not found: {data_dir}. Run prepare_cnn_dataset.py first."
 
 torch.manual_seed(SEED)
 
@@ -477,7 +477,7 @@ def save_result(model_key, save_name):
         "component": COMPONENT,
     }
     import pickle
-    pkl_path = RESULTS_DIR / f"results_{save_name}.pkl"
+    pkl_path = RESULTS_DIR / f"results_{COMPONENT}_{save_name}.pkl"
     with open(pkl_path, "wb") as f:
         pickle.dump(pickle_payload, f)
     print(f"Saved results to {pkl_path}")
@@ -518,6 +518,24 @@ ARCH_HYPERPARAMS = {
         hidden_layers=3, neurons=2048,
         lr=1.42756669e-04, beta1=5.190841e-17, step_size=21, batch_size=17,
         img_size=(299, 299),
+    ),
+    # EfficientNet-B0 wasn't part of the original grid search / Bayesian
+    # tuning sweep, so these are sensible defaults rather than tuned values:
+    # a middling classifier head (matching the other architectures), a
+    # standard Adam beta1, and a StepLR schedule. Adjust freely if you want
+    # to run your own tuning pass for it.
+    "efficientnet_b0": dict(
+        hidden_layers=3, neurons=1024,
+        lr=1e-4, beta1=0.9, step_size=15, batch_size=32,
+        img_size=IMG_TARGET_SIZE,
+    ),
+    # Also not part of the original tuning sweep — sensible defaults again.
+    # ConvNeXt is a heavier/slower backbone than the others, so it gets a
+    # smaller default batch size and a slightly lower LR to start.
+    "convnext_tiny": dict(
+        hidden_layers=3, neurons=1024,
+        lr=5e-5, beta1=0.9, step_size=15, batch_size=24,
+        img_size=IMG_TARGET_SIZE,
     ),
 }
 

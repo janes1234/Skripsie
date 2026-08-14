@@ -78,6 +78,22 @@ FACILITIES = {
             },
         ]
     },
+    "Fisantekraal": {
+            "units": [
+                {
+                    "images_dir": "Images",
+                    "clarifier_json": "Fisantekraal Clarifiers.json",
+                }
+            ]
+        },
+        "NoordelikeWerke": {
+                "units": [
+                    {
+                        "images_dir": "Images",
+                        "clarifier_json": "Noordelike Werke Clarifiers.json",
+                    }
+                ]
+            },
 }
 
 LABELS_SUBDIR = "Labels"
@@ -282,43 +298,56 @@ def main():
         print(f"\n=== {facility_name} ===")
 
         for unit in facility_cfg["units"]:
-            unit_label = unit["images_dir"] if unit["images_dir"] else facility_name
-            images_dir = facility_root / unit["images_dir"] if unit["images_dir"] else facility_root
+            # Safely fetch the images directory 
+            unit_img_dir = unit.get("images_dir")
+            unit_label = unit_img_dir if unit_img_dir else facility_name
+            images_dir = facility_root / unit_img_dir if unit_img_dir else facility_root
 
             disk_paths = get_images_on_disk(images_dir)
             on_disk = len(disk_paths)
             print(f" -- unit: {unit_label} ({images_dir}) — {on_disk} image(s) on disk")
 
-            aerobic_json = labels_root / unit["aerobic_json"]
-            clarifier_json = labels_root / unit["clarifier_json"]
+            # Safely get the filenames (returns None if the key doesn't exist)
+            aerobic_json_name = unit.get("aerobic_json")
+            clarifier_json_name = unit.get("clarifier_json")
 
-            aerobic_processed, a_missing, a_used = process_json_file(
-                json_path=aerobic_json,
-                images_dir=images_dir,
-                attr_key=AEROBIC_ATTR_KEY,
-                output_component_root=OUTPUT_ROOT / "aerobic_zone",
-                facility_name=facility_name,
-                unit_label=unit_label,
-                counters=aerobic_counts,
-                excluded_counters=aerobic_excluded,
-                facility_class_counts=aerobic_by_facility,
-                valid_classes=AEROBIC_CLASSES,
-                excluded_classes=EXCLUDED_AEROBIC_CLASSES,
-            )
+            # Process Aerobic JSON if it exists in the config
+            if aerobic_json_name:
+                aerobic_json = labels_root / aerobic_json_name
+                aerobic_processed, a_missing, a_used = process_json_file(
+                    json_path=aerobic_json,
+                    images_dir=images_dir,
+                    attr_key=AEROBIC_ATTR_KEY,
+                    output_component_root=OUTPUT_ROOT / "aerobic_zone",
+                    facility_name=facility_name,
+                    unit_label=unit_label,
+                    counters=aerobic_counts,
+                    excluded_counters=aerobic_excluded,
+                    facility_class_counts=aerobic_by_facility,
+                    valid_classes=AEROBIC_CLASSES,
+                    excluded_classes=EXCLUDED_AEROBIC_CLASSES,
+                )
+            else:
+                aerobic_processed, a_missing, a_used = 0, [], set()
 
-            clarifier_processed, c_missing, c_used = process_json_file(
-                json_path=clarifier_json,
-                images_dir=images_dir,
-                attr_key=CLARIFIER_ATTR_KEY,
-                output_component_root=OUTPUT_ROOT / "clarifier",
-                facility_name=facility_name,
-                unit_label=unit_label,
-                counters=clarifier_counts,
-                excluded_counters=clarifier_excluded,
-                facility_class_counts=clarifier_by_facility,
-                valid_classes=CLARIFIER_CLASSES,
-                excluded_classes=EXCLUDED_CLARIFIER_CLASSES,
-            )
+            # Process Clarifier JSON if it exists in the config
+            if clarifier_json_name:
+                clarifier_json = labels_root / clarifier_json_name
+                clarifier_processed, c_missing, c_used = process_json_file(
+                    json_path=clarifier_json,
+                    images_dir=images_dir,
+                    attr_key=CLARIFIER_ATTR_KEY,
+                    output_component_root=OUTPUT_ROOT / "clarifier",
+                    facility_name=facility_name,
+                    unit_label=unit_label,
+                    counters=clarifier_counts,
+                    excluded_counters=clarifier_excluded,
+                    facility_class_counts=clarifier_by_facility,
+                    valid_classes=CLARIFIER_CLASSES,
+                    excluded_classes=EXCLUDED_CLARIFIER_CLASSES,
+                )
+            else:
+                clarifier_processed, c_missing, c_used = 0, [], set()
 
             total_images_on_disk += on_disk
             total_images_processed += aerobic_processed + clarifier_processed
