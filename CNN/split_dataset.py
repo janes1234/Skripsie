@@ -2,29 +2,19 @@
 Splits the WWTW CNN dataset into train, validation, and test sets.
 
 Stratifies by (facility, unit, class) so no single facility/unit dominates a
-split. Within each (facility, unit, class) group, images are sorted by
-filename (which encodes capture order/date) and split chronologically —
-train gets the earliest images, val the next slice, test the most recent —
-rather than randomly. This is deliberate: it prevents near-duplicate frames
-from the same capture session leaking across train/test, and gives a more
-honest read on how the model generalizes to *future* imagery rather than
-just held-out imagery from the same time period.
+split. Within each (facility, unit, class) group, images are randomly shuffled 
+to ensure a diverse mix of capture dates across train, val, and test splits.
 
-Two things this version adds on top of a plain chronological block split:
-
-1. BOUNDARY_GAP — a small number of images dropped at each split boundary
-   within a group, so two frames captured back-to-back can't end up on
-   opposite sides of a cutoff (temporally-adjacent frames are the most
-   likely to be near-duplicates).
-2. Small-group guarantees — if a group is large enough to plausibly contain
-   a val/test image but the ratio-based split would round it down to 0,
-   this pulls one image over from train rather than silently leaving that
-   class/facility combo with zero evaluation coverage. Groups too small for
-   even that are reported explicitly at the end so you know which classes
-   have thin evaluation coverage.
+Small-group guarantees: if a group is large enough to plausibly contain
+a val/test image but the ratio-based split would round it down to 0,
+this pulls one image over from train rather than silently leaving that
+class/facility combo with zero evaluation coverage. Groups too small for
+even that are reported explicitly at the end so you know which classes
+have thin evaluation coverage.
 """
 
 import shutil
+import random
 from pathlib import Path
 from collections import defaultdict
 
@@ -32,19 +22,17 @@ from collections import defaultdict
 INPUT_ROOT = Path("../cnn_dataset")
 OUTPUT_ROOT = Path("../cnn_dataset_split")
 
-SPLIT_RATIOS = {"train": 0.70, "val": 0.15, "test": 0.15}
+# Updated to 70/20/10 split
+SPLIT_RATIOS = {"train": 0.70, "val": 0.20, "test": 0.10}
 COMPONENTS = ["aerobic_zone", "clarifier"]
-
-# Number of images dropped at each split boundary within a (facility, unit,
-# class) group, to reduce leakage from temporally-adjacent near-duplicate
-# frames. Only applied when the group is large enough to absorb it.
-BOUNDARY_GAP = 1
 
 # If a group has at least this many images, guarantee at least 1 ends up in
 # val and 1 in test even if the ratio would round down to 0. Set to None to
-# disable and fall back to pure ratio-based rounding (the old behaviour).
+# disable and fall back to pure ratio-based rounding.
 MIN_GROUP_SIZE_FOR_GUARANTEE = 3
 
+# Seed for reproducibility so the random splits are identical across runs
+RANDOM_SEED = 42
 # ---------------------------------------------------------
 
 
@@ -60,10 +48,10 @@ def get_facility_and_unit(filename: str) -> str:
     return "Unknown_Unit"
 
 
-def split_group(images, gap=BOUNDARY_GAP, min_size_for_guarantee=MIN_GROUP_SIZE_FOR_GUARANTEE):
+def split_group(images, min_size_for_guarantee=MIN_GROUP_SIZE_FOR_GUARANTEE):
     """
-    Split a single (facility, unit, class) group of images, sorted
-    chronologically, into train/val/test.
+    Split a single (facility, unit, class) group of images (already shuffled)
+    into train/val/test.
 
     Returns (train_imgs, val_imgs, test_imgs).
     """
@@ -72,7 +60,7 @@ def split_group(images, gap=BOUNDARY_GAP, min_size_for_guarantee=MIN_GROUP_SIZE_
     if n_total == 0:
         return [], [], []
 
-    # --- base chronological block split (ratio-based) ---
+    # --- base random block split (ratio-based) ---
     n_train = int(n_total * SPLIT_RATIOS["train"])
     n_val = int(n_total * SPLIT_RATIOS["val"])
     # whatever's left goes to test, so rounding doesn't drop images
@@ -87,13 +75,7 @@ def split_group(images, gap=BOUNDARY_GAP, min_size_for_guarantee=MIN_GROUP_SIZE_
             n_test = 1
             n_train -= 1
 
-    # --- boundary gap: drop a couple of images at each cutoff so
-    #     temporally-adjacent frames can't straddle a split boundary ---
-    # Only apply if there's enough room left in train after the guarantee
-    # step above; never eat into val/test, which are already thin.
-    effective_gap = gap if (n_train - 2 * gap) > 0 else 0
-
-    train_end = max(n_train - effective_gap, 0)
+    train_end = n_train
     val_start = n_train
     val_end = n_train + n_val
     test_start = val_end
@@ -106,6 +88,9 @@ def split_group(images, gap=BOUNDARY_GAP, min_size_for_guarantee=MIN_GROUP_SIZE_
 
 
 def main():
+    # Set the random seed to ensure consistent splits across runs
+    random.seed(RANDOM_SEED)
+    
     if OUTPUT_ROOT.exists():
         print(f"Cleaning up existing output directory: {OUTPUT_ROOT}")
         shutil.rmtree(OUTPUT_ROOT)
@@ -134,8 +119,11 @@ def main():
                 grouped_images[fac_unit].append(img_path)
 
             for fac_unit, images in sorted(grouped_images.items()):
-                # Sorting naturally orders the dates embedded in the original filenames
+                # Sort first to ensure deterministic ordering before shuffling,
+                # which prevents OS-level file fetching variations from breaking the seed.
                 images.sort(key=lambda p: p.name)
+                # Now randomize the dates/images
+                random.shuffle(images)
 
                 train_imgs, val_imgs, test_imgs = split_group(images)
 

@@ -1,17 +1,56 @@
-\mychapter{System Methods}{System Methods}{}
+
+\mychapter{Dataset}{Dataset}{}
 \label{chap:systemmethods}
 
-\section{Dataset}
 
-The dataset used in this project consists of satellite imagery sourced from Google Earth, covering three WWTW facilities: Atlantis, Cape Flats, and Waterval. Each image is a snapshot of a facility's biological reactors at a particular point in time, with filenames encoding the capture date in a \texttt{month\_year} format.
+The dataset used in this project consists of satellite imagery sourced from Google Earth and covers three WWTW facilities: Atlantis, Cape Flats, and Waterval. Each image is a snapshot of a facility's biological reactors at a particular point in time, with filenames encoding the capture date in a \texttt{month\_year} format.
 
-Each biological reactor in the dataset consists of an aerobic zone and one or more clarifiers, and these are the two components the project focuses on classifying.
 
-\subsection{Annotations}
+\begin{figure}[htbp] 
+    \centering 
+    \includegraphics[width=1\textwidth]{figures/heatmap.png} 
+    \caption{Distribution of Images}\label{fig:heatmap} 
+\end{figure}
+
+As seen in Figure \ref{fig:heatmap}, most images were captured between 2016 and 2022 in the months April to August.
+
+\section{WWTW Sites}
+
+Atlantis WWTW is located on Mission Express Way in Cape Farms, Cape Town. As part of the greater Cape Town municipality, this facility falls within the Western Cape province. Cape Flats WWTW is also situated in the Western Cape, this sewage treatment plant is located on Informal Road in the Southern Suburbs of Cape Town. Waterval WWTW is operated by ERWAT (Ekurhuleni Water Care Company). It is situated in the Gauteng province.
+
+\begin{figure}[htbp] 
+    \centering 
+    \includegraphics[width=0.6\textwidth]{figures/map.png} 
+    \caption{Location of WWTW Facilities}\label{fig:map} 
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/atlantis_overview.png}
+        \caption{Atlantis}\label{fig:atlantis_overview}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/capeflats_overview.png}
+        \caption{Cape Flats}\label{fig:capeflats_overview}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/waterval_overview.png}
+        \caption{Waterval}\label{fig:waterval_overview}
+    \end{subfigure}
+    \caption{Overview of the Atlantis, Cape Flats, and Waterval WWTW facilities.}\label{fig:facility_overviews}
+\end{figure}
+
+\section{Annotations}
 
 Images were manually annotated using the VGG Image Annotator (VIA2) tool. Aerobic zones were labelled using rectangular bounding boxes, while clarifiers were labelled using circular regions, reflecting the physical shape of each structure. Each annotation carries a region attribute indicating the visible state of that component at the time the image was captured.
 
-Aerobic zones were labelled into one of three categories, based on how much of the surface exhibits the characteristic "leopard print" aeration pattern:
+Aerobic zones were labelled into one of three categories, based on how much of the surface exhibits the characteristic "leopard print" aeration pattern. Examples shown in figure \ref{fig:aerobic_examples}:
 
 \begin{itemize}
     \item \textbf{Functional}: the surface shows the leopard print pattern.
@@ -19,7 +58,7 @@ Aerobic zones were labelled into one of three categories, based on how much of t
     \item \textbf{Dysfunctional}: two thirds or more of the surface shows no leopard print, or is clearly dysfunctional.
 \end{itemize}
 
-Clarifiers were labelled into one of four categories, based on surface colour and visibility:
+Clarifiers were labelled into one of four categories, based on surface colour and visibility. Examples shown in figure \ref{fig:clarifier_examples}:
 
 \begin{itemize}
     \item \textbf{Functional}: surface appears uniformly black.
@@ -27,6 +66,8 @@ Clarifiers were labelled into one of four categories, based on surface colour an
     \item \textbf{Scum}: surface is not uniformly black.
     \item \textbf{Empty}: shadows are visible inside the tank.
 \end{itemize}
+
+
 
 Annotations are stored as VIA2 project files in JSON format. Each entry records the image filename, file size, and a list of regions, where each region specifies its shape (rectangle or circle), pixel coordinates, and the associated class label. An example entry for an aerobic zone annotation is shown below:
 
@@ -48,7 +89,19 @@ Annotations are stored as VIA2 project files in JSON format. Each entry records 
 }
 \end{verbatim}
 
-\subsection{Facility Structure}
+\begin{figure}[htbp]
+    \centering 
+    \includegraphics[width=0.75\textwidth]{figures/aerobic_examples.png} 
+    \caption{Examples of Aerobic Zone classes}\label{fig:aerobic_examples}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering 
+    \includegraphics[width=0.75\textwidth]{figures/clarifier_examples.png} 
+    \caption{Examples of Clarifier classes}\label{fig:clarifier_examples}
+\end{figure}
+
+\section{Facility Structure}
 
 The three facilities differ slightly in how their data is organised, reflecting differences in plant layout.
 
@@ -77,7 +130,7 @@ Waterval   & 2 & 73 (37+36)         \\
 This structural difference between facilities — a single unit at Atlantis, four at Cape Flats, and two at Waterval — is factored into the data pipeline described in Section~\ref{sec:pipeline}, since each facility's images and labels need to be parsed slightly differently before they can be fed into the CNN.
 
 
-\subsection{Data Preparation}\label{sec:pipeline}
+\section{Data Preparation}\label{sec:pipeline}
 
 Before the labelled regions can be used to train a CNN, they need to be extracted from the full facility images and organised by class. This is handled by a preparation script (\texttt{prep.py}), which reads the VIA2 annotation files, crops out each labelled region, and saves the crops into a folder structure that can be loaded directly with \texttt{torchvision.datasets.ImageFolder}.
 
@@ -103,47 +156,61 @@ cnn_dataset/
         Functional/
         Suboptimal/
         Dysfunctional/
+        Empty/
     clarifier/
         Functional/
         Dysfunctional/
         Scum/
         Empty/
+        Stagnant/
 \end{verbatim}
 
-This structure means the aerobic zone and clarifier crops are treated as two separate classification problems, each with its own set of class folders, rather than a single combined dataset.
+This structure means the aerobic zone and clarifier sub-images are treated as two separate classification problems, each with its own set of class folders, rather than a single combined dataset.
 
-Table~\ref{tab:aerobic_counts} and Table~\ref{tab:clarifier_counts} summarise the number of crops produced for each class once the full dataset was processed.
 
-\begin{table}[h]
-    \centering
-    \begin{minipage}{0.45\textwidth}
-        \centering
-        \caption{Aerobic zone crops per class}\label{tab:aerobic_counts}
-        \begin{tabular}{lc}
-        \toprule
-        \textbf{Class} & \textbf{Crops} \\
-        \midrule
-        Functional    & 693 \\
-        Suboptimal    & 223 \\
-        Dysfunctional & 805 \\
-        \bottomrule
-        \end{tabular}
-    \end{minipage}\hfill
-    \begin{minipage}{0.45\textwidth}
-        \centering
-        \caption{Clarifier crops per class}\label{tab:clarifier_counts}
-        \begin{tabular}{lc}
-        \toprule
-        \textbf{Class} & \textbf{Crops} \\
-        \midrule
-        Functional    & 827 \\
-        Dysfunctional & 229 \\
-        Scum          & 679 \\
-        Empty         & 115 \\
-        \bottomrule
-        \end{tabular}
-    \end{minipage}
-\end{table}
-
-\subsubsection{Excluded from the dataset}
+\section{Excluded from the dataset}
 During processing, two annotated classes were found to have too few examples to be usable for training. The aerobic zone dataset contained a single region labelled \textbf{Empty}, and the clarifier dataset contained four regions labelled \textbf{Stagnant}. Both classes were therefore excluded from the final dataset, and the corresponding regions were not cropped or saved. A class with only one or a handful of examples cannot be meaningfully split into training, validation, and test sets, and would not give the CNN enough examples to learn a reliable representation of that class. Including such a small class also risks skewing the overall class balance and encouraging the model to simply ignore it during training, since the loss contribution from so few examples is negligible compared to the other classes. The excluded regions were still counted separately by the preparation script, so their presence in the original annotations is not lost, but they play no further part in the classification task.
+
+
+
+\section{Summary Table}
+\begin{table}[htbp]
+    \centering
+    \caption{Summary of image counts per class for the Aerobic Zones.}
+    \label{tab:aerobic_summary}
+    \begin{tabular}{l rrr}
+        \toprule
+        \textbf{Facility} & \textbf{Dysfunctional} & \textbf{Functional} & \textbf{Suboptimal} \\
+        \midrule
+        Atlantis        & 14  & 58  & 19  \\
+        Cape Flats 1    & 113 & 44  & 37  \\
+        Cape Flats 2    & 146 & 21  & 21  \\
+        Cape Flats 3    & 137 & 15  & 32  \\
+        Cape Flats 4    & 166 & 12  & 22  \\
+        Waterval Top    & 85  & 344 & 15  \\
+        Waterval Bottom & 144 & 199 & 77  \\
+        \midrule
+        \textbf{TOTAL}  & \textbf{805} & \textbf{693} & \textbf{223} \\
+        \bottomrule
+    \end{tabular}
+    
+    \vspace{2.5em} % Adds comfortable vertical spacing between the two tables
+    
+    \caption{Summary of image counts per class for the Clarifiers.}
+    \label{tab:clarifier_summary}
+    \begin{tabular}{l rrrr}
+        \toprule
+        \textbf{Facility} & \textbf{Dysfunctional} & \textbf{Empty} & \textbf{Functional} & \textbf{Scum} \\
+        \midrule
+        Atlantis        & 0   & 2   & 36  & 52  \\
+        Cape Flats 1    & 31  & 60  & 177 & 76  \\
+        Cape Flats 2    & 60  & 33  & 181 & 90  \\
+        Cape Flats 3    & 19  & 19  & 209 & 121 \\
+        Cape Flats 4    & 41  & 1   & 129 & 229 \\
+        Waterval Top    & 71  & 0   & 69  & 0   \\
+        Waterval Bottom & 7   & 0   & 26  & 111 \\
+        \midrule
+        \textbf{TOTAL}  & \textbf{229} & \textbf{115} & \textbf{827} & \textbf{679} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
