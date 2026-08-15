@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex thesis"] 1786797993.78441 "thesis.aux" "thesis.bbl" "thesis" 1786797996.6969 0
+["bibtex thesis"] 1786806387.65621 "thesis.aux" "thesis.bbl" "thesis" 1786806391.15047 0
   "./mybib.bib" 1784906518.34861 345 3308a655ab777eec9e86a4530443dc1b ""
   "/home/janes-mostert/.TinyTeX/texmf-dist/bibtex/bst/ieeetran/IEEEtranN.bst" 1440712899 63583 d34cb6c328acc69716207f4a3421ad46 ""
-  "thesis.aux" 1786797996.2766 12224 bbdf6a5862a989c75d75540c9031e123 "pdflatex"
+  "thesis.aux" 1786806390.65335 12222 65c1259f2e9a7bd306796b1a36370c24 "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1786797993.88534 "/home/janes-mostert/Desktop/Repo/Skripsie/Report/thesis.tex" "thesis.pdf" "thesis" 1786797996.69713 0
+["pdflatex"] 1786806387.74521 "/home/janes-mostert/Desktop/Repo/Skripsie/Report/thesis.tex" "thesis.pdf" "thesis" 1786806391.15072 0
   "/home/janes-mostert/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/home/janes-mostert/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc" 1202520719 2840 216e6e45ad352e2456e1149f28885bee ""
   "/home/janes-mostert/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc" 1254269338 3031 6c4d3515bf7115d8518af1c9ab97ca44 ""
@@ -313,10 +313,10 @@
   "/home/janes-mostert/Desktop/Repo/Skripsie/Report/thesis.tex" 1786794215.20493 1743 36f4ccc201f466efe4dddc8a309246a4 ""
   "appendices/an_appendix.tex" 1784906518.34764 106 050187cbc0bb2c5e0fab17bdef4605f8 ""
   "appendices/appendices.tex" 1784906518.34777 30 b38664e72b1f7783f5da554d40e45df4 ""
-  "chapters/Background.tex" 1786797990.2767 6068 d11f1b0846b111718b8e9467b32b1c10 ""
+  "chapters/Background.tex" 1786798069.0075 6068 d11f1b0846b111718b8e9467b32b1c10 ""
   "chapters/Chapter2.tex" 1786797640.42711 1518 54352c18b545894b392177f9eef65684 ""
   "chapters/Chapter3.tex" 1784906518.34797 109 1b42af46fca6783ea8a2c56135dd219b ""
-  "chapters/Chapter4.tex" 1786797153.20272 13513 55493d21d61c7c3da286c9626c52ccd6 ""
+  "chapters/Chapter4.tex" 1786806384.46115 13542 104a27c3f885d9185b8911636d100c87 ""
   "chapters/conclusion.tex" 1785603639.93674 119 e0ff3ed770a514c55f43ac5e030b5381 ""
   "figures/aerobic_examples.png" 1786711265.98704 283026 415a91fc13ab99367cc8e3b8f86d9862 ""
   "figures/aerobicdysfunc_background.png" 1786786127.14146 730831 97f4dd1c5548ca71e07e89c0e1f34304 ""
@@ -344,14 +344,14 @@
   "stb-thesis.afr" 1784906518.35161 2637 d9bb3c388f47bdd818ec4d95578ad094 ""
   "stb-thesis.cls" 1784906518.35161 25170 2cad7ddd22582eefe95b767cc4481e31 ""
   "stb-thesis.eng" 1784906518.35161 2649 30a323160db19a3d451f1c2fea9d7c68 ""
-  "thesis.aux" 1786797996.2766 12224 bbdf6a5862a989c75d75540c9031e123 "pdflatex"
-  "thesis.bbl" 1786797993.87664 1211 4858ce9b64d66d10446d341a10654a5c "bibtex thesis"
-  "thesis.lof" 1786797996.28093 1184 c6abcc6288701307a8b736cef372a343 "pdflatex"
-  "thesis.lot" 1786797996.28093 626 6b6ecdf06ff7e3af60d390b0d3fd923b "pdflatex"
+  "thesis.aux" 1786806390.65335 12222 65c1259f2e9a7bd306796b1a36370c24 "pdflatex"
+  "thesis.bbl" 1786806387.73738 1211 4858ce9b64d66d10446d341a10654a5c "bibtex thesis"
+  "thesis.lof" 1786806390.65875 1183 9f0862ed8ad75b7bff005a14e1c4f382 "pdflatex"
+  "thesis.lot" 1786806390.65875 626 6b6ecdf06ff7e3af60d390b0d3fd923b "pdflatex"
   "thesis.nls" 0 -1 0 ""
-  "thesis.out" 1786797996.2796 3541 9b115bd8acc390c2dee43a928d67b021 "pdflatex"
+  "thesis.out" 1786806390.65735 3541 9b115bd8acc390c2dee43a928d67b021 "pdflatex"
   "thesis.tex" 1786794215.20493 1743 36f4ccc201f466efe4dddc8a309246a4 ""
-  "thesis.toc" 1786797996.28093 2065 773641eace786f867b1dd31940ac1a32 "pdflatex"
+  "thesis.toc" 1786806390.65875 2065 773641eace786f867b1dd31940ac1a32 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.lof"
