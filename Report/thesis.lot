@@ -5,9 +5,10 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Summary of the dataset by facility}}{9}{table.caption.15}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces Summary of image counts per class for the Aerobic Zones.}}{12}{table.caption.16}%
-\contentsline {table}{\numberline {3.3}{\ignorespaces Summary of image counts per class for the Clarifiers.}}{12}{table.caption.16}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Summary of the dataset by facility}}{13}{table.caption.16}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Summary of image counts per class for the Aerobic Zones.}}{16}{table.caption.17}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Summary of image counts per class for the Clarifiers.}}{16}{table.caption.17}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsfinish 
