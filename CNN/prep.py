@@ -20,7 +20,7 @@ structure suitable for CNN training:
 import json
 from collections import defaultdict
 from pathlib import Path
-from PIL import Image
+from PIL import Image, ImageDraw
 
 # ------------------------- CONFIG ------------------------
 
@@ -175,6 +175,37 @@ def clamp_box(box, img_width, img_height):
     return left, top, right, bottom
 
 
+def apply_shape_mask(img, shape_attrs):
+    """
+    Draws a black mask outside the annotated VIA2 region to remove 
+    corners, background concrete, and facility-specific shortcut features.
+    """
+    # Create a blank mask (0 = black)
+    mask = Image.new("L", img.size, 0)
+    draw = ImageDraw.Draw(mask)
+    
+    shape = shape_attrs.get("name")
+    
+    # Draw the annotated shape in white (255) onto the mask
+    if shape == "circle":
+        cx, cy, r = shape_attrs["cx"], shape_attrs["cy"], shape_attrs["r"]
+        draw.ellipse((cx - r, cy - r, cx + r, cy + r), fill=255)
+    elif shape == "ellipse":
+        cx, cy, rx, ry = shape_attrs["cx"], shape_attrs["cy"], shape_attrs["rx"], shape_attrs["ry"]
+        draw.ellipse((cx - rx, cy - ry, cx + rx, cy + ry), fill=255)
+    elif shape == "rect":
+        x, y, w, h = shape_attrs["x"], shape_attrs["y"], shape_attrs["width"], shape_attrs["height"]
+        draw.rectangle((x, y, x + w, y + h), fill=255)
+    else:
+        return img  # Fallback if shape is unknown
+        
+    # Create a solid black background image
+    black_bg = Image.new("RGB", img.size, (0, 0, 0))
+    
+    # Composite the original image over the black background using the white mask
+    return Image.composite(img, black_bg, mask)
+
+
 def process_json_file(
     json_path: Path,
     images_dir: Path,
@@ -248,7 +279,8 @@ def process_json_file(
                 print(f"  [warn] degenerate crop box in {filename}, skipping region")
                 continue
 
-            crop = img.crop(box)
+            masked_img = apply_shape_mask(img, shape_attrs)
+            crop = masked_img.crop(box)
 
             class_dir = output_component_root / label
             class_dir.mkdir(parents=True, exist_ok=True)

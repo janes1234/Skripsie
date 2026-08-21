@@ -1,0 +1,352 @@
+{
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Dysfunctional/CapeFlats_Images-CF2_capeflats2_201712_r2.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Dysfunctional/CapeFlats_Images-CF2_capeflats2_202502_r2.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Empty",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF1_capeflats1_201411_r0.jpg": {
+    "true": "Empty",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF1_capeflats1_201610_r2.jpg": {
+    "true": "Empty",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF1_capeflats1_201611_r2.jpg": {
+    "true": "Empty",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF1_capeflats1_201710_r0.jpg": {
+    "true": "Empty",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF1_capeflats1_201905_r0.jpg": {
+    "true": "Empty",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF1_capeflats1_201905_r1.jpg": {
+    "true": "Empty",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF1_capeflats1_201906_r0.jpg": {
+    "true": "Empty",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF1_capeflats1_201906_r1.jpg": {
+    "true": "Empty",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF1_capeflats1_201907_r0.jpg": {
+    "true": "Empty",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF1_capeflats1_201907_r1.jpg": {
+    "true": "Empty",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF3_capeflats3_201303_r1.jpg": {
+    "true": "Empty",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF3_capeflats3_201412_r3.jpg": {
+    "true": "Empty",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF4_capeflats4_201803_r1.jpg": {
+    "true": "Empty",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_201903_r1.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202204_r3.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202207_r1.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202207_r2.jpg": {
+    "true": "Functional",
+    "pred": "Empty",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202207_r3.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202208_r1.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202208_r2.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202208_r3.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202209_r2.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202211_r1.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202212_r1.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202301_r1.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202301_r2.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF2_capeflats2_201112_r1.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF2_capeflats2_201411_r1.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF2_capeflats2_202402_r0.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF2_capeflats2_202402_r2.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF2_capeflats2_202402_r3.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF3_capeflats3_201804_r0.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF3_capeflats3_201804_r1.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF3_capeflats3_201805_r2.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF3_capeflats3_201903_r0.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF3_capeflats3_201903_r2.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF3_capeflats3_201903_r3.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF1_capeflats1_201410_r0.jpg": {
+    "true": "Scum",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF1_capeflats1_201611_r0.jpg": {
+    "true": "Scum",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF1_capeflats1_201906_r3.jpg": {
+    "true": "Scum",
+    "pred": "Empty",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF1_capeflats1_202003_r0.jpg": {
+    "true": "Scum",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF2_capeflats2_202101_r3.jpg": {
+    "true": "Scum",
+    "pred": "Empty",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF2_capeflats2_202106_r1.jpg": {
+    "true": "Scum",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF3_capeflats3_201601_r1.jpg": {
+    "true": "Scum",
+    "pred": "Empty",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF3_capeflats3_201601_r0.jpg": {
+    "true": "Scum",
+    "pred": "Empty",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF4_capeflats4_202010_r0.jpg": {
+    "true": "Scum",
+    "pred": "Empty",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF4_capeflats4_202009_r0.jpg": {
+    "true": "Scum",
+    "pred": "Empty",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF4_capeflats4_202011_r0.jpg": {
+    "true": "Scum",
+    "pred": "Empty",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats"
+  }
+}

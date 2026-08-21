@@ -1,0 +1,170 @@
+{
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Dysfunctional/NoordelikeWerke_Images_Northern Works 2018 06_r7.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Dysfunctional/NoordelikeWerke_Images_Northern Works 2018 12_r7.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2013 10_r5.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2015 06_r7.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2015 09_r1.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2015 10_r5.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2019 04_r6.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2019 07_r2.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2021 03_r1.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2020 04_r3.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2020 04_r5.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2020 04_r8.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2021 03_r2.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2021 03_r4.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2021 03_r5.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2021 08_r7.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Scum/NoordelikeWerke_Images_Northern Works 2012 04_r8.jpg": {
+    "true": "Scum",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Scum/NoordelikeWerke_Images_Northern Works 2015 10_r8.jpg": {
+    "true": "Scum",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Scum/NoordelikeWerke_Images_Northern Works 2017 09_r1.jpg": {
+    "true": "Scum",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Scum/NoordelikeWerke_Images_Northern Works 2017 09_r2.jpg": {
+    "true": "Scum",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Scum/NoordelikeWerke_Images_Northern Works 2020 06_r3.jpg": {
+    "true": "Scum",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Scum/NoordelikeWerke_Images_Northern Works 2022 05_r6.jpg": {
+    "true": "Scum",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Scum/NoordelikeWerke_Images_Northern Works 2022 05_r7.jpg": {
+    "true": "Scum",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Scum/NoordelikeWerke_Images_Northern Works 2022 05_r8.jpg": {
+    "true": "Scum",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke"
+  }
+}

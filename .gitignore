@@ -26,6 +26,11 @@ TestResults.xml
 wastewater/
 cnn_dataset/
 cnn_dataset_split/
+cnn_dataset_split_facility_test-Atlantis/
+cnn_dataset_split_facility_test-CapeFlats/
+cnn_dataset_split_facility_test-Fisantekraal/
+cnn_dataset_split_facility_test-NoordelikeWerke/
+cnn_dataset_split_facility_test-Waterval/
 models/
 
 #python

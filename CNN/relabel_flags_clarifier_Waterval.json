@@ -1,0 +1,632 @@
+{
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 01_2012_r0.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 01_2012_r2.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 01_2013_r3.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 02_2025_r2.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 03_2022_r0.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 03_2022_r2.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 04_2012_r0.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Empty",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 04_2012_r1.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 04_2012_r2.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 04_2012_r3.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 04_2021_r0.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 04_2021_r3.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 04_2024_r0.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2012_r0.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2012_r1.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2012_r2.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2015_r1.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2015_r3.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2017_r0.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2017_r1.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2017_r2.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2018_r0.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2020_r0.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2020_r3.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2025_r3.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2012_r0.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2012_r1.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2012_r2.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2012_r3.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2013_r0.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2013_r1.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2013_r2.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2013_r3.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2014_r0.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2014_r1.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2014_r2.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2014_r3.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2018_r0.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2018_r1.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 07_2011_r2.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 07_2011_r1.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 07_2011_r0.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2018_r3.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2018_r2.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 07_2012_r0.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 07_2012_r1.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 07_2012_r2.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 07_2012_r3.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 07_2021_r0.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 07_2021_r2.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 08_2013_r0.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 08_2013_r1.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 08_2015_r1.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 08_2015_r2.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 08_2021_r2.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 08_2021_r1.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 08_2021_r0.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 08_2019_r3.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 08_2019_r1.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 09_2015_r1.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 09_2015_r2.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 09_2015_r3.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 09_2017_r0.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 09_2017_r2.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 01_2012_r1.jpg": {
+    "true": "Empty",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 12_2018_r3.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 12_2018_r2.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 12_2018_r1.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 12_2018_r0.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 01_2023_r0.jpg": {
+    "true": "Empty",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 01_2023_r3.jpg": {
+    "true": "Empty",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 02_2025_r1.jpg": {
+    "true": "Empty",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 02_2025_r2.jpg": {
+    "true": "Empty",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 03_2022_r2.jpg": {
+    "true": "Empty",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 06_2014_r3.jpg": {
+    "true": "Empty",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 05_2025_r3.jpg": {
+    "true": "Empty",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 05_2020_r0.jpg": {
+    "true": "Empty",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 05_2012_r3.jpg": {
+    "true": "Empty",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 04_2012_r1.jpg": {
+    "true": "Empty",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 07_2011_r0.jpg": {
+    "true": "Empty",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 07_2011_r1.jpg": {
+    "true": "Empty",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 07_2011_r2.jpg": {
+    "true": "Empty",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 07_2012_r2.jpg": {
+    "true": "Empty",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 07_2021_r3.jpg": {
+    "true": "Empty",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 09_2017_r0.jpg": {
+    "true": "Empty",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 08_2019_r1.jpg": {
+    "true": "Empty",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 08_2011_r1.jpg": {
+    "true": "Empty",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 08_2011_r0.jpg": {
+    "true": "Empty",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 08_2013_r3.jpg": {
+    "true": "Empty",
+    "pred": "Scum",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 09_2017_r1.jpg": {
+    "true": "Empty",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval"
+  }
+}

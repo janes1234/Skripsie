@@ -31,6 +31,8 @@ from torch import nn, optim
 from torch.utils.data import DataLoader, random_split
 from torchvision import datasets, transforms, models
 from torch.optim.lr_scheduler import ReduceLROnPlateau, StepLR
+import torch.nn.functional as F
+import torch.nn as nn
 
 from sklearn.metrics import (
     confusion_matrix,
@@ -46,8 +48,9 @@ print(f"Using device: {device}")
 
 # ------------------------- CONFIG -------------------------
 
-DATASET_ROOT = Path("../cnn_dataset_split")   # adjust if your output folder is elsewhere
-COMPONENT = "aerobic_zone"              # "aerobic_zone" or "clarifier"
+default_root = "../cnn_dataset_split_facility_test-Atlantis"
+DATASET_ROOT = Path(os.environ.get("DATASET_ROOT", default_root))  # adjust if your output folder is elsewhere
+COMPONENT = "clarifier"              # "aerobic_zone" or "clarifier"
 
 # (height, width) — aerobic zones are ~2:1 (wide rectangles), clarifiers are
 # closer to square since they're circular tank crops. Adjust if your actual
@@ -69,12 +72,72 @@ SEED = 42
 MODEL_SAVE_PATH = Path(f"../models/{COMPONENT}_cnn.pt")
 RESULTS_DIR = Path("../results")   # where per-model results_*.pkl files are written
 
+
+def get_test_set_id():
+    """Derive a short, filename-safe identifier for the current test set
+    from DATASET_ROOT, e.g.
+    '../cnn_dataset_split_facility_test-NoordelikeWerke' -> 'NoordelikeWerke'.
+    Falls back to the folder's full name if there's no '-' to split on, so
+    results stay identifiable even for non-facility-holdout split folders.
+    This gets baked into the results filename so a downstream notebook
+    (e.g. the relabel-review notebook) can tell at a glance — and filter
+    reliably — which held-out test set a given results_*.pkl came from.
+    """
+    root_name = DATASET_ROOT.name
+    if "-" in root_name:
+        return root_name.split("-")[-1]
+    return root_name
+
+
+TEST_SET_ID = get_test_set_id()
+print(f"Test set ID (derived from DATASET_ROOT): {TEST_SET_ID}")
+
 # ------------------------------------------------------------------
 
 data_dir = DATASET_ROOT / COMPONENT
 assert data_dir.exists(), f"Dataset folder not found: {data_dir}. Run prepare_cnn_dataset.py first."
 
 torch.manual_seed(SEED)
+
+
+def align_dataset_to_classes(ds, class_to_idx):
+    """Forces an already-built ImageFolder `ds` to use `class_to_idx`
+    instead of whatever class-to-index mapping it discovered on its own.
+
+    Why this is necessary: torchvision's ImageFolder assigns integer class
+    indices purely from which subfolders exist *in that split* -- it has
+    no idea what classes exist elsewhere. If a held-out facility's test
+    set happens to have zero images for some class (e.g. no "Empty"
+    clarifiers for that facility), that class's folder never gets created
+    by prep.py/split_data_facility.py, so the test set's local class list
+    ends up *shorter* than train's. Every class that comes after the
+    missing one alphabetically then silently lands on the wrong index --
+    e.g. actual "Functional" images get assigned whatever index train_ds
+    calls "Empty".
+
+    That corrupts two things at once: (1) the reported accuracy/confusion
+    matrix/ROC curves, because predictions (indexed by the model's output,
+    which matches train_ds's ordering) and true labels (indexed by the
+    test set's own, different ordering) are being compared in two
+    different index spaces; and (2) every "true"/"pred" string written to
+    per_sample for the relabel-review notebook.
+
+    Call this on every split (train/val/test) right after building it, and
+    again inside get_dataloaders() for each architecture's own freshly
+    built datasets, always passing the SAME canonical class_to_idx (see
+    below). That guarantees an index always means the same class
+    everywhere in the notebook, even for classes with zero images in a
+    particular split.
+    """
+    idx_remap = {
+        old_idx: class_to_idx[class_name]
+        for class_name, old_idx in ds.class_to_idx.items()
+    }
+    ds.samples = [(path, idx_remap[old_idx]) for path, old_idx in ds.samples]
+    ds.targets = [idx_remap[old_idx] for old_idx in ds.targets]
+    ds.class_to_idx = dict(class_to_idx)
+    ds.classes = [name for name, _ in sorted(class_to_idx.items(), key=lambda kv: kv[1])]
+    return ds
 
 
 # ------------------------- DEFAULT DATASET / LOADERS -------------------------
@@ -85,10 +148,10 @@ torch.manual_seed(SEED)
 
 train_transform = transforms.Compose([
     transforms.Resize(IMG_TARGET_SIZE),
-    transforms.RandomHorizontalFlip(),
-    transforms.RandomRotation(15),
+    #transforms.RandomHorizontalFlip(),
+    #transforms.RandomRotation(15),
     # Aggressive color jitter to stop it from memorizing water color or sun glare
-    transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.3, hue=0.1),
+    #transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.3, hue=0.1),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406],
                           std=[0.229, 0.224, 0.225]),
@@ -106,14 +169,25 @@ train_ds = datasets.ImageFolder(root=data_dir / "train", transform=train_transfo
 val_ds = datasets.ImageFolder(root=data_dir / "val", transform=eval_transform)
 test_ds = datasets.ImageFolder(root=data_dir / "test", transform=eval_transform)
 
+# Canonical class_to_idx for the whole notebook, always taken from train_ds
+# -- train pools every non-held-out facility, so it's by far the split most
+# likely to actually contain every class. val_ds/test_ds get force-aligned
+# to this exact mapping, even if one of them is missing a class entirely,
+# so an index always means the same class in every split. See
+# align_dataset_to_classes() above for why this matters.
+class_to_idx = train_ds.class_to_idx
 class_names = train_ds.classes
 num_classes = len(class_names)
 print(f"Classes found ({num_classes}): {class_names}")
+
+align_dataset_to_classes(val_ds, class_to_idx)
+align_dataset_to_classes(test_ds, class_to_idx)
+
 print(f"Train: {len(train_ds)} | Val: {len(val_ds)} | Test: {len(test_ds)}")
 
-train_loader = DataLoader(train_ds, batch_size=BATCH_SIZE, shuffle=True)
-val_loader = DataLoader(val_ds, batch_size=BATCH_SIZE, shuffle=False)
-test_loader = DataLoader(test_ds, batch_size=BATCH_SIZE, shuffle=False)
+train_loader = DataLoader(train_ds, batch_size=BATCH_SIZE, shuffle=True, num_workers=4, pin_memory=True)
+val_loader = DataLoader(val_ds, batch_size=BATCH_SIZE, shuffle=False, num_workers=4, pin_memory=True)
+test_loader = DataLoader(test_ds, batch_size=BATCH_SIZE, shuffle=False, num_workers=4, pin_memory=True)
 
 
 def denormalize(img_tensor):
@@ -207,9 +281,18 @@ def get_dataloaders(img_size, batch_size):
     va_ds = datasets.ImageFolder(root=data_dir / "val", transform=eval_tf)
     te_ds = datasets.ImageFolder(root=data_dir / "test", transform=eval_tf)
 
-    tr_loader = DataLoader(tr_ds, batch_size=batch_size, shuffle=True)
-    va_loader = DataLoader(va_ds, batch_size=batch_size, shuffle=False)
-    te_loader = DataLoader(te_ds, batch_size=batch_size, shuffle=False)
+    # Force every split built here onto the SAME canonical class_to_idx as
+    # the module-level train_ds/val_ds/test_ds, so this architecture's own
+    # freshly-built datasets can't drift onto a different local class
+    # ordering (e.g. if this split is missing a class some other split
+    # has). See align_dataset_to_classes() for the full explanation.
+    align_dataset_to_classes(tr_ds, class_to_idx)
+    align_dataset_to_classes(va_ds, class_to_idx)
+    align_dataset_to_classes(te_ds, class_to_idx)
+
+    tr_loader = DataLoader(tr_ds, batch_size=batch_size, shuffle=True, num_workers=4, pin_memory=True)
+    va_loader = DataLoader(va_ds, batch_size=batch_size, shuffle=False, num_workers=4, pin_memory=True)
+    te_loader = DataLoader(te_ds, batch_size=batch_size, shuffle=False, num_workers=4, pin_memory=True)
     return tr_ds, va_ds, te_ds, tr_loader, va_loader, te_loader
 
 
@@ -429,10 +512,44 @@ def plot_roc_auc(all_labels, all_probs, class_names, num_classes, model_name):
 def evaluate_and_record(model, test_loader, model_name, history, img_size, hidden_layers, neurons):
     """Runs the full evaluation block (confusion matrix, report, ROC/AUC)
     for one trained model and stores everything in `results` for the
-    save/pickle cell at the end of the training notebook."""
+    save/pickle cell at the end of the training notebook.
+
+    Also captures a per-sample record (image path, true label, predicted
+    label, correct/incorrect) for every test image, in the same order as
+    test_loader.dataset.samples — this is what lets a downstream notebook
+    (e.g. the relabel-review notebook) just load the saved pickle and
+    display misclassified images directly, without reloading the model or
+    re-running inference.
+    """
+    # Guard against the class-index-mismatch bug align_dataset_to_classes()
+    # fixes: if test_loader.dataset ever ends up with a different
+    # class_to_idx than the canonical one (e.g. a future edit builds a
+    # dataset without calling align_dataset_to_classes), fail loudly here
+    # instead of silently writing wrong true/pred labels and a corrupted
+    # accuracy figure.
+    assert test_loader.dataset.class_to_idx == class_to_idx, (
+        "test_loader.dataset has a different class_to_idx than the "
+        "canonical one -- true/pred labels would be silently wrong. "
+        "Did you build this dataset without calling align_dataset_to_classes()?"
+    )
+
     preds, labels_, probs = collect_predictions(model, test_loader)
     test_acc = plot_confusion_and_report(labels_, preds, class_names, model_name)
     roc_aucs = plot_roc_auc(labels_, probs, class_names, num_classes, model_name)
+
+    # loader.dataset.samples is in the same order collect_predictions iterated
+    # in, since test_loader uses shuffle=False (num_workers doesn't reorder a
+    # map-style dataset's iteration order).
+    sample_paths = [str(p) for p, _ in test_loader.dataset.samples]
+    per_sample = [
+        {
+            "path": path,
+            "true": class_names[true_idx],
+            "pred": class_names[pred_idx],
+            "correct": bool(true_idx == pred_idx),
+        }
+        for path, true_idx, pred_idx in zip(sample_paths, labels_, preds)
+    ]
 
     # Move the finished model to CPU before storing it. Keeping the trained
     # model resident on the GPU is what causes later cells to run out of
@@ -447,20 +564,24 @@ def evaluate_and_record(model, test_loader, model_name, history, img_size, hidde
         model=model_cpu, history=history, test_acc=test_acc,
         mean_auc=float(np.mean(list(roc_aucs.values()))),
         img_size=img_size, hidden_layers=hidden_layers, neurons=neurons,
+        per_sample=per_sample,
     )
     return test_acc, roc_aucs
 
 
 def save_result(model_key, save_name):
-    """Pickles the metrics/history for `model_key` (from `results`) to
-    RESULTS_DIR/results_<save_name>.pkl, and separately saves the model
-    weights via torch.save to MODEL_SAVE_PATH.parent. Call this as the last
-    cell of each training notebook.
+    """Pickles the metrics/history/per-sample predictions for `model_key`
+    (from `results`) to RESULTS_DIR/results_<COMPONENT>_<save_name>_<TEST_SET_ID>.pkl,
+    and separately saves the model weights via torch.save to
+    MODEL_SAVE_PATH.parent. Call this as the last cell of each training
+    notebook.
 
-    This is the "crucial step" that lets the results notebook later
-    reconstruct training curves, test accuracy and ROC/AUC for every
-    architecture without needing the GPU or any of the trained models
-    loaded in memory at once.
+    Including TEST_SET_ID in the filename means a downstream notebook can
+    identify (and glob for) exactly which held-out test set a given results
+    file corresponds to, without opening it. Including per_sample means that
+    notebook never needs the model or the GPU — it can fetch everything
+    (including which images were misclassified, with ground truth and
+    prediction) straight from this one file.
     """
     r = results[model_key]
 
@@ -475,9 +596,11 @@ def save_result(model_key, save_name):
         "neurons": r["neurons"],
         "class_names": class_names,
         "component": COMPONENT,
+        "test_set_id": TEST_SET_ID,
+        "per_sample": r["per_sample"],
     }
     import pickle
-    pkl_path = RESULTS_DIR / f"results_{COMPONENT}_{save_name}.pkl"
+    pkl_path = RESULTS_DIR / f"results_{COMPONENT}_{save_name}_{TEST_SET_ID}.pkl"
     with open(pkl_path, "wb") as f:
         pickle.dump(pickle_payload, f)
     print(f"Saved results to {pkl_path}")
@@ -549,7 +672,7 @@ ADAM_BETA2 = 0.9
 # training loop uses gradient accumulation to still reach the tuned
 # effective batch size without needing that many samples in memory at once.
 # Lower this (e.g. to 8) if you still see CUDA out-of-memory errors.
-MICRO_BATCH_CAP = 4
+MICRO_BATCH_CAP = 16
 
 # Reference dataframes from the hyperparameter tuning sweep (grid search +
 # Bayesian optimization). Not used programmatically anywhere else — kept
@@ -575,3 +698,33 @@ def print_tuning_summary():
     print(_architecture_grid_search)
     print("\nBayesian-optimized learning hyperparameters:")
     print(_bayesian_opt_results)
+
+class FocalLoss(nn.Module):
+    """
+    Multi-class Focal Loss implementation.
+    - weight (Tensor): 1D tensor of class weights (acts as the alpha parameter).
+    - gamma (float): The focusing parameter. Higher values down-weight easy examples more aggressively.
+    """
+    def __init__(self, weight=None, gamma=2.0, reduction='mean'):
+        super(FocalLoss, self).__init__()
+        self.weight = weight 
+        self.gamma = gamma
+        self.reduction = reduction
+
+    def forward(self, inputs, targets):
+        # Calculate the standard cross entropy loss (without reduction so we get it per-sample)
+        ce_loss = F.cross_entropy(inputs, targets, weight=self.weight, reduction='none')
+        
+        # Calculate the probability of the true class (pt)
+        pt = torch.exp(-ce_loss) 
+        
+        # Apply the focal loss modulating factor: (1 - pt)^gamma
+        focal_loss = ((1 - pt) ** self.gamma) * ce_loss
+
+        # Apply reduction
+        if self.reduction == 'mean':
+            return focal_loss.mean()
+        elif self.reduction == 'sum':
+            return focal_loss.sum()
+        else:
+            return focal_loss

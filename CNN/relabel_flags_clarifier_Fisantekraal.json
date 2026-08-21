@@ -1,0 +1,58 @@
+{
+  "../cnn_dataset_split_facility_test-Fisantekraal/clarifier/test/Scum/Fisantekraal_Images_Fisantekraal 2014_10_r0.jpg": {
+    "true": "Scum",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Fisantekraal"
+  },
+  "../cnn_dataset_split_facility_test-Fisantekraal/clarifier/test/Scum/Fisantekraal_Images_Fisantekraal 2014_10_r3.jpg": {
+    "true": "Scum",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Fisantekraal"
+  },
+  "../cnn_dataset_split_facility_test-Fisantekraal/clarifier/test/Scum/Fisantekraal_Images_Fisantekraal 2015_04_r2.jpg": {
+    "true": "Scum",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Fisantekraal"
+  },
+  "../cnn_dataset_split_facility_test-Fisantekraal/clarifier/test/Scum/Fisantekraal_Images_Fisantekraal 2018_04_r0.jpg": {
+    "true": "Scum",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Fisantekraal"
+  },
+  "../cnn_dataset_split_facility_test-Fisantekraal/clarifier/test/Scum/Fisantekraal_Images_Fisantekraal 2018_04_r3.jpg": {
+    "true": "Scum",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Fisantekraal"
+  },
+  "../cnn_dataset_split_facility_test-Fisantekraal/clarifier/test/Scum/Fisantekraal_Images_Fisantekraal 2019_08_r2.jpg": {
+    "true": "Scum",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Fisantekraal"
+  },
+  "../cnn_dataset_split_facility_test-Fisantekraal/clarifier/test/Scum/Fisantekraal_Images_Fisantekraal 2020_04_r1.jpg": {
+    "true": "Scum",
+    "pred": "Dysfunctional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Fisantekraal"
+  },
+  "../cnn_dataset_split_facility_test-Fisantekraal/clarifier/test/Scum/Fisantekraal_Images_Fisantekraal 2025_02_r2.jpg": {
+    "true": "Scum",
+    "pred": "Functional",
+    "flagged": true,
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Fisantekraal"
+  }
+}
