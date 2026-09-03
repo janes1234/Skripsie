@@ -1,58 +1,42 @@
 {
-  "../cnn_dataset_split_facility_test-Fisantekraal/clarifier/test/Scum/Fisantekraal_Images_Fisantekraal 2014_10_r0.jpg": {
-    "true": "Scum",
-    "pred": "Dysfunctional",
-    "flagged": true,
+  "../cnn_dataset_split_facility_test-Fisantekraal/clarifier/test/Functional/Fisantekraal_Images_Fisantekraal 2020_04_r3.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Fisantekraal"
-  },
-  "../cnn_dataset_split_facility_test-Fisantekraal/clarifier/test/Scum/Fisantekraal_Images_Fisantekraal 2014_10_r3.jpg": {
-    "true": "Scum",
-    "pred": "Functional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Fisantekraal"
-  },
-  "../cnn_dataset_split_facility_test-Fisantekraal/clarifier/test/Scum/Fisantekraal_Images_Fisantekraal 2015_04_r2.jpg": {
-    "true": "Scum",
-    "pred": "Dysfunctional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Fisantekraal"
-  },
-  "../cnn_dataset_split_facility_test-Fisantekraal/clarifier/test/Scum/Fisantekraal_Images_Fisantekraal 2018_04_r0.jpg": {
-    "true": "Scum",
-    "pred": "Functional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Fisantekraal"
+    "test_set_id": "Fisantekraal",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Fisantekraal/Labels/Fisantekraal Clarifiers.json",
+    "img_key": "Fisantekraal 2020_04.jpg3403389",
+    "region_index": 3
   },
   "../cnn_dataset_split_facility_test-Fisantekraal/clarifier/test/Scum/Fisantekraal_Images_Fisantekraal 2018_04_r3.jpg": {
     "true": "Scum",
     "pred": "Functional",
-    "flagged": true,
+    "relabel_to": "Functional",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Fisantekraal"
+    "test_set_id": "Fisantekraal",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Fisantekraal/Labels/Fisantekraal Clarifiers.json",
+    "img_key": "Fisantekraal 2018_04.jpg2721852",
+    "region_index": 3
   },
-  "../cnn_dataset_split_facility_test-Fisantekraal/clarifier/test/Scum/Fisantekraal_Images_Fisantekraal 2019_08_r2.jpg": {
+  "../cnn_dataset_split_facility_test-Fisantekraal/clarifier/test/Scum/Fisantekraal_Images_Fisantekraal 2018_04_r0.jpg": {
     "true": "Scum",
-    "pred": "Dysfunctional",
-    "flagged": true,
+    "pred": "Functional",
+    "relabel_to": "Functional",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Fisantekraal"
-  },
-  "../cnn_dataset_split_facility_test-Fisantekraal/clarifier/test/Scum/Fisantekraal_Images_Fisantekraal 2020_04_r1.jpg": {
-    "true": "Scum",
-    "pred": "Dysfunctional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Fisantekraal"
+    "test_set_id": "Fisantekraal",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Fisantekraal/Labels/Fisantekraal Clarifiers.json",
+    "img_key": "Fisantekraal 2018_04.jpg2721852",
+    "region_index": 0
   },
   "../cnn_dataset_split_facility_test-Fisantekraal/clarifier/test/Scum/Fisantekraal_Images_Fisantekraal 2025_02_r2.jpg": {
     "true": "Scum",
     "pred": "Functional",
-    "flagged": true,
+    "relabel_to": "Functional",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Fisantekraal"
+    "test_set_id": "Fisantekraal",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Fisantekraal/Labels/Fisantekraal Clarifiers.json",
+    "img_key": "Fisantekraal 2025_02.jpg4649221",
+    "region_index": 2
   }
 }

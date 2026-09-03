@@ -2,351 +2,361 @@
   "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Dysfunctional/CapeFlats_Images-CF2_capeflats2_201712_r2.jpg": {
     "true": "Dysfunctional",
     "pred": "Functional",
-    "flagged": true,
+    "relabel_to": "Functional",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 2 Clarifiers.json",
+    "img_key": "capeflats2_201712.jpg2944210",
+    "region_index": 2
   },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Dysfunctional/CapeFlats_Images-CF2_capeflats2_202502_r2.jpg": {
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Dysfunctional/CapeFlats_Images-CF3_capeflats3_201409_r0.jpg": {
     "true": "Dysfunctional",
-    "pred": "Empty",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF1_capeflats1_201411_r0.jpg": {
-    "true": "Empty",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Empty",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF1_capeflats1_201610_r2.jpg": {
-    "true": "Empty",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 3 Clarifiers.json",
+    "img_key": "capeflats3_201409.jpg2529382",
+    "region_index": 0
   },
   "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF1_capeflats1_201611_r2.jpg": {
     "true": "Empty",
     "pred": "Dysfunctional",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 1 Clarifiers.json",
+    "img_key": "capeflats1_201611.jpg2872179",
+    "region_index": 2
   },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF1_capeflats1_201710_r0.jpg": {
-    "true": "Empty",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF1_capeflats1_201905_r0.jpg": {
-    "true": "Empty",
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_201801_r3.jpg": {
+    "true": "Functional",
     "pred": "Dysfunctional",
-    "flagged": true,
+    "relabel_to": "Dysfunctional",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF1_capeflats1_201905_r1.jpg": {
-    "true": "Empty",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF1_capeflats1_201906_r0.jpg": {
-    "true": "Empty",
-    "pred": "Dysfunctional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF1_capeflats1_201906_r1.jpg": {
-    "true": "Empty",
-    "pred": "Dysfunctional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF1_capeflats1_201907_r0.jpg": {
-    "true": "Empty",
-    "pred": "Dysfunctional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF1_capeflats1_201907_r1.jpg": {
-    "true": "Empty",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF3_capeflats3_201303_r1.jpg": {
-    "true": "Empty",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF3_capeflats3_201412_r3.jpg": {
-    "true": "Empty",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Empty/CapeFlats_Images-CF4_capeflats4_201803_r1.jpg": {
-    "true": "Empty",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 1 Clarifiers.json",
+    "img_key": "capeflats1_201801.jpg2645554",
+    "region_index": 3
   },
   "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_201903_r1.jpg": {
     "true": "Functional",
     "pred": "Dysfunctional",
-    "flagged": true,
+    "relabel_to": "Dysfunctional",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 1 Clarifiers.json",
+    "img_key": "capeflats1_201903.jpg2995896",
+    "region_index": 1
   },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202204_r3.jpg": {
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202102_r2.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 1 Clarifiers.json",
+    "img_key": "capeflats1_202102.jpg3090231",
+    "region_index": 2
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF2_capeflats2_201112_r0.jpg": {
     "true": "Functional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202207_r1.jpg": {
-    "true": "Functional",
-    "pred": "Dysfunctional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202207_r2.jpg": {
-    "true": "Functional",
-    "pred": "Empty",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202207_r3.jpg": {
-    "true": "Functional",
-    "pred": "Dysfunctional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202208_r1.jpg": {
-    "true": "Functional",
-    "pred": "Dysfunctional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202208_r2.jpg": {
-    "true": "Functional",
-    "pred": "Dysfunctional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202208_r3.jpg": {
-    "true": "Functional",
-    "pred": "Dysfunctional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202209_r2.jpg": {
-    "true": "Functional",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202211_r1.jpg": {
-    "true": "Functional",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202212_r1.jpg": {
-    "true": "Functional",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202301_r1.jpg": {
-    "true": "Functional",
-    "pred": "Dysfunctional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202301_r2.jpg": {
-    "true": "Functional",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 2 Clarifiers.json",
+    "img_key": "capeflats2_201112.jpg3837688",
+    "region_index": 0
   },
   "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF2_capeflats2_201112_r1.jpg": {
     "true": "Functional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 2 Clarifiers.json",
+    "img_key": "capeflats2_201112.jpg3837688",
+    "region_index": 1
   },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF2_capeflats2_201411_r1.jpg": {
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202211_r1.jpg": {
     "true": "Functional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 1 Clarifiers.json",
+    "img_key": "capeflats1_202211.jpg3333088",
+    "region_index": 1
   },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF2_capeflats2_202402_r0.jpg": {
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202212_r1.jpg": {
     "true": "Functional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 1 Clarifiers.json",
+    "img_key": "capeflats1_202212.jpg3275745",
+    "region_index": 1
   },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF2_capeflats2_202402_r2.jpg": {
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202301_r1.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 1 Clarifiers.json",
+    "img_key": "capeflats1_202301.jpg5115977",
+    "region_index": 1
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF1_capeflats1_202301_r2.jpg": {
     "true": "Functional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 1 Clarifiers.json",
+    "img_key": "capeflats1_202301.jpg5115977",
+    "region_index": 2
   },
   "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF2_capeflats2_202402_r3.jpg": {
     "true": "Functional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 2 Clarifiers.json",
+    "img_key": "capeflats2_202402.jpg5304924",
+    "region_index": 3
   },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF3_capeflats3_201804_r0.jpg": {
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF2_capeflats2_202402_r2.jpg": {
     "true": "Functional",
-    "pred": "Dysfunctional",
-    "flagged": true,
+    "pred": "Scum",
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 2 Clarifiers.json",
+    "img_key": "capeflats2_202402.jpg5304924",
+    "region_index": 2
   },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF3_capeflats3_201804_r1.jpg": {
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF2_capeflats2_202402_r1.jpg": {
     "true": "Functional",
-    "pred": "Dysfunctional",
-    "flagged": true,
+    "pred": "Scum",
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 2 Clarifiers.json",
+    "img_key": "capeflats2_202402.jpg5304924",
+    "region_index": 1
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF2_capeflats2_202402_r0.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 2 Clarifiers.json",
+    "img_key": "capeflats2_202402.jpg5304924",
+    "region_index": 0
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF3_capeflats3_201112_r0.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 3 Clarifiers.json",
+    "img_key": "capeflats3_201112.jpg3702483",
+    "region_index": 0
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF3_capeflats3_201112_r1.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 3 Clarifiers.json",
+    "img_key": "capeflats3_201112.jpg3702483",
+    "region_index": 1
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF3_capeflats3_201311_r0.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 3 Clarifiers.json",
+    "img_key": "capeflats3_201311.jpg3114156",
+    "region_index": 0
   },
   "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF3_capeflats3_201805_r2.jpg": {
     "true": "Functional",
     "pred": "Dysfunctional",
-    "flagged": true,
+    "relabel_to": "Dysfunctional",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 3 Clarifiers.json",
+    "img_key": "capeflats3_201805.jpg3112262",
+    "region_index": 2
   },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF3_capeflats3_201903_r0.jpg": {
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF4_capeflats4_200902_r6.jpg": {
     "true": "Functional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF3_capeflats3_201903_r2.jpg": {
-    "true": "Functional",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF3_capeflats3_201903_r3.jpg": {
-    "true": "Functional",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF1_capeflats1_201410_r0.jpg": {
-    "true": "Scum",
-    "pred": "Functional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 4 Clarifiers.json",
+    "img_key": "capeflats4_200902.jpg3249894",
+    "region_index": 6
   },
   "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF1_capeflats1_201611_r0.jpg": {
     "true": "Scum",
     "pred": "Functional",
-    "flagged": true,
+    "relabel_to": "Functional",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF1_capeflats1_201906_r3.jpg": {
-    "true": "Scum",
-    "pred": "Empty",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
-  },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF1_capeflats1_202003_r0.jpg": {
-    "true": "Scum",
-    "pred": "Functional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 1 Clarifiers.json",
+    "img_key": "capeflats1_201611.jpg2872179",
+    "region_index": 0
   },
   "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF2_capeflats2_202101_r3.jpg": {
     "true": "Scum",
     "pred": "Empty",
-    "flagged": true,
+    "relabel_to": "Empty",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 2 Clarifiers.json",
+    "img_key": "capeflats2_202101.jpg3172865",
+    "region_index": 3
   },
   "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF2_capeflats2_202106_r1.jpg": {
     "true": "Scum",
     "pred": "Functional",
-    "flagged": true,
+    "relabel_to": "Functional",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 2 Clarifiers.json",
+    "img_key": "capeflats2_202106.jpg3521713",
+    "region_index": 1
   },
   "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF3_capeflats3_201601_r1.jpg": {
     "true": "Scum",
     "pred": "Empty",
-    "flagged": true,
+    "relabel_to": "Empty",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 3 Clarifiers.json",
+    "img_key": "capeflats3_201601.jpg2803667",
+    "region_index": 1
   },
   "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF3_capeflats3_201601_r0.jpg": {
     "true": "Scum",
     "pred": "Empty",
-    "flagged": true,
+    "relabel_to": "Empty",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 3 Clarifiers.json",
+    "img_key": "capeflats3_201601.jpg2803667",
+    "region_index": 0
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF3_capeflats3_202102_r0.jpg": {
+    "true": "Scum",
+    "pred": "Dysfunctional",
+    "relabel_to": "Dysfunctional",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 3 Clarifiers.json",
+    "img_key": "capeflats3_202102.jpg3119503",
+    "region_index": 0
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF3_capeflats3_202102_r1.jpg": {
+    "true": "Scum",
+    "pred": "Dysfunctional",
+    "relabel_to": "Dysfunctional",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 3 Clarifiers.json",
+    "img_key": "capeflats3_202102.jpg3119503",
+    "region_index": 1
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF3_capeflats3_202402_r0.jpg": {
+    "true": "Scum",
+    "pred": "Dysfunctional",
+    "relabel_to": "Dysfunctional",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 3 Clarifiers.json",
+    "img_key": "capeflats3_202402.jpg5133362",
+    "region_index": 0
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF4_capeflats4_202005_r2.jpg": {
+    "true": "Scum",
+    "pred": "Dysfunctional",
+    "relabel_to": "Dysfunctional",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 4 Clarifiers.json",
+    "img_key": "capeflats4_202005.jpg3617622",
+    "region_index": 2
   },
   "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF4_capeflats4_202010_r0.jpg": {
     "true": "Scum",
     "pred": "Empty",
-    "flagged": true,
+    "relabel_to": "Empty",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 4 Clarifiers.json",
+    "img_key": "capeflats4_202010.jpg2977004",
+    "region_index": 0
   },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF4_capeflats4_202009_r0.jpg": {
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF4_capeflats4_202012_r0.jpg": {
     "true": "Scum",
-    "pred": "Empty",
-    "flagged": true,
+    "pred": "Dysfunctional",
+    "relabel_to": "Dysfunctional",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 4 Clarifiers.json",
+    "img_key": "capeflats4_202012.jpg2863364",
+    "region_index": 0
   },
-  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF4_capeflats4_202011_r0.jpg": {
-    "true": "Scum",
-    "pred": "Empty",
-    "flagged": true,
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF4_capeflats4_202007_r2.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "CapeFlats"
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 4 Clarifiers.json",
+    "img_key": "capeflats4_202007.jpg3367996",
+    "region_index": 2
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF4_capeflats4_201707_r1.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 4 Clarifiers.json",
+    "img_key": "capeflats4_201707.jpg2635091",
+    "region_index": 1
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Functional/CapeFlats_Images-CF4_capeflats4_202007_r3.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 4 Clarifiers.json",
+    "img_key": "capeflats4_202007.jpg3367996",
+    "region_index": 3
+  },
+  "../cnn_dataset_split_facility_test-CapeFlats/clarifier/test/Scum/CapeFlats_Images-CF1_capeflats1_202003_r0.jpg": {
+    "true": "Scum",
+    "pred": "Functional",
+    "relabel_to": "Functional",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "CapeFlats",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/CapeFlats/Labels/Cape Flats 1 Clarifiers.json",
+    "img_key": "capeflats1_202003.jpg3032500",
+    "region_index": 0
   }
 }

@@ -48,9 +48,9 @@ print(f"Using device: {device}")
 
 # ------------------------- CONFIG -------------------------
 
-default_root = "../cnn_dataset_split_facility_test-Atlantis"
+default_root = "../cnn_dataset_split_facility_test-Waterval"
 DATASET_ROOT = Path(os.environ.get("DATASET_ROOT", default_root))  # adjust if your output folder is elsewhere
-COMPONENT = "clarifier"              # "aerobic_zone" or "clarifier"
+COMPONENT = os.environ.get("COMPONENT", "clarifier")  # "aerobic_zone" or "clarifier" -- override with the COMPONENT env var
 
 # (height, width) — aerobic zones are ~2:1 (wide rectangles), clarifiers are
 # closer to square since they're circular tank crops. Adjust if your actual
@@ -71,6 +71,26 @@ SEED = 42
 
 MODEL_SAVE_PATH = Path(f"../models/{COMPONENT}_cnn.pt")
 RESULTS_DIR = Path("../results")   # where per-model results_*.pkl files are written
+FIGURES_DIR = RESULTS_DIR / "figures"   # where every plot below also gets saved as a PNG
+
+
+def _slugify(name: str) -> str:
+    return name.strip().lower().replace(" ", "_").replace("-", "_")
+
+
+def _save_figure(fig, kind: str, model_name: str):
+    """Saves a copy of `fig` to FIGURES_DIR, on top of whatever plt.show()
+    does. Interactively (inside a notebook) plt.show() already displays it,
+    so this is easy to miss the point of -- but a headless run (e.g. via
+    run.py, driving several architectures across all 5 held-out facilities
+    with no one watching) never renders anything via plt.show() at all, so
+    without this every confusion matrix/ROC curve/loss graph from a batch
+    run would simply be lost. The filename encodes component, model and
+    held-out test facility so a full batch run never overwrites a plot
+    from a different combination."""
+    FIGURES_DIR.mkdir(parents=True, exist_ok=True)
+    fname = f"{COMPONENT}_{_slugify(model_name)}_{TEST_SET_ID}_{kind}.png"
+    fig.savefig(FIGURES_DIR / fname, dpi=150, bbox_inches="tight")
 
 
 def get_test_set_id():
@@ -365,12 +385,24 @@ def run_epoch(model, loader, optimizer, criterion, train_mode, is_inception=Fals
 
 
 def train_model(model, train_loader, val_loader, optimizer, scheduler, criterion,
-                 epochs, patience, model_name, is_inception=False, accum_steps=1):
+                 epochs, patience, model_name, is_inception=False, accum_steps=1,
+                 test_loader=None):
     """Training loop with early stopping on validation loss: track val loss
     each epoch, keep the best-performing weights in memory, stop once val
     loss hasn't improved for `patience` epochs, then restore the best
-    checkpoint."""
+    checkpoint.
+
+    test_loader is optional and purely diagnostic: if given, test loss/acc
+    get computed and logged every epoch too, purely so plot_training_curves
+    can plot a test line alongside train/val. It never influences training
+    in any way -- best_state is still selected on val_loss only, exactly as
+    before. Passing it does add a third forward pass over data each epoch
+    though, so expect roughly 30-50% longer epochs versus leaving it out.
+    """
     history = {"train_loss": [], "train_acc": [], "val_loss": [], "val_acc": []}
+    if test_loader is not None:
+        history["test_loss"] = []
+        history["test_acc"] = []
     best_val_loss = float("inf")
     best_state = None
     epochs_no_improve = 0
@@ -385,6 +417,14 @@ def train_model(model, train_loader, val_loader, optimizer, scheduler, criterion
                                            is_inception, accum_steps, scaler)
         val_loss, val_acc = run_epoch(model, val_loader, optimizer, criterion, False,
                                        is_inception, accum_steps, scaler)
+
+        test_info = ""
+        if test_loader is not None:
+            test_loss, test_acc = run_epoch(model, test_loader, optimizer, criterion, False,
+                                             is_inception, accum_steps, scaler)
+            history["test_loss"].append(test_loss)
+            history["test_acc"].append(test_acc)
+            test_info = f" | test loss {test_loss:.4f} acc {test_acc:.3f}"
 
         if isinstance(scheduler, ReduceLROnPlateau):
             scheduler.step(val_loss)
@@ -408,7 +448,7 @@ def train_model(model, train_loader, val_loader, optimizer, scheduler, criterion
         flag = " *" if improved else ""
         print(f"[{model_name}] Epoch {epoch:3d}/{epochs} | LR: {current_lr:.2e} | "
               f"train loss {train_loss:.4f} acc {train_acc:.3f} | "
-              f"val loss {val_loss:.4f} acc {val_acc:.3f}{flag}")
+              f"val loss {val_loss:.4f} acc {val_acc:.3f}{test_info}{flag}")
 
         if epochs_no_improve >= patience:
             print(f"\n[{model_name}] No val loss improvement for {patience} epochs — stopping early at epoch {epoch}.")
@@ -421,11 +461,14 @@ def train_model(model, train_loader, val_loader, optimizer, scheduler, criterion
 
 def plot_training_curves(history, model_name):
     best_epoch = int(np.argmin(history["val_loss"])) + 1
+    has_test = bool(history.get("test_loss"))
 
     fig, axes = plt.subplots(1, 2, figsize=(12, 4))
 
     axes[0].plot(history["train_loss"], label="train")
     axes[0].plot(history["val_loss"], label="val")
+    if has_test:
+        axes[0].plot(history["test_loss"], label="test", linestyle=":")
     axes[0].axvline(best_epoch - 1, color="gray", linestyle="--", linewidth=1, label="restored checkpoint")
     axes[0].set_title(f"{model_name} — Loss")
     axes[0].set_xlabel("Epoch")
@@ -433,12 +476,15 @@ def plot_training_curves(history, model_name):
 
     axes[1].plot(history["train_acc"], label="train")
     axes[1].plot(history["val_acc"], label="val")
+    if has_test:
+        axes[1].plot(history["test_acc"], label="test", linestyle=":")
     axes[1].axvline(best_epoch - 1, color="gray", linestyle="--", linewidth=1)
     axes[1].set_title(f"{model_name} — Accuracy")
     axes[1].set_xlabel("Epoch")
     axes[1].legend()
 
     plt.tight_layout()
+    _save_figure(fig, "training_curves", model_name)
     plt.show()
 
 
@@ -469,6 +515,7 @@ def plot_confusion_and_report(all_labels, all_preds, class_names, model_name):
     disp.plot(ax=ax, cmap="Blues", xticks_rotation=30)
     plt.title(f"Confusion matrix — {model_name} ({COMPONENT} test set)")
     plt.tight_layout()
+    _save_figure(fig, "confusion_matrix", model_name)
     plt.show()
 
     print(classification_report(
@@ -479,15 +526,42 @@ def plot_confusion_and_report(all_labels, all_preds, class_names, model_name):
         digits=3,
         zero_division=0
     ))
-    return test_acc
+
+    # Same report, as a dict, so precision/recall/f1 per class can be
+    # persisted to the results pickle and reloaded later (e.g. by
+    # results_comparison.ipynb) without needing the model or GPU again.
+    report_dict = classification_report(
+        all_labels,
+        all_preds,
+        labels=range(len(class_names)),
+        target_names=class_names,
+        digits=3,
+        zero_division=0,
+        output_dict=True,
+    )
+    return test_acc, cm, report_dict
 
 
 def plot_roc_auc(all_labels, all_probs, class_names, num_classes, model_name):
     y_true_bin = label_binarize(all_labels, classes=list(range(num_classes)))
 
-    plt.figure(figsize=(7, 6))
+    fig = plt.figure(figsize=(7, 6))
     roc_aucs = {}
     for i, name in enumerate(class_names):
+        n_positive = int(y_true_bin[:, i].sum())
+        if n_positive == 0:
+            # AUC is the probability a random positive example outranks a
+            # random negative one -- with zero positive examples of this
+            # class in this held-out facility's test set, that's genuinely
+            # undefined, not a bug. sklearn.roc_auc_score correctly raises
+            # on this rather than guessing a value, which used to crash the
+            # entire evaluation over one rare/absent class. Record it as
+            # NaN and keep going instead, so everything else for this run
+            # (test_acc, confusion matrix, the other classes' AUC) still
+            # gets computed and saved.
+            roc_aucs[name] = float("nan")
+            print(f"  [warn] '{name}' has 0 examples in this test set — AUC undefined, skipping.")
+            continue
         fpr, tpr, _ = roc_curve(y_true_bin[:, i], all_probs[:, i])
         auc = roc_auc_score(y_true_bin[:, i], all_probs[:, i])
         roc_aucs[name] = auc
@@ -500,12 +574,15 @@ def plot_roc_auc(all_labels, all_probs, class_names, num_classes, model_name):
     plt.legend(loc="lower right")
     plt.grid(alpha=0.3)
     plt.tight_layout()
+    _save_figure(fig, "roc_auc", model_name)
     plt.show()
 
     print("AUC (area under ROC curve) per class:")
     for name, auc in roc_aucs.items():
-        print(f"  {name:15s}: {auc:.3f}")
-    print(f"\nMean AUC: {np.mean(list(roc_aucs.values())):.3f}")
+        auc_str = f"{auc:.3f}" if not np.isnan(auc) else "undefined (0 examples)"
+        print(f"  {name:15s}: {auc_str}")
+    valid_aucs = [a for a in roc_aucs.values() if not np.isnan(a)]
+    print(f"\nMean AUC (over {len(valid_aucs)}/{len(roc_aucs)} classes with test examples): {np.mean(valid_aucs):.3f}")
     return roc_aucs
 
 
@@ -534,7 +611,7 @@ def evaluate_and_record(model, test_loader, model_name, history, img_size, hidde
     )
 
     preds, labels_, probs = collect_predictions(model, test_loader)
-    test_acc = plot_confusion_and_report(labels_, preds, class_names, model_name)
+    test_acc, cm, report_dict = plot_confusion_and_report(labels_, preds, class_names, model_name)
     roc_aucs = plot_roc_auc(labels_, probs, class_names, num_classes, model_name)
 
     # loader.dataset.samples is in the same order collect_predictions iterated
@@ -562,9 +639,12 @@ def evaluate_and_record(model, test_loader, model_name, history, img_size, hidde
 
     results[model_name] = dict(
         model=model_cpu, history=history, test_acc=test_acc,
-        mean_auc=float(np.mean(list(roc_aucs.values()))),
+        mean_auc=float(np.nanmean(list(roc_aucs.values()))),
         img_size=img_size, hidden_layers=hidden_layers, neurons=neurons,
         per_sample=per_sample,
+        confusion_matrix=cm,
+        classification_report=report_dict,
+        roc_aucs=roc_aucs,
     )
     return test_acc, roc_aucs
 
@@ -598,6 +678,9 @@ def save_result(model_key, save_name):
         "component": COMPONENT,
         "test_set_id": TEST_SET_ID,
         "per_sample": r["per_sample"],
+        "confusion_matrix": r.get("confusion_matrix"),
+        "classification_report": r.get("classification_report"),
+        "roc_aucs": r.get("roc_aucs"),
     }
     import pickle
     pkl_path = RESULTS_DIR / f"results_{COMPONENT}_{save_name}_{TEST_SET_ID}.pkl"

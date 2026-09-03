@@ -2,631 +2,751 @@
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 01_2012_r0.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 01_2012.jpg4076502",
+    "region_index": 0
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 01_2012_r2.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 01_2012.jpg4076502",
+    "region_index": 2
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 01_2013_r3.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 01_2013.jpg2933944",
+    "region_index": 3
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 02_2025_r2.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 02_2025.jpg4178610",
+    "region_index": 2
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 03_2022_r0.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 03_2022.jpg3672308",
+    "region_index": 0
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 03_2022_r2.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 03_2022.jpg3672308",
+    "region_index": 2
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 04_2012_r0.jpg": {
     "true": "Dysfunctional",
     "pred": "Empty",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 04_2012.jpg2926732",
+    "region_index": 0
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 04_2012_r1.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 04_2012.jpg2926732",
+    "region_index": 1
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 04_2012_r2.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 04_2012.jpg2926732",
+    "region_index": 2
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 04_2012_r3.jpg": {
     "true": "Dysfunctional",
     "pred": "Functional",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 04_2012.jpg2926732",
+    "region_index": 3
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 04_2021_r0.jpg": {
     "true": "Dysfunctional",
     "pred": "Functional",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 04_2021.jpg3877746",
+    "region_index": 0
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 04_2021_r3.jpg": {
     "true": "Dysfunctional",
     "pred": "Functional",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 04_2021.jpg3877746",
+    "region_index": 3
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 04_2024_r0.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 04_2024.jpg4663945",
+    "region_index": 0
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2012_r0.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 05_2012.jpg3135692",
+    "region_index": 0
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2012_r1.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 05_2012.jpg3135692",
+    "region_index": 1
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2012_r2.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 05_2012.jpg3135692",
+    "region_index": 2
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2015_r1.jpg": {
     "true": "Dysfunctional",
     "pred": "Functional",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 05_2015.jpg2834235",
+    "region_index": 1
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2015_r3.jpg": {
     "true": "Dysfunctional",
     "pred": "Functional",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 05_2015.jpg2834235",
+    "region_index": 3
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2017_r0.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 05_2017.jpg2871979",
+    "region_index": 0
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2017_r1.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 05_2017.jpg2871979",
+    "region_index": 1
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2017_r2.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 05_2017.jpg2871979",
+    "region_index": 2
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2018_r0.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 05_2018.jpg3081868",
+    "region_index": 0
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2020_r0.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 05_2020.jpg4110198",
+    "region_index": 0
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2020_r3.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 05_2020.jpg4110198",
+    "region_index": 3
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 05_2025_r3.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 05_2025.jpg4970180",
+    "region_index": 3
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2012_r0.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 06_2012.jpg2819316",
+    "region_index": 0
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2012_r1.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Functional",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 06_2012.jpg2819316",
+    "region_index": 1
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2012_r2.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 06_2012.jpg2819316",
+    "region_index": 2
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2012_r3.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 06_2012.jpg2819316",
+    "region_index": 3
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2013_r0.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 06_2013.jpg2736547",
+    "region_index": 0
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2013_r1.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 06_2013.jpg2736547",
+    "region_index": 1
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2013_r2.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 06_2013.jpg2736547",
+    "region_index": 2
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2013_r3.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 06_2013.jpg2736547",
+    "region_index": 3
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2014_r0.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 06_2014.jpg3124908",
+    "region_index": 0
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2014_r1.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 06_2014.jpg3124908",
+    "region_index": 1
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2014_r2.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 06_2014.jpg3124908",
+    "region_index": 2
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2014_r3.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 06_2014.jpg3124908",
+    "region_index": 3
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2018_r0.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 06_2018.jpg4078355",
+    "region_index": 0
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2018_r1.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 07_2011_r2.jpg": {
-    "true": "Dysfunctional",
-    "pred": "Functional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 07_2011_r1.jpg": {
-    "true": "Dysfunctional",
-    "pred": "Functional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 07_2011_r0.jpg": {
-    "true": "Dysfunctional",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2018_r3.jpg": {
-    "true": "Dysfunctional",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 06_2018.jpg4078355",
+    "region_index": 1
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2018_r2.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 06_2018.jpg4078355",
+    "region_index": 2
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 06_2018_r3.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 06_2018.jpg4078355",
+    "region_index": 3
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 07_2011_r0.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 07_2011.jpg3059707",
+    "region_index": 0
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 07_2011_r1.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Functional",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 07_2011.jpg3059707",
+    "region_index": 1
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 07_2011_r2.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Functional",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 07_2011.jpg3059707",
+    "region_index": 2
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 07_2012_r0.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 07_2012.jpg3364229",
+    "region_index": 0
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 07_2012_r1.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 07_2012.jpg3364229",
+    "region_index": 1
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 07_2012_r2.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 07_2012.jpg3364229",
+    "region_index": 2
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 07_2012_r3.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 07_2012.jpg3364229",
+    "region_index": 3
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 07_2021_r0.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 07_2021.jpg3847458",
+    "region_index": 0
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 07_2021_r2.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 07_2021.jpg3847458",
+    "region_index": 2
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 08_2013_r0.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 08_2013.jpg3966089",
+    "region_index": 0
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 08_2013_r1.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 08_2013.jpg3966089",
+    "region_index": 1
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 08_2015_r1.jpg": {
     "true": "Dysfunctional",
     "pred": "Functional",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 08_2015.jpg2835725",
+    "region_index": 1
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 08_2015_r2.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 08_2021_r2.jpg": {
-    "true": "Dysfunctional",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 08_2021_r1.jpg": {
-    "true": "Dysfunctional",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 08_2021_r0.jpg": {
-    "true": "Dysfunctional",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 08_2019_r3.jpg": {
-    "true": "Dysfunctional",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 08_2015.jpg2835725",
+    "region_index": 2
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 08_2019_r1.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 08_2019.jpg3851329",
+    "region_index": 1
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 08_2019_r3.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 08_2019.jpg3851329",
+    "region_index": 3
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 08_2021_r0.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 08_2021.jpg3781257",
+    "region_index": 0
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 08_2021_r1.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 08_2021.jpg3781257",
+    "region_index": 1
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 08_2021_r2.jpg": {
+    "true": "Dysfunctional",
+    "pred": "Scum",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 08_2021.jpg3781257",
+    "region_index": 2
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 09_2015_r1.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 09_2015.jpg2953823",
+    "region_index": 1
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 09_2015_r2.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 09_2015.jpg2953823",
+    "region_index": 2
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 09_2015_r3.jpg": {
     "true": "Dysfunctional",
     "pred": "Functional",
-    "flagged": true,
+    "relabel_to": "Functional",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 09_2015.jpg2953823",
+    "region_index": 3
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 09_2017_r0.jpg": {
     "true": "Dysfunctional",
     "pred": "Functional",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 09_2017.jpg3919338",
+    "region_index": 0
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 09_2017_r2.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 01_2012_r1.jpg": {
-    "true": "Empty",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 12_2018_r3.jpg": {
-    "true": "Dysfunctional",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 12_2018_r2.jpg": {
-    "true": "Dysfunctional",
-    "pred": "Functional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 12_2018_r1.jpg": {
-    "true": "Dysfunctional",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 09_2017.jpg3919338",
+    "region_index": 2
   },
   "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 12_2018_r0.jpg": {
     "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 12_2018.jpg3152488",
+    "region_index": 0
   },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 01_2023_r0.jpg": {
-    "true": "Empty",
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 12_2018_r1.jpg": {
+    "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 12_2018.jpg3152488",
+    "region_index": 1
   },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 01_2023_r3.jpg": {
-    "true": "Empty",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 02_2025_r1.jpg": {
-    "true": "Empty",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 02_2025_r2.jpg": {
-    "true": "Empty",
-    "pred": "Scum",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 03_2022_r2.jpg": {
-    "true": "Empty",
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 12_2018_r2.jpg": {
+    "true": "Dysfunctional",
     "pred": "Functional",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 12_2018.jpg3152488",
+    "region_index": 2
   },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 06_2014_r3.jpg": {
-    "true": "Empty",
-    "pred": "Functional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 05_2025_r3.jpg": {
-    "true": "Empty",
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Dysfunctional/Waterval_Images-Waterval_(Top)_Waterval 12_2018_r3.jpg": {
+    "true": "Dysfunctional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 12_2018.jpg3152488",
+    "region_index": 3
   },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 05_2020_r0.jpg": {
-    "true": "Empty",
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Top)_Waterval 01_2012_r1.jpg": {
+    "true": "Functional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 01_2012.jpg4076502",
+    "region_index": 1
   },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 05_2012_r3.jpg": {
-    "true": "Empty",
-    "pred": "Functional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 04_2012_r1.jpg": {
-    "true": "Empty",
-    "pred": "Functional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 07_2011_r0.jpg": {
-    "true": "Empty",
-    "pred": "Functional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 07_2011_r1.jpg": {
-    "true": "Empty",
-    "pred": "Functional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 07_2011_r2.jpg": {
-    "true": "Empty",
-    "pred": "Functional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 07_2012_r2.jpg": {
-    "true": "Empty",
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Top)_Waterval 02_2025_r1.jpg": {
+    "true": "Functional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 02_2025.jpg4178610",
+    "region_index": 1
   },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 07_2021_r3.jpg": {
-    "true": "Empty",
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Top)_Waterval 05_2017_r3.jpg": {
+    "true": "Functional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 05_2017.jpg2871979",
+    "region_index": 3
   },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 09_2017_r0.jpg": {
-    "true": "Empty",
-    "pred": "Functional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 08_2019_r1.jpg": {
-    "true": "Empty",
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Top)_Waterval 05_2025_r1.jpg": {
+    "true": "Functional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 05_2025.jpg4970180",
+    "region_index": 1
   },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 08_2011_r1.jpg": {
-    "true": "Empty",
-    "pred": "Dysfunctional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 08_2011_r0.jpg": {
-    "true": "Empty",
-    "pred": "Dysfunctional",
-    "flagged": true,
-    "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
-  },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 08_2013_r3.jpg": {
-    "true": "Empty",
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Top)_Waterval 05_2025_r0.jpg": {
+    "true": "Functional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 05_2025.jpg4970180",
+    "region_index": 0
   },
-  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Bottom)_Waterval 09_2017_r1.jpg": {
-    "true": "Empty",
-    "pred": "Functional",
-    "flagged": true,
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Top)_Waterval 06_2015_r1.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "Waterval"
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 06_2015.jpg2930456",
+    "region_index": 1
+  },
+  "../cnn_dataset_split_facility_test-Waterval/clarifier/test/Functional/Waterval_Images-Waterval_(Top)_Waterval 08_2013_r2.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Waterval",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Waterval/Labels/Waterval Clarifiers Top.json",
+    "img_key": "Waterval 08_2013.jpg3966089",
+    "region_index": 2
   }
 }

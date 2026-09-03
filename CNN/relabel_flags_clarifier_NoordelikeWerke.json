@@ -23,93 +23,132 @@
   "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2015 06_r7.jpg": {
     "true": "Functional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "NoordelikeWerke"
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2015 06.jpg479400",
+    "region_index": 7
   },
   "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2015 09_r1.jpg": {
     "true": "Functional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "NoordelikeWerke"
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2015 09.jpg461672",
+    "region_index": 1
   },
   "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2015 10_r5.jpg": {
     "true": "Functional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "NoordelikeWerke"
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2015 10.jpg526710",
+    "region_index": 5
   },
   "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2019 04_r6.jpg": {
     "true": "Functional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "NoordelikeWerke"
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2019 04.jpg491762",
+    "region_index": 6
   },
   "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2019 07_r2.jpg": {
     "true": "Functional",
     "pred": "Dysfunctional",
-    "flagged": true,
+    "relabel_to": "Dysfunctional",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "NoordelikeWerke"
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2019 07.jpg490400",
+    "region_index": 2
   },
   "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2021 03_r1.jpg": {
     "true": "Functional",
     "pred": "Dysfunctional",
-    "flagged": true,
+    "relabel_to": "Dysfunctional",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "NoordelikeWerke"
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2021 03.jpg579815",
+    "region_index": 1
   },
   "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2020 04_r3.jpg": {
     "true": "Functional",
     "pred": "Dysfunctional",
-    "flagged": true,
+    "relabel_to": "Dysfunctional",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "NoordelikeWerke"
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2020 04.jpg504324",
+    "region_index": 3
   },
   "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2020 04_r5.jpg": {
     "true": "Functional",
     "pred": "Dysfunctional",
-    "flagged": true,
+    "relabel_to": "Dysfunctional",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "NoordelikeWerke"
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2020 04.jpg504324",
+    "region_index": 5
   },
   "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2020 04_r8.jpg": {
     "true": "Functional",
     "pred": "Dysfunctional",
-    "flagged": true,
+    "relabel_to": "Dysfunctional",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "NoordelikeWerke"
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2020 04.jpg504324",
+    "region_index": 8
   },
   "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2021 03_r2.jpg": {
     "true": "Functional",
     "pred": "Dysfunctional",
-    "flagged": true,
+    "relabel_to": "Dysfunctional",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "NoordelikeWerke"
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2021 03.jpg579815",
+    "region_index": 2
   },
   "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2021 03_r4.jpg": {
     "true": "Functional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "NoordelikeWerke"
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2021 03.jpg579815",
+    "region_index": 4
   },
   "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2021 03_r5.jpg": {
     "true": "Functional",
     "pred": "Dysfunctional",
-    "flagged": true,
+    "relabel_to": "Dysfunctional",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "NoordelikeWerke"
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2021 03.jpg579815",
+    "region_index": 5
   },
   "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2021 08_r7.jpg": {
     "true": "Functional",
     "pred": "Scum",
-    "flagged": true,
+    "relabel_to": "Scum",
     "source_model": "ConvNeXt-Tiny",
-    "test_set_id": "NoordelikeWerke"
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2021 08.jpg588626",
+    "region_index": 7
   },
   "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Scum/NoordelikeWerke_Images_Northern Works 2012 04_r8.jpg": {
     "true": "Scum",
@@ -166,5 +205,215 @@
     "flagged": true,
     "source_model": "ConvNeXt-Tiny",
     "test_set_id": "NoordelikeWerke"
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2015 08_r1.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2015 08.jpg472016",
+    "region_index": 1
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2016 05_r8.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2016 05.jpg506680",
+    "region_index": 8
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2020 04_r4.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "relabel_to": "Dysfunctional",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2020 04.jpg504324",
+    "region_index": 4
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2020 04_r0.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "relabel_to": "Dysfunctional",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2020 04.jpg504324",
+    "region_index": 0
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2021 03_r0.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2021 03.jpg579815",
+    "region_index": 0
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2020 06_r0.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2020 06.jpg586028",
+    "region_index": 0
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2020 05_r0.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2020 05.jpg595553",
+    "region_index": 0
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2021 04_r0.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2021 04.jpg566277",
+    "region_index": 0
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2021 08_r0.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2021 08.jpg588626",
+    "region_index": 0
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Functional/NoordelikeWerke_Images_Northern Works 2021 08_r1.jpg": {
+    "true": "Functional",
+    "pred": "Dysfunctional",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2021 08.jpg588626",
+    "region_index": 1
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Scum/NoordelikeWerke_Images_Northern Works 2012 06_r4.jpg": {
+    "true": "Scum",
+    "pred": "Dysfunctional",
+    "relabel_to": "Dysfunctional",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2012 06.jpg490962",
+    "region_index": 4
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Empty/NoordelikeWerke_Images_Northern Works 2020 05_r2.jpg": {
+    "true": "Empty",
+    "pred": "Dysfunctional",
+    "relabel_to": "Dysfunctional",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2020 05.jpg595553",
+    "region_index": 2
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Empty/NoordelikeWerke_Images_Northern Works 2020 06_r2.jpg": {
+    "true": "Empty",
+    "pred": "Dysfunctional",
+    "relabel_to": "Dysfunctional",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2020 06.jpg586028",
+    "region_index": 2
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Empty/NoordelikeWerke_Images_Northern Works 2019 08_r5.jpg": {
+    "true": "Empty",
+    "pred": "Dysfunctional",
+    "relabel_to": "Dysfunctional",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2019 08.jpg574101",
+    "region_index": 5
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Empty/NoordelikeWerke_Images_Northern Works 2016 09_r8.jpg": {
+    "true": "Empty",
+    "pred": "Dysfunctional",
+    "relabel_to": "Dysfunctional",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2016 09.jpg437636",
+    "region_index": 8
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Scum/NoordelikeWerke_Images_Northern Works 2015 07_r6.jpg": {
+    "true": "Scum",
+    "pred": "Dysfunctional",
+    "relabel_to": "Dysfunctional",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2015 07.jpg473512",
+    "region_index": 6
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Scum/NoordelikeWerke_Images_Northern Works 2015 09_r3.jpg": {
+    "true": "Scum",
+    "pred": "Dysfunctional",
+    "relabel_to": "Dysfunctional",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2015 09.jpg461672",
+    "region_index": 3
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Scum/NoordelikeWerke_Images_Northern Works 2015 10_r1.jpg": {
+    "true": "Scum",
+    "pred": "Dysfunctional",
+    "relabel_to": "Dysfunctional",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2015 10.jpg526710",
+    "region_index": 1
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Scum/NoordelikeWerke_Images_Northern Works 2017 05_r6.jpg": {
+    "true": "Scum",
+    "pred": "Dysfunctional",
+    "relabel_to": "Dysfunctional",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2017 05.jpg491747",
+    "region_index": 6
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Scum/NoordelikeWerke_Images_Northern Works 2016 09_r6.jpg": {
+    "true": "Scum",
+    "pred": "Empty",
+    "relabel_to": "Dysfunctional",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2016 09.jpg437636",
+    "region_index": 6
+  },
+  "../cnn_dataset_split_facility_test-NoordelikeWerke/clarifier/test/Scum/NoordelikeWerke_Images_Northern Works 2018 03_r0.jpg": {
+    "true": "Scum",
+    "pred": "Functional",
+    "relabel_to": "Functional",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "NoordelikeWerke",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/NoordelikeWerke/Labels/Noordelike Werke Clarifiers.json",
+    "img_key": "Northern Works 2018 03.jpg437710",
+    "region_index": 0
   }
 }

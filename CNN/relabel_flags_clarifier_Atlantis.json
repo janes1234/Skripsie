@@ -1,0 +1,32 @@
+{
+  "../cnn_dataset_split_facility_test-Atlantis/clarifier/test/Functional/Atlantis_Images_Atlantis 02_2025_r0.jpg": {
+    "true": "Functional",
+    "pred": "Scum",
+    "relabel_to": "Scum",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Atlantis",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Atlantis/Labels/Atlantis Clarifiers.json",
+    "img_key": "Atlantis 02_2025.jpg448810",
+    "region_index": 0
+  },
+  "../cnn_dataset_split_facility_test-Atlantis/clarifier/test/Scum/Atlantis_Images_Atlantis 04_2017_r1.jpg": {
+    "true": "Scum",
+    "pred": "Functional",
+    "relabel_to": "Functional",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Atlantis",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Atlantis/Labels/Atlantis Clarifiers.json",
+    "img_key": "Atlantis 04_2017.jpg2761190",
+    "region_index": 1
+  },
+  "../cnn_dataset_split_facility_test-Atlantis/clarifier/test/Scum/Atlantis_Images_Atlantis 12_2019_r0.jpg": {
+    "true": "Scum",
+    "pred": "Functional",
+    "relabel_to": "Functional",
+    "source_model": "ConvNeXt-Tiny",
+    "test_set_id": "Atlantis",
+    "json_path": "/home/janes/Repos/Skripsie/wastewater/Atlantis/Labels/Atlantis Clarifiers.json",
+    "img_key": "Atlantis 12_2019.jpg2889381",
+    "region_index": 0
+  }
+}

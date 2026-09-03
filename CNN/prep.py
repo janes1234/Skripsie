@@ -18,6 +18,7 @@ structure suitable for CNN training:
 """
 
 import json
+import shutil
 from collections import defaultdict
 from pathlib import Path
 from PIL import Image, ImageDraw
@@ -97,6 +98,7 @@ FACILITIES = {
 }
 
 LABELS_SUBDIR = "Labels"
+RELABEL_SUBDIR = "relabel"
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".tif", ".tiff"}
 
 # ------------------------------------------------------------------------------
@@ -123,6 +125,21 @@ def get_images_on_disk(images_dir: Path) -> set:
     if not images_dir.exists():
         return set()
     return {p for p in images_dir.iterdir() if p.suffix.lower() in IMAGE_EXTENSIONS}
+
+
+def resolve_label_path(facility_root: Path, filename: str) -> Path:
+    """The single place that decides which copy of a label json to read.
+
+    Prefers facility_root/relabel/{filename} (the working copy the relabel
+    notebook edits) if it exists, otherwise falls back to
+    facility_root/Labels/{filename} (the pristine original). Every caller
+    should go through this instead of hardcoding either subfolder, so a
+    relabel edit is picked up everywhere the json is read from without
+    needing every facility/unit to already have a relabel/ folder."""
+    relabel_path = facility_root / RELABEL_SUBDIR / filename
+    if relabel_path.exists():
+        return relabel_path
+    return facility_root / LABELS_SUBDIR / filename
 
 
 def find_image_case_insensitive(images_dir: Path, filename: str):
@@ -218,18 +235,20 @@ def process_json_file(
     facility_class_counts: dict,
     valid_classes: set,
     excluded_classes: set,
+    manifest: dict,
 ):
     images_processed = 0
     missing_filenames = []
+    excluded_filenames = []
     used_paths = set()
 
     if not json_path.exists():
         print(f"  [skip] label file not found: {json_path}")
-        return images_processed, missing_filenames, used_paths
+        return images_processed, missing_filenames, used_paths, excluded_filenames
 
     img_metadata = load_via2_json(json_path)
 
-    for entry in img_metadata.values():
+    for img_key, entry in img_metadata.items():
         filename = entry.get("filename")
         if not filename:
             continue
@@ -266,6 +285,7 @@ def process_json_file(
 
             if label in excluded_classes:
                 excluded_counters[label] = excluded_counters.get(label, 0) + 1
+                excluded_filenames.append(f"{filename} (Label: {label})")
                 continue
 
             try:
@@ -295,7 +315,21 @@ def process_json_file(
             counters[label] = counters.get(label, 0) + 1
             facility_class_counts[facility_name][label] += 1
 
-    return images_processed, missing_filenames, used_paths
+            # Record everything needed to find this exact region again later
+            # (e.g. from the relabel notebook) without having to reverse-parse
+            # the crop filename, which is unreliable since facility/unit
+            # names can themselves contain underscores or spaces.
+            manifest[out_name] = {
+                "facility": facility_name,
+                "unit_label": unit_label,
+                "attr_key": attr_key,
+                "json_path": str(json_path.resolve()),
+                "img_key": img_key,
+                "region_index": i,
+                "label_at_export": label,
+            }
+
+    return images_processed, missing_filenames, used_paths, excluded_filenames
 
 
 def print_facility_breakdown(title: str, facility_class_counts: dict, classes: set):
@@ -310,6 +344,22 @@ def print_facility_breakdown(title: str, facility_class_counts: dict, classes: s
 
 
 def main():
+    # Always rebuild OUTPUT_ROOT from scratch. Without this, a relabel that
+    # moves an image from one class to another (e.g. Functional -> Empty)
+    # would save a fresh copy under the new class folder but leave the
+    # stale old copy sitting under the old class folder forever, since the
+    # per-class crop.save() calls below only ever create files, never
+    # remove them. That stale duplicate then gets picked up by
+    # split_dataset_facility.py too, so the same image ends up in the
+    # training/test data under both its old AND new label at once -- which
+    # is exactly the kind of thing that makes a relabel "not stick" even
+    # after retraining. A clean wipe-and-rebuild guarantees cnn_dataset
+    # only ever reflects whatever the (relabel-aware) json files currently
+    # say, with nothing left over from a previous run.
+    if OUTPUT_ROOT.exists():
+        print(f"Cleaning up existing output directory: {OUTPUT_ROOT.resolve()}")
+        shutil.rmtree(OUTPUT_ROOT)
+
     aerobic_counts = {}
     clarifier_counts = {}
     aerobic_excluded = {}
@@ -317,15 +367,21 @@ def main():
     aerobic_by_facility = defaultdict(lambda: defaultdict(int))
     clarifier_by_facility = defaultdict(lambda: defaultdict(int))
 
+    # Keyed by crop filename (unique within a component, but aerobic_zone
+    # and clarifier crops can share a filename since region indices restart
+    # at 0 for each json file), so these stay separate.
+    aerobic_manifest = {}
+    clarifier_manifest = {}
+
     total_images_on_disk = 0
     total_images_processed = 0
     
     global_missing_json = []
     global_ignored_disk = []
+    global_excluded_files = []
 
     for facility_name, facility_cfg in FACILITIES.items():
         facility_root = RAW_DATA_ROOT / facility_name
-        labels_root = facility_root / LABELS_SUBDIR if LABELS_SUBDIR else facility_root
 
         print(f"\n=== {facility_name} ===")
 
@@ -345,8 +401,9 @@ def main():
 
             # Process Aerobic JSON if it exists in the config
             if aerobic_json_name:
-                aerobic_json = labels_root / aerobic_json_name
-                aerobic_processed, a_missing, a_used = process_json_file(
+                aerobic_json = resolve_label_path(facility_root, aerobic_json_name)
+                print(f"    [aerobic]   using: {aerobic_json}")
+                aerobic_processed, a_missing, a_used, a_excluded = process_json_file(
                     json_path=aerobic_json,
                     images_dir=images_dir,
                     attr_key=AEROBIC_ATTR_KEY,
@@ -358,14 +415,16 @@ def main():
                     facility_class_counts=aerobic_by_facility,
                     valid_classes=AEROBIC_CLASSES,
                     excluded_classes=EXCLUDED_AEROBIC_CLASSES,
+                    manifest=aerobic_manifest,
                 )
             else:
-                aerobic_processed, a_missing, a_used = 0, [], set()
+                aerobic_processed, a_missing, a_used, a_excluded = 0, [], set(), []
 
             # Process Clarifier JSON if it exists in the config
             if clarifier_json_name:
-                clarifier_json = labels_root / clarifier_json_name
-                clarifier_processed, c_missing, c_used = process_json_file(
+                clarifier_json = resolve_label_path(facility_root, clarifier_json_name)
+                print(f"    [clarifier] using: {clarifier_json}")
+                clarifier_processed, c_missing, c_used, c_excluded = process_json_file(
                     json_path=clarifier_json,
                     images_dir=images_dir,
                     attr_key=CLARIFIER_ATTR_KEY,
@@ -377,9 +436,10 @@ def main():
                     facility_class_counts=clarifier_by_facility,
                     valid_classes=CLARIFIER_CLASSES,
                     excluded_classes=EXCLUDED_CLARIFIER_CLASSES,
+                    manifest=clarifier_manifest,
                 )
             else:
-                clarifier_processed, c_missing, c_used = 0, [], set()
+                clarifier_processed, c_missing, c_used, c_excluded = 0, [], set(), []
 
             total_images_on_disk += on_disk
             total_images_processed += aerobic_processed + clarifier_processed
@@ -389,6 +449,11 @@ def main():
                 global_missing_json.append(f"[{facility_name}/{unit_label} - Aerobic] {f}")
             for f in c_missing:
                 global_missing_json.append(f"[{facility_name}/{unit_label} - Clarifier] {f}")
+                
+            for f in a_excluded:
+                global_excluded_files.append(f"[{facility_name}/{unit_label} - Aerobic] {f}")
+            for f in c_excluded:
+                global_excluded_files.append(f"[{facility_name}/{unit_label} - Clarifier] {f}")
                 
             # Track exactly which files on disk were NEVER referenced in either JSON
             ignored_paths = disk_paths - (a_used | c_used)
@@ -416,10 +481,24 @@ def main():
         for f in sorted(global_ignored_disk):
             print(f"  - {f}")
             
-    if not global_missing_json and not global_ignored_disk:
-        print("\nAll files perfectly matched between disk and JSON annotations!")
+    if global_excluded_files:
+        print("\n[!] EXCLUDED FILES: Skipped because they belong to an excluded class:")
+        for f in sorted(set(global_excluded_files)):
+            print(f"  - {f}")
+            
+    if not global_missing_json and not global_ignored_disk and not global_excluded_files:
+        print("\nAll files perfectly matched between disk and JSON annotations, with no excluded classes!")
 
     print(f"\nOutput written to: {OUTPUT_ROOT.resolve()}")
+
+    manifest_path = OUTPUT_ROOT / "crop_manifest.json"
+    with open(manifest_path, "w", encoding="utf-8") as f:
+        json.dump(
+            {"aerobic_zone": aerobic_manifest, "clarifier": clarifier_manifest},
+            f,
+            indent=2,
+        )
+    print(f"Crop manifest written to: {manifest_path.resolve()}")
 
 
 if __name__ == "__main__":

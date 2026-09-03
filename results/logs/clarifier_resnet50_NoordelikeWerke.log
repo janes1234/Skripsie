@@ -1,0 +1,3 @@
+[NbConvertApp] Converting notebook train_resnet50.ipynb to notebook
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbConvertApp] Writing 228429 bytes to /home/janes/Repos/Skripsie/CNN/executed_notebooks/clarifier_resnet50_NoordelikeWerke.ipynb
