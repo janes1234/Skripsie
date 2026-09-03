@@ -1,0 +1,294 @@
+facility,unit,component,json_file,filename,region,old_label,new_label
+Atlantis,Images,clarifier,Atlantis Clarifiers.json,Atlantis 02_2025.jpg,0,Functional,Scum
+Atlantis,Images,clarifier,Atlantis Clarifiers.json,Atlantis 04_2017.jpg,1,Scum,Functional
+Atlantis,Images,clarifier,Atlantis Clarifiers.json,Atlantis 09_2020.jpg,1,Functional,Empty
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201404.jpg,1,Functional,Empty
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201404.jpg,2,Functional,Empty
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201408.jpg,0,Scum,Functional
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201408.jpg,1,Functional,Scum
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201408.jpg,2,Scum,Empty
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201409.jpg,0,Scum,Functional
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201409.jpg,2,Functional,Empty
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201410.jpg,0,Scum,Functional
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201410.jpg,2,Dysfunctional,Empty
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201411.jpg,2,Dysfunctional,Empty
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201501.jpg,3,Dysfunctional,Empty
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201610.jpg,2,Empty,Scum
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201611.jpg,0,Scum,Functional
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201611.jpg,2,Empty,Scum
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201712.jpg,2,Functional,Scum
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201801.jpg,3,Functional,Dysfunctional
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201902.jpg,1,Dysfunctional,Scum
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201902.jpg,2,Dysfunctional,Scum
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201903.jpg,1,Functional,Dysfunctional
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201905.jpg,0,Empty,Scum
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201905.jpg,3,Scum,Empty
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201906.jpg,0,Empty,Scum
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201906.jpg,3,Scum,Empty
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201907.jpg,0,Empty,Scum
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_201907.jpg,3,Scum,Empty
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_202003.jpg,0,Scum,Functional
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_202005.jpg,0,Scum,Functional
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_202102.jpg,2,Functional,Empty
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_202103.jpg,2,Functional,Empty
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_202108.jpg,2,Functional,Empty
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_202206.jpg,0,Dysfunctional,Empty
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_202206.jpg,2,Scum,Empty
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_202206.jpg,3,Functional,Empty
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_202208.jpg,0,Functional,Empty
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_202209.jpg,0,Functional,Empty
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_202209.jpg,3,Functional,Empty
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_202211.jpg,1,Functional,Scum
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_202212.jpg,1,Functional,Scum
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_202301.jpg,1,Functional,Scum
+CapeFlats,Images/CF1,clarifier,Cape Flats 1 Clarifiers.json,capeflats1_202301.jpg,2,Functional,Scum
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_201112.jpg,0,Functional,Scum
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_201112.jpg,1,Functional,Scum
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_201204.jpg,2,Dysfunctional,Empty
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_201303.jpg,2,Dysfunctional,Empty
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_201408.jpg,0,Functional,Empty
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_201408.jpg,3,Dysfunctional,Empty
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_201409.jpg,0,Dysfunctional,Empty
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_201409.jpg,3,Dysfunctional,Empty
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_201506.jpg,2,Functional,Empty
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_201506.jpg,3,Functional,Empty
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_201507.jpg,2,Scum,Empty
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_201712.jpg,2,Dysfunctional,Functional
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_201806.jpg,3,Functional,Empty
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_201902.jpg,2,Dysfunctional,Empty
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_201903.jpg,2,Dysfunctional,Empty
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_201904.jpg,2,Dysfunctional,Empty
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_201907.jpg,0,Functional,Scum
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_202101.jpg,3,Scum,Empty
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_202106.jpg,1,Scum,Functional
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_202402.jpg,0,Functional,Scum
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_202402.jpg,1,Functional,Scum
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_202402.jpg,2,Functional,Scum
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_202402.jpg,3,Functional,Scum
+CapeFlats,Images/CF2,clarifier,Cape Flats 2 Clarifiers.json,capeflats2_202502.jpg,2,Dysfunctional,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201112.jpg,0,Functional,Scum
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201112.jpg,1,Functional,Scum
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201112.jpg,2,Dysfunctional,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201204.jpg,2,Dysfunctional,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201210.jpg,2,Dysfunctional,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201303.jpg,2,Dysfunctional,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201311.jpg,0,Functional,Scum
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201405.jpg,2,Scum,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201405.jpg,3,Functional,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201408.jpg,0,Functional,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201409.jpg,0,Dysfunctional,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201410.jpg,0,Dysfunctional,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201504.jpg,2,Scum,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201506.jpg,2,Functional,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201506.jpg,3,Functional,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201507.jpg,2,Scum,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201507.jpg,3,Scum,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201601.jpg,0,Scum,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201601.jpg,1,Scum,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201709.jpg,2,Functional,Scum
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201804.jpg,3,Dysfunctional,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201805.jpg,2,Functional,Dysfunctional
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201805.jpg,3,Functional,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201806.jpg,0,Functional,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201806.jpg,3,Functional,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201807.jpg,3,Functional,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_201808.jpg,3,Functional,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_202102.jpg,0,Scum,Dysfunctional
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_202102.jpg,1,Scum,Dysfunctional
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_202211.jpg,3,Dysfunctional,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_202212.jpg,3,Functional,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_202301.jpg,3,Scum,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_202402.jpg,0,Scum,Dysfunctional
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_202402.jpg,3,Dysfunctional,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_202403.jpg,3,Dysfunctional,Empty
+CapeFlats,Images/CF3,clarifier,Cape Flats 3 Clarifiers.json,capeflats3_202502.jpg,3,Scum,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_200902.jpg,6,Functional,Scum
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_201707.jpg,1,Functional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_201711.jpg,1,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_201812.jpg,2,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_201901.jpg,2,Scum,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_201902.jpg,2,Scum,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_201907.jpg,2,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202003.jpg,1,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202005.jpg,1,Scum,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202005.jpg,2,Scum,Dysfunctional
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202006.jpg,1,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202006.jpg,3,Dysfunctional,Scum
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202007.jpg,1,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202007.jpg,2,Functional,Scum
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202007.jpg,3,Functional,Scum
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202008.jpg,1,Scum,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202009.jpg,0,Scum,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202009.jpg,1,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202010.jpg,0,Scum,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202010.jpg,1,Scum,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202011.jpg,0,Scum,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202011.jpg,1,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202012.jpg,0,Scum,Dysfunctional
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202101.jpg,0,Scum,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202101.jpg,1,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202102.jpg,0,Scum,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202102.jpg,1,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202103.jpg,1,Functional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202103.jpg,3,Scum,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202108.jpg,2,Scum,Functional
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202201.jpg,3,Scum,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202202.jpg,0,Scum,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202202.jpg,2,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202202.jpg,3,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202203.jpg,0,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202203.jpg,1,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202203.jpg,2,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202203.jpg,3,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202204.jpg,0,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202204.jpg,1,Functional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202204.jpg,2,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202204.jpg,3,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202205.jpg,1,Scum,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202205.jpg,3,Functional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202206.jpg,1,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202206.jpg,3,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202207.jpg,3,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202208.jpg,3,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202209.jpg,3,Dysfunctional,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202502.jpg,2,Scum,Empty
+CapeFlats,Images/CF4,clarifier,Cape Flats 4 Clarifiers.json,capeflats4_202502.jpg,3,Scum,Empty
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 01_2012.jpg,0,Dysfunctional,Functional
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 01_2012.jpg,1,Functional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 01_2012.jpg,2,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 01_2013.jpg,3,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 02_2025.jpg,1,Functional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 02_2025.jpg,2,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 03_2022.jpg,0,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 03_2022.jpg,2,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 04_2012.jpg,0,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 04_2012.jpg,1,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 04_2012.jpg,2,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 04_2012.jpg,3,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 04_2021.jpg,0,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 04_2021.jpg,3,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 04_2024.jpg,0,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 05_2012.jpg,0,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 05_2012.jpg,1,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 05_2012.jpg,2,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 05_2015.jpg,1,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 05_2015.jpg,3,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 05_2017.jpg,0,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 05_2017.jpg,1,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 05_2017.jpg,2,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 05_2017.jpg,3,Functional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 05_2018.jpg,0,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 05_2020.jpg,0,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 05_2020.jpg,3,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 05_2025.jpg,0,Functional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 05_2025.jpg,1,Functional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 05_2025.jpg,3,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 06_2012.jpg,0,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 06_2012.jpg,1,Dysfunctional,Functional
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 06_2012.jpg,2,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 06_2012.jpg,3,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 06_2013.jpg,0,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 06_2013.jpg,1,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 06_2013.jpg,2,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 06_2013.jpg,3,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 06_2014.jpg,0,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 06_2014.jpg,1,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 06_2014.jpg,2,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 06_2014.jpg,3,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 06_2015.jpg,0,Functional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 06_2018.jpg,0,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 06_2018.jpg,1,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 06_2018.jpg,2,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 06_2018.jpg,3,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 07_2011.jpg,0,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 07_2011.jpg,1,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 07_2011.jpg,2,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 07_2012.jpg,0,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 07_2012.jpg,1,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 07_2012.jpg,2,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 07_2012.jpg,3,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 07_2021.jpg,0,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 07_2021.jpg,2,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 08_2011.jpg,0,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 08_2011.jpg,1,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 08_2011.jpg,2,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 08_2013.jpg,0,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 08_2013.jpg,1,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 08_2013.jpg,2,Functional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 08_2013.jpg,3,Functional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 08_2015.jpg,0,Functional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 08_2015.jpg,1,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 08_2015.jpg,2,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 08_2019.jpg,1,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 08_2019.jpg,3,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 08_2021.jpg,0,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 08_2021.jpg,1,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 08_2021.jpg,2,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 09_2015.jpg,1,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 09_2015.jpg,2,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 09_2015.jpg,3,Dysfunctional,Functional
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 09_2017.jpg,0,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 09_2017.jpg,2,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 12_2018.jpg,0,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 12_2018.jpg,1,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 12_2018.jpg,2,Dysfunctional,Scum
+Waterval,Images/Waterval (Top),clarifier,Waterval Clarifiers Top.json,Waterval 12_2018.jpg,3,Dysfunctional,Scum
+Waterval,Images/Waterval (Bottom),clarifier,Waterval Clarifiers Bottom.json,Waterval 08_2019.jpg,3,Scum,Functional
+Waterval,Images/Waterval (Bottom),clarifier,Waterval Clarifiers Bottom.json,Waterval 12_2018.jpg,3,Scum,Functional
+Fisantekraal,Images,clarifier,Fisantekraal Clarifiers.json,Fisantekraal 2014_10.jpg,3,Scum,Functional
+Fisantekraal,Images,clarifier,Fisantekraal Clarifiers.json,Fisantekraal 2015_12.jpg,3,Scum,Functional
+Fisantekraal,Images,clarifier,Fisantekraal Clarifiers.json,Fisantekraal 2018_04.jpg,0,Scum,Functional
+Fisantekraal,Images,clarifier,Fisantekraal Clarifiers.json,Fisantekraal 2018_04.jpg,3,Scum,Functional
+Fisantekraal,Images,clarifier,Fisantekraal Clarifiers.json,Fisantekraal 2019_04.jpg,3,Dysfunctional,Empty
+Fisantekraal,Images,clarifier,Fisantekraal Clarifiers.json,Fisantekraal 2020_04.jpg,1,Scum,Dysfunctional
+Fisantekraal,Images,clarifier,Fisantekraal Clarifiers.json,Fisantekraal 2020_04.jpg,3,Functional,Scum
+Fisantekraal,Images,clarifier,Fisantekraal Clarifiers.json,Fisantekraal 2021_04.jpg,2,Dysfunctional,Scum
+Fisantekraal,Images,clarifier,Fisantekraal Clarifiers.json,Fisantekraal 2025_02.jpg,2,Scum,Functional
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2010 09.jpg,2,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2010 09.jpg,8,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2011 07.jpg,6,Dysfunctional,Empty
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2011 07.jpg,8,Dysfunctional,Empty
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2012 04.jpg,8,Scum,Functional
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2012 06.jpg,4,Scum,Dysfunctional
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2012 12.jpg,1,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2013 10.jpg,2,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2013 10.jpg,5,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2014 05.jpg,4,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2015 06.jpg,7,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2015 07.jpg,6,Scum,Dysfunctional
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2015 08.jpg,1,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2015 09.jpg,0,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2015 09.jpg,1,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2015 09.jpg,3,Scum,Dysfunctional
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2015 10.jpg,1,Scum,Dysfunctional
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2015 10.jpg,5,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2016 05.jpg,8,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2016 09.jpg,6,Scum,Dysfunctional
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2017 05.jpg,6,Scum,Dysfunctional
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2018 03.jpg,0,Scum,Functional
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2018 12.jpg,0,Scum,Dysfunctional
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2019 04.jpg,2,Scum,Empty
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2019 04.jpg,3,Scum,Empty
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2019 04.jpg,6,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2019 07.jpg,2,Functional,Dysfunctional
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2020 04.jpg,0,Functional,Dysfunctional
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2020 04.jpg,3,Functional,Dysfunctional
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2020 04.jpg,4,Functional,Dysfunctional
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2020 04.jpg,5,Functional,Dysfunctional
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2020 04.jpg,8,Functional,Dysfunctional
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2020 05.jpg,0,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2020 06.jpg,0,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2021 03.jpg,0,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2021 03.jpg,1,Functional,Dysfunctional
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2021 03.jpg,2,Functional,Empty
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2021 03.jpg,3,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2021 03.jpg,4,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2021 03.jpg,5,Functional,Dysfunctional
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2021 04.jpg,0,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2021 07.jpg,0,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2021 08.jpg,0,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2021 08.jpg,1,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2021 08.jpg,7,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2022 05.jpg,0,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2025 03.jpg,3,Functional,Scum
+NoordelikeWerke,Images,clarifier,Noordelike Werke Clarifiers.json,Northern Works 2025 05.jpg,7,Functional,Scum
