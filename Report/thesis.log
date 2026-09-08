@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.1)  15 AUG 2026 17:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.1)  8 SEP 2026 10:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1461,7 +1461,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/home/janes-mostert/.TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-<stb-thesis-frntp.pdf, id=118, 597.50786pt x 845.04686pt>
+<stb-thesis-frntp.pdf, id=134, 597.50786pt x 845.04686pt>
 File: stb-thesis-frntp.pdf Graphic file (type pdf)
 <use stb-thesis-frntp.pdf>
 Package pdftex.def Info: stb-thesis-frntp.pdf  used on input line 3.
@@ -1562,7 +1562,7 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
-[11]) (./chapters/Background.tex
+[11]) (./chapters/Chapter1.tex
 Chapter 1.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
@@ -1572,30 +1572,42 @@ l.9
      [1
 
 ]
-<figures/aerobicfunc_background.png, id=283, 652.4375pt x 649.42625pt>
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[2]) (./chapters/Chapter2.tex
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[3{/home/janes-mostert/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
+Chapter 2.
+[4
+
+]
+<figures/aerobicfunc_background.png, id=338, 652.4375pt x 649.42625pt>
 File: figures/aerobicfunc_background.png Graphic file (type png)
 <use figures/aerobicfunc_background.png>
 Package pdftex.def Info: figures/aerobicfunc_background.png  used on input line 15.
 (pdftex.def)             Requested size: 120.89905pt x 120.34016pt.
-<figures/aerobicdysfunc_background.png, id=285, 652.4375pt x 649.42625pt>
+<figures/aerobicdysfunc_background.png, id=340, 652.4375pt x 649.42625pt>
 File: figures/aerobicdysfunc_background.png Graphic file (type png)
 <use figures/aerobicdysfunc_background.png>
 Package pdftex.def Info: figures/aerobicdysfunc_background.png  used on input line 21.
 (pdftex.def)             Requested size: 120.89905pt x 120.34016pt.
-<figures/clarifier_background.png, id=286, 318.18875pt x 163.61125pt>
+<figures/clarifier_background.png, id=341, 318.18875pt x 163.61125pt>
 File: figures/clarifier_background.png Graphic file (type png)
 <use figures/clarifier_background.png>
 Package pdftex.def Info: figures/clarifier_background.png  used on input line 27.
 (pdftex.def)             Requested size: 120.89905pt x 62.16542pt.
-
-
-Package fancyhdr Warning: \headheight is too small (14.5pt): 
-(fancyhdr)                Make it at least 27.11653pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.11653pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
-
-[2 <./figures/aerobicfunc_background.png> <./figures/aerobicdysfunc_background.png> <./figures/clarifier_background.png>]
+) (./chapters/Chapter3.tex
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
 (fancyhdr)                Make it at least 27.11653pt, for example:
@@ -1603,29 +1615,9 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
-[3]) (./chapters/Chapter2.tex
-
-Package fancyhdr Warning: \headheight is too small (14.5pt): 
-(fancyhdr)                Make it at least 27.11653pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.11653pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
-
-[4]
-Chapter 2.
-[5
-
-{/home/janes-mostert/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]) (./chapters/Chapter3.tex
-
-Package fancyhdr Warning: \headheight is too small (14.5pt): 
-(fancyhdr)                Make it at least 27.11653pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.11653pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
-
-[6]
+[5 <./figures/aerobicfunc_background.png> <./figures/aerobicdysfunc_background.png> <./figures/clarifier_background.png>]
 Chapter 3.
-) (./chapters/Chapter4.tex [7
+) (./chapters/Chapter4.tex [6
 
 ]
 Chapter 4.
@@ -1637,40 +1629,40 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<figures/heatmap.png, id=322, 1278.4563pt x 855.6768pt>
+<figures/heatmap.png, id=356, 1278.4563pt x 855.6768pt>
 File: figures/heatmap.png Graphic file (type png)
 <use figures/heatmap.png>
 Package pdftex.def Info: figures/heatmap.png  used on input line 11.
 (pdftex.def)             Requested size: 390.0pt x 261.02673pt.
- [8
+ [7
 
 ]
-<figures/map.png, id=331, 1344.02126pt x 742.775pt>
+<figures/map.png, id=365, 1344.02126pt x 742.775pt>
 File: figures/map.png Graphic file (type png)
 <use figures/map.png>
 Package pdftex.def Info: figures/map.png  used on input line 23.
 (pdftex.def)             Requested size: 234.00238pt x 129.31886pt.
-<figures/atlantis_overview.png, id=332, 379.4175pt x 326.21875pt>
+<figures/atlantis_overview.png, id=366, 379.4175pt x 326.21875pt>
 File: figures/atlantis_overview.png Graphic file (type png)
 <use figures/atlantis_overview.png>
 Package pdftex.def Info: figures/atlantis_overview.png  used on input line 31.
 (pdftex.def)             Requested size: 124.80286pt x 107.30408pt.
-<figures/capeflats_overview.png, id=333, 542.025pt x 278.03876pt>
+<figures/capeflats_overview.png, id=367, 542.025pt x 278.03876pt>
 File: figures/capeflats_overview.png Graphic file (type png)
 <use figures/capeflats_overview.png>
 Package pdftex.def Info: figures/capeflats_overview.png  used on input line 37.
 (pdftex.def)             Requested size: 124.80286pt x 64.01544pt.
-<figures/waterval_overview.png, id=334, 256.96pt x 327.2225pt>
+<figures/waterval_overview.png, id=368, 256.96pt x 327.2225pt>
 File: figures/waterval_overview.png Graphic file (type png)
 <use figures/waterval_overview.png>
 Package pdftex.def Info: figures/waterval_overview.png  used on input line 43.
 (pdftex.def)             Requested size: 117.00119pt x 148.9963pt.
-<figures/fisantekraal_overview.png, id=335, 8222.72pt x 3047.385pt>
+<figures/fisantekraal_overview.png, id=369, 8222.72pt x 3047.385pt>
 File: figures/fisantekraal_overview.png Graphic file (type png)
 <use figures/fisantekraal_overview.png>
 Package pdftex.def Info: figures/fisantekraal_overview.png  used on input line 49.
 (pdftex.def)             Requested size: 117.00119pt x 43.33733pt.
-<figures/noordelikewerke_overview.png, id=336, 1534.73375pt x 918.43124pt>
+<figures/noordelikewerke_overview.png, id=370, 1534.73375pt x 918.43124pt>
 File: figures/noordelikewerke_overview.png Graphic file (type png)
 <use figures/noordelikewerke_overview.png>
 Package pdftex.def Info: figures/noordelikewerke_overview.png  used on input line 55.
@@ -1683,7 +1675,7 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
-[9 <./figures/heatmap.png> <./figures/map.png (PNG copy)>]
+[8 <./figures/heatmap.png> <./figures/map.png (PNG copy)>]
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
 (fancyhdr)                Make it at least 27.11653pt, for example:
@@ -1691,13 +1683,13 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
-[10 <./figures/atlantis_overview.png (PNG copy)> <./figures/capeflats_overview.png (PNG copy)> <./figures/waterval_overview.png (PNG copy)> <./figures/fisantekraal_overview.png (PNG copy)> <./figures/noordelikewerke_overview.png (PNG copy)>]
-<figures/aerobic_examples.png, id=350, 1193.45876pt x 335.2525pt>
+[9 <./figures/atlantis_overview.png (PNG copy)> <./figures/capeflats_overview.png (PNG copy)> <./figures/waterval_overview.png (PNG copy)> <./figures/fisantekraal_overview.png (PNG copy)> <./figures/noordelikewerke_overview.png (PNG copy)>]
+<figures/aerobic_examples.png, id=384, 1193.45876pt x 335.2525pt>
 File: figures/aerobic_examples.png Graphic file (type png)
 <use figures/aerobic_examples.png>
 Package pdftex.def Info: figures/aerobic_examples.png  used on input line 108.
 (pdftex.def)             Requested size: 292.5pt x 82.16571pt.
-<figures/clarifier_examples.png, id=351, 1542.76375pt x 426.59375pt>
+<figures/clarifier_examples.png, id=385, 1542.76375pt x 426.59375pt>
 File: figures/clarifier_examples.png Graphic file (type png)
 <use figures/clarifier_examples.png>
 Package pdftex.def Info: figures/clarifier_examples.png  used on input line 114.
@@ -1710,7 +1702,7 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
-[11]
+[10]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -1721,7 +1713,15 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
-[12 <./figures/aerobic_examples.png (PNG copy)> <./figures/clarifier_examples.png (PNG copy)>]
+[11 <./figures/aerobic_examples.png (PNG copy)> <./figures/clarifier_examples.png (PNG copy)>]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[12]
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
 (fancyhdr)                Make it at least 27.11653pt, for example:
@@ -1730,6 +1730,10 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
 [13]
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/lmr/m/sc/14.4'.
+(microtype)             Ignoring protrusion settings for this character.
+
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
 (fancyhdr)                Make it at least 27.11653pt, for example:
@@ -1737,7 +1741,16 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
-[14]) (./chapters/conclusion.tex
+[14]
+<figures/leave_one_out.png, id=410, 711.8595pt x 572.3784pt>
+File: figures/leave_one_out.png Graphic file (type png)
+<use figures/leave_one_out.png>
+Package pdftex.def Info: figures/leave_one_out.png  used on input line 211.
+(pdftex.def)             Requested size: 272.99881pt x 219.50609pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
 (fancyhdr)                Make it at least 27.11653pt, for example:
@@ -1746,6 +1759,24 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
 [15]
+<figures/relabel_example.png, id=418, 266.9975pt x 257.96375pt>
+File: figures/relabel_example.png Graphic file (type png)
+<use figures/relabel_example.png>
+Package pdftex.def Info: figures/relabel_example.png  used on input line 230.
+(pdftex.def)             Requested size: 77.99881pt x 75.35863pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/relabel_process_example.png, id=419, 1436.36626pt x 910.40125pt>
+File: figures/relabel_process_example.png Graphic file (type png)
+<use figures/relabel_process_example.png>
+Package pdftex.def Info: figures/relabel_process_example.png  used on input line 239.
+(pdftex.def)             Requested size: 272.99881pt x 173.0336pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (./chapters/Chapter5.tex) (./chapters/conclusion.tex
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
 (fancyhdr)                Make it at least 27.11653pt, for example:
@@ -1753,11 +1784,27 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
-[16]
-Chapter 5.
-) [17
+[16 <./figures/leave_one_out.png>]
 
-] (./thesis.bbl) (./appendices/appendices.tex (./appendices/an_appendix.tex [18
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[17]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[18 <./figures/relabel_example.png> <./figures/relabel_process_example.png>]
+Chapter 5.
+) [19
+
+] (./thesis.bbl) (./appendices/appendices.tex (./appendices/an_appendix.tex [20
 
 ]
 Appendix A.
@@ -1766,7 +1813,7 @@ Appendix A.
 Package caption Warning: Unused \captionsetup[algorithm] on input line 375.
 See the caption package documentation for explanation.
 
-[19
+[21
 
 ] (./thesis.aux)
  ***********
@@ -1774,21 +1821,21 @@ LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
  ***********
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 9B115BD8ACC390C2DEE43A928D67B021;3541.
+(rerunfilecheck)             Checksum: A6460D9F0B164B18A4D40780C1DB90ED;4215.
  ) 
 Here is how much of TeX's memory you used:
- 51004 strings out of 467168
- 1036735 string characters out of 5406824
- 1702607 words of memory out of 5000000
- 79155 multiletter control sequences out of 15000+600000
- 714354 words of font info for 183 fonts, out of 8000000 for 9000
+ 51075 strings out of 467168
+ 1038280 string characters out of 5406824
+ 1703607 words of memory out of 5000000
+ 79194 multiletter control sequences out of 15000+600000
+ 718060 words of font info for 194 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  115i,12n,110p,2602b,834s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmro12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (32 pages, 36595244 bytes).
+Output written on thesis.pdf (34 pages, 38942038 bytes).
 PDF statistics:
- 470 PDF objects out of 1000 (max. 8388607)
- 390 compressed objects within 4 object streams
- 74 named destinations out of 1000 (max. 500000)
- 45870 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 527 PDF objects out of 1000 (max. 8388607)
+ 438 compressed objects within 5 object streams
+ 83 named destinations out of 1000 (max. 500000)
+ 47965 words of extra memory for PDF output out of 51595 (max. 10000000)
 

@@ -3,15 +3,18 @@
 \babel@toc {afrikaans}{}\relax 
 \babel@toc {english}{}\relax 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Visual comparison of functional and dysfunctional wastewater treatment components.}}{2}{figure.caption.10}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Visual comparison of functional and dysfunctional wastewater treatment components.}}{5}{figure.caption.10}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Distribution of images available in the dataset for each of the five facilities. The numbers indicate how many images are available in the indicated month.}}{9}{figure.caption.11}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Location of the five WWTW facilities in the dataset.}}{9}{figure.caption.12}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Overview of the Atlantis, Cape Flats, Waterval, Fisantekraal, and Noordelike Werke WWTW facilities.}}{10}{figure.caption.13}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Examples of aerobic zone classes.}}{12}{figure.caption.14}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Examples of clarifier classes.}}{12}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Distribution of images available in the dataset for each of the five facilities. The numbers indicate how many images are available in the indicated month.}}{8}{figure.caption.11}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Location of the five WWTW facilities in the dataset.}}{8}{figure.caption.12}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Overview of the Atlantis, Cape Flats, Waterval, Fisantekraal, and Noordelike Werke WWTW facilities.}}{9}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Examples of aerobic zone classes.}}{11}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Examples of clarifier classes.}}{11}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Illustration of the leave-one-facility-out split. The test facility is withheld from training and validation, while the remaining four facilities are split into training and validation sets.}}{16}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces An incorrectly labelled clarifier. The original label was ``Scum,'' but the correct label is ``Empty,'' since the dark region is a shadow rather than surface scum.}}{18}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces The relabeling interface, showing the original label and the per-class correction buttons.}}{18}{figure.caption.19}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsfinish 

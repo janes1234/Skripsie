@@ -62,7 +62,7 @@ Atlantis WWTW is located on Mission Express Way in Cape Farms, Cape Town. As par
 
 Images were manually annotated using the VGG Image Annotator (VIA2) tool. Aerobic zones were labelled using rectangular bounding boxes, while clarifiers were labelled using circular regions, reflecting the physical shape of each structure. Each annotation carries a region attribute indicating the visible state of that component at the time the image was captured.
 
-Aerobic zones were labelled into one of three categories, based on how much of the surface exhibits the characteristic "leopard print" aeration pattern. Examples shown in figure \ref{fig:aerobic_examples}:
+Aerobic zones were labelled into one of three categories, based on how much of the surface exhibits the characteristic "leopard print" aeration pattern. Examples are shown in Figure \ref{fig:aerobic_examples}:
 
 \begin{itemize}
     \item \textbf{Functional}: the surface shows the leopard print pattern.
@@ -70,7 +70,7 @@ Aerobic zones were labelled into one of three categories, based on how much of t
     \item \textbf{Dysfunctional}: two thirds or more of the surface shows no leopard print, or is clearly dysfunctional.
 \end{itemize}
 
-Clarifiers were labelled into one of four categories, based on surface colour and visibility. Examples shown in figure \ref{fig:clarifier_examples}:
+Clarifiers were labelled into one of four categories, based on surface colour and visibility. Examples are shown in Figure \ref{fig:clarifier_examples}:
 
 \begin{itemize}
     \item \textbf{Functional}: surface appears uniformly black.
@@ -192,6 +192,55 @@ This structure means the aerobic zone and clarifier sub-images are treated as tw
 During processing, two annotated classes were found to have too few examples to be usable for training. The aerobic zone dataset contained a single region labelled \textbf{Empty}, and the clarifier dataset contained four regions labelled \textbf{Stagnant}. Both classes were therefore excluded from the final dataset, and the corresponding regions were not cropped or saved. A class with only one or a handful of examples cannot be meaningfully split into training, validation, and test sets, and would not give the CNN enough examples to learn a reliable representation of that class. Including such a small class also risks skewing the overall class balance and encouraging the model to simply ignore it during training, since the loss contribution from so few examples is negligible compared to the other classes. The excluded regions were still counted separately by the preparation script, so their presence in the original annotations is not lost, but they play no further part in the classification task.
 
 
+\section{Data Splitting}
+
+\subsection{Leave-one-out Split}
+
+To evaluate how well the trained classifier generalises to WWTW facilities it has never encountered, the dataset was partitioned using a leave-one-out strategy rather than a random split. One facility, chosen from the five available (Atlantis, Cape Flats, Waterval, Fisantekraal, and Noordelike werke), was the test facility and withheld from training entirely: none of its images appear in the training or validation sets, and it plays no part in model selection or hyperparameter tuning. Note that this is repeated five times, once for each facility. This guarantees that test performance reflects the model's ability to classify components at an unseen site.
+
+This split was applied independently for each facility component, aerobic zone and clarifier, since the two have different classes and different image sets.
+
+Once the test facility was removed, the remaining four facilities' images were divided into training and validation sets. A random split at this stage risks an uneven mix: validation could end up dominated by whichever facility or unit happened to contribute the most images, or by images from a narrow range of capture dates, which would give an unrepresentative estimate of validation performance.
+
+To avoid this, images were first grouped by facility, unit and class (some facilities have more than one unit, for example Cape Flats has 4 units each with its own set of images). Different units at the same facility can differ in lighting, or capture date, so treating them as separate groups during shuffling keeps that variation spread across both training and validation rather than concentrated in one. Within each group, images were shuffled using a fixed random seed to mix capture dates before being partitioned according to a fixed validation ratio (20\%). Splitting within these smaller groups rather
+than across the whole set ensures that every facility, unit, and class combination among the four training facilities is represented in both
+the training and validation sets, in proportion to how much data it contributes. An example is shown in Figure \ref{fig:leave_one_out approach} of the Waterval facility being withheld as the test set.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/leave_one_out.png} 
+    \caption{Illustration of the leave-one-facility-out split. The test facility is withheld from training and validation, while the remaining four facilities are split into training and validation sets.}
+    \label{fig:leave_one_out approach}
+\end{figure}
+
+\subsection{Stratified Train/Validation Split}
+Before adopting the leave-one-out approach described above, a stratified split was used to produce training, validation, and test
+sets directly from the dataset, without holding any facility out. This split follows a 70/20/10 training/validation/test ratio and uses the same facility, unit, class grouping and shuffling procedure: images within each group are shuffled under a fixed random seed before being partitioned, so that every facility, unit, and class combination is represented across all three sets in proportion to how much data it contributes, and no single facility or unit dominates any one split.
+
+\section{Relabeling}
+
+To improve label quality, a relabeling notebook was built using Jupyter widgets to review the clarifier dataset in full and correct labels where
+necessary. Every clarifier image was reviewed manually, rather than looking at what the classifier got wrong which could potentially introduce bias. For each image, the notebook displays the image alongside its current label and a row of per-class buttons; clicking a button records the corrected label without requiring any manual file editing. Corrections are written to a separate \texttt{relabel/} working copy of the annotation files rather than overwriting the originals, so the original VIA2 labels remain intact and every correction can be traced back to what it changed.
+
+Figure \ref{fig:relabel_example} shows a case, where an image originally labelled ``Scum'' was corrected to ``Empty'' after review, since the dark
+region was identified as shadow rather than surface scum. Figure \ref{fig:relabel_process_example} shows the review interface itself, with the original label displayed in yellow next to the image and the correction buttons below it.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.2\textwidth]{figures/relabel_example.png}
+\caption{An incorrectly labelled clarifier. The original label was ``Scum,''
+but the correct label is ``Empty,'' since the dark region is a shadow rather
+than surface scum.}
+\label{fig:relabel_example}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/relabel_process_example.png}
+\caption{The relabeling interface, showing the original label and the
+per-class correction buttons.}
+\label{fig:relabel_process_example}
+\end{figure}
 
 \section{Summary Table}
 \begin{table}[htbp]

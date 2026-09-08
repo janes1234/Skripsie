@@ -1,0 +1,38 @@
+\mychapter{Introduction}{Introduction}{}\label{chap:introduction}
+
+\section{Problem Statement}
+Currently, the monitoring of wastewater treatment works (WWTW) is accomplished using on-site sensors, physical inspections, or the manual analysis of aerial photography by experienced personnel. While facilities equipped with sensors connected to automated control systems exist globally, they are currently not widely implemented in South Africa. Consequently, South African facilities rely primarily on on-site personnel to monitor operations. These personnel are required to sample the water at various stages of the treatment process at least once a day in an on-site laboratory, and at least once a month, samples should be sent to an independent laboratory for a complete analysis.
+
+However, one or both of these testing protocols do not always occur. Incorrect measurements may be recorded, or tests may be omitted entirely. To detect such problems, physical site visits by officials are currently necessary. These physical inspections are expensive, time-consuming, and impractical to conduct with high frequency. Furthermore, on-site sensors, where utilized, are prone to failure and expensive to install and maintain.
+
+The question this project aims to answer is whether a computer vision system can accurately identify the same visual indicators utilized by trained human operators (such as the characteristic surface turbulence of an aerator or the effluent clarity of a clarifier) to assess performance. A system evaluating satellite or aerial imagery could be utilized to detect problem cases. Specifically, a discrepancy between the reported laboratory data and the actual visual state observed in the imagery can be used to trigger corrective action. Ultimately, this study investigates the feasibility of leveraging historical satellite imagery to automatically monitor the functional state of Fine Bubble Diffused Aeration (FBDA) systems and clarifiers.
+
+
+\section{Objectives}
+To answer the above question, the project addresses the following three objectives:
+
+\begin{enumerate}
+    \item Prepare image datasets for experimentation and extract features by working with a set of labelled Google Earth satellite images taken on different dates to capture the visual states of WWTW components.
+    \item Train classifiers to automatically determine the status of the aerobic zones (Functional, Suboptimal, Dysfunctional) and the Clarifiers (Functional, Dysfunctional, Scum, Empty), based on the image data.
+    \item Evaluate the model's performance by testing it on a separate set of images and comparing its predictions to the known labels, using metrics like precision, recall, F1-score, area under the ROC curve to quantify how well the model performs in classifying the different states of the WWTW components.
+\end{enumerate}
+
+\section{Scope}
+Included: Fine Bubble Diffused Aeration (FBDA) in aerobic zones, and secondary clarifiers. The project only looks at the Atlantis, Cape Flats, and Waterval WWTW facilities.
+
+Excluded: Surface-mounted aerators and anaerobic zones aren't covered. There's no live satellite feed, no physical water sampling, and no hardware devices deployed on site — everything is based on the historical Google Earth imagery already available.
+
+\section{Report Structure}
+The remainder of the report is structured as follows:
+\begin{itemize}[label=$\circ$]
+    \item Chapter 3 (Literature Review): Describes existing monitoring solutions for wastewater management, remote sensing technology, and the image processing concepts used in this project.
+    \item Chapter 4 (Dataset): Describes the collection and preprocessing of the image datasets.
+    \item Chapter 5 (Experimental Design): Presents a detailed design of the proposed solution, including the architecture of the convolutional neural network (CNN) used for classification and the training procedures.
+    \item Chapter 6 (Results): Presents the classification performance metrics and discusses the findings, including any limitations or challenges encountered during the experiments.
+    \item Chapter 7 (Conclusion): Draws conclusions from the results, discusses the limitations of the project, and suggests future work that could improve the system.
+\end{itemize}
+
+\section{Summary of Work}
+TODO
+
+
