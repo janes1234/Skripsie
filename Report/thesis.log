@@ -1,10 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.1)  8 SEP 2026 10:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.1)  16 SEP 2026 14:54
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/janes-mostert/Desktop/Repo/Skripsie/Report/thesis.tex
-(/home/janes-mostert/Desktop/Repo/Skripsie/Report/thesis.tex
+**thesis.tex
+(./thesis.tex
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
 (./stb-thesis.cls
@@ -1592,17 +1591,17 @@ Chapter 2.
 [4
 
 ]
-<figures/aerobicfunc_background.png, id=338, 652.4375pt x 649.42625pt>
+<figures/aerobicfunc_background.png, id=343, 652.4375pt x 649.42625pt>
 File: figures/aerobicfunc_background.png Graphic file (type png)
 <use figures/aerobicfunc_background.png>
 Package pdftex.def Info: figures/aerobicfunc_background.png  used on input line 15.
 (pdftex.def)             Requested size: 120.89905pt x 120.34016pt.
-<figures/aerobicdysfunc_background.png, id=340, 652.4375pt x 649.42625pt>
+<figures/aerobicdysfunc_background.png, id=345, 652.4375pt x 649.42625pt>
 File: figures/aerobicdysfunc_background.png Graphic file (type png)
 <use figures/aerobicdysfunc_background.png>
 Package pdftex.def Info: figures/aerobicdysfunc_background.png  used on input line 21.
 (pdftex.def)             Requested size: 120.89905pt x 120.34016pt.
-<figures/clarifier_background.png, id=341, 318.18875pt x 163.61125pt>
+<figures/clarifier_background.png, id=346, 318.18875pt x 163.61125pt>
 File: figures/clarifier_background.png Graphic file (type png)
 <use figures/clarifier_background.png>
 Package pdftex.def Info: figures/clarifier_background.png  used on input line 27.
@@ -1629,7 +1628,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<figures/heatmap.png, id=356, 1278.4563pt x 855.6768pt>
+<figures/heatmap.png, id=361, 1278.4563pt x 855.6768pt>
 File: figures/heatmap.png Graphic file (type png)
 <use figures/heatmap.png>
 Package pdftex.def Info: figures/heatmap.png  used on input line 11.
@@ -1637,32 +1636,32 @@ Package pdftex.def Info: figures/heatmap.png  used on input line 11.
  [7
 
 ]
-<figures/map.png, id=365, 1344.02126pt x 742.775pt>
+<figures/map.png, id=370, 1344.02126pt x 742.775pt>
 File: figures/map.png Graphic file (type png)
 <use figures/map.png>
 Package pdftex.def Info: figures/map.png  used on input line 23.
 (pdftex.def)             Requested size: 234.00238pt x 129.31886pt.
-<figures/atlantis_overview.png, id=366, 379.4175pt x 326.21875pt>
+<figures/atlantis_overview.png, id=371, 379.4175pt x 326.21875pt>
 File: figures/atlantis_overview.png Graphic file (type png)
 <use figures/atlantis_overview.png>
 Package pdftex.def Info: figures/atlantis_overview.png  used on input line 31.
 (pdftex.def)             Requested size: 124.80286pt x 107.30408pt.
-<figures/capeflats_overview.png, id=367, 542.025pt x 278.03876pt>
+<figures/capeflats_overview.png, id=372, 542.025pt x 278.03876pt>
 File: figures/capeflats_overview.png Graphic file (type png)
 <use figures/capeflats_overview.png>
 Package pdftex.def Info: figures/capeflats_overview.png  used on input line 37.
 (pdftex.def)             Requested size: 124.80286pt x 64.01544pt.
-<figures/waterval_overview.png, id=368, 256.96pt x 327.2225pt>
+<figures/waterval_overview.png, id=373, 256.96pt x 327.2225pt>
 File: figures/waterval_overview.png Graphic file (type png)
 <use figures/waterval_overview.png>
 Package pdftex.def Info: figures/waterval_overview.png  used on input line 43.
 (pdftex.def)             Requested size: 117.00119pt x 148.9963pt.
-<figures/fisantekraal_overview.png, id=369, 8222.72pt x 3047.385pt>
+<figures/fisantekraal_overview.png, id=374, 8222.72pt x 3047.385pt>
 File: figures/fisantekraal_overview.png Graphic file (type png)
 <use figures/fisantekraal_overview.png>
 Package pdftex.def Info: figures/fisantekraal_overview.png  used on input line 49.
 (pdftex.def)             Requested size: 117.00119pt x 43.33733pt.
-<figures/noordelikewerke_overview.png, id=370, 1534.73375pt x 918.43124pt>
+<figures/noordelikewerke_overview.png, id=375, 1534.73375pt x 918.43124pt>
 File: figures/noordelikewerke_overview.png Graphic file (type png)
 <use figures/noordelikewerke_overview.png>
 Package pdftex.def Info: figures/noordelikewerke_overview.png  used on input line 55.
@@ -1684,12 +1683,12 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
 [9 <./figures/atlantis_overview.png (PNG copy)> <./figures/capeflats_overview.png (PNG copy)> <./figures/waterval_overview.png (PNG copy)> <./figures/fisantekraal_overview.png (PNG copy)> <./figures/noordelikewerke_overview.png (PNG copy)>]
-<figures/aerobic_examples.png, id=384, 1193.45876pt x 335.2525pt>
+<figures/aerobic_examples.png, id=389, 1193.45876pt x 335.2525pt>
 File: figures/aerobic_examples.png Graphic file (type png)
 <use figures/aerobic_examples.png>
 Package pdftex.def Info: figures/aerobic_examples.png  used on input line 108.
 (pdftex.def)             Requested size: 292.5pt x 82.16571pt.
-<figures/clarifier_examples.png, id=385, 1542.76375pt x 426.59375pt>
+<figures/clarifier_examples.png, id=390, 1542.76375pt x 426.59375pt>
 File: figures/clarifier_examples.png Graphic file (type png)
 <use figures/clarifier_examples.png>
 Package pdftex.def Info: figures/clarifier_examples.png  used on input line 114.
@@ -1742,7 +1741,7 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
 [14]
-<figures/leave_one_out.png, id=410, 711.8595pt x 572.3784pt>
+<figures/leave_one_out.png, id=416, 711.8595pt x 572.3784pt>
 File: figures/leave_one_out.png Graphic file (type png)
 <use figures/leave_one_out.png>
 Package pdftex.def Info: figures/leave_one_out.png  used on input line 211.
@@ -1759,7 +1758,7 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
 [15]
-<figures/relabel_example.png, id=418, 266.9975pt x 257.96375pt>
+<figures/relabel_example.png, id=423, 266.9975pt x 257.96375pt>
 File: figures/relabel_example.png Graphic file (type png)
 <use figures/relabel_example.png>
 Package pdftex.def Info: figures/relabel_example.png  used on input line 230.
@@ -1768,7 +1767,7 @@ Package pdftex.def Info: figures/relabel_example.png  used on input line 230.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/relabel_process_example.png, id=419, 1436.36626pt x 910.40125pt>
+<figures/relabel_process_example.png, id=424, 1436.36626pt x 910.40125pt>
 File: figures/relabel_process_example.png Graphic file (type png)
 <use figures/relabel_process_example.png>
 Package pdftex.def Info: figures/relabel_process_example.png  used on input line 239.
@@ -1776,7 +1775,6 @@ Package pdftex.def Info: figures/relabel_process_example.png  used on input line
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (./chapters/Chapter5.tex) (./chapters/conclusion.tex
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
 (fancyhdr)                Make it at least 27.11653pt, for example:
@@ -1785,6 +1783,10 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
 [16 <./figures/leave_one_out.png>]
+Overfull \hbox (25.1122pt too wide) in paragraph at lines 252--270
+ [][] 
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
 (fancyhdr)                Make it at least 27.11653pt, for example:
@@ -1792,7 +1794,7 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
-[17]
+[17 <./figures/relabel_example.png>]) (./chapters/Chapter5.tex) (./chapters/conclusion.tex
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
 (fancyhdr)                Make it at least 27.11653pt, for example:
@@ -1800,11 +1802,19 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
-[18 <./figures/relabel_example.png> <./figures/relabel_process_example.png>]
+[18 <./figures/relabel_process_example.png>]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[19]
 Chapter 5.
-) [19
+) [20
 
-] (./thesis.bbl) (./appendices/appendices.tex (./appendices/an_appendix.tex [20
+] (./thesis.bbl) (./appendices/appendices.tex (./appendices/an_appendix.tex [21
 
 ]
 Appendix A.
@@ -1813,7 +1823,7 @@ Appendix A.
 Package caption Warning: Unused \captionsetup[algorithm] on input line 375.
 See the caption package documentation for explanation.
 
-[21
+[22
 
 ] (./thesis.aux)
  ***********
@@ -1821,21 +1831,21 @@ LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
  ***********
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: A6460D9F0B164B18A4D40780C1DB90ED;4215.
+(rerunfilecheck)             Checksum: CBAAEBCBFB01DB1B9ED340E3031FEAE8;4215.
  ) 
 Here is how much of TeX's memory you used:
- 51075 strings out of 467168
- 1038280 string characters out of 5406824
+ 51087 strings out of 467168
+ 1038315 string characters out of 5406824
  1703607 words of memory out of 5000000
- 79194 multiletter control sequences out of 15000+600000
- 718060 words of font info for 194 fonts, out of 8000000 for 9000
+ 79198 multiletter control sequences out of 15000+600000
+ 721312 words of font info for 198 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 115i,12n,110p,2602b,834s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmro12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (34 pages, 38942038 bytes).
+ 115i,12n,110p,2553b,834s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmro12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on thesis.pdf (35 pages, 38968337 bytes).
 PDF statistics:
- 527 PDF objects out of 1000 (max. 8388607)
- 438 compressed objects within 5 object streams
- 83 named destinations out of 1000 (max. 500000)
- 47965 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 543 PDF objects out of 1000 (max. 8388607)
+ 451 compressed objects within 5 object streams
+ 85 named destinations out of 1000 (max. 500000)
+ 50013 words of extra memory for PDF output out of 51595 (max. 10000000)
 

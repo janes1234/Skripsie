@@ -2,7 +2,7 @@ PWD /home/janes-mostert/Desktop/Repo/Skripsie/Report
 INPUT /home/janes-mostert/.TinyTeX/texmf.cnf
 INPUT /home/janes-mostert/.TinyTeX/texmf-dist/web2c/texmf.cnf
 INPUT /home/janes-mostert/.TinyTeX/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /home/janes-mostert/Desktop/Repo/Skripsie/Report/thesis.tex
+INPUT thesis.tex
 OUTPUT thesis.log
 INPUT ./stb-thesis.cls
 INPUT stb-thesis.cls
@@ -752,6 +752,7 @@ INPUT ./figures/relabel_process_example.png
 INPUT ./figures/relabel_process_example.png
 INPUT ./figures/relabel_process_example.png
 INPUT ./figures/relabel_process_example.png
+INPUT /home/janes-mostert/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmr8.tfm
 INPUT ./chapters/Chapter5.tex
 INPUT ./chapters/Chapter5.tex
 INPUT chapters/Chapter5.tex
@@ -782,6 +783,7 @@ INPUT /home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb
 INPUT /home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb
 INPUT /home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb
 INPUT /home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb
+INPUT /home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb
 INPUT /home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb
 INPUT /home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmro12.pfb
 INPUT /home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb

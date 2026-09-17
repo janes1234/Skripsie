@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex thesis"] 1788857782.38224 "thesis.aux" "thesis.bbl" "thesis" 1788857789.86798 0
+["bibtex thesis"] 1789563253.20388 "thesis.aux" "thesis.bbl" "thesis" 1789563260.86746 0
   "./mybib.bib" 1784906518.34861 345 3308a655ab777eec9e86a4530443dc1b ""
   "/home/janes-mostert/.TinyTeX/texmf-dist/bibtex/bst/ieeetran/IEEEtranN.bst" 1440712899 63583 d34cb6c328acc69716207f4a3421ad46 ""
-  "thesis.aux" 1788857789.03189 14416 a7074238c467a8be9be362a44d6a2cfd "pdflatex"
+  "thesis.aux" 1789563259.21624 15049 9d86803789deb4b697749f168f9d6be9 "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1788857782.63327 "/home/janes-mostert/Desktop/Repo/Skripsie/Report/thesis.tex" "thesis.pdf" "thesis" 1788857789.8684 0
+["pdflatex"] 1789563253.40633 "thesis.tex" "thesis.pdf" "thesis" 1789563260.86792 0
   "/home/janes-mostert/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/home/janes-mostert/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc" 1202520719 2840 216e6e45ad352e2456e1149f28885bee ""
   "/home/janes-mostert/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc" 1254269338 3031 6c4d3515bf7115d8518af1c9ab97ca44 ""
@@ -31,6 +31,7 @@
   "/home/janes-mostert/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmr10.tfm" 1254269338 12056 7e13df7fe4cbce21b072ba7c4f4deb6e ""
   "/home/janes-mostert/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmr12.tfm" 1254269338 12092 7b1546e2d096cfd5dcbd4049b0b1ec2e ""
   "/home/janes-mostert/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmr17.tfm" 1254269338 12156 ca1ae6a3c8564e89597f1f993fba1608 ""
+  "/home/janes-mostert/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmr8.tfm" 1254269338 12064 a35db870f0b76c338d749c56dc030ef5 ""
   "/home/janes-mostert/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmr9.tfm" 1254269338 12084 b7f5e4c003de6f57f07c7e9fee73a37c ""
   "/home/janes-mostert/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmri12.tfm" 1254269338 17144 271aaf9ebb339934b04110dc5211fba4 ""
   "/home/janes-mostert/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmro12.tfm" 1254269338 12216 265ff4deab161a560d37046d13363b8c ""
@@ -60,6 +61,7 @@
   "/home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb" 1255129361 119235 f35b44530a1d90eb90fe15d9cba67ea0 ""
   "/home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb" 1255129361 113634 f99c44d58bae0863375faf0e1d74d612 ""
   "/home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb" 1255129361 119752 1bd8d06e4079df624bf59ce3ad7c9aa6 ""
+  "/home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb" 1255129361 122174 a7a08406857c9530a0320a2517f60370 ""
   "/home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb" 1255129361 109265 32320cb6133d4d76bf83e27b5eb4009b ""
   "/home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmro12.pfb" 1255129361 125209 a5bd29c5b5feb791d0332220e4a79275 ""
   "/home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb" 1254269338 27863 09ce3735688ffde955e72da27c95b61a ""
@@ -310,13 +312,12 @@
   "/home/janes-mostert/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1785602931 5591391 3a414e76c4a1af29306046bf5de2540c ""
   "/home/janes-mostert/.TinyTeX/texmf-var/web2c/pdftex/pdflatex.fmt" 1785603449 3656544 5ac083bc2616bf18f786913d2705876a ""
   "/home/janes-mostert/.TinyTeX/texmf.cnf" 1785557696 637 edd806fb06a89761a6034e1968af9017 ""
-  "/home/janes-mostert/Desktop/Repo/Skripsie/Report/thesis.tex" 1788857778.66428 1773 98ab7dc23d309597cfb2ad7d0607e49f ""
   "appendices/an_appendix.tex" 1784906518.34764 106 050187cbc0bb2c5e0fab17bdef4605f8 ""
   "appendices/appendices.tex" 1784906518.34777 30 b38664e72b1f7783f5da554d40e45df4 ""
   "chapters/Chapter1.tex" 1788772727.19928 4306 21f0f5caec6b47b241dee941bb8fbc2d ""
   "chapters/Chapter2.tex" 1788772652.67825 3330 1856aa85b50f6601959e6b42a0d45bc4 ""
   "chapters/Chapter3.tex" 1784906518.34797 109 1b42af46fca6783ea8a2c56135dd219b ""
-  "chapters/Chapter4.tex" 1788791850.66313 18503 7dfa7bc166661452cf566b9b927a7e7b ""
+  "chapters/Chapter4.tex" 1789563231.06722 20948 5c420468f5dc8576109a35a1381d7b08 ""
   "chapters/Chapter5.tex" 1788857765.8769 0 d41d8cd98f00b204e9800998ecf8427e ""
   "chapters/conclusion.tex" 1785603639.93674 119 e0ff3ed770a514c55f43ac5e030b5381 ""
   "figures/aerobic_examples.png" 1786711265.98704 283026 415a91fc13ab99367cc8e3b8f86d9862 ""
@@ -348,14 +349,14 @@
   "stb-thesis.afr" 1784906518.35161 2637 d9bb3c388f47bdd818ec4d95578ad094 ""
   "stb-thesis.cls" 1784906518.35161 25170 2cad7ddd22582eefe95b767cc4481e31 ""
   "stb-thesis.eng" 1784906518.35161 2649 30a323160db19a3d451f1c2fea9d7c68 ""
-  "thesis.aux" 1788857789.03189 14416 a7074238c467a8be9be362a44d6a2cfd "pdflatex"
-  "thesis.bbl" 1788857782.61584 1211 4858ce9b64d66d10446d341a10654a5c "bibtex thesis"
-  "thesis.lof" 1788857789.0439 1871 c0878f6379b4454af61a9bc9ba0246bc "pdflatex"
-  "thesis.lot" 1788857789.0439 626 f420ab442ca6adbfb41c5cc37e9f3099 "pdflatex"
+  "thesis.aux" 1789563259.21624 15049 9d86803789deb4b697749f168f9d6be9 "pdflatex"
+  "thesis.bbl" 1789563253.38924 1211 4858ce9b64d66d10446d341a10654a5c "bibtex thesis"
+  "thesis.lof" 1789563259.2249 1871 59180161e13d74581ff85af7d08a8623 "pdflatex"
+  "thesis.lot" 1789563259.2249 889 05d3796efdc307deede9fcdbaf83e52a "pdflatex"
   "thesis.nls" 0 -1 0 ""
-  "thesis.out" 1788857789.0419 4215 a6460d9f0b164b18a4d40780c1db90ed "pdflatex"
+  "thesis.out" 1789563259.22324 4215 cbaaebcbfb01db1b9ed340e3031feae8 "pdflatex"
   "thesis.tex" 1788857778.66428 1773 98ab7dc23d309597cfb2ad7d0607e49f ""
-  "thesis.toc" 1788857789.0439 2413 ea45caf95a6b6b0b3096c59f0efe0122 "pdflatex"
+  "thesis.toc" 1789563259.2249 2413 66db91ef144df9a05d88ccd33acc0605 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.lof"

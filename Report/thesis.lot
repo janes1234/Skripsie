@@ -7,8 +7,9 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {4.1}{\ignorespaces Summary of the dataset by facility}}{12}{table.caption.16}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Summary of image counts per class for the Aerobic Zones.}}{17}{table.caption.20}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Summary of image counts per class for the Clarifiers.}}{17}{table.caption.20}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Clarifier label corrections applied during relabeling, by facility/unit and class. Each cell gives the number of regions corrected away from that class (out) and into that class (in).}}{17}{table.caption.20}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Summary of image counts per class for the Aerobic Zones.}}{19}{table.caption.21}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Summary of image counts per class for the Clarifiers.}}{19}{table.caption.21}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsfinish 
