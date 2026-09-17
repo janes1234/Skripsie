@@ -14,7 +14,7 @@
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Examples of clarifier classes.}}{11}{figure.caption.15}%
 \contentsline {figure}{\numberline {4.6}{\ignorespaces Illustration of the leave-one-facility-out split. The test facility is withheld from training and validation, while the remaining four facilities are split into training and validation sets.}}{16}{figure.caption.17}%
 \contentsline {figure}{\numberline {4.7}{\ignorespaces An incorrectly labelled clarifier. The original label was ``Scum,'' but the correct label is ``Empty,'' since the dark region is a shadow rather than surface scum.}}{17}{figure.caption.18}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces The relabeling interface, showing the original label and the per-class correction buttons.}}{18}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces The relabeling interface, showing the original label and the per-class correction buttons.}}{19}{figure.caption.19}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsfinish 

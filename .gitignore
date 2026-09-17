@@ -32,6 +32,7 @@ cnn_dataset_split_facility_test-Fisantekraal/
 cnn_dataset_split_facility_test-NoordelikeWerke/
 cnn_dataset_split_facility_test-Waterval/
 models/
+relabel_review/
 
 #python
 .venv/
