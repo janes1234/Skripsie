@@ -624,8 +624,15 @@ def evaluate_and_record(model, test_loader, model_name, history, img_size, hidde
             "true": class_names[true_idx],
             "pred": class_names[pred_idx],
             "correct": bool(true_idx == pred_idx),
+            # Full softmax vector for this sample, keyed by class name. This
+            # is what lets a downstream notebook re-threshold predictions
+            # (e.g. collapse to a binary OK/not-OK decision and pick an
+            # operating point from an ROC curve) without needing the model
+            # or GPU again -- per_sample's "pred" above is fixed at the
+            # default argmax/0.5-equivalent threshold and can't be redone.
+            "probs": {name: float(p) for name, p in zip(class_names, prob_vec)},
         }
-        for path, true_idx, pred_idx in zip(sample_paths, labels_, preds)
+        for path, true_idx, pred_idx, prob_vec in zip(sample_paths, labels_, preds, probs)
     ]
 
     # Move the finished model to CPU before storing it. Keeping the trained
