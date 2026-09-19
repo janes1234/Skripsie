@@ -5,10 +5,10 @@
 \contentsline {chapter}{Uittreksel}{iv}{chapter*.4}%
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{Table of contents}{v}{chapter*.4}%
-\contentsline {chapter}{List of figures}{vii}{chapter*.5}%
-\contentsline {chapter}{List of tables}{vii}{chapter*.6}%
-\contentsline {chapter}{Nomenclature}{ix}{chapter*.8}%
-\contentsline {section}{Acronyms and abbreviations}{x}{section*.9}%
+\contentsline {chapter}{List of figures}{viii}{chapter*.5}%
+\contentsline {chapter}{List of tables}{ix}{chapter*.6}%
+\contentsline {chapter}{Nomenclature}{xii}{chapter*.8}%
+\contentsline {section}{Acronyms and abbreviations}{xiii}{section*.9}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Problem Statement}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Objectives}{2}{section.1.2}%
@@ -18,20 +18,39 @@
 \contentsline {chapter}{\numberline {2}Background}{4}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Wastewater Treatment Works}{4}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Convolutional Neural Networks}{5}{section.2.2}%
-\contentsline {chapter}{\numberline {3}Literature}{6}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Related Work}{6}{section.3.1}%
-\contentsline {chapter}{\numberline {4}Dataset}{7}{chapter.4}%
-\contentsline {section}{\numberline {4.1}WWTW Sites}{7}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Annotations}{9}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Facility Structure}{11}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Data Preparation}{12}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Excluded from the dataset}{14}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Data Splitting}{14}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Leave-one-out Split}{14}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Stratified Train/Validation Split}{15}{subsection.4.6.2}%
-\contentsline {section}{\numberline {4.7}Relabeling}{15}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Summary Table}{17}{section.4.8}%
-\contentsline {chapter}{\numberline {5}Summary and conclusions}{20}{chapter.5}%
-\contentsline {chapter}{References}{21}{chapter*.22}%
-\contentsline {chapter}{\numberline {A}Appendix title goes here}{22}{appendix.A}%
+\contentsline {subsection}{\numberline {2.2.1}Building Blocks of a Convolutional Neural Network}{5}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Residual Networks: ResNet-18 and ResNet-50}{9}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Densely Connected Networks: DenseNet-121}{10}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Inception Networks: Inception-v3}{12}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}Efficient Networks: EfficientNet-B0}{13}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.6}ConvNeXt-Tiny}{15}{subsection.2.2.6}%
+\contentsline {chapter}{\numberline {3}Literature}{17}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Related Work}{17}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Dataset}{18}{chapter.4}%
+\contentsline {section}{\numberline {4.1}WWTW Sites}{18}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Annotations}{20}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Facility Structure}{22}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Data Preparation}{23}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Excluded from the dataset}{25}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Data Splitting}{25}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Leave-one-out Split}{25}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Stratified Train/Validation Split}{26}{subsection.4.6.2}%
+\contentsline {section}{\numberline {4.7}Relabeling}{26}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Summary Table}{28}{section.4.8}%
+\contentsline {chapter}{\numberline {5}Experimental Design}{31}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Overview}{31}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Model Architectures and Transfer Learning}{32}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Data Preprocessing and Augmentation}{32}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Class Imbalance}{33}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Hyperparameter Tuning}{33}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Training Procedure}{35}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Experiment 1: Mixed-Facility Baseline}{37}{section.5.7}%
+\contentsline {section}{\numberline {5.8}Experiment 2: Leave-One-Facility-Out Evaluation}{37}{section.5.8}%
+\contentsline {section}{\numberline {5.9}Experiment 3: Binary (OK / Not-OK) Reformulation}{38}{section.5.9}%
+\contentsline {section}{\numberline {5.10}Experiment 4: Overview Images}{38}{section.5.10}%
+\contentsline {section}{\numberline {5.11}Evaluation Metrics}{38}{section.5.11}%
+\contentsline {section}{\numberline {5.12}Qualitative Analysis: Grad-CAM}{38}{section.5.12}%
+\contentsline {chapter}{\numberline {6}Summary and conclusions}{40}{chapter.6}%
+\contentsline {chapter}{References}{41}{chapter*.33}%
+\contentsline {chapter}{\numberline {A}Appendix title goes here}{43}{appendix.A}%
 \contentsfinish 

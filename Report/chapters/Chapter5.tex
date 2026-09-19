@@ -1,0 +1,207 @@
+\mychapter{Experimental Design}{Experimental Design}{}\label{chap:experimental_design}
+
+\section{Overview}
+\label{sec:exp_overview}
+
+\begin{itemize}
+    \item Describe how the classification system was built and configured.
+    \item Summary of experiments:
+    \begin{enumerate}
+        \item \textbf{Mixed-facility baseline} — all five facilities pooled and split with a stratified train/val/test split (Section~\ref{sec:exp_mixed}).
+        \item \textbf{Leave-one-facility-out evaluation} — the current main experiment, each facility held out as an unseen test facility in turn (Section~\ref{sec:exp_lofo}). Used to estimate real-world generalisation to a facility the model has never seen.
+        \item \textbf{Binary (OK / Not-OK) approach} — collapsing the multi-class labels into a two-class problem (Section~\ref{sec:exp_binary}). 
+        \item Use overview images of facilities instead of cut out images. (Section~\ref{sec:exp_overview_images}).
+    \end{enumerate}
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \fbox{\parbox{0.8\textwidth}{\centering\vspace{4cm} PLACEHOLDER: high-level pipeline diagram --- raw labelled images $\to$ \texttt{prep.py} cropped images $\to$ data split $\to$ augmentation $\to$ pretrained backbone + classifier head $\to$ training loop $\to$ \texttt{results\_*.pkl} $\to$ comparison notebook \vspace{4cm}}}
+    \caption{PLACEHOLDER: End-to-end experimental pipeline, from labelled satellite imagery to a saved, comparable results file per (architecture, facility) combination.}
+    \label{fig:experimental_pipeline}
+\end{figure}
+
+
+\section{Model Architectures and Transfer Learning}
+\label{sec:exp_architectures}
+
+\begin{itemize}
+    \item how the 6 architectures were used and why they were chosen.
+    \item Explain pretraining. 
+    \item Explain per architecture differences.
+    \item Cross entropy loss vs focal loss.
+\end{itemize}
+
+
+\section{Data Preprocessing and Augmentation}
+\label{sec:exp_augmentation}
+
+\begin{itemize}
+    \item What is done to images before they are fed into the network, and why.
+    \item Every image is resized to the architecture's target input size and normalised using the ImageNet channel.
+    \item Explain augmentation: rotating images randomly and applying colour jitter. Explain the effects this had.
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \fbox{\parbox{0.7\textwidth}{\centering\vspace{3cm} PLACEHOLDER: a grid of one example clarifier/aerator image next to several augmented versions of it (flip / rotation / colour jitter) \vspace{3cm}}}
+    \caption{PLACEHOLDER: Example training-time augmentations applied to a single input image.}
+    \label{fig:augmentation_examples}
+\end{figure}
+
+
+\section{Class Imbalance}
+\label{sec:exp_loss}
+
+\begin{itemize}
+    \item Each class's weight is $\propto 1/\text{count}$, normalised to sum to the number of classes, and passed into the loss function so the model is penalised more for misclassifying rare classes.
+\end{itemize}
+
+
+\section{Hyperparameter Tuning}
+\label{sec:exp_hyperparams}
+Some of the parameters were fixed, and is the same for every one of the six architectures. These values were never changed, either because a well-established default already exists or because there was no reason to expect the best value to depend on the architecture. This covers Adam's $\beta_2$ term (kept at $0.9$, the default recommended in Adam's original paper and rarely changed in practice), the $L_2$ weight decay ($10^{-4}$, a standard mild regularisation strength), and the training loop's own settings: a maximum of 100 epochs, an early-stopping patience of 10 epochs, and a fixed random seed of 42.
+
+Some parameters were tuned automatically, but only for three architectures: ResNet-50, DenseNet-121, and Inception-v3. This tuning was carried out earlier in the project, under the original mixed-facility split (Section~\ref{sec:exp_mixed}), in two stages. The first stage was a grid search over the classifier head itself: for a small set of candidate values of $H$ (hidden layers) and $N$ (neurons per layer), each combination was trained and evaluated, and the combination with the best validation accuracy was kept (Table~\ref{tab:arch_grid_search}). The second stage, with the head now fixed, was a Bayesian optimisation search over the remaining training hyperparameters: learning rate, Adam's $\beta_1$, the step size of the learning rate schedule, and batch size (Table~\ref{tab:bayes_opt}). Unlike a grid search, Bayesian optimisation does not try every combination in a fixed grid; it uses the results of earlier trials to decide which combination is likely to be worth trying next, which finds a good setting in far fewer trials.
+
+One result of that search is worth calling out directly: for DenseNet-121 and Inception-v3, the optimal $\beta_1$ found was effectively zero. Since $\beta_1$ controls how much Adam smooths the gradient direction from one step to the next (its momentum term), a value of zero means each step is based almost entirely on the current batch's gradient, with very little memory of previous steps, which the search found worked better for these two architectures than the conventional default of $0.9$.
+
+The third group was chosen by hand, for the remaining three architectures. ResNet-18 is deliberately kept as an untuned baseline (Section~\ref{sec:exp_architectures}): it uses the simplest possible head (no hidden layers) and a standard default Adam learning rate, rather than anything found by search. EfficientNet-B0 and ConvNeXt-Tiny were added to the project after the tuning sweep above had already been completed, so instead of repeating the search, they were given sensible, manually-chosen values that broadly follow the pattern the search found for the other three architectures. Table~\ref{tab:full_hyperparams} brings all three groups together into the single configuration actually used to train each architecture.
+
+\begin{table}[htbp]
+\centering
+\caption{Classifier-head grid search: best number of hidden layers ($H$) and neurons per layer ($N$) found for each tuned architecture, by validation accuracy.}
+\label{tab:arch_grid_search}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Architecture} & \textbf{$H$} & \textbf{$N$} & \textbf{Validation accuracy} \\
+\midrule
+ResNet-50       & 3 & 1024 & 97.37\% \\
+DenseNet-121    & 3 & 2048 & 96.05\% \\
+Inception-v3    & 3 & 2048 & 97.70\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\caption{Bayesian-optimised training hyperparameters for each tuned architecture.}
+\label{tab:bayes_opt}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Architecture} & \textbf{Learning rate} & \textbf{Adam $\beta_1$} & \textbf{StepLR step size} & \textbf{Batch size} \\
+\midrule
+ResNet-50       & $2.680 \times 10^{-5}$ & 0.1788 & 34 & 121 \\
+DenseNet-121    & $2.742 \times 10^{-4}$ & $\approx 0$ & 7  & 14 \\
+Inception-v3    & $1.428 \times 10^{-4}$ & $\approx 0$ & 21 & 17 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\caption{Full training configuration used for every architecture, combining all three sources above. ResNet-18 uses ReduceLROnPlateau instead of StepLR, so it has no fixed step size.}
+\label{tab:full_hyperparams}
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Architecture} & \textbf{$H$} & \textbf{$N$} & \textbf{LR} & \textbf{$\beta_1$} & \textbf{Step size} & \textbf{Batch size} \\
+\midrule
+ResNet-18 (base)   & 0 & --   & $5\times10^{-4}$    & 0.9        & --  & 32 \\
+ResNet-50 (tuned)  & 3 & 1024 & $2.68\times10^{-5}$ & 0.179      & 34 & 121 \\
+DenseNet-121 (tuned) & 3 & 2048 & $2.74\times10^{-4}$ & $\approx0$ & 7  & 14 \\
+Inception-v3 (tuned) & 3 & 2048 & $1.43\times10^{-4}$ & $\approx0$ & 21 & 17 \\
+EfficientNet-B0 (def.) & 3 & 1024 & $1\times10^{-4}$ & 0.9      & 15 & 32 \\
+ConvNeXt-Tiny (def.)   & 3 & 1024 & $5\times10^{-5}$ & 0.9      & 15 & 24 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\section{Training Procedure}
+\label{sec:exp_training}
+
+Every architecture is trained with the same underlying procedure; only the specific numbers (learning rate, batch size, and so on) change per architecture, as set out in Section~\ref{sec:exp_hyperparams}. All six use the Adam optimiser, which adjusts each parameter's effective learning rate individually based on that parameter's recent gradient history, rather than applying one fixed step size to every weight in the network. Its two smoothing terms, $\beta_1$ and $\beta_2$, control how much of that history it remembers: $\beta_1$ is tuned per architecture, while $\beta_2$ is left at the common default of $0.9$ for all six. A small $L_2$ weight penalty ($10^{-4}$, applied equally to every architecture) is added on top, gently discouraging any single weight from growing large purely to fit noise in the training set.
+
+Rather than using one fixed learning rate for an entire run, the learning rate is reduced as training progresses, since large steps are useful early on to make fast progress but become counter-productive once the model is close to a good solution, where they cause it to overshoot instead of settling in. The ResNet-18 baseline uses \texttt{ReduceLROnPlateau}: it watches validation loss directly and halves the learning rate whenever three consecutive epochs pass with no improvement. Every other architecture instead uses the simpler, pre-scheduled \texttt{StepLR}: the learning rate is cut by a factor of ten after a fixed, architecture-specific number of epochs. This difference is mostly a historical artefact of when each architecture was added to the project rather than a deliberate design choice, and is worth flagging as such.
+
+Training is allowed to run for up to 100 epochs, but is stopped early if validation loss has not improved for 10 consecutive epochs, since the point at which a given architecture stops improving and starts overfitting is not known ahead of time and differs from one architecture to the next. Validation \emph{loss}, rather than accuracy, is used to decide both when to stop and which epoch's weights to keep. Whichever epoch achieved the lowest validation loss is the one whose weights are restored and carried forward to testing, rather than simply whatever weights training happened to end on.
+
+Two further techniques are used purely to make training computationally feasible, rather than to change what is learned. First, training runs in mixed precision on GPU: most computations use 16-bit rather than 32-bit floating point, roughly halving memory use and increasing throughput, with a loss-scaling step included to prevent the smaller numerical range of 16-bit floats from rounding small gradients to zero. Second, some of the batch sizes in Table~\ref{tab:full_hyperparams} (e.g.\ 121 images for ResNet-50) are too large to fit in GPU memory at once alongside a deep network's activations. Rather than shrinking the batch size and drifting away from the tuned value, training instead processes several smaller "micro-batches" in sequence, accumulating their gradients, and only updates the network's weights once enough micro-batches have been seen to match the intended batch size: mathematically equivalent to using the full batch size directly, just spread over several smaller forward and backward passes instead of one large one.
+
+Inception-v3 is trained with one additional detail: during training only, it produces a second, auxiliary prediction partway through the network, and the loss from this auxiliary output is added to the main loss at a reduced weight of $0.4$. This gives the earlier layers of the network a more direct training signal than would otherwise reach them through such a deep network, and is discarded entirely once training finishes, playing no role in the model's actual predictions at test time.
+
+Finally, a fixed random seed (42) is used throughout, covering not only the dataset shuffling and splitting already described in Chapter~\ref{chap:systemmethods} but also the random initialisation of each architecture's new classifier head, so that a given experiment can be reproduced exactly if re-run.
+
+
+\section{Experiment 1: Mixed-Facility Baseline}
+\label{sec:exp_mixed}
+
+% \begin{itemize}
+%     \item Describe this as the project's first/original experimental setup: all five facilities pooled, then split with the stratified 70/20/10 train/val/test split already described in Chapter~\ref{chap:systemmethods}.
+%     \item State which architectures were evaluated under this setup (the four originally available: ResNet-18 baseline, ResNet-50, DenseNet-121, Inception-v3) and that this is also the setup under which the hyperparameter tuning in Section~\ref{sec:exp_hyperparams} was performed.
+%     \item Explain the purpose of this experiment: establish a best-case, "easy" performance figure where training and test images are drawn from the same facilities (and therefore similar lighting, camera, water colour, etc.), before testing something harder.
+%     \item Explain \emph{why} this setup is insufficient on its own, motivating Experiment 2: a stratified split can leak facility-specific "shortcut" cues into both train and test (e.g.\ a particular facility's water always looking a certain colour), so high accuracy here does not guarantee the model would work at a facility it has never seen — which is the actual deployment scenario described in Chapter~\ref{chap:introduction}.
+% \end{itemize}
+
+TODO
+
+
+\section{Experiment 2: Leave-One-Facility-Out Evaluation}
+\label{sec:exp_lofo}
+
+% \begin{itemize}
+%     \item Cross-reference Chapter~\ref{chap:systemmethods}, Section~\ref{sec:pipeline} for exactly how each leave-one-out split is constructed (Figure~\ref{fig:leave_one_out approach}); this section covers how that split is used experimentally.
+%     \item Describe the full experimental grid run via \texttt{run.py}: all 6 architectures $\times$ all 5 facilities (Atlantis, Cape Flats, Waterval, Fisantekraal, Northern Works) held out in turn = 30 (architecture, held-out facility) training runs per component, run unattended as a batch (via \texttt{jupyter nbconvert --execute}) so a full sweep doesn't need to be babysat.
+%     \item Explain that this is the main/current experiment the project's results are based on, and why: it measures accuracy on a facility whose images never influenced training \emph{or} model selection in any way, which is the realistic test of whether the system would work at a genuinely new facility.
+%     \item Describe what gets saved per run (\texttt{results\_\allowbreak<component>\_\allowbreak<architecture>\_\allowbreak<facility>.pkl}): test accuracy, mean AUC, full classification report (precision/recall/F1 per class), confusion matrix, training history, and a per-sample record of every test image's path/true label/predicted label — explain why this is saved (so later analysis, e.g.\ qualitative error inspection or Grad-CAM, doesn't need the GPU or the trained model again).
+%     \item Mention the comparison notebook (\texttt{results\_comparison.ipynb}) briefly here as \emph{how} results are assembled across the grid, saving the actual comparison for the Results chapter: it loads every available results file, builds a facility $\times$ architecture comparison table, and produces grouped bar charts of test accuracy/mean AUC by held-out facility.
+% \end{itemize}
+
+TODO
+
+
+\section{Experiment 3: Binary (OK / Not-OK) Reformulation}
+\label{sec:exp_binary}
+
+TODO
+
+
+\section{Experiment 4: Overview Images}
+\label{sec:exp_overview_images}
+TODO
+
+
+\section{Evaluation Metrics}
+\label{sec:exp_metrics}
+
+\begin{itemize}
+    \item List and justify each metric collected per run:
+    \begin{itemize}
+        \item \textbf{Accuracy}
+        \item \textbf{Per-class precision/recall/F1} and the \textbf{confusion matrix}
+        \item \textbf{Loss graphs}
+        \item \textbf{AUC}
+    \end{itemize}
+    \item Explain why recall is an important metric in this project's context.
+\end{itemize}
+
+
+\section{Qualitative Analysis: Grad-CAM}
+\label{sec:exp_gradcam}
+
+\begin{itemize}
+    \item State the purpose.
+    \item Describe the method.
+    \item show example Grad-CAM visualisations for both a correct and an incorrect prediction, and discuss what they reveal about the model's behaviour.
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \fbox{\parbox{0.7\textwidth}{\centering\vspace{3cm} PLACEHOLDER: example image alongside its Grad-CAM heatmap overlay, for both a correct and an incorrect prediction \vspace{3cm}}}
+    \caption{PLACEHOLDER: Grad-CAM visualisation showing which image regions the model attends to when making a prediction.}
+    \label{fig:gradcam_example}
+\end{figure}
+
+

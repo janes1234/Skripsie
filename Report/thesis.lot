@@ -4,12 +4,21 @@
 \babel@toc {english}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Stage-by-stage structure of ResNet-18 and ResNet-50 for a $224\times 224$ input. Bracketed blocks are repeated the stated number of times, with the layers inside each bracket applied in sequence. FC: fully-connected layer.}}{11}{table.caption.11}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Growth in the number of feature-map channels available to each layer within DenseNet-121's first dense block ($k_0 = 64$ input channels, growth rate $k = 32$).}}{12}{table.caption.12}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Branches of a representative Inception-v3 module. Each branch is applied to the same input feature map, and their outputs are concatenated channel-wise to form the module's output.}}{13}{table.caption.13}%
+\contentsline {table}{\numberline {2.4}{\ignorespaces Stage-by-stage structure of EfficientNet-B0 for a $224\times 224$ input.}}{14}{table.caption.14}%
+\contentsline {table}{\numberline {2.5}{\ignorespaces Operation-by-operation comparison of a ResNet bottleneck block and a ConvNeXt block. Both blocks add their input back onto their output via a residual connection.}}{16}{table.caption.15}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Summary of the dataset by facility}}{12}{table.caption.16}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Total number of clarifier regions per class, per facility, before and after relabeling. ``Old'' is the count in the original annotations; ``New'' is the count after relabeling. ``Total relabels'' is the actual number of individual region corrections made at that facility.}}{17}{table.caption.20}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Summary of image counts per class for the Aerobic Zones.}}{18}{table.caption.21}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces Summary of image counts per class for the Clarifiers.}}{18}{table.caption.21}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Summary of the dataset by facility}}{23}{table.caption.21}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Total number of clarifier regions per class, per facility, before and after relabeling. ``Old'' is the count in the original annotations; ``New'' is the count after relabeling. ``Total relabels'' is the actual number of individual region corrections made at that facility.}}{28}{table.caption.25}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Summary of image counts per class for the Aerobic Zones.}}{29}{table.caption.26}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Summary of image counts per class for the Clarifiers.}}{29}{table.caption.26}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces Classifier-head grid search: best number of hidden layers ($H$) and neurons per layer ($N$) found for each tuned architecture, by validation accuracy.}}{35}{table.caption.29}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Bayesian-optimised training hyperparameters for each tuned architecture.}}{35}{table.caption.30}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Full training configuration used for every architecture, combining all three sources above. ResNet-18 uses ReduceLROnPlateau instead of StepLR, so it has no fixed step size.}}{35}{table.caption.31}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsfinish 

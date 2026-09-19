@@ -18,10 +18,10 @@
 \@writefile{toc}{\contentsline {chapter}{Uittreksel}{iv}{chapter*.4}\protected@file@percent }
 \babel@aux{english}{}
 \@writefile{toc}{\contentsline {chapter}{Table of contents}{v}{chapter*.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{List of figures}{vii}{chapter*.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{List of tables}{vii}{chapter*.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Nomenclature}{ix}{chapter*.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{Acronyms and abbreviations}{x}{section*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{List of figures}{viii}{chapter*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{List of tables}{ix}{chapter*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Nomenclature}{xii}{chapter*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{Acronyms and abbreviations}{xiii}{section*.9}\protected@file@percent }
 \@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -38,9 +38,10 @@
 \newlabel{chap:background}{{2}{4}{Background}{chapter.2}{}}
 \newlabel{chap:background@cref}{{[chapter][2][]2}{[1][4][]4}{}{}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.1}Wastewater Treatment Works}{4}{section.2.1}\protected@file@percent }
-\newlabel{fig:aerobic_func}{{2.1a}{5}{Example of a functional aerator characterized by its "leopard print" pattern}{figure.caption.10}{}}
+\citation{lecun1998gradient}
+\newlabel{fig:aerobic_func}{{2.1a}{5}{Example of a functional aerator characterized by its ``leopard print'' pattern}{figure.caption.10}{}}
 \newlabel{fig:aerobic_func@cref}{{[subfigure][1][2,1]2.1a}{[1][5][]5}{}{}{}}
-\newlabel{sub@fig:aerobic_func}{{a}{5}{Example of a functional aerator characterized by its "leopard print" pattern}{figure.caption.10}{}}
+\newlabel{sub@fig:aerobic_func}{{a}{5}{Example of a functional aerator characterized by its ``leopard print'' pattern}{figure.caption.10}{}}
 \newlabel{sub@fig:aerobic_func@cref}{{[subfigure][1][2,1]2.1a}{[1][5][]5}{}{}{}}
 \newlabel{fig:aerobic_dysfunc}{{2.1b}{5}{Example of a dysfunctional aerator with a smooth surface, indicating poor performance}{figure.caption.10}{}}
 \newlabel{fig:aerobic_dysfunc@cref}{{[subfigure][2][2,1]2.1b}{[1][5][]5}{}{}{}}
@@ -55,103 +56,236 @@
 \newlabel{fig:treatment_comparison}{{2.1}{5}{Visual comparison of functional and dysfunctional wastewater treatment components}{figure.caption.10}{}}
 \newlabel{fig:treatment_comparison@cref}{{[figure][1][2]2.1}{[1][5][]5}{}{}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.2}Convolutional Neural Networks}{5}{section.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Literature}{6}{chapter.3}\protected@file@percent }
+\newlabel{sec:cnn_background}{{2.2}{5}{Convolutional Neural Networks}{section.2.2}{}}
+\newlabel{sec:cnn_background@cref}{{[section][2][2]2.2}{[1][5][]5}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Building Blocks of a Convolutional Neural Network}{5}{subsection.2.2.1}\protected@file@percent }
+\newlabel{sec:cnn_building_blocks}{{2.2.1}{5}{Building Blocks of a Convolutional Neural Network}{subsection.2.2.1}{}}
+\newlabel{sec:cnn_building_blocks@cref}{{[subsection][1][2,2]2.2.1}{[1][5][]5}{}{}{}}
+\newlabel{eq:convolution}{{2.1}{6}{Building Blocks of a Convolutional Neural Network}{equation.2.1}{}}
+\newlabel{eq:convolution@cref}{{[equation][1][2]2.1}{[1][6][]6}{}{}{}}
+\newlabel{eq:conv_output_size}{{2.2}{7}{Building Blocks of a Convolutional Neural Network}{equation.2.2}{}}
+\newlabel{eq:conv_output_size@cref}{{[equation][2][2]2.2}{[1][7][]7}{}{}{}}
+\newlabel{eq:relu}{{2.3}{7}{Building Blocks of a Convolutional Neural Network}{equation.2.3}{}}
+\newlabel{eq:relu@cref}{{[equation][3][2]2.3}{[1][7][]7}{}{}{}}
+\citation{deng2009imagenet}
+\citation{he2016resnet}
+\citation{huang2017densenet}
+\citation{szegedy2016inception}
+\citation{tan2019efficientnet}
+\citation{liu2022convnext}
+\newlabel{eq:maxpool}{{2.4}{8}{Building Blocks of a Convolutional Neural Network}{equation.2.4}{}}
+\newlabel{eq:maxpool@cref}{{[equation][4][2]2.4}{[1][8][]8}{}{}{}}
+\newlabel{eq:softmax}{{2.5}{8}{Building Blocks of a Convolutional Neural Network}{equation.2.5}{}}
+\newlabel{eq:softmax@cref}{{[equation][5][2]2.5}{[1][8][]8}{}{}{}}
+\citation{he2016resnet}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Residual Networks: ResNet-18 and ResNet-50}{9}{subsection.2.2.2}\protected@file@percent }
+\newlabel{sec:resnet}{{2.2.2}{9}{Residual Networks: ResNet-18 and ResNet-50}{subsection.2.2.2}{}}
+\newlabel{sec:resnet@cref}{{[subsection][2][2,2]2.2.2}{[1][9][]9}{}{}{}}
+\newlabel{eq:residual}{{2.6}{9}{Residual Networks: ResNet-18 and ResNet-50}{equation.2.6}{}}
+\newlabel{eq:residual@cref}{{[equation][6][2]2.6}{[1][9][]9}{}{}{}}
+\citation{huang2017densenet}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Densely Connected Networks: DenseNet-121}{10}{subsection.2.2.3}\protected@file@percent }
+\newlabel{sec:densenet}{{2.2.3}{10}{Densely Connected Networks: DenseNet-121}{subsection.2.2.3}{}}
+\newlabel{sec:densenet@cref}{{[subsection][3][2,2]2.2.3}{[1][10][]10}{}{}{}}
+\newlabel{eq:densenet}{{2.7}{10}{Densely Connected Networks: DenseNet-121}{equation.2.7}{}}
+\newlabel{eq:densenet@cref}{{[equation][7][2]2.7}{[1][10][]10}{}{}{}}
+\citation{szegedy2016inception}
+\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Stage-by-stage structure of ResNet-18 and ResNet-50 for a $224\times 224$ input. Bracketed blocks are repeated the stated number of times, with the layers inside each bracket applied in sequence. FC: fully-connected layer.}}{11}{table.caption.11}\protected@file@percent }
+\newlabel{tab:resnet_stages}{{2.1}{11}{Stage-by-stage structure of ResNet-18 and ResNet-50 for a $224\times 224$ input. Bracketed blocks are repeated the stated number of times, with the layers inside each bracket applied in sequence. FC: fully-connected layer}{table.caption.11}{}}
+\newlabel{tab:resnet_stages@cref}{{[table][1][2]2.1}{[1][10][]11}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2.2}{\ignorespaces Growth in the number of feature-map channels available to each layer within DenseNet-121's first dense block ($k_0 = 64$ input channels, growth rate $k = 32$).}}{12}{table.caption.12}\protected@file@percent }
+\newlabel{tab:densenet_growth}{{2.2}{12}{Growth in the number of feature-map channels available to each layer within DenseNet-121's first dense block ($k_0 = 64$ input channels, growth rate $k = 32$)}{table.caption.12}{}}
+\newlabel{tab:densenet_growth@cref}{{[table][2][2]2.2}{[1][11][]12}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.4}Inception Networks: Inception-v3}{12}{subsection.2.2.4}\protected@file@percent }
+\newlabel{sec:inception}{{2.2.4}{12}{Inception Networks: Inception-v3}{subsection.2.2.4}{}}
+\newlabel{sec:inception@cref}{{[subsection][4][2,2]2.2.4}{[1][11][]12}{}{}{}}
+\citation{tan2019efficientnet}
+\citation{hu2018squeeze}
+\@writefile{lot}{\contentsline {table}{\numberline {2.3}{\ignorespaces Branches of a representative Inception-v3 module. Each branch is applied to the same input feature map, and their outputs are concatenated channel-wise to form the module's output.}}{13}{table.caption.13}\protected@file@percent }
+\newlabel{tab:inception_module}{{2.3}{13}{Branches of a representative Inception-v3 module. Each branch is applied to the same input feature map, and their outputs are concatenated channel-wise to form the module's output}{table.caption.13}{}}
+\newlabel{tab:inception_module@cref}{{[table][3][2]2.3}{[1][13][]13}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.5}Efficient Networks: EfficientNet-B0}{13}{subsection.2.2.5}\protected@file@percent }
+\newlabel{sec:efficientnet}{{2.2.5}{13}{Efficient Networks: EfficientNet-B0}{subsection.2.2.5}{}}
+\newlabel{sec:efficientnet@cref}{{[subsection][5][2,2]2.2.5}{[1][13][]13}{}{}{}}
+\citation{liu2022convnext}
+\newlabel{eq:compound_scaling}{{2.8}{14}{Efficient Networks: EfficientNet-B0}{equation.2.8}{}}
+\newlabel{eq:compound_scaling@cref}{{[equation][8][2]2.8}{[1][14][]14}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2.4}{\ignorespaces Stage-by-stage structure of EfficientNet-B0 for a $224\times 224$ input.}}{14}{table.caption.14}\protected@file@percent }
+\newlabel{tab:efficientnet_stages}{{2.4}{14}{Stage-by-stage structure of EfficientNet-B0 for a $224\times 224$ input}{table.caption.14}{}}
+\newlabel{tab:efficientnet_stages@cref}{{[table][4][2]2.4}{[1][14][]14}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.6}ConvNeXt-Tiny}{15}{subsection.2.2.6}\protected@file@percent }
+\newlabel{sec:convnext}{{2.2.6}{15}{ConvNeXt-Tiny}{subsection.2.2.6}{}}
+\newlabel{sec:convnext@cref}{{[subsection][6][2,2]2.2.6}{[1][14][]15}{}{}{}}
+\newlabel{eq:gelu}{{2.9}{15}{ConvNeXt-Tiny}{equation.2.9}{}}
+\newlabel{eq:gelu@cref}{{[equation][9][2]2.9}{[1][15][]15}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2.5}{\ignorespaces Operation-by-operation comparison of a ResNet bottleneck block and a ConvNeXt block. Both blocks add their input back onto their output via a residual connection.}}{16}{table.caption.15}\protected@file@percent }
+\newlabel{tab:convnext_block}{{2.5}{16}{Operation-by-operation comparison of a ResNet bottleneck block and a ConvNeXt block. Both blocks add their input back onto their output via a residual connection}{table.caption.15}{}}
+\newlabel{tab:convnext_block@cref}{{[table][5][2]2.5}{[1][16][]16}{}{}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Literature}{17}{chapter.3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:literature}{{3}{6}{Literature}{chapter.3}{}}
-\newlabel{chap:literature@cref}{{[chapter][3][]3}{[1][6][]6}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Related Work}{6}{section.3.1}\protected@file@percent }
-\newlabel{sec:relatedwork}{{3.1}{6}{Related Work}{section.3.1}{}}
-\newlabel{sec:relatedwork@cref}{{[section][1][3]3.1}{[1][6][]6}{}{}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Dataset}{7}{chapter.4}\protected@file@percent }
+\newlabel{chap:literature}{{3}{17}{Literature}{chapter.3}{}}
+\newlabel{chap:literature@cref}{{[chapter][3][]3}{[1][17][]17}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Related Work}{17}{section.3.1}\protected@file@percent }
+\newlabel{sec:relatedwork}{{3.1}{17}{Related Work}{section.3.1}{}}
+\newlabel{sec:relatedwork@cref}{{[section][1][3]3.1}{[1][17][]17}{}{}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Dataset}{18}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:systemmethods}{{4}{7}{Dataset}{chapter.4}{}}
-\newlabel{chap:systemmethods@cref}{{[chapter][4][]4}{[1][7][]7}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}WWTW Sites}{7}{section.4.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Distribution of images available in the dataset for each of the five facilities. The numbers indicate how many images are available in the indicated month.}}{8}{figure.caption.11}\protected@file@percent }
-\newlabel{fig:heatmap}{{4.1}{8}{Distribution of images available in the dataset for each of the five facilities. The numbers indicate how many images are available in the indicated month}{figure.caption.11}{}}
-\newlabel{fig:heatmap@cref}{{[figure][1][4]4.1}{[1][7][]8}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Location of the five WWTW facilities in the dataset.}}{8}{figure.caption.12}\protected@file@percent }
-\newlabel{fig:map}{{4.2}{8}{Location of the five WWTW facilities in the dataset}{figure.caption.12}{}}
-\newlabel{fig:map@cref}{{[figure][2][4]4.2}{[1][8][]8}{}{}{}}
-\newlabel{fig:atlantis_overview}{{4.3a}{9}{Atlantis}{figure.caption.13}{}}
-\newlabel{fig:atlantis_overview@cref}{{[subfigure][1][4,3]4.3a}{[1][8][]9}{}{}{}}
-\newlabel{sub@fig:atlantis_overview}{{a}{9}{Atlantis}{figure.caption.13}{}}
-\newlabel{sub@fig:atlantis_overview@cref}{{[subfigure][1][4,3]4.3a}{[1][8][]9}{}{}{}}
-\newlabel{fig:capeflats_overview}{{4.3b}{9}{Cape Flats}{figure.caption.13}{}}
-\newlabel{fig:capeflats_overview@cref}{{[subfigure][2][4,3]4.3b}{[1][8][]9}{}{}{}}
-\newlabel{sub@fig:capeflats_overview}{{b}{9}{Cape Flats}{figure.caption.13}{}}
-\newlabel{sub@fig:capeflats_overview@cref}{{[subfigure][2][4,3]4.3b}{[1][8][]9}{}{}{}}
-\newlabel{fig:waterval_overview}{{4.3c}{9}{Waterval}{figure.caption.13}{}}
-\newlabel{fig:waterval_overview@cref}{{[subfigure][3][4,3]4.3c}{[1][8][]9}{}{}{}}
-\newlabel{sub@fig:waterval_overview}{{c}{9}{Waterval}{figure.caption.13}{}}
-\newlabel{sub@fig:waterval_overview@cref}{{[subfigure][3][4,3]4.3c}{[1][8][]9}{}{}{}}
-\newlabel{fig:fisantekraal_overview}{{4.3d}{9}{Fisantekraal}{figure.caption.13}{}}
-\newlabel{fig:fisantekraal_overview@cref}{{[subfigure][4][4,3]4.3d}{[1][8][]9}{}{}{}}
-\newlabel{sub@fig:fisantekraal_overview}{{d}{9}{Fisantekraal}{figure.caption.13}{}}
-\newlabel{sub@fig:fisantekraal_overview@cref}{{[subfigure][4][4,3]4.3d}{[1][8][]9}{}{}{}}
-\newlabel{fig:noordelikewerke_overview}{{4.3e}{9}{Noordelike Werke}{figure.caption.13}{}}
-\newlabel{fig:noordelikewerke_overview@cref}{{[subfigure][5][4,3]4.3e}{[1][8][]9}{}{}{}}
-\newlabel{sub@fig:noordelikewerke_overview}{{e}{9}{Noordelike Werke}{figure.caption.13}{}}
-\newlabel{sub@fig:noordelikewerke_overview@cref}{{[subfigure][5][4,3]4.3e}{[1][8][]9}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Overview of the Atlantis, Cape Flats, Waterval, Fisantekraal, and Noordelike Werke WWTW facilities.}}{9}{figure.caption.13}\protected@file@percent }
-\newlabel{fig:facility_overviews}{{4.3}{9}{Overview of the Atlantis, Cape Flats, Waterval, Fisantekraal, and Noordelike Werke WWTW facilities}{figure.caption.13}{}}
-\newlabel{fig:facility_overviews@cref}{{[figure][3][4]4.3}{[1][8][]9}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Annotations}{9}{section.4.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Examples of aerobic zone classes.}}{11}{figure.caption.14}\protected@file@percent }
-\newlabel{fig:aerobic_examples}{{4.4}{11}{Examples of aerobic zone classes}{figure.caption.14}{}}
-\newlabel{fig:aerobic_examples@cref}{{[figure][4][4]4.4}{[1][10][]11}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Examples of clarifier classes.}}{11}{figure.caption.15}\protected@file@percent }
-\newlabel{fig:clarifier_examples}{{4.5}{11}{Examples of clarifier classes}{figure.caption.15}{}}
-\newlabel{fig:clarifier_examples@cref}{{[figure][5][4]4.5}{[1][10][]11}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Facility Structure}{11}{section.4.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Summary of the dataset by facility}}{12}{table.caption.16}\protected@file@percent }
-\newlabel{tab:dataset_summary}{{4.1}{12}{Summary of the dataset by facility}{table.caption.16}{}}
-\newlabel{tab:dataset_summary@cref}{{[table][1][4]4.1}{[1][11][]12}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Data Preparation}{12}{section.4.4}\protected@file@percent }
-\newlabel{sec:pipeline}{{4.4}{12}{Data Preparation}{section.4.4}{}}
-\newlabel{sec:pipeline@cref}{{[section][4][4]4.4}{[1][12][]12}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}Excluded from the dataset}{14}{section.4.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.6}Data Splitting}{14}{section.4.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.1}Leave-one-out Split}{14}{subsection.4.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.2}Stratified Train/Validation Split}{15}{subsection.4.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.7}Relabeling}{15}{section.4.7}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Illustration of the leave-one-facility-out split. The test facility is withheld from training and validation, while the remaining four facilities are split into training and validation sets.}}{16}{figure.caption.17}\protected@file@percent }
-\newlabel{fig:leave_one_out approach}{{4.6}{16}{Illustration of the leave-one-facility-out split. The test facility is withheld from training and validation, while the remaining four facilities are split into training and validation sets}{figure.caption.17}{}}
-\newlabel{fig:leave_one_out approach@cref}{{[figure][6][4]4.6}{[1][15][]16}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces An incorrectly labelled clarifier. The original label was ``Scum,'' but the correct label is ``Empty,'' since the dark region is a shadow rather than surface scum.}}{17}{figure.caption.18}\protected@file@percent }
-\newlabel{fig:relabel_example}{{4.7}{17}{An incorrectly labelled clarifier. The original label was ``Scum,'' but the correct label is ``Empty,'' since the dark region is a shadow rather than surface scum}{figure.caption.18}{}}
-\newlabel{fig:relabel_example@cref}{{[figure][7][4]4.7}{[1][16][]17}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Total number of clarifier regions per class, per facility, before and after relabeling. ``Old'' is the count in the original annotations; ``New'' is the count after relabeling. ``Total relabels'' is the actual number of individual region corrections made at that facility.}}{17}{table.caption.20}\protected@file@percent }
-\newlabel{tab:relabel_corrections}{{4.2}{17}{Total number of clarifier regions per class, per facility, before and after relabeling. ``Old'' is the count in the original annotations; ``New'' is the count after relabeling. ``Total relabels'' is the actual number of individual region corrections made at that facility}{table.caption.20}{}}
-\newlabel{tab:relabel_corrections@cref}{{[table][2][4]4.2}{[1][17][]17}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.8}Summary Table}{17}{section.4.8}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces Summary of image counts per class for the Aerobic Zones.}}{18}{table.caption.21}\protected@file@percent }
-\newlabel{tab:aerobic_summary}{{4.3}{18}{Summary of image counts per class for the Aerobic Zones}{table.caption.21}{}}
-\newlabel{tab:aerobic_summary@cref}{{[table][3][4]4.3}{[1][17][]18}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces Summary of image counts per class for the Clarifiers.}}{18}{table.caption.21}\protected@file@percent }
-\newlabel{tab:clarifier_summary}{{4.4}{18}{Summary of image counts per class for the Clarifiers}{table.caption.21}{}}
-\newlabel{tab:clarifier_summary@cref}{{[table][4][4]4.4}{[1][17][]18}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces The relabeling interface, showing the original label and the per-class correction buttons.}}{19}{figure.caption.19}\protected@file@percent }
-\newlabel{fig:relabel_process_example}{{4.8}{19}{The relabeling interface, showing the original label and the per-class correction buttons}{figure.caption.19}{}}
-\newlabel{fig:relabel_process_example@cref}{{[figure][8][4]4.8}{[1][16][]19}{}{}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Summary and conclusions}{20}{chapter.5}\protected@file@percent }
+\newlabel{chap:systemmethods}{{4}{18}{Dataset}{chapter.4}{}}
+\newlabel{chap:systemmethods@cref}{{[chapter][4][]4}{[1][18][]18}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}WWTW Sites}{18}{section.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Distribution of images available in the dataset for each of the five facilities. The numbers indicate how many images are available in the indicated month.}}{19}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:heatmap}{{4.1}{19}{Distribution of images available in the dataset for each of the five facilities. The numbers indicate how many images are available in the indicated month}{figure.caption.16}{}}
+\newlabel{fig:heatmap@cref}{{[figure][1][4]4.1}{[1][18][]19}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Location of the five WWTW facilities in the dataset.}}{19}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:map}{{4.2}{19}{Location of the five WWTW facilities in the dataset}{figure.caption.17}{}}
+\newlabel{fig:map@cref}{{[figure][2][4]4.2}{[1][19][]19}{}{}{}}
+\newlabel{fig:atlantis_overview}{{4.3a}{20}{Atlantis}{figure.caption.18}{}}
+\newlabel{fig:atlantis_overview@cref}{{[subfigure][1][4,3]4.3a}{[1][19][]20}{}{}{}}
+\newlabel{sub@fig:atlantis_overview}{{a}{20}{Atlantis}{figure.caption.18}{}}
+\newlabel{sub@fig:atlantis_overview@cref}{{[subfigure][1][4,3]4.3a}{[1][19][]20}{}{}{}}
+\newlabel{fig:capeflats_overview}{{4.3b}{20}{Cape Flats}{figure.caption.18}{}}
+\newlabel{fig:capeflats_overview@cref}{{[subfigure][2][4,3]4.3b}{[1][19][]20}{}{}{}}
+\newlabel{sub@fig:capeflats_overview}{{b}{20}{Cape Flats}{figure.caption.18}{}}
+\newlabel{sub@fig:capeflats_overview@cref}{{[subfigure][2][4,3]4.3b}{[1][19][]20}{}{}{}}
+\newlabel{fig:waterval_overview}{{4.3c}{20}{Waterval}{figure.caption.18}{}}
+\newlabel{fig:waterval_overview@cref}{{[subfigure][3][4,3]4.3c}{[1][19][]20}{}{}{}}
+\newlabel{sub@fig:waterval_overview}{{c}{20}{Waterval}{figure.caption.18}{}}
+\newlabel{sub@fig:waterval_overview@cref}{{[subfigure][3][4,3]4.3c}{[1][19][]20}{}{}{}}
+\newlabel{fig:fisantekraal_overview}{{4.3d}{20}{Fisantekraal}{figure.caption.18}{}}
+\newlabel{fig:fisantekraal_overview@cref}{{[subfigure][4][4,3]4.3d}{[1][19][]20}{}{}{}}
+\newlabel{sub@fig:fisantekraal_overview}{{d}{20}{Fisantekraal}{figure.caption.18}{}}
+\newlabel{sub@fig:fisantekraal_overview@cref}{{[subfigure][4][4,3]4.3d}{[1][19][]20}{}{}{}}
+\newlabel{fig:noordelikewerke_overview}{{4.3e}{20}{Noordelike Werke}{figure.caption.18}{}}
+\newlabel{fig:noordelikewerke_overview@cref}{{[subfigure][5][4,3]4.3e}{[1][19][]20}{}{}{}}
+\newlabel{sub@fig:noordelikewerke_overview}{{e}{20}{Noordelike Werke}{figure.caption.18}{}}
+\newlabel{sub@fig:noordelikewerke_overview@cref}{{[subfigure][5][4,3]4.3e}{[1][19][]20}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Overview of the Atlantis, Cape Flats, Waterval, Fisantekraal, and Noordelike Werke WWTW facilities.}}{20}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:facility_overviews}{{4.3}{20}{Overview of the Atlantis, Cape Flats, Waterval, Fisantekraal, and Noordelike Werke WWTW facilities}{figure.caption.18}{}}
+\newlabel{fig:facility_overviews@cref}{{[figure][3][4]4.3}{[1][19][]20}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Annotations}{20}{section.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Examples of aerobic zone classes.}}{22}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:aerobic_examples}{{4.4}{22}{Examples of aerobic zone classes}{figure.caption.19}{}}
+\newlabel{fig:aerobic_examples@cref}{{[figure][4][4]4.4}{[1][21][]22}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Examples of clarifier classes.}}{22}{figure.caption.20}\protected@file@percent }
+\newlabel{fig:clarifier_examples}{{4.5}{22}{Examples of clarifier classes}{figure.caption.20}{}}
+\newlabel{fig:clarifier_examples@cref}{{[figure][5][4]4.5}{[1][21][]22}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Facility Structure}{22}{section.4.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Summary of the dataset by facility}}{23}{table.caption.21}\protected@file@percent }
+\newlabel{tab:dataset_summary}{{4.1}{23}{Summary of the dataset by facility}{table.caption.21}{}}
+\newlabel{tab:dataset_summary@cref}{{[table][1][4]4.1}{[1][22][]23}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Data Preparation}{23}{section.4.4}\protected@file@percent }
+\newlabel{sec:pipeline}{{4.4}{23}{Data Preparation}{section.4.4}{}}
+\newlabel{sec:pipeline@cref}{{[section][4][4]4.4}{[1][23][]23}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Excluded from the dataset}{25}{section.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.6}Data Splitting}{25}{section.4.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.1}Leave-one-out Split}{25}{subsection.4.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.2}Stratified Train/Validation Split}{26}{subsection.4.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.7}Relabeling}{26}{section.4.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Illustration of the leave-one-facility-out split. The test facility is withheld from training and validation, while the remaining four facilities are split into training and validation sets.}}{27}{figure.caption.22}\protected@file@percent }
+\newlabel{fig:leave_one_out approach}{{4.6}{27}{Illustration of the leave-one-facility-out split. The test facility is withheld from training and validation, while the remaining four facilities are split into training and validation sets}{figure.caption.22}{}}
+\newlabel{fig:leave_one_out approach@cref}{{[figure][6][4]4.6}{[1][26][]27}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces An incorrectly labelled clarifier. The original label was ``Scum,'' but the correct label is ``Empty,'' since the dark region is a shadow rather than surface scum.}}{28}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:relabel_example}{{4.7}{28}{An incorrectly labelled clarifier. The original label was ``Scum,'' but the correct label is ``Empty,'' since the dark region is a shadow rather than surface scum}{figure.caption.23}{}}
+\newlabel{fig:relabel_example@cref}{{[figure][7][4]4.7}{[1][27][]28}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Total number of clarifier regions per class, per facility, before and after relabeling. ``Old'' is the count in the original annotations; ``New'' is the count after relabeling. ``Total relabels'' is the actual number of individual region corrections made at that facility.}}{28}{table.caption.25}\protected@file@percent }
+\newlabel{tab:relabel_corrections}{{4.2}{28}{Total number of clarifier regions per class, per facility, before and after relabeling. ``Old'' is the count in the original annotations; ``New'' is the count after relabeling. ``Total relabels'' is the actual number of individual region corrections made at that facility}{table.caption.25}{}}
+\newlabel{tab:relabel_corrections@cref}{{[table][2][4]4.2}{[1][28][]28}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.8}Summary Table}{28}{section.4.8}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces Summary of image counts per class for the Aerobic Zones.}}{29}{table.caption.26}\protected@file@percent }
+\newlabel{tab:aerobic_summary}{{4.3}{29}{Summary of image counts per class for the Aerobic Zones}{table.caption.26}{}}
+\newlabel{tab:aerobic_summary@cref}{{[table][3][4]4.3}{[1][28][]29}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces Summary of image counts per class for the Clarifiers.}}{29}{table.caption.26}\protected@file@percent }
+\newlabel{tab:clarifier_summary}{{4.4}{29}{Summary of image counts per class for the Clarifiers}{table.caption.26}{}}
+\newlabel{tab:clarifier_summary@cref}{{[table][4][4]4.4}{[1][28][]29}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces The relabeling interface, showing the original label and the per-class correction buttons.}}{30}{figure.caption.24}\protected@file@percent }
+\newlabel{fig:relabel_process_example}{{4.8}{30}{The relabeling interface, showing the original label and the per-class correction buttons}{figure.caption.24}{}}
+\newlabel{fig:relabel_process_example@cref}{{[figure][8][4]4.8}{[1][27][]30}{}{}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Experimental Design}{31}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:conclusion}{{5}{20}{Summary and conclusions}{chapter.5}{}}
-\newlabel{chap:conclusion@cref}{{[chapter][5][]5}{[1][20][]20}{}{}{}}
+\newlabel{chap:experimental_design}{{5}{31}{Experimental Design}{chapter.5}{}}
+\newlabel{chap:experimental_design@cref}{{[chapter][5][]5}{[1][31][]31}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Overview}{31}{section.5.1}\protected@file@percent }
+\newlabel{sec:exp_overview}{{5.1}{31}{Overview}{section.5.1}{}}
+\newlabel{sec:exp_overview@cref}{{[section][1][5]5.1}{[1][31][]31}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces PLACEHOLDER: End-to-end experimental pipeline, from labelled satellite imagery to a saved, comparable results file per (architecture, facility) combination.}}{32}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:experimental_pipeline}{{5.1}{32}{PLACEHOLDER: End-to-end experimental pipeline, from labelled satellite imagery to a saved, comparable results file per (architecture, facility) combination}{figure.caption.27}{}}
+\newlabel{fig:experimental_pipeline@cref}{{[figure][1][5]5.1}{[1][31][]32}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Model Architectures and Transfer Learning}{32}{section.5.2}\protected@file@percent }
+\newlabel{sec:exp_architectures}{{5.2}{32}{Model Architectures and Transfer Learning}{section.5.2}{}}
+\newlabel{sec:exp_architectures@cref}{{[section][2][5]5.2}{[1][31][]32}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Data Preprocessing and Augmentation}{32}{section.5.3}\protected@file@percent }
+\newlabel{sec:exp_augmentation}{{5.3}{32}{Data Preprocessing and Augmentation}{section.5.3}{}}
+\newlabel{sec:exp_augmentation@cref}{{[section][3][5]5.3}{[1][32][]32}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces PLACEHOLDER: Example training-time augmentations applied to a single input image.}}{33}{figure.caption.28}\protected@file@percent }
+\newlabel{fig:augmentation_examples}{{5.2}{33}{PLACEHOLDER: Example training-time augmentations applied to a single input image}{figure.caption.28}{}}
+\newlabel{fig:augmentation_examples@cref}{{[figure][2][5]5.2}{[1][33][]33}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Class Imbalance}{33}{section.5.4}\protected@file@percent }
+\newlabel{sec:exp_loss}{{5.4}{33}{Class Imbalance}{section.5.4}{}}
+\newlabel{sec:exp_loss@cref}{{[section][4][5]5.4}{[1][33][]33}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Hyperparameter Tuning}{33}{section.5.5}\protected@file@percent }
+\newlabel{sec:exp_hyperparams}{{5.5}{33}{Hyperparameter Tuning}{section.5.5}{}}
+\newlabel{sec:exp_hyperparams@cref}{{[section][5][5]5.5}{[1][33][]33}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Classifier-head grid search: best number of hidden layers ($H$) and neurons per layer ($N$) found for each tuned architecture, by validation accuracy.}}{35}{table.caption.29}\protected@file@percent }
+\newlabel{tab:arch_grid_search}{{5.1}{35}{Classifier-head grid search: best number of hidden layers ($H$) and neurons per layer ($N$) found for each tuned architecture, by validation accuracy}{table.caption.29}{}}
+\newlabel{tab:arch_grid_search@cref}{{[table][1][5]5.1}{[1][34][]35}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Bayesian-optimised training hyperparameters for each tuned architecture.}}{35}{table.caption.30}\protected@file@percent }
+\newlabel{tab:bayes_opt}{{5.2}{35}{Bayesian-optimised training hyperparameters for each tuned architecture}{table.caption.30}{}}
+\newlabel{tab:bayes_opt@cref}{{[table][2][5]5.2}{[1][35][]35}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Full training configuration used for every architecture, combining all three sources above. ResNet-18 uses ReduceLROnPlateau instead of StepLR, so it has no fixed step size.}}{35}{table.caption.31}\protected@file@percent }
+\newlabel{tab:full_hyperparams}{{5.3}{35}{Full training configuration used for every architecture, combining all three sources above. ResNet-18 uses ReduceLROnPlateau instead of StepLR, so it has no fixed step size}{table.caption.31}{}}
+\newlabel{tab:full_hyperparams@cref}{{[table][3][5]5.3}{[1][35][]35}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}Training Procedure}{35}{section.5.6}\protected@file@percent }
+\newlabel{sec:exp_training}{{5.6}{35}{Training Procedure}{section.5.6}{}}
+\newlabel{sec:exp_training@cref}{{[section][6][5]5.6}{[1][35][]35}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.7}Experiment 1: Mixed-Facility Baseline}{37}{section.5.7}\protected@file@percent }
+\newlabel{sec:exp_mixed}{{5.7}{37}{Experiment 1: Mixed-Facility Baseline}{section.5.7}{}}
+\newlabel{sec:exp_mixed@cref}{{[section][7][5]5.7}{[1][37][]37}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.8}Experiment 2: Leave-One-Facility-Out Evaluation}{37}{section.5.8}\protected@file@percent }
+\newlabel{sec:exp_lofo}{{5.8}{37}{Experiment 2: Leave-One-Facility-Out Evaluation}{section.5.8}{}}
+\newlabel{sec:exp_lofo@cref}{{[section][8][5]5.8}{[1][37][]37}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.9}Experiment 3: Binary (OK / Not-OK) Reformulation}{38}{section.5.9}\protected@file@percent }
+\newlabel{sec:exp_binary}{{5.9}{38}{Experiment 3: Binary (OK / Not-OK) Reformulation}{section.5.9}{}}
+\newlabel{sec:exp_binary@cref}{{[section][9][5]5.9}{[1][37][]38}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.10}Experiment 4: Overview Images}{38}{section.5.10}\protected@file@percent }
+\newlabel{sec:exp_overview_images}{{5.10}{38}{Experiment 4: Overview Images}{section.5.10}{}}
+\newlabel{sec:exp_overview_images@cref}{{[section][10][5]5.10}{[1][38][]38}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.11}Evaluation Metrics}{38}{section.5.11}\protected@file@percent }
+\newlabel{sec:exp_metrics}{{5.11}{38}{Evaluation Metrics}{section.5.11}{}}
+\newlabel{sec:exp_metrics@cref}{{[section][11][5]5.11}{[1][38][]38}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.12}Qualitative Analysis: Grad-CAM}{38}{section.5.12}\protected@file@percent }
+\newlabel{sec:exp_gradcam}{{5.12}{38}{Qualitative Analysis: Grad-CAM}{section.5.12}{}}
+\newlabel{sec:exp_gradcam@cref}{{[section][12][5]5.12}{[1][38][]38}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces PLACEHOLDER: Grad-CAM visualisation showing which image regions the model attends to when making a prediction.}}{39}{figure.caption.32}\protected@file@percent }
+\newlabel{fig:gradcam_example}{{5.3}{39}{PLACEHOLDER: Grad-CAM visualisation showing which image regions the model attends to when making a prediction}{figure.caption.32}{}}
+\newlabel{fig:gradcam_example@cref}{{[figure][3][5]5.3}{[1][38][]39}{}{}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Summary and conclusions}{40}{chapter.6}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{chap:conclusion}{{6}{40}{Summary and conclusions}{chapter.6}{}}
+\newlabel{chap:conclusion@cref}{{[chapter][6][]6}{[1][40][]40}{}{}{}}
 \citation{*}
 \bibdata{mybib}
-\bibcite{sun_thesis_guide}{{1}{2024}{{Stellenbosch University}}{{}}}
-\bibcite{sun_latex_template}{{2}{2024}{{Els}}{{}}}
-\@writefile{toc}{\contentsline {chapter}{References}{21}{chapter*.22}\protected@file@percent }
+\bibcite{lecun1998gradient}{{1}{1998}{{LeCun et~al.}}{{LeCun, Bottou, Bengio, and Haffner}}}
+\bibcite{deng2009imagenet}{{2}{2009}{{Deng et~al.}}{{Deng, Dong, Socher, Li, Li, and Fei-Fei}}}
+\bibcite{he2016resnet}{{3}{2016}{{He et~al.}}{{He, Zhang, Ren, and Sun}}}
+\bibcite{huang2017densenet}{{4}{2017}{{Huang et~al.}}{{Huang, Liu, van~der Maaten, and Weinberger}}}
+\bibcite{szegedy2016inception}{{5}{2016}{{Szegedy et~al.}}{{Szegedy, Vanhoucke, Ioffe, Shlens, and Wojna}}}
+\bibcite{tan2019efficientnet}{{6}{2019}{{Tan and Le}}{{}}}
+\bibcite{liu2022convnext}{{7}{2022}{{Liu et~al.}}{{Liu, Mao, Wu, Feichtenhofer, Darrell, and Xie}}}
+\@writefile{toc}{\contentsline {chapter}{References}{41}{chapter*.33}\protected@file@percent }
+\bibcite{hu2018squeeze}{{8}{2018}{{Hu et~al.}}{{Hu, Shen, and Sun}}}
+\bibcite{sun_thesis_guide}{{9}{2024}{{Stellenbosch University}}{{}}}
+\bibcite{sun_latex_template}{{10}{2024}{{Els}}{{}}}
+\bibcite{krizhevsky2012alexnet}{{11}{2012}{{Krizhevsky et~al.}}{{Krizhevsky, Sutskever, and Hinton}}}
 \ACRO{total-barriers}{1}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Appendix title goes here}{22}{appendix.A}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Appendix title goes here}{43}{appendix.A}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{appen:applabel}{{A}{22}{Appendix title goes here}{appendix.A}{}}
-\newlabel{appen:applabel@cref}{{[chapter][1][]A}{[1][22][]22}{}{}{}}
+\newlabel{appen:applabel}{{A}{43}{Appendix title goes here}{appendix.A}{}}
+\newlabel{appen:applabel@cref}{{[chapter][1][]A}{[1][43][]43}{}{}{}}
 \ttl@finishall
 \ACRO{usage}{MFT=={0}}
-\gdef \@abspage@last{35}
+\gdef \@abspage@last{59}
