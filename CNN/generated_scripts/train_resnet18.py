@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# <h1>Train — ResNet-18 (baseline)</h1>
+# # Train — ResNet-18
 # 
-# Trains and evaluates the ResNet-18 baseline classifier, then saves its results (`results_resnet18.pkl`) and weights (`{COMPONENT}_resnet18_cnn.pt`) to disk for the results notebook.
+# Trains and evaluates ResNet-18 using the tuned hyperparameters from `ARCH_HYPERPARAMS["resnet18"]`, then saves its results and weights to disk for the results notebook.
 
 # In[1]:
 
@@ -11,54 +11,78 @@
 from wwtw_utils import *
 
 
+# ## Build dataloaders + class weights for this architecture
+
+# In[ ]:
+
+
+cfg = ARCH_HYPERPARAMS["resnet18"]
+
+# The tuned batch size (cfg["batch_size"]) can be too large to fit in GPU
+# memory for a deeper model like this one, even though it fit fine for
+# whichever model the tuning trials actually ran on. Rather than hard-coding
+# a smaller batch size (and drifting from the tuned hyperparameters), cap the
+# *actual* loader batch size at MICRO_BATCH_CAP and use gradient accumulation
+# in train_model to still reach the tuned effective batch size.
+micro_batch = min(cfg["batch_size"], MICRO_BATCH_CAP)
+accum_steps = max(1, round(cfg["batch_size"] / micro_batch))
+print(f"ResNet-18: micro batch = {micro_batch}, accumulation steps = {accum_steps} "
+      f"(effective batch size ≈ {micro_batch * accum_steps}, tuned value = {cfg['batch_size']})")
+
+# This backbone gets its own dataloaders, same as every other architecture
+# here -- its own (capped) batch size and image size, per cfg.
+train_ds_arch, val_ds_arch, test_ds_arch, train_loader_arch, val_loader_arch, test_loader_arch = \
+    get_dataloaders(cfg["img_size"], micro_batch)
+
+class_weights_arch = make_class_weights(train_ds_arch)
+
+
 # ## Define the model (Transfer Learning with ResNet-18)
 
-# In[2]:
+# In[ ]:
 
-
-model_resnet18 = models.resnet18(weights=models.ResNet18_Weights.IMAGENET1K_V1)
-
-num_ftrs = model_resnet18.fc.in_features
-model_resnet18.fc = nn.Linear(num_ftrs, num_classes)  # no hidden layers — this one predates the tuning sweep
-
-model_resnet18 = model_resnet18.to(device)
 
 # ---------------------------------------------------------
-# Loss and optimizer, with class weights for the imbalanced classes
+# Define the CNN (Transfer Learning with ResNet-18)
 # ---------------------------------------------------------
-class_weights = make_class_weights(train_ds)
-print("Applying class weights to loss function:")
-for name, w in zip(class_names, class_weights.cpu().numpy()):
-    print(f"  {name:<15s}: {w:.3f}")
+model = models.resnet18(weights=models.ResNet18_Weights.IMAGENET1K_V1)
+in_f = model.fc.in_features
+model.fc = build_classifier_head(in_f, cfg["hidden_layers"], cfg["neurons"], num_classes)
 
-criterion_resnet18 = nn.CrossEntropyLoss(weight=class_weights)
-optimizer_resnet18 = optim.Adam(model_resnet18.parameters(), lr=5e-4, weight_decay=WEIGHT_DECAY)
+model = model.to(device)
 
-# mode='min' because we want to minimize loss; factor=0.5 halves the LR when
-# triggered; patience=3 waits 3 epochs with no improvement before reducing it
-scheduler_resnet18 = ReduceLROnPlateau(optimizer_resnet18, mode='min', factor=0.5, patience=3)
+criterion = nn.CrossEntropyLoss(weight=class_weights_arch)
+optimizer = optim.Adam(
+    model.parameters(),
+    lr=cfg["lr"],
+    betas=(cfg["beta1"], ADAM_BETA2),
+    weight_decay=WEIGHT_DECAY,
+)
+# Step-based decay: LR x0.1 every Es epochs, per the tuned step size.
+scheduler = StepLR(optimizer, step_size=cfg["step_size"], gamma=0.1)
 
 
 # ## Train, then plot training curves
 
-# In[3]:
+# In[ ]:
 
 
-history_resnet18 = train_model(
-    model_resnet18, train_loader, val_loader, optimizer_resnet18, scheduler_resnet18,
-    criterion_resnet18, EPOCHS, EARLY_STOP_PATIENCE, "ResNet-18",
+history = train_model(
+    model, train_loader_arch, val_loader_arch, optimizer, scheduler,
+    criterion, EPOCHS, EARLY_STOP_PATIENCE, "ResNet-18", is_inception=False,
+    accum_steps=accum_steps,
 )
-plot_training_curves(history_resnet18, "ResNet-18")
+plot_training_curves(history, "ResNet-18")
 
 
 # ## Evaluate on the test set
 
-# In[4]:
+# In[ ]:
 
 
 evaluate_and_record(
-    model_resnet18, test_loader, "ResNet-18", history_resnet18,
-    img_size=IMG_TARGET_SIZE, hidden_layers=0, neurons=None,
+    model, test_loader_arch, "ResNet-18", history,
+    img_size=cfg["img_size"], hidden_layers=cfg["hidden_layers"], neurons=cfg["neurons"],
 )
 
 

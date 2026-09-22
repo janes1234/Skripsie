@@ -28,7 +28,7 @@ import matplotlib.pyplot as plt
 
 import torch
 from torch import nn, optim
-from torch.utils.data import DataLoader, random_split
+from torch.utils.data import DataLoader
 from torchvision import datasets, transforms, models
 from torch.optim.lr_scheduler import ReduceLROnPlateau, StepLR
 import torch.nn.functional as F
@@ -65,8 +65,6 @@ LR = 1e-3
 WEIGHT_DECAY = 1e-4     # L2 regularization — helps reduce the train/val gap
 EPOCHS = 100
 EARLY_STOP_PATIENCE = 10   # stop if val loss hasn't improved for this many epochs
-VAL_FRACTION = 0.15
-TEST_FRACTION = 0.15
 SEED = 42
 
 MODEL_SAVE_PATH = Path(f"../models/{COMPONENT}_cnn.pt")
@@ -387,7 +385,7 @@ def run_epoch(model, loader, optimizer, criterion, train_mode, is_inception=Fals
 
 def train_model(model, train_loader, val_loader, optimizer, scheduler, criterion,
                  epochs, patience, model_name, is_inception=False, accum_steps=1,
-                 test_loader=None):
+                 test_loader=None, epoch_callback=None):
     """Training loop with early stopping on validation loss: track val loss
     each epoch, keep the best-performing weights in memory, stop once val
     loss hasn't improved for `patience` epochs, then restore the best
@@ -399,6 +397,14 @@ def train_model(model, train_loader, val_loader, optimizer, scheduler, criterion
     in any way -- best_state is still selected on val_loss only, exactly as
     before. Passing it does add a third forward pass over data each epoch
     though, so expect roughly 30-50% longer epochs versus leaving it out.
+
+    epoch_callback, if given, is called as epoch_callback(epoch, val_loss,
+    val_acc) at the end of every epoch, after history/best-checkpoint
+    bookkeeping for that epoch. Every real training notebook leaves this as
+    None; it exists so tune.py can hook in Optuna's trial.report()/pruning
+    without duplicating this loop. Raising inside the callback (e.g.
+    optuna.TrialPruned) stops training immediately, same as any other
+    exception.
     """
     history = {"train_loss": [], "train_acc": [], "val_loss": [], "val_acc": []}
     if test_loader is not None:
@@ -450,6 +456,9 @@ def train_model(model, train_loader, val_loader, optimizer, scheduler, criterion
         print(f"[{model_name}] Epoch {epoch:3d}/{epochs} | LR: {current_lr:.2e} | "
               f"train loss {train_loss:.4f} acc {train_acc:.3f} | "
               f"val loss {val_loss:.4f} acc {val_acc:.3f}{test_info}{flag}")
+
+        if epoch_callback is not None:
+            epoch_callback(epoch, val_loss, val_acc)
 
         if epochs_no_improve >= patience:
             print(f"\n[{model_name}] No val loss improvement for {patience} epochs — stopping early at epoch {epoch}.")
@@ -717,57 +726,96 @@ def save_result(model_key, save_name):
 # IMG_TARGET_SIZE (set above) except for InceptionNet v3, which requires
 # larger inputs (it downsamples aggressively and expects ~299x299).
 
-ARCH_HYPERPARAMS = {
+# All 6 below (everything except alexnet) were tuned by tune.py: one Optuna
+# study per architecture, jointly searching hidden_layers, neurons, lr,
+# beta1, step_size and batch_size, tuned on the NoordelikeWerke-held-out
+# split and optimizing validation accuracy at the best-val-loss checkpoint.
+# See tuned_hyperparams.json for the full record (including each
+# architecture's achieved val_acc) and tune_progress.log for the full
+# sweep. resnet18 in particular used to be a fixed, untuned "baseline"
+# (linear head, hardcoded LR, its own ReduceLROnPlateau schedule, its own
+# dataloaders) -- there's no architectural reason it had to stay that way,
+# so it's tuned like every other backbone here now.
+TUNED_ARCH_HYPERPARAMS = {
+    "resnet18": dict(
+        hidden_layers=2, neurons=2048,
+        lr=3.878507329493426e-04, beta1=0.6107516885033067, step_size=12, batch_size=96,
+        img_size=IMG_TARGET_SIZE,
+    ),
     "resnet50": dict(
-        hidden_layers=3, neurons=1024,
-        lr=2.68014042e-05, beta1=0.1788129, step_size=34, batch_size=121,
+        hidden_layers=2, neurons=2048,
+        lr=3.773511064031977e-04, beta1=0.874754846544932, step_size=17, batch_size=96,
         img_size=IMG_TARGET_SIZE,
     ),
     "densenet121": dict(
-        hidden_layers=3, neurons=2048,
-        lr=2.74235159e-04, beta1=4.149011e-17, step_size=7, batch_size=14,
+        hidden_layers=1, neurons=512,
+        lr=3.4372072443118924e-04, beta1=0.5973588051756492, step_size=11, batch_size=48,
         img_size=IMG_TARGET_SIZE,
     ),
     "inception_v3": dict(
-        hidden_layers=3, neurons=2048,
-        lr=1.42756669e-04, beta1=5.190841e-17, step_size=21, batch_size=17,
+        hidden_layers=2, neurons=2048,
+        lr=1.3826232179369874e-03, beta1=0.5996372172970215, step_size=23, batch_size=96,
         img_size=(299, 299),
     ),
-    # EfficientNet-B0 wasn't part of the original grid search / Bayesian
-    # tuning sweep, so these are sensible defaults rather than tuned values:
-    # a middling classifier head (matching the other architectures), a
-    # standard Adam beta1, and a StepLR schedule. Adjust freely if you want
-    # to run your own tuning pass for it.
+    # Tuning picked hidden_layers=0 (a plain linear head, like the classic
+    # ResNet-18 baseline) -- neurons is unused by build_classifier_head()
+    # when hidden_layers=0, kept here only as a record of what Optuna sampled.
     "efficientnet_b0": dict(
-        hidden_layers=3, neurons=1024,
-        lr=1e-4, beta1=0.9, step_size=15, batch_size=32,
+        hidden_layers=0, neurons=2048,
+        lr=4.89229364755062e-04, beta1=0.8568488007968798, step_size=5, batch_size=96,
         img_size=IMG_TARGET_SIZE,
     ),
-    # Also not part of the original tuning sweep — sensible defaults again.
-    # ConvNeXt is a heavier/slower backbone than the others, so it gets a
-    # smaller default batch size and a slightly lower LR to start.
     "convnext_tiny": dict(
-        hidden_layers=3, neurons=1024,
-        lr=5e-5, beta1=0.9, step_size=15, batch_size=24,
-        img_size=IMG_TARGET_SIZE,
-    ),
-    # AlexNet is trained from scratch (no ImageNet pretraining, see
-    # train_alexnet.ipynb) rather than fine-tuned, so it isn't really
-    # comparable to the tuned/hand-picked values above -- these are just
-    # sensible defaults for training a small CNN from random init: a higher
-    # LR than the fine-tuned architectures since there are no pretrained
-    # features to preserve, otherwise following the same hand-picked pattern
-    # as EfficientNet-B0/ConvNeXt-Tiny.
-    "alexnet": dict(
-        hidden_layers=3, neurons=1024,
-        lr=1e-3, beta1=0.9, step_size=15, batch_size=32,
+        hidden_layers=1, neurons=2048,
+        lr=5.654044156118665e-05, beta1=0.5598695840061737, step_size=21, batch_size=128,
         img_size=IMG_TARGET_SIZE,
     ),
 }
 
-# beta2 (decay rate for the squared-gradient average) is held fixed at 0.9
-# for all models, per the tuning setup.
-ADAM_BETA2 = 0.9
+# A single, uniform "no tuning" recipe applied identically to all 6 tuned
+# architectures -- deliberately NOT hand-picked per architecture (that would
+# still be a mild form of expert tuning), so this isolates the effect of
+# "Optuna search" vs. "one reasonable default", nothing else. This mirrors
+# the sensible-defaults pattern efficientnet_b0/convnext_tiny/alexnet used
+# before any of this retuning work started. img_size is left as each
+# architecture's own architectural requirement (299x299 for InceptionNet
+# v3) since that's not a tunable hyperparameter, not an ablation variable.
+NO_TUNING_ARCH_HYPERPARAMS = {
+    arch: dict(
+        hidden_layers=3, neurons=1024,
+        lr=1e-4, beta1=0.9, step_size=15, batch_size=32,
+        img_size=TUNED_ARCH_HYPERPARAMS[arch]["img_size"],
+    )
+    for arch in TUNED_ARCH_HYPERPARAMS
+}
+
+# AlexNet is trained from scratch (no ImageNet pretraining, see
+# train_alexnet.ipynb) rather than fine-tuned, so it isn't really comparable
+# to the tuned/hand-picked values above -- these are just sensible defaults
+# for training a small CNN from random init: a higher LR than the
+# fine-tuned architectures since there are no pretrained features to
+# preserve, otherwise following the same hand-picked pattern as the
+# no-tuning recipe above. Not part of the tuned-vs-untuned ablation --
+# alexnet is intentionally left out of it and always uses this same dict.
+ALEXNET_HYPERPARAMS = dict(
+    hidden_layers=3, neurons=1024,
+    lr=1e-3, beta1=0.9, step_size=15, batch_size=32,
+    img_size=IMG_TARGET_SIZE,
+)
+
+# ---------------------------------------------------------------------
+# ACTIVE CONFIG -- this is what every train_*.ipynb actually reads via
+# ARCH_HYPERPARAMS[<name>]. Restored to TUNED_ARCH_HYPERPARAMS now that the
+# tuned-vs-untuned ablation (NO_TUNING_ARCH_HYPERPARAMS) has finished and
+# its results are archived -- see results/archive/README.md for what each
+# results/archive/phaseN_* snapshot is.
+# ---------------------------------------------------------------------
+ARCH_HYPERPARAMS = dict(TUNED_ARCH_HYPERPARAMS, alexnet=ALEXNET_HYPERPARAMS)
+
+# beta2 (decay rate for the squared-gradient average) is held fixed at the
+# standard Adam default of 0.999 for all models -- beta1 (momentum) is the
+# one that gets tuned per architecture, via the retuning sweep in tune.py.
+ADAM_BETA2 = 0.999
 
 # Upper bound on the *actual* per-step batch size used on the GPU. Some of
 # the tuned batch sizes above (e.g. 121 for ResNet-50) are too large to fit

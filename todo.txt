@@ -2,16 +2,4 @@ cut out
 
 full image
 
-entropy loss vs focal loss for everything
-
-hyperparameter tuning for all models. some where missed. search for similar mistakes.
-
-The ResNet-18 baseline uses ReduceLROnPlateau: it watches validation loss
-directly and halves the learning rate whenever three consecutive epochs pass
-with no improvement. - maybe remove this. it probably not necesary. keep it all the same.
-
-
 add atlantis images
-
-train with and without augemtation
-
