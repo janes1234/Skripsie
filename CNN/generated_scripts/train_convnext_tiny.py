@@ -39,7 +39,7 @@ class_weights_arch = make_class_weights(train_ds_arch)
 
 # ## Define the model
 
-# In[15]:
+# In[ ]:
 
 
 # ---------------------------------------------------------
@@ -54,8 +54,8 @@ model.classifier[2] = build_classifier_head(in_f, cfg["hidden_layers"], cfg["neu
 
 model = model.to(device)
 
-# criterion = nn.CrossEntropyLoss(weight=class_weights_arch)
-criterion = FocalLoss(weight=class_weights_arch, gamma=2.0)
+criterion = nn.CrossEntropyLoss(weight=class_weights_arch)
+# criterion = FocalLoss(weight=class_weights_arch, gamma=2.0)  # parked for later -- see todo.txt
 
 optimizer = optim.Adam(
     model.parameters(),

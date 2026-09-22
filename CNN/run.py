@@ -3,9 +3,10 @@ run.py
 ======
 Batch-runs every training notebook (train_resnet18.ipynb, train_resnet50.ipynb,
 train_densenet121.ipynb, train_inception_v3.ipynb, train_efficientnet_b0.ipynb,
-train_convnext_tiny.ipynb) against every held-out facility's leave-one-
-facility-out split, so you end up with a full 6 architectures x 5 facilities
-results grid without babysitting each run by hand.
+train_convnext_tiny.ipynb, train_alexnet.ipynb) against every held-out
+facility's leave-one-facility-out split, so you end up with a full
+7 architectures x 5 facilities results grid without babysitting each run by
+hand.
 
 For each (architecture, facility) combination this script:
   1. Exports the training notebook to a plain .py script (via
@@ -38,7 +39,7 @@ executed notebook back with every plot preserved inline -- handy for
 browsing results without having to dig through separate image files.
 
 Usage:
-    # Everything: 6 architectures x 5 facilities x 1 component
+    # Everything: 7 architectures x 5 facilities x 1 component
     python run.py
 
     # Just two architectures, two facilities
@@ -78,6 +79,7 @@ TRAIN_NOTEBOOKS = {
     "inception_v3": "train_inception_v3.ipynb",
     "efficientnet_b0": "train_efficientnet_b0.ipynb",
     "convnext_tiny": "train_convnext_tiny.ipynb",
+    "alexnet": "train_alexnet.ipynb",
 }
 
 # Matches ALL_FACILITIES in split_dataset_facility.py.

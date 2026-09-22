@@ -168,10 +168,10 @@ def align_dataset_to_classes(ds, class_to_idx):
 
 train_transform = transforms.Compose([
     transforms.Resize(IMG_TARGET_SIZE),
-    #transforms.RandomHorizontalFlip(),
-    #transforms.RandomRotation(15),
+    transforms.RandomHorizontalFlip(),
+    transforms.RandomRotation(15),
     # Aggressive color jitter to stop it from memorizing water color or sun glare
-    #transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.3, hue=0.1),
+    transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.3, hue=0.1),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406],
                           std=[0.229, 0.224, 0.225]),
@@ -285,6 +285,7 @@ def get_dataloaders(img_size, batch_size):
         transforms.Resize(img_size),
         transforms.RandomHorizontalFlip(),
         transforms.RandomRotation(15),
+        # Aggressive color jitter to stop it from memorizing water color or sun glare
         transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.3, hue=0.1),
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.485, 0.456, 0.406],
@@ -748,6 +749,18 @@ ARCH_HYPERPARAMS = {
     "convnext_tiny": dict(
         hidden_layers=3, neurons=1024,
         lr=5e-5, beta1=0.9, step_size=15, batch_size=24,
+        img_size=IMG_TARGET_SIZE,
+    ),
+    # AlexNet is trained from scratch (no ImageNet pretraining, see
+    # train_alexnet.ipynb) rather than fine-tuned, so it isn't really
+    # comparable to the tuned/hand-picked values above -- these are just
+    # sensible defaults for training a small CNN from random init: a higher
+    # LR than the fine-tuned architectures since there are no pretrained
+    # features to preserve, otherwise following the same hand-picked pattern
+    # as EfficientNet-B0/ConvNeXt-Tiny.
+    "alexnet": dict(
+        hidden_layers=3, neurons=1024,
+        lr=1e-3, beta1=0.9, step_size=15, batch_size=32,
         img_size=IMG_TARGET_SIZE,
     ),
 }
