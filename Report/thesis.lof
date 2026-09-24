@@ -16,10 +16,10 @@
 \contentsline {figure}{\numberline {4.7}{\ignorespaces An incorrectly labelled clarifier. The original label was ``Scum,'' but the correct label is ``Empty,'' since the dark region is a shadow rather than surface scum.}}{28}{figure.caption.23}%
 \contentsline {figure}{\numberline {4.8}{\ignorespaces The relabeling interface, showing the original label and the per-class correction buttons.}}{30}{figure.caption.24}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces End-to-end experimental pipeline, from labelled satellite imagery to a saved, comparable results file per (architecture, facility) combination.}}{32}{figure.caption.27}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces PLACEHOLDER: Example training-time augmentations applied to a single input image.}}{35}{figure.caption.29}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces The training loop used for every architecture: an epoch of training and validation, a scheduler step, a checkpoint decision based on validation loss, and a stopping check repeated every epoch until training ends.}}{44}{figure.caption.38}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces PLACEHOLDER: Grad-CAM visualisation showing which image regions the model attends to when making a prediction.}}{46}{figure.caption.39}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces End-to-end experimental pipeline, from labelled satellite imagery to a saved, comparable results file per (architecture, facility) combination.}}{33}{figure.caption.27}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Augmentations applied to a single \textbf {Scum} clarifier from Cape Flats. Top row: the original image, followed by a horizontal flip, a rotation of $15^\circ $, and a random colour jitter, each applied on its own. Bottom row: four random outputs of the full augmentation pipeline (flip, rotation and colour jitter combined).}}{37}{figure.caption.29}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces The training loop used for every architecture: an epoch of training and validation, a scheduler step, a checkpoint decision based on validation loss, and a stopping check repeated every epoch until training ends.}}{47}{figure.caption.39}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces PLACEHOLDER: Grad-CAM visualisation showing which image regions the model attends to when making a prediction.}}{49}{figure.caption.40}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsfinish 

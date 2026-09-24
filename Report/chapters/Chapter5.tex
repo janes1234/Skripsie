@@ -3,16 +3,18 @@
 \section{Overview}
 \label{sec:exp_overview}
 
-\begin{itemize}
-    \item Describe how the classification system was built and configured.
-    \item Summary of experiments:
-    \begin{enumerate}
-        \item Mixed-facility baseline: all five facilities pooled and split with a stratified train/val/test split (Section~\ref{sec:exp_mixed}).
-        \item Leave-one-facility-out evaluation: the current main experiment, each facility held out as an unseen test facility in turn (Section~\ref{sec:exp_lofo}). Used to estimate real-world generalisation to a facility the model has never seen.
-        \item Binary (OK / Not-OK) approach: collapsing the multi-class labels into a two-class problem (Section~\ref{sec:exp_binary}).
-        \item Use overview images of facilities instead of cut out images (Section~\ref{sec:exp_overview_images}).
-    \end{enumerate}
-\end{itemize}
+This chapter describes how the clarifier classification system was built and configured, and which experiments were run with it. The first part covers the parts of the system that are shared by every experiment: the model architectures and how transfer learning is applied to them (Section~\ref{sec:exp_architectures}), the augmentations applied to the training images (Section~\ref{sec:exp_augmentation}), how the class imbalance in the dataset is handled (Section~\ref{sec:exp_loss}), how the hyperparameters of each architecture were chosen (Section~\ref{sec:exp_hyperparams}), and the training loop itself (Section~\ref{sec:exp_training}).
+
+The second part describes the four experiments that were carried out using this system:
+
+\begin{enumerate}
+    \item \textbf{Mixed-facility baseline} (Section~\ref{sec:exp_mixed}): the images of all five facilities are pooled and divided using the stratified 70/20/10 training/validation/test split described in Chapter~\ref{chap:systemmethods}.
+    \item \textbf{Leave-one-facility-out evaluation} (Section~\ref{sec:exp_lofo}): each of the five facilities is held out in turn as an unseen test facility, while the model is trained and validated on the remaining four. This is the main experiment of the project, since it estimates how well a model would perform at a facility it has never seen before.
+    \item \textbf{Binary (OK / Not-OK) approach} (Section~\ref{sec:exp_binary}): the four clarifier classes are collapsed into a two-class problem, where \textbf{Functional} is treated as OK and \textbf{Dysfunctional}, \textbf{Empty} and \textbf{Scum} are treated as Not-OK.
+    \item \textbf{Overview images} (Section~\ref{sec:exp_overview_images}): overview images of the facilities are used instead of the cut out images of individual clarifiers.
+\end{enumerate}
+
+The chapter ends with the metrics used to evaluate every run (Section~\ref{sec:exp_metrics}) and the Grad-CAM method used to inspect which parts of an image a model bases its prediction on (Section~\ref{sec:exp_gradcam}).
 
 \begin{figure}[htbp]
 \centering
@@ -25,8 +27,8 @@
 \node[stage] (raw) {Raw labelled satellite images (Chapter~\ref{chap:systemmethods})};
 \node[stage, below=of raw] (prep) {\texttt{prep.py}: crop labelled regions into per-class image folders (Section~\ref{sec:pipeline})};
 \node[stage, below=of prep] (split) {Leave-one-facility-out train / validation / test split (Chapter~\ref{chap:systemmethods})};
-\node[stage, below=of split] (aug) {Resize, normalise, and (train only) augment each image (Section~\ref{sec:exp_augmentation})};
-\node[stage, below=of aug] (model) {Pretrained backbone with a tuned classifier head (Sections~\ref{sec:exp_architectures} and~\ref{sec:exp_hyperparams})};
+\node[stage, below=of split] (aug) {Resize and normalise every image, and randomly augment training images (Section~\ref{sec:exp_augmentation})};
+\node[stage, below=of aug] (model) {CNN backbone with a new classifier head (Sections~\ref{sec:exp_architectures} and~\ref{sec:exp_hyperparams})};
 \node[stage, below=of model] (train) {Training loop: Adam, \texttt{StepLR}, early stopping (Section~\ref{sec:exp_training})};
 \node[stage, below=of train] (results) {Saved per-run results: \texttt{results\_*.pkl} (Section~\ref{sec:exp_lofo})};
 \node[stage, below=of results] (compare) {Comparison notebook: cross-architecture, cross-facility results};
@@ -44,7 +46,9 @@
 \label{fig:experimental_pipeline}
 \end{figure}
 
-Figure~\ref{fig:experimental_pipeline} summarises this pipeline end to end. It starts from the raw, labelled satellite imagery described in Chapter~\ref{chap:systemmethods}, which \texttt{prep.py} crops into individual, per-class images and which is then split by facility so that no image from the held-out test facility ever appears during training. Each image is resized, normalised, and, for the training set only, augmented before being fed to the network (Section~\ref{sec:exp_augmentation}). The network itself is one of the seven architectures in Section~\ref{sec:exp_architectures}, each with a classifier head sized by its own tuned hyperparameters (Section~\ref{sec:exp_hyperparams}), trained using the loop described in Section~\ref{sec:exp_training}. The outcome of a single (architecture, held-out facility) run, its test metrics, confusion matrix, training history and per-sample predictions, is pickled to its own \texttt{results\_*.pkl} file (Section~\ref{sec:exp_lofo}) rather than kept only in memory, so that the comparison notebook can later load every run's results and build the cross-architecture, cross-facility comparisons used in the Results chapter without needing to retrain anything.
+Figure~\ref{fig:experimental_pipeline} summarises the pipeline from start to finish. It starts from the labelled satellite images described in Chapter~\ref{chap:systemmethods}, which \texttt{prep.py} crops into individual images sorted into one folder per class. These images are then split by facility, so that no image from the held-out test facility is ever used during training. Every image is resized and normalised before it is passed to the network, and images in the training set are also randomly augmented (Section~\ref{sec:exp_augmentation}). The network is one of the seven architectures in Section~\ref{sec:exp_architectures}, with a classifier head sized by the hyperparameters chosen for that architecture (Section~\ref{sec:exp_hyperparams}), and is trained using the loop described in Section~\ref{sec:exp_training}.
+
+The results of every run, meaning one architecture trained with one facility held out, are saved to a separate \texttt{results\_*.pkl} file (Section~\ref{sec:exp_lofo}). Each file contains the test metrics, the confusion matrix, the training history and the prediction made for every test image. Saving the results to disk rather than only keeping them in memory means that the comparison notebook can load the results of every run and compare architectures and facilities in the Results chapter without having to retrain any model.
 
 
 \section{Model Architectures and Transfer Learning}\label{sec:exp_architectures}
@@ -77,19 +81,31 @@ Exactly which attribute of a given architecture's model object this new head rep
 Two architectures need one further, architecture-specific adjustment beyond this. Inception-v3's auxiliary classifier (Section~\ref{sec:inception}), used only during training, also has its own small output layer resized to the project's number of classes; unlike the main classifier head, though, it is always left as a single \texttt{Linear} layer regardless of the tuned $H$ and $N$, since it is only a secondary training signal rather than the model's actual prediction. ConvNeXt-Tiny's global average pooling layer is replaced with global max pooling, so the feature vector reaching its classifier head is built from each channel's strongest activation rather than its average.
 
 
-\section{Data Preprocessing and Augmentation}
+\section{Augmentation}
 \label{sec:exp_augmentation}
 
+Data augmentation makes small, random changes to the training images, so that the network sees a slightly different version of every image each time it is used. This increases the variety in the training data without collecting any new images, and makes it harder for the network to memorise individual images. Augmentation is applied to the training set only. The validation and test images are never augmented, so that they are evaluated exactly as they are.
+
+The augmentations are applied on the fly by PyTorch each time an image is loaded, rather than being generated once and saved to disk. The size of the training set therefore stays the same, but every epoch sees a new, randomly augmented version of each training image. Three augmentations are applied, in the following order:
+
 \begin{itemize}
-    \item What is done to images before they are fed into the network, and why.
-    \item Every image is resized to the architecture's target input size and normalised using the ImageNet channel.
-    \item Explain augmentation: rotating images randomly and applying colour jitter. Explain the effects this had.
+    \item \textbf{Horizontal flip}: the image is mirrored from left to right with a probability of 50\%.
+    \item \textbf{Rotation}: the image is rotated by a random angle, chosen uniformly between $-15^\circ$ and $+15^\circ$. The output image keeps its original size, so the corners that are rotated out of the frame are cut off, and the empty corners that are rotated into the frame are filled with black.
+    \item \textbf{Colour jitter}: the brightness, contrast, saturation and hue of the image are changed by a random amount, with the four adjustments applied in a random order. The brightness and contrast are each multiplied by a random factor between $0.6$ and $1.4$, the saturation by a random factor between $0.7$ and $1.3$, and the hue is shifted by up to $\pm 0.1$ of the full colour wheel (at most $36^\circ$).
 \end{itemize}
+
+The flip and rotation are suited to this dataset because the images are taken from directly above. A clarifier seen from above has no fixed orientation, so a mirrored or slightly rotated clarifier is still a realistic example of the same class. Since the clarifier crops are already masked to black outside the circular tank (Section~\ref{sec:pipeline}), the black corners introduced by the rotation also blend in with the existing background.
+
+The colour jitter targets a different problem. The images come from different facilities and were captured on different dates, so the lighting, sun glare and water colour vary between images. The colour jitter is intended to stop the network from memorising the exact colour or brightness of the water at a particular facility, and to make it rely on other features of the clarifier instead.
+
+The hue shift does raise a concern, since the clarifier classes are partly defined by colour, and a \textbf{Dysfunctional} clarifier is identified by its green surface (Chapter~\ref{chap:systemmethods}). A hue shift could wash out this green colour while the image keeps its \textbf{Dysfunctional} label. To test whether this harmed the models, all seven architectures were retrained on all five leave-one-facility-out splits with the hue shift disabled, keeping every other augmentation and hyperparameter the same. This did not improve performance. The mean test accuracy decreased for every architecture, by between 0.1 and 3.1 percentage points for the six pretrained architectures, and the number of correctly identified \textbf{Dysfunctional} clarifiers did not improve consistently. The hue shift was therefore kept.
+
+Figure~\ref{fig:augmentation_examples} shows these augmentations applied to a single training image. The top row shows each augmentation on its own, while the bottom row shows four random outputs of the full augmentation pipeline, as the network would see them during training.
 
 \begin{figure}[htbp]
     \centering
-    \fbox{\parbox{0.7\textwidth}{\centering\vspace{3cm} PLACEHOLDER: a grid of one example clarifier/aerator image next to several augmented versions of it (flip / rotation / colour jitter) \vspace{3cm}}}
-    \caption{PLACEHOLDER: Example training-time augmentations applied to a single input image.}
+    \includegraphics[width=0.9\textwidth]{figures/augmentation_examples.png}
+    \caption{Augmentations applied to a single \textbf{Scum} clarifier from Cape Flats. Top row: the original image, followed by a horizontal flip, a rotation of $15^\circ$, and a random colour jitter, each applied on its own. Bottom row: four random outputs of the full augmentation pipeline (flip, rotation and colour jitter combined).}
     \label{fig:augmentation_examples}
 \end{figure}
 
@@ -97,9 +113,40 @@ Two architectures need one further, architecture-specific adjustment beyond this
 \section{Class Imbalance}
 \label{sec:exp_loss}
 
-\begin{itemize}
-    \item Each class's weight is $\propto 1/\text{count}$, normalised to sum to the number of classes, and passed into the loss function so the model is penalised more for misclassifying rare classes.
-\end{itemize}
+As shown in Table~\ref{tab:clarifier_summary}, the clarifier classes are far from balanced. \textbf{Functional} and \textbf{Scum} clarifiers make up most of the dataset, while \textbf{Dysfunctional} and especially \textbf{Empty} clarifiers are much less common. If every image contributes equally to the loss, the network can reach a low loss by mostly predicting the common classes, and has little incentive to learn the rare ones.
+
+To counter this, the cross-entropy loss is weighted per class, so that the network is penalised more for misclassifying an image from a rare class than from a common one. The weight of each class is inversely proportional to the number of training images in that class, and the weights are then normalised so that they sum to the number of classes. For $K$ classes, where $n_c$ is the number of training images in class $c$, the weight of class $c$ is
+
+\begin{equation}
+    w_c = K \cdot \frac{1/n_c}{\sum_{j=1}^{K} 1/n_j}.
+\end{equation}
+
+A class with average representation therefore gets a weight close to one, a rare class gets a weight larger than one, and a common class gets a weight smaller than one. These weights are passed to PyTorch's \texttt{CrossEntropyLoss}, which multiplies the loss of each image by the weight of its true class. The training data itself is not resampled, so every training image is still used exactly once per epoch.
+
+The weights are calculated from the training set only, and are recalculated for every leave-one-facility-out split. This is necessary because the class counts change depending on which facility is held out. Table~\ref{tab:class_weights} lists the training images per class and the resulting weights for each of the five splits.
+
+\begin{table}[htbp]
+\centering
+\caption{Number of training images per clarifier class and the resulting class weight $w_c$, for each held-out test facility.}
+\label{tab:class_weights}
+\begin{tabular}{l cc cc cc cc}
+\toprule
+& \multicolumn{2}{c}{\textbf{Dysfunctional}} & \multicolumn{2}{c}{\textbf{Empty}} & \multicolumn{2}{c}{\textbf{Functional}} & \multicolumn{2}{c}{\textbf{Scum}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7} \cmidrule(lr){8-9}
+\textbf{Test facility} & \scriptsize{Images} & \scriptsize{$w_c$} & \scriptsize{Images} & \scriptsize{$w_c$} & \scriptsize{Images} & \scriptsize{$w_c$} & \scriptsize{Images} & \scriptsize{$w_c$} \\
+\midrule
+Atlantis       & 221 & 1.48 & 196 & 1.67 & 750 & 0.44 & 778 & 0.42 \\
+Cape Flats     & 133 & 0.56 & 25  & 2.97 & 253 & 0.29 & 417 & 0.18 \\
+Fisantekraal   & 206 & 1.50 & 190 & 1.63 & 690 & 0.45 & 728 & 0.42 \\
+Northern Works & 109 & 2.10 & 183 & 1.25 & 714 & 0.32 & 686 & 0.33 \\
+Waterval       & 215 & 1.48 & 198 & 1.60 & 705 & 0.45 & 671 & 0.47 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The Cape Flats split stands out. Cape Flats contains 214 of the 245 \textbf{Empty} clarifiers in the dataset (Table~\ref{tab:relabel_corrections}), so when it is held out for testing, only 25 \textbf{Empty} images are left for training. The weight of the \textbf{Empty} class rises to 2.97 as a result, more than sixteen times the weight of the \textbf{Scum} class (0.18). In the same way, Northern Works contains 140 of the 273 \textbf{Dysfunctional} clarifiers, so holding it out raises the \textbf{Dysfunctional} weight to 2.10.
+
+The same weighted loss is also used to calculate the validation loss. Since the validation loss decides when training stops early and which epoch's weights are kept (Section~\ref{sec:exp_training}), the class weighting also influences model selection, and not only the gradient updates during training.
 
 
 \section{Hyperparameter Tuning}

@@ -39,33 +39,33 @@
 \contentsline {section}{\numberline {4.8}Summary Table}{28}{section.4.8}%
 \contentsline {chapter}{\numberline {5}Experimental Design}{31}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Overview}{31}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Model Architectures and Transfer Learning}{33}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Data Preprocessing and Augmentation}{34}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Class Imbalance}{35}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Hyperparameter Tuning}{35}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Why Optuna}{36}{subsection.5.5.1}%
-\contentsline {subsection}{\numberline {5.5.2}ResNet-18}{37}{subsection.5.5.2}%
-\contentsline {subsection}{\numberline {5.5.3}EfficientNet-B0}{37}{subsection.5.5.3}%
-\contentsline {subsection}{\numberline {5.5.4}DenseNet-121}{38}{subsection.5.5.4}%
-\contentsline {subsection}{\numberline {5.5.5}ResNet-50}{39}{subsection.5.5.5}%
-\contentsline {subsection}{\numberline {5.5.6}ConvNeXt-Tiny}{39}{subsection.5.5.6}%
-\contentsline {subsection}{\numberline {5.5.7}Inception-v3}{40}{subsection.5.5.7}%
-\contentsline {subsection}{\numberline {5.5.8}Summary Across Architectures}{40}{subsection.5.5.8}%
-\contentsline {subsection}{\numberline {5.5.9}AlexNet's Hand-Picked Configuration}{41}{subsection.5.5.9}%
-\contentsline {section}{\numberline {5.6}Training Procedure}{42}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Experiment 1: Mixed-Facility Baseline}{43}{section.5.7}%
-\contentsline {section}{\numberline {5.8}Experiment 2: Leave-One-Facility-Out Evaluation}{43}{section.5.8}%
-\contentsline {section}{\numberline {5.9}Experiment 3: Binary (OK / Not-OK) Reformulation}{45}{section.5.9}%
-\contentsline {section}{\numberline {5.10}Experiment 4: Overview Images}{45}{section.5.10}%
-\contentsline {section}{\numberline {5.11}Evaluation Metrics}{45}{section.5.11}%
-\contentsline {section}{\numberline {5.12}Qualitative Analysis: Grad-CAM}{45}{section.5.12}%
-\contentsline {chapter}{\numberline {6}Summary and conclusions}{47}{chapter.6}%
-\contentsline {chapter}{References}{48}{chapter*.40}%
-\contentsline {chapter}{\numberline {A}Hyperparameter Search Trials}{50}{appendix.A}%
-\contentsline {section}{\numberline {A.1}ResNet-18}{50}{section.A.1}%
-\contentsline {section}{\numberline {A.2}EfficientNet-B0}{51}{section.A.2}%
-\contentsline {section}{\numberline {A.3}DenseNet-121}{52}{section.A.3}%
-\contentsline {section}{\numberline {A.4}ResNet-50}{53}{section.A.4}%
-\contentsline {section}{\numberline {A.5}ConvNeXt-Tiny}{54}{section.A.5}%
-\contentsline {section}{\numberline {A.6}Inception-v3}{55}{section.A.6}%
+\contentsline {section}{\numberline {5.2}Model Architectures and Transfer Learning}{34}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Augmentation}{35}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Class Imbalance}{37}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Hyperparameter Tuning}{39}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Why Optuna}{39}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}ResNet-18}{41}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}EfficientNet-B0}{41}{subsection.5.5.3}%
+\contentsline {subsection}{\numberline {5.5.4}DenseNet-121}{42}{subsection.5.5.4}%
+\contentsline {subsection}{\numberline {5.5.5}ResNet-50}{42}{subsection.5.5.5}%
+\contentsline {subsection}{\numberline {5.5.6}ConvNeXt-Tiny}{43}{subsection.5.5.6}%
+\contentsline {subsection}{\numberline {5.5.7}Inception-v3}{43}{subsection.5.5.7}%
+\contentsline {subsection}{\numberline {5.5.8}Summary Across Architectures}{44}{subsection.5.5.8}%
+\contentsline {subsection}{\numberline {5.5.9}AlexNet's Hand-Picked Configuration}{45}{subsection.5.5.9}%
+\contentsline {section}{\numberline {5.6}Training Procedure}{46}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Experiment 1: Mixed-Facility Baseline}{48}{section.5.7}%
+\contentsline {section}{\numberline {5.8}Experiment 2: Leave-One-Facility-Out Evaluation}{48}{section.5.8}%
+\contentsline {section}{\numberline {5.9}Experiment 3: Binary (OK / Not-OK) Reformulation}{48}{section.5.9}%
+\contentsline {section}{\numberline {5.10}Experiment 4: Overview Images}{48}{section.5.10}%
+\contentsline {section}{\numberline {5.11}Evaluation Metrics}{48}{section.5.11}%
+\contentsline {section}{\numberline {5.12}Qualitative Analysis: Grad-CAM}{49}{section.5.12}%
+\contentsline {chapter}{\numberline {6}Summary and conclusions}{50}{chapter.6}%
+\contentsline {chapter}{References}{51}{chapter*.41}%
+\contentsline {chapter}{\numberline {A}Hyperparameter Search Trials}{53}{appendix.A}%
+\contentsline {section}{\numberline {A.1}ResNet-18}{53}{section.A.1}%
+\contentsline {section}{\numberline {A.2}EfficientNet-B0}{54}{section.A.2}%
+\contentsline {section}{\numberline {A.3}DenseNet-121}{55}{section.A.3}%
+\contentsline {section}{\numberline {A.4}ResNet-50}{56}{section.A.4}%
+\contentsline {section}{\numberline {A.5}ConvNeXt-Tiny}{57}{section.A.5}%
+\contentsline {section}{\numberline {A.6}Inception-v3}{58}{section.A.6}%
 \contentsfinish 

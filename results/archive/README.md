@@ -19,3 +19,13 @@ after the fact.
 
 AlexNet's results are included in every snapshot but are unchanged across
 all of them -- it's deliberately excluded from the retuning/ablation work.
+- `phase3_tuned_aug_hue0.1/` — snapshot of the tuned results (`ARCH_HYPERPARAMS`
+  = `TUNED_ARCH_HYPERPARAMS` + AlexNet defaults) trained with the full
+  augmentation pipeline, i.e. `ColorJitter(..., hue=0.1)`, taken before the
+  hue=0 retrain overwrote `results/`. Includes `summary.txt`
+  (summarize_phase.py output) and `per_run_accuracy_dysfunctional.txt`
+  (accuracy + Dysfunctional recall/false positives per run).
+- `phase4_tuned_aug_hue0/` — same as phase3 (tuned hyperparameters, full
+  augmentation) but with `ColorJitter(..., hue=0.0)`, to test whether hue
+  jitter was washing out the green cue of the Dysfunctional class. Same
+  `summary.txt` and `per_run_accuracy_dysfunctional.txt` files as phase3.

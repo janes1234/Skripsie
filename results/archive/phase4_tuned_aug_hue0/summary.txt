@@ -1,0 +1,20 @@
+=== phase4_tuned_aug_hue0 (../results/archive/phase4_tuned_aug_hue0) === loaded 35/35
+
+model               mean_auc  n_facilities
+ResNet-18             0.9236             5
+ResNet-50             0.9198             5
+DenseNet-121          0.9454             5
+InceptionNet v3       0.9337             5
+EfficientNet-B0       0.9517             5
+ConvNeXt-Tiny         0.9632             5
+AlexNet               0.6469             5
+
+OK(Functional) vs not-OK, averaged over facilities (not pooled), target recall=95%:
+model               mean_auc   thresh    recall  precision  specificity
+ResNet-18             0.9254    0.082    0.9525     0.7952       0.4834
+ResNet-50             0.9256    0.154    0.9523     0.7888       0.5075
+DenseNet-121          0.9494    0.106    0.9569     0.8255       0.5887
+InceptionNet v3       0.9350    0.132    0.9502     0.8072       0.5245
+EfficientNet-B0       0.9459    0.112    0.9503     0.8105       0.5144
+ConvNeXt-Tiny         0.9609    0.180    0.9511     0.8355       0.6311
+AlexNet               0.7443    0.521    1.0000     0.6427       0.0000

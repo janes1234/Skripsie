@@ -210,112 +210,115 @@
 \@writefile{toc}{\contentsline {section}{\numberline {5.1}Overview}{31}{section.5.1}\protected@file@percent }
 \newlabel{sec:exp_overview}{{5.1}{31}{Overview}{section.5.1}{}}
 \newlabel{sec:exp_overview@cref}{{[section][1][5]5.1}{[1][31][]31}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces End-to-end experimental pipeline, from labelled satellite imagery to a saved, comparable results file per (architecture, facility) combination.}}{32}{figure.caption.27}\protected@file@percent }
-\newlabel{fig:experimental_pipeline}{{5.1}{32}{End-to-end experimental pipeline, from labelled satellite imagery to a saved, comparable results file per (architecture, facility) combination}{figure.caption.27}{}}
-\newlabel{fig:experimental_pipeline@cref}{{[figure][1][5]5.1}{[1][31][]32}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces End-to-end experimental pipeline, from labelled satellite imagery to a saved, comparable results file per (architecture, facility) combination.}}{33}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:experimental_pipeline}{{5.1}{33}{End-to-end experimental pipeline, from labelled satellite imagery to a saved, comparable results file per (architecture, facility) combination}{figure.caption.27}{}}
+\newlabel{fig:experimental_pipeline@cref}{{[figure][1][5]5.1}{[1][32][]33}{}{}{}}
 \citation{deng2009imagenet}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Model Architectures and Transfer Learning}{33}{section.5.2}\protected@file@percent }
-\newlabel{sec:exp_architectures}{{5.2}{33}{Model Architectures and Transfer Learning}{section.5.2}{}}
-\newlabel{sec:exp_architectures@cref}{{[section][2][5]5.2}{[1][33][]33}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Model Architectures and Transfer Learning}{34}{section.5.2}\protected@file@percent }
+\newlabel{sec:exp_architectures}{{5.2}{34}{Model Architectures and Transfer Learning}{section.5.2}{}}
+\newlabel{sec:exp_architectures@cref}{{[section][2][5]5.2}{[1][32][]34}{}{}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Parameter count of each of the seven architectures evaluated, from smallest to largest.}}{34}{table.caption.28}\protected@file@percent }
 \newlabel{tab:arch_sizes}{{5.1}{34}{Parameter count of each of the seven architectures evaluated, from smallest to largest}{table.caption.28}{}}
-\newlabel{tab:arch_sizes@cref}{{[table][1][5]5.1}{[1][33][]34}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Data Preprocessing and Augmentation}{34}{section.5.3}\protected@file@percent }
-\newlabel{sec:exp_augmentation}{{5.3}{34}{Data Preprocessing and Augmentation}{section.5.3}{}}
-\newlabel{sec:exp_augmentation@cref}{{[section][3][5]5.3}{[1][34][]34}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces PLACEHOLDER: Example training-time augmentations applied to a single input image.}}{35}{figure.caption.29}\protected@file@percent }
-\newlabel{fig:augmentation_examples}{{5.2}{35}{PLACEHOLDER: Example training-time augmentations applied to a single input image}{figure.caption.29}{}}
-\newlabel{fig:augmentation_examples@cref}{{[figure][2][5]5.2}{[1][35][]35}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Class Imbalance}{35}{section.5.4}\protected@file@percent }
-\newlabel{sec:exp_loss}{{5.4}{35}{Class Imbalance}{section.5.4}{}}
-\newlabel{sec:exp_loss@cref}{{[section][4][5]5.4}{[1][35][]35}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Hyperparameter Tuning}{35}{section.5.5}\protected@file@percent }
-\newlabel{sec:exp_hyperparams}{{5.5}{35}{Hyperparameter Tuning}{section.5.5}{}}
-\newlabel{sec:exp_hyperparams@cref}{{[section][5][5]5.5}{[1][35][]35}{}{}{}}
+\newlabel{tab:arch_sizes@cref}{{[table][1][5]5.1}{[1][34][]34}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Augmentation}{35}{section.5.3}\protected@file@percent }
+\newlabel{sec:exp_augmentation}{{5.3}{35}{Augmentation}{section.5.3}{}}
+\newlabel{sec:exp_augmentation@cref}{{[section][3][5]5.3}{[1][35][]35}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Augmentations applied to a single \textbf  {Scum} clarifier from Cape Flats. Top row: the original image, followed by a horizontal flip, a rotation of $15^\circ $, and a random colour jitter, each applied on its own. Bottom row: four random outputs of the full augmentation pipeline (flip, rotation and colour jitter combined).}}{37}{figure.caption.29}\protected@file@percent }
+\newlabel{fig:augmentation_examples}{{5.2}{37}{Augmentations applied to a single \textbf {Scum} clarifier from Cape Flats. Top row: the original image, followed by a horizontal flip, a rotation of $15^\circ $, and a random colour jitter, each applied on its own. Bottom row: four random outputs of the full augmentation pipeline (flip, rotation and colour jitter combined)}{figure.caption.29}{}}
+\newlabel{fig:augmentation_examples@cref}{{[figure][2][5]5.2}{[1][37][]37}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Class Imbalance}{37}{section.5.4}\protected@file@percent }
+\newlabel{sec:exp_loss}{{5.4}{37}{Class Imbalance}{section.5.4}{}}
+\newlabel{sec:exp_loss@cref}{{[section][4][5]5.4}{[1][37][]37}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Number of training images per clarifier class and the resulting class weight $w_c$, for each held-out test facility.}}{38}{table.caption.30}\protected@file@percent }
+\newlabel{tab:class_weights}{{5.2}{38}{Number of training images per clarifier class and the resulting class weight $w_c$, for each held-out test facility}{table.caption.30}{}}
+\newlabel{tab:class_weights@cref}{{[table][2][5]5.2}{[1][38][]38}{}{}{}}
 \citation{akiba2019optuna}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Why Optuna}{36}{subsection.5.5.1}\protected@file@percent }
-\newlabel{subsec:why_optuna}{{5.5.1}{36}{Why Optuna}{subsection.5.5.1}{}}
-\newlabel{subsec:why_optuna@cref}{{[subsection][1][5,5]5.5.1}{[1][36][]36}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces The hyperparameter search space explored by Optuna, shared by all six tuned architectures. Learning rate is sampled log-uniformly, so values across the full range are equally likely on a log scale.}}{37}{table.caption.30}\protected@file@percent }
-\newlabel{tab:search_space}{{5.2}{37}{The hyperparameter search space explored by Optuna, shared by all six tuned architectures. Learning rate is sampled log-uniformly, so values across the full range are equally likely on a log scale}{table.caption.30}{}}
-\newlabel{tab:search_space@cref}{{[table][2][5]5.2}{[1][36][]37}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}ResNet-18}{37}{subsection.5.5.2}\protected@file@percent }
-\newlabel{subsec:tune_resnet18}{{5.5.2}{37}{ResNet-18}{subsection.5.5.2}{}}
-\newlabel{subsec:tune_resnet18@cref}{{[subsection][2][5,5]5.5.2}{[1][37][]37}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.3}EfficientNet-B0}{37}{subsection.5.5.3}\protected@file@percent }
-\newlabel{subsec:tune_effnetb0}{{5.5.3}{37}{EfficientNet-B0}{subsection.5.5.3}{}}
-\newlabel{subsec:tune_effnetb0@cref}{{[subsection][3][5,5]5.5.3}{[1][37][]37}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces ResNet-18: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#11, validation accuracy 89.27\%).}}{38}{table.caption.31}\protected@file@percent }
-\newlabel{tab:tuned_resnet18}{{5.3}{38}{ResNet-18: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#11, validation accuracy 89.27\%)}{table.caption.31}{}}
-\newlabel{tab:tuned_resnet18@cref}{{[table][3][5]5.3}{[1][37][]38}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces EfficientNet-B0: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#16, validation accuracy 88.54\%).}}{38}{table.caption.32}\protected@file@percent }
-\newlabel{tab:tuned_effnetb0}{{5.4}{38}{EfficientNet-B0: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#16, validation accuracy 88.54\%)}{table.caption.32}{}}
-\newlabel{tab:tuned_effnetb0@cref}{{[table][4][5]5.4}{[1][38][]38}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.4}DenseNet-121}{38}{subsection.5.5.4}\protected@file@percent }
-\newlabel{subsec:tune_densenet121}{{5.5.4}{38}{DenseNet-121}{subsection.5.5.4}{}}
-\newlabel{subsec:tune_densenet121@cref}{{[subsection][4][5,5]5.5.4}{[1][38][]38}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces DenseNet-121: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#19, validation accuracy 90.24\%).}}{39}{table.caption.33}\protected@file@percent }
-\newlabel{tab:tuned_densenet121}{{5.5}{39}{DenseNet-121: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#19, validation accuracy 90.24\%)}{table.caption.33}{}}
-\newlabel{tab:tuned_densenet121@cref}{{[table][5][5]5.5}{[1][38][]39}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.5}ResNet-50}{39}{subsection.5.5.5}\protected@file@percent }
-\newlabel{subsec:tune_resnet50}{{5.5.5}{39}{ResNet-50}{subsection.5.5.5}{}}
-\newlabel{subsec:tune_resnet50@cref}{{[subsection][5][5,5]5.5.5}{[1][38][]39}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.6}{\ignorespaces ResNet-50: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#11, validation accuracy 89.02\%).}}{39}{table.caption.34}\protected@file@percent }
-\newlabel{tab:tuned_resnet50}{{5.6}{39}{ResNet-50: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#11, validation accuracy 89.02\%)}{table.caption.34}{}}
-\newlabel{tab:tuned_resnet50@cref}{{[table][6][5]5.6}{[1][39][]39}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.6}ConvNeXt-Tiny}{39}{subsection.5.5.6}\protected@file@percent }
-\newlabel{subsec:tune_convnext}{{5.5.6}{39}{ConvNeXt-Tiny}{subsection.5.5.6}{}}
-\newlabel{subsec:tune_convnext@cref}{{[subsection][6][5,5]5.5.6}{[1][39][]39}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.7}{\ignorespaces ConvNeXt-Tiny: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#17, validation accuracy 90.73\%).}}{40}{table.caption.35}\protected@file@percent }
-\newlabel{tab:tuned_convnext}{{5.7}{40}{ConvNeXt-Tiny: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#17, validation accuracy 90.73\%)}{table.caption.35}{}}
-\newlabel{tab:tuned_convnext@cref}{{[table][7][5]5.7}{[1][39][]40}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.7}Inception-v3}{40}{subsection.5.5.7}\protected@file@percent }
-\newlabel{subsec:tune_inceptionv3}{{5.5.7}{40}{Inception-v3}{subsection.5.5.7}{}}
-\newlabel{subsec:tune_inceptionv3@cref}{{[subsection][7][5,5]5.5.7}{[1][39][]40}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.8}{\ignorespaces Inception-v3: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#1, validation accuracy 89.51\%).}}{40}{table.caption.36}\protected@file@percent }
-\newlabel{tab:tuned_inceptionv3}{{5.8}{40}{Inception-v3: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#1, validation accuracy 89.51\%)}{table.caption.36}{}}
-\newlabel{tab:tuned_inceptionv3@cref}{{[table][8][5]5.8}{[1][40][]40}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.8}Summary Across Architectures}{40}{subsection.5.5.8}\protected@file@percent }
-\newlabel{subsec:tune_summary}{{5.5.8}{40}{Summary Across Architectures}{subsection.5.5.8}{}}
-\newlabel{subsec:tune_summary@cref}{{[subsection][8][5,5]5.5.8}{[1][40][]40}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.9}{\ignorespaces Final training configuration used for every architecture: the winning Optuna trial for the six tuned architectures (Table~\ref {tab:tuned_resnet18} through Table~\ref {tab:tuned_inceptionv3}), and the hand-picked values used for AlexNet (Section~\ref {subsec:defaults}).}}{41}{table.caption.37}\protected@file@percent }
-\newlabel{tab:full_hyperparams}{{5.9}{41}{Final training configuration used for every architecture: the winning Optuna trial for the six tuned architectures (Table~\ref {tab:tuned_resnet18} through Table~\ref {tab:tuned_inceptionv3}), and the hand-picked values used for AlexNet (Section~\ref {subsec:defaults})}{table.caption.37}{}}
-\newlabel{tab:full_hyperparams@cref}{{[table][9][5]5.9}{[1][40][]41}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.9}AlexNet's Hand-Picked Configuration}{41}{subsection.5.5.9}\protected@file@percent }
-\newlabel{subsec:defaults}{{5.5.9}{41}{AlexNet's Hand-Picked Configuration}{subsection.5.5.9}{}}
-\newlabel{subsec:defaults@cref}{{[subsection][9][5,5]5.5.9}{[1][41][]41}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.6}Training Procedure}{42}{section.5.6}\protected@file@percent }
-\newlabel{sec:exp_training}{{5.6}{42}{Training Procedure}{section.5.6}{}}
-\newlabel{sec:exp_training@cref}{{[section][6][5]5.6}{[1][42][]42}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.7}Experiment 1: Mixed-Facility Baseline}{43}{section.5.7}\protected@file@percent }
-\newlabel{sec:exp_mixed}{{5.7}{43}{Experiment 1: Mixed-Facility Baseline}{section.5.7}{}}
-\newlabel{sec:exp_mixed@cref}{{[section][7][5]5.7}{[1][43][]43}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.8}Experiment 2: Leave-One-Facility-Out Evaluation}{43}{section.5.8}\protected@file@percent }
-\newlabel{sec:exp_lofo}{{5.8}{43}{Experiment 2: Leave-One-Facility-Out Evaluation}{section.5.8}{}}
-\newlabel{sec:exp_lofo@cref}{{[section][8][5]5.8}{[1][43][]43}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces The training loop used for every architecture: an epoch of training and validation, a scheduler step, a checkpoint decision based on validation loss, and a stopping check repeated every epoch until training ends.}}{44}{figure.caption.38}\protected@file@percent }
-\newlabel{fig:training_flow}{{5.3}{44}{The training loop used for every architecture: an epoch of training and validation, a scheduler step, a checkpoint decision based on validation loss, and a stopping check repeated every epoch until training ends}{figure.caption.38}{}}
-\newlabel{fig:training_flow@cref}{{[figure][3][5]5.3}{[1][43][]44}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.9}Experiment 3: Binary (OK / Not-OK) Reformulation}{45}{section.5.9}\protected@file@percent }
-\newlabel{sec:exp_binary}{{5.9}{45}{Experiment 3: Binary (OK / Not-OK) Reformulation}{section.5.9}{}}
-\newlabel{sec:exp_binary@cref}{{[section][9][5]5.9}{[1][43][]45}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.10}Experiment 4: Overview Images}{45}{section.5.10}\protected@file@percent }
-\newlabel{sec:exp_overview_images}{{5.10}{45}{Experiment 4: Overview Images}{section.5.10}{}}
-\newlabel{sec:exp_overview_images@cref}{{[section][10][5]5.10}{[1][45][]45}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.11}Evaluation Metrics}{45}{section.5.11}\protected@file@percent }
-\newlabel{sec:exp_metrics}{{5.11}{45}{Evaluation Metrics}{section.5.11}{}}
-\newlabel{sec:exp_metrics@cref}{{[section][11][5]5.11}{[1][45][]45}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.12}Qualitative Analysis: Grad-CAM}{45}{section.5.12}\protected@file@percent }
-\newlabel{sec:exp_gradcam}{{5.12}{45}{Qualitative Analysis: Grad-CAM}{section.5.12}{}}
-\newlabel{sec:exp_gradcam@cref}{{[section][12][5]5.12}{[1][45][]45}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces PLACEHOLDER: Grad-CAM visualisation showing which image regions the model attends to when making a prediction.}}{46}{figure.caption.39}\protected@file@percent }
-\newlabel{fig:gradcam_example}{{5.4}{46}{PLACEHOLDER: Grad-CAM visualisation showing which image regions the model attends to when making a prediction}{figure.caption.39}{}}
-\newlabel{fig:gradcam_example@cref}{{[figure][4][5]5.4}{[1][45][]46}{}{}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Summary and conclusions}{47}{chapter.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Hyperparameter Tuning}{39}{section.5.5}\protected@file@percent }
+\newlabel{sec:exp_hyperparams}{{5.5}{39}{Hyperparameter Tuning}{section.5.5}{}}
+\newlabel{sec:exp_hyperparams@cref}{{[section][5][5]5.5}{[1][39][]39}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Why Optuna}{39}{subsection.5.5.1}\protected@file@percent }
+\newlabel{subsec:why_optuna}{{5.5.1}{39}{Why Optuna}{subsection.5.5.1}{}}
+\newlabel{subsec:why_optuna@cref}{{[subsection][1][5,5]5.5.1}{[1][39][]39}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces The hyperparameter search space explored by Optuna, shared by all six tuned architectures. Learning rate is sampled log-uniformly, so values across the full range are equally likely on a log scale.}}{40}{table.caption.31}\protected@file@percent }
+\newlabel{tab:search_space}{{5.3}{40}{The hyperparameter search space explored by Optuna, shared by all six tuned architectures. Learning rate is sampled log-uniformly, so values across the full range are equally likely on a log scale}{table.caption.31}{}}
+\newlabel{tab:search_space@cref}{{[table][3][5]5.3}{[1][40][]40}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}ResNet-18}{41}{subsection.5.5.2}\protected@file@percent }
+\newlabel{subsec:tune_resnet18}{{5.5.2}{41}{ResNet-18}{subsection.5.5.2}{}}
+\newlabel{subsec:tune_resnet18@cref}{{[subsection][2][5,5]5.5.2}{[1][41][]41}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces ResNet-18: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#11, validation accuracy 89.27\%).}}{41}{table.caption.32}\protected@file@percent }
+\newlabel{tab:tuned_resnet18}{{5.4}{41}{ResNet-18: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#11, validation accuracy 89.27\%)}{table.caption.32}{}}
+\newlabel{tab:tuned_resnet18@cref}{{[table][4][5]5.4}{[1][41][]41}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.3}EfficientNet-B0}{41}{subsection.5.5.3}\protected@file@percent }
+\newlabel{subsec:tune_effnetb0}{{5.5.3}{41}{EfficientNet-B0}{subsection.5.5.3}{}}
+\newlabel{subsec:tune_effnetb0@cref}{{[subsection][3][5,5]5.5.3}{[1][41][]41}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces EfficientNet-B0: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#16, validation accuracy 88.54\%).}}{42}{table.caption.33}\protected@file@percent }
+\newlabel{tab:tuned_effnetb0}{{5.5}{42}{EfficientNet-B0: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#16, validation accuracy 88.54\%)}{table.caption.33}{}}
+\newlabel{tab:tuned_effnetb0@cref}{{[table][5][5]5.5}{[1][41][]42}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.4}DenseNet-121}{42}{subsection.5.5.4}\protected@file@percent }
+\newlabel{subsec:tune_densenet121}{{5.5.4}{42}{DenseNet-121}{subsection.5.5.4}{}}
+\newlabel{subsec:tune_densenet121@cref}{{[subsection][4][5,5]5.5.4}{[1][41][]42}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.6}{\ignorespaces DenseNet-121: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#19, validation accuracy 90.24\%).}}{42}{table.caption.34}\protected@file@percent }
+\newlabel{tab:tuned_densenet121}{{5.6}{42}{DenseNet-121: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#19, validation accuracy 90.24\%)}{table.caption.34}{}}
+\newlabel{tab:tuned_densenet121@cref}{{[table][6][5]5.6}{[1][42][]42}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.5}ResNet-50}{42}{subsection.5.5.5}\protected@file@percent }
+\newlabel{subsec:tune_resnet50}{{5.5.5}{42}{ResNet-50}{subsection.5.5.5}{}}
+\newlabel{subsec:tune_resnet50@cref}{{[subsection][5][5,5]5.5.5}{[1][42][]42}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.7}{\ignorespaces ResNet-50: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#11, validation accuracy 89.02\%).}}{43}{table.caption.35}\protected@file@percent }
+\newlabel{tab:tuned_resnet50}{{5.7}{43}{ResNet-50: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#11, validation accuracy 89.02\%)}{table.caption.35}{}}
+\newlabel{tab:tuned_resnet50@cref}{{[table][7][5]5.7}{[1][42][]43}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.6}ConvNeXt-Tiny}{43}{subsection.5.5.6}\protected@file@percent }
+\newlabel{subsec:tune_convnext}{{5.5.6}{43}{ConvNeXt-Tiny}{subsection.5.5.6}{}}
+\newlabel{subsec:tune_convnext@cref}{{[subsection][6][5,5]5.5.6}{[1][42][]43}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.8}{\ignorespaces ConvNeXt-Tiny: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#17, validation accuracy 90.73\%).}}{43}{table.caption.36}\protected@file@percent }
+\newlabel{tab:tuned_convnext}{{5.8}{43}{ConvNeXt-Tiny: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#17, validation accuracy 90.73\%)}{table.caption.36}{}}
+\newlabel{tab:tuned_convnext@cref}{{[table][8][5]5.8}{[1][43][]43}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.7}Inception-v3}{43}{subsection.5.5.7}\protected@file@percent }
+\newlabel{subsec:tune_inceptionv3}{{5.5.7}{43}{Inception-v3}{subsection.5.5.7}{}}
+\newlabel{subsec:tune_inceptionv3@cref}{{[subsection][7][5,5]5.5.7}{[1][43][]43}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.9}{\ignorespaces Inception-v3: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#1, validation accuracy 89.51\%).}}{44}{table.caption.37}\protected@file@percent }
+\newlabel{tab:tuned_inceptionv3}{{5.9}{44}{Inception-v3: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#1, validation accuracy 89.51\%)}{table.caption.37}{}}
+\newlabel{tab:tuned_inceptionv3@cref}{{[table][9][5]5.9}{[1][43][]44}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.8}Summary Across Architectures}{44}{subsection.5.5.8}\protected@file@percent }
+\newlabel{subsec:tune_summary}{{5.5.8}{44}{Summary Across Architectures}{subsection.5.5.8}{}}
+\newlabel{subsec:tune_summary@cref}{{[subsection][8][5,5]5.5.8}{[1][43][]44}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.10}{\ignorespaces Final training configuration used for every architecture: the winning Optuna trial for the six tuned architectures (Table~\ref {tab:tuned_resnet18} through Table~\ref {tab:tuned_inceptionv3}), and the hand-picked values used for AlexNet (Section~\ref {subsec:defaults}).}}{44}{table.caption.38}\protected@file@percent }
+\newlabel{tab:full_hyperparams}{{5.10}{44}{Final training configuration used for every architecture: the winning Optuna trial for the six tuned architectures (Table~\ref {tab:tuned_resnet18} through Table~\ref {tab:tuned_inceptionv3}), and the hand-picked values used for AlexNet (Section~\ref {subsec:defaults})}{table.caption.38}{}}
+\newlabel{tab:full_hyperparams@cref}{{[table][10][5]5.10}{[1][44][]44}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.9}AlexNet's Hand-Picked Configuration}{45}{subsection.5.5.9}\protected@file@percent }
+\newlabel{subsec:defaults}{{5.5.9}{45}{AlexNet's Hand-Picked Configuration}{subsection.5.5.9}{}}
+\newlabel{subsec:defaults@cref}{{[subsection][9][5,5]5.5.9}{[1][45][]45}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}Training Procedure}{46}{section.5.6}\protected@file@percent }
+\newlabel{sec:exp_training}{{5.6}{46}{Training Procedure}{section.5.6}{}}
+\newlabel{sec:exp_training@cref}{{[section][6][5]5.6}{[1][46][]46}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces The training loop used for every architecture: an epoch of training and validation, a scheduler step, a checkpoint decision based on validation loss, and a stopping check repeated every epoch until training ends.}}{47}{figure.caption.39}\protected@file@percent }
+\newlabel{fig:training_flow}{{5.3}{47}{The training loop used for every architecture: an epoch of training and validation, a scheduler step, a checkpoint decision based on validation loss, and a stopping check repeated every epoch until training ends}{figure.caption.39}{}}
+\newlabel{fig:training_flow@cref}{{[figure][3][5]5.3}{[1][46][]47}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.7}Experiment 1: Mixed-Facility Baseline}{48}{section.5.7}\protected@file@percent }
+\newlabel{sec:exp_mixed}{{5.7}{48}{Experiment 1: Mixed-Facility Baseline}{section.5.7}{}}
+\newlabel{sec:exp_mixed@cref}{{[section][7][5]5.7}{[1][48][]48}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.8}Experiment 2: Leave-One-Facility-Out Evaluation}{48}{section.5.8}\protected@file@percent }
+\newlabel{sec:exp_lofo}{{5.8}{48}{Experiment 2: Leave-One-Facility-Out Evaluation}{section.5.8}{}}
+\newlabel{sec:exp_lofo@cref}{{[section][8][5]5.8}{[1][48][]48}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.9}Experiment 3: Binary (OK / Not-OK) Reformulation}{48}{section.5.9}\protected@file@percent }
+\newlabel{sec:exp_binary}{{5.9}{48}{Experiment 3: Binary (OK / Not-OK) Reformulation}{section.5.9}{}}
+\newlabel{sec:exp_binary@cref}{{[section][9][5]5.9}{[1][48][]48}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.10}Experiment 4: Overview Images}{48}{section.5.10}\protected@file@percent }
+\newlabel{sec:exp_overview_images}{{5.10}{48}{Experiment 4: Overview Images}{section.5.10}{}}
+\newlabel{sec:exp_overview_images@cref}{{[section][10][5]5.10}{[1][48][]48}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.11}Evaluation Metrics}{48}{section.5.11}\protected@file@percent }
+\newlabel{sec:exp_metrics}{{5.11}{48}{Evaluation Metrics}{section.5.11}{}}
+\newlabel{sec:exp_metrics@cref}{{[section][11][5]5.11}{[1][48][]48}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.12}Qualitative Analysis: Grad-CAM}{49}{section.5.12}\protected@file@percent }
+\newlabel{sec:exp_gradcam}{{5.12}{49}{Qualitative Analysis: Grad-CAM}{section.5.12}{}}
+\newlabel{sec:exp_gradcam@cref}{{[section][12][5]5.12}{[1][49][]49}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces PLACEHOLDER: Grad-CAM visualisation showing which image regions the model attends to when making a prediction.}}{49}{figure.caption.40}\protected@file@percent }
+\newlabel{fig:gradcam_example}{{5.4}{49}{PLACEHOLDER: Grad-CAM visualisation showing which image regions the model attends to when making a prediction}{figure.caption.40}{}}
+\newlabel{fig:gradcam_example@cref}{{[figure][4][5]5.4}{[1][49][]49}{}{}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Summary and conclusions}{50}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:conclusion}{{6}{47}{Summary and conclusions}{chapter.6}{}}
-\newlabel{chap:conclusion@cref}{{[chapter][6][]6}{[1][47][]47}{}{}{}}
+\newlabel{chap:conclusion}{{6}{50}{Summary and conclusions}{chapter.6}{}}
+\newlabel{chap:conclusion@cref}{{[chapter][6][]6}{[1][50][]50}{}{}{}}
 \citation{*}
 \bibdata{mybib}
 \bibcite{lecun1998gradient}{{1}{1998}{{LeCun et~al.}}{{LeCun, Bottou, Bengio, and Haffner}}}
@@ -325,7 +328,7 @@
 \bibcite{szegedy2016inception}{{5}{2016}{{Szegedy et~al.}}{{Szegedy, Vanhoucke, Ioffe, Shlens, and Wojna}}}
 \bibcite{tan2019efficientnet}{{6}{2019}{{Tan and Le}}{{}}}
 \bibcite{liu2022convnext}{{7}{2022}{{Liu et~al.}}{{Liu, Mao, Wu, Feichtenhofer, Darrell, and Xie}}}
-\@writefile{toc}{\contentsline {chapter}{References}{48}{chapter*.40}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{References}{51}{chapter*.41}\protected@file@percent }
 \bibcite{hu2018squeeze}{{8}{2018}{{Hu et~al.}}{{Hu, Shen, and Sun}}}
 \bibcite{akiba2019optuna}{{9}{2019}{{Akiba et~al.}}{{Akiba, Sano, Yanase, Ohta, and Koyama}}}
 \bibcite{sun_thesis_guide}{{10}{2024}{{Stellenbosch University}}{{}}}
@@ -341,15 +344,15 @@
     {1}{41.46188pt}\LT@entry 
     {5}{59.22176pt}\LT@entry 
     {1}{55.83223pt}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Hyperparameter Search Trials}{50}{appendix.A}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Hyperparameter Search Trials}{53}{appendix.A}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{appen:hyperparam_trials}{{A}{50}{Hyperparameter Search Trials}{appendix.A}{}}
-\newlabel{appen:hyperparam_trials@cref}{{[chapter][1][]A}{[1][50][]50}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.1}ResNet-18}{50}{section.A.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {A.1}{\ignorespaces All 20 Optuna trials for ResNet-18, in sampling order. \emph  {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded.}}{50}{table.A.1}\protected@file@percent }
-\newlabel{tab:trials_resnet18}{{A.1}{50}{All 20 Optuna trials for ResNet-18, in sampling order. \emph {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded}{table.A.1}{}}
-\newlabel{tab:trials_resnet18@cref}{{[table][1][1]A.1}{[1][50][]50}{}{}{}}
+\newlabel{appen:hyperparam_trials}{{A}{53}{Hyperparameter Search Trials}{appendix.A}{}}
+\newlabel{appen:hyperparam_trials@cref}{{[chapter][1][]A}{[1][53][]53}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.1}ResNet-18}{53}{section.A.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {A.1}{\ignorespaces All 20 Optuna trials for ResNet-18, in sampling order. \emph  {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded.}}{53}{table.A.1}\protected@file@percent }
+\newlabel{tab:trials_resnet18}{{A.1}{53}{All 20 Optuna trials for ResNet-18, in sampling order. \emph {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded}{table.A.1}{}}
+\newlabel{tab:trials_resnet18@cref}{{[table][1][1]A.1}{[1][53][]53}{}{}{}}
 \gdef \LT@ii {\LT@entry 
     {1}{35.76999pt}\LT@entry 
     {1}{21.12497pt}\LT@entry 
@@ -360,10 +363,10 @@
     {1}{41.46188pt}\LT@entry 
     {5}{59.22176pt}\LT@entry 
     {1}{55.83223pt}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.2}EfficientNet-B0}{51}{section.A.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {A.2}{\ignorespaces All 20 Optuna trials for EfficientNet-B0, in sampling order. \emph  {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded.}}{51}{table.A.2}\protected@file@percent }
-\newlabel{tab:trials_effnetb0}{{A.2}{51}{All 20 Optuna trials for EfficientNet-B0, in sampling order. \emph {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded}{table.A.2}{}}
-\newlabel{tab:trials_effnetb0@cref}{{[table][2][1]A.2}{[1][51][]51}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.2}EfficientNet-B0}{54}{section.A.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {A.2}{\ignorespaces All 20 Optuna trials for EfficientNet-B0, in sampling order. \emph  {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded.}}{54}{table.A.2}\protected@file@percent }
+\newlabel{tab:trials_effnetb0}{{A.2}{54}{All 20 Optuna trials for EfficientNet-B0, in sampling order. \emph {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded}{table.A.2}{}}
+\newlabel{tab:trials_effnetb0@cref}{{[table][2][1]A.2}{[1][54][]54}{}{}{}}
 \gdef \LT@iii {\LT@entry 
     {1}{35.76999pt}\LT@entry 
     {1}{21.12497pt}\LT@entry 
@@ -374,10 +377,10 @@
     {1}{41.46188pt}\LT@entry 
     {5}{59.22176pt}\LT@entry 
     {1}{55.83223pt}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.3}DenseNet-121}{52}{section.A.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {A.3}{\ignorespaces All 20 Optuna trials for DenseNet-121, in sampling order. \emph  {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded.}}{52}{table.A.3}\protected@file@percent }
-\newlabel{tab:trials_densenet121}{{A.3}{52}{All 20 Optuna trials for DenseNet-121, in sampling order. \emph {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded}{table.A.3}{}}
-\newlabel{tab:trials_densenet121@cref}{{[table][3][1]A.3}{[1][52][]52}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.3}DenseNet-121}{55}{section.A.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {A.3}{\ignorespaces All 20 Optuna trials for DenseNet-121, in sampling order. \emph  {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded.}}{55}{table.A.3}\protected@file@percent }
+\newlabel{tab:trials_densenet121}{{A.3}{55}{All 20 Optuna trials for DenseNet-121, in sampling order. \emph {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded}{table.A.3}{}}
+\newlabel{tab:trials_densenet121@cref}{{[table][3][1]A.3}{[1][55][]55}{}{}{}}
 \gdef \LT@iv {\LT@entry 
     {1}{35.76999pt}\LT@entry 
     {1}{21.12497pt}\LT@entry 
@@ -388,10 +391,10 @@
     {1}{41.46188pt}\LT@entry 
     {5}{59.22176pt}\LT@entry 
     {1}{55.83223pt}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.4}ResNet-50}{53}{section.A.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {A.4}{\ignorespaces All 20 Optuna trials for ResNet-50, in sampling order. \emph  {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded.}}{53}{table.A.4}\protected@file@percent }
-\newlabel{tab:trials_resnet50}{{A.4}{53}{All 20 Optuna trials for ResNet-50, in sampling order. \emph {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded}{table.A.4}{}}
-\newlabel{tab:trials_resnet50@cref}{{[table][4][1]A.4}{[1][53][]53}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.4}ResNet-50}{56}{section.A.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {A.4}{\ignorespaces All 20 Optuna trials for ResNet-50, in sampling order. \emph  {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded.}}{56}{table.A.4}\protected@file@percent }
+\newlabel{tab:trials_resnet50}{{A.4}{56}{All 20 Optuna trials for ResNet-50, in sampling order. \emph {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded}{table.A.4}{}}
+\newlabel{tab:trials_resnet50@cref}{{[table][4][1]A.4}{[1][56][]56}{}{}{}}
 \gdef \LT@v {\LT@entry 
     {1}{35.76999pt}\LT@entry 
     {1}{21.12497pt}\LT@entry 
@@ -402,10 +405,10 @@
     {1}{41.46188pt}\LT@entry 
     {5}{59.22176pt}\LT@entry 
     {1}{55.83223pt}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.5}ConvNeXt-Tiny}{54}{section.A.5}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {A.5}{\ignorespaces All 20 Optuna trials for ConvNeXt-Tiny, in sampling order. \emph  {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded.}}{54}{table.A.5}\protected@file@percent }
-\newlabel{tab:trials_convnext}{{A.5}{54}{All 20 Optuna trials for ConvNeXt-Tiny, in sampling order. \emph {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded}{table.A.5}{}}
-\newlabel{tab:trials_convnext@cref}{{[table][5][1]A.5}{[1][54][]54}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.5}ConvNeXt-Tiny}{57}{section.A.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {A.5}{\ignorespaces All 20 Optuna trials for ConvNeXt-Tiny, in sampling order. \emph  {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded.}}{57}{table.A.5}\protected@file@percent }
+\newlabel{tab:trials_convnext}{{A.5}{57}{All 20 Optuna trials for ConvNeXt-Tiny, in sampling order. \emph {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded}{table.A.5}{}}
+\newlabel{tab:trials_convnext@cref}{{[table][5][1]A.5}{[1][57][]57}{}{}{}}
 \gdef \LT@vi {\LT@entry 
     {1}{35.76999pt}\LT@entry 
     {1}{21.12497pt}\LT@entry 
@@ -417,10 +420,10 @@
     {5}{59.22176pt}\LT@entry 
     {1}{55.83223pt}}
 \ACRO{total-barriers}{1}
-\@writefile{toc}{\contentsline {section}{\numberline {A.6}Inception-v3}{55}{section.A.6}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {A.6}{\ignorespaces All 20 Optuna trials for Inception-v3, in sampling order. \emph  {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded.}}{55}{table.A.6}\protected@file@percent }
-\newlabel{tab:trials_inceptionv3}{{A.6}{55}{All 20 Optuna trials for Inception-v3, in sampling order. \emph {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded}{table.A.6}{}}
-\newlabel{tab:trials_inceptionv3@cref}{{[table][6][1]A.6}{[1][54][]55}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.6}Inception-v3}{58}{section.A.6}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {A.6}{\ignorespaces All 20 Optuna trials for Inception-v3, in sampling order. \emph  {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded.}}{58}{table.A.6}\protected@file@percent }
+\newlabel{tab:trials_inceptionv3}{{A.6}{58}{All 20 Optuna trials for Inception-v3, in sampling order. \emph {Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref {sec:exp_hyperparams}). The winning trial is shaded}{table.A.6}{}}
+\newlabel{tab:trials_inceptionv3@cref}{{[table][6][1]A.6}{[1][57][]58}{}{}{}}
 \ttl@finishall
 \ACRO{usage}{MFT=={0}}
-\gdef \@abspage@last{72}
+\gdef \@abspage@last{75}

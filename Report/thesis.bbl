@@ -8,7 +8,8 @@
 \providecommand{\BIBentrySTDinterwordspacing}{\spaceskip=0pt\relax}
 \providecommand{\BIBentryALTinterwordstretchfactor}{4}
 \providecommand{\BIBentryALTinterwordspacing}{\spaceskip=\fontdimen2\font plus
-\BIBentryALTinterwordstretchfactor\fontdimen3\font minus \fontdimen4\font\relax}
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
 \providecommand{\BIBforeignlanguage}[2]{{%
 \expandafter\ifx\csname l@#1\endcsname\relax
 \typeout{** WARNING: IEEEtranN.bst: No hyphenation pattern has been}%
@@ -21,40 +22,72 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem[LeCun et~al.(1998)LeCun, Bottou, Bengio, and Haffner]{lecun1998gradient}
-Y.~LeCun, L.~Bottou, Y.~Bengio, and P.~Haffner, ``Gradient-based learning applied to document recognition,'' \emph{Proceedings of the IEEE}, vol.~86, no.~11, pp. 2278--2324, 1998.
+\bibitem[LeCun et~al.(1998)LeCun, Bottou, Bengio, and
+  Haffner]{lecun1998gradient}
+Y.~LeCun, L.~Bottou, Y.~Bengio, and P.~Haffner, ``Gradient-based learning
+  applied to document recognition,'' \emph{Proceedings of the IEEE}, vol.~86,
+  no.~11, pp. 2278--2324, 1998.
 
-\bibitem[Deng et~al.(2009)Deng, Dong, Socher, Li, Li, and Fei-Fei]{deng2009imagenet}
-J.~Deng, W.~Dong, R.~Socher, L.-J. Li, K.~Li, and L.~Fei-Fei, ``{ImageNet}: A large-scale hierarchical image database,'' in \emph{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 2009, pp. 248--255.
+\bibitem[Deng et~al.(2009)Deng, Dong, Socher, Li, Li, and
+  Fei-Fei]{deng2009imagenet}
+J.~Deng, W.~Dong, R.~Socher, L.-J. Li, K.~Li, and L.~Fei-Fei, ``{ImageNet}: A
+  large-scale hierarchical image database,'' in \emph{Proceedings of the IEEE
+  Conference on Computer Vision and Pattern Recognition (CVPR)}, 2009, pp.
+  248--255.
 
 \bibitem[He et~al.(2016)He, Zhang, Ren, and Sun]{he2016resnet}
-K.~He, X.~Zhang, S.~Ren, and J.~Sun, ``Deep residual learning for image recognition,'' in \emph{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 2016, pp. 770--778.
+K.~He, X.~Zhang, S.~Ren, and J.~Sun, ``Deep residual learning for image
+  recognition,'' in \emph{Proceedings of the IEEE Conference on Computer Vision
+  and Pattern Recognition (CVPR)}, 2016, pp. 770--778.
 
-\bibitem[Huang et~al.(2017)Huang, Liu, van~der Maaten, and Weinberger]{huang2017densenet}
-G.~Huang, Z.~Liu, L.~van~der Maaten, and K.~Q. Weinberger, ``Densely connected convolutional networks,'' in \emph{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 2017, pp. 4700--4708.
+\bibitem[Huang et~al.(2017)Huang, Liu, van~der Maaten, and
+  Weinberger]{huang2017densenet}
+G.~Huang, Z.~Liu, L.~van~der Maaten, and K.~Q. Weinberger, ``Densely connected
+  convolutional networks,'' in \emph{Proceedings of the IEEE Conference on
+  Computer Vision and Pattern Recognition (CVPR)}, 2017, pp. 4700--4708.
 
-\bibitem[Szegedy et~al.(2016)Szegedy, Vanhoucke, Ioffe, Shlens, and Wojna]{szegedy2016inception}
-C.~Szegedy, V.~Vanhoucke, S.~Ioffe, J.~Shlens, and Z.~Wojna, ``Rethinking the inception architecture for computer vision,'' in \emph{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 2016, pp. 2818--2826.
+\bibitem[Szegedy et~al.(2016)Szegedy, Vanhoucke, Ioffe, Shlens, and
+  Wojna]{szegedy2016inception}
+C.~Szegedy, V.~Vanhoucke, S.~Ioffe, J.~Shlens, and Z.~Wojna, ``Rethinking the
+  inception architecture for computer vision,'' in \emph{Proceedings of the
+  IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 2016, pp.
+  2818--2826.
 
 \bibitem[Tan and Le(2019)]{tan2019efficientnet}
-M.~Tan and Q.~V. Le, ``{EfficientNet}: Rethinking model scaling for convolutional neural networks,'' in \emph{Proceedings of the 36th International Conference on Machine Learning (ICML)}, 2019, pp. 6105--6114.
+M.~Tan and Q.~V. Le, ``{EfficientNet}: Rethinking model scaling for
+  convolutional neural networks,'' in \emph{Proceedings of the 36th
+  International Conference on Machine Learning (ICML)}, 2019, pp. 6105--6114.
 
-\bibitem[Liu et~al.(2022)Liu, Mao, Wu, Feichtenhofer, Darrell, and Xie]{liu2022convnext}
-Z.~Liu, H.~Mao, C.-Y. Wu, C.~Feichtenhofer, T.~Darrell, and S.~Xie, ``A {ConvNet} for the 2020s,'' in \emph{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, 2022, pp. 11\,976--11\,986.
+\bibitem[Liu et~al.(2022)Liu, Mao, Wu, Feichtenhofer, Darrell, and
+  Xie]{liu2022convnext}
+Z.~Liu, H.~Mao, C.-Y. Wu, C.~Feichtenhofer, T.~Darrell, and S.~Xie, ``A
+  {ConvNet} for the 2020s,'' in \emph{Proceedings of the IEEE/CVF Conference on
+  Computer Vision and Pattern Recognition (CVPR)}, 2022, pp. 11\,976--11\,986.
 
 \bibitem[Hu et~al.(2018)Hu, Shen, and Sun]{hu2018squeeze}
-J.~Hu, L.~Shen, and G.~Sun, ``Squeeze-and-excitation networks,'' in \emph{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 2018, pp. 7132--7141.
+J.~Hu, L.~Shen, and G.~Sun, ``Squeeze-and-excitation networks,'' in
+  \emph{Proceedings of the IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, 2018, pp. 7132--7141.
 
-\bibitem[Akiba et~al.(2019)Akiba, Sano, Yanase, Ohta, and Koyama]{akiba2019optuna}
-T.~Akiba, S.~Sano, T.~Yanase, T.~Ohta, and M.~Koyama, ``{Optuna}: A next-generation hyperparameter optimization framework,'' in \emph{Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery \& Data Mining}, 2019, pp. 2623--2631.
+\bibitem[Akiba et~al.(2019)Akiba, Sano, Yanase, Ohta, and
+  Koyama]{akiba2019optuna}
+T.~Akiba, S.~Sano, T.~Yanase, T.~Ohta, and M.~Koyama, ``{Optuna}: A
+  next-generation hyperparameter optimization framework,'' in \emph{Proceedings
+  of the 25th ACM SIGKDD International Conference on Knowledge Discovery \&
+  Data Mining}, 2019, pp. 2623--2631.
 
 \bibitem[{Stellenbosch University}(2024)]{sun_thesis_guide}
-{Stellenbosch University}, ``Formatting your thesis,'' 2024, \url{http://bit.ly/SUThesisFormat}.
+{Stellenbosch University}, ``Formatting your thesis,'' 2024,
+  \url{http://bit.ly/SUThesisFormat}.
 
 \bibitem[Els(2024)]{sun_latex_template}
-D.~Els, ``Stellenbosch university thesis bundle,'' 2024, \url{https://ctan.org/pkg/stellenbosch-2}.
+D.~Els, ``Stellenbosch university thesis bundle,'' 2024,
+  \url{https://ctan.org/pkg/stellenbosch-2}.
 
-\bibitem[Krizhevsky et~al.(2012)Krizhevsky, Sutskever, and Hinton]{krizhevsky2012alexnet}
-A.~Krizhevsky, I.~Sutskever, and G.~E. Hinton, ``{ImageNet} classification with deep convolutional neural networks,'' in \emph{Advances in Neural Information Processing Systems}, vol.~25, 2012, pp. 1097--1105.
+\bibitem[Krizhevsky et~al.(2012)Krizhevsky, Sutskever, and
+  Hinton]{krizhevsky2012alexnet}
+A.~Krizhevsky, I.~Sutskever, and G.~E. Hinton, ``{ImageNet} classification with
+  deep convolutional neural networks,'' in \emph{Advances in Neural Information
+  Processing Systems}, vol.~25, 2012, pp. 1097--1105.
 
 \end{thebibliography}
