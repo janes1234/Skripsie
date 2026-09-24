@@ -7,30 +7,74 @@
     \item Describe how the classification system was built and configured.
     \item Summary of experiments:
     \begin{enumerate}
-        \item \textbf{Mixed-facility baseline} — all five facilities pooled and split with a stratified train/val/test split (Section~\ref{sec:exp_mixed}).
-        \item \textbf{Leave-one-facility-out evaluation} — the current main experiment, each facility held out as an unseen test facility in turn (Section~\ref{sec:exp_lofo}). Used to estimate real-world generalisation to a facility the model has never seen.
-        \item \textbf{Binary (OK / Not-OK) approach} — collapsing the multi-class labels into a two-class problem (Section~\ref{sec:exp_binary}). 
-        \item Use overview images of facilities instead of cut out images. (Section~\ref{sec:exp_overview_images}).
+        \item Mixed-facility baseline: all five facilities pooled and split with a stratified train/val/test split (Section~\ref{sec:exp_mixed}).
+        \item Leave-one-facility-out evaluation: the current main experiment, each facility held out as an unseen test facility in turn (Section~\ref{sec:exp_lofo}). Used to estimate real-world generalisation to a facility the model has never seen.
+        \item Binary (OK / Not-OK) approach: collapsing the multi-class labels into a two-class problem (Section~\ref{sec:exp_binary}).
+        \item Use overview images of facilities instead of cut out images (Section~\ref{sec:exp_overview_images}).
     \end{enumerate}
 \end{itemize}
 
 \begin{figure}[htbp]
-    \centering
-    \fbox{\parbox{0.8\textwidth}{\centering\vspace{4cm} PLACEHOLDER: high-level pipeline diagram --- raw labelled images $\to$ \texttt{prep.py} cropped images $\to$ data split $\to$ augmentation $\to$ pretrained backbone + classifier head $\to$ training loop $\to$ \texttt{results\_*.pkl} $\to$ comparison notebook \vspace{4cm}}}
-    \caption{PLACEHOLDER: End-to-end experimental pipeline, from labelled satellite imagery to a saved, comparable results file per (architecture, facility) combination.}
-    \label{fig:experimental_pipeline}
+\centering
+\begin{tikzpicture}[
+    node distance=6mm and 12mm,
+    stage/.style={rectangle, rounded corners, draw, fill=gray!10, text width=6.8cm, align=center, minimum height=8mm, font=\small},
+    arr/.style={-{Stealth[length=2mm]}, thick},
+]
+
+\node[stage] (raw) {Raw labelled satellite images (Chapter~\ref{chap:systemmethods})};
+\node[stage, below=of raw] (prep) {\texttt{prep.py}: crop labelled regions into per-class image folders (Section~\ref{sec:pipeline})};
+\node[stage, below=of prep] (split) {Leave-one-facility-out train / validation / test split (Chapter~\ref{chap:systemmethods})};
+\node[stage, below=of split] (aug) {Resize, normalise, and (train only) augment each image (Section~\ref{sec:exp_augmentation})};
+\node[stage, below=of aug] (model) {Pretrained backbone with a tuned classifier head (Sections~\ref{sec:exp_architectures} and~\ref{sec:exp_hyperparams})};
+\node[stage, below=of model] (train) {Training loop: Adam, \texttt{StepLR}, early stopping (Section~\ref{sec:exp_training})};
+\node[stage, below=of train] (results) {Saved per-run results: \texttt{results\_*.pkl} (Section~\ref{sec:exp_lofo})};
+\node[stage, below=of results] (compare) {Comparison notebook: cross-architecture, cross-facility results};
+
+\draw[arr] (raw) -- (prep);
+\draw[arr] (prep) -- (split);
+\draw[arr] (split) -- (aug);
+\draw[arr] (aug) -- (model);
+\draw[arr] (model) -- (train);
+\draw[arr] (train) -- (results);
+\draw[arr] (results) -- (compare);
+
+\end{tikzpicture}
+\caption{End-to-end experimental pipeline, from labelled satellite imagery to a saved, comparable results file per (architecture, facility) combination.}
+\label{fig:experimental_pipeline}
 \end{figure}
 
+Figure~\ref{fig:experimental_pipeline} summarises this pipeline end to end. It starts from the raw, labelled satellite imagery described in Chapter~\ref{chap:systemmethods}, which \texttt{prep.py} crops into individual, per-class images and which is then split by facility so that no image from the held-out test facility ever appears during training. Each image is resized, normalised, and, for the training set only, augmented before being fed to the network (Section~\ref{sec:exp_augmentation}). The network itself is one of the seven architectures in Section~\ref{sec:exp_architectures}, each with a classifier head sized by its own tuned hyperparameters (Section~\ref{sec:exp_hyperparams}), trained using the loop described in Section~\ref{sec:exp_training}. The outcome of a single (architecture, held-out facility) run, its test metrics, confusion matrix, training history and per-sample predictions, is pickled to its own \texttt{results\_*.pkl} file (Section~\ref{sec:exp_lofo}) rather than kept only in memory, so that the comparison notebook can later load every run's results and build the cross-architecture, cross-facility comparisons used in the Results chapter without needing to retrain anything.
 
-\section{Model Architectures and Transfer Learning}
-\label{sec:exp_architectures}
 
-\begin{itemize}
-    \item how the 6 architectures were used and why they were chosen.
-    \item Explain pretraining. 
-    \item Explain per architecture differences.
-    \item Cross entropy loss vs focal loss.
-\end{itemize}
+\section{Model Architectures and Transfer Learning}\label{sec:exp_architectures}
+
+AlexNet is deliberately different from the other six: rather than being fine-tuned from ImageNet weights, it is trained entirely from randomly initialised weights, with its own separate, hand-picked configuration (Section~\ref{sec:exp_hyperparams}). It was added to the project specifically to measure what pretraining itself is worth, that is, whether the far larger pretrained architectures actually outperform a comparatively simple network trained from scratch on this project's own, much smaller dataset, rather than to compete with them on accuracy in its own right.
+
+\begin{table}[htbp]
+\centering
+\caption{Parameter count of each of the seven architectures evaluated, from smallest to largest.}
+\label{tab:arch_sizes}
+\begin{tabular}{lc}
+\toprule
+\textbf{Architecture} & \textbf{Parameters} \\
+\midrule
+EfficientNet-B0 & 5.3M \\
+DenseNet-121    & 8.0M \\
+ResNet-18       & 11.7M \\
+ResNet-50       & 25.6M \\
+Inception-v3    & 27.2M \\
+ConvNeXt-Tiny   & 28.6M \\
+AlexNet         & 61.1M \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For each of the six pretrained architectures, transfer learning follows the same recipe. The architecture's convolutional backbone is loaded with weights pretrained on ImageNet~\citep{deng2009imagenet}, specifically torchvision's \texttt{IMAGENET1K\_V1} weights, except for ResNet-50, which uses the newer, more accurate \texttt{IMAGENET1K\_V2} recipe. Its original 1000-class ImageNet output layer is then discarded, and a new classifier head, sized by that architecture's own tuned $H$ and $N$ (Section~\ref{sec:exp_hyperparams}), is put in its place: a stack of $H$ \texttt{Linear+ReLU} pairs followed by a final \texttt{Linear} layer mapping to the project's number of classes. Every parameter in the network, backbone included, is then fine-tuned on the WWTW dataset. No layers are frozen, so pretraining only supplies a starting point for every weight rather than fixing any of them in place.
+
+Exactly which attribute of a given architecture's model object this new head replaces depends on how that architecture happens to be implemented in torchvision, and differs from one architecture to the next: \texttt{model.fc} for ResNet-18, ResNet-50 and Inception-v3, \texttt{model.classifier} for DenseNet-121, and a specific indexed layer within \texttt{model.classifier} for EfficientNet-B0, ConvNeXt-Tiny and AlexNet.
+
+Two architectures need one further, architecture-specific adjustment beyond this. Inception-v3's auxiliary classifier (Section~\ref{sec:inception}), used only during training, also has its own small output layer resized to the project's number of classes; unlike the main classifier head, though, it is always left as a single \texttt{Linear} layer regardless of the tuned $H$ and $N$, since it is only a secondary training signal rather than the model's actual prediction. ConvNeXt-Tiny's global average pooling layer is replaced with global max pooling, so the feature vector reaching its classifier head is built from each channel's strongest activation rather than its average.
 
 
 \section{Data Preprocessing and Augmentation}
@@ -60,79 +104,271 @@
 
 \section{Hyperparameter Tuning}
 \label{sec:exp_hyperparams}
-Some of the parameters were fixed, and is the same for every one of the six architectures. These values were never changed, either because a well-established default already exists or because there was no reason to expect the best value to depend on the architecture. This covers Adam's $\beta_2$ term (kept at $0.9$, the default recommended in Adam's original paper and rarely changed in practice), the $L_2$ weight decay ($10^{-4}$, a standard mild regularisation strength), and the training loop's own settings: a maximum of 100 epochs, an early-stopping patience of 10 epochs, and a fixed random seed of 42.
 
-Some parameters were tuned automatically, but only for three architectures: ResNet-50, DenseNet-121, and Inception-v3. This tuning was carried out earlier in the project, under the original mixed-facility split (Section~\ref{sec:exp_mixed}), in two stages. The first stage was a grid search over the classifier head itself: for a small set of candidate values of $H$ (hidden layers) and $N$ (neurons per layer), each combination was trained and evaluated, and the combination with the best validation accuracy was kept (Table~\ref{tab:arch_grid_search}). The second stage, with the head now fixed, was a Bayesian optimisation search over the remaining training hyperparameters: learning rate, Adam's $\beta_1$, the step size of the learning rate schedule, and batch size (Table~\ref{tab:bayes_opt}). Unlike a grid search, Bayesian optimisation does not try every combination in a fixed grid; it uses the results of earlier trials to decide which combination is likely to be worth trying next, which finds a good setting in far fewer trials.
+Some of the parameters were fixed, and are the same for every architecture. These values were never changed, either because a well-established default already exists or because there was no reason to expect the best value to depend on the architecture. This covers Adam's $\beta_2$ term (kept at $0.999$, the default recommended in Adam's original paper and rarely changed in practice), the $L_2$ weight decay ($10^{-4}$, a standard mild regularisation strength), and the training loop's own settings: a maximum of 100 epochs, an early-stopping patience of 10 epochs, and a fixed random seed of 42.
 
-One result of that search is worth calling out directly: for DenseNet-121 and Inception-v3, the optimal $\beta_1$ found was effectively zero. Since $\beta_1$ controls how much Adam smooths the gradient direction from one step to the next (its momentum term), a value of zero means each step is based almost entirely on the current batch's gradient, with very little memory of previous steps, which the search found worked better for these two architectures than the conventional default of $0.9$.
+Every other hyperparameter, namely the classifier head's shape (hidden layers $H$ and neurons per layer $N$), the learning rate, Adam's $\beta_1$, the \texttt{StepLR} step size, and the batch size, was tuned automatically using Optuna~\cite{akiba2019optuna}, a hyperparameter optimisation library, for six of the project's seven architectures: ResNet-18, ResNet-50, DenseNet-121, Inception-v3, EfficientNet-B0, and ConvNeXt-Tiny. AlexNet is excluded, since it is trained from scratch rather than fine-tuned from ImageNet weights, and is instead given a fixed, hand-picked configuration (Section~\ref{subsec:defaults}).
 
-The third group was chosen by hand, for the remaining three architectures. ResNet-18 is deliberately kept as an untuned baseline (Section~\ref{sec:exp_architectures}): it uses the simplest possible head (no hidden layers) and a standard default Adam learning rate, rather than anything found by search. EfficientNet-B0 and ConvNeXt-Tiny were added to the project after the tuning sweep above had already been completed, so instead of repeating the search, they were given sensible, manually-chosen values that broadly follow the pattern the search found for the other three architectures. Table~\ref{tab:full_hyperparams} brings all three groups together into the single configuration actually used to train each architecture.
+\subsection{Why Optuna}
+\label{subsec:why_optuna}
+
+These six hyperparameters interact with each other, so tuning them one at a time risks a setting that is only good in combination with values chosen later. A grid search over all six jointly is not practical either, since the number of combinations grows multiplicatively and each training run already takes several minutes to over an hour. Optuna instead searches all six jointly using a Tree-structured Parzen Estimator (TPE) sampler, which uses the trials seen so far to sample new candidates from the regions of the search space that have scored well, rather than sampling blindly. Alongside it, a \texttt{MedianPruner} monitors each trial's validation accuracy after every epoch and stops a trial early once it falls behind the median of the other trials at that same epoch, so a clearly uncompetitive trial does not run to completion. Together these let a fixed budget of 20 trials per architecture cover the search space far more efficiently than 20 random guesses would.
+
+Tuning all six architectures under all five leave-one-facility-out splits would multiply an already substantial compute cost by five, so tuning was instead carried out once per architecture, on a single held-out-facility split (Northern Works held out for testing), and the winning combination is applied uniformly across all five folds when the architecture is actually trained (Section~\ref{sec:exp_lofo}).
+
+Table~\ref{tab:search_space} lists the search space explored for every architecture.
 
 \begin{table}[htbp]
 \centering
-\caption{Classifier-head grid search: best number of hidden layers ($H$) and neurons per layer ($N$) found for each tuned architecture, by validation accuracy.}
-\label{tab:arch_grid_search}
-\begin{tabular}{lccc}
+\caption{The hyperparameter search space explored by Optuna, shared by all six tuned architectures. Learning rate is sampled log-uniformly, so values across the full range are equally likely on a log scale.}
+\label{tab:search_space}
+\begin{tabular}{lll}
 \toprule
-\textbf{Architecture} & \textbf{$H$} & \textbf{$N$} & \textbf{Validation accuracy} \\
+\textbf{Hyperparameter} & \textbf{Symbol} & \textbf{Candidate values / range} \\
 \midrule
-ResNet-50       & 3 & 1024 & 97.37\% \\
-DenseNet-121    & 3 & 2048 & 96.05\% \\
-Inception-v3    & 3 & 2048 & 97.70\% \\
+Hidden layers            & $H$        & $\{0, 1, 2, 3\}$ \\
+Neurons per layer        & $N$        & $\{512, 1024, 2048\}$ \\
+Batch size                & --         & $\{8, 16, 24, 32, 48, 64, 96, 128\}$ \\
+Learning rate              & --         & $[10^{-6}, 10^{-2}]$ (log-uniform) \\
+Adam $\beta_1$              & $\beta_1$  & $[0.5, 0.999]$ \\
+\texttt{StepLR} step size    & --         & $[5, 40]$ (integer) \\
 \bottomrule
 \end{tabular}
 \end{table}
 
+A classifier head with $H{=}0$ hidden layers is a single linear layer mapping straight from the backbone's features to the class scores, with $N$ unused; Optuna selected this for EfficientNet-B0 (Section~\ref{subsec:tune_effnetb0}).
+
+The six subsections below give, for each tuned architecture, the search range and winning value for every hyperparameter. A trial either \emph{completes} (reporting a final validation accuracy) or is \emph{pruned}: stopped early either by the \texttt{MedianPruner} for underperforming, or, for a small number of trials on EfficientNet-B0 and ConvNeXt-Tiny, by an intermittent GPU driver fault that killed the training process outright and unrelated to the hyperparameters being tested. Every architecture's tuning run started from the same fixed sampler seed, which is why Trial~0 samples the same combination in every table. All 20 trials for every architecture are listed in Appendix~\ref{appen:hyperparam_trials}.
+
+\subsection{ResNet-18}
+\label{subsec:tune_resnet18}
+
+Of ResNet-18's 20 trials, 14 completed and 6 were pruned. Table~\ref{tab:tuned_resnet18} gives the search range and the winning value for each hyperparameter; all 20 trials are listed in Table~\ref{tab:trials_resnet18}, Appendix~\ref{appen:hyperparam_trials}.
+
 \begin{table}[htbp]
 \centering
-\footnotesize
-\caption{Bayesian-optimised training hyperparameters for each tuned architecture.}
-\label{tab:bayes_opt}
-\begin{tabular}{lcccc}
+\caption{ResNet-18: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#11, validation accuracy 89.27\%).}
+\label{tab:tuned_resnet18}
+\begin{tabular}{lll}
 \toprule
-\textbf{Architecture} & \textbf{Learning rate} & \textbf{Adam $\beta_1$} & \textbf{StepLR step size} & \textbf{Batch size} \\
+\textbf{Hyperparameter} & \textbf{Search range} & \textbf{Chosen value} \\
 \midrule
-ResNet-50       & $2.680 \times 10^{-5}$ & 0.1788 & 34 & 121 \\
-DenseNet-121    & $2.742 \times 10^{-4}$ & $\approx 0$ & 7  & 14 \\
-Inception-v3    & $1.428 \times 10^{-4}$ & $\approx 0$ & 21 & 17 \\
+Hidden layers ($H$)      & $\{0, 1, 2, 3\}$                  & 2 \\
+Neurons per layer ($N$)  & $\{512, 1024, 2048\}$              & 2048 \\
+Learning rate             & $[10^{-6}, 10^{-2}]$ (log-uniform) & $3.88\times10^{-4}$ \\
+Adam $\beta_1$            & $[0.5, 0.999]$                     & 0.611 \\
+StepLR step size           & $[5, 40]$ (integer)                & 12 \\
+Batch size                 & $\{8,16,24,32,48,64,96,128\}$      & 96 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
+\subsection{EfficientNet-B0}
+\label{subsec:tune_effnetb0}
+
+Of EfficientNet-B0's 20 trials, 10 completed and 10 were pruned, including 3 that were cut short by the GPU driver fault mentioned above rather than the pruner itself. Table~\ref{tab:tuned_effnetb0} gives the search range and the winning value for each hyperparameter; all 20 trials are listed in Table~\ref{tab:trials_effnetb0}, Appendix~\ref{appen:hyperparam_trials}.
+
+\begin{table}[htbp]
+\centering
+\caption{EfficientNet-B0: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#16, validation accuracy 88.54\%).}
+\label{tab:tuned_effnetb0}
+\begin{tabular}{lll}
+\toprule
+\textbf{Hyperparameter} & \textbf{Search range} & \textbf{Chosen value} \\
+\midrule
+Hidden layers ($H$)      & $\{0, 1, 2, 3\}$                  & 0 \\
+Neurons per layer ($N$)  & $\{512, 1024, 2048\}$              & -- (unused) \\
+Learning rate             & $[10^{-6}, 10^{-2}]$ (log-uniform) & $4.89\times10^{-4}$ \\
+Adam $\beta_1$            & $[0.5, 0.999]$                     & 0.857 \\
+StepLR step size           & $[5, 40]$ (integer)                & 5 \\
+Batch size                 & $\{8,16,24,32,48,64,96,128\}$      & 96 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{DenseNet-121}
+\label{subsec:tune_densenet121}
+
+Of DenseNet-121's 20 trials, 16 completed and 4 were pruned. Table~\ref{tab:tuned_densenet121} gives the search range and the winning value for each hyperparameter; all 20 trials are listed in Table~\ref{tab:trials_densenet121}, Appendix~\ref{appen:hyperparam_trials}.
+
+\begin{table}[htbp]
+\centering
+\caption{DenseNet-121: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#19, validation accuracy 90.24\%).}
+\label{tab:tuned_densenet121}
+\begin{tabular}{lll}
+\toprule
+\textbf{Hyperparameter} & \textbf{Search range} & \textbf{Chosen value} \\
+\midrule
+Hidden layers ($H$)      & $\{0, 1, 2, 3\}$                  & 1 \\
+Neurons per layer ($N$)  & $\{512, 1024, 2048\}$              & 512 \\
+Learning rate             & $[10^{-6}, 10^{-2}]$ (log-uniform) & $3.44\times10^{-4}$ \\
+Adam $\beta_1$            & $[0.5, 0.999]$                     & 0.597 \\
+StepLR step size           & $[5, 40]$ (integer)                & 11 \\
+Batch size                 & $\{8,16,24,32,48,64,96,128\}$      & 48 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{ResNet-50}
+\label{subsec:tune_resnet50}
+
+Of ResNet-50's 20 trials, 15 completed and 5 were pruned. Table~\ref{tab:tuned_resnet50} gives the search range and the winning value for each hyperparameter; all 20 trials are listed in Table~\ref{tab:trials_resnet50}, Appendix~\ref{appen:hyperparam_trials}.
+
+\begin{table}[htbp]
+\centering
+\caption{ResNet-50: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#11, validation accuracy 89.02\%).}
+\label{tab:tuned_resnet50}
+\begin{tabular}{lll}
+\toprule
+\textbf{Hyperparameter} & \textbf{Search range} & \textbf{Chosen value} \\
+\midrule
+Hidden layers ($H$)      & $\{0, 1, 2, 3\}$                  & 2 \\
+Neurons per layer ($N$)  & $\{512, 1024, 2048\}$              & 2048 \\
+Learning rate             & $[10^{-6}, 10^{-2}]$ (log-uniform) & $3.77\times10^{-4}$ \\
+Adam $\beta_1$            & $[0.5, 0.999]$                     & 0.875 \\
+StepLR step size           & $[5, 40]$ (integer)                & 17 \\
+Batch size                 & $\{8,16,24,32,48,64,96,128\}$      & 96 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{ConvNeXt-Tiny}
+\label{subsec:tune_convnext}
+
+Of ConvNeXt-Tiny's 20 trials, 13 completed and 7 were pruned, including 1 that was cut short by the GPU driver fault mentioned above rather than the pruner itself. Table~\ref{tab:tuned_convnext} gives the search range and the winning value for each hyperparameter; all 20 trials are listed in Table~\ref{tab:trials_convnext}, Appendix~\ref{appen:hyperparam_trials}.
+
+\begin{table}[htbp]
+\centering
+\caption{ConvNeXt-Tiny: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#17, validation accuracy 90.73\%).}
+\label{tab:tuned_convnext}
+\begin{tabular}{lll}
+\toprule
+\textbf{Hyperparameter} & \textbf{Search range} & \textbf{Chosen value} \\
+\midrule
+Hidden layers ($H$)      & $\{0, 1, 2, 3\}$                  & 1 \\
+Neurons per layer ($N$)  & $\{512, 1024, 2048\}$              & 2048 \\
+Learning rate             & $[10^{-6}, 10^{-2}]$ (log-uniform) & $5.65\times10^{-5}$ \\
+Adam $\beta_1$            & $[0.5, 0.999]$                     & 0.560 \\
+StepLR step size           & $[5, 40]$ (integer)                & 21 \\
+Batch size                 & $\{8,16,24,32,48,64,96,128\}$      & 128 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Inception-v3}
+\label{subsec:tune_inceptionv3}
+
+Of Inception-v3's 20 trials, 13 completed and 7 were pruned. Table~\ref{tab:tuned_inceptionv3} gives the search range and the winning value for each hyperparameter; all 20 trials are listed in Table~\ref{tab:trials_inceptionv3}, Appendix~\ref{appen:hyperparam_trials}.
+
+\begin{table}[htbp]
+\centering
+\caption{Inception-v3: search range and the value ultimately chosen for each tuned hyperparameter, from the winning trial (\#1, validation accuracy 89.51\%).}
+\label{tab:tuned_inceptionv3}
+\begin{tabular}{lll}
+\toprule
+\textbf{Hyperparameter} & \textbf{Search range} & \textbf{Chosen value} \\
+\midrule
+Hidden layers ($H$)      & $\{0, 1, 2, 3\}$                  & 2 \\
+Neurons per layer ($N$)  & $\{512, 1024, 2048\}$              & 2048 \\
+Learning rate             & $[10^{-6}, 10^{-2}]$ (log-uniform) & $1.38\times10^{-3}$ \\
+Adam $\beta_1$            & $[0.5, 0.999]$                     & 0.600 \\
+StepLR step size           & $[5, 40]$ (integer)                & 23 \\
+Batch size                 & $\{8,16,24,32,48,64,96,128\}$      & 96 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Summary Across Architectures}
+\label{subsec:tune_summary}
+
+Table~\ref{tab:full_hyperparams} draws the winning configuration for each of the six tuned architectures together into a single reference table, alongside the hand-picked configuration used for AlexNet.
+
 \begin{table}[htbp]
 \centering
 \footnotesize
-\caption{Full training configuration used for every architecture, combining all three sources above. ResNet-18 uses ReduceLROnPlateau instead of StepLR, so it has no fixed step size.}
+\caption{Final training configuration used for every architecture: the winning Optuna trial for the six tuned architectures (Table~\ref{tab:tuned_resnet18} through Table~\ref{tab:tuned_inceptionv3}), and the hand-picked values used for AlexNet (Section~\ref{subsec:defaults}).}
 \label{tab:full_hyperparams}
 \begin{tabular}{lcccccc}
 \toprule
 \textbf{Architecture} & \textbf{$H$} & \textbf{$N$} & \textbf{LR} & \textbf{$\beta_1$} & \textbf{Step size} & \textbf{Batch size} \\
 \midrule
-ResNet-18 (base)   & 0 & --   & $5\times10^{-4}$    & 0.9        & --  & 32 \\
-ResNet-50 (tuned)  & 3 & 1024 & $2.68\times10^{-5}$ & 0.179      & 34 & 121 \\
-DenseNet-121 (tuned) & 3 & 2048 & $2.74\times10^{-4}$ & $\approx0$ & 7  & 14 \\
-Inception-v3 (tuned) & 3 & 2048 & $1.43\times10^{-4}$ & $\approx0$ & 21 & 17 \\
-EfficientNet-B0 (def.) & 3 & 1024 & $1\times10^{-4}$ & 0.9      & 15 & 32 \\
-ConvNeXt-Tiny (def.)   & 3 & 1024 & $5\times10^{-5}$ & 0.9      & 15 & 24 \\
+ResNet-18 (tuned)       & 2 & 2048 & $3.88\times10^{-4}$ & 0.611 & 12 & 96  \\
+ResNet-50 (tuned)       & 2 & 2048 & $3.77\times10^{-4}$ & 0.875 & 17 & 96  \\
+DenseNet-121 (tuned)    & 1 & 512  & $3.44\times10^{-4}$ & 0.597 & 11 & 48  \\
+Inception-v3 (tuned)    & 2 & 2048 & $1.38\times10^{-3}$ & 0.600 & 23 & 96  \\
+EfficientNet-B0 (tuned) & 0 & --   & $4.89\times10^{-4}$ & 0.857 & 5  & 96  \\
+ConvNeXt-Tiny (tuned)   & 1 & 2048 & $5.65\times10^{-5}$ & 0.560 & 21 & 128 \\
+AlexNet (hand-picked)   & 3 & 1024 & $1\times10^{-3}$    & 0.9   & 15 & 32  \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+A pattern worth noting across the six searches: every one of them settled on a $\beta_1$ below the conventional Adam default of $0.9$, ranging from $0.560$ (ConvNeXt-Tiny) to $0.875$ (ResNet-50). This suggests that, for fine-tuning these particular pretrained backbones on this dataset, slightly less momentum (i.e.\ weighting each step more towards the current batch's gradient and less towards the accumulated direction of previous steps) consistently outperformed the textbook default, even though the search was free to select values as high as $0.999$.
+
+\subsection{AlexNet's Hand-Picked Configuration}
+\label{subsec:defaults}
+
+AlexNet (Table~\ref{tab:full_hyperparams}) was never passed through the Optuna search at all: as noted at the start of this section, it is trained entirely from randomly initialised weights rather than fine-tuned from an ImageNet-pretrained backbone (Section~\ref{sec:exp_architectures}), so a search tuned around fine-tuning behaviour is not guaranteed to transfer to it. Its configuration was instead chosen by hand, with each value reasoned through individually rather than picked arbitrarily:
+
+\begin{itemize}
+    \item \textbf{$H{=}3$, $N{=}1024$}: a reasonably deep, moderately wide head, deep enough to give the classifier some capacity to work with, without adding the largest possible number of parameters ($N{=}2048$) to a head sitting on top of a backbone that, unlike the other six architectures, has not already learned any useful features.
+    \item \textbf{Learning rate $=10^{-3}$}: an order of magnitude higher than a typical fine-tuning learning rate. This is a deliberate departure, not an oversight: with no pretrained features to preserve, a learning rate suited to gently fine-tuning an already-good set of weights would instead be needlessly slow at moving a randomly initialised network away from its starting point, so a higher learning rate suited to training from scratch was used instead.
+    \item \textbf{$\beta_1{=}0.9$}: Adam's own textbook default, for the same reason $\beta_2$ is fixed at its own default throughout this project (Section~\ref{sec:exp_hyperparams}): a well-established default value with no particular reason to expect it to be wrong.
+    \item \textbf{Step size $=15$}: with \texttt{StepLR} cutting the learning rate by a factor of ten every 15 epochs against a maximum of 100, this decays the learning rate roughly a third of the way into a full run, which is a reasonable middle point given the tuned step sizes found by the search for the other six architectures ranged from as early as epoch 5 (EfficientNet-B0) to as late as epoch 23 (Inception-v3).
+    \item \textbf{Batch size $=32$}: a conventional default batch size for image classification, small enough to need no gradient accumulation beyond what \texttt{MICRO\_BATCH\_CAP} already imposes on every architecture.
+\end{itemize}
 
 
 \section{Training Procedure}
 \label{sec:exp_training}
 
-Every architecture is trained with the same underlying procedure; only the specific numbers (learning rate, batch size, and so on) change per architecture, as set out in Section~\ref{sec:exp_hyperparams}. All six use the Adam optimiser, which adjusts each parameter's effective learning rate individually based on that parameter's recent gradient history, rather than applying one fixed step size to every weight in the network. Its two smoothing terms, $\beta_1$ and $\beta_2$, control how much of that history it remembers: $\beta_1$ is tuned per architecture, while $\beta_2$ is left at the common default of $0.9$ for all six. A small $L_2$ weight penalty ($10^{-4}$, applied equally to every architecture) is added on top, gently discouraging any single weight from growing large purely to fit noise in the training set.
+Every architecture is trained with the same underlying loop; only the specific hyperparameter values (learning rate, batch size, and so on) change per architecture, as set out in Section~\ref{sec:exp_hyperparams}. This section covers that loop itself: how the learning rate changes over a run, when training stops, and which weights are actually kept.
 
-Rather than using one fixed learning rate for an entire run, the learning rate is reduced as training progresses, since large steps are useful early on to make fast progress but become counter-productive once the model is close to a good solution, where they cause it to overshoot instead of settling in. The ResNet-18 baseline uses \texttt{ReduceLROnPlateau}: it watches validation loss directly and halves the learning rate whenever three consecutive epochs pass with no improvement. Every other architecture instead uses the simpler, pre-scheduled \texttt{StepLR}: the learning rate is cut by a factor of ten after a fixed, architecture-specific number of epochs. This difference is mostly a historical artefact of when each architecture was added to the project rather than a deliberate design choice, and is worth flagging as such.
+Rather than using one fixed learning rate for an entire run, every architecture uses \texttt{StepLR} to cut the learning rate by a factor of ten after a fixed, architecture-specific number of epochs (Section~\ref{sec:exp_hyperparams}), since large steps are useful early on to make fast progress but become counter-productive once the model is close to a good solution, where they cause it to overshoot instead of settling in.
 
-Training is allowed to run for up to 100 epochs, but is stopped early if validation loss has not improved for 10 consecutive epochs, since the point at which a given architecture stops improving and starts overfitting is not known ahead of time and differs from one architecture to the next. Validation \emph{loss}, rather than accuracy, is used to decide both when to stop and which epoch's weights to keep. Whichever epoch achieved the lowest validation loss is the one whose weights are restored and carried forward to testing, rather than simply whatever weights training happened to end on.
+Training is allowed to run for up to 100 epochs, but is stopped early if validation loss has not improved for 10 consecutive epochs, since the point at which a given architecture stops improving and starts overfitting is not known ahead of time and differs from one architecture to the next. Validation \emph{loss}, rather than accuracy, is used to decide both when to stop and which epoch's weights to keep: whichever epoch achieved the lowest validation loss is the one whose weights are restored and carried forward to testing, rather than simply whatever weights training happened to end on. Figure~\ref{fig:training_flow} summarises this loop.
 
-Two further techniques are used purely to make training computationally feasible, rather than to change what is learned. First, training runs in mixed precision on GPU: most computations use 16-bit rather than 32-bit floating point, roughly halving memory use and increasing throughput, with a loss-scaling step included to prevent the smaller numerical range of 16-bit floats from rounding small gradients to zero. Second, some of the batch sizes in Table~\ref{tab:full_hyperparams} (e.g.\ 121 images for ResNet-50) are too large to fit in GPU memory at once alongside a deep network's activations. Rather than shrinking the batch size and drifting away from the tuned value, training instead processes several smaller "micro-batches" in sequence, accumulating their gradients, and only updates the network's weights once enough micro-batches have been seen to match the intended batch size: mathematically equivalent to using the full batch size directly, just spread over several smaller forward and backward passes instead of one large one.
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance=7mm and 12mm,
+    process/.style={rectangle, rounded corners, draw, fill=gray!10, text width=4.3cm, align=center, minimum height=8mm, font=\small},
+    decision/.style={diamond, draw, fill=blue!5, aspect=2.2, text width=3.4cm, align=center, inner sep=1pt, font=\small},
+    terminal/.style={rectangle, rounded corners=3mm, draw, fill=gray!25, text width=3.4cm, align=center, minimum height=7mm, font=\small},
+    arr/.style={-{Stealth[length=2mm]}, thick},
+    lbl/.style={font=\scriptsize}
+]
+
+\node[terminal] (start) {Start (epoch 1)};
+\node[process, below=of start] (trainval) {Train one epoch, then evaluate on the validation set};
+\node[process, below=of trainval] (lrstep) {Step the \texttt{StepLR} schedule};
+\node[decision, below=of lrstep] (improved) {Validation loss improved?};
+\node[process, below left=9mm and -8mm of improved] (savebest) {Save weights as new best checkpoint; reset counter to 0};
+\node[process, below right=9mm and -8mm of improved] (noimprove) {Increment no-improvement counter};
+\node[decision, below=18mm of improved] (stopcheck) {Counter $\geq$ 10, or epoch 100 reached?};
+\node[terminal, below=of stopcheck] (restore) {Restore best checkpoint};
+\node[terminal, below=of restore] (end) {Proceed to testing};
+
+\draw[arr] (start) -- (trainval);
+\draw[arr] (trainval) -- (lrstep);
+\draw[arr] (lrstep) -- (improved);
+\draw[arr] (improved.west) -| node[lbl, pos=0.25, above]{Yes} (savebest.north);
+\draw[arr] (improved.east) -| node[lbl, pos=0.25, above]{No} (noimprove.north);
+\draw[arr] (savebest.south) |- (stopcheck.west);
+\draw[arr] (noimprove.south) |- (stopcheck.east);
+\draw[arr] (stopcheck) -- node[lbl, right]{Yes} (restore);
+\draw[arr] (restore) -- (end);
+
+\draw[arr] (stopcheck.west) -| ++(-3.2,0) |- node[lbl, pos=0.05, above, sloped]{No, next epoch} (trainval.west);
+
+\end{tikzpicture}
+\caption{The training loop used for every architecture: an epoch of training and validation, a scheduler step, a checkpoint decision based on validation loss, and a stopping check repeated every epoch until training ends.}
+\label{fig:training_flow}
+\end{figure}
 
 Inception-v3 is trained with one additional detail: during training only, it produces a second, auxiliary prediction partway through the network, and the loss from this auxiliary output is added to the main loss at a reduced weight of $0.4$. This gives the earlier layers of the network a more direct training signal than would otherwise reach them through such a deep network, and is discarded entirely once training finishes, playing no role in the model's actual predictions at test time.
 
-Finally, a fixed random seed (42) is used throughout, covering not only the dataset shuffling and splitting already described in Chapter~\ref{chap:systemmethods} but also the random initialisation of each architecture's new classifier head, so that a given experiment can be reproduced exactly if re-run.
+The same fixed seed used throughout this project (Section~\ref{sec:exp_hyperparams}) also covers the random initialisation of each architecture's new classifier head, in addition to the dataset shuffling and splitting described in Chapter~\ref{chap:systemmethods}, so that a given experiment can be reproduced exactly if re-run.
 
 
 \section{Experiment 1: Mixed-Facility Baseline}

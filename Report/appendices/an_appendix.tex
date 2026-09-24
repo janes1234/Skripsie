@@ -1,3 +1,263 @@
-\chapter{Appendix title goes here}{}
+\chapter{Hyperparameter Search Trials}{}
 \makeatletter\@mkboth{}{Appendix}\makeatother
-\label{appen:applabel}
+\label{appen:hyperparam_trials}
+
+Section~\ref{sec:exp_hyperparams} describes the Optuna hyperparameter search used for six of the project's architectures. This appendix lists every trial that search ran, so the results in that section can be checked in full without cluttering the main text with 120 rows of trial data. For each architecture, the winning trial (the one whose values were carried forward to training) is shaded.
+
+\section{ResNet-18}
+
+{\footnotesize
+\begin{longtable}{lccccccll}
+\caption{All 20 Optuna trials for ResNet-18, in sampling order. \emph{Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref{sec:exp_hyperparams}). The winning trial is shaded.}
+\label{tab:trials_resnet18} \\
+\toprule
+\textbf{Trial} & \textbf{$H$} & \textbf{$N$} & \textbf{LR} & \textbf{$\beta_1$} & \textbf{Step} & \textbf{Batch} & \textbf{Outcome} & \textbf{Val. acc.} \\
+\midrule
+\endfirsthead
+\multicolumn{9}{c}{\tablename\ \thetable{} -- continued} \\
+\toprule
+\textbf{Trial} & \textbf{$H$} & \textbf{$N$} & \textbf{LR} & \textbf{$\beta_1$} & \textbf{Step} & \textbf{Batch} & \textbf{Outcome} & \textbf{Val. acc.} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{9}{r}{\emph{continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+0 & 1 & 512 & $2.92\times10^{-3}$ & 0.800 & 30 & 16 & Completed & 79.51\% \\
+1 & 2 & 2048 & $1.38\times10^{-3}$ & 0.600 & 23 & 96 & Completed & 85.85\% \\
+2 & 2 & 1024 & $4.34\times10^{-3}$ & 0.629 & 28 & 48 & Completed & 74.63\% \\
+3 & 1 & 2048 & $1.22\times10^{-5}$ & 0.914 & 17 & 64 & Completed & 84.39\% \\
+4 & 1 & 512 & $2.91\times10^{-6}$ & 0.931 & 27 & 96 & Completed & 74.15\% \\
+5 & 2 & 512 & $5.13\times10^{-5}$ & 0.513 & 8 & 48 & Completed & 84.63\% \\
+6 & 2 & 512 & $3.06\times10^{-3}$ & 0.901 & 11 & 32 & Pruned & -- \\
+7 & 1 & 512 & $2.24\times10^{-5}$ & 0.971 & 16 & 32 & Completed & 85.12\% \\
+8 & 2 & 2048 & $9.08\times10^{-6}$ & 0.572 & 22 & 8 & Completed & 84.88\% \\
+9 & 3 & 512 & $2.31\times10^{-4}$ & 0.838 & 5 & 96 & Completed & 87.56\% \\
+10 & 3 & 512 & $1.53\times10^{-5}$ & 0.617 & 33 & 96 & Pruned & -- \\
+\rowcolor{gray!15} 11 & 2 & 2048 & $3.88\times10^{-4}$ & 0.611 & 12 & 96 & Completed & 89.27\% \\
+12 & 3 & 512 & $4.16\times10^{-4}$ & 0.897 & 15 & 96 & Completed & 88.29\% \\
+13 & 3 & 512 & $1.04\times10^{-3}$ & 0.654 & 15 & 96 & Pruned & -- \\
+14 & 2 & 2048 & $4.83\times10^{-3}$ & 0.679 & 11 & 96 & Pruned & -- \\
+15 & 1 & 512 & $5.70\times10^{-4}$ & 0.963 & 16 & 96 & Completed & 88.05\% \\
+16 & 2 & 2048 & $1.35\times10^{-4}$ & 0.900 & 21 & 96 & Completed & 85.85\% \\
+17 & 2 & 2048 & $2.42\times10^{-4}$ & 0.663 & 6 & 96 & Completed & 87.56\% \\
+18 & 3 & 2048 & $2.00\times10^{-4}$ & 0.771 & 14 & 16 & Pruned & -- \\
+19 & 3 & 512 & $1.02\times10^{-3}$ & 0.873 & 24 & 96 & Pruned & -- \\
+\end{longtable}
+}
+
+\section{EfficientNet-B0}
+
+{\footnotesize
+\begin{longtable}{lccccccll}
+\caption{All 20 Optuna trials for EfficientNet-B0, in sampling order. \emph{Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref{sec:exp_hyperparams}). The winning trial is shaded.}
+\label{tab:trials_effnetb0} \\
+\toprule
+\textbf{Trial} & \textbf{$H$} & \textbf{$N$} & \textbf{LR} & \textbf{$\beta_1$} & \textbf{Step} & \textbf{Batch} & \textbf{Outcome} & \textbf{Val. acc.} \\
+\midrule
+\endfirsthead
+\multicolumn{9}{c}{\tablename\ \thetable{} -- continued} \\
+\toprule
+\textbf{Trial} & \textbf{$H$} & \textbf{$N$} & \textbf{LR} & \textbf{$\beta_1$} & \textbf{Step} & \textbf{Batch} & \textbf{Outcome} & \textbf{Val. acc.} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{9}{r}{\emph{continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+0 & 1 & 512 & $2.92\times10^{-3}$ & 0.800 & 30 & 16 & Completed & 81.71\% \\
+1 & 2 & 2048 & $1.38\times10^{-3}$ & 0.600 & 23 & 96 & Completed & 86.34\% \\
+2 & 2 & 1024 & $4.34\times10^{-3}$ & 0.629 & 28 & 48 & Completed & 86.10\% \\
+3 & 1 & 2048 & $1.22\times10^{-5}$ & 0.914 & 17 & 64 & Pruned & -- \\
+4 & 1 & 512 & $2.92\times10^{-3}$ & 0.800 & 30 & 16 & Completed & 81.71\% \\
+5 & 2 & 2048 & $1.38\times10^{-3}$ & 0.600 & 23 & 96 & Completed & 86.34\% \\
+6 & 2 & 1024 & $4.34\times10^{-3}$ & 0.629 & 28 & 48 & Pruned & -- \\
+7 & 1 & 2048 & $1.22\times10^{-5}$ & 0.914 & 17 & 64 & Pruned & -- \\
+8 & 1 & 512 & $2.91\times10^{-6}$ & 0.931 & 27 & 96 & Pruned & -- \\
+9 & 2 & 512 & $5.13\times10^{-5}$ & 0.513 & 8 & 48 & Completed & 83.66\% \\
+10 & 2 & 512 & $3.06\times10^{-3}$ & 0.901 & 11 & 32 & Pruned & -- \\
+11 & 0 & 2048 & $3.63\times10^{-3}$ & 0.715 & 6 & 96 & Completed & 88.29\% \\
+12 & 0 & 2048 & $4.39\times10^{-3}$ & 0.743 & 5 & 96 & Pruned & -- \\
+13 & 0 & 2048 & $4.87\times10^{-4}$ & 0.682 & 15 & 16 & Completed & 88.29\% \\
+14 & 0 & 2048 & $1.40\times10^{-4}$ & 0.626 & 9 & 16 & Pruned & -- \\
+15 & 0 & 2048 & $1.23\times10^{-4}$ & 0.704 & 10 & 24 & Completed & 87.32\% \\
+\rowcolor{gray!15} 16 & 0 & 2048 & $4.89\times10^{-4}$ & 0.857 & 5 & 96 & Completed & 88.54\% \\
+17 & 0 & 2048 & $6.68\times10^{-3}$ & 0.975 & 7 & 96 & Pruned & -- \\
+18 & 0 & 2048 & $7.84\times10^{-4}$ & 0.901 & 8 & 96 & Pruned & -- \\
+19 & 0 & 2048 & $1.23\times10^{-4}$ & 0.841 & 7 & 64 & Pruned & -- \\
+\end{longtable}
+}
+
+\section{DenseNet-121}
+
+{\footnotesize
+\begin{longtable}{lccccccll}
+\caption{All 20 Optuna trials for DenseNet-121, in sampling order. \emph{Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref{sec:exp_hyperparams}). The winning trial is shaded.}
+\label{tab:trials_densenet121} \\
+\toprule
+\textbf{Trial} & \textbf{$H$} & \textbf{$N$} & \textbf{LR} & \textbf{$\beta_1$} & \textbf{Step} & \textbf{Batch} & \textbf{Outcome} & \textbf{Val. acc.} \\
+\midrule
+\endfirsthead
+\multicolumn{9}{c}{\tablename\ \thetable{} -- continued} \\
+\toprule
+\textbf{Trial} & \textbf{$H$} & \textbf{$N$} & \textbf{LR} & \textbf{$\beta_1$} & \textbf{Step} & \textbf{Batch} & \textbf{Outcome} & \textbf{Val. acc.} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{9}{r}{\emph{continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+0 & 1 & 512 & $2.92\times10^{-3}$ & 0.800 & 30 & 16 & Completed & 79.27\% \\
+1 & 2 & 2048 & $1.38\times10^{-3}$ & 0.600 & 23 & 96 & Completed & 87.07\% \\
+2 & 2 & 1024 & $4.34\times10^{-3}$ & 0.629 & 28 & 48 & Completed & 82.20\% \\
+3 & 1 & 2048 & $1.22\times10^{-5}$ & 0.914 & 17 & 64 & Completed & 82.44\% \\
+4 & 1 & 512 & $2.91\times10^{-6}$ & 0.931 & 27 & 96 & Completed & 72.93\% \\
+5 & 2 & 512 & $5.13\times10^{-5}$ & 0.513 & 8 & 48 & Completed & 88.29\% \\
+6 & 2 & 512 & $3.06\times10^{-3}$ & 0.901 & 11 & 32 & Pruned & -- \\
+7 & 1 & 512 & $2.24\times10^{-5}$ & 0.971 & 16 & 32 & Completed & 86.10\% \\
+8 & 2 & 2048 & $9.08\times10^{-6}$ & 0.572 & 22 & 8 & Completed & 88.29\% \\
+9 & 3 & 512 & $2.31\times10^{-4}$ & 0.838 & 5 & 96 & Completed & 88.29\% \\
+10 & 3 & 512 & $1.06\times10^{-5}$ & 0.580 & 33 & 48 & Pruned & -- \\
+11 & 2 & 512 & $4.04\times10^{-5}$ & 0.582 & 5 & 48 & Completed & 85.61\% \\
+12 & 2 & 2048 & $5.26\times10^{-6}$ & 0.588 & 21 & 8 & Pruned & -- \\
+13 & 2 & 512 & $2.87\times10^{-5}$ & 0.727 & 9 & 48 & Completed & 87.80\% \\
+14 & 0 & 2048 & $1.14\times10^{-6}$ & 0.528 & 7 & 8 & Pruned & -- \\
+15 & 2 & 2048 & $6.78\times10^{-5}$ & 0.512 & 27 & 8 & Completed & 87.56\% \\
+16 & 2 & 512 & $2.43\times10^{-5}$ & 0.700 & 25 & 48 & Completed & 85.85\% \\
+17 & 2 & 512 & $3.61\times10^{-4}$ & 0.502 & 21 & 48 & Completed & 87.80\% \\
+18 & 2 & 512 & $3.50\times10^{-4}$ & 0.505 & 5 & 128 & Completed & 88.29\% \\
+\rowcolor{gray!15} 19 & 1 & 512 & $3.44\times10^{-4}$ & 0.597 & 11 & 48 & Completed & 90.24\% \\
+\end{longtable}
+}
+
+\section{ResNet-50}
+
+{\footnotesize
+\begin{longtable}{lccccccll}
+\caption{All 20 Optuna trials for ResNet-50, in sampling order. \emph{Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref{sec:exp_hyperparams}). The winning trial is shaded.}
+\label{tab:trials_resnet50} \\
+\toprule
+\textbf{Trial} & \textbf{$H$} & \textbf{$N$} & \textbf{LR} & \textbf{$\beta_1$} & \textbf{Step} & \textbf{Batch} & \textbf{Outcome} & \textbf{Val. acc.} \\
+\midrule
+\endfirsthead
+\multicolumn{9}{c}{\tablename\ \thetable{} -- continued} \\
+\toprule
+\textbf{Trial} & \textbf{$H$} & \textbf{$N$} & \textbf{LR} & \textbf{$\beta_1$} & \textbf{Step} & \textbf{Batch} & \textbf{Outcome} & \textbf{Val. acc.} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{9}{r}{\emph{continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+0 & 1 & 512 & $2.92\times10^{-3}$ & 0.800 & 30 & 16 & Completed & 82.44\% \\
+1 & 2 & 2048 & $1.38\times10^{-3}$ & 0.600 & 23 & 96 & Completed & 87.07\% \\
+2 & 2 & 1024 & $4.34\times10^{-3}$ & 0.629 & 28 & 48 & Completed & 78.54\% \\
+3 & 1 & 2048 & $1.22\times10^{-5}$ & 0.914 & 17 & 64 & Completed & 81.22\% \\
+4 & 1 & 512 & $2.91\times10^{-6}$ & 0.931 & 27 & 96 & Completed & 70.98\% \\
+5 & 2 & 512 & $5.13\times10^{-5}$ & 0.513 & 8 & 48 & Completed & 83.66\% \\
+6 & 2 & 512 & $3.06\times10^{-3}$ & 0.901 & 11 & 32 & Pruned & -- \\
+7 & 1 & 512 & $2.24\times10^{-5}$ & 0.971 & 16 & 32 & Completed & 85.37\% \\
+8 & 2 & 2048 & $9.08\times10^{-6}$ & 0.572 & 22 & 8 & Pruned & -- \\
+9 & 3 & 512 & $2.31\times10^{-4}$ & 0.838 & 5 & 96 & Completed & 78.05\% \\
+10 & 2 & 2048 & $6.20\times10^{-3}$ & 0.629 & 14 & 96 & Pruned & -- \\
+\rowcolor{gray!15} 11 & 2 & 2048 & $3.77\times10^{-4}$ & 0.875 & 17 & 96 & Completed & 89.02\% \\
+12 & 0 & 2048 & $3.46\times10^{-4}$ & 0.788 & 25 & 96 & Completed & 86.10\% \\
+13 & 2 & 2048 & $4.25\times10^{-4}$ & 0.925 & 17 & 96 & Completed & 87.32\% \\
+14 & 2 & 2048 & $1.21\times10^{-3}$ & 0.891 & 17 & 96 & Pruned & -- \\
+15 & 2 & 2048 & $5.07\times10^{-4}$ & 0.745 & 11 & 24 & Completed & 88.54\% \\
+16 & 3 & 2048 & $2.50\times10^{-3}$ & 0.717 & 14 & 24 & Pruned & -- \\
+17 & 2 & 512 & $6.73\times10^{-4}$ & 0.778 & 24 & 32 & Completed & 84.63\% \\
+18 & 2 & 2048 & $2.35\times10^{-4}$ & 0.728 & 11 & 16 & Completed & 87.80\% \\
+19 & 1 & 2048 & $5.91\times10^{-4}$ & 0.910 & 30 & 96 & Completed & 86.34\% \\
+\end{longtable}
+}
+
+\section{ConvNeXt-Tiny}
+
+{\footnotesize
+\begin{longtable}{lccccccll}
+\caption{All 20 Optuna trials for ConvNeXt-Tiny, in sampling order. \emph{Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref{sec:exp_hyperparams}). The winning trial is shaded.}
+\label{tab:trials_convnext} \\
+\toprule
+\textbf{Trial} & \textbf{$H$} & \textbf{$N$} & \textbf{LR} & \textbf{$\beta_1$} & \textbf{Step} & \textbf{Batch} & \textbf{Outcome} & \textbf{Val. acc.} \\
+\midrule
+\endfirsthead
+\multicolumn{9}{c}{\tablename\ \thetable{} -- continued} \\
+\toprule
+\textbf{Trial} & \textbf{$H$} & \textbf{$N$} & \textbf{LR} & \textbf{$\beta_1$} & \textbf{Step} & \textbf{Batch} & \textbf{Outcome} & \textbf{Val. acc.} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{9}{r}{\emph{continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+0 & 1 & 512 & $2.92\times10^{-3}$ & 0.800 & 30 & 16 & Completed & 42.93\% \\
+1 & 2 & 2048 & $1.38\times10^{-3}$ & 0.600 & 23 & 96 & Completed & 50.00\% \\
+2 & 2 & 1024 & $4.34\times10^{-3}$ & 0.629 & 28 & 48 & Completed & 42.93\% \\
+3 & 1 & 2048 & $1.22\times10^{-5}$ & 0.914 & 17 & 64 & Completed & 89.76\% \\
+4 & 1 & 512 & $2.91\times10^{-6}$ & 0.931 & 27 & 96 & Pruned & -- \\
+5 & 1 & 512 & $2.92\times10^{-3}$ & 0.800 & 30 & 16 & Completed & 42.93\% \\
+6 & 2 & 2048 & $1.38\times10^{-3}$ & 0.600 & 23 & 96 & Completed & 40.49\% \\
+7 & 2 & 1024 & $4.34\times10^{-3}$ & 0.629 & 28 & 48 & Pruned & -- \\
+8 & 1 & 2048 & $1.22\times10^{-5}$ & 0.914 & 17 & 64 & Completed & 89.02\% \\
+9 & 1 & 512 & $2.91\times10^{-6}$ & 0.931 & 27 & 96 & Pruned & -- \\
+10 & 2 & 512 & $5.13\times10^{-5}$ & 0.513 & 8 & 48 & Completed & 89.27\% \\
+11 & 3 & 2048 & $8.31\times10^{-6}$ & 0.618 & 33 & 64 & Pruned & -- \\
+12 & 2 & 512 & $4.27\times10^{-4}$ & 0.647 & 11 & 48 & Completed & 88.78\% \\
+13 & 2 & 2048 & $4.94\times10^{-6}$ & 0.529 & 13 & 128 & Pruned & -- \\
+14 & 0 & 512 & $2.24\times10^{-6}$ & 0.528 & 21 & 48 & Pruned & -- \\
+15 & 2 & 512 & $8.07\times10^{-5}$ & 0.663 & 5 & 8 & Completed & 89.27\% \\
+16 & 3 & 512 & $4.95\times10^{-5}$ & 0.504 & 14 & 48 & Completed & 89.02\% \\
+\rowcolor{gray!15} 17 & 1 & 2048 & $5.65\times10^{-5}$ & 0.560 & 21 & 128 & Completed & 90.73\% \\
+18 & 1 & 2048 & $1.07\times10^{-4}$ & 0.508 & 23 & 48 & Completed & 89.76\% \\
+19 & 1 & 512 & $2.11\times10^{-5}$ & 0.699 & 26 & 128 & Pruned & -- \\
+\end{longtable}
+}
+
+\section{Inception-v3}
+
+{\footnotesize
+\begin{longtable}{lccccccll}
+\caption{All 20 Optuna trials for Inception-v3, in sampling order. \emph{Pruned} covers both trials stopped early by the MedianPruner and the small number cut short by a GPU driver fault (see Section~\ref{sec:exp_hyperparams}). The winning trial is shaded.}
+\label{tab:trials_inceptionv3} \\
+\toprule
+\textbf{Trial} & \textbf{$H$} & \textbf{$N$} & \textbf{LR} & \textbf{$\beta_1$} & \textbf{Step} & \textbf{Batch} & \textbf{Outcome} & \textbf{Val. acc.} \\
+\midrule
+\endfirsthead
+\multicolumn{9}{c}{\tablename\ \thetable{} -- continued} \\
+\toprule
+\textbf{Trial} & \textbf{$H$} & \textbf{$N$} & \textbf{LR} & \textbf{$\beta_1$} & \textbf{Step} & \textbf{Batch} & \textbf{Outcome} & \textbf{Val. acc.} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{9}{r}{\emph{continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+0 & 1 & 512 & $2.92\times10^{-3}$ & 0.800 & 30 & 16 & Completed & 80.49\% \\
+\rowcolor{gray!15} 1 & 2 & 2048 & $1.38\times10^{-3}$ & 0.600 & 23 & 96 & Completed & 89.51\% \\
+2 & 2 & 1024 & $4.34\times10^{-3}$ & 0.629 & 28 & 48 & Completed & 48.78\% \\
+3 & 1 & 2048 & $1.22\times10^{-5}$ & 0.914 & 17 & 64 & Completed & 83.41\% \\
+4 & 1 & 512 & $2.91\times10^{-6}$ & 0.931 & 27 & 96 & Completed & 68.78\% \\
+5 & 2 & 512 & $5.13\times10^{-5}$ & 0.513 & 8 & 48 & Completed & 85.61\% \\
+6 & 2 & 512 & $3.06\times10^{-3}$ & 0.901 & 11 & 32 & Pruned & -- \\
+7 & 1 & 512 & $2.24\times10^{-5}$ & 0.971 & 16 & 32 & Completed & 85.61\% \\
+8 & 2 & 2048 & $9.08\times10^{-6}$ & 0.572 & 22 & 8 & Completed & 85.85\% \\
+9 & 3 & 512 & $2.31\times10^{-4}$ & 0.838 & 5 & 96 & Completed & 88.29\% \\
+10 & 2 & 2048 & $6.20\times10^{-3}$ & 0.629 & 14 & 96 & Pruned & -- \\
+11 & 2 & 2048 & $2.55\times10^{-4}$ & 0.877 & 6 & 96 & Completed & 86.59\% \\
+12 & 3 & 512 & $2.74\times10^{-4}$ & 0.954 & 17 & 96 & Completed & 85.12\% \\
+13 & 2 & 2048 & $4.06\times10^{-4}$ & 0.605 & 23 & 96 & Completed & 85.37\% \\
+14 & 3 & 512 & $7.80\times10^{-4}$ & 0.804 & 15 & 96 & Pruned & -- \\
+15 & 3 & 512 & $1.36\times10^{-5}$ & 0.629 & 22 & 96 & Pruned & -- \\
+16 & 2 & 2048 & $3.63\times10^{-4}$ & 0.877 & 33 & 96 & Completed & 85.12\% \\
+17 & 1 & 2048 & $1.69\times10^{-3}$ & 0.758 & 40 & 96 & Pruned & -- \\
+18 & 2 & 2048 & $3.20\times10^{-3}$ & 0.512 & 6 & 128 & Pruned & -- \\
+19 & 3 & 512 & $1.08\times10^{-5}$ & 0.890 & 8 & 96 & Pruned & -- \\
+\end{longtable}
+}
