@@ -13,6 +13,7 @@ even that are reported explicitly at the end so you know which classes
 have thin evaluation coverage.
 """
 
+import argparse
 import shutil
 import random
 from pathlib import Path
@@ -88,6 +89,14 @@ def split_group(images, min_size_for_guarantee=MIN_GROUP_SIZE_FOR_GUARANTEE):
 
 
 def main():
+    global OUTPUT_ROOT
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--output", default=str(OUTPUT_ROOT),
+                        help=f"Output folder (default: {OUTPUT_ROOT}). wwtw_utils names the test "
+                             "set after the part of the folder name after the last '-', so e.g. "
+                             "../cnn_dataset_split-stratified gives results_*_stratified.pkl")
+    OUTPUT_ROOT = Path(parser.parse_args().output)
+
     # Set the random seed to ensure consistent splits across runs
     random.seed(RANDOM_SEED)
     

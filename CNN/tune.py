@@ -65,7 +65,19 @@ from wwtw_utils import (
     build_classifier_head, train_model,
 )
 
-RESULTS_JSON = Path("tuned_hyperparams.json")
+COMPONENT = os.environ["COMPONENT"]
+
+# Clarifier results/studies keep their original names; any other component
+# gets its own json and its own Optuna study names, so e.g. aerobic_zone
+# tuning never resumes from (or overwrites) the clarifier studies stored in
+# the same optuna_tuning.db.
+RESULTS_JSON = Path("tuned_hyperparams.json" if COMPONENT == "clarifier"
+                    else f"tuned_hyperparams_{COMPONENT}.json")
+STUDY_PREFIX = "" if COMPONENT == "clarifier" else f"{COMPONENT}_"
+
+# Optional one-line-per-trial summary for pipeline_progress.log (set via
+# --progress-log); the verbose per-epoch output still goes to stdout.
+PROGRESS_LOG = None
 
 # Cheapest/fastest architectures first, so partial progress (and the log)
 # is useful even if this gets interrupted partway through.
@@ -89,6 +101,12 @@ STEP_SIZE_BOUNDS = (5, 40)
 
 def log(msg: str):
     print(f"[{time.strftime('%H:%M:%S')}] {msg}", flush=True)
+
+
+def progress(msg: str):
+    if PROGRESS_LOG is not None:
+        with open(PROGRESS_LOG, "a") as f:
+            f.write(f"[{time.strftime('%Y-%m-%d %H:%M')}] {msg}\n")
 
 
 def build_model(arch: str, hidden_layers: int, neurons: int):
@@ -135,7 +153,7 @@ def build_model(arch: str, hidden_layers: int, neurons: int):
     return m.to(device), is_inception
 
 
-def make_objective(arch: str):
+def make_objective(arch: str, n_trials: int):
     img_size = IMG_SIZE[arch]
 
     def objective(trial: optuna.Trial) -> float:
@@ -165,6 +183,7 @@ def make_objective(arch: str):
         scheduler = StepLR(optimizer, step_size=step_size, gamma=0.1)
 
         best = {"acc": 0.0, "loss": float("inf")}
+        trial_t0 = time.time()
 
         def epoch_cb(epoch, val_loss, val_acc):
             if val_loss < best["loss"]:
@@ -181,6 +200,10 @@ def make_objective(arch: str):
                 is_inception=is_inception, accum_steps=accum_steps,
                 epoch_callback=epoch_cb,
             )
+        except optuna.TrialPruned:
+            progress(f"      tuning {arch}: trial {trial.number + 1}/{n_trials} pruned after "
+                     f"{(time.time() - trial_t0) / 60:.1f} min")
+            raise
         finally:
             del model, optimizer, scheduler, criterion
             del train_loader_arch, val_loader_arch, train_ds_arch, val_ds_arch
@@ -190,6 +213,8 @@ def make_objective(arch: str):
 
         log(f"[{arch}] trial {trial.number} finished: best val_acc={best['acc']:.4f} "
             f"(at val_loss={best['loss']:.4f})")
+        progress(f"      tuning {arch}: trial {trial.number + 1}/{n_trials} done in "
+                 f"{(time.time() - trial_t0) / 60:.1f} min")
         return best["acc"]
 
     return objective
@@ -218,7 +243,7 @@ def tune_architecture(arch: str, n_trials: int):
     pruner = MedianPruner(n_startup_trials=5, n_warmup_steps=5, interval_steps=1)
     study = optuna.create_study(
         direction="maximize", sampler=sampler, pruner=pruner,
-        study_name=f"{arch}_tune", storage=STORAGE, load_if_exists=True,
+        study_name=f"{STUDY_PREFIX}{arch}_tune", storage=STORAGE, load_if_exists=True,
     )
 
     # A trial that was RUNNING when a prior process died is stuck in that
@@ -240,7 +265,7 @@ def tune_architecture(arch: str, n_trials: int):
     log(f"=== {arch}: {already_run}/{n_trials} trials already recorded, {remaining} remaining, "
         f"img_size={IMG_SIZE[arch]} ===")
     if remaining > 0:
-        study.optimize(make_objective(arch), n_trials=remaining)
+        study.optimize(make_objective(arch, n_trials), n_trials=remaining)
 
     best = study.best_trial
     n_pruned = sum(1 for t in study.trials if t.state == optuna.trial.TrialState.PRUNED)
@@ -263,7 +288,12 @@ def main():
                          help="Tune all 6 architectures (everything except alexnet)")
     parser.add_argument("--n-trials", type=int, default=20,
                          help="Optuna trials per architecture (default: 20)")
+    parser.add_argument("--progress-log", default=None,
+                         help="Also append a one-line summary per trial to this file")
     args = parser.parse_args()
+
+    global PROGRESS_LOG
+    PROGRESS_LOG = args.progress_log
 
     if not args.arch and not args.all:
         parser.error("Pass --arch <name> or --all")

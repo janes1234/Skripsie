@@ -72,9 +72,12 @@ scheduler = StepLR(optimizer, step_size=cfg["step_size"], gamma=0.1)
 # In[ ]:
 
 
+# No early stopping (patience=None): from random init AlexNet can sit on a
+# ~ln(4) loss plateau for many epochs before it starts learning, and noisy
+# val loss during that plateau made early stopping quit too soon.
 history = train_model(
     model, train_loader_arch, val_loader_arch, optimizer, scheduler,
-    criterion, EPOCHS, EARLY_STOP_PATIENCE, "AlexNet", is_inception=False,
+    criterion, EPOCHS, None, "AlexNet", is_inception=False,
     accum_steps=accum_steps,
 )
 plot_training_curves(history, "AlexNet")

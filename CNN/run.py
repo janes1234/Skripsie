@@ -84,6 +84,14 @@ TRAIN_NOTEBOOKS = {
 
 # Matches ALL_FACILITIES in split_dataset_facility.py.
 ALL_FACILITIES = ["Atlantis", "CapeFlats", "Waterval", "Fisantekraal", "NoordelikeWerke"]
+# Only these three facilities have aerobic zone labels.
+AEROBIC_FACILITIES = ["Atlantis", "CapeFlats", "Waterval"]
+
+# The stratified (non-leave-one-out) 70/20/10 split, from
+# `python split_dataset.py --output ../cnn_dataset_split-stratified`. Its
+# results get "stratified" in place of a held-out facility name.
+STRATIFIED_ID = "stratified"
+STRATIFIED_ROOT = "../cnn_dataset_split-stratified"
 
 RESULTS_DIR = Path("../results")
 GENERATED_SCRIPTS_DIR = Path("./generated_scripts")
@@ -163,9 +171,16 @@ def check_prerequisites(kernel_name: str):
         sys.exit(1)
 
 
-def results_pkl_path(component: str, save_name: str, facility: str) -> Path:
+def dataset_root_for(facility: str) -> str:
+    if facility == STRATIFIED_ID:
+        return STRATIFIED_ROOT
+    return f"../cnn_dataset_split_facility_test-{facility}"
+
+
+def results_pkl_path(component: str, save_name: str, facility: str,
+                     results_dir: Path = RESULTS_DIR) -> Path:
     # Must match the naming save_result() in wwtw_utils.py writes.
-    return RESULTS_DIR / f"results_{component}_{save_name}_{facility}.pkl"
+    return Path(results_dir) / f"results_{component}_{save_name}_{facility}.pkl"
 
 
 def export_script(notebook_path: Path, save_name: str) -> Path:
@@ -189,13 +204,19 @@ def export_script(notebook_path: Path, save_name: str) -> Path:
 
 
 def run_one(component: str, save_name: str, notebook_name: str, facility: str,
-            kernel_name: str, dry_run: bool) -> tuple[bool, str]:
-    """Runs one (architecture, facility) combination. Returns (success, message)."""
+            kernel_name: str, dry_run: bool, results_dir: Path = RESULTS_DIR,
+            augment: bool = True) -> tuple[bool, str]:
+    """Runs one (architecture, facility) combination. `facility` is the
+    held-out facility, or STRATIFIED_ID for the stratified split. Results,
+    figures and logs go to results_dir; executed notebooks to a subfolder of
+    EXECUTED_NOTEBOOKS_DIR named after it (unless it's the default
+    ../results). Returns (success, message)."""
     notebook_path = Path(notebook_name)
     if not notebook_path.exists():
         return False, f"notebook not found: {notebook_path}"
 
-    dataset_root = f"../cnn_dataset_split_facility_test-{facility}"
+    results_dir = Path(results_dir)
+    dataset_root = dataset_root_for(facility)
     if not Path(dataset_root).exists():
         return False, (
             f"dataset split not found: {dataset_root} "
@@ -207,14 +228,20 @@ def run_one(component: str, save_name: str, notebook_name: str, facility: str,
 
     export_script(notebook_path, save_name)  # saved artifact, see module docstring
 
-    EXECUTED_NOTEBOOKS_DIR.mkdir(parents=True, exist_ok=True)
-    LOGS_DIR.mkdir(parents=True, exist_ok=True)
-    executed_path = EXECUTED_NOTEBOOKS_DIR / f"{component}_{save_name}_{facility}.ipynb"
-    log_path = LOGS_DIR / f"{component}_{save_name}_{facility}.log"
+    executed_dir = EXECUTED_NOTEBOOKS_DIR
+    if results_dir.resolve() != RESULTS_DIR.resolve():
+        executed_dir = EXECUTED_NOTEBOOKS_DIR / results_dir.name
+    logs_dir = results_dir / "logs"
+    executed_dir.mkdir(parents=True, exist_ok=True)
+    logs_dir.mkdir(parents=True, exist_ok=True)
+    executed_path = executed_dir / f"{component}_{save_name}_{facility}.ipynb"
+    log_path = logs_dir / f"{component}_{save_name}_{facility}.log"
 
     env = os.environ.copy()
     env["DATASET_ROOT"] = dataset_root
     env["COMPONENT"] = component
+    env["RESULTS_DIR"] = str(results_dir)
+    env["AUGMENT"] = "1" if augment else "0"
 
     cmd = [
         "jupyter", "nbconvert",
@@ -234,7 +261,7 @@ def run_one(component: str, save_name: str, notebook_name: str, facility: str,
     if proc.returncode != 0:
         return False, f"FAILED after {elapsed/60:.1f} min -- see {log_path}"
 
-    expected_pkl = results_pkl_path(component, save_name, facility)
+    expected_pkl = results_pkl_path(component, save_name, facility, results_dir)
     if not expected_pkl.exists():
         return False, (
             f"notebook finished but {expected_pkl} was never written -- "
@@ -252,6 +279,13 @@ def main():
                          help=f"Comma-separated save_names to run (default: all). Choices: {', '.join(TRAIN_NOTEBOOKS)}")
     parser.add_argument("--facilities", default=None,
                          help=f"Comma-separated facilities to hold out (default: all). Choices: {', '.join(ALL_FACILITIES)}")
+    parser.add_argument("--split", default="lofo", choices=["lofo", "stratified"],
+                         help="lofo = leave-one-facility-out folds (default); stratified = the single "
+                              f"70/20/10 split in {STRATIFIED_ROOT}")
+    parser.add_argument("--results-dir", default=str(RESULTS_DIR),
+                         help=f"Where results/figures/logs go (default: {RESULTS_DIR})")
+    parser.add_argument("--no-augment", action="store_true",
+                         help="Train without any train-time augmentation")
     parser.add_argument("--kernel-name", default="python3",
                          help="Jupyter kernel name to execute notebooks with (default: python3)")
     parser.add_argument("--force", action="store_true",
@@ -263,12 +297,15 @@ def main():
     check_prerequisites(args.kernel_name)
 
     models = args.models.split(",") if args.models else list(TRAIN_NOTEBOOKS)
-    facilities = args.facilities.split(",") if args.facilities else list(ALL_FACILITIES)
+    default_facilities = AEROBIC_FACILITIES if args.component == "aerobic_zone" else ALL_FACILITIES
+    facilities = args.facilities.split(",") if args.facilities else list(default_facilities)
+    if args.split == "stratified":
+        facilities = [STRATIFIED_ID]
 
     unknown_models = [m for m in models if m not in TRAIN_NOTEBOOKS]
     if unknown_models:
         parser.error(f"Unknown model(s): {unknown_models}. Choices: {list(TRAIN_NOTEBOOKS)}")
-    unknown_facilities = [f for f in facilities if f not in ALL_FACILITIES]
+    unknown_facilities = [f for f in facilities if f not in ALL_FACILITIES + [STRATIFIED_ID]]
     if unknown_facilities:
         parser.error(f"Unknown facility(ies): {unknown_facilities}. Choices: {ALL_FACILITIES}")
 
@@ -281,7 +318,7 @@ def main():
     summary = []
     for i, (save_name, facility) in enumerate(combinations, start=1):
         notebook_name = TRAIN_NOTEBOOKS[save_name]
-        pkl_path = results_pkl_path(args.component, save_name, facility)
+        pkl_path = results_pkl_path(args.component, save_name, facility, args.results_dir)
 
         print(f"[{i}/{len(combinations)}] {save_name} | held-out facility: {facility}")
 
@@ -292,7 +329,7 @@ def main():
 
         success, message = run_one(
             args.component, save_name, notebook_name, facility,
-            args.kernel_name, args.dry_run,
+            args.kernel_name, args.dry_run, args.results_dir, not args.no_augment,
         )
         print(f"    {'OK' if success else 'FAILED'}: {message}")
         summary.append((save_name, facility, "ok" if success else "failed"))

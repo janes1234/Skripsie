@@ -67,8 +67,16 @@ EPOCHS = 100
 EARLY_STOP_PATIENCE = 10   # stop if val loss hasn't improved for this many epochs
 SEED = 42
 
+# AUGMENT=0 turns off every train-time augmentation (flip/rotation/color
+# jitter), so train images get exactly the same resize+normalize as val/test.
+# Used for the with-vs-without augmentation comparison; default is on.
+AUGMENT = os.environ.get("AUGMENT", "1") != "0"
+
 MODEL_SAVE_PATH = Path(f"../models/{COMPONENT}_cnn.pt")
-RESULTS_DIR = Path("../results")   # where per-model results_*.pkl files are written
+# where per-model results_*.pkl files are written -- override with the
+# RESULTS_DIR env var so separate experiments (e.g. aerobic zones with and
+# without augmentation) don't overwrite each other's results.
+RESULTS_DIR = Path(os.environ.get("RESULTS_DIR", "../results"))
 FIGURES_DIR = RESULTS_DIR / "figures"   # where every plot below also gets saved as a PNG
 
 
@@ -116,6 +124,29 @@ data_dir = DATASET_ROOT / COMPONENT
 assert data_dir.exists(), f"Dataset folder not found: {data_dir}. Run prepare_cnn_dataset.py first."
 
 torch.manual_seed(SEED)
+print(f"Train-time augmentation: {'on' if AUGMENT else 'off'}")
+
+
+class _EmptyImageFolder(torch.utils.data.Dataset):
+    """Stand-in for an ImageFolder split that has no images at all, e.g. the
+    aerobic_zone test split when NoordelikeWerke (which has no aerobic zones)
+    is the held-out facility, as it is for tuning. Only train/val are used
+    then, so an empty test set is fine."""
+    def __init__(self):
+        self.samples, self.targets, self.class_to_idx, self.classes = [], [], {}, []
+
+    def __len__(self):
+        return 0
+
+    def __getitem__(self, idx):
+        raise IndexError(idx)
+
+
+def load_image_folder(root, transform):
+    if not Path(root).is_dir():
+        print(f"[warn] {root} does not exist -- using an empty split.")
+        return _EmptyImageFolder()
+    return datasets.ImageFolder(root=root, transform=transform)
 
 
 def align_dataset_to_classes(ds, class_to_idx):
@@ -166,10 +197,12 @@ def align_dataset_to_classes(ds, class_to_idx):
 
 train_transform = transforms.Compose([
     transforms.Resize(IMG_TARGET_SIZE),
-    transforms.RandomHorizontalFlip(),
-    transforms.RandomRotation(15),
-    # Aggressive color jitter to stop it from memorizing water color or sun glare
-    transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.3, hue=0.1),
+    *([
+        transforms.RandomHorizontalFlip(),
+        transforms.RandomRotation(15),
+        # Aggressive color jitter to stop it from memorizing water color or sun glare
+        transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.3, hue=0.1),
+    ] if AUGMENT else []),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406],
                           std=[0.229, 0.224, 0.225]),
@@ -185,7 +218,7 @@ eval_transform = transforms.Compose([
 # Load explicitly from the predefined split folders
 train_ds = datasets.ImageFolder(root=data_dir / "train", transform=train_transform)
 val_ds = datasets.ImageFolder(root=data_dir / "val", transform=eval_transform)
-test_ds = datasets.ImageFolder(root=data_dir / "test", transform=eval_transform)
+test_ds = load_image_folder(data_dir / "test", eval_transform)
 
 # Canonical class_to_idx for the whole notebook, always taken from train_ds
 # -- train pools every non-held-out facility, so it's by far the split most
@@ -281,10 +314,12 @@ def get_dataloaders(img_size, batch_size):
     image size (InceptionNet v3 needs 299x299) and its own tuned batch size."""
     train_tf = transforms.Compose([
         transforms.Resize(img_size),
-        transforms.RandomHorizontalFlip(),
-        transforms.RandomRotation(15),
-        # Aggressive color jitter to stop it from memorizing water color or sun glare
-        transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.3, hue=0.1),
+        *([
+            transforms.RandomHorizontalFlip(),
+            transforms.RandomRotation(15),
+            # Aggressive color jitter to stop it from memorizing water color or sun glare
+            transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.3, hue=0.1),
+        ] if AUGMENT else []),
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.485, 0.456, 0.406],
                               std=[0.229, 0.224, 0.225]),
@@ -298,7 +333,7 @@ def get_dataloaders(img_size, batch_size):
 
     tr_ds = datasets.ImageFolder(root=data_dir / "train", transform=train_tf)
     va_ds = datasets.ImageFolder(root=data_dir / "val", transform=eval_tf)
-    te_ds = datasets.ImageFolder(root=data_dir / "test", transform=eval_tf)
+    te_ds = load_image_folder(data_dir / "test", eval_tf)
 
     # Force every split built here onto the SAME canonical class_to_idx as
     # the module-level train_ds/val_ds/test_ds, so this architecture's own
@@ -309,7 +344,11 @@ def get_dataloaders(img_size, batch_size):
     align_dataset_to_classes(va_ds, class_to_idx)
     align_dataset_to_classes(te_ds, class_to_idx)
 
-    tr_loader = DataLoader(tr_ds, batch_size=batch_size, shuffle=True, num_workers=4, pin_memory=True)
+    # A final training batch of exactly 1 image crashes BatchNorm layers that
+    # see a 1x1 feature map (InceptionNet v3's aux classifier: "Expected more
+    # than 1 value per channel when training"), so drop it in that case only.
+    tr_loader = DataLoader(tr_ds, batch_size=batch_size, shuffle=True, num_workers=4, pin_memory=True,
+                           drop_last=(len(tr_ds) % batch_size == 1))
     va_loader = DataLoader(va_ds, batch_size=batch_size, shuffle=False, num_workers=4, pin_memory=True)
     te_loader = DataLoader(te_ds, batch_size=batch_size, shuffle=False, num_workers=4, pin_memory=True)
     return tr_ds, va_ds, te_ds, tr_loader, va_loader, te_loader
@@ -389,7 +428,8 @@ def train_model(model, train_loader, val_loader, optimizer, scheduler, criterion
     """Training loop with early stopping on validation loss: track val loss
     each epoch, keep the best-performing weights in memory, stop once val
     loss hasn't improved for `patience` epochs, then restore the best
-    checkpoint.
+    checkpoint. patience=None disables early stopping (always runs all
+    `epochs`), but the best-val-loss checkpoint is still restored at the end.
 
     test_loader is optional and purely diagnostic: if given, test loss/acc
     get computed and logged every epoch too, purely so plot_training_curves
@@ -460,7 +500,7 @@ def train_model(model, train_loader, val_loader, optimizer, scheduler, criterion
         if epoch_callback is not None:
             epoch_callback(epoch, val_loss, val_acc)
 
-        if epochs_no_improve >= patience:
+        if patience is not None and epochs_no_improve >= patience:
             print(f"\n[{model_name}] No val loss improvement for {patience} epochs — stopping early at epoch {epoch}.")
             break
 
@@ -736,7 +776,7 @@ def save_result(model_key, save_name):
 # (linear head, hardcoded LR, its own ReduceLROnPlateau schedule, its own
 # dataloaders) -- there's no architectural reason it had to stay that way,
 # so it's tuned like every other backbone here now.
-TUNED_ARCH_HYPERPARAMS = {
+_CLARIFIER_TUNED_ARCH_HYPERPARAMS = {
     "resnet18": dict(
         hidden_layers=2, neurons=2048,
         lr=3.878507329493426e-04, beta1=0.6107516885033067, step_size=12, batch_size=96,
@@ -772,6 +812,34 @@ TUNED_ARCH_HYPERPARAMS = {
     ),
 }
 
+
+def _load_tuned_hyperparams(json_path):
+    """Reads a tune.py results json into the same dict shape as
+    _CLARIFIER_TUNED_ARCH_HYPERPARAMS above (dropping the val_acc record)."""
+    import json
+    raw = json.loads(Path(json_path).read_text())
+    return {
+        arch: dict(
+            hidden_layers=r["hidden_layers"], neurons=r["neurons"], lr=r["lr"],
+            beta1=r["beta1"], step_size=r["step_size"], batch_size=r["batch_size"],
+            img_size=tuple(r["img_size"]),
+        )
+        for arch, r in raw.items()
+    }
+
+
+# Clarifiers use the hardcoded values above. Aerobic zones were tuned
+# separately by tune.py (COMPONENT=aerobic_zone, same NoordelikeWerke-held-out
+# split -- NoordelikeWerke has no aerobic zones, so that means train/val from
+# all three aerobic facilities), recorded in tuned_hyperparams_aerobic_zone.json.
+if COMPONENT == "clarifier":
+    TUNED_ARCH_HYPERPARAMS = _CLARIFIER_TUNED_ARCH_HYPERPARAMS
+else:
+    _tuned_json = Path(__file__).resolve().parent / f"tuned_hyperparams_{COMPONENT}.json"
+    TUNED_ARCH_HYPERPARAMS = _load_tuned_hyperparams(_tuned_json) if _tuned_json.exists() else {}
+    if not TUNED_ARCH_HYPERPARAMS:
+        print(f"[warn] {_tuned_json.name} not found -- no tuned hyperparameters for {COMPONENT} yet.")
+
 # A single, uniform "no tuning" recipe applied identically to all 6 tuned
 # architectures -- deliberately NOT hand-picked per architecture (that would
 # still be a mild form of expert tuning), so this isolates the effect of
@@ -784,22 +852,23 @@ NO_TUNING_ARCH_HYPERPARAMS = {
     arch: dict(
         hidden_layers=3, neurons=1024,
         lr=1e-4, beta1=0.9, step_size=15, batch_size=32,
-        img_size=TUNED_ARCH_HYPERPARAMS[arch]["img_size"],
+        img_size=_CLARIFIER_TUNED_ARCH_HYPERPARAMS[arch]["img_size"] if arch == "inception_v3" else IMG_TARGET_SIZE,
     )
-    for arch in TUNED_ARCH_HYPERPARAMS
+    for arch in _CLARIFIER_TUNED_ARCH_HYPERPARAMS
 }
 
 # AlexNet is trained from scratch (no ImageNet pretraining, see
 # train_alexnet.ipynb) rather than fine-tuned, so it isn't really comparable
 # to the tuned/hand-picked values above -- these are just sensible defaults
-# for training a small CNN from random init: a higher LR than the
-# fine-tuned architectures since there are no pretrained features to
-# preserve, otherwise following the same hand-picked pattern as the
-# no-tuning recipe above. Not part of the tuned-vs-untuned ablation --
-# alexnet is intentionally left out of it and always uses this same dict.
+# for training a small CNN from random init. Not part of the
+# tuned-vs-untuned ablation -- alexnet is intentionally left out of it and
+# always uses this same dict. An earlier lr=1e-3 with 3 extra hidden layers
+# regularly collapsed to predicting a single class (loss stuck at ~ln(4)),
+# so it uses lr=1e-4 and only swaps AlexNet's final Linear layer
+# (hidden_layers=0; neurons is then unused).
 ALEXNET_HYPERPARAMS = dict(
-    hidden_layers=3, neurons=1024,
-    lr=1e-3, beta1=0.9, step_size=15, batch_size=32,
+    hidden_layers=0, neurons=1024,
+    lr=1e-4, beta1=0.9, step_size=15, batch_size=32,
     img_size=IMG_TARGET_SIZE,
 )
 

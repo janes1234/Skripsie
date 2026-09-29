@@ -148,3 +148,43 @@ Total combinations: 35
 === Run summary ===
 OK: 35  Skipped: 0  Failed: 0  Total: 35
 [12:16:22] === run_retrain_with_retries: all combinations succeeded ===
+[09:26:48] === run_retrain_with_retries: attempt 1/10 (force=--force) ===
+Component: clarifier
+Models (1): ['alexnet']
+Facilities (5): ['Atlantis', 'CapeFlats', 'Waterval', 'Fisantekraal', 'NoordelikeWerke']
+Total combinations: 5
+
+[1/5] alexnet | held-out facility: Atlantis
+    OK: OK in 17.8 min -- ../results/results_clarifier_alexnet_Atlantis.pkl
+[2/5] alexnet | held-out facility: CapeFlats
+    OK: OK in 7.5 min -- ../results/results_clarifier_alexnet_CapeFlats.pkl
+[3/5] alexnet | held-out facility: Waterval
+    OK: OK in 16.7 min -- ../results/results_clarifier_alexnet_Waterval.pkl
+[4/5] alexnet | held-out facility: Fisantekraal
+    OK: OK in 17.2 min -- ../results/results_clarifier_alexnet_Fisantekraal.pkl
+[5/5] alexnet | held-out facility: NoordelikeWerke
+    OK: OK in 17.3 min -- ../results/results_clarifier_alexnet_NoordelikeWerke.pkl
+
+=== Run summary ===
+OK: 5  Skipped: 0  Failed: 0  Total: 5
+[10:43:25] === run_retrain_with_retries: all combinations succeeded ===
+[11:13:56] === run_retrain_with_retries: attempt 1/10 (force=--force) ===
+Component: clarifier
+Models (1): ['alexnet']
+Facilities (5): ['Atlantis', 'CapeFlats', 'Waterval', 'Fisantekraal', 'NoordelikeWerke']
+Total combinations: 5
+
+[1/5] alexnet | held-out facility: Atlantis
+    OK: OK in 17.6 min -- ../results/results_clarifier_alexnet_Atlantis.pkl
+[2/5] alexnet | held-out facility: CapeFlats
+    OK: OK in 7.7 min -- ../results/results_clarifier_alexnet_CapeFlats.pkl
+[3/5] alexnet | held-out facility: Waterval
+    OK: OK in 17.4 min -- ../results/results_clarifier_alexnet_Waterval.pkl
+[4/5] alexnet | held-out facility: Fisantekraal
+    OK: OK in 17.9 min -- ../results/results_clarifier_alexnet_Fisantekraal.pkl
+[5/5] alexnet | held-out facility: NoordelikeWerke
+    OK: OK in 17.9 min -- ../results/results_clarifier_alexnet_NoordelikeWerke.pkl
+
+=== Run summary ===
+OK: 5  Skipped: 0  Failed: 0  Total: 5
+[12:32:33] === run_retrain_with_retries: all combinations succeeded ===
