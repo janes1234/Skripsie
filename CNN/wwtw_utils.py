@@ -195,14 +195,21 @@ def align_dataset_to_classes(ds, class_to_idx):
 # The other architectures build their own loaders via get_dataloaders()
 # below (different image size and/or batch size per the tuned hyperparameters).
 
-train_transform = transforms.Compose([
-    transforms.Resize(IMG_TARGET_SIZE),
-    *([
+def augmentation_transforms():
+    """The train-time augmentations, in the order they are applied. Shared by
+    every training loader below and by the augmentation figure in
+    data_exploration.ipynb, so the report always shows what training uses."""
+    return [
         transforms.RandomHorizontalFlip(),
         transforms.RandomRotation(15),
         # Aggressive color jitter to stop it from memorizing water color or sun glare
         transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.3, hue=0.1),
-    ] if AUGMENT else []),
+    ]
+
+
+train_transform = transforms.Compose([
+    transforms.Resize(IMG_TARGET_SIZE),
+    *(augmentation_transforms() if AUGMENT else []),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406],
                           std=[0.229, 0.224, 0.225]),
@@ -314,12 +321,7 @@ def get_dataloaders(img_size, batch_size):
     image size (InceptionNet v3 needs 299x299) and its own tuned batch size."""
     train_tf = transforms.Compose([
         transforms.Resize(img_size),
-        *([
-            transforms.RandomHorizontalFlip(),
-            transforms.RandomRotation(15),
-            # Aggressive color jitter to stop it from memorizing water color or sun glare
-            transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.3, hue=0.1),
-        ] if AUGMENT else []),
+        *(augmentation_transforms() if AUGMENT else []),
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.485, 0.456, 0.406],
                               std=[0.229, 0.224, 0.225]),

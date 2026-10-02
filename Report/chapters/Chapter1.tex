@@ -5,7 +5,7 @@ Currently, the monitoring of wastewater treatment works (WWTW) is accomplished u
 
 However, one or both of these testing protocols do not always occur. Incorrect measurements may be recorded, or tests may be omitted entirely. To detect such problems, physical site visits by officials are currently necessary. These physical inspections are expensive, time-consuming, and impractical to conduct with high frequency. Furthermore, on-site sensors, where utilized, are prone to failure and expensive to install and maintain.
 
-The question this project aims to answer is whether a computer vision system can accurately identify the same visual indicators utilized by trained human operators (such as the characteristic surface turbulence of an aerator or the effluent clarity of a clarifier) to assess performance. A system evaluating satellite or aerial imagery could be utilized to detect problem cases. Specifically, a discrepancy between the reported laboratory data and the actual visual state observed in the imagery can be used to trigger corrective action. Ultimately, this study investigates the feasibility of leveraging historical satellite imagery to automatically monitor the functional state of Fine Bubble Diffused Aeration (FBDA) systems and clarifiers.
+The question this project aims to answer is whether a computer vision system can accurately identify from aerial or satelite images the same visual indicators utilized by trained human operators (such as the characteristic surface turbulence of an aerator or the effluent clarity of a clarifier) to assess performance. Such a system could be utilized to detect problem cases automatically and quickly. Specifically, a discrepancy between the reported laboratory data and the actual visual state observed in the imagery can be used to trigger corrective action. Ultimately, this study investigates the feasibility of leveraging historical satellite imagery to automatically monitor the functional state of Fine Bubble Diffused Aeration (FBDA) systems and clarifiers.
 
 
 \section{Objectives}
@@ -14,25 +14,23 @@ To answer the above question, the project addresses the following three objectiv
 \begin{enumerate}
     \item Prepare image datasets for experimentation and extract features by working with a set of labelled Google Earth satellite images taken on different dates to capture the visual states of WWTW components.
     \item Train classifiers to automatically determine the status of the aerobic zones (Functional, Suboptimal, Dysfunctional) and the Clarifiers (Functional, Dysfunctional, Scum, Empty), based on the image data.
-    \item Evaluate the model's performance by testing it on a separate set of images and comparing its predictions to the known labels, using metrics like precision, recall, F1-score, area under the ROC curve to quantify how well the model performs in classifying the different states of the WWTW components.
+    \item Evaluate the model's performance by testing it on a separate set of images and comparing its predictions to the known labels, using metrics like precision, recall, F1-score, and area under the ROC curve to quantify how well the model performs in classifying the different states of the WWTW components.
 \end{enumerate}
 
 \section{Scope}
-Included: Fine Bubble Diffused Aeration (FBDA) in aerobic zones, and secondary clarifiers. The project only looks at the Atlantis, Cape Flats, and Waterval WWTW facilities.
+This project considers the Fine Bubble Diffused Aeration (FBDA) in aerobic zones, and the secondary clarifiers. The project looks at five WWTW facilities: Atlantis, Cape Flats, Waterval, Fisantekraal and Northern Works. Clarifiers are labelled at all five facilities, and aerobic zones only at Atlantis, Cape Flats and Waterval.
 
-Excluded: Surface-mounted aerators and anaerobic zones aren't covered. There's no live satellite feed, no physical water sampling, and no hardware devices deployed on site — everything is based on the historical Google Earth imagery already available.
+Surface-mounted aerators and anaerobic zones are not considered in this project. All images are obtanied from google earth, and there is no live satellite feed, no physical water sampling, and no hardware devices deployed on site.
 
 \section{Report Structure}
 The remainder of the report is structured as follows:
 \begin{itemize}[label=$\circ$]
+    \item Chapter 2 (Background): Describes the WWTW components that are classified in this project, and the CNN architectures that are compared.
     \item Chapter 3 (Literature Review): Describes existing monitoring solutions for wastewater management, remote sensing technology, and the image processing concepts used in this project.
     \item Chapter 4 (Dataset): Describes the collection and preprocessing of the image datasets.
-    \item Chapter 5 (Experimental Design): Presents a detailed design of the proposed solution, including the architecture of the convolutional neural network (CNN) used for classification and the training procedures.
+    \item Chapter 5 (Experimental Design): Presents a detailed design of the proposed solution, including the convolutional neural network (CNN) architectures compared for classification, the training procedures and the experiments.
     \item Chapter 6 (Results): Presents the classification performance metrics and discusses the findings, including any limitations or challenges encountered during the experiments.
     \item Chapter 7 (Conclusion): Draws conclusions from the results, discusses the limitations of the project, and suggests future work that could improve the system.
 \end{itemize}
-
-\section{Summary of Work}
-TODO
 
 

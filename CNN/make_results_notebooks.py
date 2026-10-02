@@ -109,11 +109,25 @@ def load_results(exp):
     return out, missing
 
 
+def macro_over_present(report):
+    """Macro precision/recall/F1 over the classes that occur in the test set.
+    sklearn's own "macro avg" (stored in every pickle) also averages in a class
+    with zero test images as 0 (zero_division=0), which unfairly pulls down
+    e.g. clarifiers with Atlantis (no Dysfunctional) or Waterval (no Empty)
+    held out."""
+    report = report or {}
+    present = [v for c, v in report.items()
+               if c not in ("accuracy", "macro avg", "weighted avg") and v.get("support", 0) > 0]
+    if not present:
+        return {}
+    return {k: float(np.mean([v[k] for v in present])) for k in ("precision", "recall", "f1-score")}
+
+
 def comparison_table(exp, split):
     rows = []
     for tid, by_model in RESULTS[exp][split].items():
         for save_name, r in by_model.items():
-            macro = (r.get("classification_report") or {}).get("macro avg", {})
+            macro = macro_over_present(r.get("classification_report"))
             rows.append({
                 "test set": tid, "model": MODELS[save_name],
                 "test_accuracy": r["test_acc"], "mean_auc": r["mean_auc"],
@@ -185,8 +199,11 @@ def show_per_class(exp, split):
             if not report:
                 continue
             class_rows = {c: v for c, v in report.items() if c not in ("accuracy", "macro avg", "weighted avg")}
+            per_class = pd.DataFrame(class_rows).T[["precision", "recall", "f1-score", "support"]]
+            # A class with no test images has no recall/F1 here, not 0.
+            per_class.loc[per_class["support"] == 0, ["recall", "f1-score"]] = np.nan
             display(Markdown(f"**{tid} - {MODELS[save_name]}**"))
-            display(pd.DataFrame(class_rows).T[["precision", "recall", "f1-score", "support"]])
+            display(per_class)
             any_shown = True
     if not any_shown:
         print("No results yet.")
@@ -364,14 +381,15 @@ def summary_table(exp):
         if strat:
             row["stratified accuracy"] = strat["test_acc"]
             row["stratified mean AUC"] = strat["mean_auc"]
-            row["stratified macro F1"] = strat["classification_report"]["macro avg"]["f1-score"]
+            row["stratified macro F1"] = macro_over_present(strat["classification_report"]).get("f1-score", np.nan)
         lofo = [by_model[save_name] for by_model in RESULTS[exp].get("lofo", {}).values() if save_name in by_model]
         if lofo:
             accs = [r["test_acc"] for r in lofo]
             row["LOFO accuracy mean"] = np.mean(accs)
             row["LOFO accuracy std"] = np.std(accs, ddof=1) if len(accs) > 1 else np.nan
             row["LOFO mean AUC"] = np.nanmean([r["mean_auc"] for r in lofo])
-            row["LOFO macro F1"] = np.mean([r["classification_report"]["macro avg"]["f1-score"] for r in lofo])
+            row["LOFO macro F1"] = np.mean([macro_over_present(r["classification_report"]).get("f1-score", np.nan)
+                                            for r in lofo])
             row["LOFO folds"] = len(lofo)
         for split in SPLITS:
             b = BINARY.get((exp, split))
@@ -471,7 +489,8 @@ print("Classes:", class_names)
                         "one that reaches the target recall on it.")
             cells += [
                 md(f"## {split_label} - {label}"),
-                md(f"### Comparison table\n\nMacro-averaged precision/recall/F1 (every class counts equally).{lofo_note}"),
+                md(f"### Comparison table\n\nMacro-averaged precision/recall/F1 (every class counts equally, "
+                   "over the classes that occur in that test set).{lofo_note}"),
                 code(f'show_comparison("{exp}", "{split}")'),
                 md("### Accuracy and AUC"),
                 code(f'plot_bars("{exp}", "{split}")'),
