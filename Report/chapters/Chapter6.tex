@@ -1,0 +1,73 @@
+\mychapter{Results}{Results}{}\label{chap:results}
+
+\section{Overview}
+\label{sec:results_overview}
+
+
+\section{Experiment 1: Mixed-Facility Baseline}
+\label{sec:results_mixed}
+
+\subsection{Clarifiers}
+\label{sec:results_mixed_clarifier}
+
+\subsubsection{Comparison Table}
+\subsubsection{Accuracy and AUC}
+\subsubsection{Per-Class Precision, Recall and F1}
+
+\subsection{Aerobic Zones}
+\label{sec:results_mixed_aerobic}
+
+\subsubsection{Comparison Table}
+\subsubsection{Accuracy and AUC}
+\subsubsection{Per-Class Precision, Recall and F1}
+
+\subsection{Effect of Augmentation}
+\label{sec:results_augmentation}
+
+
+\section{Experiment 2: Leave-One-Facility-Out Evaluation}
+\label{sec:results_lofo}
+
+\subsection{Clarifiers}
+\label{sec:results_lofo_clarifier}
+
+\subsubsection{Comparison Table}
+\subsubsection{Accuracy and AUC Across Facilities}
+\subsubsection{Per-Class Precision, Recall and F1}
+\subsubsection{Training Curves and Confusion Matrices}
+
+\subsection{Aerobic Zones}
+\label{sec:results_lofo_aerobic}
+
+\subsubsection{Comparison Table}
+\subsubsection{Accuracy and AUC Across Facilities}
+\subsubsection{Per-Class Precision, Recall and F1}
+\subsubsection{Training Curves and Confusion Matrices}
+
+\subsection{Generalisation: Mixed-Facility Baseline vs Leave-One-Facility-Out}
+\label{sec:results_generalisation}
+
+\subsection{Hue Shift Ablation}
+\label{sec:results_hue_ablation}
+
+To check whether the hue shift in the colour jitter augmentation (Section~\ref{sec:exp_augmentation}) was washing out the green surface that identifies a \textbf{Dysfunctional} clarifier, all seven clarifier architectures were retrained on all five leave-one-facility-out splits with the hue shift disabled, keeping every other augmentation and hyperparameter the same. This did not improve performance: the mean test accuracy decreased for every architecture, by between 0.1 and 3.1 percentage points for the six pretrained architectures, and the number of correctly identified \textbf{Dysfunctional} clarifiers did not improve consistently. The hue shift was therefore kept for both components (Section~\ref{sec:exp_augmentation}).
+
+
+\section{Experiment 3: Binary (OK / Not-OK) Reformulation}
+\label{sec:results_binary}
+
+\subsection{Clarifiers}
+\label{sec:results_binary_clarifier}
+
+\subsection{Aerobic Zones}
+\label{sec:results_binary_aerobic}
+
+\subsection{Choosing an Operating Threshold}
+\label{sec:results_threshold}
+
+\subsection{Threshold Robustness Across Facilities}
+\label{sec:results_threshold_robustness}
+
+
+\section{Summary of Findings}
+\label{sec:results_summary}

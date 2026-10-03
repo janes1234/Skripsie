@@ -1,5 +1,4 @@
-cut out
+- Fix relabel folders on PC: only wastewater/Atlantis/relabel/ and wastewater/CapeFlats/relabel/ exist on the laptop; Waterval, Fisantekraal, and Northern Works are missing relabel/ entirely, and even the Atlantis relabel/ json is currently identical to Labels/ (missing the 2 approved corrections). prep.py silently falls back to the uncorrected Labels/ json when relabel/ is missing. Before regenerating cnn_dataset or any split folders, confirm all 5 facilities have a relabel/ folder with the actual corrected JSON (not identical to Labels/), then rebuild and spot-check counts against the report tables (e.g. Table 4.x clarifier/aerobic summaries, Table 5.x class weights and split tables).
 
-full image
 
-add atlantis images
+write a section on focal loss

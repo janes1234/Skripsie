@@ -123,9 +123,9 @@ The five facilities differ slightly in how their data is organised, reflecting d
 
 \textbf{Waterval} consists of two reactor units, referred to as Top and Bottom, with 37 and 36 images respectively. Each unit has its own aerobic zone and clarifier label file.
 
-\textbf{Fisantekraal} consists of a single reactor unit, with 63 images stored in one folder. Only clarifiers have been labeled and stored in a single JSON file.
+\textbf{Fisantekraal} consists of a single reactor unit, with 63 images stored in one folder. Only clarifiers have been labelled and stored in a single JSON file.
 
-\textbf{Northern Works} consists of a single reactor unit, with 45 images stored in one folder. Only clarifiers have been labeled and stored in a single JSON file.
+\textbf{Northern Works} consists of a single reactor unit, with 45 images stored in one folder. Only clarifiers have been labelled and stored in a single JSON file.
 
 Table~\ref{tab:dataset_summary} summarises the structure of the dataset across the five facilities.
 
@@ -188,38 +188,38 @@ The two classes that are excluded from the dataset (Section~\ref{sec:excluded}) 
 
 
 \section{Excluded from the dataset}\label{sec:excluded}
-During processing, two annotated classes were found to have too few examples to be usable for training. The aerobic zone dataset contained a single region labelled \textbf{Empty}, and the clarifier dataset contained four regions labelled \textbf{Stagnant}. Both classes were therefore excluded from the final dataset, and the corresponding regions were not cropped or saved. A class with only one or a handful of examples cannot be meaningfully split into training, validation, and test sets, and would not give the CNN enough examples to learn a reliable representation of that class. Including such a small class also risks skewing the overall class balance and encouraging the model to simply ignore it during training, since the loss contribution from so few examples is negligible compared to the other classes. The excluded regions were still counted separately by the preparation script, so their presence in the original annotations is not lost, but they play no further part in the classification task.
+During processing, two annotated classes were found to have too few examples to be usable for training. The aerobic zone dataset contained a single region labelled \textbf{Empty}, and the clarifier dataset contained four regions labelled \textbf{Stagnant}. Both classes were therefore excluded from the final dataset, and the corresponding regions were not cropped or saved. A class with only one or a handful of examples cannot be meaningfully split into training, development, and test sets, and would not give the CNN enough examples to learn a reliable representation of that class. Including such a small class also risks skewing the overall class balance and encouraging the model to simply ignore it during training, since the loss contribution from so few examples is negligible compared to the other classes. The excluded regions were still counted separately by the preparation script, so their presence in the original annotations is not lost, but they play no further part in the classification task.
 
 
 \section{Data Splitting}
-In the following section the way the available data is split into traning, developing and testing partition is described.
+In the following section the way the available data is split into training, development and testing partitions is described.
 
 \subsection{Leave-one-out Split}
 
-To evaluate how well the trained classifier generalises to WWTW facilities it has never encountered, the dataset was partitioned using a leave-one-out strategy rather than a random split. One facility, chosen from the five available (Atlantis, Cape Flats, Waterval, Fisantekraal, and Northern Works), was the test facility and withheld from training entirely: none of its images appear in the training or validation sets, and it plays no part in training or in selecting the checkpoint that is kept. The hyperparameters, which were tuned once on a single fold, are the one exception, as discussed in Section~\ref{sec:exp_lofo}. Note that this is repeated once for each facility: five times for the clarifiers, and three times for the aerobic zones, which are only labelled at Atlantis, Cape Flats and Waterval. This guarantees that test performance reflects the model's ability to classify components at an unseen site.
+To evaluate how well the trained classifier generalises to WWTW facilities it has never encountered, the dataset was partitioned using a leave-one-out strategy rather than a random split. One facility, chosen from the five available (Atlantis, Cape Flats, Waterval, Fisantekraal, and Northern Works), was the test facility and withheld from training entirely: none of its images appear in the training or development sets, and it plays no part in training or in selecting the checkpoint that is kept. The hyperparameters, which were tuned once on a single fold, are the one exception, as discussed in Section~\ref{sec:exp_lofo}. Note that this is repeated once for each facility: five times for the clarifiers, and three times for the aerobic zones, which are only labelled at Atlantis, Cape Flats and Waterval. This guarantees that test performance reflects the model's ability to classify components at an unseen site.
 
 This split was applied independently for each facility component, aerobic zone and clarifier, since the two have different classes and different image sets.
 
-Once the test facility was removed, the remaining four facilities' images were divided into training and validation sets. A random split at this stage risks an uneven mix: validation could end up dominated by whichever facility or unit happened to contribute the most images, or by images from a narrow range of capture dates, which would give an unrepresentative estimate of validation performance.
+Once the test facility was removed, the remaining four facilities' images were divided into training and development sets. A random split at this stage risks an uneven mix: the development set could end up dominated by whichever facility or unit happened to contribute the most images, or by images from a narrow range of capture dates, which would give an unrepresentative estimate of development performance.
 
-To avoid this, images were first grouped by facility, unit and class (some facilities have more than one unit, for example Cape Flats has 4 units each with its own set of images). Different units at the same facility can differ in lighting, or capture date, so treating them as separate groups during shuffling keeps that variation spread across both training and validation rather than concentrated in one. Within each group, images were shuffled using a fixed random seed to mix capture dates before being partitioned according to a fixed validation ratio (20\%). Splitting within these smaller groups rather
+To avoid this, images were first grouped by facility, unit and class (some facilities have more than one unit, for example Cape Flats has 4 units each with its own set of images). Different units at the same facility can differ in lighting, or capture date, so treating them as separate groups during shuffling keeps that variation spread across both training and development rather than concentrated in one. Within each group, images were shuffled using a fixed random seed to mix capture dates before being partitioned according to a fixed development ratio (20\%). Splitting within these smaller groups rather
 than across the whole set ensures that every facility, unit, and class combination among the four training facilities is represented in both
-the training and validation sets, in proportion to how much data it contributes. Figure \ref{fig:leave_one_out approach} shows the resulting split for the clarifiers when Waterval is withheld as the test facility.
+the training and development sets, in proportion to how much data it contributes. Figure \ref{fig:leave_one_out approach} shows the resulting split for the clarifiers when Waterval is withheld as the test facility.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/leave_one_out.png} 
-    \caption{Number of clarifier images from each facility in the training, validation and test sets when Waterval is held out. The test set contains only Waterval, while the remaining four facilities are split into training and validation sets.}
+    \includegraphics[width=0.7\textwidth]{figures/leave_one_out.png}
+    \caption{Number of clarifier images from each facility in the training, development and test sets when Waterval is held out. The test set contains only Waterval, while the remaining four facilities are split into training and development sets.}
     \label{fig:leave_one_out approach}
 \end{figure}
 
-\subsection{Stratified Train/Validation Split}
-Before adopting the leave-one-out approach described above, a stratified split was used to produce training, validation, and test
-sets directly from the dataset, without holding any facility out. This split follows a 70/20/10 training/validation/test ratio and uses the same facility, unit, class grouping and shuffling procedure decsribed in the previous section: images within each group are shuffled using a fixed random seed before being partitioned, so that every facility, unit, and class combination is represented across all three sets in proportion to how much data it contributes, and no single facility or unit dominates any one split.
+\subsection{Stratified Train/Development Split}
+Before adopting the leave-one-out approach described above, a stratified split was used to produce training, development, and test
+sets directly from the dataset, without holding any facility out. This split follows a 70/20/10 training/development/test ratio and uses the same facility, unit, class grouping and shuffling procedure described in the previous section: images within each group are shuffled using a fixed random seed before being partitioned, so that every facility, unit, and class combination is represented across all three sets in proportion to how much data it contributes, and no single facility or unit dominates any one split.
 
-\section{Relabeling}
+\section{Relabelling}
 
-The dataset used in this project is completely new, and was prepared shortly before the project started by annotators under the supervision of Prof F. de Wet. Inspection of the data in the early phases of experimental design however identified the occasional occurrence of labelling inconsistencies or errors. To improve label quality, a relabeling notebook was built using Jupyter widgets to review the clarifier dataset in full and correct labels where
+The dataset used in this project is completely new, and was prepared shortly before the project started by annotators under the supervision of Prof F. de Wet. Inspection of the data in the early phases of experimental design however identified the occasional occurrence of labelling inconsistencies or errors. To improve label quality, a relabelling notebook was built using Jupyter widgets to review the clarifier dataset in full and correct labels where
 necessary. Every clarifier image was reviewed manually, rather than considering only images the classifier identified incorrectly which could potentially introduce bias. For each image, the notebook displays the image alongside its current label and a row of per-class buttons; clicking a button records the corrected label without requiring any manual file editing. Corrections are written to a separate \texttt{relabel/} working copy of the annotation files rather than overwriting the originals, so the original VIA2 labels remain intact and every correction can be traced back to the annotations as originally supplied.
 
 Figure \ref{fig:relabel_example} shows a clarifier at Cape Flats that was originally labelled \textbf{Scum} and was corrected to \textbf{Empty} during the review, a correction the supervisor later accepted. The tank appears to have been drained: its floor is visible, and the dark band across it is the shadow of the bridge rather than scum on the water surface. Figure \ref{fig:relabel_process_example} shows the review interface itself, with the original label displayed in yellow next to the image and the correction buttons below it.
@@ -234,7 +234,7 @@ Figure \ref{fig:relabel_example} shows a clarifier at Cape Flats that was origin
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.7\textwidth]{figures/relabel_process_example.png}
-\caption{The relabeling interface, showing the original label and the
+\caption{The relabelling interface, showing the original label and the
 per-class correction buttons.}
 \label{fig:relabel_process_example}
 \end{figure}
@@ -242,11 +242,11 @@ per-class correction buttons.}
 
 The review proposed 293 corrections in total. Each proposed correction was then checked by the project supervisor, who could accept it, reject it and keep the original label, or assign a different label. Of the 293 proposed corrections, 166 were accepted, 99 were rejected, and for 28 the supervisor assigned a different label, so 194 regions ended up with a label different from the original annotation. These verdicts were applied to the \texttt{relabel/} working copy with a script that first checks that every region still holds the proposed label, and that records every decision in a separate file. The resulting labels are the ones used in every experiment in Chapter~\ref{chap:experimental_design}.
 
-Table \ref{tab:relabel_corrections} summarises the effect of relabeling on a per-class basis, broken down by facility. For each class, two columns are given: \textbf{Old}, the total number of clarifier regions at that facility carrying that label in the original annotations, and \textbf{New}, the total number carrying that label after relabeling and the supervisor's review. The rightmost \textbf{Relabels} column gives the number of regions at that facility whose final label differs from the original one.
+Table \ref{tab:relabel_corrections} summarises the effect of relabelling on a per-class basis, broken down by facility. For each class, two columns are given: \textbf{Old}, the total number of clarifier regions at that facility carrying that label in the original annotations, and \textbf{New}, the total number carrying that label after relabelling and the supervisor's review. The rightmost \textbf{Relabels} column gives the number of regions at that facility whose final label differs from the original one.
 
 \begin{table}[htbp]
     \centering
-    \caption{Total number of clarifier regions per class, per facility, before and after relabeling. ``Old'' is the count in the original annotations; ``New'' is the count after relabeling and the supervisor's review. ``Relabels'' is the number of regions at that facility whose final label differs from the original one.}
+    \caption{Total number of clarifier regions per class, per facility, before and after relabelling. ``Old'' is the count in the original annotations; ``New'' is the count after relabelling and the supervisor's review. ``Relabels'' is the number of regions at that facility whose final label differs from the original one.}
     \label{tab:relabel_corrections}
     \small
     \setlength{\tabcolsep}{3pt}
@@ -269,7 +269,7 @@ Table \ref{tab:relabel_corrections} summarises the effect of relabeling on a per
 
 \section{Final Dataset}
 
-Tables~\ref{tab:aerobic_summary} and~\ref{tab:clarifier_summary} give the final number of images per class, per unit, after relabeling. These are the counts used in every experiment. The aerobic zone dataset contains 1743 images, all from Atlantis, Cape Flats and Waterval, and the clarifier dataset contains 2527 images from all five facilities. Both datasets are imbalanced. Suboptimal is the smallest aerobic zone class with 223 images, against 813 for Dysfunctional. Among the clarifiers, Empty has only 145 images, against 1087 for Scum. The classes are also spread unevenly across facilities: Waterval Top accounts for 344 of the 707 Functional aerobic zones, and Northern Works accounts for 131 of the 292 Dysfunctional clarifiers. Section~\ref{sec:exp_loss} describes how this imbalance is handled during training.
+Tables~\ref{tab:aerobic_summary} and~\ref{tab:clarifier_summary} give the final number of images per class, per unit, after relabelling. These are the counts used in every experiment. The aerobic zone dataset contains 1743 images, all from Atlantis, Cape Flats and Waterval, and the clarifier dataset contains 2527 images from all five facilities. Both datasets are imbalanced. Suboptimal is the smallest aerobic zone class with 223 images, against 813 for Dysfunctional. Among the clarifiers, Empty has only 145 images, against 1087 for Scum. The classes are also spread unevenly across facilities: Waterval Top accounts for 344 of the 707 Functional aerobic zones, and Northern Works accounts for 131 of the 292 Dysfunctional clarifiers. Section~\ref{sec:exp_loss} describes how this imbalance is handled during training.
 
 \begin{table}[htbp]
     \centering

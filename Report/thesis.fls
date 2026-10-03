@@ -2,7 +2,7 @@ PWD /home/janes-mostert/Desktop/Repo/Skripsie/Report
 INPUT /home/janes-mostert/.TinyTeX/texmf.cnf
 INPUT /home/janes-mostert/.TinyTeX/texmf-dist/web2c/texmf.cnf
 INPUT /home/janes-mostert/.TinyTeX/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /home/janes-mostert/Desktop/Repo/Skripsie/Report/thesis.tex
+INPUT thesis.tex
 OUTPUT thesis.log
 INPUT ./stb-thesis.cls
 INPUT stb-thesis.cls
@@ -801,6 +801,9 @@ INPUT ./figures/gradcam_aerobic_zone.png
 INPUT ./figures/gradcam_aerobic_zone.png
 INPUT ./figures/gradcam_aerobic_zone.png
 INPUT ./figures/gradcam_aerobic_zone.png
+INPUT ./chapters/Chapter6.tex
+INPUT ./chapters/Chapter6.tex
+INPUT chapters/Chapter6.tex
 INPUT ./chapters/conclusion.tex
 INPUT ./chapters/conclusion.tex
 INPUT ./chapters/conclusion.tex

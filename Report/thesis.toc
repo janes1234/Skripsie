@@ -5,10 +5,10 @@
 \contentsline {chapter}{Uittreksel}{iv}{chapter*.4}%
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{Table of contents}{v}{chapter*.4}%
-\contentsline {chapter}{List of figures}{ix}{chapter*.5}%
-\contentsline {chapter}{List of tables}{x}{chapter*.6}%
-\contentsline {chapter}{Nomenclature}{xvi}{chapter*.8}%
-\contentsline {section}{Acronyms and abbreviations}{xvii}{section*.9}%
+\contentsline {chapter}{List of figures}{x}{chapter*.5}%
+\contentsline {chapter}{List of tables}{xi}{chapter*.6}%
+\contentsline {chapter}{Nomenclature}{xvii}{chapter*.8}%
+\contentsline {section}{Acronyms and abbreviations}{xviii}{section*.9}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Problem Statement}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Objectives}{2}{section.1.2}%
@@ -39,8 +39,8 @@
 \contentsline {section}{\numberline {4.5}Excluded from the dataset}{33}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Data Splitting}{34}{section.4.6}%
 \contentsline {subsection}{\numberline {4.6.1}Leave-one-out Split}{34}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Stratified Train/Validation Split}{35}{subsection.4.6.2}%
-\contentsline {section}{\numberline {4.7}Relabeling}{36}{section.4.7}%
+\contentsline {subsection}{\numberline {4.6.2}Stratified Train/Development Split}{35}{subsection.4.6.2}%
+\contentsline {section}{\numberline {4.7}Relabelling}{36}{section.4.7}%
 \contentsline {section}{\numberline {4.8}Final Dataset}{39}{section.4.8}%
 \contentsline {chapter}{\numberline {5}Experimental Design}{41}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Overview}{41}{section.5.1}%
@@ -62,29 +62,59 @@
 \contentsline {section}{\numberline {5.7}Experiment 1: Mixed-Facility Baseline}{61}{section.5.7}%
 \contentsline {section}{\numberline {5.8}Experiment 2: Leave-One-Facility-Out Evaluation}{65}{section.5.8}%
 \contentsline {section}{\numberline {5.9}Experiment 3: Binary (OK / Not-OK) Reformulation}{68}{section.5.9}%
-\contentsline {section}{\numberline {5.10}Experiment 4: Overview Images}{69}{section.5.10}%
-\contentsline {section}{\numberline {5.11}Evaluation Metrics}{70}{section.5.11}%
-\contentsline {section}{\numberline {5.12}Qualitative Analysis: Grad-CAM}{71}{section.5.12}%
-\contentsline {subsection}{\numberline {5.12.1}Method}{72}{subsection.5.12.1}%
-\contentsline {subsection}{\numberline {5.12.2}Models and Example Selection}{72}{subsection.5.12.2}%
-\contentsline {subsection}{\numberline {5.12.3}Clarifiers}{73}{subsection.5.12.3}%
-\contentsline {subsection}{\numberline {5.12.4}Aerobic Zones}{75}{subsection.5.12.4}%
-\contentsline {subsection}{\numberline {5.12.5}Summary of Observations}{77}{subsection.5.12.5}%
-\contentsline {chapter}{\numberline {6}Summary and conclusions}{78}{chapter.6}%
-\contentsline {chapter}{References}{79}{chapter*.47}%
-\contentsline {chapter}{\numberline {A}Hyperparameter Search Trials}{85}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Clarifiers}{85}{appendix.A.1}%
-\contentsline {subsection}{\numberline {A.1.1}ResNet-18}{85}{subsection.A.1.1}%
-\contentsline {subsection}{\numberline {A.1.2}EfficientNet-B0}{86}{subsection.A.1.2}%
-\contentsline {subsection}{\numberline {A.1.3}DenseNet-121}{87}{subsection.A.1.3}%
-\contentsline {subsection}{\numberline {A.1.4}ResNet-50}{88}{subsection.A.1.4}%
-\contentsline {subsection}{\numberline {A.1.5}ConvNeXt-Tiny}{89}{subsection.A.1.5}%
-\contentsline {subsection}{\numberline {A.1.6}Inception-v3}{89}{subsection.A.1.6}%
-\contentsline {section}{\numberline {A.2}Aerobic Zones}{90}{appendix.A.2}%
-\contentsline {subsection}{\numberline {A.2.1}ResNet-18}{90}{subsection.A.2.1}%
-\contentsline {subsection}{\numberline {A.2.2}EfficientNet-B0}{91}{subsection.A.2.2}%
-\contentsline {subsection}{\numberline {A.2.3}DenseNet-121}{92}{subsection.A.2.3}%
-\contentsline {subsection}{\numberline {A.2.4}ResNet-50}{93}{subsection.A.2.4}%
-\contentsline {subsection}{\numberline {A.2.5}ConvNeXt-Tiny}{94}{subsection.A.2.5}%
-\contentsline {subsection}{\numberline {A.2.6}Inception-v3}{95}{subsection.A.2.6}%
+\contentsline {section}{\numberline {5.10}Evaluation Metrics}{69}{section.5.10}%
+\contentsline {section}{\numberline {5.11}Qualitative Analysis: Grad-CAM}{71}{section.5.11}%
+\contentsline {subsection}{\numberline {5.11.1}Method}{71}{subsection.5.11.1}%
+\contentsline {subsection}{\numberline {5.11.2}Models and Example Selection}{72}{subsection.5.11.2}%
+\contentsline {subsection}{\numberline {5.11.3}Clarifiers}{72}{subsection.5.11.3}%
+\contentsline {subsection}{\numberline {5.11.4}Aerobic Zones}{75}{subsection.5.11.4}%
+\contentsline {subsection}{\numberline {5.11.5}Summary of Observations}{77}{subsection.5.11.5}%
+\contentsline {chapter}{\numberline {6}Results}{78}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Overview}{79}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Experiment 1: Mixed-Facility Baseline}{79}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Clarifiers}{79}{subsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.1.1}Comparison Table}{79}{subsubsection.6.2.1.1}%
+\contentsline {subsubsection}{\numberline {6.2.1.2}Accuracy and AUC}{79}{subsubsection.6.2.1.2}%
+\contentsline {subsubsection}{\numberline {6.2.1.3}Per-Class Precision, Recall and F1}{79}{subsubsection.6.2.1.3}%
+\contentsline {subsection}{\numberline {6.2.2}Aerobic Zones}{79}{subsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.2.1}Comparison Table}{79}{subsubsection.6.2.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2.2}Accuracy and AUC}{79}{subsubsection.6.2.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.2.3}Per-Class Precision, Recall and F1}{79}{subsubsection.6.2.2.3}%
+\contentsline {subsection}{\numberline {6.2.3}Effect of Augmentation}{79}{subsection.6.2.3}%
+\contentsline {section}{\numberline {6.3}Experiment 2: Leave-One-Facility-Out Evaluation}{79}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Clarifiers}{79}{subsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.1.1}Comparison Table}{79}{subsubsection.6.3.1.1}%
+\contentsline {subsubsection}{\numberline {6.3.1.2}Accuracy and AUC Across Facilities}{79}{subsubsection.6.3.1.2}%
+\contentsline {subsubsection}{\numberline {6.3.1.3}Per-Class Precision, Recall and F1}{79}{subsubsection.6.3.1.3}%
+\contentsline {subsubsection}{\numberline {6.3.1.4}Training Curves and Confusion Matrices}{79}{subsubsection.6.3.1.4}%
+\contentsline {subsection}{\numberline {6.3.2}Aerobic Zones}{79}{subsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {6.3.2.1}Comparison Table}{79}{subsubsection.6.3.2.1}%
+\contentsline {subsubsection}{\numberline {6.3.2.2}Accuracy and AUC Across Facilities}{79}{subsubsection.6.3.2.2}%
+\contentsline {subsubsection}{\numberline {6.3.2.3}Per-Class Precision, Recall and F1}{79}{subsubsection.6.3.2.3}%
+\contentsline {subsubsection}{\numberline {6.3.2.4}Training Curves and Confusion Matrices}{79}{subsubsection.6.3.2.4}%
+\contentsline {subsection}{\numberline {6.3.3}Generalisation: Mixed-Facility Baseline vs Leave-One-Facility-Out}{79}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}Hue Shift Ablation}{79}{subsection.6.3.4}%
+\contentsline {section}{\numberline {6.4}Experiment 3: Binary (OK / Not-OK) Reformulation}{80}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Clarifiers}{80}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Aerobic Zones}{80}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}Choosing an Operating Threshold}{80}{subsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.4.4}Threshold Robustness Across Facilities}{80}{subsection.6.4.4}%
+\contentsline {section}{\numberline {6.5}Summary of Findings}{80}{section.6.5}%
+\contentsline {chapter}{\numberline {7}Summary and conclusions}{81}{chapter.7}%
+\contentsline {chapter}{References}{82}{chapter*.47}%
+\contentsline {chapter}{\numberline {A}Hyperparameter Search Trials}{88}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Clarifiers}{88}{appendix.A.1}%
+\contentsline {subsection}{\numberline {A.1.1}ResNet-18}{88}{subsection.A.1.1}%
+\contentsline {subsection}{\numberline {A.1.2}EfficientNet-B0}{89}{subsection.A.1.2}%
+\contentsline {subsection}{\numberline {A.1.3}DenseNet-121}{90}{subsection.A.1.3}%
+\contentsline {subsection}{\numberline {A.1.4}ResNet-50}{91}{subsection.A.1.4}%
+\contentsline {subsection}{\numberline {A.1.5}ConvNeXt-Tiny}{92}{subsection.A.1.5}%
+\contentsline {subsection}{\numberline {A.1.6}Inception-v3}{92}{subsection.A.1.6}%
+\contentsline {section}{\numberline {A.2}Aerobic Zones}{93}{appendix.A.2}%
+\contentsline {subsection}{\numberline {A.2.1}ResNet-18}{93}{subsection.A.2.1}%
+\contentsline {subsection}{\numberline {A.2.2}EfficientNet-B0}{94}{subsection.A.2.2}%
+\contentsline {subsection}{\numberline {A.2.3}DenseNet-121}{95}{subsection.A.2.3}%
+\contentsline {subsection}{\numberline {A.2.4}ResNet-50}{96}{subsection.A.2.4}%
+\contentsline {subsection}{\numberline {A.2.5}ConvNeXt-Tiny}{97}{subsection.A.2.5}%
+\contentsline {subsection}{\numberline {A.2.6}Inception-v3}{98}{subsection.A.2.6}%
 \contentsfinish 
