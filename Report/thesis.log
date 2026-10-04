@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.1)  4 OCT 2026 10:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.1)  4 OCT 2026 11:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1888,11 +1888,11 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<figures/heatmap.png, id=1500, 1278.2154pt x 790.6338pt>
+<figures/heatmap.png, id=1500, 2662.94875pt x 1647.15375pt>
 File: figures/heatmap.png Graphic file (type png)
 <use figures/heatmap.png>
 Package pdftex.def Info: figures/heatmap.png  used on input line 9.
-(pdftex.def)             Requested size: 390.0pt x 241.23343pt.
+(pdftex.def)             Requested size: 390.0pt x 241.23143pt.
  [26
 
 ]
@@ -1916,16 +1916,16 @@ File: figures/waterval_overview.png Graphic file (type png)
 <use figures/waterval_overview.png>
 Package pdftex.def Info: figures/waterval_overview.png  used on input line 41.
 (pdftex.def)             Requested size: 117.00119pt x 148.9963pt.
-<figures/fisantekraal_overview.png, id=1514, 8222.72pt x 3047.385pt>
+<figures/fisantekraal_overview.png, id=1514, 1606.0pt x 595.22375pt>
 File: figures/fisantekraal_overview.png Graphic file (type png)
 <use figures/fisantekraal_overview.png>
 Package pdftex.def Info: figures/fisantekraal_overview.png  used on input line 47.
-(pdftex.def)             Requested size: 117.00119pt x 43.33733pt.
-<figures/noordelikewerke_overview.png, id=1515, 1534.73375pt x 918.43124pt>
+(pdftex.def)             Requested size: 117.00119pt x 43.35924pt.
+<figures/noordelikewerke_overview.png, id=1515, 1003.75pt x 600.2425pt>
 File: figures/noordelikewerke_overview.png Graphic file (type png)
 <use figures/noordelikewerke_overview.png>
 Package pdftex.def Info: figures/noordelikewerke_overview.png  used on input line 53.
-(pdftex.def)             Requested size: 117.00119pt x 70.01451pt.
+(pdftex.def)             Requested size: 117.00119pt x 69.96523pt.
 
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
@@ -1951,16 +1951,16 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
 [29]
-<figures/aerobic_examples.png, id=1534, 1076.823pt x 190.311pt>
+<figures/aerobic_examples.png, id=1534, 2243.38126pt x 396.48125pt>
 File: figures/aerobic_examples.png Graphic file (type png)
 <use figures/aerobic_examples.png>
 Package pdftex.def Info: figures/aerobic_examples.png  used on input line 106.
-(pdftex.def)             Requested size: 390.0pt x 68.92426pt.
-<figures/clarifier_examples.png, id=1537, 1076.823pt x 306.4248pt>
+(pdftex.def)             Requested size: 390.0pt x 68.92546pt.
+<figures/clarifier_examples.png, id=1537, 2243.38126pt x 638.385pt>
 File: figures/clarifier_examples.png Graphic file (type png)
 <use figures/clarifier_examples.png>
 Package pdftex.def Info: figures/clarifier_examples.png  used on input line 112.
-(pdftex.def)             Requested size: 390.0pt x 110.97678pt.
+(pdftex.def)             Requested size: 390.0pt x 110.97873pt.
 
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
@@ -2002,11 +2002,11 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
 [34]
-<figures/leave_one_out.png, id=1570, 640.794pt x 462.0462pt>
+<figures/leave_one_out.png, id=1570, 1334.9875pt x 962.59625pt>
 File: figures/leave_one_out.png Graphic file (type png)
 <use figures/leave_one_out.png>
 Package pdftex.def Info: figures/leave_one_out.png  used on input line 211.
-(pdftex.def)             Requested size: 272.99881pt x 196.84293pt.
+(pdftex.def)             Requested size: 272.99881pt x 196.8341pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -2126,11 +2126,11 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
 [47]
-<figures/augmentation_examples.png, id=1685, 932.283pt x 495.2904pt>
+<figures/augmentation_examples.png, id=1685, 1942.25626pt x 1031.855pt>
 File: figures/augmentation_examples.png Graphic file (type png)
 <use figures/augmentation_examples.png>
 Package pdftex.def Info: figures/augmentation_examples.png  used on input line 110.
-(pdftex.def)             Requested size: 350.99762pt x 186.47408pt.
+(pdftex.def)             Requested size: 350.99762pt x 186.46588pt.
 
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
@@ -2317,19 +2317,19 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 
 [70]
 Chapter 6.
-<figures/results/clarifier_stratified_accuracy_auc_bars.png, id=1875, 578.16pt x 346.896pt>
+<figures/results/clarifier_stratified_accuracy_auc_bars.png, id=1875, 1204.5pt x 722.7pt>
 File: figures/results/clarifier_stratified_accuracy_auc_bars.png Graphic file (type png)
 <use figures/results/clarifier_stratified_accuracy_auc_bars.png>
 Package pdftex.def Info: figures/results/clarifier_stratified_accuracy_auc_bars.png  used on input line 41.
-(pdftex.def)             Requested size: 292.5pt x 175.49603pt.
+(pdftex.def)             Requested size: 292.5pt x 175.50266pt.
 [71
 
 ]
-<figures/results/aerobic_zone_stratified_accuracy_auc_bars.png, id=1880, 578.16pt x 346.896pt>
+<figures/results/aerobic_zone_stratified_accuracy_auc_bars.png, id=1880, 1204.5pt x 722.7pt>
 File: figures/results/aerobic_zone_stratified_accuracy_auc_bars.png Graphic file (type png)
 <use figures/results/aerobic_zone_stratified_accuracy_auc_bars.png>
 Package pdftex.def Info: figures/results/aerobic_zone_stratified_accuracy_auc_bars.png  used on input line 101.
-(pdftex.def)             Requested size: 292.5pt x 175.49603pt.
+(pdftex.def)             Requested size: 292.5pt x 175.50266pt.
 
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
@@ -2355,36 +2355,36 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
 [74]
-<figures/results/clarifier_lofo_accuracy_auc_bars.png, id=1896, 1243.044pt x 346.896pt>
+<figures/results/clarifier_lofo_accuracy_auc_bars.png, id=1896, 2589.675pt x 722.7pt>
 File: figures/results/clarifier_lofo_accuracy_auc_bars.png Graphic file (type png)
 <use figures/results/clarifier_lofo_accuracy_auc_bars.png>
 Package pdftex.def Info: figures/results/clarifier_lofo_accuracy_auc_bars.png  used on input line 205.
-(pdftex.def)             Requested size: 390.0pt x 108.83348pt.
-<figures/results/clarifier_convnext_tiny_Atlantis_training_curves.png, id=1897, 860.013pt x 281.3712pt>
+(pdftex.def)             Requested size: 390.0pt x 108.83038pt.
+<figures/results/clarifier_convnext_tiny_Atlantis_training_curves.png, id=1897, 1791.69376pt x 586.19pt>
 File: figures/results/clarifier_convnext_tiny_Atlantis_training_curves.png Graphic file (type png)
 <use figures/results/clarifier_convnext_tiny_Atlantis_training_curves.png>
 Package pdftex.def Info: figures/results/clarifier_convnext_tiny_Atlantis_training_curves.png  used on input line 273.
-(pdftex.def)             Requested size: 191.10214pt x 62.5201pt.
-<figures/results/clarifier_convnext_tiny_CapeFlats_training_curves.png, id=1898, 860.013pt x 281.3712pt>
+(pdftex.def)             Requested size: 191.10214pt x 62.52225pt.
+<figures/results/clarifier_convnext_tiny_CapeFlats_training_curves.png, id=1898, 1791.69376pt x 586.19pt>
 File: figures/results/clarifier_convnext_tiny_CapeFlats_training_curves.png Graphic file (type png)
 <use figures/results/clarifier_convnext_tiny_CapeFlats_training_curves.png>
 Package pdftex.def Info: figures/results/clarifier_convnext_tiny_CapeFlats_training_curves.png  used on input line 278.
-(pdftex.def)             Requested size: 191.10214pt x 62.5201pt.
-<figures/results/clarifier_convnext_tiny_Fisantekraal_training_curves.png, id=1899, 860.013pt x 281.3712pt>
+(pdftex.def)             Requested size: 191.10214pt x 62.52225pt.
+<figures/results/clarifier_convnext_tiny_Fisantekraal_training_curves.png, id=1899, 1791.69376pt x 586.19pt>
 File: figures/results/clarifier_convnext_tiny_Fisantekraal_training_curves.png Graphic file (type png)
 <use figures/results/clarifier_convnext_tiny_Fisantekraal_training_curves.png>
 Package pdftex.def Info: figures/results/clarifier_convnext_tiny_Fisantekraal_training_curves.png  used on input line 282.
-(pdftex.def)             Requested size: 191.10214pt x 62.5201pt.
-<figures/results/clarifier_convnext_tiny_NoordelikeWerke_training_curves.png, id=1900, 859.0494pt x 281.3712pt>
+(pdftex.def)             Requested size: 191.10214pt x 62.52225pt.
+<figures/results/clarifier_convnext_tiny_NoordelikeWerke_training_curves.png, id=1900, 1789.68625pt x 586.19pt>
 File: figures/results/clarifier_convnext_tiny_NoordelikeWerke_training_curves.png Graphic file (type png)
 <use figures/results/clarifier_convnext_tiny_NoordelikeWerke_training_curves.png>
 Package pdftex.def Info: figures/results/clarifier_convnext_tiny_NoordelikeWerke_training_curves.png  used on input line 287.
-(pdftex.def)             Requested size: 191.10214pt x 62.59308pt.
-<figures/results/clarifier_convnext_tiny_Waterval_training_curves.png, id=1901, 860.013pt x 281.3712pt>
+(pdftex.def)             Requested size: 191.10214pt x 62.58485pt.
+<figures/results/clarifier_convnext_tiny_Waterval_training_curves.png, id=1901, 1791.69376pt x 586.19pt>
 File: figures/results/clarifier_convnext_tiny_Waterval_training_curves.png Graphic file (type png)
 <use figures/results/clarifier_convnext_tiny_Waterval_training_curves.png>
 Package pdftex.def Info: figures/results/clarifier_convnext_tiny_Waterval_training_curves.png  used on input line 291.
-(pdftex.def)             Requested size: 191.10214pt x 62.5201pt.
+(pdftex.def)             Requested size: 191.10214pt x 62.52225pt.
 
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
@@ -2402,31 +2402,31 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
 [76]
-<figures/results/clarifier_convnext_tiny_Atlantis_confusion_matrix.png, id=1911, 415.3116pt x 399.4122pt>
+<figures/results/clarifier_convnext_tiny_Atlantis_confusion_matrix.png, id=1911, 865.2325pt x 832.10875pt>
 File: figures/results/clarifier_convnext_tiny_Atlantis_confusion_matrix.png Graphic file (type png)
 <use figures/results/clarifier_convnext_tiny_Atlantis_confusion_matrix.png>
 Package pdftex.def Info: figures/results/clarifier_convnext_tiny_Atlantis_confusion_matrix.png  used on input line 301.
-(pdftex.def)             Requested size: 124.80286pt x 120.0257pt.
-<figures/results/clarifier_convnext_tiny_CapeFlats_confusion_matrix.png, id=1912, 421.575pt x 399.4122pt>
+(pdftex.def)             Requested size: 124.80286pt x 120.02417pt.
+<figures/results/clarifier_convnext_tiny_CapeFlats_confusion_matrix.png, id=1912, 878.28125pt x 832.10875pt>
 File: figures/results/clarifier_convnext_tiny_CapeFlats_confusion_matrix.png Graphic file (type png)
 <use figures/results/clarifier_convnext_tiny_CapeFlats_confusion_matrix.png>
 Package pdftex.def Info: figures/results/clarifier_convnext_tiny_CapeFlats_confusion_matrix.png  used on input line 306.
-(pdftex.def)             Requested size: 124.80286pt x 118.24pt.
-<figures/results/clarifier_convnext_tiny_Fisantekraal_confusion_matrix.png, id=1913, 415.3116pt x 399.4122pt>
+(pdftex.def)             Requested size: 124.80286pt x 118.2339pt.
+<figures/results/clarifier_convnext_tiny_Fisantekraal_confusion_matrix.png, id=1913, 865.2325pt x 832.10875pt>
 File: figures/results/clarifier_convnext_tiny_Fisantekraal_confusion_matrix.png Graphic file (type png)
 <use figures/results/clarifier_convnext_tiny_Fisantekraal_confusion_matrix.png>
 Package pdftex.def Info: figures/results/clarifier_convnext_tiny_Fisantekraal_confusion_matrix.png  used on input line 311.
-(pdftex.def)             Requested size: 124.80286pt x 120.0257pt.
-<figures/results/clarifier_convnext_tiny_NoordelikeWerke_confusion_matrix.png, id=1914, 421.575pt x 399.4122pt>
+(pdftex.def)             Requested size: 124.80286pt x 120.02417pt.
+<figures/results/clarifier_convnext_tiny_NoordelikeWerke_confusion_matrix.png, id=1914, 878.28125pt x 832.10875pt>
 File: figures/results/clarifier_convnext_tiny_NoordelikeWerke_confusion_matrix.png Graphic file (type png)
 <use figures/results/clarifier_convnext_tiny_NoordelikeWerke_confusion_matrix.png>
 Package pdftex.def Info: figures/results/clarifier_convnext_tiny_NoordelikeWerke_confusion_matrix.png  used on input line 315.
-(pdftex.def)             Requested size: 124.80286pt x 118.24pt.
-<figures/results/clarifier_convnext_tiny_Waterval_confusion_matrix.png, id=1915, 421.575pt x 399.4122pt>
+(pdftex.def)             Requested size: 124.80286pt x 118.2339pt.
+<figures/results/clarifier_convnext_tiny_Waterval_confusion_matrix.png, id=1915, 878.28125pt x 832.10875pt>
 File: figures/results/clarifier_convnext_tiny_Waterval_confusion_matrix.png Graphic file (type png)
 <use figures/results/clarifier_convnext_tiny_Waterval_confusion_matrix.png>
 Package pdftex.def Info: figures/results/clarifier_convnext_tiny_Waterval_confusion_matrix.png  used on input line 319.
-(pdftex.def)             Requested size: 124.80286pt x 118.24pt.
+(pdftex.def)             Requested size: 124.80286pt x 118.2339pt.
 
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
@@ -2444,11 +2444,11 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
 [78 <./figures/results/clarifier_convnext_tiny_Atlantis_confusion_matrix.png> <./figures/results/clarifier_convnext_tiny_CapeFlats_confusion_matrix.png> <./figures/results/clarifier_convnext_tiny_Fisantekraal_confusion_matrix.png> <./figures/results/clarifier_convnext_tiny_NoordelikeWerke_confusion_matrix.png> <./figures/results/clarifier_convnext_tiny_Waterval_confusion_matrix.png>]
-<figures/results/aerobic_zone_lofo_accuracy_auc_bars.png, id=1934, 925.056pt x 346.896pt>
+<figures/results/aerobic_zone_lofo_accuracy_auc_bars.png, id=1934, 1927.2pt x 722.7pt>
 File: figures/results/aerobic_zone_lofo_accuracy_auc_bars.png Graphic file (type png)
 <use figures/results/aerobic_zone_lofo_accuracy_auc_bars.png>
 Package pdftex.def Info: figures/results/aerobic_zone_lofo_accuracy_auc_bars.png  used on input line 359.
-(pdftex.def)             Requested size: 390.0pt x 146.2511pt.
+(pdftex.def)             Requested size: 390.0pt x 146.24669pt.
 
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
@@ -2458,36 +2458,36 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
 [79 <./figures/results/aerobic_zone_lofo_accuracy_auc_bars.png>]
-<figures/results/aerobic_zone_densenet_121_Atlantis_training_curves.png, id=1941, 860.013pt x 281.3712pt>
+<figures/results/aerobic_zone_densenet_121_Atlantis_training_curves.png, id=1941, 1791.69376pt x 586.19pt>
 File: figures/results/aerobic_zone_densenet_121_Atlantis_training_curves.png Graphic file (type png)
 <use figures/results/aerobic_zone_densenet_121_Atlantis_training_curves.png>
 Package pdftex.def Info: figures/results/aerobic_zone_densenet_121_Atlantis_training_curves.png  used on input line 425.
-(pdftex.def)             Requested size: 191.10214pt x 62.5201pt.
-<figures/results/aerobic_zone_densenet_121_CapeFlats_training_curves.png, id=1942, 859.5312pt x 281.3712pt>
+(pdftex.def)             Requested size: 191.10214pt x 62.52225pt.
+<figures/results/aerobic_zone_densenet_121_CapeFlats_training_curves.png, id=1942, 1790.69pt x 586.19pt>
 File: figures/results/aerobic_zone_densenet_121_CapeFlats_training_curves.png Graphic file (type png)
 <use figures/results/aerobic_zone_densenet_121_CapeFlats_training_curves.png>
 Package pdftex.def Info: figures/results/aerobic_zone_densenet_121_CapeFlats_training_curves.png  used on input line 430.
-(pdftex.def)             Requested size: 191.10214pt x 62.55873pt.
-<figures/results/aerobic_zone_densenet_121_Waterval_training_curves.png, id=1943, 860.013pt x 281.3712pt>
+(pdftex.def)             Requested size: 191.10214pt x 62.55801pt.
+<figures/results/aerobic_zone_densenet_121_Waterval_training_curves.png, id=1943, 1791.69376pt x 586.19pt>
 File: figures/results/aerobic_zone_densenet_121_Waterval_training_curves.png Graphic file (type png)
 <use figures/results/aerobic_zone_densenet_121_Waterval_training_curves.png>
 Package pdftex.def Info: figures/results/aerobic_zone_densenet_121_Waterval_training_curves.png  used on input line 434.
-(pdftex.def)             Requested size: 191.10214pt x 62.5201pt.
-<figures/results/aerobic_zone_densenet_121_Atlantis_confusion_matrix.png, id=1944, 414.8298pt x 399.4122pt>
+(pdftex.def)             Requested size: 191.10214pt x 62.52225pt.
+<figures/results/aerobic_zone_densenet_121_Atlantis_confusion_matrix.png, id=1944, 864.22874pt x 832.10875pt>
 File: figures/results/aerobic_zone_densenet_121_Atlantis_confusion_matrix.png Graphic file (type png)
 <use figures/results/aerobic_zone_densenet_121_Atlantis_confusion_matrix.png>
 Package pdftex.def Info: figures/results/aerobic_zone_densenet_121_Atlantis_confusion_matrix.png  used on input line 444.
-(pdftex.def)             Requested size: 124.80286pt x 120.15977pt.
-<figures/results/aerobic_zone_densenet_121_CapeFlats_confusion_matrix.png, id=1945, 421.575pt x 396.0396pt>
+(pdftex.def)             Requested size: 124.80286pt x 120.16383pt.
+<figures/results/aerobic_zone_densenet_121_CapeFlats_confusion_matrix.png, id=1945, 878.28125pt x 825.0825pt>
 File: figures/results/aerobic_zone_densenet_121_CapeFlats_confusion_matrix.png Graphic file (type png)
 <use figures/results/aerobic_zone_densenet_121_CapeFlats_confusion_matrix.png>
 Package pdftex.def Info: figures/results/aerobic_zone_densenet_121_CapeFlats_confusion_matrix.png  used on input line 449.
-(pdftex.def)             Requested size: 124.80286pt x 117.2416pt.
-<figures/results/aerobic_zone_densenet_121_Waterval_confusion_matrix.png, id=1946, 421.575pt x 396.0396pt>
+(pdftex.def)             Requested size: 124.80286pt x 117.23555pt.
+<figures/results/aerobic_zone_densenet_121_Waterval_confusion_matrix.png, id=1946, 878.28125pt x 825.0825pt>
 File: figures/results/aerobic_zone_densenet_121_Waterval_confusion_matrix.png Graphic file (type png)
 <use figures/results/aerobic_zone_densenet_121_Waterval_confusion_matrix.png>
 Package pdftex.def Info: figures/results/aerobic_zone_densenet_121_Waterval_confusion_matrix.png  used on input line 454.
-(pdftex.def)             Requested size: 124.80286pt x 117.2416pt.
+(pdftex.def)             Requested size: 124.80286pt x 117.23555pt.
 
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
@@ -2513,16 +2513,16 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
 [82]
-<figures/results/clarifier_stratified_ok_vs_notok_roc.png, id=1968, 505.89pt x 433.62pt>
+<figures/results/clarifier_stratified_ok_vs_notok_roc.png, id=1968, 1053.9375pt x 903.375pt>
 File: figures/results/clarifier_stratified_ok_vs_notok_roc.png Graphic file (type png)
 <use figures/results/clarifier_stratified_ok_vs_notok_roc.png>
 Package pdftex.def Info: figures/results/clarifier_stratified_ok_vs_notok_roc.png  used on input line 559.
-(pdftex.def)             Requested size: 191.10214pt x 163.80469pt.
-<figures/results/clarifier_lofo_ok_vs_notok_roc.png, id=1969, 505.89pt x 433.62pt>
+(pdftex.def)             Requested size: 191.10214pt x 163.79973pt.
+<figures/results/clarifier_lofo_ok_vs_notok_roc.png, id=1969, 1053.9375pt x 903.375pt>
 File: figures/results/clarifier_lofo_ok_vs_notok_roc.png Graphic file (type png)
 <use figures/results/clarifier_lofo_ok_vs_notok_roc.png>
 Package pdftex.def Info: figures/results/clarifier_lofo_ok_vs_notok_roc.png  used on input line 564.
-(pdftex.def)             Requested size: 191.10214pt x 163.80469pt.
+(pdftex.def)             Requested size: 191.10214pt x 163.79973pt.
 
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
@@ -2532,36 +2532,36 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-13.51804pt}.
 
 [83 <./figures/results/clarifier_stratified_ok_vs_notok_roc.png> <./figures/results/clarifier_lofo_ok_vs_notok_roc.png>]
-<figures/results/aerobic_zone_stratified_ok_vs_notok_roc.png, id=1978, 505.89pt x 433.62pt>
+<figures/results/aerobic_zone_stratified_ok_vs_notok_roc.png, id=1978, 1053.9375pt x 903.375pt>
 File: figures/results/aerobic_zone_stratified_ok_vs_notok_roc.png Graphic file (type png)
 <use figures/results/aerobic_zone_stratified_ok_vs_notok_roc.png>
 Package pdftex.def Info: figures/results/aerobic_zone_stratified_ok_vs_notok_roc.png  used on input line 596.
-(pdftex.def)             Requested size: 191.10214pt x 163.80469pt.
-<figures/results/aerobic_zone_lofo_ok_vs_notok_roc.png, id=1979, 505.89pt x 433.62pt>
+(pdftex.def)             Requested size: 191.10214pt x 163.79973pt.
+<figures/results/aerobic_zone_lofo_ok_vs_notok_roc.png, id=1979, 1053.9375pt x 903.375pt>
 File: figures/results/aerobic_zone_lofo_ok_vs_notok_roc.png Graphic file (type png)
 <use figures/results/aerobic_zone_lofo_ok_vs_notok_roc.png>
 Package pdftex.def Info: figures/results/aerobic_zone_lofo_ok_vs_notok_roc.png  used on input line 601.
-(pdftex.def)             Requested size: 191.10214pt x 163.80469pt.
-<figures/results/clarifier_stratified_ok_vs_notok_confusion_at_threshold.png, id=1980, 1214.136pt x 578.16pt>
+(pdftex.def)             Requested size: 191.10214pt x 163.79973pt.
+<figures/results/clarifier_stratified_ok_vs_notok_confusion_at_threshold.png, id=1980, 2529.45pt x 1204.5pt>
 File: figures/results/clarifier_stratified_ok_vs_notok_confusion_at_threshold.png Graphic file (type png)
 <use figures/results/clarifier_stratified_ok_vs_notok_confusion_at_threshold.png>
 Package pdftex.def Info: figures/results/clarifier_stratified_ok_vs_notok_confusion_at_threshold.png  used on input line 649.
-(pdftex.def)             Requested size: 390.0pt x 185.71191pt.
-<figures/results/clarifier_lofo_ok_vs_notok_confusion_at_threshold.png, id=1981, 1214.136pt x 578.16pt>
+(pdftex.def)             Requested size: 390.0pt x 185.7031pt.
+<figures/results/clarifier_lofo_ok_vs_notok_confusion_at_threshold.png, id=1981, 2529.45pt x 1204.5pt>
 File: figures/results/clarifier_lofo_ok_vs_notok_confusion_at_threshold.png Graphic file (type png)
 <use figures/results/clarifier_lofo_ok_vs_notok_confusion_at_threshold.png>
 Package pdftex.def Info: figures/results/clarifier_lofo_ok_vs_notok_confusion_at_threshold.png  used on input line 653.
-(pdftex.def)             Requested size: 390.0pt x 185.71191pt.
-<figures/results/aerobic_zone_stratified_ok_vs_notok_confusion_at_threshold.png, id=1982, 1214.136pt x 578.16pt>
+(pdftex.def)             Requested size: 390.0pt x 185.7031pt.
+<figures/results/aerobic_zone_stratified_ok_vs_notok_confusion_at_threshold.png, id=1982, 2529.45pt x 1204.5pt>
 File: figures/results/aerobic_zone_stratified_ok_vs_notok_confusion_at_threshold.png Graphic file (type png)
 <use figures/results/aerobic_zone_stratified_ok_vs_notok_confusion_at_threshold.png>
 Package pdftex.def Info: figures/results/aerobic_zone_stratified_ok_vs_notok_confusion_at_threshold.png  used on input line 663.
-(pdftex.def)             Requested size: 390.0pt x 185.71191pt.
-<figures/results/aerobic_zone_lofo_ok_vs_notok_confusion_at_threshold.png, id=1983, 1214.136pt x 578.16pt>
+(pdftex.def)             Requested size: 390.0pt x 185.7031pt.
+<figures/results/aerobic_zone_lofo_ok_vs_notok_confusion_at_threshold.png, id=1983, 2529.45pt x 1204.5pt>
 File: figures/results/aerobic_zone_lofo_ok_vs_notok_confusion_at_threshold.png Graphic file (type png)
 <use figures/results/aerobic_zone_lofo_ok_vs_notok_confusion_at_threshold.png>
 Package pdftex.def Info: figures/results/aerobic_zone_lofo_ok_vs_notok_confusion_at_threshold.png  used on input line 667.
-(pdftex.def)             Requested size: 390.0pt x 185.71191pt.
+(pdftex.def)             Requested size: 390.0pt x 185.7031pt.
 
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
@@ -2611,11 +2611,11 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-13.51804pt}.
 
 [89]
-<figures/gradcam_clarifier.png, id=2022, 658.74104pt x 823.878pt>
+<figures/gradcam_clarifier.png, id=2022, 1829.83624pt x 2288.55pt>
 File: figures/gradcam_clarifier.png Graphic file (type png)
 <use figures/gradcam_clarifier.png>
 Package pdftex.def Info: figures/gradcam_clarifier.png  used on input line 758.
-(pdftex.def)             Requested size: 331.50238pt x 414.61569pt.
+(pdftex.def)             Requested size: 331.50238pt x 414.57518pt.
 
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
@@ -2635,11 +2635,11 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
 [91 <./figures/gradcam_clarifier.png>]
-<figures/gradcam_aerobic_zone.png, id=2033, 658.74104pt x 608.87476pt>
+<figures/gradcam_aerobic_zone.png, id=2033, 1829.83624pt x 1691.31876pt>
 File: figures/gradcam_aerobic_zone.png Graphic file (type png)
 <use figures/gradcam_aerobic_zone.png>
 Package pdftex.def Info: figures/gradcam_aerobic_zone.png  used on input line 774.
-(pdftex.def)             Requested size: 350.99762pt x 324.43015pt.
+(pdftex.def)             Requested size: 350.99762pt x 324.42499pt.
 
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
@@ -2809,13 +2809,13 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 Here is how much of TeX's memory you used:
  53505 strings out of 467168
  1099451 string characters out of 5406824
- 1814370 words of memory out of 5000000
+ 1814374 words of memory out of 5000000
  81056 multiletter control sequences out of 15000+600000
  755985 words of font info for 329 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  115i,16n,110p,2553b,835s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmro12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (135 pages, 53283199 bytes).
+Output written on thesis.pdf (135 pages, 23798238 bytes).
 PDF statistics:
  2352 PDF objects out of 2487 (max. 8388607)
  2041 compressed objects within 21 object streams
