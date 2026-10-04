@@ -47,7 +47,7 @@
 \subsection{Generalisation: Mixed-Facility Baseline vs Leave-One-Facility-Out}
 \label{sec:results_generalisation}
 
-\subsection{Hue Shift Ablation}
+\subsection{Hue Shift}
 \label{sec:results_hue_ablation}
 
 To check whether the hue shift in the colour jitter augmentation (Section~\ref{sec:exp_augmentation}) was washing out the green surface that identifies a \textbf{Dysfunctional} clarifier, all seven clarifier architectures were retrained on all five leave-one-facility-out splits with the hue shift disabled, keeping every other augmentation and hyperparameter the same. This did not improve performance: the mean test accuracy decreased for every architecture, by between 0.1 and 3.1 percentage points for the six pretrained architectures, and the number of correctly identified \textbf{Dysfunctional} clarifiers did not improve consistently. The hue shift was therefore kept for both components (Section~\ref{sec:exp_augmentation}).
@@ -67,6 +67,51 @@ To check whether the hue shift in the colour jitter augmentation (Section~\ref{s
 
 \subsection{Threshold Robustness Across Facilities}
 \label{sec:results_threshold_robustness}
+
+
+\section{Qualitative Analysis: Grad-CAM}
+\label{sec:results_gradcam}
+
+The Grad-CAM method and example selection described in Section~\ref{sec:exp_gradcam} were applied to the architecture with the highest mean macro-averaged F1 score in the leave-one-facility-out experiment for each component: ConvNeXt-Tiny for the clarifiers, tested on Fisantekraal (79.8\% accuracy), and DenseNet-121 for the aerobic zones, tested on Waterval (74.7\% accuracy). The last convolutional layer of these networks is only a $7\times7$ and $3\times7$ grid respectively, so the heatmaps are coarse.
+
+\subsection{Clarifiers}
+\label{sec:results_gradcam_clarifiers}
+
+Figure~\ref{fig:gradcam_clarifier} shows the examples for the clarifiers. For the correctly classified \textbf{Dysfunctional}, \textbf{Empty} and \textbf{Scum} clarifiers, the most important region lies on the surface inside the tank. The \textbf{Dysfunctional} heatmap is on the green surface. The \textbf{Empty} heatmap is on the edge of the dark shadow at the top of the tank and on the bright floor below it, which matches the labelling rule that shadows are visible inside an empty tank. The \textbf{Scum} heatmap is on the lower part of the surface, next to the bridge (the arm that spans the tank). The \textbf{Functional} example is the exception: its strongest region is where the bridge meets the rim at the top of the tank, with only weaker regions on the black surface itself.
+
+The ConvNeXt-Tiny heatmaps tend to highlight one or two small regions rather than a larger part of the surface. This is likely related to the global max pooling used in ConvNeXt-Tiny (Section~\ref{sec:exp_architectures}): only the strongest activation of each feature map reaches the classifier head, so the model is trained to respond to the single strongest occurrence of a feature, rather than to how much of the surface it covers.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/gradcam_clarifier.png}
+    \caption{Grad-CAM heatmaps of the ConvNeXt-Tiny clarifier model, for test images from Fisantekraal, which was held out during training. Top: one correctly classified clarifier per class. Bottom: one clarifier from each of the four most common mistakes. Every heatmap is calculated for the predicted class, and $p$ is the softmax probability of that class. Red regions contributed the most to the prediction.}
+    \label{fig:gradcam_clarifier}
+\end{figure}
+
+The most common mistake at Fisantekraal is a \textbf{Scum} clarifier classified as \textbf{Functional}, which happened to 26 of the 116 \textbf{Scum} clarifiers. In the example, the light patch around the centre of the tank receives almost no weight, and the prediction is based on the black surface near the edge of the tank. That region on its own does look like a \textbf{Functional} clarifier, but a clarifier only counts as \textbf{Functional} if the whole surface is black. With $p = 0.55$, the model was also unsure of this prediction. The opposite mistake, a \textbf{Functional} clarifier classified as \textbf{Scum}, is shown in the second column. This image is grainy and has a high contrast, so the black surface does not look smooth, and the heatmap lies on the surface at the left edge of the tank. Noise in the image itself could therefore be mistaken for a surface that is not uniformly black.
+
+Only 17 of the Fisantekraal clarifiers are \textbf{Dysfunctional}, but 9 of them were misclassified, and the last two columns show a different problem. In both, most of the weight lies on or next to the concrete rim of the tank rather than on the surface. For the clarifier classified as \textbf{Functional}, part of the heatmap even falls on the black background outside the tank. Neither of these regions says anything about the state of the clarifier. The surface of this clarifier is also a pale grey-green rather than the darker green of the correctly classified \textbf{Dysfunctional} example, so there was little evidence on the surface itself. For the clarifier classified as \textbf{Scum}, the strongest region is on the rim at the top of the tank, with a weaker region on the surface to the right of the centre.
+
+\subsection{Aerobic Zones}
+\label{sec:results_gradcam_aerobic}
+
+Figure~\ref{fig:gradcam_aerobic} shows the examples for the aerobic zones. The correctly classified \textbf{Functional} zone is a clear case. The model is certain of its prediction ($p = 1.00$), and the heatmap covers the centre of the zone, where the leopard print pattern is visible. This is the feature an operator would look for, which suggests that the model has learned to recognise it. The correctly classified \textbf{Dysfunctional} and \textbf{Suboptimal} zones are much less certain, with $p = 0.49$ and $p = 0.43$, which is only a little above the $0.33$ of a random guess between three classes. For the \textbf{Dysfunctional} zone, the heatmap covers the smooth surface at the left end of the zone. For the \textbf{Suboptimal} zone, it covers a band in the right half of the zone, where the surface is slightly darker and uneven.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/gradcam_aerobic_zone.png}
+    \caption{Grad-CAM heatmaps of the DenseNet-121 aerobic zone model, for test images from Waterval, which was held out during training. Top: one correctly classified aerobic zone per class. Bottom: one aerobic zone from each of the three most common mistakes. Every heatmap is calculated for the predicted class, and $p$ is the softmax probability of that class. Red regions contributed the most to the prediction.}
+    \label{fig:gradcam_aerobic}
+\end{figure}
+
+Both of the most common mistakes at Waterval are zones classified as \textbf{Functional}: 100 of the 229 \textbf{Dysfunctional} zones and 74 of the 92 \textbf{Suboptimal} zones. The \textbf{Suboptimal} example in the second column shows part of the reason. The left and centre of the zone show a clear leopard print pattern, while the right third is smooth. The heatmap lies on the patterned centre, and the smooth part receives almost no weight. According to the labelling rules in Chapter~\ref{chap:systemmethods}, a zone is \textbf{Suboptimal} once a third or more of its surface shows no leopard print, so the class depends on how much of the surface is patterned. The model found the pattern where it exists, but did not take into account how much of the surface it covers. This zone is also close to the boundary between the two classes, and since only the clarifier labels were reviewed (Chapter~\ref{chap:systemmethods}), some of these mistakes may partly be caused by the aerobic zone labels themselves.
+
+The \textbf{Dysfunctional} zone classified as \textbf{Functional}, in the first column, has a smooth surface with no visible pattern, and its heatmap is spread over a large part of the zone rather than on one specific feature. With $p = 0.50$, the model was unsure, and there is no clear feature in the image that it could have mistaken for the leopard print. For the \textbf{Dysfunctional} zone classified as \textbf{Suboptimal}, the heatmap is on a darker patch at the right end of the zone, which does not look like the aeration pattern either.
+
+\subsection{Summary of Observations}
+\label{sec:results_gradcam_summary}
+
+When the models were confident and correct, they mostly looked at the features the labels are based on. The mistakes show two problems. For \textbf{Scum} and \textbf{Suboptimal}, which depend on how much of the surface shows a feature, the models based their prediction on the strongest region and gave little weight to the rest. When the surface gave little evidence either way, the heatmaps spread out or moved to the rim of the tank, and the confidence was low. These are only a few examples, but they are consistent with the most common mistakes at both facilities.
 
 
 \section{Summary of Findings}

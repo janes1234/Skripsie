@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex thesis"] 1791019293.66879 "thesis.aux" "thesis.bbl" "thesis" 1791019299.45797 0
+["bibtex thesis"] 1791102409.00526 "thesis.aux" "thesis.bbl" "thesis" 1791102645.38962 0
   "./mybib.bib" 1791011505.44773 15258 6a5cfbe2ae36977b4e5905127ecc60df ""
   "/home/janes-mostert/.TinyTeX/texmf-dist/bibtex/bst/ieeetran/IEEEtranN.bst" 1440712899 63583 d34cb6c328acc69716207f4a3421ad46 ""
-  "thesis.aux" 1791019298.96539 73588 ecd5a7b4560ed79c1c66817f66d63714 "pdflatex"
+  "thesis.aux" 1791102644.72128 73880 c3b8d7785cd42a853f413c1327ee70db "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1791019293.74197 "thesis.tex" "thesis.pdf" "thesis" 1791019299.45824 0
+["pdflatex"] 1791102638.04986 "/home/janes-mostert/Desktop/Repo/Skripsie/Report/thesis.tex" "thesis.pdf" "thesis" 1791102645.39011 0
   "/home/janes-mostert/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/home/janes-mostert/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "/home/janes-mostert/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1202520719 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -337,14 +337,15 @@
   "/home/janes-mostert/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1785602931 5591391 3a414e76c4a1af29306046bf5de2540c ""
   "/home/janes-mostert/.TinyTeX/texmf-var/web2c/pdftex/pdflatex.fmt" 1785603449 3656544 5ac083bc2616bf18f786913d2705876a ""
   "/home/janes-mostert/.TinyTeX/texmf.cnf" 1785557696 637 edd806fb06a89761a6034e1968af9017 ""
+  "/home/janes-mostert/Desktop/Repo/Skripsie/Report/thesis.tex" 1791019156.73721 1866 4daaa6a938716958220702b322972508 ""
   "appendices/an_appendix.tex" 1791016713.3448 29435 534fd4e64655d641f15628f9f74afec9 ""
   "appendices/appendices.tex" 1784906518.34777 30 b38664e72b1f7783f5da554d40e45df4 ""
   "chapters/Chapter1.tex" 1791016075.6673 4596 a96faae47bd65bdc6f490a437192d2ac ""
   "chapters/Chapter2.tex" 1791016123.71413 32119 e85f9f62d63401b1f44209d1818bbac5 ""
   "chapters/Chapter3.tex" 1791016128.5426 12187 98fb300ab2e2c4565513214df93f9bfd ""
   "chapters/Chapter4.tex" 1791016173.68416 24539 bd6e058ac1bc503dd2bb555259c4ba04 ""
-  "chapters/Chapter5.tex" 1791019207.68466 79330 68b239edbbcc625e0a95b60ba6b1c80b ""
-  "chapters/Chapter6.tex" 1791019213.43111 2552 3492020f9af98884c0488ec77e4ec1e1 ""
+  "chapters/Chapter5.tex" 1791102637.44825 67787 605b66146c8e7e505e934f5ef45304f7 ""
+  "chapters/Chapter6.tex" 1791102389.6417 10409 d0c55e2e81afb34ff5e38270b4dc0ad9 ""
   "chapters/conclusion.tex" 1785603639.93674 119 e0ff3ed770a514c55f43ac5e030b5381 ""
   "figures/aerobic_examples.png" 1791011505.41873 596348 b2badbbcdc001f89d2bb9d75f8980923 ""
   "figures/aerobicdysfunc_background.png" 1786786127.14146 730831 97f4dd1c5548ca71e07e89c0e1f34304 ""
@@ -378,14 +379,14 @@
   "stb-thesis.afr" 1784906518.35161 2637 d9bb3c388f47bdd818ec4d95578ad094 ""
   "stb-thesis.cls" 1784906518.35161 25170 2cad7ddd22582eefe95b767cc4481e31 ""
   "stb-thesis.eng" 1784906518.35161 2649 30a323160db19a3d451f1c2fea9d7c68 ""
-  "thesis.aux" 1791019298.96539 73588 ecd5a7b4560ed79c1c66817f66d63714 "pdflatex"
-  "thesis.bbl" 1791019293.7356 13858 04016a5f42bd07d5bd281967cd961914 "bibtex thesis"
-  "thesis.lof" 1791019298.97439 4474 fafb341b162bcdbab1966f0bbf12d64e "pdflatex"
-  "thesis.lot" 1791019298.97439 9874 cd4f01ae27938cea8f77e5aa0f45dff6 "pdflatex"
+  "thesis.aux" 1791102644.72128 73880 c3b8d7785cd42a853f413c1327ee70db "pdflatex"
+  "thesis.bbl" 1791102409.13717 13858 04016a5f42bd07d5bd281967cd961914 "bibtex thesis"
+  "thesis.lof" 1791102644.73177 4474 6e94d1f703a8171c56e7ebee7ee0d9e1 "pdflatex"
+  "thesis.lot" 1791102644.73177 9874 38c3952ce4ff83cd2744295ea6db4d1f "pdflatex"
   "thesis.nls" 0 -1 0 ""
-  "thesis.out" 1791019298.97339 19795 8c881b263aeacb5fc87a99afa0bcce15 "pdflatex"
+  "thesis.out" 1791102644.73128 19953 8698f5568e4ef6021fa3f0ee34374e33 "pdflatex"
   "thesis.tex" 1791019156.73721 1866 4daaa6a938716958220702b322972508 ""
-  "thesis.toc" 1791019298.97439 10213 a4bc38a69ecfe884a90b81b85ecc49b0 "pdflatex"
+  "thesis.toc" 1791102644.73177 10289 4abecb6919e9514eb0dc8d2b918c7787 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.lof"
