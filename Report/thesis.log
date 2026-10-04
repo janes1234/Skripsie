@@ -1,10 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.1)  4 OCT 2026 10:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.1)  4 OCT 2026 10:48
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/janes-mostert/Desktop/Repo/Skripsie/Report/thesis.tex
-(/home/janes-mostert/Desktop/Repo/Skripsie/Report/thesis.tex
+**thesis.tex
+(./thesis.tex
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
 (./stb-thesis.cls
@@ -1511,12 +1510,7 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 
 ]) [4
 
-] (./thesis.toc
-Overfull \hbox (3.98265pt too wide) detected at line 11
- [][][]\T1/lmr/m/n/12 xviii[][]
- []
-
-[5
+] (./thesis.toc [5
 
 
 ]
@@ -1561,7 +1555,15 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 
 [9] (./thesis.lof [10
 
-])
+]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[11{/home/janes-mostert/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/home/janes-mostert/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}])
 \tf@lof=\write7
 \openout7 = `thesis.lof'.
 
@@ -1573,7 +1575,7 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
-[11{/home/janes-mostert/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/home/janes-mostert/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/home/janes-mostert/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}] (./thesis.lot [12
+[12{/home/janes-mostert/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}] (./thesis.lot [13
 
 ]
 
@@ -1583,19 +1585,7 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
-[13]
-
-Package fancyhdr Warning: \headheight is too small (14.5pt): 
-(fancyhdr)                Make it at least 27.11653pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.11653pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
-
-[14])
-\tf@lot=\write8
-\openout8 = `thesis.lot'.
-
-
+[14]
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
 (fancyhdr)                Make it at least 27.11653pt, for example:
@@ -1611,9 +1601,29 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
-[16] (./frontmatter/nomenclature.tex
+[16]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[17])
+\tf@lot=\write8
+\openout8 = `thesis.lot'.
+
+
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[18] (./frontmatter/nomenclature.tex
 No file thesis.nls.
-(./frontmatter/variables_and_functions.tex) [17
+(./frontmatter/variables_and_functions.tex) [19
 
 
 ]
@@ -1632,7 +1642,7 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
-[18]
+[20]
 
 Package glossaries Warning: \makenoidxglossaries is required to make \printnoidxglossary[type={main}] work on input line 20.
 
@@ -1643,7 +1653,7 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
-[19]) (./chapters/Chapter1.tex
+[21]) (./chapters/Chapter1.tex
 Chapter 1.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
@@ -1673,17 +1683,17 @@ Chapter 2.
 [4
 
 ]
-<figures/aerobicfunc_background.png, id=1124, 652.4375pt x 649.42625pt>
+<figures/aerobicfunc_background.png, id=1282, 652.4375pt x 649.42625pt>
 File: figures/aerobicfunc_background.png Graphic file (type png)
 <use figures/aerobicfunc_background.png>
 Package pdftex.def Info: figures/aerobicfunc_background.png  used on input line 15.
 (pdftex.def)             Requested size: 120.89905pt x 120.34016pt.
-<figures/aerobicdysfunc_background.png, id=1126, 652.4375pt x 649.42625pt>
+<figures/aerobicdysfunc_background.png, id=1284, 652.4375pt x 649.42625pt>
 File: figures/aerobicdysfunc_background.png Graphic file (type png)
 <use figures/aerobicdysfunc_background.png>
 Package pdftex.def Info: figures/aerobicdysfunc_background.png  used on input line 21.
 (pdftex.def)             Requested size: 120.89905pt x 120.34016pt.
-<figures/clarifier_background.png, id=1127, 318.18875pt x 163.61125pt>
+<figures/clarifier_background.png, id=1285, 318.18875pt x 163.61125pt>
 File: figures/clarifier_background.png Graphic file (type png)
 <use figures/clarifier_background.png>
 Package pdftex.def Info: figures/clarifier_background.png  used on input line 27.
@@ -1878,7 +1888,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<figures/heatmap.png, id=1343, 1278.2154pt x 790.6338pt>
+<figures/heatmap.png, id=1500, 1278.2154pt x 790.6338pt>
 File: figures/heatmap.png Graphic file (type png)
 <use figures/heatmap.png>
 Package pdftex.def Info: figures/heatmap.png  used on input line 9.
@@ -1886,32 +1896,32 @@ Package pdftex.def Info: figures/heatmap.png  used on input line 9.
  [26
 
 ]
-<figures/map.png, id=1352, 1344.02126pt x 742.775pt>
+<figures/map.png, id=1510, 1344.02126pt x 742.775pt>
 File: figures/map.png Graphic file (type png)
 <use figures/map.png>
 Package pdftex.def Info: figures/map.png  used on input line 21.
 (pdftex.def)             Requested size: 234.00238pt x 129.31886pt.
-<figures/atlantis_overview.png, id=1353, 379.4175pt x 326.21875pt>
+<figures/atlantis_overview.png, id=1511, 379.4175pt x 326.21875pt>
 File: figures/atlantis_overview.png Graphic file (type png)
 <use figures/atlantis_overview.png>
 Package pdftex.def Info: figures/atlantis_overview.png  used on input line 29.
 (pdftex.def)             Requested size: 124.80286pt x 107.30408pt.
-<figures/capeflats_overview.png, id=1354, 542.025pt x 278.03876pt>
+<figures/capeflats_overview.png, id=1512, 542.025pt x 278.03876pt>
 File: figures/capeflats_overview.png Graphic file (type png)
 <use figures/capeflats_overview.png>
 Package pdftex.def Info: figures/capeflats_overview.png  used on input line 35.
 (pdftex.def)             Requested size: 124.80286pt x 64.01544pt.
-<figures/waterval_overview.png, id=1355, 256.96pt x 327.2225pt>
+<figures/waterval_overview.png, id=1513, 256.96pt x 327.2225pt>
 File: figures/waterval_overview.png Graphic file (type png)
 <use figures/waterval_overview.png>
 Package pdftex.def Info: figures/waterval_overview.png  used on input line 41.
 (pdftex.def)             Requested size: 117.00119pt x 148.9963pt.
-<figures/fisantekraal_overview.png, id=1356, 8222.72pt x 3047.385pt>
+<figures/fisantekraal_overview.png, id=1514, 8222.72pt x 3047.385pt>
 File: figures/fisantekraal_overview.png Graphic file (type png)
 <use figures/fisantekraal_overview.png>
 Package pdftex.def Info: figures/fisantekraal_overview.png  used on input line 47.
 (pdftex.def)             Requested size: 117.00119pt x 43.33733pt.
-<figures/noordelikewerke_overview.png, id=1357, 1534.73375pt x 918.43124pt>
+<figures/noordelikewerke_overview.png, id=1515, 1534.73375pt x 918.43124pt>
 File: figures/noordelikewerke_overview.png Graphic file (type png)
 <use figures/noordelikewerke_overview.png>
 Package pdftex.def Info: figures/noordelikewerke_overview.png  used on input line 53.
@@ -1941,12 +1951,12 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
 [29]
-<figures/aerobic_examples.png, id=1376, 1076.823pt x 190.311pt>
+<figures/aerobic_examples.png, id=1534, 1076.823pt x 190.311pt>
 File: figures/aerobic_examples.png Graphic file (type png)
 <use figures/aerobic_examples.png>
 Package pdftex.def Info: figures/aerobic_examples.png  used on input line 106.
 (pdftex.def)             Requested size: 390.0pt x 68.92426pt.
-<figures/clarifier_examples.png, id=1379, 1076.823pt x 306.4248pt>
+<figures/clarifier_examples.png, id=1537, 1076.823pt x 306.4248pt>
 File: figures/clarifier_examples.png Graphic file (type png)
 <use figures/clarifier_examples.png>
 Package pdftex.def Info: figures/clarifier_examples.png  used on input line 112.
@@ -1992,7 +2002,7 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
 [34]
-<figures/leave_one_out.png, id=1413, 640.794pt x 462.0462pt>
+<figures/leave_one_out.png, id=1570, 640.794pt x 462.0462pt>
 File: figures/leave_one_out.png Graphic file (type png)
 <use figures/leave_one_out.png>
 Package pdftex.def Info: figures/leave_one_out.png  used on input line 211.
@@ -2017,12 +2027,12 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
 [36 <./figures/leave_one_out.png>]
-<figures/relabel_example.png, id=1425, 401.5pt x 401.5pt>
+<figures/relabel_example.png, id=1582, 401.5pt x 401.5pt>
 File: figures/relabel_example.png Graphic file (type png)
 <use figures/relabel_example.png>
 Package pdftex.def Info: figures/relabel_example.png  used on input line 229.
 (pdftex.def)             Requested size: 117.00119pt x 117.00177pt.
-<figures/relabel_process_example.png, id=1426, 1436.36626pt x 910.40125pt>
+<figures/relabel_process_example.png, id=1583, 1436.36626pt x 910.40125pt>
 File: figures/relabel_process_example.png Graphic file (type png)
 <use figures/relabel_process_example.png>
 Package pdftex.def Info: figures/relabel_process_example.png  used on input line 236.
@@ -2116,7 +2126,7 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
 [47]
-<figures/augmentation_examples.png, id=1528, 932.283pt x 495.2904pt>
+<figures/augmentation_examples.png, id=1685, 932.283pt x 495.2904pt>
 File: figures/augmentation_examples.png Graphic file (type png)
 <use figures/augmentation_examples.png>
 Package pdftex.def Info: figures/augmentation_examples.png  used on input line 110.
@@ -2307,11 +2317,19 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 
 [70]
 Chapter 6.
+<figures/results/clarifier_stratified_accuracy_auc_bars.png, id=1875, 578.16pt x 346.896pt>
+File: figures/results/clarifier_stratified_accuracy_auc_bars.png Graphic file (type png)
+<use figures/results/clarifier_stratified_accuracy_auc_bars.png>
+Package pdftex.def Info: figures/results/clarifier_stratified_accuracy_auc_bars.png  used on input line 41.
+(pdftex.def)             Requested size: 292.5pt x 175.49603pt.
 [71
 
 ]
-Overfull \vbox (188.22267pt too high) has occurred while \output is active []
-
+<figures/results/aerobic_zone_stratified_accuracy_auc_bars.png, id=1880, 578.16pt x 346.896pt>
+File: figures/results/aerobic_zone_stratified_accuracy_auc_bars.png Graphic file (type png)
+<use figures/results/aerobic_zone_stratified_accuracy_auc_bars.png>
+Package pdftex.def Info: figures/results/aerobic_zone_stratified_accuracy_auc_bars.png  used on input line 101.
+(pdftex.def)             Requested size: 292.5pt x 175.49603pt.
 
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
@@ -2320,7 +2338,192 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
-[72]
+[72 <./figures/results/clarifier_stratified_accuracy_auc_bars.png>]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[73 <./figures/results/aerobic_zone_stratified_accuracy_auc_bars.png>]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[74]
+<figures/results/clarifier_lofo_accuracy_auc_bars.png, id=1896, 1243.044pt x 346.896pt>
+File: figures/results/clarifier_lofo_accuracy_auc_bars.png Graphic file (type png)
+<use figures/results/clarifier_lofo_accuracy_auc_bars.png>
+Package pdftex.def Info: figures/results/clarifier_lofo_accuracy_auc_bars.png  used on input line 205.
+(pdftex.def)             Requested size: 390.0pt x 108.83348pt.
+<figures/results/clarifier_convnext_tiny_Atlantis_training_curves.png, id=1897, 860.013pt x 281.3712pt>
+File: figures/results/clarifier_convnext_tiny_Atlantis_training_curves.png Graphic file (type png)
+<use figures/results/clarifier_convnext_tiny_Atlantis_training_curves.png>
+Package pdftex.def Info: figures/results/clarifier_convnext_tiny_Atlantis_training_curves.png  used on input line 273.
+(pdftex.def)             Requested size: 191.10214pt x 62.5201pt.
+<figures/results/clarifier_convnext_tiny_CapeFlats_training_curves.png, id=1898, 860.013pt x 281.3712pt>
+File: figures/results/clarifier_convnext_tiny_CapeFlats_training_curves.png Graphic file (type png)
+<use figures/results/clarifier_convnext_tiny_CapeFlats_training_curves.png>
+Package pdftex.def Info: figures/results/clarifier_convnext_tiny_CapeFlats_training_curves.png  used on input line 278.
+(pdftex.def)             Requested size: 191.10214pt x 62.5201pt.
+<figures/results/clarifier_convnext_tiny_Fisantekraal_training_curves.png, id=1899, 860.013pt x 281.3712pt>
+File: figures/results/clarifier_convnext_tiny_Fisantekraal_training_curves.png Graphic file (type png)
+<use figures/results/clarifier_convnext_tiny_Fisantekraal_training_curves.png>
+Package pdftex.def Info: figures/results/clarifier_convnext_tiny_Fisantekraal_training_curves.png  used on input line 282.
+(pdftex.def)             Requested size: 191.10214pt x 62.5201pt.
+<figures/results/clarifier_convnext_tiny_NoordelikeWerke_training_curves.png, id=1900, 859.0494pt x 281.3712pt>
+File: figures/results/clarifier_convnext_tiny_NoordelikeWerke_training_curves.png Graphic file (type png)
+<use figures/results/clarifier_convnext_tiny_NoordelikeWerke_training_curves.png>
+Package pdftex.def Info: figures/results/clarifier_convnext_tiny_NoordelikeWerke_training_curves.png  used on input line 287.
+(pdftex.def)             Requested size: 191.10214pt x 62.59308pt.
+<figures/results/clarifier_convnext_tiny_Waterval_training_curves.png, id=1901, 860.013pt x 281.3712pt>
+File: figures/results/clarifier_convnext_tiny_Waterval_training_curves.png Graphic file (type png)
+<use figures/results/clarifier_convnext_tiny_Waterval_training_curves.png>
+Package pdftex.def Info: figures/results/clarifier_convnext_tiny_Waterval_training_curves.png  used on input line 291.
+(pdftex.def)             Requested size: 191.10214pt x 62.5201pt.
+
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[75 <./figures/results/clarifier_lofo_accuracy_auc_bars.png>]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[76]
+<figures/results/clarifier_convnext_tiny_Atlantis_confusion_matrix.png, id=1911, 415.3116pt x 399.4122pt>
+File: figures/results/clarifier_convnext_tiny_Atlantis_confusion_matrix.png Graphic file (type png)
+<use figures/results/clarifier_convnext_tiny_Atlantis_confusion_matrix.png>
+Package pdftex.def Info: figures/results/clarifier_convnext_tiny_Atlantis_confusion_matrix.png  used on input line 301.
+(pdftex.def)             Requested size: 124.80286pt x 120.0257pt.
+<figures/results/clarifier_convnext_tiny_CapeFlats_confusion_matrix.png, id=1912, 421.575pt x 399.4122pt>
+File: figures/results/clarifier_convnext_tiny_CapeFlats_confusion_matrix.png Graphic file (type png)
+<use figures/results/clarifier_convnext_tiny_CapeFlats_confusion_matrix.png>
+Package pdftex.def Info: figures/results/clarifier_convnext_tiny_CapeFlats_confusion_matrix.png  used on input line 306.
+(pdftex.def)             Requested size: 124.80286pt x 118.24pt.
+<figures/results/clarifier_convnext_tiny_Fisantekraal_confusion_matrix.png, id=1913, 415.3116pt x 399.4122pt>
+File: figures/results/clarifier_convnext_tiny_Fisantekraal_confusion_matrix.png Graphic file (type png)
+<use figures/results/clarifier_convnext_tiny_Fisantekraal_confusion_matrix.png>
+Package pdftex.def Info: figures/results/clarifier_convnext_tiny_Fisantekraal_confusion_matrix.png  used on input line 311.
+(pdftex.def)             Requested size: 124.80286pt x 120.0257pt.
+<figures/results/clarifier_convnext_tiny_NoordelikeWerke_confusion_matrix.png, id=1914, 421.575pt x 399.4122pt>
+File: figures/results/clarifier_convnext_tiny_NoordelikeWerke_confusion_matrix.png Graphic file (type png)
+<use figures/results/clarifier_convnext_tiny_NoordelikeWerke_confusion_matrix.png>
+Package pdftex.def Info: figures/results/clarifier_convnext_tiny_NoordelikeWerke_confusion_matrix.png  used on input line 315.
+(pdftex.def)             Requested size: 124.80286pt x 118.24pt.
+<figures/results/clarifier_convnext_tiny_Waterval_confusion_matrix.png, id=1915, 421.575pt x 399.4122pt>
+File: figures/results/clarifier_convnext_tiny_Waterval_confusion_matrix.png Graphic file (type png)
+<use figures/results/clarifier_convnext_tiny_Waterval_confusion_matrix.png>
+Package pdftex.def Info: figures/results/clarifier_convnext_tiny_Waterval_confusion_matrix.png  used on input line 319.
+(pdftex.def)             Requested size: 124.80286pt x 118.24pt.
+
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[77 <./figures/results/clarifier_convnext_tiny_Atlantis_training_curves.png> <./figures/results/clarifier_convnext_tiny_CapeFlats_training_curves.png> <./figures/results/clarifier_convnext_tiny_Fisantekraal_training_curves.png> <./figures/results/clarifier_convnext_tiny_NoordelikeWerke_training_curves.png> <./figures/results/clarifier_convnext_tiny_Waterval_training_curves.png>]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[78 <./figures/results/clarifier_convnext_tiny_Atlantis_confusion_matrix.png> <./figures/results/clarifier_convnext_tiny_CapeFlats_confusion_matrix.png> <./figures/results/clarifier_convnext_tiny_Fisantekraal_confusion_matrix.png> <./figures/results/clarifier_convnext_tiny_NoordelikeWerke_confusion_matrix.png> <./figures/results/clarifier_convnext_tiny_Waterval_confusion_matrix.png>]
+<figures/results/aerobic_zone_lofo_accuracy_auc_bars.png, id=1934, 925.056pt x 346.896pt>
+File: figures/results/aerobic_zone_lofo_accuracy_auc_bars.png Graphic file (type png)
+<use figures/results/aerobic_zone_lofo_accuracy_auc_bars.png>
+Package pdftex.def Info: figures/results/aerobic_zone_lofo_accuracy_auc_bars.png  used on input line 359.
+(pdftex.def)             Requested size: 390.0pt x 146.2511pt.
+
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[79 <./figures/results/aerobic_zone_lofo_accuracy_auc_bars.png>]
+<figures/results/aerobic_zone_densenet_121_Atlantis_training_curves.png, id=1941, 860.013pt x 281.3712pt>
+File: figures/results/aerobic_zone_densenet_121_Atlantis_training_curves.png Graphic file (type png)
+<use figures/results/aerobic_zone_densenet_121_Atlantis_training_curves.png>
+Package pdftex.def Info: figures/results/aerobic_zone_densenet_121_Atlantis_training_curves.png  used on input line 425.
+(pdftex.def)             Requested size: 191.10214pt x 62.5201pt.
+<figures/results/aerobic_zone_densenet_121_CapeFlats_training_curves.png, id=1942, 859.5312pt x 281.3712pt>
+File: figures/results/aerobic_zone_densenet_121_CapeFlats_training_curves.png Graphic file (type png)
+<use figures/results/aerobic_zone_densenet_121_CapeFlats_training_curves.png>
+Package pdftex.def Info: figures/results/aerobic_zone_densenet_121_CapeFlats_training_curves.png  used on input line 430.
+(pdftex.def)             Requested size: 191.10214pt x 62.55873pt.
+<figures/results/aerobic_zone_densenet_121_Waterval_training_curves.png, id=1943, 860.013pt x 281.3712pt>
+File: figures/results/aerobic_zone_densenet_121_Waterval_training_curves.png Graphic file (type png)
+<use figures/results/aerobic_zone_densenet_121_Waterval_training_curves.png>
+Package pdftex.def Info: figures/results/aerobic_zone_densenet_121_Waterval_training_curves.png  used on input line 434.
+(pdftex.def)             Requested size: 191.10214pt x 62.5201pt.
+<figures/results/aerobic_zone_densenet_121_Atlantis_confusion_matrix.png, id=1944, 414.8298pt x 399.4122pt>
+File: figures/results/aerobic_zone_densenet_121_Atlantis_confusion_matrix.png Graphic file (type png)
+<use figures/results/aerobic_zone_densenet_121_Atlantis_confusion_matrix.png>
+Package pdftex.def Info: figures/results/aerobic_zone_densenet_121_Atlantis_confusion_matrix.png  used on input line 444.
+(pdftex.def)             Requested size: 124.80286pt x 120.15977pt.
+<figures/results/aerobic_zone_densenet_121_CapeFlats_confusion_matrix.png, id=1945, 421.575pt x 396.0396pt>
+File: figures/results/aerobic_zone_densenet_121_CapeFlats_confusion_matrix.png Graphic file (type png)
+<use figures/results/aerobic_zone_densenet_121_CapeFlats_confusion_matrix.png>
+Package pdftex.def Info: figures/results/aerobic_zone_densenet_121_CapeFlats_confusion_matrix.png  used on input line 449.
+(pdftex.def)             Requested size: 124.80286pt x 117.2416pt.
+<figures/results/aerobic_zone_densenet_121_Waterval_confusion_matrix.png, id=1946, 421.575pt x 396.0396pt>
+File: figures/results/aerobic_zone_densenet_121_Waterval_confusion_matrix.png Graphic file (type png)
+<use figures/results/aerobic_zone_densenet_121_Waterval_confusion_matrix.png>
+Package pdftex.def Info: figures/results/aerobic_zone_densenet_121_Waterval_confusion_matrix.png  used on input line 454.
+(pdftex.def)             Requested size: 124.80286pt x 117.2416pt.
+
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[80 <./figures/results/aerobic_zone_densenet_121_Atlantis_training_curves.png> <./figures/results/aerobic_zone_densenet_121_CapeFlats_training_curves.png> <./figures/results/aerobic_zone_densenet_121_Waterval_training_curves.png>]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[81 <./figures/results/aerobic_zone_densenet_121_Atlantis_confusion_matrix.png> <./figures/results/aerobic_zone_densenet_121_CapeFlats_confusion_matrix.png> <./figures/results/aerobic_zone_densenet_121_Waterval_confusion_matrix.png>]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[82]
+<figures/results/clarifier_stratified_ok_vs_notok_roc.png, id=1968, 505.89pt x 433.62pt>
+File: figures/results/clarifier_stratified_ok_vs_notok_roc.png Graphic file (type png)
+<use figures/results/clarifier_stratified_ok_vs_notok_roc.png>
+Package pdftex.def Info: figures/results/clarifier_stratified_ok_vs_notok_roc.png  used on input line 559.
+(pdftex.def)             Requested size: 191.10214pt x 163.80469pt.
+<figures/results/clarifier_lofo_ok_vs_notok_roc.png, id=1969, 505.89pt x 433.62pt>
+File: figures/results/clarifier_lofo_ok_vs_notok_roc.png Graphic file (type png)
+<use figures/results/clarifier_lofo_ok_vs_notok_roc.png>
+Package pdftex.def Info: figures/results/clarifier_lofo_ok_vs_notok_roc.png  used on input line 564.
+(pdftex.def)             Requested size: 191.10214pt x 163.80469pt.
+
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
 (fancyhdr)                Make it at least 28.01804pt, for example:
@@ -2328,11 +2531,90 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-13.51804pt}.
 
-[73]
-<figures/gradcam_clarifier.png, id=1735, 658.74104pt x 823.878pt>
+[83 <./figures/results/clarifier_stratified_ok_vs_notok_roc.png> <./figures/results/clarifier_lofo_ok_vs_notok_roc.png>]
+<figures/results/aerobic_zone_stratified_ok_vs_notok_roc.png, id=1978, 505.89pt x 433.62pt>
+File: figures/results/aerobic_zone_stratified_ok_vs_notok_roc.png Graphic file (type png)
+<use figures/results/aerobic_zone_stratified_ok_vs_notok_roc.png>
+Package pdftex.def Info: figures/results/aerobic_zone_stratified_ok_vs_notok_roc.png  used on input line 596.
+(pdftex.def)             Requested size: 191.10214pt x 163.80469pt.
+<figures/results/aerobic_zone_lofo_ok_vs_notok_roc.png, id=1979, 505.89pt x 433.62pt>
+File: figures/results/aerobic_zone_lofo_ok_vs_notok_roc.png Graphic file (type png)
+<use figures/results/aerobic_zone_lofo_ok_vs_notok_roc.png>
+Package pdftex.def Info: figures/results/aerobic_zone_lofo_ok_vs_notok_roc.png  used on input line 601.
+(pdftex.def)             Requested size: 191.10214pt x 163.80469pt.
+<figures/results/clarifier_stratified_ok_vs_notok_confusion_at_threshold.png, id=1980, 1214.136pt x 578.16pt>
+File: figures/results/clarifier_stratified_ok_vs_notok_confusion_at_threshold.png Graphic file (type png)
+<use figures/results/clarifier_stratified_ok_vs_notok_confusion_at_threshold.png>
+Package pdftex.def Info: figures/results/clarifier_stratified_ok_vs_notok_confusion_at_threshold.png  used on input line 649.
+(pdftex.def)             Requested size: 390.0pt x 185.71191pt.
+<figures/results/clarifier_lofo_ok_vs_notok_confusion_at_threshold.png, id=1981, 1214.136pt x 578.16pt>
+File: figures/results/clarifier_lofo_ok_vs_notok_confusion_at_threshold.png Graphic file (type png)
+<use figures/results/clarifier_lofo_ok_vs_notok_confusion_at_threshold.png>
+Package pdftex.def Info: figures/results/clarifier_lofo_ok_vs_notok_confusion_at_threshold.png  used on input line 653.
+(pdftex.def)             Requested size: 390.0pt x 185.71191pt.
+<figures/results/aerobic_zone_stratified_ok_vs_notok_confusion_at_threshold.png, id=1982, 1214.136pt x 578.16pt>
+File: figures/results/aerobic_zone_stratified_ok_vs_notok_confusion_at_threshold.png Graphic file (type png)
+<use figures/results/aerobic_zone_stratified_ok_vs_notok_confusion_at_threshold.png>
+Package pdftex.def Info: figures/results/aerobic_zone_stratified_ok_vs_notok_confusion_at_threshold.png  used on input line 663.
+(pdftex.def)             Requested size: 390.0pt x 185.71191pt.
+<figures/results/aerobic_zone_lofo_ok_vs_notok_confusion_at_threshold.png, id=1983, 1214.136pt x 578.16pt>
+File: figures/results/aerobic_zone_lofo_ok_vs_notok_confusion_at_threshold.png Graphic file (type png)
+<use figures/results/aerobic_zone_lofo_ok_vs_notok_confusion_at_threshold.png>
+Package pdftex.def Info: figures/results/aerobic_zone_lofo_ok_vs_notok_confusion_at_threshold.png  used on input line 667.
+(pdftex.def)             Requested size: 390.0pt x 185.71191pt.
+
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 28.01804pt, for example:
+(fancyhdr)                \setlength{\headheight}{28.01804pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-13.51804pt}.
+
+[84 <./figures/results/aerobic_zone_stratified_ok_vs_notok_roc.png> <./figures/results/aerobic_zone_lofo_ok_vs_notok_roc.png>]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 28.01804pt, for example:
+(fancyhdr)                \setlength{\headheight}{28.01804pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-13.51804pt}.
+
+[85 <./figures/results/clarifier_stratified_ok_vs_notok_confusion_at_threshold.png> <./figures/results/clarifier_lofo_ok_vs_notok_confusion_at_threshold.png>]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 28.01804pt, for example:
+(fancyhdr)                \setlength{\headheight}{28.01804pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-13.51804pt}.
+
+[86 <./figures/results/aerobic_zone_stratified_ok_vs_notok_confusion_at_threshold.png> <./figures/results/aerobic_zone_lofo_ok_vs_notok_confusion_at_threshold.png>]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 28.01804pt, for example:
+(fancyhdr)                \setlength{\headheight}{28.01804pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-13.51804pt}.
+
+[87]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 28.01804pt, for example:
+(fancyhdr)                \setlength{\headheight}{28.01804pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-13.51804pt}.
+
+[88]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 28.01804pt, for example:
+(fancyhdr)                \setlength{\headheight}{28.01804pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-13.51804pt}.
+
+[89]
+<figures/gradcam_clarifier.png, id=2022, 658.74104pt x 823.878pt>
 File: figures/gradcam_clarifier.png Graphic file (type png)
 <use figures/gradcam_clarifier.png>
-Package pdftex.def Info: figures/gradcam_clarifier.png  used on input line 86.
+Package pdftex.def Info: figures/gradcam_clarifier.png  used on input line 758.
 (pdftex.def)             Requested size: 331.50238pt x 414.61569pt.
 
 
@@ -2342,7 +2624,9 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
-[74]
+[90
+
+]
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
 (fancyhdr)                Make it at least 27.11653pt, for example:
@@ -2350,127 +2634,13 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
-[75 <./figures/gradcam_clarifier.png>]
-<figures/gradcam_aerobic_zone.png, id=1746, 658.74104pt x 608.87476pt>
+[91 <./figures/gradcam_clarifier.png>]
+<figures/gradcam_aerobic_zone.png, id=2033, 658.74104pt x 608.87476pt>
 File: figures/gradcam_aerobic_zone.png Graphic file (type png)
 <use figures/gradcam_aerobic_zone.png>
-Package pdftex.def Info: figures/gradcam_aerobic_zone.png  used on input line 102.
+Package pdftex.def Info: figures/gradcam_aerobic_zone.png  used on input line 774.
 (pdftex.def)             Requested size: 350.99762pt x 324.43015pt.
 
-
-Package fancyhdr Warning: \headheight is too small (14.5pt): 
-(fancyhdr)                Make it at least 27.11653pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.11653pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
-
-[76]
-
-Package fancyhdr Warning: \headheight is too small (14.5pt): 
-(fancyhdr)                Make it at least 27.11653pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.11653pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
-
-[77 <./figures/gradcam_aerobic_zone.png>]) (./chapters/conclusion.tex
-
-Package fancyhdr Warning: \headheight is too small (14.5pt): 
-(fancyhdr)                Make it at least 27.11653pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.11653pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
-
-[78]
-Chapter 7.
-) [79
-
-] (./thesis.bbl [80
-
-]
-
-Package fancyhdr Warning: \headheight is too small (14.5pt): 
-(fancyhdr)                Make it at least 27.11653pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.11653pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
-
-[81]
-
-Package fancyhdr Warning: \headheight is too small (14.5pt): 
-(fancyhdr)                Make it at least 27.11653pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.11653pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
-
-[82]
-
-Package fancyhdr Warning: \headheight is too small (14.5pt): 
-(fancyhdr)                Make it at least 27.11653pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.11653pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
-
-[83]
-
-Package fancyhdr Warning: \headheight is too small (14.5pt): 
-(fancyhdr)                Make it at least 27.11653pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.11653pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
-
-[84]) (./appendices/appendices.tex (./appendices/an_appendix.tex
-
-Package fancyhdr Warning: \headheight is too small (14.5pt): 
-(fancyhdr)                Make it at least 27.11653pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.11653pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
-
-[85]
-Appendix A.
-[86
-
-]
-
-Package fancyhdr Warning: \headheight is too small (14.5pt): 
-(fancyhdr)                Make it at least 27.11653pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.11653pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
-
-[87]
-
-Package fancyhdr Warning: \headheight is too small (14.5pt): 
-(fancyhdr)                Make it at least 27.11653pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.11653pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
-
-[88]
-
-Package fancyhdr Warning: \headheight is too small (14.5pt): 
-(fancyhdr)                Make it at least 27.11653pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.11653pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
-
-[89]
-
-Package fancyhdr Warning: \headheight is too small (14.5pt): 
-(fancyhdr)                Make it at least 27.11653pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.11653pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
-
-[90]
-
-Package fancyhdr Warning: \headheight is too small (14.5pt): 
-(fancyhdr)                Make it at least 27.11653pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.11653pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
-
-[91]
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
 (fancyhdr)                Make it at least 27.11653pt, for example:
@@ -2486,7 +2656,7 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
-[93]
+[93 <./figures/gradcam_aerobic_zone.png>]) (./chapters/conclusion.tex
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
 (fancyhdr)                Make it at least 27.11653pt, for example:
@@ -2495,6 +2665,12 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
 [94]
+Chapter 7.
+) [95
+
+] (./thesis.bbl [96
+
+]
 
 Package fancyhdr Warning: \headheight is too small (14.5pt): 
 (fancyhdr)                Make it at least 27.11653pt, for example:
@@ -2502,7 +2678,115 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
-[95]))
+[97]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[98]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[99]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[100]) (./appendices/appendices.tex (./appendices/an_appendix.tex
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[101]
+Appendix A.
+[102
+
+]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[103]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[104]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[105]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[106]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[107]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[108]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[109]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[110]
+
+Package fancyhdr Warning: \headheight is too small (14.5pt): 
+(fancyhdr)                Make it at least 27.11653pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.11653pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
+
+[111]))
 
 Package caption Warning: Unused \captionsetup[algorithm] on input line 376.
 See the caption package documentation for explanation.
@@ -2514,27 +2798,27 @@ Package fancyhdr Warning: \headheight is too small (14.5pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.61653pt}.
 
-[96] (./thesis.aux)
+[112] (./thesis.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
  ***********
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 8698F5568E4EF6021FA3F0EE34374E33;19953.
+(rerunfilecheck)             Checksum: 41C8EF020FEF04E7B028CD694E951F16;19953.
  ) 
 Here is how much of TeX's memory you used:
- 53182 strings out of 467168
- 1082466 string characters out of 5406824
- 1794715 words of memory out of 5000000
- 80800 multiletter control sequences out of 15000+600000
- 755082 words of font info for 319 fonts, out of 8000000 for 9000
+ 53505 strings out of 467168
+ 1099451 string characters out of 5406824
+ 1814370 words of memory out of 5000000
+ 81056 multiletter control sequences out of 15000+600000
+ 755985 words of font info for 329 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 115i,16n,110p,2602b,835s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 115i,16n,110p,2553b,835s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmro12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></home/janes-mostert/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (117 pages, 50985444 bytes).
+Output written on thesis.pdf (135 pages, 53283199 bytes).
 PDF statistics:
- 2056 PDF objects out of 2073 (max. 8388607)
- 1824 compressed objects within 19 object streams
- 344 named destinations out of 1000 (max. 500000)
- 63500 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 2352 PDF objects out of 2487 (max. 8388607)
+ 2041 compressed objects within 21 object streams
+ 392 named destinations out of 1000 (max. 500000)
+ 63640 words of extra memory for PDF output out of 74296 (max. 10000000)
 
