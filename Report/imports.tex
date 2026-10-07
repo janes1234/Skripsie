@@ -6,6 +6,9 @@
 	\addtocounter{page}{-1}%
 	\newpage}
 
+% Page layout
+\usepackage[a4paper,left=25mm,right=25mm,top=25mm,bottom=25mm,headheight=15pt,headsep=8mm]{geometry}
+
 % Subsections
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
@@ -91,12 +94,15 @@
 \usepackage[raggedright,rm,bf]{titlesec}
 \usepackage{titlecaps}
 \titlelabel{\thetitle.\quad}
-\titleformat{\chapter}[display]{\LARGE\rmfamily\raggedleft}{\scshape \chaptertitlename\ \thechapter}{3pt}{\titlerule\vspace{1.5ex} \scshape \Huge \centering}[\vspace{1.5ex}\titlerule]
-\titlespacing*{\chapter}{0pt}{30pt}{40pt}  % remove spacing before chapter headings
+\titleformat{\chapter}[display]{\large\rmfamily\raggedleft}{\scshape \chaptertitlename\ \thechapter}{2pt}{\titlerule\vspace{1ex} \scshape \LARGE \centering}[\vspace{1ex}\titlerule]
+\titlespacing*{\chapter}{0pt}{-20pt}{18pt}  % reduce spacing around chapter headings
 
-\titleformat{\section}{\rmfamily\scshape\Large}{\thesection}{1em}{}
-\titleformat{\subsection}{\rmfamily\scshape\large}{\thesubsection}{1em}{}
+\titleformat{\section}{\rmfamily\scshape\large}{\thesection}{1em}{}
+\titleformat{\subsection}{\rmfamily\scshape\normalsize}{\thesubsection}{1em}{}
 \titleformat{\subsubsection}{\rmfamily\scshape\normalsize}{\thesubsubsection}{1em}{}
+\titlespacing*{\section}{0pt}{2.5ex plus 1ex minus .2ex}{1.2ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{2ex plus 1ex minus .2ex}{1ex plus .2ex}
+\titlespacing*{\subsubsection}{0pt}{1.8ex plus 1ex minus .2ex}{0.8ex plus .2ex}
 
 \newcommand{\ShortInTextTitle}[1]{\textbf{\scshape #1}}
 
@@ -440,10 +446,13 @@
 }
 \newcommand{\mychapter}[3]{
 	%	\sectionmark{#2}
-	\chapter[#1]{#2 \chaptermark{#2}}\vspace{-15pt}\begin{center}
-		{\Large\scshape #3} 
-	\end{center} 
-	\vspace{10pt}
+	\chapter[#1]{#2 \chaptermark{#2}}%
+	\if\relax\detokenize{#3}\relax\else
+		\vspace{-15pt}\begin{center}
+			{\Large\scshape #3}
+		\end{center}
+		\vspace{10pt}
+	\fi
 }
 
 % Miscellaneous

@@ -8,7 +8,8 @@
 \providecommand{\BIBentrySTDinterwordspacing}{\spaceskip=0pt\relax}
 \providecommand{\BIBentryALTinterwordstretchfactor}{4}
 \providecommand{\BIBentryALTinterwordspacing}{\spaceskip=\fontdimen2\font plus
-\BIBentryALTinterwordstretchfactor\fontdimen3\font minus \fontdimen4\font\relax}
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
 \providecommand{\BIBforeignlanguage}[2]{{%
 \expandafter\ifx\csname l@#1\endcsname\relax
 \typeout{** WARNING: IEEEtranN.bst: No hyphenation pattern has been}%
@@ -21,127 +22,255 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem[LeCun et~al.(1998)LeCun, Bottou, Bengio, and Haffner]{lecun1998gradient}
-Y.~LeCun, L.~Bottou, Y.~Bengio, and P.~Haffner, ``Gradient-based learning applied to document recognition,'' \emph{Proceedings of the IEEE}, vol.~86, no.~11, pp. 2278--2324, 1998.
+\bibitem[LeCun et~al.(1998)LeCun, Bottou, Bengio, and
+  Haffner]{lecun1998gradient}
+Y.~LeCun, L.~Bottou, Y.~Bengio, and P.~Haffner, ``Gradient-based learning
+  applied to document recognition,'' \emph{Proceedings of the IEEE}, vol.~86,
+  no.~11, pp. 2278--2324, 1998.
 
-\bibitem[Deng et~al.(2009)Deng, Dong, Socher, Li, Li, and Fei-Fei]{deng2009imagenet}
-J.~Deng, W.~Dong, R.~Socher, L.-J. Li, K.~Li, and L.~Fei-Fei, ``{ImageNet}: A large-scale hierarchical image database,'' in \emph{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 2009, pp. 248--255.
+\bibitem[Deng et~al.(2009)Deng, Dong, Socher, Li, Li, and
+  Fei-Fei]{deng2009imagenet}
+J.~Deng, W.~Dong, R.~Socher, L.-J. Li, K.~Li, and L.~Fei-Fei, ``{ImageNet}: A
+  large-scale hierarchical image database,'' in \emph{Proceedings of the IEEE
+  Conference on Computer Vision and Pattern Recognition (CVPR)}, 2009, pp.
+  248--255.
 
 \bibitem[He et~al.(2016)He, Zhang, Ren, and Sun]{he2016resnet}
-K.~He, X.~Zhang, S.~Ren, and J.~Sun, ``Deep residual learning for image recognition,'' in \emph{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 2016, pp. 770--778.
+K.~He, X.~Zhang, S.~Ren, and J.~Sun, ``Deep residual learning for image
+  recognition,'' in \emph{Proceedings of the IEEE Conference on Computer Vision
+  and Pattern Recognition (CVPR)}, 2016, pp. 770--778.
 
-\bibitem[Huang et~al.(2017)Huang, Liu, van~der Maaten, and Weinberger]{huang2017densenet}
-G.~Huang, Z.~Liu, L.~van~der Maaten, and K.~Q. Weinberger, ``Densely connected convolutional networks,'' in \emph{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 2017, pp. 4700--4708.
+\bibitem[Huang et~al.(2017)Huang, Liu, van~der Maaten, and
+  Weinberger]{huang2017densenet}
+G.~Huang, Z.~Liu, L.~van~der Maaten, and K.~Q. Weinberger, ``Densely connected
+  convolutional networks,'' in \emph{Proceedings of the IEEE Conference on
+  Computer Vision and Pattern Recognition (CVPR)}, 2017, pp. 4700--4708.
 
-\bibitem[Szegedy et~al.(2016)Szegedy, Vanhoucke, Ioffe, Shlens, and Wojna]{szegedy2016inception}
-C.~Szegedy, V.~Vanhoucke, S.~Ioffe, J.~Shlens, and Z.~Wojna, ``Rethinking the inception architecture for computer vision,'' in \emph{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 2016, pp. 2818--2826.
+\bibitem[Szegedy et~al.(2016)Szegedy, Vanhoucke, Ioffe, Shlens, and
+  Wojna]{szegedy2016inception}
+C.~Szegedy, V.~Vanhoucke, S.~Ioffe, J.~Shlens, and Z.~Wojna, ``Rethinking the
+  inception architecture for computer vision,'' in \emph{Proceedings of the
+  IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 2016, pp.
+  2818--2826.
 
 \bibitem[Tan and Le(2019)]{tan2019efficientnet}
-M.~Tan and Q.~V. Le, ``{EfficientNet}: Rethinking model scaling for convolutional neural networks,'' in \emph{Proceedings of the 36th International Conference on Machine Learning (ICML)}, 2019, pp. 6105--6114.
+M.~Tan and Q.~V. Le, ``{EfficientNet}: Rethinking model scaling for
+  convolutional neural networks,'' in \emph{Proceedings of the 36th
+  International Conference on Machine Learning (ICML)}, 2019, pp. 6105--6114.
 
-\bibitem[Liu et~al.(2022)Liu, Mao, Wu, Feichtenhofer, Darrell, and Xie]{liu2022convnext}
-Z.~Liu, H.~Mao, C.-Y. Wu, C.~Feichtenhofer, T.~Darrell, and S.~Xie, ``A {ConvNet} for the 2020s,'' in \emph{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, 2022, pp. 11\,976--11\,986.
+\bibitem[Liu et~al.(2022)Liu, Mao, Wu, Feichtenhofer, Darrell, and
+  Xie]{liu2022convnext}
+Z.~Liu, H.~Mao, C.-Y. Wu, C.~Feichtenhofer, T.~Darrell, and S.~Xie, ``A
+  {ConvNet} for the 2020s,'' in \emph{Proceedings of the IEEE/CVF Conference on
+  Computer Vision and Pattern Recognition (CVPR)}, 2022, pp. 11\,976--11\,986.
 
 \bibitem[Hu et~al.(2018)Hu, Shen, and Sun]{hu2018squeeze}
-J.~Hu, L.~Shen, and G.~Sun, ``Squeeze-and-excitation networks,'' in \emph{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 2018, pp. 7132--7141.
+J.~Hu, L.~Shen, and G.~Sun, ``Squeeze-and-excitation networks,'' in
+  \emph{Proceedings of the IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, 2018, pp. 7132--7141.
 
 \bibitem[Hendrycks and Gimpel(2016)]{hendrycks2016gelu}
-D.~Hendrycks and K.~Gimpel, ``Gaussian error linear units ({GELUs}),'' \emph{arXiv preprint arXiv:1606.08415}, 2016.
+D.~Hendrycks and K.~Gimpel, ``Gaussian error linear units ({GELUs}),''
+  \emph{arXiv preprint arXiv:1606.08415}, 2016.
 
-\bibitem[Krizhevsky et~al.(2012)Krizhevsky, Sutskever, and Hinton]{krizhevsky2012alexnet}
-A.~Krizhevsky, I.~Sutskever, and G.~E. Hinton, ``{ImageNet} classification with deep convolutional neural networks,'' in \emph{Advances in Neural Information Processing Systems}, vol.~25, 2012, pp. 1097--1105.
+\bibitem[Krizhevsky et~al.(2012)Krizhevsky, Sutskever, and
+  Hinton]{krizhevsky2012alexnet}
+A.~Krizhevsky, I.~Sutskever, and G.~E. Hinton, ``{ImageNet} classification with
+  deep convolutional neural networks,'' in \emph{Advances in Neural Information
+  Processing Systems}, vol.~25, 2012, pp. 1097--1105.
 
 \bibitem[{Department of Water and Sanitation}(2022)]{dws2022greendrop}
-{Department of Water and Sanitation}, ``Green drop national report 2022,'' Department of Water and Sanitation, Pretoria, South Africa, Report, 2022, \url{https://ws.dws.gov.za/IRIS/latestresults.aspx}.
+{Department of Water and Sanitation}, ``Green drop national report 2022,''
+  Department of Water and Sanitation, Pretoria, South Africa, Report, 2022,
+  \url{https://ws.dws.gov.za/IRIS/latestresults.aspx}.
 
-\bibitem[Costa et~al.(2013)Costa, Mesquita, Amaral, Alves, and Ferreira]{costa2013}
-J.~C. Costa, D.~P. Mesquita, A.~L. Amaral, M.~M. Alves, and E.~C. Ferreira, ``Quantitative image analysis for the characterization of microbial aggregates in biological wastewater treatment: a review,'' \emph{Environmental Science and Pollution Research}, vol.~20, pp. 5887--5912, 2013.
+\bibitem[Costa et~al.(2013)Costa, Mesquita, Amaral, Alves, and
+  Ferreira]{costa2013}
+J.~C. Costa, D.~P. Mesquita, A.~L. Amaral, M.~M. Alves, and E.~C. Ferreira,
+  ``Quantitative image analysis for the characterization of microbial
+  aggregates in biological wastewater treatment: a review,''
+  \emph{Environmental Science and Pollution Research}, vol.~20, pp. 5887--5912,
+  2013.
 
-\bibitem[Borzooei et~al.(2024)Borzooei, Scabini, Miranda, Daneshgar, Deblieck, Bruno, De~Langhe, De~Baets, Nopens, and Torfs]{borzooei2024}
-S.~Borzooei, L.~Scabini, G.~Miranda, S.~Daneshgar, L.~Deblieck, O.~Bruno, P.~De~Langhe, B.~De~Baets, I.~Nopens, and E.~Torfs, ``Evaluation of activated sludge settling characteristics from microscopy images with deep convolutional neural networks and transfer learning,'' \emph{Journal of Water Process Engineering}, vol.~64, p. 105692, 2024.
+\bibitem[Borzooei et~al.(2024)Borzooei, Scabini, Miranda, Daneshgar, Deblieck,
+  Bruno, De~Langhe, De~Baets, Nopens, and Torfs]{borzooei2024}
+S.~Borzooei, L.~Scabini, G.~Miranda, S.~Daneshgar, L.~Deblieck, O.~Bruno,
+  P.~De~Langhe, B.~De~Baets, I.~Nopens, and E.~Torfs, ``Evaluation of activated
+  sludge settling characteristics from microscopy images with deep
+  convolutional neural networks and transfer learning,'' \emph{Journal of Water
+  Process Engineering}, vol.~64, p. 105692, 2024.
 
-\bibitem[Satoh et~al.(2021)Satoh, Kashimoto, Takahashi, and Tsujimura]{satoh2021}
-H.~Satoh, Y.~Kashimoto, N.~Takahashi, and T.~Tsujimura, ``Deep learning-based morphology classification of activated sludge flocs in wastewater treatment plants,'' \emph{Environmental Science: Water Research \& Technology}, vol.~7, no.~2, pp. 298--305, 2021.
+\bibitem[Satoh et~al.(2021)Satoh, Kashimoto, Takahashi, and
+  Tsujimura]{satoh2021}
+H.~Satoh, Y.~Kashimoto, N.~Takahashi, and T.~Tsujimura, ``Deep learning-based
+  morphology classification of activated sludge flocs in wastewater treatment
+  plants,'' \emph{Environmental Science: Water Research \& Technology}, vol.~7,
+  no.~2, pp. 298--305, 2021.
 
-\bibitem[Carballo~Mato et~al.(2024)Carballo~Mato, Gonz{\'a}lez~V{\'a}zquez, Fern{\'a}ndez~{\'A}guila, Delgado~Rodr{\'\i}guez, Lin, Garabato~G{\'a}ndara, Sobreira~Seoane, and Silva~Castro]{carballomato2024}
-J.~Carballo~Mato, S.~Gonz{\'a}lez~V{\'a}zquez, J.~Fern{\'a}ndez~{\'A}guila, {\'A}.~Delgado~Rodr{\'\i}guez, X.~Lin, L.~Garabato~G{\'a}ndara, J.~Sobreira~Seoane, and J.~Silva~Castro, ``Foam segmentation in wastewater treatment plants,'' \emph{Water}, vol.~16, no.~3, p. 390, 2024.
+\bibitem[Carballo~Mato et~al.(2024)Carballo~Mato, Gonz{\'a}lez~V{\'a}zquez,
+  Fern{\'a}ndez~{\'A}guila, Delgado~Rodr{\'\i}guez, Lin, Garabato~G{\'a}ndara,
+  Sobreira~Seoane, and Silva~Castro]{carballomato2024}
+J.~Carballo~Mato, S.~Gonz{\'a}lez~V{\'a}zquez, J.~Fern{\'a}ndez~{\'A}guila,
+  {\'A}.~Delgado~Rodr{\'\i}guez, X.~Lin, L.~Garabato~G{\'a}ndara,
+  J.~Sobreira~Seoane, and J.~Silva~Castro, ``Foam segmentation in wastewater
+  treatment plants,'' \emph{Water}, vol.~16, no.~3, p. 390, 2024.
 
 \bibitem[Gholizadeh et~al.(2016)Gholizadeh, Melesse, and Reddi]{gholizadeh2016}
-M.~H. Gholizadeh, A.~M. Melesse, and L.~Reddi, ``A comprehensive review on water quality parameters estimation using remote sensing techniques,'' \emph{Sensors}, vol.~16, no.~8, p. 1298, 2016.
+M.~H. Gholizadeh, A.~M. Melesse, and L.~Reddi, ``A comprehensive review on
+  water quality parameters estimation using remote sensing techniques,''
+  \emph{Sensors}, vol.~16, no.~8, p. 1298, 2016.
 
-\bibitem[Lopez-Betancur et~al.(2022)Lopez-Betancur, Moreno, Guerrero-Mendez, Saucedo-Anaya, Gonz{\'a}lez, Bautista-Capetillo, and Gonz{\'a}lez-Trinidad]{lopezbetancur2022}
-D.~Lopez-Betancur, I.~Moreno, C.~Guerrero-Mendez, T.~Saucedo-Anaya, E.~Gonz{\'a}lez, C.~Bautista-Capetillo, and J.~Gonz{\'a}lez-Trinidad, ``Convolutional neural network for measurement of suspended solids and turbidity,'' \emph{Applied Sciences}, vol.~12, no.~12, p. 6079, 2022.
+\bibitem[Lopez-Betancur et~al.(2022)Lopez-Betancur, Moreno, Guerrero-Mendez,
+  Saucedo-Anaya, Gonz{\'a}lez, Bautista-Capetillo, and
+  Gonz{\'a}lez-Trinidad]{lopezbetancur2022}
+D.~Lopez-Betancur, I.~Moreno, C.~Guerrero-Mendez, T.~Saucedo-Anaya,
+  E.~Gonz{\'a}lez, C.~Bautista-Capetillo, and J.~Gonz{\'a}lez-Trinidad,
+  ``Convolutional neural network for measurement of suspended solids and
+  turbidity,'' \emph{Applied Sciences}, vol.~12, no.~12, p. 6079, 2022.
 
-\bibitem[Lesiv et~al.(2018)Lesiv, See, {Laso Bayas}, Sturn, Schepaschenko, Karner, Moorthy, McCallum, and Fritz]{lesiv2018}
-M.~Lesiv, L.~See, J.~C. {Laso Bayas}, T.~Sturn, D.~Schepaschenko, M.~Karner, I.~Moorthy, I.~McCallum, and S.~Fritz, ``Characterizing the spatial and temporal availability of very high resolution satellite imagery in {Google Earth} and {Microsoft Bing Maps} as a source of reference data,'' \emph{Land}, vol.~7, no.~4, p. 118, 2018.
+\bibitem[Lesiv et~al.(2018)Lesiv, See, {Laso Bayas}, Sturn, Schepaschenko,
+  Karner, Moorthy, McCallum, and Fritz]{lesiv2018}
+M.~Lesiv, L.~See, J.~C. {Laso Bayas}, T.~Sturn, D.~Schepaschenko, M.~Karner,
+  I.~Moorthy, I.~McCallum, and S.~Fritz, ``Characterizing the spatial and
+  temporal availability of very high resolution satellite imagery in {Google
+  Earth} and {Microsoft Bing Maps} as a source of reference data,''
+  \emph{Land}, vol.~7, no.~4, p. 118, 2018.
 
 \bibitem[Hu et~al.(2013)Hu, Wu, Xia, Yu, Yang, Li, and Song]{hu2013}
-Q.~Hu, W.~Wu, T.~Xia, Q.~Yu, P.~Yang, Z.~Li, and Q.~Song, ``Exploring the use of {Google Earth} imagery and object-based methods in land use/cover mapping,'' \emph{Remote Sensing}, vol.~5, no.~11, pp. 6026--6042, 2013.
+Q.~Hu, W.~Wu, T.~Xia, Q.~Yu, P.~Yang, Z.~Li, and Q.~Song, ``Exploring the use
+  of {Google Earth} imagery and object-based methods in land use/cover
+  mapping,'' \emph{Remote Sensing}, vol.~5, no.~11, pp. 6026--6042, 2013.
 
 \bibitem[{eoPortal}(2025)]{eoportal_quickbird}
-{eoPortal}, ``{QuickBird-2},'' European Space Agency eoPortal satellite missions directory, 2025, \url{https://www.eoportal.org/satellite-missions/quickbird-2}. Accessed 6 October 2026.
+{eoPortal}, ``{QuickBird-2},'' European Space Agency eoPortal satellite
+  missions directory, 2025,
+  \url{https://www.eoportal.org/satellite-missions/quickbird-2}. Accessed 6
+  October 2026.
 
 \bibitem[Zhou et~al.(2018)Zhou, Newsam, Li, and Shao]{zhou2018patternnet}
-W.~Zhou, S.~Newsam, C.~Li, and Z.~Shao, ``{PatternNet}: A benchmark dataset for performance evaluation of remote sensing image retrieval,'' \emph{ISPRS Journal of Photogrammetry and Remote Sensing}, vol. 145, pp. 197--209, 2018.
+W.~Zhou, S.~Newsam, C.~Li, and Z.~Shao, ``{PatternNet}: A benchmark dataset for
+  performance evaluation of remote sensing image retrieval,'' \emph{ISPRS
+  Journal of Photogrammetry and Remote Sensing}, vol. 145, pp. 197--209, 2018.
 
 \bibitem[Li et~al.(2022)Li, Zech, Hong, Ghamisi, Schultz, and Zipf]{li2022wwtp}
-H.~Li, J.~Zech, D.~Hong, P.~Ghamisi, M.~Schultz, and A.~Zipf, ``Leveraging {OpenStreetMap} and multimodal remote sensing data with joint deep learning for wastewater treatment plants detection,'' \emph{International Journal of Applied Earth Observation and Geoinformation}, vol. 110, p. 102804, 2022.
+H.~Li, J.~Zech, D.~Hong, P.~Ghamisi, M.~Schultz, and A.~Zipf, ``Leveraging
+  {OpenStreetMap} and multimodal remote sensing data with joint deep learning
+  for wastewater treatment plants detection,'' \emph{International Journal of
+  Applied Earth Observation and Geoinformation}, vol. 110, p. 102804, 2022.
 
 \bibitem[Shuai et~al.(2023)Shuai, Xie, Lu, and Chen]{shuai2023}
-Y.~Shuai, J.~Xie, K.~Lu, and Z.~Chen, ``Multi-attention network for sewage treatment plant detection,'' \emph{Sustainability}, vol.~15, no.~7, p. 5880, 2023.
+Y.~Shuai, J.~Xie, K.~Lu, and Z.~Chen, ``Multi-attention network for sewage
+  treatment plant detection,'' \emph{Sustainability}, vol.~15, no.~7, p. 5880,
+  2023.
 
-\bibitem[Randhawa et~al.(2023)Randhawa, Randhawa, Sivak, Zech, Martin, Zipf, and Li]{randhawa2023}
-S.~Randhawa, G.~Randhawa, O.~Sivak, J.~Zech, M.~Martin, A.~Zipf, and Y.~Li, ``Multiscale multifeature vision learning for scalable and efficient wastewater treatment plant detection using hi-res satellite imagery and {OSM},'' in \emph{Proceedings of the 1st ACM SIGSPATIAL International Workshop on Advances in Urban-AI (UrbanAI '23)}.\hskip 1em plus 0.5em minus 0.4em\relax New York, NY, USA: Association for Computing Machinery, 2023, pp. 10--21.
+\bibitem[Randhawa et~al.(2023)Randhawa, Randhawa, Sivak, Zech, Martin, Zipf,
+  and Li]{randhawa2023}
+S.~Randhawa, G.~Randhawa, O.~Sivak, J.~Zech, M.~Martin, A.~Zipf, and Y.~Li,
+  ``Multiscale multifeature vision learning for scalable and efficient
+  wastewater treatment plant detection using hi-res satellite imagery and
+  {OSM},'' in \emph{Proceedings of the 1st ACM SIGSPATIAL International
+  Workshop on Advances in Urban-AI (UrbanAI '23)}.\hskip 1em plus 0.5em minus
+  0.4em\relax New York, NY, USA: Association for Computing Machinery, 2023, pp.
+  10--21.
 
 \bibitem[Handan-Nader and Ho(2019)]{handannader2019}
-C.~Handan-Nader and D.~E. Ho, ``Deep learning to map concentrated animal feeding operations,'' \emph{Nature Sustainability}, vol.~2, no.~4, pp. 298--306, 2019.
+C.~Handan-Nader and D.~E. Ho, ``Deep learning to map concentrated animal
+  feeding operations,'' \emph{Nature Sustainability}, vol.~2, no.~4, pp.
+  298--306, 2019.
 
 \bibitem[Nogueira et~al.(2017)Nogueira, Penatti, and dos Santos]{nogueira2017}
-K.~Nogueira, O.~A.~B. Penatti, and J.~A. dos Santos, ``Towards better exploiting convolutional neural networks for remote sensing scene classification,'' \emph{Pattern Recognition}, vol.~61, pp. 539--556, 2017.
+K.~Nogueira, O.~A.~B. Penatti, and J.~A. dos Santos, ``Towards better
+  exploiting convolutional neural networks for remote sensing scene
+  classification,'' \emph{Pattern Recognition}, vol.~61, pp. 539--556, 2017.
 
 \bibitem[Penatti et~al.(2015)Penatti, Nogueira, and dos Santos]{penatti2015}
-O.~A.~B. Penatti, K.~Nogueira, and J.~A. dos Santos, ``Do deep features generalize from everyday objects to remote sensing and aerial scenes domains?'' in \emph{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)}, 2015, pp. 44--51.
+O.~A.~B. Penatti, K.~Nogueira, and J.~A. dos Santos, ``Do deep features
+  generalize from everyday objects to remote sensing and aerial scenes
+  domains?'' in \emph{Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition Workshops (CVPRW)}, 2015, pp. 44--51.
 
-\bibitem[Geirhos et~al.(2019)Geirhos, Rubisch, Michaelis, Bethge, Wichmann, and Brendel]{geirhos2019}
-R.~Geirhos, P.~Rubisch, C.~Michaelis, M.~Bethge, F.~A. Wichmann, and W.~Brendel, ``{ImageNet}-trained {CNNs} are biased towards texture; increasing shape bias improves accuracy and robustness,'' in \emph{International Conference on Learning Representations (ICLR)}, 2019, \url{https://arxiv.org/abs/1811.12231}.
+\bibitem[Geirhos et~al.(2019)Geirhos, Rubisch, Michaelis, Bethge, Wichmann, and
+  Brendel]{geirhos2019}
+R.~Geirhos, P.~Rubisch, C.~Michaelis, M.~Bethge, F.~A. Wichmann, and
+  W.~Brendel, ``{ImageNet}-trained {CNNs} are biased towards texture;
+  increasing shape bias improves accuracy and robustness,'' in
+  \emph{International Conference on Learning Representations (ICLR)}, 2019,
+  \url{https://arxiv.org/abs/1811.12231}.
 
 \bibitem[Buda et~al.(2018)Buda, Maki, and Mazurowski]{buda2018}
-M.~Buda, A.~Maki, and M.~A. Mazurowski, ``A systematic study of the class imbalance problem in convolutional neural networks,'' \emph{Neural Networks}, vol. 106, pp. 249--259, 2018.
+M.~Buda, A.~Maki, and M.~A. Mazurowski, ``A systematic study of the class
+  imbalance problem in convolutional neural networks,'' \emph{Neural Networks},
+  vol. 106, pp. 249--259, 2018.
 
-\bibitem[Lin et~al.(2017)Lin, Goyal, Girshick, He, and Doll{\'a}r]{lin2017focal}
-T.-Y. Lin, P.~Goyal, R.~Girshick, K.~He, and P.~Doll{\'a}r, ``Focal loss for dense object detection,'' in \emph{Proceedings of the IEEE International Conference on Computer Vision (ICCV)}, 2017, pp. 2980--2988.
+\bibitem[Lin et~al.(2017)Lin, Goyal, Girshick, He, and
+  Doll{\'a}r]{lin2017focal}
+T.-Y. Lin, P.~Goyal, R.~Girshick, K.~He, and P.~Doll{\'a}r, ``Focal loss for
+  dense object detection,'' in \emph{Proceedings of the IEEE International
+  Conference on Computer Vision (ICCV)}, 2017, pp. 2980--2988.
 
-\bibitem[Kattenborn et~al.(2022)Kattenborn, Schiefer, Frey, Feilhauer, Mahecha, and Dormann]{kattenborn2022}
-T.~Kattenborn, F.~Schiefer, J.~Frey, H.~Feilhauer, M.~D. Mahecha, and C.~F. Dormann, ``Spatially autocorrelated training and validation samples inflate performance assessment of convolutional neural networks,'' \emph{ISPRS Open Journal of Photogrammetry and Remote Sensing}, vol.~5, p. 100018, 2022.
+\bibitem[Kattenborn et~al.(2022)Kattenborn, Schiefer, Frey, Feilhauer, Mahecha,
+  and Dormann]{kattenborn2022}
+T.~Kattenborn, F.~Schiefer, J.~Frey, H.~Feilhauer, M.~D. Mahecha, and C.~F.
+  Dormann, ``Spatially autocorrelated training and validation samples inflate
+  performance assessment of convolutional neural networks,'' \emph{ISPRS Open
+  Journal of Photogrammetry and Remote Sensing}, vol.~5, p. 100018, 2022.
 
-\bibitem[Geirhos et~al.(2020)Geirhos, Jacobsen, Michaelis, Zemel, Brendel, Bethge, and Wichmann]{geirhos2020}
-R.~Geirhos, J.-H. Jacobsen, C.~Michaelis, R.~Zemel, W.~Brendel, M.~Bethge, and F.~A. Wichmann, ``Shortcut learning in deep neural networks,'' \emph{Nature Machine Intelligence}, vol.~2, no.~11, pp. 665--673, 2020.
+\bibitem[Geirhos et~al.(2020)Geirhos, Jacobsen, Michaelis, Zemel, Brendel,
+  Bethge, and Wichmann]{geirhos2020}
+R.~Geirhos, J.-H. Jacobsen, C.~Michaelis, R.~Zemel, W.~Brendel, M.~Bethge, and
+  F.~A. Wichmann, ``Shortcut learning in deep neural networks,'' \emph{Nature
+  Machine Intelligence}, vol.~2, no.~11, pp. 665--673, 2020.
 
-\bibitem[Lapuschkin et~al.(2019)Lapuschkin, W{\"a}ldchen, Binder, Montavon, Samek, and M{\"u}ller]{lapuschkin2019}
-S.~Lapuschkin, S.~W{\"a}ldchen, A.~Binder, G.~Montavon, W.~Samek, and K.-R. M{\"u}ller, ``Unmasking {Clever Hans} predictors and assessing what machines really learn,'' \emph{Nature Communications}, vol.~10, p. 1096, 2019.
+\bibitem[Lapuschkin et~al.(2019)Lapuschkin, W{\"a}ldchen, Binder, Montavon,
+  Samek, and M{\"u}ller]{lapuschkin2019}
+S.~Lapuschkin, S.~W{\"a}ldchen, A.~Binder, G.~Montavon, W.~Samek, and K.-R.
+  M{\"u}ller, ``Unmasking {Clever Hans} predictors and assessing what machines
+  really learn,'' \emph{Nature Communications}, vol.~10, p. 1096, 2019.
 
-\bibitem[Selvaraju et~al.(2017)Selvaraju, Cogswell, Das, Vedantam, Parikh, and Batra]{selvaraju2017gradcam}
-R.~R. Selvaraju, M.~Cogswell, A.~Das, R.~Vedantam, D.~Parikh, and D.~Batra, ``{Grad-CAM}: Visual explanations from deep networks via gradient-based localization,'' in \emph{Proceedings of the IEEE International Conference on Computer Vision (ICCV)}, 2017, pp. 618--626.
+\bibitem[Selvaraju et~al.(2017)Selvaraju, Cogswell, Das, Vedantam, Parikh, and
+  Batra]{selvaraju2017gradcam}
+R.~R. Selvaraju, M.~Cogswell, A.~Das, R.~Vedantam, D.~Parikh, and D.~Batra,
+  ``{Grad-CAM}: Visual explanations from deep networks via gradient-based
+  localization,'' in \emph{Proceedings of the IEEE International Conference on
+  Computer Vision (ICCV)}, 2017, pp. 618--626.
 
 \bibitem[Saito and Rehmsmeier(2015)]{saito2015}
-T.~Saito and M.~Rehmsmeier, ``The precision-recall plot is more informative than the {ROC} plot when evaluating binary classifiers on imbalanced datasets,'' \emph{PLoS ONE}, vol.~10, no.~3, p. e0118432, 2015.
+T.~Saito and M.~Rehmsmeier, ``The precision-recall plot is more informative
+  than the {ROC} plot when evaluating binary classifiers on imbalanced
+  datasets,'' \emph{PLoS ONE}, vol.~10, no.~3, p. e0118432, 2015.
 
-\bibitem[Akiba et~al.(2019)Akiba, Sano, Yanase, Ohta, and Koyama]{akiba2019optuna}
-T.~Akiba, S.~Sano, T.~Yanase, T.~Ohta, and M.~Koyama, ``{Optuna}: A next-generation hyperparameter optimization framework,'' in \emph{Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery \& Data Mining}, 2019, pp. 2623--2631.
+\bibitem[Akiba et~al.(2019)Akiba, Sano, Yanase, Ohta, and
+  Koyama]{akiba2019optuna}
+T.~Akiba, S.~Sano, T.~Yanase, T.~Ohta, and M.~Koyama, ``{Optuna}: A
+  next-generation hyperparameter optimization framework,'' in \emph{Proceedings
+  of the 25th ACM SIGKDD International Conference on Knowledge Discovery \&
+  Data Mining}, 2019, pp. 2623--2631.
 
 \bibitem[Gildenblat and contributors(2021)]{gildenblat2021pytorchcam}
-J.~Gildenblat and contributors, ``{PyTorch} library for {CAM} methods,'' 2021, \url{https://github.com/jacobgil/pytorch-grad-cam}.
+J.~Gildenblat and contributors, ``{PyTorch} library for {CAM} methods,'' 2021,
+  \url{https://github.com/jacobgil/pytorch-grad-cam}.
 
 \bibitem[{Stellenbosch University}(2024)]{sun_thesis_guide}
-{Stellenbosch University}, ``Formatting your thesis,'' 2024, \url{http://bit.ly/SUThesisFormat}.
+{Stellenbosch University}, ``Formatting your thesis,'' 2024,
+  \url{http://bit.ly/SUThesisFormat}.
 
 \bibitem[Els(2024)]{sun_latex_template}
-D.~Els, ``Stellenbosch university thesis bundle,'' 2024, \url{https://ctan.org/pkg/stellenbosch-2}.
+D.~Els, ``Stellenbosch university thesis bundle,'' 2024,
+  \url{https://ctan.org/pkg/stellenbosch-2}.
 
 \bibitem[Kretzmann(2022)]{kretzmann2022}
-S.~Kretzmann, ```a tsunami of human waste': Half of {SA}'s sewage treatment works are failing, says report,'' Daily Maverick, 21 June 2022. First published by GroundUp, 2022, \url{https://www.dailymaverick.co.za/article/2022-06-21-a-tsunami-of-human-waste-half-of-sas-sewage-treatment-works-are-failing-says-study/}. Accessed 30 September 2026.
+S.~Kretzmann, ```a tsunami of human waste': Half of {SA}'s sewage treatment
+  works are failing, says report,'' Daily Maverick, 21 June 2022. First
+  published by GroundUp, 2022,
+  \url{https://www.dailymaverick.co.za/article/2022-06-21-a-tsunami-of-human-waste-half-of-sas-sewage-treatment-works-are-failing-says-study/}.
+  Accessed 30 September 2026.
 
 \bibitem[Westbrook and {de Freitas Alves}(2016)]{westbrook2016}
-A.~Westbrook and N.~S. {de Freitas Alves}, ``Havana's wastewater treatment plants: Changes over time and estimate of replacement cost,'' Association for the Study of the Cuban Economy (ASCE). First prize, 2016 ASCE Student Competition for undergraduate students, 2016, \url{https://ascecubadatabase.org/asce_proceedings/havanas-wastewater-treatment-plants-changes-over-time-and-estimate-of-replacement-cost/}. Accessed 30 September 2026.
+A.~Westbrook and N.~S. {de Freitas Alves}, ``Havana's wastewater treatment
+  plants: Changes over time and estimate of replacement cost,'' Association for
+  the Study of the Cuban Economy (ASCE). First prize, 2016 ASCE Student
+  Competition for undergraduate students, 2016,
+  \url{https://ascecubadatabase.org/asce_proceedings/havanas-wastewater-treatment-plants-changes-over-time-and-estimate-of-replacement-cost/}.
+  Accessed 30 September 2026.
 
 \end{thebibliography}
