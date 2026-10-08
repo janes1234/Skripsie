@@ -1,0 +1,39 @@
+\acswitchoff 
+\babel@toc {english}{}\relax 
+\babel@toc {afrikaans}{}\relax 
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Visual comparison of functional and dysfunctional wastewater treatment components.}}{4}{figure.caption.10}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Number of labelled images per month for each of the five facilities. Cape Flats and Waterval have a separate image for each unit on most dates, so their cells can be larger than one.}}{19}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Location of the five WWTW facilities in the dataset.}}{20}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Overview of the Atlantis, Cape Flats, Waterval, Fisantekraal, and Northern Works WWTW facilities.}}{21}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces One example of each aerobic zone class, with the facility it comes from. Each example is the test image of the stratified split (Chapter~\ref {chap:experimental_design}) that all six pretrained architectures classified correctly with the highest mean confidence, so that it is a clear case of its class.}}{22}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces One example of each clarifier class, with the facility it comes from, chosen in the same way as in Figure~\ref {fig:aerobic_examples}. The area outside each tank is masked to black by the preparation script (Section~\ref {sec:pipeline}).}}{22}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Number of clarifier images from each facility in the training, development and test sets when Waterval is held out. The test set contains only Waterval, while the remaining four facilities are split into training and development sets.}}{26}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces A relabelled clarifier from Cape Flats, shown with some of its surroundings. The original label was ``Scum'', but the label was corrected to ``Empty'', since the tank appears to be drained, with its floor and the shadow of the bridge visible inside it.}}{27}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces The relabelling interface, showing the original label and the per-class correction buttons.}}{28}{figure.caption.25}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces End-to-end experimental pipeline, from labelled satellite imagery to a saved, comparable results file per combination of component, architecture and test set.}}{31}{figure.caption.28}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Augmentations applied to a single \textbf {Scum} clarifier from Cape Flats. Top row: the original image, followed by a horizontal flip, a rotation of $15^\circ $, and a random colour jitter, each applied on its own. Bottom row: four random outputs of the full augmentation pipeline (flip, rotation and colour jitter combined).}}{35}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces The training loop used for every architecture: an epoch of training and development-set evaluation, a scheduler step, a checkpoint decision based on development loss, and a stopping check repeated every epoch until training ends.}}{44}{figure.caption.42}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Test accuracy and mean one-vs-rest AUC of every clarifier architecture on the stratified split (Experiment~1).}}{53}{figure.caption.46}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Test accuracy and mean one-vs-rest AUC of every aerobic zone architecture on the stratified split (Experiment~1).}}{55}{figure.caption.49}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Test accuracy and mean one-vs-rest AUC of every clarifier architecture for each held-out facility, and the mean across facilities.}}{56}{figure.caption.53}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Training and development loss and accuracy of the ConvNeXt-Tiny clarifier model for every leave-one-facility-out fold. The dashed line marks the epoch of the restored checkpoint.}}{57}{figure.caption.56}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Confusion matrices of the ConvNeXt-Tiny clarifier model on each held-out facility.}}{58}{figure.caption.57}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Test accuracy and mean one-vs-rest AUC of every aerobic zone architecture for each held-out facility, and the mean across facilities.}}{59}{figure.caption.59}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Training and development loss and accuracy of the DenseNet-121 aerobic zone model for every leave-one-facility-out fold. The dashed line marks the epoch of the restored checkpoint.}}{61}{figure.caption.62}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Confusion matrices of the DenseNet-121 aerobic zone model on each held-out facility.}}{61}{figure.caption.63}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Binary OK / Not-OK ROC curves of the clarifier models. The dotted line marks the 95\% target recall. The legend in (b) gives the population standard deviation, so it differs slightly from Table~\ref {tab:res_binary_clarifier}.}}{64}{figure.caption.67}%
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Binary OK / Not-OK ROC curves of the aerobic zone models. The dotted line marks the 95\% target recall.}}{65}{figure.caption.69}%
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Row-normalised binary confusion matrices of the clarifier models at the chosen threshold.}}{67}{figure.caption.71}%
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Row-normalised binary confusion matrices of the aerobic zone models at the chosen threshold.}}{68}{figure.caption.72}%
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Grad-CAM heatmaps of the ConvNeXt-Tiny clarifier model, for test images from Fisantekraal, which was held out during training. Top: one correctly classified clarifier per class. Bottom: one clarifier from each of the four most common mistakes. Every heatmap is calculated for the predicted class, and $p$ is the softmax probability of that class. Red regions contributed the most to the prediction.}}{71}{figure.caption.75}%
+\contentsline {figure}{\numberline {6.14}{\ignorespaces Grad-CAM heatmaps of the DenseNet-121 aerobic zone model, for test images from Waterval, which was held out during training. Top: one correctly classified aerobic zone per class. Bottom: one aerobic zone from each of the three most common mistakes. Every heatmap is calculated for the predicted class, and $p$ is the softmax probability of that class. Red regions contributed the most to the prediction.}}{73}{figure.caption.76}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsfinish 
