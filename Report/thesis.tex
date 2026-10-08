@@ -30,7 +30,10 @@
 
 \begin{document}
 
+% Unnumbered title and dedication pages get their own page counters so hyperref anchors stay unique
+\pagenumbering{Alph}
 \input{frontmatter/title_page}
+\pagenumbering{alph}
 \input{frontmatter/dedication}
 \pagenumbering{roman}
 \input{frontmatter/acknowledgements}

@@ -129,7 +129,7 @@ The five facilities differ slightly in how their data is organised, reflecting d
 
 Table~\ref{tab:dataset_summary} summarises the structure of the dataset across the five facilities.
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering
 \caption{Number of units and labelled images per facility.}\label{tab:dataset_summary}
 \begin{tabular}{lccc}
@@ -206,7 +206,7 @@ To avoid this, images were first grouped by facility, unit and class (some facil
 than across the whole set ensures that every facility, unit, and class combination among the four training facilities is represented in both
 the training and development sets, in proportion to how much data it contributes. Figure \ref{fig:leave_one_out approach} shows the resulting split for the clarifiers when Waterval is withheld as the test facility.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.7\textwidth]{figures/leave_one_out.png}
     \caption{Number of clarifier images from each facility in the training, development and test sets when Waterval is held out. The test set contains only Waterval, while the remaining four facilities are split into training and development sets.}
@@ -224,14 +224,14 @@ necessary. Every clarifier image was reviewed manually, rather than considering 
 
 Figure \ref{fig:relabel_example} shows a clarifier at Cape Flats that was originally labelled \textbf{Scum} and was corrected to \textbf{Empty} during the review, a correction the supervisor later accepted. The tank appears to have been drained: its floor is visible, and the dark band across it is the shadow of the bridge rather than scum on the water surface. Figure \ref{fig:relabel_process_example} shows the review interface itself, with the original label displayed in yellow next to the image and the correction buttons below it.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.3\textwidth]{figures/relabel_example.png}
 \caption{A relabelled clarifier from Cape Flats, shown with some of its surroundings. The original label was ``Scum'', but the label was corrected to ``Empty'', since the tank appears to be drained, with its floor and the shadow of the bridge visible inside it.}
 \label{fig:relabel_example}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.7\textwidth]{figures/relabel_process_example.png}
 \caption{The relabelling interface, showing the original label and the

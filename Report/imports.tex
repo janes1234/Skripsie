@@ -7,13 +7,14 @@
 	\newpage}
 
 % Page layout
-\usepackage[a4paper,left=25mm,right=25mm,top=25mm,bottom=25mm,headheight=15pt,headsep=8mm]{geometry}
+\usepackage[a4paper,left=25mm,right=25mm,top=25mm,bottom=25mm,headheight=29pt,headsep=8mm]{geometry}
 
 % Subsections
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 
 % Figures
+\makeatletter\let\@makecaption\@undefined\makeatother  % caption replaces the class version; avoids "unknown document class" warning
 \usepackage[margin=\parindent, font=small, labelfont=bf, textfont=rm]{caption}
 \usepackage{pdfpages}
 \setlength{\abovecaptionskip}{8pt}  % spacing above and below captions
@@ -107,6 +108,7 @@
 \newcommand{\ShortInTextTitle}[1]{\textbf{\scshape #1}}
 
 % Table of contents
+\makeatletter\renewcommand\@pnumwidth{2em}\makeatother
 \usepackage{xcolor,titletoc}
 \makeatletter
 \let\originall@chapter\l@chapter{}
@@ -187,7 +189,8 @@
 	%	format=\RaggedRight
 }
 
-\usepackage[toc,section=section,nonumberlist]{glossaries-extra}
+\PassOptionsToPackage{lang-warn=false}{datatool-base}
+\usepackage[toc,section=section,nonumberlist,nolangwarn]{glossaries-extra}
 \usepackage{glossary-superragged}
 \usepackage[intoc, english]{nomencl}
 \usepackage{tabularx, booktabs}
@@ -379,7 +382,7 @@
 % Pseudo-code
 \usepackage{algpseudocode}  % should go after \usepackage{hyperref}
 \renewcommand{\thealgorithm}{\arabic{chapter}.\arabic{algorithm}} 
-\captionsetup[algorithm]{labelfont={bf},font=small,labelsep=colon}
+%\captionsetup[algorithm]{labelfont={bf},font=small,labelsep=colon}  % re-enable when an algorithm float is added
 
 % Fix titlesec issue
 \usepackage{etoolbox}
@@ -413,7 +416,7 @@
 \fancyfoot{}
 \fancyfoot[R]{\thepage}{}
 
-\setlength\headheight{14.5pt}
+\setlength\headheight{29pt}
 \renewcommand{\headrulewidth}{0pt}
 \fancypagestyle{plain}{\fancyhead{}
 	\renewcommand{\headrulewidth}{0pt}

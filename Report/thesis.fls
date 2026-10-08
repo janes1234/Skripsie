@@ -159,6 +159,7 @@ INPUT /usr/share/texmf-dist/tex/latex/tools/multicol.sty
 INPUT /usr/share/texmf-dist/tex/latex/tools/multicol.sty
 INPUT /usr/share/texmf-dist/tex/latex/ragged2e/ragged2e.sty
 INPUT /usr/share/texmf-dist/tex/latex/ragged2e/ragged2e.sty
+INPUT /usr/share/texmf-dist/tex/latex/datatool/datatool-base.sty
 INPUT /usr/share/texmf-dist/tex/latex/glossaries-extra/glossaries-extra.sty
 INPUT /usr/share/texmf-dist/tex/latex/glossaries-extra/glossaries-extra.sty
 INPUT /usr/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty
@@ -183,7 +184,6 @@ INPUT /usr/share/texmf-dist/tex/generic/tracklang/tracklang.tex
 INPUT /usr/share/texmf-dist/tex/latex/glossaries-english/glossaries-english.ldf
 INPUT /usr/share/texmf-dist/tex/latex/glossaries-english/glossaries-english.ldf
 INPUT /usr/share/texmf-dist/tex/latex/glossaries-english/glossaries-english.ldf
-INPUT /usr/share/texmf-dist/tex/latex/datatool/datatool-base.sty
 INPUT /usr/share/texmf-dist/tex/latex/datatool/datatool-base.sty
 INPUT /usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
 INPUT /usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
