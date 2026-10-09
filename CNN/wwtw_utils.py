@@ -25,6 +25,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from PIL import Image
 
 import torch
 from torch import nn, optim
@@ -60,6 +61,13 @@ IMG_TARGET_SIZE = {
     "clarifier": (224, 224),
 }[COMPONENT]
 
+# How an image is brought to IMG_TARGET_SIZE. "stretch" (the original runs)
+# resizes straight to (h, w), changing the aspect ratio. "pad" keeps the
+# aspect ratio: it scales the image to fit inside (h, w) and fills the rest
+# with black, centred. Override with the RESIZE_MODE env var.
+RESIZE_MODE = os.environ.get("RESIZE_MODE", "stretch")
+assert RESIZE_MODE in ("stretch", "pad"), RESIZE_MODE
+
 BATCH_SIZE = 32
 LR = 1e-3
 WEIGHT_DECAY = 1e-4     # L2 regularization — helps reduce the train/val gap
@@ -72,7 +80,8 @@ SEED = 42
 # Used for the with-vs-without augmentation comparison; default is on.
 AUGMENT = os.environ.get("AUGMENT", "1") != "0"
 
-MODEL_SAVE_PATH = Path(f"../models/{COMPONENT}_cnn.pt")
+# Padded runs save their weights to models/pad/ so the stretched models are kept.
+MODEL_SAVE_PATH = Path(f"../models/{'pad/' if RESIZE_MODE == 'pad' else ''}{COMPONENT}_cnn.pt")
 # where per-model results_*.pkl files are written -- override with the
 # RESULTS_DIR env var so separate experiments (e.g. aerobic zones with and
 # without augmentation) don't overwrite each other's results.
@@ -195,6 +204,33 @@ def align_dataset_to_classes(ds, class_to_idx):
 # The other architectures build their own loaders via get_dataloaders()
 # below (different image size and/or batch size per the tuned hyperparameters).
 
+class LetterboxResize:
+    """Scales a PIL image to fit inside `size` (h, w) without changing its
+    aspect ratio, then pads it with black to exactly `size`, centred."""
+
+    def __init__(self, size):
+        self.size = tuple(size)
+
+    def __call__(self, img):
+        th, tw = self.size
+        w, h = img.size
+        scale = min(th / h, tw / w)
+        nh, nw = max(1, round(h * scale)), max(1, round(w * scale))
+        img = img.resize((nw, nh), Image.BILINEAR)
+        left, top = (tw - nw) // 2, (th - nh) // 2
+        canvas = Image.new(img.mode, (tw, th))
+        canvas.paste(img, (left, top))
+        return canvas
+
+    def __repr__(self):
+        return f"LetterboxResize(size={self.size})"
+
+
+def resize_transform(size):
+    """The resize step every loader uses, per RESIZE_MODE."""
+    return LetterboxResize(size) if RESIZE_MODE == "pad" else transforms.Resize(size)
+
+
 def augmentation_transforms():
     """The train-time augmentations, in the order they are applied. Shared by
     every training loader below and by the augmentation figure in
@@ -208,7 +244,7 @@ def augmentation_transforms():
 
 
 train_transform = transforms.Compose([
-    transforms.Resize(IMG_TARGET_SIZE),
+    resize_transform(IMG_TARGET_SIZE),
     *(augmentation_transforms() if AUGMENT else []),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406],
@@ -216,7 +252,7 @@ train_transform = transforms.Compose([
 ])
 
 eval_transform = transforms.Compose([
-    transforms.Resize(IMG_TARGET_SIZE),
+    resize_transform(IMG_TARGET_SIZE),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406],
                           std=[0.229, 0.224, 0.225]),
@@ -320,14 +356,14 @@ def get_dataloaders(img_size, batch_size):
     /val_loader/test_loader above because each architecture uses its own
     image size (InceptionNet v3 needs 299x299) and its own tuned batch size."""
     train_tf = transforms.Compose([
-        transforms.Resize(img_size),
+        resize_transform(img_size),
         *(augmentation_transforms() if AUGMENT else []),
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.485, 0.456, 0.406],
                               std=[0.229, 0.224, 0.225]),
     ])
     eval_tf = transforms.Compose([
-        transforms.Resize(img_size),
+        resize_transform(img_size),
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.485, 0.456, 0.406],
                               std=[0.229, 0.224, 0.225]),
@@ -731,6 +767,7 @@ def save_result(model_key, save_name):
         "test_acc": r["test_acc"],
         "mean_auc": r["mean_auc"],
         "img_size": r["img_size"],
+        "resize_mode": RESIZE_MODE,
         "hidden_layers": r["hidden_layers"],
         "neurons": r["neurons"],
         "class_names": class_names,

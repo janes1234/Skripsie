@@ -267,7 +267,7 @@ Table \ref{tab:relabel_corrections} summarises the effect of relabelling on a pe
     \end{tabular}
 \end{table}
 
-\section{Final Dataset}
+\section{Final Dataset}\label{sec:final_dataset}
 
 Tables~\ref{tab:aerobic_summary} and~\ref{tab:clarifier_summary} give the final number of images per class, per unit, after relabelling. These are the counts used in every experiment. The aerobic zone dataset contains 1743 images, all from Atlantis, Cape Flats and Waterval, and the clarifier dataset contains 2527 images from all five facilities. Both datasets are imbalanced. Suboptimal is the smallest aerobic zone class with 223 images, against 813 for Dysfunctional. Among the clarifiers, Empty has only 145 images, against 1087 for Scum. The classes are also spread unevenly across facilities: Waterval Top accounts for 344 of the 707 Functional aerobic zones, and Northern Works accounts for 131 of the 292 Dysfunctional clarifiers. Section~\ref{sec:exp_loss} describes how this imbalance is handled during training.
 

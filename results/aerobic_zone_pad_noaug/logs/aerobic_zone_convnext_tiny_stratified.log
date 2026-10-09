@@ -1,0 +1,583 @@
+[NbConvertApp] Converting notebook train_convnext_tiny.ipynb to notebook
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): stratified
+Train-time augmentation: off
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 1212 | Val: 341 | Test: 190
+[NbConvertApp] Writing 241363 bytes to /home/janes/Repos/Skripsie/CNN/executed_notebooks/aerobic_zone_pad_noaug/aerobic_zone_convnext_tiny_stratified.ipynb

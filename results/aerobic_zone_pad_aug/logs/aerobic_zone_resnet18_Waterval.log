@@ -1,0 +1,743 @@
+[NbConvertApp] Converting notebook train_resnet18.ipynb to notebook
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): Waterval
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 709 | Val: 170 | Test: 864
+[NbConvertApp] Writing 284968 bytes to /home/janes/Repos/Skripsie/CNN/executed_notebooks/aerobic_zone_pad_aug/aerobic_zone_resnet18_Waterval.ipynb

@@ -1,0 +1,903 @@
+[NbConvertApp] Converting notebook train_resnet18.ipynb to notebook
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+Using device: cuda
+Test set ID (derived from DATASET_ROOT): CapeFlats
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+Train: 785 | Val: 192 | Test: 766
+[NbConvertApp] Writing 291108 bytes to /home/janes/Repos/Skripsie/CNN/executed_notebooks/aerobic_zone_pad_aug/aerobic_zone_resnet18_CapeFlats.ipynb

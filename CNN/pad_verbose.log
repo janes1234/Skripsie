@@ -1,0 +1,185 @@
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.prefix, expected /home/janes/Repos/Skripsie/.venv, got /home/janes/Repos/Skripsie/CNN/../.venv
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /home/janes/Repos/Skripsie/.venv, got /home/janes/Repos/Skripsie/CNN/../.venv
+
+[2026-10-08 09:30] ======================================================================
+[2026-10-08 09:30] PAD PIPELINE START - 35 aerobic zone runs, RESIZE_MODE=pad
+[2026-10-08 09:30] ======================================================================
+[error] Kernel 'python3' can't import numpy/torch -- it's likely not the same Python environment as your venv (this is what caused the ModuleNotFoundError you just saw).
+        Probe output:
+
+usage: jupyter [-h] [--json] [--debug]
+               [--version | --config-dir | --data-dir | --runtime-dir |
+               --paths | subcommand]
+
+Jupyter: Interactive Computing
+
+positional arguments:
+  subcommand     the subcommand to launch
+
+options:
+  -h, --help     show this help message and exit
+  --version      show the versions of core jupyter packages and exit
+  --config-dir   show Jupyter config dir
+  --data-dir     show Jupyter data dir
+  --runtime-dir  show Jupyter runtime dir
+  --paths        show all Jupyter paths. Add --json for machine-readable
+                 format.
+  --json         output paths as machine-readable json
+  --debug        output debug information about paths
+
+Available subcommands: kernel kernelspec migrate run troubleshoot
+
+Jupyter command `jupyter-nbconvert` not found.
+
+        Fix (with your venv active):
+          pip install ipykernel --break-system-packages
+          python -m ipykernel install --user --name=python3 --display-name "python3"
+        Then re-run with: python run.py --kernel-name python3
+
+[2026-10-08 09:31] ======================================================================
+[2026-10-08 09:31] PAD PIPELINE START - 35 aerobic zone runs, RESIZE_MODE=pad
+[2026-10-08 09:31] ======================================================================
+
+[2026-10-08 09:31] PHASE 1/3: Aerobic zone (padded) - stratified 70/20/10 (augmented) - 7 runs -> ../results/aerobic_zone_pad_aug
+[2026-10-08 09:31]   ResNet-18 training (1 run)
+    ResNet-18 / stratified split: OK in 6.2 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_resnet18_stratified.pkl
+[2026-10-08 09:37]     ResNet-18 - stratified split: done in 6.2 min   [1/35 runs overall]
+[2026-10-08 09:37]   ResNet-18 finished in 6.2 min
+[2026-10-08 09:37]     resting GPU 5 min (after ResNet-18)
+[2026-10-08 09:42]   ResNet-50 training (1 run)
+    ResNet-50 / stratified split: OK in 4.2 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_resnet50_stratified.pkl
+[2026-10-08 09:46]     ResNet-50 - stratified split: done in 4.2 min   [2/35 runs overall]
+[2026-10-08 09:46]   ResNet-50 finished in 4.2 min
+[2026-10-08 09:46]     resting GPU 5 min (after ResNet-50)
+[2026-10-08 09:51]   DenseNet-121 training (1 run)
+    DenseNet-121 / stratified split: OK in 6.3 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_densenet121_stratified.pkl
+[2026-10-08 09:57]     DenseNet-121 - stratified split: done in 6.3 min   [3/35 runs overall]
+[2026-10-08 09:57]   DenseNet-121 finished in 6.3 min
+[2026-10-08 09:57]     resting GPU 5 min (after DenseNet-121)
+[2026-10-08 10:02]   InceptionNet v3 training (1 run)
+    InceptionNet v3 / stratified split: OK in 4.8 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_inception_v3_stratified.pkl
+[2026-10-08 10:07]     InceptionNet v3 - stratified split: done in 4.8 min   [4/35 runs overall]
+[2026-10-08 10:07]   InceptionNet v3 finished in 4.8 min
+[2026-10-08 10:07]     resting GPU 5 min (after InceptionNet v3)
+[2026-10-08 10:12]   EfficientNet-B0 training (1 run)
+    EfficientNet-B0 / stratified split: OK in 6.3 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_efficientnet_b0_stratified.pkl
+[2026-10-08 10:18]     EfficientNet-B0 - stratified split: done in 6.3 min   [5/35 runs overall]
+[2026-10-08 10:18]   EfficientNet-B0 finished in 6.3 min
+[2026-10-08 10:18]     resting GPU 5 min (after EfficientNet-B0)
+[2026-10-08 10:23]   ConvNeXt-Tiny training (1 run)
+    ConvNeXt-Tiny / stratified split: OK in 3.6 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_convnext_tiny_stratified.pkl
+[2026-10-08 10:27]     ConvNeXt-Tiny - stratified split: done in 3.6 min   [6/35 runs overall]
+[2026-10-08 10:27]   ConvNeXt-Tiny finished in 3.6 min
+[2026-10-08 10:27]     resting GPU 5 min (after ConvNeXt-Tiny)
+[2026-10-08 10:32]   AlexNet training (1 run)
+    AlexNet / stratified split: OK in 19.6 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_alexnet_stratified.pkl
+[2026-10-08 10:52]     AlexNet - stratified split: done in 19.6 min   [7/35 runs overall]
+[2026-10-08 10:52]   AlexNet finished in 19.6 min
+[2026-10-08 10:52]     resting GPU 5 min (after AlexNet)
+[2026-10-08 10:57] PHASE 1/3 done in 86.1 min
+
+[2026-10-08 10:57] PHASE 2/3: Aerobic zone (padded) - stratified 70/20/10 (no augmentation) - 7 runs -> ../results/aerobic_zone_pad_noaug
+[2026-10-08 10:57]   ResNet-18 training (1 run)
+    ResNet-18 / stratified split: OK in 3.3 min -- ../results/aerobic_zone_pad_noaug/results_aerobic_zone_resnet18_stratified.pkl
+[2026-10-08 11:00]     ResNet-18 - stratified split: done in 3.3 min   [8/35 runs overall]
+[2026-10-08 11:00]   ResNet-18 finished in 3.3 min
+[2026-10-08 11:00]     resting GPU 5 min (after ResNet-18)
+[2026-10-08 11:05]   ResNet-50 training (1 run)
+    ResNet-50 / stratified split: OK in 2.9 min -- ../results/aerobic_zone_pad_noaug/results_aerobic_zone_resnet50_stratified.pkl
+[2026-10-08 11:08]     ResNet-50 - stratified split: done in 2.9 min   [9/35 runs overall]
+[2026-10-08 11:08]   ResNet-50 finished in 2.9 min
+[2026-10-08 11:08]     resting GPU 5 min (after ResNet-50)
+[2026-10-08 11:13]   DenseNet-121 training (1 run)
+    DenseNet-121 / stratified split: OK in 6.5 min -- ../results/aerobic_zone_pad_noaug/results_aerobic_zone_densenet121_stratified.pkl
+[2026-10-08 11:19]     DenseNet-121 - stratified split: done in 6.5 min   [10/35 runs overall]
+[2026-10-08 11:19]   DenseNet-121 finished in 6.5 min
+[2026-10-08 11:19]     resting GPU 5 min (after DenseNet-121)
+[2026-10-08 11:24]   InceptionNet v3 training (1 run)
+    InceptionNet v3 / stratified split: OK in 3.6 min -- ../results/aerobic_zone_pad_noaug/results_aerobic_zone_inception_v3_stratified.pkl
+[2026-10-08 11:28]     InceptionNet v3 - stratified split: done in 3.6 min   [11/35 runs overall]
+[2026-10-08 11:28]   InceptionNet v3 finished in 3.6 min
+[2026-10-08 11:28]     resting GPU 5 min (after InceptionNet v3)
+[2026-10-08 11:33]   EfficientNet-B0 training (1 run)
+    EfficientNet-B0 / stratified split: OK in 5.4 min -- ../results/aerobic_zone_pad_noaug/results_aerobic_zone_efficientnet_b0_stratified.pkl
+[2026-10-08 11:38]     EfficientNet-B0 - stratified split: done in 5.4 min   [12/35 runs overall]
+[2026-10-08 11:38]   EfficientNet-B0 finished in 5.4 min
+[2026-10-08 11:38]     resting GPU 5 min (after EfficientNet-B0)
+[2026-10-08 11:43]   ConvNeXt-Tiny training (1 run)
+    ConvNeXt-Tiny / stratified split: OK in 3.0 min -- ../results/aerobic_zone_pad_noaug/results_aerobic_zone_convnext_tiny_stratified.pkl
+[2026-10-08 11:46]     ConvNeXt-Tiny - stratified split: done in 3.0 min   [13/35 runs overall]
+[2026-10-08 11:46]   ConvNeXt-Tiny finished in 3.0 min
+[2026-10-08 11:46]     resting GPU 5 min (after ConvNeXt-Tiny)
+[2026-10-08 11:51]   AlexNet training (1 run)
+    AlexNet / stratified split: OK in 19.6 min -- ../results/aerobic_zone_pad_noaug/results_aerobic_zone_alexnet_stratified.pkl
+[2026-10-08 12:11]     AlexNet - stratified split: done in 19.6 min   [14/35 runs overall]
+[2026-10-08 12:11]   AlexNet finished in 19.6 min
+[2026-10-08 12:11]     resting GPU 5 min (after AlexNet)
+[2026-10-08 12:16] PHASE 2/3 done in 79.4 min
+
+[2026-10-08 12:16] PHASE 3/3: Aerobic zone (padded) - leave-one-facility-out (augmented) - 21 runs -> ../results/aerobic_zone_pad_aug
+[2026-10-08 12:16]   ResNet-18 training (3 runs)
+    ResNet-18 / held-out Atlantis: OK in 5.3 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_resnet18_Atlantis.pkl
+[2026-10-08 12:21]     ResNet-18 - held-out Atlantis: done in 5.3 min   [15/35 runs overall]
+    ResNet-18 / held-out CapeFlats: OK in 2.3 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_resnet18_CapeFlats.pkl
+[2026-10-08 12:24]     ResNet-18 - held-out CapeFlats: done in 2.3 min   [16/35 runs overall]
+    ResNet-18 / held-out Waterval: OK in 3.6 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_resnet18_Waterval.pkl
+[2026-10-08 12:27]     ResNet-18 - held-out Waterval: done in 3.6 min   [17/35 runs overall]
+[2026-10-08 12:27]   ResNet-18 finished in 11.1 min
+[2026-10-08 12:27]     resting GPU 5 min (after ResNet-18)
+[2026-10-08 12:32]   ResNet-50 training (3 runs)
+    ResNet-50 / held-out Atlantis: OK in 4.4 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_resnet50_Atlantis.pkl
+[2026-10-08 12:37]     ResNet-50 - held-out Atlantis: done in 4.4 min   [18/35 runs overall]
+    ResNet-50 / held-out CapeFlats: OK in 2.7 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_resnet50_CapeFlats.pkl
+[2026-10-08 12:39]     ResNet-50 - held-out CapeFlats: done in 2.7 min   [19/35 runs overall]
+    ResNet-50 / held-out Waterval: OK in 4.0 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_resnet50_Waterval.pkl
+[2026-10-08 12:43]     ResNet-50 - held-out Waterval: done in 4.0 min   [20/35 runs overall]
+[2026-10-08 12:43]   ResNet-50 finished in 11.1 min
+[2026-10-08 12:43]     resting GPU 5 min (after ResNet-50)
+[2026-10-08 12:48]   DenseNet-121 training (3 runs)
+    DenseNet-121 / held-out Atlantis: OK in 4.3 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_densenet121_Atlantis.pkl
+[2026-10-08 12:53]     DenseNet-121 - held-out Atlantis: done in 4.3 min   [21/35 runs overall]
+    DenseNet-121 / held-out CapeFlats: OK in 9.0 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_densenet121_CapeFlats.pkl
+[2026-10-08 13:02]     DenseNet-121 - held-out CapeFlats: done in 9.0 min   [22/35 runs overall]
+    DenseNet-121 / held-out Waterval: OK in 6.7 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_densenet121_Waterval.pkl
+[2026-10-08 13:08]     DenseNet-121 - held-out Waterval: done in 6.7 min   [23/35 runs overall]
+[2026-10-08 13:08]   DenseNet-121 finished in 20.0 min
+[2026-10-08 13:08]     resting GPU 5 min (after DenseNet-121)
+[2026-10-08 13:13]   InceptionNet v3 training (3 runs)
+    InceptionNet v3 / held-out Atlantis: OK in 10.9 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_inception_v3_Atlantis.pkl
+[2026-10-08 13:24]     InceptionNet v3 - held-out Atlantis: done in 10.9 min   [24/35 runs overall]
+    InceptionNet v3 / held-out CapeFlats: OK in 6.6 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_inception_v3_CapeFlats.pkl
+[2026-10-08 13:31]     InceptionNet v3 - held-out CapeFlats: done in 6.6 min   [25/35 runs overall]
+    InceptionNet v3 / held-out Waterval: OK in 3.1 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_inception_v3_Waterval.pkl
+[2026-10-08 13:34]     InceptionNet v3 - held-out Waterval: done in 3.2 min   [26/35 runs overall]
+[2026-10-08 13:34]   InceptionNet v3 finished in 20.7 min
+[2026-10-08 13:34]     resting GPU 5 min (after InceptionNet v3)
+[2026-10-08 13:39]   EfficientNet-B0 training (3 runs)
+    EfficientNet-B0 / held-out Atlantis: OK in 5.2 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_efficientnet_b0_Atlantis.pkl
+[2026-10-08 13:44]     EfficientNet-B0 - held-out Atlantis: done in 5.2 min   [27/35 runs overall]
+    EfficientNet-B0 / held-out CapeFlats: OK in 2.5 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_efficientnet_b0_CapeFlats.pkl
+[2026-10-08 13:47]     EfficientNet-B0 - held-out CapeFlats: done in 2.5 min   [28/35 runs overall]
+    EfficientNet-B0 / held-out Waterval: OK in 2.4 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_efficientnet_b0_Waterval.pkl
+[2026-10-08 13:49]     EfficientNet-B0 - held-out Waterval: done in 2.4 min   [29/35 runs overall]
+[2026-10-08 13:49]   EfficientNet-B0 finished in 10.1 min
+[2026-10-08 13:49]     resting GPU 5 min (after EfficientNet-B0)
+[2026-10-08 13:54]   ConvNeXt-Tiny training (3 runs)
+    ConvNeXt-Tiny / held-out Atlantis: OK in 3.9 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_convnext_tiny_Atlantis.pkl
+[2026-10-08 13:58]     ConvNeXt-Tiny - held-out Atlantis: done in 3.9 min   [30/35 runs overall]
+    ConvNeXt-Tiny / held-out CapeFlats: OK in 2.9 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_convnext_tiny_CapeFlats.pkl
+[2026-10-08 14:01]     ConvNeXt-Tiny - held-out CapeFlats: done in 2.9 min   [31/35 runs overall]
+    ConvNeXt-Tiny / held-out Waterval: OK in 2.9 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_convnext_tiny_Waterval.pkl
+[2026-10-08 14:04]     ConvNeXt-Tiny - held-out Waterval: done in 2.9 min   [32/35 runs overall]
+[2026-10-08 14:04]   ConvNeXt-Tiny finished in 9.7 min
+[2026-10-08 14:04]     resting GPU 5 min (after ConvNeXt-Tiny)
+[2026-10-08 14:09]   AlexNet training (3 runs)
+    AlexNet / held-out Atlantis: OK in 21.1 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_alexnet_Atlantis.pkl
+[2026-10-08 14:30]     AlexNet - held-out Atlantis: done in 21.1 min   [33/35 runs overall]
+    AlexNet / held-out CapeFlats: OK in 9.2 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_alexnet_CapeFlats.pkl
+[2026-10-08 14:39]     AlexNet - held-out CapeFlats: done in 9.3 min   [34/35 runs overall]
+    AlexNet / held-out Waterval: OK in 18.9 min -- ../results/aerobic_zone_pad_aug/results_aerobic_zone_alexnet_Waterval.pkl
+[2026-10-08 14:58]     AlexNet - held-out Waterval: done in 18.9 min   [35/35 runs overall]
+[2026-10-08 14:58]   AlexNet finished in 49.3 min
+[2026-10-08 14:58]     resting GPU 5 min (after AlexNet)
+[2026-10-08 15:03] PHASE 3/3 done in 2.8 h
+
+[2026-10-08 15:03] PAD PIPELINE DONE in 5.5 h - 35/35 runs have results, 0 failed

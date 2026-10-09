@@ -797,6 +797,7 @@ INPUT ./figures/augmentation_examples.png
 INPUT ./figures/augmentation_examples.png
 INPUT ./figures/augmentation_examples.png
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmri10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmri10.tfm
 INPUT ./chapters/Chapter6.tex
 INPUT ./chapters/Chapter6.tex
 INPUT chapters/Chapter6.tex
@@ -968,7 +969,6 @@ INPUT ./appendices/an_appendix.tex
 INPUT ./appendices/an_appendix.tex
 INPUT ./appendices/an_appendix.tex
 INPUT appendices/an_appendix.tex
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmri10.tfm
 INPUT thesis.aux
 INPUT ./thesis.out
 INPUT ./thesis.out

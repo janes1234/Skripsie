@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex thesis"] 1791365627.45973 "thesis.aux" "thesis.bbl" "thesis" 1791365632.09447 0
+["bibtex thesis"] 1791452373.91186 "thesis.aux" "thesis.bbl" "thesis" 1791452378.60003 0
   "./mybib.bib" 1791278612.94272 15559 03f3dc91153963ca6e6c41ab3db466cd ""
   "/usr/share/texmf-dist/bibtex/bst/ieeetran/IEEEtranN.bst" 1775415801 63583 d34cb6c328acc69716207f4a3421ad46 ""
-  "thesis.aux" 1791365631.91024 91725 1c60c6fffdae92897601b4fb17c7cab8 "pdflatex"
+  "thesis.aux" 1791452378.41862 83620 e94fe4b6f53c21afd5102f5aa0604cfc "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1791365627.49085 "thesis.tex" "thesis.pdf" "thesis" 1791365632.09467 0
+["pdflatex"] 1791452373.94687 "thesis.tex" "thesis.pdf" "thesis" 1791452378.60023 0
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1775415801 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1775415801 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1775415801 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -339,13 +339,13 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1775415801 43569 fd570f2fa160877d211e859f687312ba ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1780755003 5385779 47c0c393a77fd4a098bacfd57d66b88a ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1780754974 2328192 c77f5da81cc0ea40c6bafb669943d323 ""
-  "appendices/an_appendix.tex" 1791276666.50298 29435 534fd4e64655d641f15628f9f74afec9 ""
+  "appendices/an_appendix.tex" 1791445578.64223 28787 b3816eba270e986c080fe4af0601796f ""
   "appendices/appendices.tex" 1761223914 30 b38664e72b1f7783f5da554d40e45df4 ""
-  "chapters/Chapter1.tex" 1791276666.50326 4596 a96faae47bd65bdc6f490a437192d2ac ""
-  "chapters/Chapter2.tex" 1791276666.50338 32119 e85f9f62d63401b1f44209d1818bbac5 ""
-  "chapters/Chapter3.tex" 1791364504.11726 13294 f7de228f0ca72978d503c1579048a7fd ""
-  "chapters/Chapter4.tex" 1791365558.49144 24543 b2f442c2459ee9541a03ac1183343ca8 ""
-  "chapters/Chapter5.tex" 1791276666.50385 67787 605b66146c8e7e505e934f5ef45304f7 ""
+  "chapters/Chapter1.tex" 1791365679.31182 4596 a96faae47bd65bdc6f490a437192d2ac ""
+  "chapters/Chapter2.tex" 1791365682.07852 32119 e85f9f62d63401b1f44209d1818bbac5 ""
+  "chapters/Chapter3.tex" 1791442985.28482 13294 f7de228f0ca72978d503c1579048a7fd ""
+  "chapters/Chapter4.tex" 1791452362.20902 24568 9fe41d5e12a57da2a5350dfc715caded ""
+  "chapters/Chapter5.tex" 1791452362.20938 52711 c9b80079b73ff4c86cd115e7b802d849 ""
   "chapters/Chapter6.tex" 1791276666.50394 43158 2bea4890ad116778d26893dfc6841981 ""
   "chapters/conclusion.tex" 1785752663.41591 119 e0ff3ed770a514c55f43ac5e030b5381 ""
   "figures/aerobic_examples.png" 1791276666.50464 560853 e7de2c89d9fb74476338ddf941ad11de ""
@@ -408,14 +408,14 @@
   "stb-thesis.afr" 1761223914 2637 d9bb3c388f47bdd818ec4d95578ad094 ""
   "stb-thesis.cls" 1761223914 25170 2cad7ddd22582eefe95b767cc4481e31 ""
   "stb-thesis.eng" 1761223914 2649 30a323160db19a3d451f1c2fea9d7c68 ""
-  "thesis.aux" 1791365631.91024 91725 1c60c6fffdae92897601b4fb17c7cab8 "pdflatex"
-  "thesis.bbl" 1791365627.48919 14350 250b78bfc39f111f4f3cb11c3640b73e "bibtex thesis"
-  "thesis.lof" 1791365631.91624 6983 e3710e1a65574db0d36c94a4d1e2091d "pdflatex"
-  "thesis.lot" 1791365631.91624 14460 480aa66998771cd407b356a5cba32cb4 "pdflatex"
+  "thesis.aux" 1791452378.41862 83620 e94fe4b6f53c21afd5102f5aa0604cfc "pdflatex"
+  "thesis.bbl" 1791452373.94229 14350 250b78bfc39f111f4f3cb11c3640b73e "bibtex thesis"
+  "thesis.lof" 1791452378.42469 6983 2fbe01ca24bfb0ce9dd1851f93664e62 "pdflatex"
+  "thesis.lot" 1791452378.42469 11787 395f66573a3e2b450c50775115d5b347 "pdflatex"
   "thesis.nls" 0 -1 0 ""
-  "thesis.out" 1791365631.91524 20116 d917c2ca8cf8d750c40f7304d70b6bab "pdflatex"
+  "thesis.out" 1791452378.42362 19047 65eb2e1bc57c07ed6918a30dac2c74ce "pdflatex"
   "thesis.tex" 1791365616.34014 2008 28f0f4b6fa48751f4a22f80df0158091 ""
-  "thesis.toc" 1791365631.91624 10367 03e90fe9e10d588a3dac389a6626c809 "pdflatex"
+  "thesis.toc" 1791452378.42469 9745 d849593eca4839cc8c3c230d09083f3a "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.lof"
