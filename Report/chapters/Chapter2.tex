@@ -276,3 +276,51 @@ ConvNeXt-Tiny   & ConvNeXt block          & 2022 & 28.6M & 29.4M & 33.6M \\
 \end{table}
 
 Two points stand out from Table~\ref{tab:arch_summary}. First, a network's parameter count says little about its age or depth: AlexNet, the oldest and shallowest network, is the largest, because about 58.6M of its 61.1M parameters sit in its three fully connected layers, while DenseNet-121, with 121 layers, is one of the smallest. Second, the classifier head can change a model's size considerably, since a single fully connected layer of 2048 neurons on top of a backbone with 2048 output features, as in ResNet-50, already adds about 4.2M parameters. EfficientNet-B0's aerobic zone model is the clearest example: its two-hidden-layer head of 2048 neurons adds about 6.8M parameters to a backbone of about 4.0M, more than doubling the size of the network.
+
+
+\section{Evaluation Metrics for Classification}\label{sec:metrics_background}
+
+A classifier assigns every test image to one class, and the assigned class is compared with the true class of the image. The metrics in this section summarise these comparisons over a test set.
+
+\textbf{Accuracy} is the fraction of test images that are assigned to their true class. It is not suitable when the classes are imbalanced, since it is dominated by the common classes: a classifier that assigns every image to the majority class can reach a high accuracy while never identifying a rare class.
+
+\textbf{Precision, recall and F1 score} are calculated for every class separately. With $TP_c$, $FP_c$ and $FN_c$ the number of true positives, false positives and false negatives for class $c$,
+
+\begin{equation}
+    \mathrm{Precision}_c = \frac{TP_c}{TP_c + FP_c}, \qquad
+    \mathrm{Recall}_c = \frac{TP_c}{TP_c + FN_c},
+\end{equation}
+\begin{equation}
+    F1_c = \frac{2 \cdot \mathrm{Precision}_c \cdot \mathrm{Recall}_c}{\mathrm{Precision}_c + \mathrm{Recall}_c}.
+\end{equation}
+
+Precision is the fraction of images assigned to class $c$ that belong to it, and recall is the fraction of the images of class $c$ that are assigned to it. The F1 score is the harmonic mean of the two, and is only high when both are high. The macro-averaged precision, recall and F1 score are the unweighted means of the per-class values, so that every class has the same weight regardless of its size.
+
+The \textbf{confusion matrix} counts, for every true class, how many of its test images were assigned to each class. It shows which classes are mistaken for each other, in addition to how many images are misclassified.
+
+The \textbf{receiver operating characteristic (ROC) curve} plots the true positive rate (recall) against the false positive rate as the decision threshold on the output score of a classifier is varied. The \textbf{area under the ROC curve (AUC)} summarises this curve in a single number that does not depend on a specific threshold. An AUC of 1 means that every positive image receives a higher score than every negative image, while an AUC of 0.5 corresponds to random guessing. For more than two classes, a one-vs-rest ROC curve is calculated for every class from the softmax probability of that class, and the AUC values of the classes are averaged.
+
+\textbf{Loss and accuracy curves} record the training and development loss and accuracy after every epoch. They are not used to compare models, but show whether training converged and when the model started to overfit the training set.
+
+
+\section{Gradient-Weighted Class Activation Mapping}\label{sec:gradcam_background}
+
+Gradient-weighted class activation mapping (Grad-CAM)~\citep{selvaraju2017gradcam} produces a heatmap that shows which regions of an input image contributed the most to the prediction of a CNN for a given class.
+
+Grad-CAM uses the output of the last convolutional layer, which is the layer before the global pooling and the fully connected classification layers. This output consists of one feature map per channel, and $A^k$ denotes the feature map of channel $k$, with $A^k_{ij}$ the element in row $i$ and column $j$. A weight $\alpha_k^c$ is calculated for each channel by taking the gradient of the score $y^c$ of class $c$, which is the logit of that class before the softmax (Equation~\ref{eq:softmax}), with respect to every element of $A^k$, and averaging these gradients over the feature map:
+
+\begin{equation}
+    \alpha_k^c = \frac{1}{Z} \sum_{i} \sum_{j} \frac{\partial y^c}{\partial A^k_{ij}},
+    \label{eq:gradcam_weights}
+\end{equation}
+
+where the sums run over all rows $i$ and columns $j$ of the feature map, and $Z$ is the number of elements in the feature map (its height multiplied by its width).
+
+The feature maps of all channels are then multiplied by their weights and summed, and only the positive contributions are kept:
+
+\begin{equation}
+    L^c = \mathrm{ReLU}\left( \sum_{k} \alpha_k^c A^k \right).
+    \label{eq:gradcam_map}
+\end{equation}
+
+The map $L^c$ has the same height and width as the feature maps of the last convolutional layer, which are much smaller than the input image. It is therefore resized to the dimensions of the input image, normalised to the range $[0, 1]$, and superimposed on the image as a heatmap.

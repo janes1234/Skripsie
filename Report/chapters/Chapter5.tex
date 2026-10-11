@@ -377,7 +377,7 @@ One part of this experiment is not fully independent of the test facility. The h
 \section{Experiment 3: Binary (OK / Not-OK) Reformulation}
 \label{sec:exp_binary}
 
-The multi-class models distinguish between several ways in which a component can fail, but for an operator the most important question is whether a component needs attention at all. A \textbf{Scum} clarifier classified as \textbf{Dysfunctional} is still flagged for inspection, whereas a \textbf{Scum} clarifier classified as \textbf{Functional} is missed completely. Experiment~3 therefore evaluates the models as binary classifiers, which only decide whether a component is OK or Not-OK. For the clarifiers, \textbf{Functional} is OK, and \textbf{Dysfunctional}, \textbf{Empty} and \textbf{Scum} are Not-OK. For the aerobic zones, \textbf{Functional} is OK, and \textbf{Suboptimal} and \textbf{Dysfunctional} are Not-OK.
+The multi-class models distinguish between several ways in which a component can fail, but for an operator the most important question is whether a component needs attention or not. A \textbf{Scum} clarifier classified as \textbf{Dysfunctional} is still flagged for inspection, whereas a \textbf{Scum} clarifier classified as \textbf{Functional} is missed completely. Experiment~3 therefore evaluates the models as binary classifiers, which only decide whether a component is functioning correctly (OK) or not (Not-OK). For the clarifiers, \textbf{Functional} means OK, while \textbf{Dysfunctional}, \textbf{Empty} and \textbf{Scum} are Not-OK. For the aerobic zones, \textbf{Functional} means OK, while \textbf{Suboptimal} and \textbf{Dysfunctional} are Not-OK.
 
 No separate binary models are trained. Instead, the binary decision is derived from the multi-class models of Experiments~1 and~2. The Not-OK score of an image is the total probability that the model assigns to the Not-OK classes,
 
@@ -385,39 +385,19 @@ No separate binary models are trained. Instead, the binary decision is derived f
     s = 1 - P(\mathrm{Functional}),
 \end{equation}
 
-and the image is classified as Not-OK when $s \geq t$, for a threshold $t$. The binary results therefore come from exactly the same models as the multi-class results, so the two can be compared directly, and no additional training runs are needed. A model used in this way also still predicts a specific class for every component it flags.
+and the image is classified as Not-OK when $s \geq t$, for a threshold $t$. The binary results therefore come from exactly the same models as the multi-class results, so the two can be compared directly. The binary evaluation is carried out on both the stratified split of Experiment~1 and the leave-one-facility-out split of Experiment~2.
 
-With Not-OK treated as the positive class, the recall (or sensitivity) is the fraction of Not-OK components that are flagged, and the specificity is the fraction of OK components that are correctly left unflagged. The two kinds of mistake do not have the same cost. A false alarm only costs an operator the time to look at the image, while a missed Not-OK component may go unnoticed until the next satellite image of the facility becomes available. The threshold is therefore not left at a default value, but is chosen so that the recall of the Not-OK class reaches a target of 95\%. The recall is evaluated at 500 evenly spaced thresholds between 0 and 1, and the largest threshold that still reaches the target is selected, since this is the threshold that raises the fewest false alarms while meeting it. For Experiment~2, one threshold is chosen per architecture and shared by all of its folds: the recall is calculated separately for every held-out facility, and the largest threshold at which the mean recall across facilities reaches 95\% is selected.
+With Not-OK treated as the positive class, the recall (or sensitivity) is the fraction of Not-OK components that are flagged as such, while the specificity is the fraction of OK components that are correctly left unflagged. These two kinds of mistake do not have the same cost. A false alarm only costs an operator the time to look at the image and make his or her own confirmatory assessment, while a missed Not-OK component may go unnoticed until the next satellite image of the facility becomes available. The decision threshold therefore must be chosen so that the recall of the Not-OK class reaches a target of 95\%. The recall is evaluated at 500 evenly spaced thresholds between 0 and 1, and the largest threshold that still reaches the target is selected, since this is the threshold that also raises the fewest false alarms. For the leave-one-facility-out models of Experiment~2, one threshold is chosen per architecture and shared by all of its folds: the recall is calculated separately for every held-out facility, and the largest threshold at which the mean recall across facilities reaches 95\% is selected.
 
-The ROC curve and its AUC are also calculated for the binary problem, since they describe the trade-off between recall and specificity over all thresholds rather than at a single one. For Experiment~2, a separate ROC curve is calculated for every held-out facility. These curves are interpolated onto a common set of false positive rates and averaged, and the AUC is reported as the mean and standard deviation across facilities. The test images of all facilities are not pooled into a single curve, because Cape Flats would then dominate the result, and because the scores in each fold come from a different model. In the same way, the binary confusion matrix at the chosen threshold is normalised per row, so that it shows rates rather than counts, and then averaged across facilities.
+The ROC curve and its AUC are also calculated for the binary problem, since they describe the trade-off between recall and specificity over all thresholds rather than at a single one. For the leave-one-facility-out models, the binary results are summarised across held-out facilities in the same way as the multi-class results (Section~\ref{sec:exp_lofo}). The ROC curve of every fold is interpolated onto a common set of false positive rates before the curves are averaged, and the binary confusion matrix at the chosen threshold is normalised per row, so that it shows rates rather than counts, before it is averaged.
 
-Since the threshold is chosen on the test predictions themselves, the recall at the chosen threshold is not an independent result. It is at least 95\% by construction on the stratified split, and at least 95\% on average across facilities for the leave-one-facility-out split. What this experiment measures is the specificity that has to be given up to reach this recall and, for the leave-one-facility-out split, how much the recall at one shared threshold varies from one facility to the next. The recall at the shared threshold is therefore also reported for every held-out facility separately. In practice, the threshold would have to be fixed before the system is used at a new facility, so a large spread between facilities would mean that a threshold chosen on known facilities cannot be relied on to reach the target recall at a new one.
+Since the threshold is chosen on the test predictions themselves, the recall at the chosen threshold is not an independent result. It is at least 95\% by construction on the stratified split, and at least 95\% on average across facilities for the leave-one-facility-out split. What this experiment measures is the specificity that has to be accepted to reach this recall and, for the leave-one-facility-out split, how much the recall at one shared threshold varies from one facility to the next. The recall at the shared threshold is therefore also reported for every held-out facility separately. In practice, the threshold would have to be fixed before the system is used at a new facility, so a large spread between facilities would mean that a threshold chosen on known facilities cannot be relied on to reach the target recall at a new one.
 
 
 \section{Evaluation Metrics}
 \label{sec:exp_metrics}
 
-Every run is evaluated once on its test set, after training has finished and the checkpoint with the lowest development loss has been restored (Section~\ref{sec:exp_training}). The predicted class of a test image is the class with the highest softmax probability, and the following metrics are calculated from these predictions and probabilities.
-
-\textbf{Accuracy} is the fraction of test images whose predicted class is correct. It is the simplest summary of a run, but it is dominated by the common classes: a model that recognises \textbf{Functional} and \textbf{Scum} clarifiers well can reach a high accuracy while missing most of the rare \textbf{Empty} clarifiers. As discussed in Section~\ref{sec:exp_lofo}, the accuracy of one fold can also not be compared directly with that of another, since the class composition of the test sets differs between facilities.
-
-\textbf{Precision, recall and F1 score} are therefore also calculated for every class separately. With $TP_c$, $FP_c$ and $FN_c$ the number of true positives, false positives and false negatives for class $c$,
-
-\begin{equation}
-    \mathrm{Precision}_c = \frac{TP_c}{TP_c + FP_c}, \qquad
-    \mathrm{Recall}_c = \frac{TP_c}{TP_c + FN_c},
-\end{equation}
-\begin{equation}
-    F1_c = \frac{2 \cdot \mathrm{Precision}_c \cdot \mathrm{Recall}_c}{\mathrm{Precision}_c + \mathrm{Recall}_c}.
-\end{equation}
-
-Precision is the fraction of images predicted as class $c$ that really belong to it, and recall is the fraction of the images of class $c$ that the model finds. The F1 score is their harmonic mean, which is only high when both are high. To summarise a run in a single number that gives every class the same weight, the per-class values are averaged into macro-averaged precision, recall and F1 scores. As explained in Section~\ref{sec:exp_lofo}, this average only includes the classes that occur in the test set.
-
-The \textbf{confusion matrix} of every run counts, for every true class, how many of its test images were assigned to each predicted class. It shows not only how many images are misclassified, but also which classes are mistaken for each other, which is what the Grad-CAM analysis in Section~\ref{sec:results_gradcam} builds on.
-
-The \textbf{area under the ROC curve (AUC)} measures how well the softmax probabilities separate the classes, independently of any single decision rule. For every class, a one-vs-rest ROC curve is calculated from the predicted probability of that class, by plotting the true positive rate against the false positive rate as the decision threshold is varied. An AUC of 1 means that every image of the class receives a higher probability than every other image, while 0.5 corresponds to random guessing. The mean AUC of a run is the average over the classes that occur in its test set, since the ROC curve of a class without test images is undefined. The binary OK / Not-OK AUC of Experiment~3 is calculated in the same way from the Not-OK score (Section~\ref{sec:exp_binary}).
-
-\textbf{Loss and accuracy curves} record the training and development loss and accuracy after every epoch of a run, with the epoch of the restored checkpoint marked. They are not used to compare architectures, but show whether a run converged, when it started to overfit, and whether early stopping ended it at a sensible point.
+Every run is evaluated once on its test set, after training has finished and the checkpoint with the lowest development loss has been restored (Section~\ref{sec:exp_training}). A test image is assigned to the class with the highest softmax probability, and the metrics described in Section~\ref{sec:metrics_background} are calculated from these classifications and probabilities.
 
 Of these metrics, recall is the most important in the context of this project. The system is meant to flag components that are not working properly, so that an operator can inspect them. A component with low recall for a failure class, such as a \textbf{Dysfunctional} clarifier or a \textbf{Suboptimal} aerobic zone, would be missed and could go unnoticed until the next satellite image of the facility, whereas a false positive only costs an operator the time to look at an image. For this reason, the recall of the failure classes is reported alongside the macro-averaged scores, and the operating point in Experiment~3 is chosen to reach a target recall rather than the highest accuracy.
 
@@ -425,28 +405,14 @@ Of these metrics, recall is the most important in the context of this project. T
 \section{Qualitative Analysis: Grad-CAM}
 \label{sec:exp_gradcam}
 
-Accuracy does not show what in an image a model bases its prediction on, so a model could rely on something unrelated to the state of the component, such as the water colour at a particular facility or the rim of a clarifier. Grad-CAM~\citep{selvaraju2017gradcam} is used to check this, by highlighting the regions of an image that contributed the most to a prediction.
+Classification performance alone does not show what in an image a model bases its decision on, so a model could rely on something unrelated to the state of the component, such as the water colour at a particular facility or the rim of a clarifier. Grad-CAM (Section~\ref{sec:gradcam_background}) is used to check this, by highlighting the regions of an image that contributed the most to a prediction.
 
 \subsection{Method}
 \label{subsec:gradcam_method}
 
-Grad-CAM uses the feature maps $A^k$ of the last convolutional layer. Each feature map is weighted by the gradient of the score $y^c$ of class $c$ (before the softmax) with respect to that map, averaged over all $Z$ positions:
-
-\begin{equation}
-    \alpha_k^c = \frac{1}{Z} \sum_{i} \sum_{j} \frac{\partial y^c}{\partial A^k_{ij}}.
-    \label{eq:gradcam_weights}
-\end{equation}
-
-The weighted feature maps are then summed, and only the positive contributions are kept:
-
-\begin{equation}
-    L^c = \mathrm{ReLU}\left( \sum_{k} \alpha_k^c A^k \right).
-    \label{eq:gradcam_map}
-\end{equation}
-
-$L^c$ is resized to the input image and drawn over it as a heatmap, where red regions contributed the most to the prediction. Every map is scaled separately, so the colours cannot be compared between images. The \texttt{pytorch-grad-cam} library~\citep{gildenblat2021pytorchcam} was used for the implementation.
+Grad-CAM was applied to the output of the last convolutional layer of each selected model, using the \texttt{pytorch-grad-cam} library~\citep{gildenblat2021pytorchcam}. The heatmaps are superimposed on the input images, where red regions contributed the most to the prediction. Every heatmap is normalised separately, so the colours cannot be compared between images.
 
 \subsection{Models and Example Selection}
 \label{subsec:gradcam_setup}
 
-For each component, the architecture with the highest mean macro-averaged F1 score in the leave-one-facility-out experiment (Section~\ref{sec:exp_lofo}) was analysed, on the facility that was held out in one of its folds. For the clarifiers, Fisantekraal was used, since it contains all four clarifier classes, and for the aerobic zones, Waterval was used, since it has the most aerobic zone images. For each class, one correctly classified image was chosen at random, along with one image from each of the most common mistakes. The heatmaps are calculated for the predicted class, so for a mistake they show what the model took as evidence for the wrong class.
+For each component, the architecture with the highest mean macro-averaged F1 test score in the leave-one-facility-out experiment (Section~\ref{sec:exp_lofo}) was selected for analysis using one of the held-out test sets. For the clarifiers, Fisantekraal was used, since it contains all four clarifier classes, and for the aerobic zones, Waterval was used, since it has the most aerobic zone images. For each class, one correctly classified image was chosen at random, along with one image from each of the most common mistakes. The heatmaps are calculated for the predicted class, so for a mistake they show what the model took as evidence to arrive at its incorrect decision.
