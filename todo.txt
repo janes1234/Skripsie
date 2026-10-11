@@ -2,3 +2,14 @@
 
 
 write a section on focal loss
+
+
+do the chronological split. 
+remove alexnet and do resnet18 twice.
+retrain and retune. aerobic zones dont have a norther works set. 
+
+
+- Remove the "TODO:" lines in Appendix B (appendices/additional_results.tex) and in the conclusions (chapters/conclusion.tex) before submission. Search for "TODO:".
+- Section 5 and the hue-shift table disagree. Section 5 (augmentation section) says disabling the hue shift "did not affect performance", but the hue-shift table in Appendix B shows accuracy decreasing for every architecture. Fix one of the two.
+- The Chapter 6 numbers will change after the retrain and retune. Refill the tables and check the numbers quoted in the Chapter 6 text and the Summary of Findings.
+- Section 5 (Experiment 1) still calls Experiment 1 "a best-case reference rather than an estimate of how the system would perform in practice". This conflicts with the Chapter 6 framing (upper bound for facilities already in the database). Update it, and add a sentence to the Chapter 1 problem statement about the dashboard and the relabelling loop.
