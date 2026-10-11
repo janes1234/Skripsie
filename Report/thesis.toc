@@ -1,0 +1,97 @@
+\acswitchoff 
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{Abstract}{iii}{chapter*.3}%
+\babel@toc {afrikaans}{}\relax 
+\contentsline {chapter}{Uittreksel}{iv}{chapter*.4}%
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{Table of contents}{v}{chapter*.4}%
+\contentsline {chapter}{List of figures}{viii}{chapter*.5}%
+\contentsline {chapter}{List of tables}{x}{chapter*.6}%
+\contentsline {chapter}{Nomenclature}{xv}{chapter*.8}%
+\contentsline {section}{Acronyms and abbreviations}{xvi}{section*.9}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Problem Statement}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Objectives}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Scope}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Report Structure}{2}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Background}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Wastewater Treatment Works}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Convolutional Neural Networks}{3}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Building Blocks of a Convolutional Neural Network}{3}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Residual Networks: ResNet-18 and ResNet-50}{6}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Densely Connected Networks: DenseNet-121}{7}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Inception Networks: Inception-v3}{9}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}Efficient Networks: EfficientNet-B0}{9}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.6}ConvNeXt-Tiny}{11}{subsection.2.2.6}%
+\contentsline {subsection}{\numberline {2.2.7}Summary of Architectures}{12}{subsection.2.2.7}%
+\contentsline {section}{\numberline {2.3}Evaluation Metrics for Classification}{13}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Gradient-Weighted Class Activation Mapping}{14}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Literature Review}{15}{chapter.3}%
+\contentsline {section}{\numberline {3.1}The Monitoring Problem in South Africa}{15}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Reading Process State from Images Inside the Plant}{15}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Satellite Remote Sensing of Water Quality}{16}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Remote Sensing of Treatment Plants}{17}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Pretrained CNNs on a Small, Texture-Defined Problem}{17}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Testing on Unseen Plants and Checking What the Model Sees}{18}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Summary and Conclusions}{19}{section.3.7}%
+\contentsline {chapter}{\numberline {4}Dataset}{20}{chapter.4}%
+\contentsline {section}{\numberline {4.1}WWTW Sites}{20}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Annotations}{21}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Facility Structure}{23}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Data Preparation}{24}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Excluded from the dataset}{26}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Data Splitting}{26}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Leave-one-out Split}{26}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Stratified Train/Development Split}{27}{subsection.4.6.2}%
+\contentsline {section}{\numberline {4.7}Relabelling}{28}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Final Dataset}{30}{section.4.8}%
+\contentsline {chapter}{\numberline {5}Experimental Design}{31}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Overview}{31}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Model Architectures and Transfer Learning}{32}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Augmentation}{34}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Class Imbalance}{35}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Hyperparameter Tuning}{38}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Why Optuna}{38}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Search Procedure}{38}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}AlexNet}{38}{subsection.5.5.3}%
+\contentsline {section}{\numberline {5.6}Training Procedure}{39}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Experiment 1: Mixed-Facility Baseline}{41}{section.5.7}%
+\contentsline {section}{\numberline {5.8}Experiment 2: Leave-One-Facility-Out Evaluation}{42}{section.5.8}%
+\contentsline {section}{\numberline {5.9}Experiment 3: Binary (OK / Not-OK) Reformulation}{44}{section.5.9}%
+\contentsline {section}{\numberline {5.10}Evaluation Metrics}{45}{section.5.10}%
+\contentsline {section}{\numberline {5.11}Qualitative Analysis: Grad-CAM}{46}{section.5.11}%
+\contentsline {subsection}{\numberline {5.11.1}Method}{46}{subsection.5.11.1}%
+\contentsline {subsection}{\numberline {5.11.2}Models and Example Selection}{46}{subsection.5.11.2}%
+\contentsline {chapter}{\numberline {6}Results}{47}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Overview}{47}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Multi-Class Classification}{47}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Binary (OK / Not-OK) Classification}{49}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Qualitative Analysis: Grad-CAM}{51}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Clarifiers}{51}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Aerobic Zones}{51}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}Summary of Observations}{53}{subsection.6.4.3}%
+\contentsline {section}{\numberline {6.5}Summary of Findings}{54}{section.6.5}%
+\contentsline {chapter}{\numberline {7}Summary and conclusions}{55}{chapter.7}%
+\contentsline {chapter}{References}{56}{chapter*.44}%
+\contentsline {chapter}{\numberline {A}Hyperparameter Search Trials}{61}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Clarifiers}{61}{appendix.A.1}%
+\contentsline {subsection}{\numberline {A.1.1}ResNet-18}{61}{subsection.A.1.1}%
+\contentsline {subsection}{\numberline {A.1.2}EfficientNet-B0}{61}{subsection.A.1.2}%
+\contentsline {subsection}{\numberline {A.1.3}DenseNet-121}{62}{subsection.A.1.3}%
+\contentsline {subsection}{\numberline {A.1.4}ResNet-50}{63}{subsection.A.1.4}%
+\contentsline {subsection}{\numberline {A.1.5}ConvNeXt-Tiny}{63}{subsection.A.1.5}%
+\contentsline {subsection}{\numberline {A.1.6}Inception-v3}{64}{subsection.A.1.6}%
+\contentsline {section}{\numberline {A.2}Aerobic Zones}{65}{appendix.A.2}%
+\contentsline {subsection}{\numberline {A.2.1}ResNet-18}{65}{subsection.A.2.1}%
+\contentsline {subsection}{\numberline {A.2.2}EfficientNet-B0}{65}{subsection.A.2.2}%
+\contentsline {subsection}{\numberline {A.2.3}DenseNet-121}{66}{subsection.A.2.3}%
+\contentsline {subsection}{\numberline {A.2.4}ResNet-50}{67}{subsection.A.2.4}%
+\contentsline {subsection}{\numberline {A.2.5}ConvNeXt-Tiny}{67}{subsection.A.2.5}%
+\contentsline {subsection}{\numberline {A.2.6}Inception-v3}{68}{subsection.A.2.6}%
+\contentsline {chapter}{\numberline {B}Additional Results}{70}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Experiment 1: Mixed-Facility Baseline}{70}{appendix.B.1}%
+\contentsline {section}{\numberline {B.2}Experiment 2: Leave-One-Facility-Out Evaluation}{73}{appendix.B.2}%
+\contentsline {section}{\numberline {B.3}Effect of Augmentation}{79}{appendix.B.3}%
+\contentsline {section}{\numberline {B.4}Hue Shift}{79}{appendix.B.4}%
+\contentsline {section}{\numberline {B.5}Binary (OK / Not-OK) Results}{80}{appendix.B.5}%
+\contentsfinish 
