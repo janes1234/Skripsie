@@ -7,6 +7,7 @@ write a section on focal loss
 do the chronological split. 
 remove alexnet and do resnet18 twice.
 retrain and retune. aerobic zones dont have a norther works set. 
+padding
 
 
 - Remove the "TODO:" lines in Appendix B (appendices/additional_results.tex) and in the conclusions (chapters/conclusion.tex) before submission. Search for "TODO:".
