@@ -1,12 +1,12 @@
 """
 run.py
 ======
-Batch-runs every training notebook (train_resnet18.ipynb, train_resnet50.ipynb,
-train_densenet121.ipynb, train_inception_v3.ipynb, train_efficientnet_b0.ipynb,
-train_convnext_tiny.ipynb, train_alexnet.ipynb) against every held-out
-facility's leave-one-facility-out split, so you end up with a full
-7 architectures x 5 facilities results grid without babysitting each run by
-hand.
+Batch-runs every training notebook (train_resnet18.ipynb,
+train_resnet18_scratch.ipynb, train_resnet50.ipynb, train_densenet121.ipynb,
+train_inception_v3.ipynb, train_efficientnet_b0.ipynb,
+train_convnext_tiny.ipynb) against every held-out facility's
+leave-one-facility-out split, so you end up with a full 7 architectures x 5
+facilities results grid without babysitting each run by hand.
 
 For each (architecture, facility) combination this script:
   1. Exports the training notebook to a plain .py script (via
@@ -74,12 +74,12 @@ from pathlib import Path
 # writes into results_{component}_{save_name}_{facility}.pkl) -> notebook file.
 TRAIN_NOTEBOOKS = {
     "resnet18": "train_resnet18.ipynb",
+    "resnet18_scratch": "train_resnet18_scratch.ipynb",
     "resnet50": "train_resnet50.ipynb",
     "densenet121": "train_densenet121.ipynb",
     "inception_v3": "train_inception_v3.ipynb",
     "efficientnet_b0": "train_efficientnet_b0.ipynb",
     "convnext_tiny": "train_convnext_tiny.ipynb",
-    "alexnet": "train_alexnet.ipynb",
 }
 
 # Matches ALL_FACILITIES in split_dataset_facility.py.
@@ -87,11 +87,14 @@ ALL_FACILITIES = ["Atlantis", "CapeFlats", "Waterval", "Fisantekraal", "Noordeli
 # Only these three facilities have aerobic zone labels.
 AEROBIC_FACILITIES = ["Atlantis", "CapeFlats", "Waterval"]
 
-# The stratified (non-leave-one-out) 70/20/10 split, from
-# `python split_dataset.py --output ../cnn_dataset_split-stratified`. Its
-# results get "stratified" in place of a held-out facility name.
-STRATIFIED_ID = "stratified"
-STRATIFIED_ROOT = "../cnn_dataset_split-stratified"
+# Train on images before a cutoff date, test on images after it -- from
+# `python split_dataset_chronological.py`. The only non-LOFO experiment: it
+# replaced the old random 70/20/10 stratified split entirely (optimistic --
+# same-date leakage across train/test, and random rather than future test
+# dates), for both clarifier and aerobic zone. Its results get
+# "chronological" in place of a held-out facility name.
+CHRONOLOGICAL_ID = "chronological"
+CHRONOLOGICAL_ROOT = "../cnn_dataset_split-chronological"
 
 RESULTS_DIR = Path("../results")
 GENERATED_SCRIPTS_DIR = Path("./generated_scripts")
@@ -172,8 +175,8 @@ def check_prerequisites(kernel_name: str):
 
 
 def dataset_root_for(facility: str) -> str:
-    if facility == STRATIFIED_ID:
-        return STRATIFIED_ROOT
+    if facility == CHRONOLOGICAL_ID:
+        return CHRONOLOGICAL_ROOT
     return f"../cnn_dataset_split_facility_test-{facility}"
 
 
@@ -207,7 +210,7 @@ def run_one(component: str, save_name: str, notebook_name: str, facility: str,
             kernel_name: str, dry_run: bool, results_dir: Path = RESULTS_DIR,
             augment: bool = True) -> tuple[bool, str]:
     """Runs one (architecture, facility) combination. `facility` is the
-    held-out facility, or STRATIFIED_ID for the stratified split. Results,
+    held-out facility, or CHRONOLOGICAL_ID for the chronological split. Results,
     figures and logs go to results_dir; executed notebooks to a subfolder of
     EXECUTED_NOTEBOOKS_DIR named after it (unless it's the default
     ../results). Returns (success, message)."""
@@ -279,9 +282,9 @@ def main():
                          help=f"Comma-separated save_names to run (default: all). Choices: {', '.join(TRAIN_NOTEBOOKS)}")
     parser.add_argument("--facilities", default=None,
                          help=f"Comma-separated facilities to hold out (default: all). Choices: {', '.join(ALL_FACILITIES)}")
-    parser.add_argument("--split", default="lofo", choices=["lofo", "stratified"],
-                         help="lofo = leave-one-facility-out folds (default); stratified = the single "
-                              f"70/20/10 split in {STRATIFIED_ROOT}")
+    parser.add_argument("--split", default="lofo", choices=["lofo", "chronological"],
+                         help="lofo = leave-one-facility-out folds (default); chronological = "
+                              f"train-before/test-after-cutoff split in {CHRONOLOGICAL_ROOT}")
     parser.add_argument("--results-dir", default=str(RESULTS_DIR),
                          help=f"Where results/figures/logs go (default: {RESULTS_DIR})")
     parser.add_argument("--no-augment", action="store_true",
@@ -299,13 +302,13 @@ def main():
     models = args.models.split(",") if args.models else list(TRAIN_NOTEBOOKS)
     default_facilities = AEROBIC_FACILITIES if args.component == "aerobic_zone" else ALL_FACILITIES
     facilities = args.facilities.split(",") if args.facilities else list(default_facilities)
-    if args.split == "stratified":
-        facilities = [STRATIFIED_ID]
+    if args.split == "chronological":
+        facilities = [CHRONOLOGICAL_ID]
 
     unknown_models = [m for m in models if m not in TRAIN_NOTEBOOKS]
     if unknown_models:
         parser.error(f"Unknown model(s): {unknown_models}. Choices: {list(TRAIN_NOTEBOOKS)}")
-    unknown_facilities = [f for f in facilities if f not in ALL_FACILITIES + [STRATIFIED_ID]]
+    unknown_facilities = [f for f in facilities if f not in ALL_FACILITIES + [CHRONOLOGICAL_ID]]
     if unknown_facilities:
         parser.error(f"Unknown facility(ies): {unknown_facilities}. Choices: {ALL_FACILITIES}")
 

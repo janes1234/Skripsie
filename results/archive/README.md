@@ -29,3 +29,14 @@ all of them -- it's deliberately excluded from the retuning/ablation work.
   augmentation) but with `ColorJitter(..., hue=0.0)`, to test whether hue
   jitter was washing out the green cue of the Dysfunctional class. Same
   `summary.txt` and `per_run_accuracy_dysfunctional.txt` files as phase3.
+- `pre_pad_retune/` — everything superseded by the padding + chronological-
+  split + AlexNet-removal round: the old `clarifier_aug/noaug` and
+  `aerobic_zone_aug/noaug` folders (stretch resize mode, random-stratified
+  split, AlexNet included), plus `aerobic_zone_pad_aug/noaug` (the earlier,
+  separate padded-aerobic-only experiment, now superseded since padding is
+  the default for every architecture and component instead of its own
+  one-off comparison).
+- `pre_convention_loose/` — the `*.pkl`/`figures/`/`logs` that used to sit
+  directly in `results/` (not in a `clarifier_aug/`-style subfolder), from
+  before that results-dir convention existed. `CNN/results_comparison.ipynb`
+  reads these.

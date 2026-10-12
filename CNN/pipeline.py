@@ -4,19 +4,31 @@ pipeline.py
 Runs the full retraining round end to end, in this order:
 
   0. Data prep: prep.py (clarifiers from relabel/, aerobic zones from Labels/),
-     the 5 leave-one-facility-out splits, and the stratified 70/20/10 split.
+     the 5 leave-one-facility-out splits, and the chronological split (both
+     components).
   1. Clarifier, leave-one-facility-out, with augmentation (7 architectures x 5 facilities)
-  2. Clarifier, stratified 70/20/10, with augmentation     (7 architectures)
-  3. Clarifier, stratified 70/20/10, without augmentation  (7 architectures)
-  4. Aerobic zone hyperparameter tuning  (6 architectures, NoordelikeWerke held
-     out like the clarifier tuning -- it has no aerobic zones, so train/val come
-     from all three aerobic facilities)
-  5. Aerobic zone, stratified, with augmentation
-  6. Aerobic zone, stratified, without augmentation
+  2. Clarifier, chronological (train before cutoff, test after), with augmentation (7 architectures)
+  3. Clarifier, chronological, without augmentation (7 architectures)
+  4. Aerobic zone hyperparameter tuning  (6 architectures, Atlantis held out --
+     the only aerobic facility small and balanced enough across all three
+     classes to hold out without starving one of them; NoordelikeWerke has no
+     aerobic zones at all, so holding it out would validate nothing)
+  5. Aerobic zone, chronological, with augmentation
+  6. Aerobic zone, chronological, without augmentation
   7. Aerobic zone, leave-one-facility-out, with augmentation (x 3 facilities)
 
-With vs without augmentation is only compared on the stratified split;
-leave-one-facility-out is run once, with augmentation.
+The chronological split (train before a 2020-01 cutoff, test after) replaced
+the old random 70/20/10 stratified split entirely, for both components --
+splitting randomly on cropped images was optimistic (same-date leakage
+across train/test, and random rather than future test dates; see
+split_dataset_chronological.py). With vs without augmentation is compared
+on the chronological split; leave-one-facility-out is run once, with
+augmentation.
+
+resnet18_scratch (no ImageNet pretraining, no tuning) replaces the old
+AlexNet baseline slot -- see wwtw_utils.py's ARCH_HYPERPARAMS comment for why
+it's the same architecture as the tuned "resnet18" entry rather than a
+different, smaller one.
 
 The GPU rests REST_MINUTES after every architecture (all of its folds in that
 phase) and after each architecture's tuning. Anything whose results pickle (or
@@ -44,7 +56,7 @@ import time
 from pathlib import Path
 
 import run
-from run import TRAIN_NOTEBOOKS, ALL_FACILITIES, AEROBIC_FACILITIES, STRATIFIED_ID
+from run import TRAIN_NOTEBOOKS, ALL_FACILITIES, AEROBIC_FACILITIES, CHRONOLOGICAL_ID
 
 PROGRESS_LOG = Path("pipeline_progress.log").resolve()
 REST_MINUTES = 5
@@ -54,9 +66,10 @@ TUNE_TRIALS = 20
 KERNEL = "python3"
 
 DISPLAY = {
-    "resnet18": "ResNet-18", "resnet50": "ResNet-50", "densenet121": "DenseNet-121",
+    "resnet18": "ResNet-18", "resnet18_scratch": "ResNet-18 (scratch)",
+    "resnet50": "ResNet-50", "densenet121": "DenseNet-121",
     "inception_v3": "InceptionNet v3", "efficientnet_b0": "EfficientNet-B0",
-    "convnext_tiny": "ConvNeXt-Tiny", "alexnet": "AlexNet",
+    "convnext_tiny": "ConvNeXt-Tiny",
 }
 TUNE_ARCHS = ["resnet18", "efficientnet_b0", "densenet121", "resnet50", "convnext_tiny", "inception_v3"]
 
@@ -64,14 +77,14 @@ TRAIN_PHASES = [
     # (title, component, split, results_dir, augment, facilities)
     ("Clarifier - leave-one-facility-out (augmented)", "clarifier", "lofo",
      "../results/clarifier_aug", True, ALL_FACILITIES),
-    ("Clarifier - stratified 70/20/10 (augmented)", "clarifier", "stratified",
-     "../results/clarifier_aug", True, [STRATIFIED_ID]),
-    ("Clarifier - stratified 70/20/10 (no augmentation)", "clarifier", "stratified",
-     "../results/clarifier_noaug", False, [STRATIFIED_ID]),
-    ("Aerobic zone - stratified 70/20/10 (augmented)", "aerobic_zone", "stratified",
-     "../results/aerobic_zone_aug", True, [STRATIFIED_ID]),
-    ("Aerobic zone - stratified 70/20/10 (no augmentation)", "aerobic_zone", "stratified",
-     "../results/aerobic_zone_noaug", False, [STRATIFIED_ID]),
+    ("Clarifier - chronological (augmented)", "clarifier", "chronological",
+     "../results/clarifier_aug", True, [CHRONOLOGICAL_ID]),
+    ("Clarifier - chronological (no augmentation)", "clarifier", "chronological",
+     "../results/clarifier_noaug", False, [CHRONOLOGICAL_ID]),
+    ("Aerobic zone - chronological (augmented)", "aerobic_zone", "chronological",
+     "../results/aerobic_zone_aug", True, [CHRONOLOGICAL_ID]),
+    ("Aerobic zone - chronological (no augmentation)", "aerobic_zone", "chronological",
+     "../results/aerobic_zone_noaug", False, [CHRONOLOGICAL_ID]),
     ("Aerobic zone - leave-one-facility-out (augmented)", "aerobic_zone", "lofo",
      "../results/aerobic_zone_aug", True, AEROBIC_FACILITIES),
 ]
@@ -109,7 +122,12 @@ def data_prep():
     sh([sys.executable, "prep.py"])
     for fac in ALL_FACILITIES:
         sh([sys.executable, "split_dataset_facility.py", "--test", fac])
-    sh([sys.executable, "split_dataset.py", "--output", run.STRATIFIED_ROOT])
+    # Cutoff chosen from split_dataset_chronological.py --list: 2020-01 is the
+    # earliest point where every facility's test set still contains every
+    # class that facility has ever produced, for both components (see that
+    # script's docstring for the class/facility combinations no cutoff can
+    # fix, e.g. Atlantis has zero Dysfunctional clarifiers at any date).
+    sh([sys.executable, "split_dataset_chronological.py", "--cutoff", "2020-01"])
     progress(f"DATA PREP done in {fmt_min(time.time() - t0)}")
 
 
@@ -130,7 +148,7 @@ def train_phase(idx, n_phases, title, component, split, results_dir, augment, fa
         progress(f"  {name} training ({len(todo)} run{'s' if len(todo) > 1 else ''})")
         arch_t0 = time.time()
         for fac in todo:
-            where = "stratified split" if fac == STRATIFIED_ID else f"held-out {fac}"
+            where = "chronological split" if fac == CHRONOLOGICAL_ID else f"held-out {fac}"
             for attempt in range(1, RUN_ATTEMPTS + 1):
                 t0 = time.time()
                 ok, msg = run.run_one(component, save_name, notebook, fac, KERNEL, False,
@@ -157,12 +175,13 @@ def tune_phase(idx, n_phases):
     tuned_json = Path(f"tuned_hyperparams_{component}.json")
     progress()
     progress(f"PHASE {idx}/{n_phases}: Aerobic zone - hyperparameter tuning "
-             f"({len(TUNE_ARCHS)} architectures x {TUNE_TRIALS} trials, NoordelikeWerke held out)")
+             f"({len(TUNE_ARCHS)} architectures x {TUNE_TRIALS} trials, Atlantis held out)")
     phase_t0 = time.time()
     env = os.environ.copy()
     env["COMPONENT"] = component
-    env["DATASET_ROOT"] = "../cnn_dataset_split_facility_test-NoordelikeWerke"
+    env["DATASET_ROOT"] = "../cnn_dataset_split_facility_test-Atlantis"
     env["AUGMENT"] = "1"
+    env["RESIZE_MODE"] = "pad"
     for arch in TUNE_ARCHS:
         name = DISPLAY[arch]
         if tuned_json.exists() and arch in json.loads(tuned_json.read_text()):

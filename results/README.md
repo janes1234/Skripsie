@@ -1,27 +1,29 @@
 # results/
 
-## Current round (from 2026-09-28, `CNN/pipeline.py`)
+## Current round (`CNN/pipeline.py`)
 
-Clarifiers were trained on the relabelled data with the supervisor's review applied
-(`relabel_review/supervisor_decisions_applied.csv`). Aerobic zones were trained on the original labels.
+Clarifiers are trained on the relabelled data with the supervisor's review applied. Aerobic
+zones are trained on the original labels (never relabelled). Both components use letterbox
+padding (not stretching) and the chronological split (train before 2020-01, test after) in
+place of the old random 70/20/10 stratified split -- see `CNN/split_dataset_chronological.py`.
 
 | Folder | What |
 |---|---|
-| `clarifier_aug/` | Clarifiers, tuned hyperparameters, with augmentation: LOFO (5 facilities) + stratified 70/20/10 |
-| `clarifier_noaug/` | Clarifiers, same hyperparameters, no train-time augmentation: stratified 70/20/10 only |
-| `aerobic_zone_aug/` | Aerobic zones, hyperparameters tuned for aerobic zones (`CNN/tuned_hyperparams_aerobic_zone.json`), with augmentation: LOFO (3 facilities) + stratified |
-| `aerobic_zone_noaug/` | Aerobic zones, same hyperparameters, no augmentation: stratified only |
+| `clarifier_aug/` | Clarifiers, tuned hyperparameters, with augmentation: LOFO (5 facilities) + chronological |
+| `clarifier_noaug/` | Clarifiers, same hyperparameters, no train-time augmentation: chronological only |
+| `aerobic_zone_aug/` | Aerobic zones, hyperparameters tuned for aerobic zones (`CNN/tuned_hyperparams_aerobic_zone.json`), with augmentation: LOFO (3 facilities) + chronological |
+| `aerobic_zone_noaug/` | Aerobic zones, same hyperparameters, no augmentation: chronological only |
 
-With vs without augmentation is compared on the stratified split only; LOFO is run once, with augmentation.
+With vs without augmentation is compared on the chronological split only; LOFO is run once, with
+augmentation.
 
 Each folder has `results_<component>_<model>_<test set>.pkl`, where the test set is the held-out
-facility for leave-one-facility-out runs or `stratified` for the 70/20/10 split. It also has
-`figures/`, `logs/` and `summary_*.csv` (written by the results notebooks). Open them with
+facility for leave-one-facility-out runs or `chronological` for the chronological split. It also
+has `figures/`, `logs/` and `summary_*.csv` (written by the results notebooks). Open them with
 `CNN/results_clarifier.ipynb` and `CNN/results_aerobic_zone.ipynb`.
 
-## Older results
+## Archived results
 
-The `*.pkl`, `figures/` and `logs/` directly in this folder are the previous clarifier round,
-from before the supervisor's review. That round had AlexNet retrained on 2026-09-28 and the other
-six architectures trained on 2026-09-24. `CNN/results_comparison.ipynb` reads these. Earlier
-phases are in `archive/` (see `archive/README.md`).
+Everything superseded by this round -- the random-stratified-split era, the separate padded-only
+aerobic experiment, AlexNet, and pre-convention loose files -- has been moved into `archive/` (see
+`archive/README.md`), not deleted, so earlier numbers stay recoverable if needed.

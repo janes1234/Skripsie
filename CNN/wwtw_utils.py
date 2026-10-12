@@ -61,11 +61,12 @@ IMG_TARGET_SIZE = {
     "clarifier": (224, 224),
 }[COMPONENT]
 
-# How an image is brought to IMG_TARGET_SIZE. "stretch" (the original runs)
-# resizes straight to (h, w), changing the aspect ratio. "pad" keeps the
+# How an image is brought to IMG_TARGET_SIZE. "pad" (the default) keeps the
 # aspect ratio: it scales the image to fit inside (h, w) and fills the rest
-# with black, centred. Override with the RESIZE_MODE env var.
-RESIZE_MODE = os.environ.get("RESIZE_MODE", "stretch")
+# with black, centred. "stretch" (used by older runs) resizes straight to
+# (h, w) instead, changing the aspect ratio. Override with the RESIZE_MODE
+# env var.
+RESIZE_MODE = os.environ.get("RESIZE_MODE", "pad")
 assert RESIZE_MODE in ("stretch", "pad"), RESIZE_MODE
 
 BATCH_SIZE = 32
@@ -279,9 +280,24 @@ align_dataset_to_classes(test_ds, class_to_idx)
 
 print(f"Train: {len(train_ds)} | Val: {len(val_ds)} | Test: {len(test_ds)}")
 
-train_loader = DataLoader(train_ds, batch_size=BATCH_SIZE, shuffle=True, num_workers=4, pin_memory=True)
-val_loader = DataLoader(val_ds, batch_size=BATCH_SIZE, shuffle=False, num_workers=4, pin_memory=True)
-test_loader = DataLoader(test_ds, batch_size=BATCH_SIZE, shuffle=False, num_workers=4, pin_memory=True)
+# multiprocessing_context="fork" -- Python 3.14 changed the default worker
+# start method on Linux from "fork" to "forkserver", which re-imports the
+# main module in each worker and crashes (RuntimeError: an attempt has been
+# made to start a new process before the current process has finished its
+# bootstrapping phase) once CUDA is already initialized in the parent, which
+# it always is by the time any loader is iterated here. "fork" is safe even
+# with a CUDA context already live in the parent, since these workers only
+# ever do CPU-side work (PIL load/resize/augment/ToTensor) -- the model
+# itself never touches CUDA until after a batch is collated back in the main
+# process.
+DATALOADER_MP_CONTEXT = "fork"
+
+train_loader = DataLoader(train_ds, batch_size=BATCH_SIZE, shuffle=True, num_workers=4, pin_memory=True,
+                          multiprocessing_context=DATALOADER_MP_CONTEXT)
+val_loader = DataLoader(val_ds, batch_size=BATCH_SIZE, shuffle=False, num_workers=4, pin_memory=True,
+                        multiprocessing_context=DATALOADER_MP_CONTEXT)
+test_loader = DataLoader(test_ds, batch_size=BATCH_SIZE, shuffle=False, num_workers=4, pin_memory=True,
+                         multiprocessing_context=DATALOADER_MP_CONTEXT)
 
 
 def denormalize(img_tensor):
@@ -386,9 +402,12 @@ def get_dataloaders(img_size, batch_size):
     # see a 1x1 feature map (InceptionNet v3's aux classifier: "Expected more
     # than 1 value per channel when training"), so drop it in that case only.
     tr_loader = DataLoader(tr_ds, batch_size=batch_size, shuffle=True, num_workers=4, pin_memory=True,
-                           drop_last=(len(tr_ds) % batch_size == 1))
-    va_loader = DataLoader(va_ds, batch_size=batch_size, shuffle=False, num_workers=4, pin_memory=True)
-    te_loader = DataLoader(te_ds, batch_size=batch_size, shuffle=False, num_workers=4, pin_memory=True)
+                           drop_last=(len(tr_ds) % batch_size == 1),
+                           multiprocessing_context=DATALOADER_MP_CONTEXT)
+    va_loader = DataLoader(va_ds, batch_size=batch_size, shuffle=False, num_workers=4, pin_memory=True,
+                           multiprocessing_context=DATALOADER_MP_CONTEXT)
+    te_loader = DataLoader(te_ds, batch_size=batch_size, shuffle=False, num_workers=4, pin_memory=True,
+                           multiprocessing_context=DATALOADER_MP_CONTEXT)
     return tr_ds, va_ds, te_ds, tr_loader, va_loader, te_loader
 
 
@@ -805,56 +824,30 @@ def save_result(model_key, save_name):
 # IMG_TARGET_SIZE (set above) except for InceptionNet v3, which requires
 # larger inputs (it downsamples aggressively and expects ~299x299).
 
-# All 6 below (everything except alexnet) were tuned by tune.py: one Optuna
-# study per architecture, jointly searching hidden_layers, neurons, lr,
-# beta1, step_size and batch_size, tuned on the NoordelikeWerke-held-out
-# split and optimizing validation accuracy at the best-val-loss checkpoint.
-# See tuned_hyperparams.json for the full record (including each
-# architecture's achieved val_acc) and tune_progress.log for the full
-# sweep. resnet18 in particular used to be a fixed, untuned "baseline"
-# (linear head, hardcoded LR, its own ReduceLROnPlateau schedule, its own
-# dataloaders) -- there's no architectural reason it had to stay that way,
-# so it's tuned like every other backbone here now.
-_CLARIFIER_TUNED_ARCH_HYPERPARAMS = {
-    "resnet18": dict(
-        hidden_layers=2, neurons=2048,
-        lr=3.878507329493426e-04, beta1=0.6107516885033067, step_size=12, batch_size=96,
-        img_size=IMG_TARGET_SIZE,
-    ),
-    "resnet50": dict(
-        hidden_layers=2, neurons=2048,
-        lr=3.773511064031977e-04, beta1=0.874754846544932, step_size=17, batch_size=96,
-        img_size=IMG_TARGET_SIZE,
-    ),
-    "densenet121": dict(
-        hidden_layers=1, neurons=512,
-        lr=3.4372072443118924e-04, beta1=0.5973588051756492, step_size=11, batch_size=48,
-        img_size=IMG_TARGET_SIZE,
-    ),
-    "inception_v3": dict(
-        hidden_layers=2, neurons=2048,
-        lr=1.3826232179369874e-03, beta1=0.5996372172970215, step_size=23, batch_size=96,
-        img_size=(299, 299),
-    ),
-    # Tuning picked hidden_layers=0 (a plain linear head, like the classic
-    # ResNet-18 baseline) -- neurons is unused by build_classifier_head()
-    # when hidden_layers=0, kept here only as a record of what Optuna sampled.
-    "efficientnet_b0": dict(
-        hidden_layers=0, neurons=2048,
-        lr=4.89229364755062e-04, beta1=0.8568488007968798, step_size=5, batch_size=96,
-        img_size=IMG_TARGET_SIZE,
-    ),
-    "convnext_tiny": dict(
-        hidden_layers=1, neurons=2048,
-        lr=5.654044156118665e-05, beta1=0.5598695840061737, step_size=21, batch_size=128,
-        img_size=IMG_TARGET_SIZE,
-    ),
+# All 6 below (everything except resnet18_scratch) are tuned by tune.py: one
+# Optuna study per architecture, jointly searching hidden_layers, neurons,
+# lr, beta1, step_size and batch_size, optimizing validation accuracy at the
+# best-val-loss checkpoint. Clarifier tuning holds NoordelikeWerke out;
+# aerobic zone tuning holds Atlantis out (NoordelikeWerke has no aerobic
+# zones, so holding it out there would validate nothing). Every
+# architecture's values are loaded from its tuned_hyperparams*.json below --
+# nothing is hardcoded here, so re-running tune.py --all is all that's
+# needed to pick up a fresh tuning round.
+_TUNED_ARCHITECTURES = [
+    "resnet18", "resnet50", "densenet121", "inception_v3", "efficientnet_b0", "convnext_tiny",
+]
+# img_size defaults to IMG_TARGET_SIZE except for InceptionNet v3, which
+# requires larger inputs (it downsamples aggressively and expects ~299x299)
+# -- an architectural constraint, not a tunable hyperparameter, so it's
+# fixed here rather than left to NO_TUNING_ARCH_HYPERPARAMS/tune.py's search.
+_ARCH_IMG_SIZE = {
+    arch: ((299, 299) if arch == "inception_v3" else IMG_TARGET_SIZE) for arch in _TUNED_ARCHITECTURES
 }
 
 
 def _load_tuned_hyperparams(json_path):
-    """Reads a tune.py results json into the same dict shape as
-    _CLARIFIER_TUNED_ARCH_HYPERPARAMS above (dropping the val_acc record)."""
+    """Reads a tune.py results json into {arch: {hidden_layers, neurons, lr,
+    beta1, step_size, batch_size, img_size}}, dropping the val_acc record."""
     import json
     raw = json.loads(Path(json_path).read_text())
     return {
@@ -867,58 +860,51 @@ def _load_tuned_hyperparams(json_path):
     }
 
 
-# Clarifiers use the hardcoded values above. Aerobic zones were tuned
-# separately by tune.py (COMPONENT=aerobic_zone, same NoordelikeWerke-held-out
-# split -- NoordelikeWerke has no aerobic zones, so that means train/val from
-# all three aerobic facilities), recorded in tuned_hyperparams_aerobic_zone.json.
-if COMPONENT == "clarifier":
-    TUNED_ARCH_HYPERPARAMS = _CLARIFIER_TUNED_ARCH_HYPERPARAMS
-else:
-    _tuned_json = Path(__file__).resolve().parent / f"tuned_hyperparams_{COMPONENT}.json"
-    TUNED_ARCH_HYPERPARAMS = _load_tuned_hyperparams(_tuned_json) if _tuned_json.exists() else {}
-    if not TUNED_ARCH_HYPERPARAMS:
-        print(f"[warn] {_tuned_json.name} not found -- no tuned hyperparameters for {COMPONENT} yet.")
+# Clarifier tuning writes tuned_hyperparams.json; every other component
+# (aerobic_zone) gets its own tuned_hyperparams_<component>.json, so tuning
+# one component never resumes from or overwrites another's Optuna studies.
+_tuned_json_name = "tuned_hyperparams.json" if COMPONENT == "clarifier" else f"tuned_hyperparams_{COMPONENT}.json"
+_tuned_json = Path(__file__).resolve().parent / _tuned_json_name
+TUNED_ARCH_HYPERPARAMS = _load_tuned_hyperparams(_tuned_json) if _tuned_json.exists() else {}
+if not TUNED_ARCH_HYPERPARAMS:
+    print(f"[warn] {_tuned_json.name} not found -- no tuned hyperparameters for {COMPONENT} yet.")
 
 # A single, uniform "no tuning" recipe applied identically to all 6 tuned
 # architectures -- deliberately NOT hand-picked per architecture (that would
 # still be a mild form of expert tuning), so this isolates the effect of
 # "Optuna search" vs. "one reasonable default", nothing else. This mirrors
-# the sensible-defaults pattern efficientnet_b0/convnext_tiny/alexnet used
-# before any of this retuning work started. img_size is left as each
-# architecture's own architectural requirement (299x299 for InceptionNet
-# v3) since that's not a tunable hyperparameter, not an ablation variable.
+# the sensible-defaults pattern efficientnet_b0/convnext_tiny used before
+# any of this retuning work started, and is also what train_resnet18_scratch
+# .ipynb uses for its resnet18 entry (see ARCH_HYPERPARAMS above). img_size
+# is left as each architecture's own architectural requirement (299x299 for
+# InceptionNet v3) since that's not a tunable hyperparameter, not an
+# ablation variable.
 NO_TUNING_ARCH_HYPERPARAMS = {
     arch: dict(
         hidden_layers=3, neurons=1024,
         lr=1e-4, beta1=0.9, step_size=15, batch_size=32,
-        img_size=_CLARIFIER_TUNED_ARCH_HYPERPARAMS[arch]["img_size"] if arch == "inception_v3" else IMG_TARGET_SIZE,
+        img_size=_ARCH_IMG_SIZE[arch],
     )
-    for arch in _CLARIFIER_TUNED_ARCH_HYPERPARAMS
+    for arch in _TUNED_ARCHITECTURES
 }
-
-# AlexNet is trained from scratch (no ImageNet pretraining, see
-# train_alexnet.ipynb) rather than fine-tuned, so it isn't really comparable
-# to the tuned/hand-picked values above -- these are just sensible defaults
-# for training a small CNN from random init. Not part of the
-# tuned-vs-untuned ablation -- alexnet is intentionally left out of it and
-# always uses this same dict. An earlier lr=1e-3 with 3 extra hidden layers
-# regularly collapsed to predicting a single class (loss stuck at ~ln(4)),
-# so it uses lr=1e-4 and only swaps AlexNet's final Linear layer
-# (hidden_layers=0; neurons is then unused).
-ALEXNET_HYPERPARAMS = dict(
-    hidden_layers=0, neurons=1024,
-    lr=1e-4, beta1=0.9, step_size=15, batch_size=32,
-    img_size=IMG_TARGET_SIZE,
-)
 
 # ---------------------------------------------------------------------
 # ACTIVE CONFIG -- this is what every train_*.ipynb actually reads via
-# ARCH_HYPERPARAMS[<name>]. Restored to TUNED_ARCH_HYPERPARAMS now that the
-# tuned-vs-untuned ablation (NO_TUNING_ARCH_HYPERPARAMS) has finished and
-# its results are archived -- see results/archive/README.md for what each
-# results/archive/phaseN_* snapshot is.
+# ARCH_HYPERPARAMS[<name>]. See results/archive/README.md for what each
+# results/archive/phaseN_* snapshot (an earlier tuned-vs-untuned ablation)
+# is, if NO_TUNING_ARCH_HYPERPARAMS below is ever swapped in here again.
+#
+# resnet18_scratch (train_resnet18_scratch.ipynb) is the one architecture
+# that does NOT read from here -- like AlexNet before it, it's trained from
+# scratch (no ImageNet pretraining) and is deliberately left out of the
+# tuned-vs-untuned ablation, always using NO_TUNING_ARCH_HYPERPARAMS["resnet18"]
+# instead. It exists to isolate the effect of pretraining + tuning on the
+# *same* architecture as the tuned "resnet18" entry below, rather than
+# introducing a second, differently-sized architecture just to be "the
+# simple baseline" (which is the role AlexNet used to play, until it turned
+# out not to actually be smaller than the others).
 # ---------------------------------------------------------------------
-ARCH_HYPERPARAMS = dict(TUNED_ARCH_HYPERPARAMS, alexnet=ALEXNET_HYPERPARAMS)
+ARCH_HYPERPARAMS = TUNED_ARCH_HYPERPARAMS
 
 # beta2 (decay rate for the squared-gradient average) is held fixed at the
 # standard Adam default of 0.999 for all models -- beta1 (momentum) is the

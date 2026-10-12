@@ -4,9 +4,9 @@ make_results_notebooks.py
 Writes results_clarifier.ipynb and results_aerobic_zone.ipynb from one shared
 cell template, so both notebooks report exactly the same things:
 
-  for the augmented experiment on both the stratified 70/20/10 split and
+  for the augmented experiment on both the chronological split and
   leave-one-facility-out (LOFO), and for the no-augmentation experiment on
-  the stratified split only:
+  the chronological split only:
     - comparison table (accuracy, mean AUC, macro precision/recall/F1)
       (+ mean/std across held-out facilities for LOFO)
     - accuracy / AUC bar charts
@@ -15,7 +15,7 @@ cell template, so both notebooks report exactly the same things:
       confusion matrix at that threshold, and a per-test-set check of it
     - every run's training curves / confusion matrix / ROC figure
   plus a summary table per experiment (also saved as CSV) and a
-  with-vs-without augmentation comparison on the stratified split.
+  with-vs-without augmentation comparison on the chronological split.
 
 Only the config cell differs between the two. Re-run this script after
 editing the template, then execute the notebooks (pipeline.py does that).
@@ -29,8 +29,8 @@ NOTEBOOKS = {
         path="results_clarifier.ipynb",
         title="Clarifiers",
         experiments={
-            "aug": ("Augmented training", "../results/clarifier_aug", ["stratified", "lofo"]),
-            "noaug": ("No augmentation", "../results/clarifier_noaug", ["stratified"]),
+            "aug": ("Augmented training", "../results/clarifier_aug", ["chronological", "lofo"]),
+            "noaug": ("No augmentation", "../results/clarifier_noaug", ["chronological"]),
         },
         lofo_facilities=["Atlantis", "CapeFlats", "Waterval", "Fisantekraal", "NoordelikeWerke"],
         classes_note="`Functional`, `Dysfunctional`, `Scum`, `Empty`. Trained on the relabelled "
@@ -40,8 +40,8 @@ NOTEBOOKS = {
         path="results_aerobic_zone.ipynb",
         title="Aerobic zones",
         experiments={
-            "aug": ("Augmented training", "../results/aerobic_zone_aug", ["stratified", "lofo"]),
-            "noaug": ("No augmentation", "../results/aerobic_zone_noaug", ["stratified"]),
+            "aug": ("Augmented training", "../results/aerobic_zone_aug", ["chronological", "lofo"]),
+            "noaug": ("No augmentation", "../results/aerobic_zone_noaug", ["chronological"]),
         },
         lofo_facilities=["Atlantis", "CapeFlats", "Waterval"],
         classes_note="`Functional`, `Suboptimal`, `Dysfunctional`. Trained on the original "
@@ -65,15 +65,18 @@ from sklearn.metrics import roc_curve, auc, confusion_matrix, ConfusionMatrixDis
 # save_name -> display name, matches TRAIN_NOTEBOOKS in run.py
 MODELS = {
     "resnet18": "ResNet-18",
+    "resnet18_scratch": "ResNet-18 (scratch)",
     "resnet50": "ResNet-50",
     "densenet121": "DenseNet-121",
     "inception_v3": "InceptionNet v3",
     "efficientnet_b0": "EfficientNet-B0",
     "convnext_tiny": "ConvNeXt-Tiny",
-    "alexnet": "AlexNet",
 }
-STRATIFIED_ID = "stratified"   # test-set id of the stratified split, see run.py
-SPLITS = {"stratified": "Stratified 70/20/10", "lofo": "Leave-one-facility-out"}
+CHRONOLOGICAL_ID = "chronological"   # test-set id of the chronological split, see run.py
+SPLITS = {
+    "chronological": "Chronological (train before cutoff, test after)",
+    "lofo": "Leave-one-facility-out",
+}
 
 OK_CLASS = "Functional"
 TARGET_RECALL = 0.95   # fraction of not-OK images the chosen threshold must catch (on average)
@@ -89,7 +92,9 @@ def slugify(name):
 
 
 def test_ids(split):
-    return [STRATIFIED_ID] if split == "stratified" else LOFO_FACILITIES
+    # lofo has one test id per held-out facility; chronological has a single
+    # test set named after the split itself.
+    return LOFO_FACILITIES if split == "lofo" else [split]
 
 
 def load_results(exp):
@@ -214,7 +219,11 @@ def show_figures(exp, split):
     for tid, by_model in RESULTS[exp][split].items():
         if not by_model:
             continue
-        display(Markdown(f"#### {'Stratified test set' if tid == STRATIFIED_ID else tid + ' (held out)'}"))
+        if tid == CHRONOLOGICAL_ID:
+            tid_label = "Chronological test set (post-cutoff)"
+        else:
+            tid_label = f"{tid} (held out)"
+        display(Markdown(f"#### {tid_label}"))
         for save_name in MODELS:
             r = by_model.get(save_name)
             if r is None:
@@ -293,21 +302,21 @@ def binary_analysis(exp, split):
         return
     n_sets = len(test_ids(split))
 
-    # ROC (mean of per-test-set ROCs; for the stratified split that's just the one ROC)
+    # ROC (mean of per-test-set ROCs; for a single-test-set split that's just the one ROC)
     fig, ax = plt.subplots(figsize=(7, 6))
     summary = {}
     for save_name, c in curves.items():
         aucs = np.array([v["auc"] for v in c.values()])
         mean_tpr = np.mean([v["interp_tpr"] for v in c.values()], axis=0)
         summary[save_name] = dict(auc=aucs.mean(), auc_std=aucs.std(), n=len(c))
-        label = (f"{MODELS[save_name]} (AUC = {aucs.mean():.3f})" if split == "stratified"
+        label = (f"{MODELS[save_name]} (AUC = {aucs.mean():.3f})" if split != "lofo"
                  else f"{MODELS[save_name]} (mean AUC = {aucs.mean():.3f} ± {aucs.std():.3f})")
         ax.plot(FPR_GRID, mean_tpr, label=label)
     ax.plot([0, 1], [0, 1], linestyle="--", color="gray", label="Chance")
     ax.axhline(TARGET_RECALL, color="black", linestyle=":", alpha=0.5, label=f"Target recall = {TARGET_RECALL:.0%}")
     ax.set_xlabel("1 - Specificity (False Positive Rate)")
     ax.set_ylabel("Sensitivity / Recall - fraction of not-OK images caught")
-    ax.set_title(f"OK vs not-OK ROC - {SPLITS[split]}" + ("" if split == "stratified" else f" (mean of {n_sets} facilities)"))
+    ax.set_title(f"OK vs not-OK ROC - {SPLITS[split]}" + ("" if split != "lofo" else f" (mean of {n_sets} facilities)"))
     ax.legend(fontsize=8, loc="lower right")
     ax.grid(alpha=0.3)
     plt.tight_layout()
@@ -338,10 +347,10 @@ def binary_analysis(exp, split):
                      "precision": np.nanmean(prec),
                      "n_test_sets": len(scores[save_name])})
     thr_table = pd.DataFrame(rows).set_index("model")
-    if split == "stratified":
+    if split != "lofo":
         thr_table = thr_table.drop(columns=["OK/not-OK AUC std"])
     display(Markdown(f"**Operating point per model** - most permissive threshold reaching "
-                     f"{TARGET_RECALL:.0%} {'recall' if split == 'stratified' else 'mean recall across facilities'}:"))
+                     f"{TARGET_RECALL:.0%} {'recall' if split != 'lofo' else 'mean recall across facilities'}:"))
     display(thr_table)
 
     # Confusion matrix at that threshold (row-normalised rates, averaged across test sets)
@@ -359,7 +368,7 @@ def binary_analysis(exp, split):
     for ax in axes[n:]:
         ax.axis("off")
     fig.suptitle("OK vs not-OK at the chosen threshold - row-normalised rates"
-                 + ("" if split == "stratified" else ", averaged across facilities (not pooled)"))
+                 + ("" if split != "lofo" else ", averaged across facilities (not pooled)"))
     plt.tight_layout()
     plt.savefig(figures_dir / f"{COMPONENT}_{split}_ok_vs_notok_confusion_at_threshold.png", dpi=150)
     plt.show()
@@ -377,11 +386,11 @@ def summary_table(exp):
     rows = {}
     for save_name, name in MODELS.items():
         row = {}
-        strat = RESULTS[exp]["stratified"][STRATIFIED_ID].get(save_name)
-        if strat:
-            row["stratified accuracy"] = strat["test_acc"]
-            row["stratified mean AUC"] = strat["mean_auc"]
-            row["stratified macro F1"] = macro_over_present(strat["classification_report"]).get("f1-score", np.nan)
+        chrono = RESULTS[exp].get("chronological", {}).get("chronological", {}).get(save_name)
+        if chrono:
+            row["chronological accuracy"] = chrono["test_acc"]
+            row["chronological mean AUC"] = chrono["mean_auc"]
+            row["chronological macro F1"] = macro_over_present(chrono["classification_report"]).get("f1-score", np.nan)
         lofo = [by_model[save_name] for by_model in RESULTS[exp].get("lofo", {}).values() if save_name in by_model]
         if lofo:
             accs = [r["test_acc"] for r in lofo]
@@ -421,21 +430,44 @@ def code(text):
             "source": text.strip("\n").splitlines(keepends=True)}
 
 
+SPLIT_DESCRIPTIONS = {
+    "chronological": "**Chronological** - trained on images before a cutoff date, tested on images "
+                     "captured after it. Estimates performance on a facility already in the system, as "
+                     "new images arrive over time -- without the same-date leakage or the random mix of "
+                     "past and future dates across train/test that a random split would have.",
+    "lofo": "**Leave-one-facility-out (LOFO)** - one model per held-out facility; the test facility is "
+            "never seen during training.",
+}
+
+
+# Must match the SPLITS dict defined inside HELPERS (that copy runs in the
+# generated notebook; this one runs here, at generation time).
+SPLIT_LABELS = {"chronological": "Chronological (train before cutoff, test after)",
+                "lofo": "Leave-one-facility-out"}
+
+
 def build(component, cfg):
     exps = cfg["experiments"]
     exp_lines = "\n".join(f'    "{k}": ("{label}", Path("{d}"), {splits!r}),' for k, (label, d, splits) in exps.items())
+    # Every split used by any experiment for this component, in a fixed display order.
+    split_order = ["chronological", "lofo"]
+    splits_used = [s for s in split_order if any(s in splits for _, _, splits in exps.values())]
+    approach_bullets = "\n".join(f"- {SPLIT_DESCRIPTIONS[s]}" for s in splits_used)
+    once_with_aug = [s for s in splits_used if s != "chronological"]
+    aug_note = "Training with vs without augmentation is compared on the chronological split only"
+    if once_with_aug:
+        aug_note += "; " + " and ".join(SPLIT_LABELS[s] for s in once_with_aug) + " is run once, with augmentation."
+    else:
+        aug_note += "."
     cells = [
         md(f"""
 # WWTW CNN results - {cfg['title']}
 
-Every architecture's results for **{component}**, for both evaluation approaches:
+Every architecture's results for **{component}**, for every evaluation approach below:
 
-- **Stratified 70/20/10** - one train/val/test split, stratified by (facility, unit, class).
-- **Leave-one-facility-out (LOFO)** - one model per held-out facility; the test facility is never
-  seen during training.
+{approach_bullets}
 
-Training with vs without augmentation is compared on the stratified split only; LOFO is run
-once, with augmentation.
+{aug_note}
 
 Classes: {cfg['classes_note']}
 
@@ -474,11 +506,10 @@ class_names = next((r["class_names"] for exp in RESULTS.values() for split in ex
 print("Classes:", class_names)
 """),
     ]
-    split_labels = {"stratified": "Stratified 70/20/10", "lofo": "Leave-one-facility-out"}
     for exp, (label, _, splits) in exps.items():
         cells.append(md(f"# {label}"))
         for split in splits:
-            split_label = split_labels[split]
+            split_label = SPLIT_LABELS[split]
             lofo_note = (" One row per (held-out facility, model), followed by the mean ± std across "
                          "facilities." if split == "lofo" else "")
             bin_note = ("One ROC per held-out facility, then averaged (interpolated onto a common FPR "
@@ -509,7 +540,7 @@ chosen for a target recall rather than the default argmax rule. {bin_note}
                 code(f'show_figures("{exp}", "{split}")'),
             ]
         cells += [
-            md(f"## Summary - {label}\n\nOne row per architecture: stratified results"
+            md(f"## Summary - {label}\n\nOne row per architecture: chronological results"
                + (", LOFO mean across held-out facilities," if "lofo" in splits else "")
                + " and the OK/not-OK operating point."),
             code(f'SUMMARY_{exp.upper()} = summary_table("{exp}")'),
@@ -517,13 +548,13 @@ chosen for a target recall rather than the default argmax rule. {bin_note}
     if len(exps) > 1:
         keys = list(exps)
         cells += [
-            md("# With vs without augmentation\n\nStratified 70/20/10 results side by side "
+            md("# With vs without augmentation\n\nChronological split results side by side "
                "(same tuned hyperparameters and split; only the train-time augmentation differs)."),
             code(f"""
 _parts = {{EXPERIMENTS[k][0]: t for k, t in [{", ".join(f'("{k}", SUMMARY_{k.upper()})' for k in keys)}] if t is not None}}
 if _parts:
-    _cols = ["stratified accuracy", "stratified mean AUC", "stratified macro F1",
-             "stratified OK/not-OK AUC", "stratified recall @thr", "stratified specificity @thr"]
+    _cols = ["chronological accuracy", "chronological mean AUC", "chronological macro F1",
+             "chronological OK/not-OK AUC", "chronological recall @thr", "chronological specificity @thr"]
     display(pd.concat({{k: v.reindex(columns=_cols) for k, v in _parts.items()}}, axis=1))
 """),
         ]

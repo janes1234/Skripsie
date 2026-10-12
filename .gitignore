@@ -36,3 +36,5 @@ relabel_review/
 
 #python
 .venv/
+__pycache__/
+*.pyc
