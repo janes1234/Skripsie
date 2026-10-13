@@ -31,6 +31,8 @@ cnn_dataset_split_facility_test-CapeFlats/
 cnn_dataset_split_facility_test-Fisantekraal/
 cnn_dataset_split_facility_test-NoordelikeWerke/
 cnn_dataset_split_facility_test-Waterval/
+cnn_dataset_split-stratified/
+cnn_dataset_split-chronological/
 models/
 relabel_review/
 

@@ -1,0 +1,80 @@
+{
+  "resnet18": {
+    "hidden_layers": 1,
+    "neurons": 512,
+    "lr": 2.2410971619109514e-05,
+    "beta1": 0.970511942252347,
+    "step_size": 16,
+    "batch_size": 32,
+    "val_acc": 0.8578313253012049,
+    "img_size": [
+      224,
+      224
+    ]
+  },
+  "efficientnet_b0": {
+    "hidden_layers": 0,
+    "neurons": 2048,
+    "lr": 0.0008760254097261311,
+    "beta1": 0.6705112494923973,
+    "step_size": 30,
+    "batch_size": 96,
+    "val_acc": 0.8843373493975903,
+    "img_size": [
+      224,
+      224
+    ]
+  },
+  "densenet121": {
+    "hidden_layers": 2,
+    "neurons": 2048,
+    "lr": 0.0001376414299037516,
+    "beta1": 0.7310859692397138,
+    "step_size": 24,
+    "batch_size": 24,
+    "val_acc": 0.8674698795180723,
+    "img_size": [
+      224,
+      224
+    ]
+  },
+  "resnet50": {
+    "hidden_layers": 2,
+    "neurons": 2048,
+    "lr": 0.0001331485634824977,
+    "beta1": 0.7669116054686963,
+    "step_size": 13,
+    "batch_size": 16,
+    "val_acc": 0.8722891566265061,
+    "img_size": [
+      224,
+      224
+    ]
+  },
+  "convnext_tiny": {
+    "hidden_layers": 1,
+    "neurons": 1024,
+    "lr": 9.928271375927423e-05,
+    "beta1": 0.8547713748395219,
+    "step_size": 24,
+    "batch_size": 32,
+    "val_acc": 0.9012048192771084,
+    "img_size": [
+      224,
+      224
+    ]
+  },
+  "inception_v3": {
+    "hidden_layers": 3,
+    "neurons": 512,
+    "lr": 0.00023097861492693574,
+    "beta1": 0.8381046165592989,
+    "step_size": 5,
+    "batch_size": 96,
+    "val_acc": 0.8771084337349397,
+    "img_size": [
+      299,
+      299
+    ]
+  }
+}
