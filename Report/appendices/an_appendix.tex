@@ -2,7 +2,7 @@
 \makeatletter\@mkboth{}{Appendix}\makeatother
 \label{appen:hyperparam_trials}
 
-Section~\ref{sec:exp_hyperparams} describes the Optuna hyperparameter search used for the six pretrained models, which was run separately for the clarifiers and for the aerobic zones. This appendix lists every trial of these twelve searches, so the results in that section can be checked in full without cluttering the main text with 240 rows of trial data. For each search, the winning trial (the one whose values were carried forward to training) is shaded.
+Section~\ref{sec:exp_hyperparams} describes the Optuna hyperparameter search used for the four pretrained models, which was run separately for the clarifiers and for the aerobic zones. This appendix lists every trial of these eight searches, so the results in that section can be checked in full without cluttering the main text with 160 rows of trial data. For each search, the winning trial (the one whose values were carried forward to training) is shaded.
 
 \section{Clarifiers}
 
@@ -135,49 +135,6 @@ Section~\ref{sec:exp_hyperparams} describes the Optuna hyperparameter search use
 \end{longtable}
 }
 
-\subsection{ResNet-50}
-
-{\footnotesize
-\begin{longtable}{lccccccll}
-\caption{All 20 clarifier Optuna trials for ResNet-50, in sampling order. \emph{Pruned} trials were stopped before completion. The winning trial is shaded.}
-\label{tab:trials_resnet50} \\
-\toprule
-\textbf{Trial} & \textbf{$H$} & \textbf{$N$} & \textbf{LR} & \textbf{$\beta_1$} & \textbf{Step} & \textbf{Batch} & \textbf{Outcome} & \textbf{Dev. acc.} \\
-\midrule
-\endfirsthead
-\multicolumn{9}{c}{\tablename\ \thetable{} (continued)} \\
-\toprule
-\textbf{Trial} & \textbf{$H$} & \textbf{$N$} & \textbf{LR} & \textbf{$\beta_1$} & \textbf{Step} & \textbf{Batch} & \textbf{Outcome} & \textbf{Dev. acc.} \\
-\midrule
-\endhead
-\midrule
-\multicolumn{9}{r}{\emph{continued on next page}} \\
-\endfoot
-\bottomrule
-\endlastfoot
-0 & 1 & 512 & $2.92\times10^{-3}$ & 0.800 & 30 & 16 & Completed & 58.31\% \\
-1 & 2 & 2048 & $1.38\times10^{-3}$ & 0.600 & 23 & 96 & Completed & 84.58\% \\
-2 & 2 & 1024 & $4.34\times10^{-3}$ & 0.629 & 28 & 48 & Completed & 54.46\% \\
-3 & 1 & 2048 & $1.22\times10^{-5}$ & 0.914 & 17 & 64 & Completed & 78.31\% \\
-4 & 1 & 512 & $2.91\times10^{-6}$ & 0.931 & 27 & 96 & Completed & 68.92\% \\
-5 & 2 & 512 & $5.13\times10^{-5}$ & 0.513 & 8 & 48 & Completed & 80.96\% \\
-6 & 2 & 512 & $3.06\times10^{-3}$ & 0.901 & 11 & 32 & Pruned & -- \\
-7 & 1 & 512 & $2.24\times10^{-5}$ & 0.971 & 16 & 32 & Completed & 80.00\% \\
-8 & 2 & 2048 & $9.08\times10^{-6}$ & 0.572 & 22 & 8 & Completed & 82.17\% \\
-9 & 3 & 512 & $2.31\times10^{-4}$ & 0.838 & 5 & 96 & Completed & 82.89\% \\
-10 & 2 & 2048 & $6.20\times10^{-3}$ & 0.629 & 14 & 96 & Pruned & -- \\
-11 & 2 & 2048 & $2.55\times10^{-4}$ & 0.877 & 6 & 96 & Completed & 85.54\% \\
-12 & 2 & 2048 & $8.95\times10^{-4}$ & 0.832 & 39 & 96 & Completed & 84.10\% \\
-13 & 2 & 2048 & $4.06\times10^{-4}$ & 0.612 & 23 & 96 & Completed & 84.58\% \\
-14 & 2 & 2048 & $3.16\times10^{-4}$ & 0.746 & 5 & 8 & Completed & 84.58\% \\
-15 & 1 & 2048 & $3.89\times10^{-4}$ & 0.962 & 16 & 96 & Completed & 84.10\% \\
-16 & 2 & 2048 & $4.15\times10^{-4}$ & 0.993 & 29 & 24 & Pruned & -- \\
-17 & 3 & 2048 & $6.66\times10^{-6}$ & 0.612 & 8 & 96 & Pruned & -- \\
-\rowcolor{gray!15} 18 & 2 & 2048 & $1.33\times10^{-4}$ & 0.767 & 13 & 16 & Completed & 87.23\% \\
-19 & 2 & 2048 & $4.13\times10^{-5}$ & 0.775 & 11 & 16 & Completed & 80.72\% \\
-\end{longtable}
-}
-
 \subsection{ConvNeXt-Tiny}
 
 {\footnotesize
@@ -218,49 +175,6 @@ Section~\ref{sec:exp_hyperparams} describes the Optuna hyperparameter search use
 17 & 1 & 512 & $9.31\times10^{-5}$ & 0.927 & 20 & 32 & Completed & 89.40\% \\
 18 & 1 & 2048 & $1.16\times10^{-3}$ & 0.985 & 23 & 32 & Pruned & -- \\
 19 & 1 & 1024 & $4.53\times10^{-5}$ & 0.822 & 22 & 32 & Completed & 88.92\% \\
-\end{longtable}
-}
-
-\subsection{Inception-v3}
-
-{\footnotesize
-\begin{longtable}{lccccccll}
-\caption{All 20 clarifier Optuna trials for Inception-v3, in sampling order. \emph{Pruned} trials were stopped before completion. The winning trial is shaded.}
-\label{tab:trials_inceptionv3} \\
-\toprule
-\textbf{Trial} & \textbf{$H$} & \textbf{$N$} & \textbf{LR} & \textbf{$\beta_1$} & \textbf{Step} & \textbf{Batch} & \textbf{Outcome} & \textbf{Dev. acc.} \\
-\midrule
-\endfirsthead
-\multicolumn{9}{c}{\tablename\ \thetable{} (continued)} \\
-\toprule
-\textbf{Trial} & \textbf{$H$} & \textbf{$N$} & \textbf{LR} & \textbf{$\beta_1$} & \textbf{Step} & \textbf{Batch} & \textbf{Outcome} & \textbf{Dev. acc.} \\
-\midrule
-\endhead
-\midrule
-\multicolumn{9}{r}{\emph{continued on next page}} \\
-\endfoot
-\bottomrule
-\endlastfoot
-0 & 1 & 512 & $2.92\times10^{-3}$ & 0.800 & 30 & 16 & Completed & 77.11\% \\
-1 & 2 & 2048 & $1.38\times10^{-3}$ & 0.600 & 23 & 96 & Completed & 85.06\% \\
-2 & 2 & 1024 & $4.34\times10^{-3}$ & 0.629 & 28 & 48 & Completed & 74.70\% \\
-3 & 1 & 2048 & $1.22\times10^{-5}$ & 0.914 & 17 & 64 & Completed & 81.69\% \\
-4 & 1 & 512 & $2.91\times10^{-6}$ & 0.931 & 27 & 96 & Completed & 66.27\% \\
-5 & 2 & 512 & $5.13\times10^{-5}$ & 0.513 & 8 & 48 & Completed & 86.51\% \\
-6 & 2 & 512 & $3.06\times10^{-3}$ & 0.901 & 11 & 32 & Pruned & -- \\
-7 & 1 & 512 & $2.24\times10^{-5}$ & 0.971 & 16 & 32 & Completed & 83.61\% \\
-8 & 2 & 2048 & $9.08\times10^{-6}$ & 0.572 & 22 & 8 & Completed & 81.45\% \\
-\rowcolor{gray!15} 9 & 3 & 512 & $2.31\times10^{-4}$ & 0.838 & 5 & 96 & Completed & 87.71\% \\
-10 & 3 & 512 & $1.53\times10^{-5}$ & 0.617 & 33 & 96 & Pruned & -- \\
-11 & 2 & 512 & $4.04\times10^{-5}$ & 0.677 & 5 & 48 & Completed & 83.61\% \\
-12 & 3 & 512 & $2.74\times10^{-4}$ & 0.954 & 11 & 96 & Completed & 85.30\% \\
-13 & 3 & 512 & $6.77\times10^{-4}$ & 0.630 & 10 & 96 & Pruned & -- \\
-14 & 3 & 2048 & $2.27\times10^{-4}$ & 0.810 & 13 & 96 & Pruned & -- \\
-15 & 3 & 512 & $1.36\times10^{-5}$ & 0.607 & 14 & 96 & Pruned & -- \\
-16 & 3 & 512 & $1.99\times10^{-4}$ & 0.788 & 6 & 96 & Completed & 85.54\% \\
-17 & 2 & 512 & $3.61\times10^{-4}$ & 0.504 & 16 & 48 & Pruned & -- \\
-18 & 0 & 1024 & $2.70\times10^{-5}$ & 0.760 & 17 & 48 & Completed & 84.58\% \\
-19 & 3 & 512 & $1.08\times10^{-5}$ & 0.885 & 7 & 96 & Pruned & -- \\
 \end{longtable}
 }
 
@@ -395,49 +309,6 @@ Section~\ref{sec:exp_hyperparams} describes the Optuna hyperparameter search use
 \end{longtable}
 }
 
-\subsection{ResNet-50}
-
-{\footnotesize
-\begin{longtable}{lccccccll}
-\caption{All 20 aerobic zone Optuna trials for ResNet-50, in sampling order. \emph{Pruned} trials were stopped early by the MedianPruner. The winning trial is shaded.}
-\label{tab:trials_aerobic_resnet50} \\
-\toprule
-\textbf{Trial} & \textbf{$H$} & \textbf{$N$} & \textbf{LR} & \textbf{$\beta_1$} & \textbf{Step} & \textbf{Batch} & \textbf{Outcome} & \textbf{Dev. acc.} \\
-\midrule
-\endfirsthead
-\multicolumn{9}{c}{\tablename\ \thetable{} (continued)} \\
-\toprule
-\textbf{Trial} & \textbf{$H$} & \textbf{$N$} & \textbf{LR} & \textbf{$\beta_1$} & \textbf{Step} & \textbf{Batch} & \textbf{Outcome} & \textbf{Dev. acc.} \\
-\midrule
-\endhead
-\midrule
-\multicolumn{9}{r}{\emph{continued on next page}} \\
-\endfoot
-\bottomrule
-\endlastfoot
-0 & 1 & 512 & $2.92\times10^{-3}$ & 0.800 & 30 & 16 & Completed & 72.19\% \\
-1 & 2 & 2048 & $1.38\times10^{-3}$ & 0.600 & 23 & 96 & Completed & 83.75\% \\
-2 & 2 & 1024 & $4.34\times10^{-3}$ & 0.629 & 28 & 48 & Completed & 75.31\% \\
-3 & 1 & 2048 & $1.22\times10^{-5}$ & 0.914 & 17 & 64 & Completed & 79.06\% \\
-4 & 1 & 512 & $2.91\times10^{-6}$ & 0.931 & 27 & 96 & Completed & 72.50\% \\
-5 & 2 & 512 & $5.13\times10^{-5}$ & 0.513 & 8 & 48 & Completed & 80.00\% \\
-6 & 2 & 512 & $3.06\times10^{-3}$ & 0.901 & 11 & 32 & Pruned & -- \\
-7 & 1 & 512 & $2.24\times10^{-5}$ & 0.971 & 16 & 32 & Completed & 80.94\% \\
-8 & 2 & 2048 & $9.08\times10^{-6}$ & 0.572 & 22 & 8 & Completed & 81.25\% \\
-9 & 3 & 512 & $2.31\times10^{-4}$ & 0.838 & 5 & 96 & Completed & 79.38\% \\
-10 & 2 & 2048 & $6.20\times10^{-3}$ & 0.629 & 14 & 96 & Pruned & -- \\
-11 & 2 & 2048 & $4.20\times10^{-6}$ & 0.633 & 18 & 96 & Pruned & -- \\
-12 & 2 & 2048 & $2.98\times10^{-4}$ & 0.716 & 38 & 96 & Completed & 84.69\% \\
-13 & 2 & 2048 & $4.06\times10^{-4}$ & 0.578 & 23 & 96 & Completed & 84.69\% \\
-14 & 1 & 2048 & $5.86\times10^{-4}$ & 0.734 & 20 & 96 & Completed & 79.69\% \\
-15 & 2 & 2048 & $4.26\times10^{-4}$ & 0.685 & 35 & 16 & Completed & 78.75\% \\
-16 & 2 & 2048 & $1.08\times10^{-4}$ & 0.869 & 37 & 96 & Completed & 82.19\% \\
-\rowcolor{gray!15} 17 & 2 & 2048 & $1.95\times10^{-4}$ & 0.689 & 14 & 96 & Completed & 85.94\% \\
-18 & 2 & 2048 & $1.06\times10^{-4}$ & 0.682 & 16 & 16 & Completed & 84.06\% \\
-19 & 2 & 2048 & $8.83\times10^{-3}$ & 0.670 & 38 & 96 & Pruned & -- \\
-\end{longtable}
-}
-
 \subsection{ConvNeXt-Tiny}
 
 {\footnotesize
@@ -478,48 +349,5 @@ Section~\ref{sec:exp_hyperparams} describes the Optuna hyperparameter search use
 17 & 2 & 512 & $2.16\times10^{-4}$ & 0.546 & 32 & 48 & Pruned & -- \\
 18 & 2 & 2048 & $1.42\times10^{-4}$ & 0.748 & 27 & 48 & Completed & 86.88\% \\
 19 & 2 & 512 & $1.06\times10^{-5}$ & 0.735 & 24 & 24 & Pruned & -- \\
-\end{longtable}
-}
-
-\subsection{Inception-v3}
-
-{\footnotesize
-\begin{longtable}{lccccccll}
-\caption{All 20 aerobic zone Optuna trials for Inception-v3, in sampling order. \emph{Pruned} trials were stopped early by the MedianPruner. The winning trial is shaded.}
-\label{tab:trials_aerobic_inception_v3} \\
-\toprule
-\textbf{Trial} & \textbf{$H$} & \textbf{$N$} & \textbf{LR} & \textbf{$\beta_1$} & \textbf{Step} & \textbf{Batch} & \textbf{Outcome} & \textbf{Dev. acc.} \\
-\midrule
-\endfirsthead
-\multicolumn{9}{c}{\tablename\ \thetable{} (continued)} \\
-\toprule
-\textbf{Trial} & \textbf{$H$} & \textbf{$N$} & \textbf{LR} & \textbf{$\beta_1$} & \textbf{Step} & \textbf{Batch} & \textbf{Outcome} & \textbf{Dev. acc.} \\
-\midrule
-\endhead
-\midrule
-\multicolumn{9}{r}{\emph{continued on next page}} \\
-\endfoot
-\bottomrule
-\endlastfoot
-0 & 1 & 512 & $2.92\times10^{-3}$ & 0.800 & 30 & 16 & Completed & 64.38\% \\
-1 & 2 & 2048 & $1.38\times10^{-3}$ & 0.600 & 23 & 96 & Completed & 82.50\% \\
-2 & 2 & 1024 & $4.34\times10^{-3}$ & 0.629 & 28 & 48 & Completed & 76.88\% \\
-3 & 1 & 2048 & $1.22\times10^{-5}$ & 0.914 & 17 & 64 & Completed & 81.25\% \\
-4 & 1 & 512 & $2.91\times10^{-6}$ & 0.931 & 27 & 96 & Completed & 75.31\% \\
-5 & 2 & 512 & $5.13\times10^{-5}$ & 0.513 & 8 & 48 & Completed & 83.12\% \\
-6 & 2 & 512 & $3.06\times10^{-3}$ & 0.901 & 11 & 32 & Pruned & -- \\
-7 & 1 & 512 & $2.24\times10^{-5}$ & 0.971 & 16 & 32 & Completed & 80.31\% \\
-8 & 2 & 2048 & $9.08\times10^{-6}$ & 0.572 & 22 & 8 & Completed & 82.19\% \\
-9 & 3 & 512 & $2.31\times10^{-4}$ & 0.838 & 5 & 96 & Completed & 83.75\% \\
-10 & 3 & 512 & $1.53\times10^{-5}$ & 0.617 & 33 & 96 & Completed & 83.75\% \\
-11 & 3 & 512 & $1.29\times10^{-4}$ & 0.777 & 6 & 96 & Completed & 80.62\% \\
-\rowcolor{gray!15} 12 & 3 & 512 & $2.23\times10^{-4}$ & 0.900 & 39 & 96 & Completed & 87.81\% \\
-13 & 3 & 512 & $5.52\times10^{-4}$ & 0.819 & 35 & 96 & Completed & 85.94\% \\
-14 & 3 & 512 & $3.45\times10^{-5}$ & 0.797 & 39 & 96 & Completed & 81.25\% \\
-15 & 1 & 512 & $7.41\times10^{-4}$ & 0.961 & 39 & 96 & Completed & 80.94\% \\
-16 & 3 & 512 & $4.02\times10^{-4}$ & 0.819 & 23 & 96 & Pruned & -- \\
-17 & 3 & 512 & $2.31\times10^{-3}$ & 0.641 & 35 & 96 & Pruned & -- \\
-18 & 3 & 512 & $2.94\times10^{-4}$ & 0.955 & 29 & 24 & Completed & 84.06\% \\
-19 & 2 & 512 & $9.09\times10^{-5}$ & 0.853 & 32 & 48 & Completed & 87.81\% \\
 \end{longtable}
 }

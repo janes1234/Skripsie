@@ -1,8 +1,1 @@
-A problem you should know about: the binary thresholds are chosen on the test results. Section sec:exp_binary says the recall is evaluated at 500 thresholds and the largest one reaching 95% is kept, and nothing mentions a development set. If that is right, the 95% recall is reached by construction on the same data it is reported on. This makes the binary results optimistic, especially the Experiment 2 claim that the threshold transfers to a new facility. An examiner will probably notice. If the threshold really was picked on test data, the honest fix is to choose it on the development set and report test recall. The cheaper fix is to state the limitation outright.
-
-
-Places where the report no longer matches the code
-
-1. Chapter 4, Relabelling: "These verdicts were applied … with a script that first checks that every region still holds the proposed label". That script (apply_supervisor_review.py) is not in the repo. Its output CSV is in relabel_review/, but the code isn't. Add it if you still have it.
-2. Chapter 5, Grad-CAM method (line 410): "the output of the last convolutional layer". The code uses model.features[-1]. For ConvNeXt-Tiny that is the last stage, which is fine. For DenseNet-121 it is norm5, the batch norm after the last dense block, not a convolutional layer. This is minor; "the output of the last feature block" would be exact.
-3. Chapter 5, Class Imbalance (line 124): says CrossEntropyLoss "multiplies the loss of each image by the weight of its true class". That's true, but the batch mean is then divided by the sum of those weights, not the batch size. Mention it only if you want to be exact.
+sources double check

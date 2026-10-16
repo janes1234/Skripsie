@@ -33,9 +33,6 @@ K.~He, X.~Zhang, S.~Ren, and J.~Sun, ``Deep residual learning for image recognit
 \bibitem[Huang et~al.(2017)Huang, Liu, van~der Maaten, and Weinberger]{huang2017densenet}
 G.~Huang, Z.~Liu, L.~van~der Maaten, and K.~Q. Weinberger, ``Densely connected convolutional networks,'' in \emph{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 2017, pp. 4700--4708.
 
-\bibitem[Szegedy et~al.(2016)Szegedy, Vanhoucke, Ioffe, Shlens, and Wojna]{szegedy2016inception}
-C.~Szegedy, V.~Vanhoucke, S.~Ioffe, J.~Shlens, and Z.~Wojna, ``Rethinking the inception architecture for computer vision,'' in \emph{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 2016, pp. 2818--2826.
-
 \bibitem[Tan and Le(2019)]{tan2019efficientnet}
 M.~Tan and Q.~V. Le, ``{EfficientNet}: Rethinking model scaling for convolutional neural networks,'' in \emph{Proceedings of the 36th International Conference on Machine Learning (ICML)}, 2019, pp. 6105--6114.
 
@@ -122,6 +119,9 @@ S.~Lapuschkin, S.~W{\"a}ldchen, A.~Binder, G.~Montavon, W.~Samek, and K.-R. M{\"
 
 \bibitem[Saito and Rehmsmeier(2015)]{saito2015}
 T.~Saito and M.~Rehmsmeier, ``The precision-recall plot is more informative than the {ROC} plot when evaluating binary classifiers on imbalanced datasets,'' \emph{PLoS ONE}, vol.~10, no.~3, p. e0118432, 2015.
+
+\bibitem[Szegedy et~al.(2016)Szegedy, Vanhoucke, Ioffe, Shlens, and Wojna]{szegedy2016inception}
+C.~Szegedy, V.~Vanhoucke, S.~Ioffe, J.~Shlens, and Z.~Wojna, ``Rethinking the inception architecture for computer vision,'' in \emph{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 2016, pp. 2818--2826.
 
 \bibitem[Akiba et~al.(2019)Akiba, Sano, Yanase, Ohta, and Koyama]{akiba2019optuna}
 T.~Akiba, S.~Sano, T.~Yanase, T.~Ohta, and M.~Koyama, ``{Optuna}: A next-generation hyperparameter optimization framework,'' in \emph{Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery \& Data Mining}, 2019, pp. 2623--2631.
