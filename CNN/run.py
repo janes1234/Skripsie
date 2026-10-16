@@ -1,63 +1,22 @@
 """
 run.py
 ======
-Batch-runs every training notebook (train_resnet18.ipynb,
-train_resnet18_scratch.ipynb, train_resnet50.ipynb, train_densenet121.ipynb,
-train_inception_v3.ipynb, train_efficientnet_b0.ipynb,
-train_convnext_tiny.ipynb) against every held-out facility's
-leave-one-facility-out split, so you end up with a full 7 architectures x 5
-facilities results grid without babysitting each run by hand.
+Runs the training notebooks for every requested (architecture, test set)
+combination. pipeline.py uses run_one() from here; the command line below is
+for running single combinations by hand.
 
-For each (architecture, facility) combination this script:
-  1. Exports the training notebook to a plain .py script (via
-     `jupyter nbconvert --to script`) into ./generated_scripts/, so you have
-     a plain, version-controllable script on disk for every run -- this is
-     purely a saved artifact though; see the note below on why execution
-     itself goes through nbconvert's --execute path instead of just running
-     that script directly.
-  2. Actually executes the notebook via `jupyter nbconvert --to notebook
-     --execute`, with DATASET_ROOT and COMPONENT set as environment
-     variables for that run. wwtw_utils.py reads both of those at import
-     time, so this is the one place that controls which facility is held
-     out and which component is being trained -- nothing in the notebooks
-     themselves needs to change.
-  3. Saves the fully executed notebook (every printed line and every plot,
-     inline, exactly as if you'd run it in Jupyter yourself) to
-     ./executed_notebooks/{component}_{save_name}_{facility}.ipynb.
-  4. Skips the combination if its results_*.pkl already exists in
-     ../results, unless --force is given, so an interrupted batch run can
-     just be re-launched and it'll pick up where it left off.
-
-Why execute via nbconvert --execute rather than just running the plain .py
-script from step 1: notebooks routinely contain things like
-`get_ipython().run_line_magic(...)` (from magics like %matplotlib inline)
-and `display(df)` calls, which only work inside a real IPython kernel.
-Running the exported .py with a plain `python script.py` would crash on
-those. --execute runs the notebook through an actual Jupyter kernel, so all
-of that works exactly as it does interactively, and you additionally get an
-executed notebook back with every plot preserved inline -- handy for
-browsing results without having to dig through separate image files.
+Each run executes the notebook with `jupyter nbconvert --execute`, with
+DATASET_ROOT, COMPONENT, RESULTS_DIR and AUGMENT set in the environment (which
+wwtw_utils.py reads at import time), and saves the executed notebook to
+./executed_notebooks/. A combination whose results_*.pkl already exists is
+skipped unless --force is given.
 
 Usage:
-    # Everything: 7 architectures x 5 facilities x 1 component
-    python run.py
-
-    # Just two architectures, two facilities
+    python run.py                                        # all architectures x all facilities
     python run.py --models resnet18,convnext_tiny --facilities Waterval,CapeFlats
-
-    # aerobic_zone instead of the default clarifier
     python run.py --component aerobic_zone
-
-    # Re-run even if a results_*.pkl already exists for that combination
-    python run.py --force
-
-    # See what would run without actually running anything
+    python run.py --split chronological
     python run.py --dry-run
-
-Run this from the same directory the notebooks live in (the one containing
-train_resnet18.ipynb etc.), same as you'd run any of the training notebooks
-by hand -- DATASET_ROOT/RESULTS_DIR inside wwtw_utils.py are relative paths
-(e.g. "../results"), so this script's own working directory matters.
 """
 
 import argparse
@@ -70,8 +29,7 @@ from pathlib import Path
 
 # ------------------------- CONFIG -------------------------
 
-# save_name (matches results_comparison.ipynb's naming, and what save_result()
-# writes into results_{component}_{save_name}_{facility}.pkl) -> notebook file.
+# save_name (as in results_{component}_{save_name}_{facility}.pkl) -> notebook.
 TRAIN_NOTEBOOKS = {
     "resnet18": "train_resnet18.ipynb",
     "resnet18_scratch": "train_resnet18_scratch.ipynb",
@@ -87,22 +45,14 @@ ALL_FACILITIES = ["Atlantis", "CapeFlats", "Waterval", "Fisantekraal", "Noordeli
 # Only these three facilities have aerobic zone labels.
 AEROBIC_FACILITIES = ["Atlantis", "CapeFlats", "Waterval"]
 
-# Train on images before a cutoff date, test on images after it -- from
-# `python split_dataset_chronological.py`. The only non-LOFO experiment: it
-# replaced the old random 70/20/10 stratified split entirely (optimistic --
-# same-date leakage across train/test, and random rather than future test
-# dates), for both clarifier and aerobic zone. Its results get
-# "chronological" in place of a held-out facility name.
+# The chronological split's results use "chronological" in place of a facility name.
 CHRONOLOGICAL_ID = "chronological"
 CHRONOLOGICAL_ROOT = "../cnn_dataset_split-chronological"
 
 RESULTS_DIR = Path("../results")
-GENERATED_SCRIPTS_DIR = Path("./generated_scripts")
 EXECUTED_NOTEBOOKS_DIR = Path("./executed_notebooks")
-LOGS_DIR = RESULTS_DIR / "logs"
 
-# No cell timeout by default -- training runs can easily take well over the
-# 10 minute default nbconvert would otherwise kill a cell at.
+# No cell timeout: a training cell runs far longer than nbconvert's default.
 CELL_TIMEOUT_SECONDS = -1
 
 # ------------------------------------------------------------------------
@@ -118,14 +68,8 @@ def check_prerequisites(kernel_name: str):
         print("        Install with: pip install nbconvert ipykernel jupyter_client --break-system-packages")
         sys.exit(1)
 
-    # The single most common way this whole script fails: nbconvert --execute
-    # runs notebooks through a *registered Jupyter kernel*, which is a
-    # separate concept from "whatever python/venv is currently active in
-    # your shell". If the kernel you're pointing at isn't the one with
-    # numpy/torch/etc. installed (e.g. the default "python3" kernel is some
-    # other interpreter), every single run fails identically on
-    # `from wwtw_utils import *` with ModuleNotFoundError, only visible if
-    # you go dig through a log file. Check this once, up front, instead.
+    # nbconvert runs notebooks in a registered Jupyter kernel, which is not
+    # necessarily the active venv. Check up front that it can import torch.
     kernelspec = subprocess.run(["jupyter", "kernelspec", "list"], capture_output=True, text=True)
     if kernel_name not in kernelspec.stdout:
         print(f"[error] No Jupyter kernel named '{kernel_name}' is registered.")
@@ -162,8 +106,8 @@ def check_prerequisites(kernel_name: str):
             capture_output=True, text=True,
         )
     if probe.returncode != 0:
-        print(f"[error] Kernel '{kernel_name}' can't import numpy/torch -- it's likely not the same "
-              f"Python environment as your venv (this is what caused the ModuleNotFoundError you just saw).")
+        print(f"[error] Kernel '{kernel_name}' can't import numpy/torch -- it is probably not "
+              f"the same Python environment as your venv.")
         print(f"        Probe output:\n{probe.stdout}\n{probe.stderr}")
         print(
             "        Fix (with your venv active):\n"
@@ -182,28 +126,8 @@ def dataset_root_for(facility: str) -> str:
 
 def results_pkl_path(component: str, save_name: str, facility: str,
                      results_dir: Path = RESULTS_DIR) -> Path:
-    # Must match the naming save_result() in wwtw_utils.py writes.
+    # Same naming as save_result() in wwtw_utils.py.
     return Path(results_dir) / f"results_{component}_{save_name}_{facility}.pkl"
-
-
-def export_script(notebook_path: Path, save_name: str) -> Path:
-    """Exports notebook_path to a plain .py script under
-    GENERATED_SCRIPTS_DIR, purely as a saved artifact (see module docstring
-    for why this isn't what actually gets executed)."""
-    GENERATED_SCRIPTS_DIR.mkdir(parents=True, exist_ok=True)
-    out_stem = f"train_{save_name}"
-    subprocess.run(
-        [
-            "jupyter", "nbconvert", "--to", "script",
-            str(notebook_path),
-            "--output", out_stem,
-            "--output-dir", str(GENERATED_SCRIPTS_DIR),
-        ],
-        check=True,
-        capture_output=True,
-        text=True,
-    )
-    return GENERATED_SCRIPTS_DIR / f"{out_stem}.py"
 
 
 def run_one(component: str, save_name: str, notebook_name: str, facility: str,
@@ -223,13 +147,11 @@ def run_one(component: str, save_name: str, notebook_name: str, facility: str,
     if not Path(dataset_root).exists():
         return False, (
             f"dataset split not found: {dataset_root} "
-            f"(run: python split_data_facility.py --test {facility} --component {component})"
+            f"(run prep.py and the split scripts first, or python pipeline.py --prep-only)"
         )
 
     if dry_run:
         return True, f"[dry-run] would train {save_name} on {component}, held-out facility {facility}"
-
-    export_script(notebook_path, save_name)  # saved artifact, see module docstring
 
     executed_dir = EXECUTED_NOTEBOOKS_DIR
     if results_dir.resolve() != RESULTS_DIR.resolve():

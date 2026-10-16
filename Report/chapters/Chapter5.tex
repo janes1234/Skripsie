@@ -8,12 +8,12 @@ This chapter describes how the classification system was designed and configured
 The second part describes the three experiments that were carried out using this system:
 
 \begin{enumerate}
-    \item \textbf{Mixed-facility baseline} (Section~\ref{sec:exp_mixed}): the images of all five facilities are pooled and divided using the stratified 70/20/10 training/development/test split described in Chapter~\ref{chap:systemmethods}.
+    \item \textbf{Mixed-facility baseline} (Section~\ref{sec:exp_mixed}): the images of all five facilities are pooled and divided using the chronological split described in Chapter~\ref{chap:systemmethods}, in which every image captured from January 2020 onwards is a test image.
     \item \textbf{Leave-one-facility-out evaluation} (Section~\ref{sec:exp_lofo}): each facility is held out in turn as an unseen test facility, while the model is trained on the remaining facilities, with part of them held out as a development set. This gives five folds for the clarifiers, and three for the aerobic zones, which are only labelled at three facilities. This experiment estimates how well a model would perform on a facility it has never seen before.
     \item \textbf{Binary (OK / Not-OK) approach} (Section~\ref{sec:exp_binary}): the classes are collapsed into a two-class problem, where \textbf{Functional} is treated as OK and every other class is treated as Not-OK: \textbf{Dysfunctional}, \textbf{Empty} and \textbf{Scum} for the clarifiers, and \textbf{Suboptimal} and \textbf{Dysfunctional} for the aerobic zones.
 \end{enumerate}
 
-The chapter ends with the metrics used to evaluate every run (Section~\ref{sec:exp_metrics}) and the Grad-CAM method used to inspect which parts of an image a model bases its prediction on (Section~\ref{sec:exp_gradcam}).
+The chapter ends with the metrics used to evaluate every run (Section~\ref{sec:exp_metrics}) and the Grad-CAM method used to inspect which parts of an image a model bases its classification on (Section~\ref{sec:exp_gradcam}).
 
 \begin{figure}[htbp]
 \centering
@@ -25,7 +25,7 @@ The chapter ends with the metrics used to evaluate every run (Section~\ref{sec:e
 
 \node[stage] (raw) {Raw labelled satellite images (Chapter~\ref{chap:systemmethods})};
 \node[stage, below=of raw] (prep) {\texttt{prep.py}: crop labelled regions into per-class image folders (Section~\ref{sec:pipeline})};
-\node[stage, below=of prep] (split) {Stratified or leave-one-facility-out train / development / test split (Chapter~\ref{chap:systemmethods})};
+\node[stage, below=of prep] (split) {Chronological or leave-one-facility-out train / development / test split (Chapter~\ref{chap:systemmethods})};
 \node[stage, below=of split] (aug) {Resize and normalise every image, and randomly augment training images (Section~\ref{sec:exp_augmentation})};
 \node[stage, below=of aug] (model) {CNN backbone with a new classifier head (Sections~\ref{sec:exp_architectures} and~\ref{sec:exp_hyperparams})};
 \node[stage, below=of model] (train) {Training loop: Adam, \texttt{StepLR}, early stopping (Section~\ref{sec:exp_training})};
@@ -45,20 +45,20 @@ The chapter ends with the metrics used to evaluate every run (Section~\ref{sec:e
 \label{fig:experimental_pipeline}
 \end{figure}
 
-Figure~\ref{fig:experimental_pipeline} summarises the pipeline from start to finish. It starts from the labelled satellite images described in Chapter~\ref{chap:systemmethods}, which \texttt{prep.py} crops into individual images sorted into one folder per class. These images are then divided into training, development and test sets, either with the stratified split of Experiment~1 or by facility, so that no image from the held-out test facility is ever used during training. Every image is resized and normalised before it is passed to the network, and images in the training set are also randomly augmented (Section~\ref{sec:exp_augmentation}). The network is one of the seven architectures in Section~\ref{sec:exp_architectures}, with a classifier head sized by the hyperparameters chosen for that architecture (Section~\ref{sec:exp_hyperparams}), and is trained using the loop described in Section~\ref{sec:exp_training}.
+Figure~\ref{fig:experimental_pipeline} summarises the pipeline from start to finish. It starts from the labelled satellite images described in Chapter~\ref{chap:systemmethods}, which \texttt{prep.py} crops into individual images sorted into one folder per class. These images are then divided into training, development and test sets, either with the chronological split of Experiment~1 or by facility, so that no image from the held-out test facility is ever used during training. Every image is resized and normalised before it is passed to the network, and images in the training set are also randomly augmented (Section~\ref{sec:exp_augmentation}). The network is one of the seven models in Section~\ref{sec:exp_architectures}, with a classifier head sized by the hyperparameters chosen for that architecture (Section~\ref{sec:exp_hyperparams}), and is trained using the loop described in Section~\ref{sec:exp_training}.
 
 The results of every run, meaning one architecture trained for one component on one split, are saved to a separate \texttt{results\_*.pkl} file (Section~\ref{sec:exp_lofo}). Each file contains the test metrics, the confusion matrix, the training history and the classification made for every test image.
 
 
 \section{Model Architectures and Transfer Learning}\label{sec:exp_architectures}
 
-Seven CNN architectures are compared in this project: ResNet-18 and ResNet-50 (Section~\ref{sec:resnet}), DenseNet-121 (Section~\ref{sec:densenet}), Inception-v3 (Section~\ref{sec:inception}), EfficientNet-B0 (Section~\ref{sec:efficientnet}), ConvNeXt-Tiny (Section~\ref{sec:convnext}) and AlexNet. Table~\ref{tab:arch_sizes} lists their sizes, which range from 5.3 to 61.1 million parameters. All seven are taken from the torchvision library, and the same seven architectures are trained for both the clarifiers and the aerobic zones.
+Six CNN architectures are compared in this project: ResNet-18 and ResNet-50 (Section~\ref{sec:resnet}), DenseNet-121 (Section~\ref{sec:densenet}), Inception-v3 (Section~\ref{sec:inception}), EfficientNet-B0 (Section~\ref{sec:efficientnet}) and ConvNeXt-Tiny (Section~\ref{sec:convnext}). ResNet-18 is trained twice, once fine-tuned from ImageNet weights and once from randomly initialised weights, which gives seven models. Table~\ref{tab:arch_sizes} lists the sizes of the architectures, which range from 5.3 to 28.6 million parameters. All six are taken from the torchvision library, and the same seven models are trained for both the clarifiers and the aerobic zones.
 
-AlexNet is deliberately different from the other six: rather than being fine-tuned from ImageNet weights, it is trained entirely from randomly initialised weights, with its own separate, hand-picked configuration (Section~\ref{sec:exp_hyperparams}). It was added to the project specifically to measure the effect of pretraining, that is, whether the far larger pretrained architectures outperform a classical network trained from scratch on this project's own, small dataset. 
+The ResNet-18 trained from randomly initialised weights is referred to as ResNet-18 (scratch). It is not tuned, and uses one fixed set of default hyperparameters (Section~\ref{subsec:defaults}). It was added to the project to measure the effect of pretraining, that is, whether the pretrained architectures outperform the same architecture trained only on this project's own, small dataset.
 
 \begin{table}[htbp]
 \centering
-\caption{Parameter count of each of the seven architectures evaluated, from smallest to largest, as defined in torchvision with the original 1000-class ImageNet classifier. The new classifier heads (Section~\ref{sec:exp_hyperparams}) change these totals.}
+\caption{Parameter count of each of the six architectures evaluated, from smallest to largest, as defined in torchvision with the original 1000-class ImageNet classifier. The new classifier heads (Section~\ref{sec:exp_hyperparams}) change these totals.}
 \label{tab:arch_sizes}
 \begin{tabular}{lc}
 \toprule
@@ -70,18 +70,17 @@ ResNet-18       & 11.7M \\
 ResNet-50       & 25.6M \\
 Inception-v3    & 27.2M \\
 ConvNeXt-Tiny   & 28.6M \\
-AlexNet         & 61.1M \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 For each of the six pretrained architectures, transfer learning follows the same recipe. The architecture's convolutional backbone is loaded with weights pretrained on ImageNet~\citep{deng2009imagenet}, specifically torchvision's \texttt{IMAGENET1K\_V1} weights, except for ResNet-50, which uses the newer, more accurate \texttt{IMAGENET1K\_V2} recipe. Its original 1000-class ImageNet output layer is then discarded, and a new classifier head, sized by that architecture's own tuned hidden layers ($H$) and neurons ($N$) (Section~\ref{sec:exp_hyperparams}), is put in its place: a stack of $H$ \texttt{Linear+ReLU} pairs followed by a final \texttt{Linear} layer mapping to the project's number of classes. Every parameter in the network, backbone included, is then fine-tuned on the WWTW dataset. No layers are frozen, so pretraining only supplies a starting point for every weight rather than fixing any of them in place.
 
-Every one of these architectures ends in the same kind of structure: a convolutional backbone feeding into one or more fully connected layers that produce the 1000 ImageNet class scores. Replacing this final part therefore means locating whichever attribute of the model object torchvision happens to store it under, which differs from one architecture's implementation to the next. For ResNet-18, ResNet-50 and Inception-v3, it is a single attribute named \texttt{model.fc}. DenseNet-121 stores the same kind of single layer under \texttt{model.classifier} instead, which is simply a difference in torchvision's naming convention rather than an architectural difference. For EfficientNet-B0, ConvNeXt-Tiny and AlexNet, \texttt{model.classifier} is itself a short stack of several layers rather than a single one, so only the specific layer within it that produces the final class scores, the last \texttt{Linear} layer, is replaced, and everything before it is left as it was. In practice, this means EfficientNet-B0 and AlexNet keep the dropout layer that is located just before the original output layer, and AlexNet also keeps its two existing hidden fully connected layers of 4096 neurons each, since these are simply the layers that fed into the one that got replaced.
+Every one of these architectures ends in the same kind of structure: a convolutional backbone feeding into one or more fully connected layers that produce the 1000 ImageNet class scores. Replacing this final part therefore means locating whichever attribute of the model object torchvision happens to store it under, which differs from one architecture's implementation to the next. For ResNet-18, ResNet-50 and Inception-v3, it is a single attribute named \texttt{model.fc}. DenseNet-121 stores the same kind of single layer under \texttt{model.classifier} instead, which is simply a difference in torchvision's naming convention rather than an architectural difference. For EfficientNet-B0 and ConvNeXt-Tiny, \texttt{model.classifier} is itself a short stack of several layers rather than a single one, so only the specific layer within it that produces the final class scores, the last \texttt{Linear} layer, is replaced, and everything before it is left as it was. In practice, this means EfficientNet-B0 keeps the dropout layer that is located just before the original output layer.
 
 Two architectures need one further, architecture-specific adjustment. Inception-v3's auxiliary classifier (Section~\ref{sec:inception}), used only during training, also has its own small output layer resized to the project's number of classes. Unlike the main classifier head, it is always left as a single \texttt{Linear} layer regardless of the tuned hidden layers ($H$) and nuerons ($N$), since it is only a secondary training signal rather than the model's final output. ConvNeXt-Tiny's global average pooling layer is replaced with global max pooling, so the feature vector reaching its classifier head is composed of each channel's strongest activation rather than its average.
 
-Every image is resized to a fixed input size before it is passed to the network. The clarifier crops are close to square, since they are cut around a circular tank, and are resized to $224\times224$ pixels. The aerobic zones are wide rectangles, with a median width of about 2.6 times their height, and are resized to $112\times224$ pixels (height $\times$ width). This 2:1 shape is slightly less elongated than most of the crops, but keeps them much closer to their original shape than a square input would. Inception-v3 is the exception: it expects larger inputs, and every image is resized to $299\times299$ pixels for it, so the aerobic zones are stretched vertically to a square for this architecture. After resizing, every image is normalised with the mean and standard deviation of the ImageNet images, per colour channel, since the pretrained backbones were trained on inputs normalised in this way.
+Every image is resized to a fixed input size before it is passed to the network, without changing its aspect ratio: the image is scaled until it fits inside the input size, and the remaining area is filled with black, with the image centred. The clarifier crops are close to square, since they are cut around a circular tank, and use an input size of $224\times224$ pixels. The aerobic zones are wide rectangles, with a median width of about 2.6 times their height, and use an input size of $112\times224$ pixels (height $\times$ width), so black bars are added above and below most of them. Inception-v3 is the exception: it expects larger inputs, and uses $299\times299$ pixels for both components, so an aerobic zone fills only a horizontal band of its input. After resizing, every image is normalised with the mean and standard deviation of the ImageNet images, per colour channel, since the pretrained backbones were trained on inputs normalised in this way.
 
 
 \section{Augmentation}
@@ -97,11 +96,9 @@ The augmentations are applied by PyTorch each time an image is loaded, rather th
     \item \textbf{Colour jitter}: the brightness, contrast, saturation and hue of the image are changed by a random amount, with the four adjustments applied in a random order. The brightness and contrast are each multiplied by a random factor between $0.6$ and $1.4$, the saturation by a random factor between $0.7$ and $1.3$, and the hue is shifted by up to $\pm 0.1$ of the full colour wheel (at most $36^\circ$).
 \end{itemize}
 
-The flip and rotation are suited to this dataset because the images are taken from directly above. A clarifier seen from above has no fixed orientation, so a mirrored or slightly rotated clarifier is still a realistic example of the same class. When \texttt{prep.py} crops a clarifier, it also sets every pixel outside the annotated circle to black, which matches the black corners introduced by the rotation. The aerobic zones do not have this black background, since their annotations are rectangles. For them, a rotation cuts off the ends of the zone and adds small black triangles along its edges. The rotation is limited to $\pm 15^\circ$, so most of the surface of the zone remains visible.
+The flip and rotation are suited to this dataset because the images are taken from directly above. A clarifier seen from above has no fixed orientation, so a mirrored or slightly rotated clarifier is still a realistic example of the same class. When \texttt{prep.py} crops a clarifier, it also sets every pixel outside the annotated circle to black, which matches the black corners introduced by the rotation. The aerobic zones are not masked, since their annotations are rectangles, but have black bars above and below them from the resizing (Section~\ref{sec:exp_architectures}). For them, a rotation cuts off the ends of the zone and adds small black triangles along its edges. The rotation is limited to $\pm 15^\circ$, so most of the surface of the zone remains visible.
 
 The colour jitter targets a different problem. The images come from different facilities and were captured on different dates, so the lighting, sun glare and water colour vary between images. The colour jitter is intended to stop the network from memorising the exact colour or brightness of the water at a particular facility, and to make it rely on other features of the clarifier instead.
-
-The hue shift does raise a concern, since the clarifier classes are partly defined by colour, and a \textbf{Dysfunctional} clarifier is identified by its green surface (Chapter~\ref{chap:systemmethods}). A hue shift could wash out this green colour while the image keeps its \textbf{Dysfunctional} label. To test whether this harmed the models, all seven clarifier architectures were retrained on all five leave-one-facility-out splits with the hue shift disabled, keeping every other augmentation and hyperparameter the same. Disabling the hue shift did not affect performance, and so it was maintained (Section~\ref{sec:results_hue_ablation}). The aerobic zones use the same augmentations. Their classes are defined by the leopard print pattern on the surface rather than by its colour (Chapter~\ref{chap:systemmethods}), so the same concern applies less directly, and the hue shift was not tested separately for the aerobic zones.
 
 Figure~\ref{fig:augmentation_examples} shows these augmentations applied to a single training image. The top row shows each augmentation on its own, while the bottom row shows four randomly chosen outputs of the full augmentation pipeline, as the network would see them during training.
 
@@ -116,7 +113,7 @@ Figure~\ref{fig:augmentation_examples} shows these augmentations applied to a si
 \section{Class Imbalance}
 \label{sec:exp_loss}
 
-As shown in Tables~\ref{tab:aerobic_summary} and~\ref{tab:clarifier_summary} in Section~\ref{sec:final_dataset}, the classes of both components are highly imbalanced. For the clarifiers, \textbf{Functional} and \textbf{Scum} clarifiers make up most of the dataset (2090 of the 2527 images), while \textbf{Dysfunctional} and especially \textbf{Empty} clarifiers are much less common. For the aerobic zones, \textbf{Suboptimal} is the rare class, with only 223 of the 1743 images. If every image contributes equally to the loss, the network can reach a low loss by mostly predicting the common classes, and has little incentive to learn the rare ones.
+As shown in Tables~\ref{tab:aerobic_summary} and~\ref{tab:clarifier_summary} in Section~\ref{sec:final_dataset}, the classes of both components are highly imbalanced. For the clarifiers, \textbf{Functional} and \textbf{Scum} clarifiers make up most of the dataset (2090 of the 2527 images), while \textbf{Dysfunctional} and especially \textbf{Empty} clarifiers are much less common. For the aerobic zones, \textbf{Suboptimal} is the rare class, with only 223 of the 1743 images. If every image contributes equally to the loss, the network can reach a low loss by mostly assigning images to the common classes, and has little incentive to learn the rare ones.
 
 To counter this, the cross-entropy loss is weighted per class, so that the network is penalised more for misclassifying an image from a rare class than from a common one. The weight of each class is inversely proportional to the number of training images in that class, and the weights are then normalised so that they sum to the number of classes. For $K$ classes, where $n_c$ is the number of training images in class $c$, the weight of class $c$ is
 
@@ -124,13 +121,13 @@ To counter this, the cross-entropy loss is weighted per class, so that the netwo
     w_c = K \cdot \frac{1/n_c}{\sum_{j=1}^{K} 1/n_j}.
 \end{equation}
 
-A class with average representation therefore gets a weight close to one, a rare class gets a weight larger than one, and a common class gets a weight smaller than one. These weights are passed to PyTorch's \texttt{CrossEntropyLoss}, which multiplies the loss of each image by the weight of its true class. The training data itself is not resampled, so every training image is still used exactly once per epoch.
+A class with average representation therefore gets a weight close to one, a rare class gets a weight larger than one, and a common class gets a weight smaller than one. These weights are passed to PyTorch's \texttt{CrossEntropyLoss}, which multiplies the loss of each image by the weight of its true class, and divides the sum over a batch by the sum of these weights rather than by the number of images. The training data itself is not resampled, so every training image is still used exactly once per epoch.
 
-The weights are calculated from the training set only, and are recalculated for every split, since the class counts change depending on which facility is held out. Tables~\ref{tab:class_weights} and~\ref{tab:class_weights_aerobic} list the number of training images per class and the resulting weights for every leave-one-facility-out split, and for the stratified split of Experiment~1.
+The weights are calculated from the training set only, and are recalculated for every split, since the class counts change depending on which facility is held out. Tables~\ref{tab:class_weights} and~\ref{tab:class_weights_aerobic} list the number of training images per class and the resulting weights for every leave-one-facility-out split, and for the chronological split of Experiment~1.
 
 \begin{table}[htbp]
 \centering
-\caption{Number of training images per clarifier class and the resulting class weight $w_c$, for each held-out test facility and for the stratified split.}
+\caption{Number of training images per clarifier class and the resulting class weight $w_c$, for each held-out test facility and for the chronological split.}
 \label{tab:class_weights}
 \small
 \setlength{\tabcolsep}{4pt}
@@ -146,14 +143,14 @@ Fisantekraal   & 222 & 1.11 & 110 & 2.23 & 717 & 0.34 & 780 & 0.32 \\
 Northern Works & 131 & 1.55 & 107 & 1.90 & 740 & 0.27 & 729 & 0.28 \\
 Waterval       & 230 & 1.12 & 118 & 2.18 & 733 & 0.35 & 722 & 0.36 \\
 \midrule
-None (stratified) & 199 & 1.11 & 97 & 2.28 & 699 & 0.32 & 757 & 0.29 \\
+None (chronological) & 159 & 1.20 & 91 & 2.10 & 549 & 0.35 & 549 & 0.35 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \begin{table}[htbp]
 \centering
-\caption{Number of training images per aerobic zone class and the resulting class weight $w_c$, for each held-out test facility and for the stratified split.}
+\caption{Number of training images per aerobic zone class and the resulting class weight $w_c$, for each held-out test facility and for the chronological split.}
 \label{tab:class_weights_aerobic}
 \begin{tabular}{l cc cc cc}
 \toprule
@@ -165,14 +162,14 @@ Atlantis          & 635 & 0.49 & 510 & 0.61 & 165 & 1.89 \\
 Cape Flats        & 202 & 0.82 & 493 & 0.34 & 90  & 1.84 \\
 Waterval          & 469 & 0.34 & 133 & 1.19 & 107 & 1.48 \\
 \midrule
-None (stratified) & 567 & 0.51 & 492 & 0.59 & 153 & 1.90 \\
+None (chronological) & 454 & 0.53 & 357 & 0.68 & 136 & 1.79 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 For the clarifiers, the Cape Flats split stands out. Cape Flats contains 120 of the 145 \textbf{Empty} clarifiers in the dataset (Table~\ref{tab:clarifier_summary} in Section~\ref{sec:final_dataset}), so when it is held out for testing, only 25 \textbf{Empty} images are left, 21 of which are in the training set. The weight of the \textbf{Empty} class rises to 3.09 as a result, about twenty times the weight of the \textbf{Scum} class (0.15). In the same way, Northern Works contains 131 of the 292 \textbf{Dysfunctional} clarifiers, so holding it out raises the \textbf{Dysfunctional} weight to 1.55, compared with about 1.1 in the Atlantis, Fisantekraal and Waterval splits.
 
-For the aerobic zones, \textbf{Suboptimal} has the highest weight in every split, between 1.48 and 1.90. The held-out facility again changes the weights of the other two classes. Waterval contains 543 of the 707 \textbf{Functional} aerobic zones, so when it is held out, \textbf{Functional} becomes a minority class in the training set, with a weight of 1.19 compared with 0.34 to 0.61 in the other splits. The Waterval test set is therefore dominated by a class that is comparatively scarce in its own training set. Similarly, Cape Flats contains 562 of the 813 \textbf{Dysfunctional} aerobic zones, and holding it out raises the \textbf{Dysfunctional} weight to 0.82, compared with 0.34 to 0.51 in the other splits.
+For the aerobic zones, \textbf{Suboptimal} has the highest weight in every split, between 1.48 and 1.89. The held-out facility again changes the weights of the other two classes. Waterval contains 543 of the 707 \textbf{Functional} aerobic zones, so when it is held out, \textbf{Functional} becomes a minority class in the training set, with a weight of 1.19 compared with 0.34 to 0.68 in the other splits. The Waterval test set is therefore dominated by a class that is comparatively scarce in its own training set. Similarly, Cape Flats contains 562 of the 813 \textbf{Dysfunctional} aerobic zones, and holding it out raises the \textbf{Dysfunctional} weight to 0.82, compared with 0.34 to 0.53 in the other splits.
 
 The same weighted loss is also used to calculate the development loss. Since the development loss decides when training stops early and which epoch's weights are kept (Section~\ref{sec:exp_training}), the class weighting also influences model selection, and not only the gradient updates during training.
 
@@ -180,7 +177,7 @@ The same weighted loss is also used to calculate the development loss. Since the
 \section{Hyperparameter Tuning}
 \label{sec:exp_hyperparams}
 
-Some hyperparameters were fixed for every architecture: Adam's $\beta_2$ ($0.999$, the default from Adam's original paper), the $L_2$ weight decay ($10^{-4}$), a maximum of 100 epochs, an early-stopping patience of 10 epochs and a random seed of 42. The remaining hyperparameters, namely the number of hidden layers $H$ and neurons per layer $N$ of the classifier head, the learning rate, Adam's $\beta_1$, the \texttt{StepLR} step size and the batch size, were tuned with Optuna~\cite{akiba2019optuna}, a hyperparameter optimisation library. This was done for six of the seven architectures, separately for the clarifiers and the aerobic zones, giving twelve searches. AlexNet was not tuned (Section~\ref{subsec:defaults}).
+Some hyperparameters were fixed for every architecture: Adam's $\beta_2$ ($0.999$, the default from Adam's original paper), the $L_2$ weight decay ($10^{-4}$), a maximum of 100 epochs, an early-stopping patience of 10 epochs and a random seed of 42. The remaining hyperparameters, namely the number of hidden layers $H$ and neurons per layer $N$ of the classifier head, the learning rate, Adam's $\beta_1$, the \texttt{StepLR} step size and the batch size, were tuned with Optuna~\cite{akiba2019optuna}, a hyperparameter optimisation library. This was done for the six pretrained models, separately for the clarifiers and the aerobic zones, giving twelve searches. ResNet-18 (scratch) was not tuned (Section~\ref{subsec:defaults}).
 
 \subsection{Why Optuna}
 \label{subsec:why_optuna}
@@ -192,14 +189,14 @@ The six tuned hyperparameters interact, so tuning them one at a time can miss go
 
 The first ten trials of every search are sampled at random, and the last ten are guided by TPE. The pruner only becomes active after five trials have completed, and does not prune a trial before its fifth epoch. Every trial uses the same training loop as the final models (Section~\ref{sec:exp_training}) and is scored by its development accuracy at the epoch with the lowest development loss, which is the checkpoint that is kept when a model is trained.
 
-To limit the compute cost, each search was run once, on the leave-one-facility-out fold with Northern Works held out, rather than on every fold. The selected values are used for every fold and for the stratified split (Sections~\ref{sec:exp_mixed} and~\ref{sec:exp_lofo}). 
+To limit the compute cost, each search was run once rather than on every fold: on the leave-one-facility-out fold with Northern Works held out for the clarifiers, and with Atlantis held out for the aerobic zones, since Northern Works has no aerobic zones. The selected values are used for every fold and for the chronological split (Sections~\ref{sec:exp_mixed} and~\ref{sec:exp_lofo}). 
 
 Table~\ref{tab:hyperparams} gives the search range of each hyperparameter and the values selected for each architecture. All 240 trials are listed in Appendix~\ref{appen:hyperparam_trials}.
 
 \begin{table}[htbp]
 \centering
 \footnotesize
-\caption{Search range of each tuned hyperparameter, and the values used for each architecture and component, with the development accuracy of the selected trial. The learning rate is sampled log-uniformly, and the batch size from $\{8, 16, 24, 32, 48, 64, 96, 128\}$. $H{=}0$ means the classifier head is a single linear layer, and $N$ is unused. The AlexNet values were chosen by hand (Section~\ref{subsec:defaults}).}
+\caption{Search range of each tuned hyperparameter, and the values used for each architecture and component, with the development accuracy of the selected trial. The learning rate is sampled log-uniformly, and the batch size from $\{8, 16, 24, 32, 48, 64, 96, 128\}$. $H{=}0$ means the classifier head is a single linear layer, and $N$ is unused. The ResNet-18 (scratch) values were not tuned (Section~\ref{subsec:defaults}).}
 \label{tab:hyperparams}
 \setlength{\tabcolsep}{2.8pt}
 \begin{tabular}{lccccccc}
@@ -209,30 +206,30 @@ Table~\ref{tab:hyperparams} gives the search range of each hyperparameter and th
 Search range & $\{0,\ldots,3\}$ & $\{512,1024,2048\}$ & $[10^{-6},10^{-2}]$ & $[0.5,0.999]$ & $[5,40]$ & $\{8,\ldots,128\}$ & -- \\
 \midrule
 \multicolumn{8}{l}{\emph{Clarifiers}} \\
-ResNet-18               & 2 & 2048 & $3.88\times10^{-4}$ & 0.611 & 12 & 96  & 89.27\% \\
-ResNet-50               & 2 & 2048 & $3.77\times10^{-4}$ & 0.875 & 17 & 96  & 89.02\% \\
-DenseNet-121            & 1 & 512  & $3.44\times10^{-4}$ & 0.597 & 11 & 48  & 90.24\% \\
-Inception-v3            & 2 & 2048 & $1.38\times10^{-3}$ & 0.600 & 23 & 96  & 89.51\% \\
-EfficientNet-B0         & 0 & --   & $4.89\times10^{-4}$ & 0.857 & 5  & 96  & 88.54\% \\
-ConvNeXt-Tiny           & 1 & 2048 & $5.65\times10^{-5}$ & 0.560 & 21 & 128 & 90.73\% \\
-AlexNet                 & 0 & --   & $1\times10^{-4}$    & 0.9   & 15 & 32  & -- \\
+ResNet-18               & 1 & 512  & $2.24\times10^{-5}$ & 0.971 & 16 & 32 & 85.78\% \\
+ResNet-50               & 2 & 2048 & $1.33\times10^{-4}$ & 0.767 & 13 & 16 & 87.23\% \\
+DenseNet-121            & 2 & 2048 & $1.38\times10^{-4}$ & 0.731 & 24 & 24 & 86.75\% \\
+Inception-v3            & 3 & 512  & $2.31\times10^{-4}$ & 0.838 & 5  & 96 & 87.71\% \\
+EfficientNet-B0         & 0 & --   & $8.76\times10^{-4}$ & 0.671 & 30 & 96 & 88.43\% \\
+ConvNeXt-Tiny           & 1 & 1024 & $9.93\times10^{-5}$ & 0.855 & 24 & 32 & 90.12\% \\
+ResNet-18 (scratch)     & 3 & 1024 & $1\times10^{-4}$    & 0.9   & 15 & 32 & -- \\
 \midrule
 \multicolumn{8}{l}{\emph{Aerobic zones}} \\
-ResNet-18               & 3 & 512  & $2.93\times10^{-4}$ & 0.706 & 24 & 48 & 83.87\% \\
-ResNet-50               & 2 & 2048 & $4.06\times10^{-4}$ & 0.604 & 23 & 96 & 81.82\% \\
-DenseNet-121            & 2 & 2048 & $3.16\times10^{-4}$ & 0.742 & 20 & 8  & 84.46\% \\
-Inception-v3            & 2 & 512  & $2.85\times10^{-4}$ & 0.588 & 33 & 8  & 82.40\% \\
-EfficientNet-B0         & 2 & 2048 & $1.38\times10^{-3}$ & 0.600 & 23 & 96 & 82.99\% \\
-ConvNeXt-Tiny           & 2 & 2048 & $6.78\times10^{-5}$ & 0.512 & 27 & 8  & 87.39\% \\
-AlexNet                 & 0 & --   & $1\times10^{-4}$    & 0.9   & 15 & 32 & -- \\
+ResNet-18               & 0 & --   & $8.42\times10^{-5}$ & 0.794 & 17 & 24 & 86.56\% \\
+ResNet-50               & 2 & 2048 & $1.95\times10^{-4}$ & 0.689 & 14 & 96 & 85.94\% \\
+DenseNet-121            & 0 & --   & $1.39\times10^{-4}$ & 0.678 & 27 & 32 & 88.75\% \\
+Inception-v3            & 3 & 512  & $2.23\times10^{-4}$ & 0.900 & 39 & 96 & 87.81\% \\
+EfficientNet-B0         & 2 & 2048 & $1.72\times10^{-4}$ & 0.750 & 22 & 16 & 88.12\% \\
+ConvNeXt-Tiny           & 2 & 2048 & $6.78\times10^{-5}$ & 0.512 & 27 & 8  & 91.56\% \\
+ResNet-18 (scratch)     & 3 & 1024 & $1\times10^{-4}$    & 0.9   & 15 & 32 & -- \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\subsection{AlexNet}
+\subsection{ResNet-18 (Scratch)}
 \label{subsec:defaults}
 
-AlexNet is trained from randomly initialised weights rather than fine-tuned (Section~\ref{sec:exp_architectures}). It was not included in the search, and its values were chosen by hand and are the same for both components (Table~\ref{tab:hyperparams}). No hidden layers are added ($H{=}0$), since AlexNet's own classifier already contains two hidden layers of 4096 neurons. A first configuration with a learning rate of $10^{-3}$ and three added hidden layers of 1024 neurons often collapsed to predicting a single class, so the learning rate was lowered to $10^{-4}$ and the added layers were removed. $\beta_1$ is set to Adam's default of $0.9$. AlexNet is trained for the full 100 epochs without early stopping, since its development loss can stay on a plateau for many epochs before it starts to learn, and early stopping ended training too soon. The checkpoint with the lowest development loss is still the one that is kept.
+ResNet-18 (scratch) is trained from randomly initialised weights rather than fine-tuned (Section~\ref{sec:exp_architectures}). It was not included in the search, and uses the same default values for both components (Table~\ref{tab:hyperparams}): three hidden layers of 1024 neurons, a learning rate of $10^{-4}$, Adam's default $\beta_1$ of $0.9$, a step size of 15 and a batch size of 32. It is trained with the same loop and early stopping as the other models (Section~\ref{sec:exp_training}). Since its hyperparameters also differ from those of the pretrained ResNet-18, the difference between the two models includes the effect of tuning as well as that of pretraining.
 
 
 \section{Training Procedure}
@@ -242,7 +239,7 @@ Every architecture is trained with the same procedure; only the specific hyperpa
 
 Rather than using one fixed learning rate for an entire run, every architecture uses \texttt{StepLR} to cut the learning rate by a factor of ten every time a fixed, architecture-specific number of epochs (the step size) has passed (Section~\ref{sec:exp_hyperparams}), since large steps are useful early on to make fast progress but become counter-productive once the model is close to a good solution, where they cause it to overshoot instead of converging.
 
-Training is allowed to run for up to 100 epochs, but is stopped early if development loss has not improved for 10 consecutive epochs, since the point at which a given architecture stops improving and starts overfitting is not known ahead of time and differs from one architecture to the next. AlexNet is the only exception, and always runs for the full 100 epochs (Section~\ref{subsec:defaults}). Development \emph{loss}, rather than accuracy, is used to decide both when to stop and which epoch's weights to keep: whichever epoch achieved the lowest development loss is the one whose weights are restored and carried forward to testing, rather than simply whatever weights training happened to end on. Figure~\ref{fig:training_flow} summarises this loop.
+Training is allowed to run for up to 100 epochs, but is stopped early if development loss has not improved for 10 consecutive epochs, since the point at which a given architecture stops improving and starts overfitting is not known ahead of time and differs from one architecture to the next. Development \emph{loss}, rather than accuracy, is used to decide both when to stop and which epoch's weights to keep: whichever epoch achieved the lowest development loss is the one whose weights are restored and carried forward to testing, rather than simply whatever weights training happened to end on. Figure~\ref{fig:training_flow} summarises this loop.
 
 
 
@@ -288,7 +285,7 @@ Training is allowed to run for up to 100 epochs, but is stopped early if develop
 \label{fig:training_flow}
 \end{figure}
 
-Inception-v3 is trained with one additional detail: during training only, it produces a second, auxiliary prediction partway through the network, and the loss from this auxiliary output is added to the main loss at a reduced weight of $0.4$. This gives the earlier layers of the network a more direct training signal than would otherwise reach them through such a deep network, and is discarded entirely once training finishes, playing no role in the model's actual predictions at test time.
+Inception-v3 is trained with one additional detail: during training only, it produces a second, auxiliary output partway through the network, and the loss from this output is added to the main loss at a reduced weight of $0.4$. This gives the earlier layers of the network a more direct training signal than would otherwise reach them through such a deep network, and is discarded entirely once training finishes, playing no role in the classification at test time.
 
 The same fixed seed used throughout this project (Section~\ref{sec:exp_hyperparams}) also covers the random initialisation of each architecture's new classifier head and the order in which the training images are shuffled, in addition to the dataset splitting described in Chapter~\ref{chap:systemmethods}. A repeated run therefore starts from the same weights and splits. It is not guaranteed to reproduce the results exactly, however, since some GPU operations are not deterministic and mixed precision adds small rounding differences, so repeated runs can differ slightly.
 
@@ -296,39 +293,39 @@ The same fixed seed used throughout this project (Section~\ref{sec:exp_hyperpara
 \section{Experiment 1: Mixed-Facility Baseline}
 \label{sec:exp_mixed}
 
-The first experiment does not take into account which facility an image comes from. The images of all five facilities are pooled and divided into training, development and test sets using the stratified 70/20/10 split described in Chapter~\ref{chap:systemmethods}. The images are grouped by facility, unit and class, each group is shuffled using the fixed random seed of 42, and the group is then divided in a 70/20/10 ratio. A group with at least three images always receives at least one development image and one test image, even where rounding would otherwise leave it with none. Every facility, unit and class is therefore represented in all three sets, in proportion to the number of images it contributes. Table~\ref{tab:stratified_split} gives the resulting number of images per class.
+The first experiment does not take into account which facility an image comes from. The images of all five facilities are pooled and divided into training, development and test sets using the chronological split described in Chapter~\ref{chap:systemmethods}. Every image captured from January 2020 onwards is a test image. The images captured before January 2020 are grouped by facility, unit and class, each group is shuffled using the fixed random seed of 42, and the group is then divided in an 80/20 ratio into training and development images. A group with at least three images always receives at least one development image, even where rounding would otherwise leave it with none. Table~\ref{tab:stratified_split} gives the resulting number of images per class.
 
 \begin{table}[htbp]
 \centering
-\caption{Number of images per class in the training, development and test sets of the stratified 70/20/10 split used in Experiment~1.}
+\caption{Number of images per class in the training, development and test sets of the chronological split used in Experiment~1. The test set contains every image captured from January 2020 onwards.}
 \label{tab:stratified_split}
 \begin{tabular}{llrrrr}
 \toprule
 \textbf{Component} & \textbf{Class} & \textbf{Train} & \textbf{Development} & \textbf{Test} & \textbf{Total} \\
 \midrule
-\multirow{5}{*}{Clarifier}    & Dysfunctional & 199  & 56  & 37  & 292  \\
-                              & Empty         & 97   & 27  & 21  & 145  \\
-                              & Functional    & 699  & 198 & 106 & 1003 \\
-                              & Scum          & 757  & 214 & 116 & 1087 \\
+\multirow{5}{*}{Clarifier}    & Dysfunctional & 159  & 37  & 96  & 292  \\
+                              & Empty         & 91   & 20  & 34  & 145  \\
+                              & Functional    & 549  & 133 & 321 & 1003 \\
+                              & Scum          & 549  & 133 & 405 & 1087 \\
 \cmidrule(lr){2-6}
-                              & Total         & 1752 & 495 & 280 & 2527 \\
+                              & Total         & 1348 & 323 & 856 & 2527 \\
 \midrule
-\multirow{4}{*}{Aerobic zone} & Dysfunctional & 567  & 160 & 86  & 813  \\
-                              & Functional    & 492  & 139 & 76  & 707  \\
-                              & Suboptimal    & 153  & 42  & 28  & 223  \\
+\multirow{4}{*}{Aerobic zone} & Dysfunctional & 454  & 110 & 249 & 813  \\
+                              & Functional    & 357  & 86  & 264 & 707  \\
+                              & Suboptimal    & 136  & 33  & 54  & 223  \\
 \cmidrule(lr){2-6}
-                              & Total         & 1212 & 341 & 190 & 1743 \\
+                              & Total         & 947  & 229 & 567 & 1743 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-All seven architectures are trained using this division of the data, for both the clarifiers and the aerobic zones. Both components use the hyperparameter values optimised on the fold with Northern Works held out (Table~\ref{tab:hyperparams} in Section~\ref{sec:exp_hyperparams}).
+All seven models are trained using this division of the data, for both the clarifiers and the aerobic zones, with the hyperparameter values in Table~\ref{tab:hyperparams} (Section~\ref{sec:exp_hyperparams}). These were tuned on a leave-one-facility-out fold, so some of the test images of Experiment~1 were part of the development set on which the hyperparameters were chosen, although they were never used to train the models that are tested on them.
 
-Experiment~1 is also used to measure the effect of augmentation. Every architecture is trained a second time on the same data but without augmentation (resizing and normalisation is maintained for all train, development and test images). The data, hyperparameters, class weights and random seed are the same in both experiments, to ensurte that augmentation is the only difference. Experiment~1 therefore consists of 28 training runs: seven architectures, for two components, each trained with and without augmentation.
+Experiment~1 is also used to measure the effect of augmentation. Every model is trained a second time on the same data but without augmentation (resizing and normalisation is maintained for all train, development and test images). The data, hyperparameters, class weights and random seed are the same in both experiments, to ensure that augmentation is the only difference. Experiment~1 therefore consists of 28 training runs: seven models, for two components, each trained with and without augmentation. The results are given in Appendix~\ref{sec:results_augmentation}.
 
-The purpose of this experiment is to measure how well the models perform in the easiest setting, where the test images come from the same facilities as the training images. The test images are taken from the same units and the same range of capture dates as the training images, and therefore share their lighting, water colour and image quality. Some test images might even share the date with development and training images, because the division into the three sets was made on the basis of the cropped images, rather than the satellite images they originate from, and a single satellite image usually contains several clarifiers and aerobic zones.
+The purpose of this experiment is to estimate how well the models perform at facilities whose earlier images are part of the training data. This is the usual situation in the intended use of the system (Chapter~\ref{chap:introduction}): new images of a facility are classified, an operator relabels the flagged images, and the relabelled images are added to the training data. The test images were all captured after the training and development images, as they would be in use. Since a satellite image has a single capture date, no test image comes from the same satellite image as a training or development image.
 
-A high accuracy on this split therefore does not show that a model would work at a facility it has never seen. If the system were used to monitor other WWTW facilities, most of those facilities would not be part of the training data. A model could also learn cues that are specific to one facility or one date, such as the colour of the water at a particular facility, and still perform well on this split, since the same cues are present in the test set. The results of Experiment~1 are therefore treated as a best-case reference rather than as an estimate of how the system would perform in practice, which is the reason for Experiment~2. The difference between the two experiments gives an indication of how much performance is lost when a model is applied to a facility it was not trained on.
+A facility that is added to the system has no labelled images until its first images have been reviewed. A model could also learn cues that are specific to one facility, such as the colour of the water at that facility, and still perform well on this split, since the same cues are present in the test set. The results of Experiment~1 therefore do not show how a model would perform at a facility it has never seen, which is the reason for Experiment~2. The difference between the two experiments gives an indication of how much performance is lost when a model is applied to a facility it was not trained on.
 
 
 \section{Experiment 2: Leave-One-Facility-Out Evaluation}
@@ -336,7 +333,7 @@ A high accuracy on this split therefore does not show that a model would work at
 
 Experiment~2 uses the leave-one-facility-out split described in Chapter~\ref{chap:systemmethods} and illustrated in Figure~\ref{fig:leave_one_out approach}. One facility is held out as the test set, and the images of the remaining facilities are divided into training and development sets in an 80/20 ratio, grouped by facility, unit and class in the same way as in Experiment~1. This is repeated until every facility has been held out once, and every repetition is referred to as a fold. The images of the test facility are never used to update the weights of the network, to calculate the class weights, to decide when training stops or to select the checkpoint that is kept. The test results of a fold are therefore an estimate of how a model would perform at a facility it has never seen.
 
-Every architecture is trained separately for every fold, using the hyperparameters (Section~\ref{sec:exp_hyperparams}), class-weighted loss (Section~\ref{sec:exp_loss}), augmentation (Section~\ref{sec:exp_augmentation}) and training loop (Section~\ref{sec:exp_training}) described earlier in this chapter, with the same hyperparameters determined in experiment 1 used throughout. For the clarifiers, this gives five folds and 35 training runs (one for each architecture). Aerobic zones are only labelled at Atlantis, Cape Flats and Waterval (Chapter~\ref{chap:systemmethods}), so in this case there are only three aerobic zone folds and 21 training runs. Since Fisantekraal and Northern Works contribute no aerobic zone images, every aerobic zone model is trained on the two aerobic facilities that are not held out. Table~\ref{tab:lofo_folds} gives the size of every fold, together with the number of test images per class.
+Every architecture is trained separately for every fold, using the hyperparameters (Section~\ref{sec:exp_hyperparams}), class-weighted loss (Section~\ref{sec:exp_loss}), augmentation (Section~\ref{sec:exp_augmentation}) and training loop (Section~\ref{sec:exp_training}) described earlier in this chapter, with the same hyperparameters used throughout. For the clarifiers, this gives five folds and 35 training runs (one for each model and fold). Aerobic zones are only labelled at Atlantis, Cape Flats and Waterval (Chapter~\ref{chap:systemmethods}), so in this case there are only three aerobic zone folds and 21 training runs. Since Fisantekraal and Northern Works contribute no aerobic zone images, every aerobic zone model is trained on the two aerobic facilities that are not held out. Table~\ref{tab:lofo_folds} gives the size of every fold, together with the number of test images per class.
 
 \begin{table}[htbp]
 \centering
@@ -371,7 +368,7 @@ In this experiment the folds differ considerably in size. Cape Flats contains 14
 
 To summarise the performance of an architecture, the results per test fold are averaged, with every fold counting equally regardless of its size. The standard deviation across test folds is reported alongside the mean. Pooling the test images of all folds (micro-averaging) would let Cape Flats determine most of the clarifier result. The standard deviation shows how much the performance of an architecture depends on the facility it is tested on.
 
-One part of this experiment is not fully independent of the test facility. The hyperparameters were tuned once per architecture, with Northern Works held out (Section~\ref{sec:exp_hyperparams}), and the development set of that fold contains images from the other four facilities. For the Atlantis, Cape Flats, Fisantekraal and Waterval folds, images from the test facility were therefore part of the development set on which the hyperparameters were chosen, although they were never used to train the model that is tested on them. For the aerobic zones, the tuning development set contains images from all three aerobic facilities, so this applies to every aerobic zone fold. Since only six hyperparameters were chosen in this way, the effect is likely to be small, but only the Northern Works clarifier fold is fully independent of the tuning.
+One part of this experiment is not fully independent of the test facility. The hyperparameters were tuned once per architecture, with Northern Works held out for the clarifiers and Atlantis held out for the aerobic zones (Section~\ref{sec:exp_hyperparams}), and the development set of that fold contains images from the other facilities. For the other folds, images from the test facility were therefore part of the development set on which the hyperparameters were chosen, although they were never used to train the model that is tested on them. Since only six hyperparameters were chosen in this way, the effect is likely to be small, but only the Northern Works clarifier fold and the Atlantis aerobic zone fold are fully independent of the tuning.
 
 
 \section{Experiment 3: Binary (OK / Not-OK) Reformulation}
@@ -385,13 +382,13 @@ No separate binary models are trained. Instead, the binary decision is derived f
     s = 1 - P(\mathrm{Functional}),
 \end{equation}
 
-and the image is classified as Not-OK when $s \geq t$, for a threshold $t$. The binary results therefore come from exactly the same models as the multi-class results, so the two can be compared directly. The binary evaluation is carried out on both the stratified split of Experiment~1 and the leave-one-facility-out split of Experiment~2.
+and the image is classified as Not-OK when $s \geq t$, for a threshold $t$. The binary results therefore come from exactly the same models as the multi-class results, so the two can be compared directly. The binary evaluation is carried out on both the chronological split of Experiment~1 and the leave-one-facility-out split of Experiment~2.
 
-With Not-OK treated as the positive class, the recall (or sensitivity) is the fraction of Not-OK components that are flagged as such, while the specificity is the fraction of OK components that are correctly left unflagged. These two kinds of mistake do not have the same cost. A false alarm only costs an operator the time to look at the image and make his or her own confirmatory assessment, while a missed Not-OK component may go unnoticed until the next satellite image of the facility becomes available. The decision threshold therefore must be chosen so that the recall of the Not-OK class reaches a target of 95\%. The recall is evaluated at 500 evenly spaced thresholds between 0 and 1, and the largest threshold that still reaches the target is selected, since this is the threshold that also raises the fewest false alarms. For the leave-one-facility-out models of Experiment~2, one threshold is chosen per architecture and shared by all of its folds: the recall is calculated separately for every held-out facility, and the largest threshold at which the mean recall across facilities reaches 95\% is selected.
+With Not-OK treated as the positive class, the recall (or sensitivity) is the fraction of Not-OK components that are flagged as such, while the specificity is the fraction of OK components that are correctly left unflagged. These two kinds of mistake do not have the same cost. A false alarm only costs an operator the time to look at the image and make his or her own confirmatory assessment, while a missed Not-OK component may go unnoticed until the next satellite image of the facility becomes available. The decision threshold therefore must be chosen so that the recall of the Not-OK class reaches a target of 95\% on the development set of the same run. The recall is evaluated at 500 evenly spaced thresholds between 0 and 1, and the largest threshold that still reaches the target is selected, since this is the threshold that also raises the fewest false alarms. The recall, specificity and precision are then calculated on the test set at this threshold. For the leave-one-facility-out models of Experiment~2, every fold has its own threshold, chosen on the development set of that fold, which contains no images of the held-out facility.
 
 The ROC curve and its AUC are also calculated for the binary problem, since they describe the trade-off between recall and specificity over all thresholds rather than at a single one. For the leave-one-facility-out models, the binary results are summarised across held-out facilities in the same way as the multi-class results (Section~\ref{sec:exp_lofo}). The ROC curve of every fold is interpolated onto a common set of false positive rates before the curves are averaged, and the binary confusion matrix at the chosen threshold is normalised per row, so that it shows rates rather than counts, before it is averaged.
 
-Since the threshold is chosen on the test predictions themselves, the recall at the chosen threshold is not an independent result. It is at least 95\% by construction on the stratified split, and at least 95\% on average across facilities for the leave-one-facility-out split. What this experiment measures is the specificity that has to be accepted to reach this recall and, for the leave-one-facility-out split, how much the recall at one shared threshold varies from one facility to the next. The recall at the shared threshold is therefore also reported for every held-out facility separately. In practice, the threshold would have to be fixed before the system is used at a new facility, so a large spread between facilities would mean that a threshold chosen on known facilities cannot be relied on to reach the target recall at a new one.
+Since the test set plays no part in choosing the threshold, the test recall can be lower or higher than 95\%. The development set is also used to select the checkpoint (Section~\ref{sec:exp_training}), so the development recall may be slightly optimistic. For the leave-one-facility-out split, the test recall is also reported for every held-out facility separately. In practice, the threshold would have to be fixed before the system is used at a new facility, so a test recall well below 95\% at some facilities would mean that a threshold chosen on known facilities cannot be relied on to reach the target recall at a new one.
 
 
 \section{Evaluation Metrics}
@@ -405,14 +402,14 @@ Of these metrics, recall is the most important in the context of this project. T
 \section{Qualitative Analysis: Grad-CAM}
 \label{sec:exp_gradcam}
 
-Classification performance alone does not show what in an image a model bases its decision on, so a model could rely on something unrelated to the state of the component, such as the water colour at a particular facility or the rim of a clarifier. Grad-CAM (Section~\ref{sec:gradcam_background}) is used to check this, by highlighting the regions of an image that contributed the most to a prediction.
+Classification performance alone does not show what in an image a model bases its decision on, so a model could rely on something unrelated to the state of the component, such as the water colour at a particular facility or the rim of a clarifier. Grad-CAM (Section~\ref{sec:gradcam_background}) is used to check this, by highlighting the regions of an image that contributed the most to a classification.
 
 \subsection{Method}
 \label{subsec:gradcam_method}
 
-Grad-CAM was applied to the output of the last convolutional layer of each selected model, using the \texttt{pytorch-grad-cam} library~\citep{gildenblat2021pytorchcam}. The heatmaps are superimposed on the input images, where red regions contributed the most to the prediction. Every heatmap is normalised separately, so the colours cannot be compared between images.
+Grad-CAM was applied to the output of the last feature block of each selected model, using the \texttt{pytorch-grad-cam} library~\citep{gildenblat2021pytorchcam}. The heatmaps are superimposed on the input images, where red regions contributed the most to the classification. Every heatmap is normalised separately, so the colours cannot be compared between images.
 
 \subsection{Models and Example Selection}
 \label{subsec:gradcam_setup}
 
-For each component, the architecture with the highest mean macro-averaged F1 test score in the leave-one-facility-out experiment (Section~\ref{sec:exp_lofo}) was selected for analysis using one of the held-out test sets. For the clarifiers, Fisantekraal was used, since it contains all four clarifier classes, and for the aerobic zones, Waterval was used, since it has the most aerobic zone images. For each class, one correctly classified image was chosen at random, along with one image from each of the most common mistakes. The heatmaps are calculated for the predicted class, so for a mistake they show what the model took as evidence to arrive at its incorrect decision.
+For each component, the architecture with the highest mean macro-averaged F1 test score in the leave-one-facility-out experiment (Section~\ref{sec:exp_lofo}) was selected for analysis using one of the held-out test sets. For the clarifiers, Fisantekraal was used, since it contains all four clarifier classes, and for the aerobic zones, Waterval was used, since it has the most aerobic zone images. For each class, one correctly classified image was chosen at random, along with one image from each of the most common mistakes. The heatmaps are calculated for the assigned class, so for a mistake they show what the model took as evidence to arrive at its incorrect decision.

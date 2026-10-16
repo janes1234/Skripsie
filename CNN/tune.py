@@ -1,52 +1,36 @@
 """
 tune.py
 =======
-Retuning sweep for the WWTW CNN classifiers, using Optuna.
+Optuna hyperparameter search for the pretrained architectures.
 
-Jointly searches (hidden_layers, neurons, lr, beta1, step_size, batch_size)
-per architecture -- one Optuna study per architecture (TPE sampler +
-MedianPruner), optimizing validation accuracy at the epoch with the lowest
-validation loss (matching how every train_*.ipynb already picks its "best
-checkpoint" -- see train_model() in wwtw_utils.py).
+One study per architecture and component (TPE sampler + MedianPruner) jointly
+searches hidden_layers, neurons, lr, beta1, step_size and batch_size, scoring
+each trial by its validation accuracy at the epoch with the lowest validation
+loss (the checkpoint train_model() keeps).
 
-Tuned on a single held-out-facility split (NoordelikeWerke held out for
-test; train/val drawn from the other four facilities), then the winning
-hyperparameters get applied uniformly across all 5 leave-one-facility-out
-folds when the architecture is actually trained via run.py -- the same
-convention the original (now-unreproducible) tuning sweep used.
+Each search runs on a single leave-one-facility-out fold: NoordelikeWerke held
+out for the clarifiers (the default below) and Atlantis held out for the
+aerobic zones (set by pipeline.py through DATASET_ROOT and COMPONENT). The
+selected values are then used for every split.
 
-AlexNet is deliberately excluded: it's trained from scratch (no ImageNet
-pretraining) and is being kept exactly as-is.
+Studies are stored in optuna_tuning.db, so a crashed run resumes where it
+stopped. The best values go to tuned_hyperparams.json (clarifier) or
+tuned_hyperparams_<component>.json.
 
 Usage:
-    # Tune everything (cheapest architectures first), appending results to
-    # tuned_hyperparams.json as each architecture finishes:
-    python tune.py --all
-
-    # Tune just one architecture:
-    python tune.py --arch resnet18
-
-    # Fewer/more trials per architecture (default: 20):
-    python tune.py --all --n-trials 15
-
-Progress -- every trial's sampled hyperparameters, every epoch's train/val
-loss+acc (via wwtw_utils's own per-epoch prints), and each architecture's
-winning params -- goes to stdout. Redirect it to a file to track progress
-from outside this process, e.g.:
-
-    python tune.py --all > tune_progress.log 2>&1 &
-    tail -f tune_progress.log
+    python tune.py --all                 # every architecture
+    python tune.py --arch resnet18       # one architecture
+    python tune.py --all --n-trials 15   # default is 20 trials
 """
 
 import argparse
 import gc
 import json
 import os
-import sys
 import time
 from pathlib import Path
 
-# Must be set before importing wwtw_utils -- it reads these at import time.
+# Must be set before importing wwtw_utils, which reads them at import time.
 os.environ.setdefault("DATASET_ROOT", "../cnn_dataset_split_facility_test-NoordelikeWerke")
 os.environ.setdefault("COMPONENT", "clarifier")
 
@@ -67,20 +51,15 @@ from wwtw_utils import (
 
 COMPONENT = os.environ["COMPONENT"]
 
-# Clarifier results/studies keep their original names; any other component
-# gets its own json and its own Optuna study names, so e.g. aerobic_zone
-# tuning never resumes from (or overwrites) the clarifier studies stored in
-# the same optuna_tuning.db.
+# Each component gets its own results json and study names in optuna_tuning.db.
 RESULTS_JSON = Path("tuned_hyperparams.json" if COMPONENT == "clarifier"
                     else f"tuned_hyperparams_{COMPONENT}.json")
 STUDY_PREFIX = "" if COMPONENT == "clarifier" else f"{COMPONENT}_"
 
-# Optional one-line-per-trial summary for pipeline_progress.log (set via
-# --progress-log); the verbose per-epoch output still goes to stdout.
+# Optional one-line-per-trial summary file (--progress-log).
 PROGRESS_LOG = None
 
-# Cheapest/fastest architectures first, so partial progress (and the log)
-# is useful even if this gets interrupted partway through.
+# Fastest architectures first.
 ARCHITECTURES = [
     "resnet18", "efficientnet_b0", "densenet121",
     "resnet50", "convnext_tiny", "inception_v3",
@@ -88,9 +67,7 @@ ARCHITECTURES = [
 
 IMG_SIZE = {arch: ((299, 299) if arch == "inception_v3" else IMG_TARGET_SIZE) for arch in ARCHITECTURES}
 
-# Search space shared by every architecture. img_size is NOT searched --
-# it's an architectural constraint (Inception v3 needs 299x299), fixed per
-# architecture exactly as it is in ARCH_HYPERPARAMS.
+# Search space shared by every architecture. img_size is fixed, not searched.
 HIDDEN_LAYERS_CHOICES = [0, 1, 2, 3]
 NEURONS_CHOICES = [512, 1024, 2048]
 BATCH_SIZE_CHOICES = [8, 16, 24, 32, 48, 64, 96, 128]
@@ -110,9 +87,8 @@ def progress(msg: str):
 
 
 def build_model(arch: str, hidden_layers: int, neurons: int):
-    """Mirrors the per-architecture model-definition block in each
-    train_<arch>.ipynb, parameterized by the (hidden_layers, neurons) being
-    tried this trial. Returns (model_on_device, is_inception)."""
+    """Same model definitions as the train_<arch>.ipynb notebooks, with the
+    head size of this trial. Returns (model_on_device, is_inception)."""
     if arch == "resnet18":
         m = models.resnet18(weights=models.ResNet18_Weights.IMAGENET1K_V1)
         in_f = m.fc.in_features
@@ -132,8 +108,6 @@ def build_model(arch: str, hidden_layers: int, neurons: int):
         m = models.inception_v3(weights=models.Inception_V3_Weights.IMAGENET1K_V1, aux_logits=True)
         in_f = m.fc.in_features
         m.fc = build_classifier_head(in_f, hidden_layers, neurons, num_classes)
-        # Aux classifier always stays a single Linear, same as every
-        # train_inception_v3.ipynb run regardless of tuned head shape.
         in_f_aux = m.AuxLogits.fc.in_features
         m.AuxLogits.fc = nn.Linear(in_f_aux, num_classes)
         is_inception = True
@@ -144,7 +118,7 @@ def build_model(arch: str, hidden_layers: int, neurons: int):
         is_inception = False
     elif arch == "convnext_tiny":
         m = models.convnext_tiny(weights=models.ConvNeXt_Tiny_Weights.IMAGENET1K_V1)
-        m.avgpool = nn.AdaptiveMaxPool2d(1)  # kept as-is, per current design
+        m.avgpool = nn.AdaptiveMaxPool2d(1)
         in_f = m.classifier[2].in_features
         m.classifier[2] = build_classifier_head(in_f, hidden_layers, neurons, num_classes)
         is_inception = False
@@ -233,12 +207,6 @@ STORAGE = "sqlite:///optuna_tuning.db"
 
 
 def tune_architecture(arch: str, n_trials: int):
-    # Persistent (SQLite) storage + load_if_exists means a crashed process
-    # (e.g. the GPU driver's RC watchdog killing a kernel -- see module
-    # docstring note below) can be relaunched and pick up exactly where it
-    # left off instead of losing all trial progress for the architecture it
-    # was on. See run_tuning_with_retries.sh for the auto-restart loop that
-    # relies on this.
     sampler = TPESampler(seed=42)
     pruner = MedianPruner(n_startup_trials=5, n_warmup_steps=5, interval_steps=1)
     study = optuna.create_study(
@@ -246,10 +214,7 @@ def tune_architecture(arch: str, n_trials: int):
         study_name=f"{STUDY_PREFIX}{arch}_tune", storage=STORAGE, load_if_exists=True,
     )
 
-    # A trial that was RUNNING when a prior process died is stuck in that
-    # state forever otherwise (Optuna never sees it fail) -- mark those as
-    # failed so they're excluded from best-trial selection and don't block
-    # anything.
+    # A trial left RUNNING by a crashed process would stay RUNNING forever.
     for t in study.trials:
         if t.state == optuna.trial.TrialState.RUNNING:
             log(f"[{arch}] marking stale RUNNING trial {t.number} (from a prior crashed process) as failed")
@@ -285,7 +250,7 @@ def main():
     parser.add_argument("--arch", choices=ARCHITECTURES, default=None,
                          help="Tune just this architecture")
     parser.add_argument("--all", action="store_true",
-                         help="Tune all 6 architectures (everything except alexnet)")
+                         help="Tune all 6 pretrained architectures")
     parser.add_argument("--n-trials", type=int, default=20,
                          help="Optuna trials per architecture (default: 20)")
     parser.add_argument("--progress-log", default=None,

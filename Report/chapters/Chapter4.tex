@@ -104,7 +104,7 @@ Examples of the classes for aerobic zones and clarifiers are shown in Figures \r
 \begin{figure}[htbp]
     \centering 
     \includegraphics[width=\textwidth]{figures/aerobic_examples.png} 
-    \caption{One example of each aerobic zone class, with the facility it comes from. Each example is the test image of the stratified split (Chapter~\ref{chap:experimental_design}) that all six pretrained architectures classified correctly with the highest mean confidence, so that it is a clear case of its class.}\label{fig:aerobic_examples}
+    \caption{One example of each aerobic zone class, with the facility it comes from. Each example is the test image of the chronological split (Section~\ref{sec:exp_mixed}) that all six pretrained models classified correctly with the highest mean confidence, so that it is a clear case of its class.}\label{fig:aerobic_examples}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -213,9 +213,8 @@ the training and development sets, in proportion to how much data it contributes
     \label{fig:leave_one_out approach}
 \end{figure}
 
-\subsection{Stratified Train/Development Split}
-Before adopting the leave-one-out approach described above, a stratified split was used to produce training, development, and test
-sets directly from the dataset, without holding any facility out. This split follows a 70/20/10 training/development/test ratio and uses the same facility, unit, class grouping and shuffling procedure described in the previous section: images within each group are shuffled using a fixed random seed before being partitioned, so that every facility, unit, and class combination is represented across all three sets in proportion to how much data it contributes, and no single facility or unit dominates any one split.
+\subsection{Chronological Split}
+In addition to the leave-one-out approach described above, a chronological split was used to produce training, development, and test sets directly from the dataset, without holding any facility out. This split is made by capture date: every image captured from January 2020 onwards is a test image, and the images captured before January 2020 are divided into training and development sets in an 80/20 ratio, using the same facility, unit, class grouping and shuffling procedure described in the previous section. The split is made by date rather than at random for two reasons. First, the system would classify images that are newer than every image it was trained on. Second, a random split of the cropped images would put crops from the same satellite image, captured on the same date and in the same conditions, into both the training and the test set. The cut-off of January 2020 was chosen so that the test set of every facility contains every class that occurs at that facility. As a result, all 3 \textbf{Empty} clarifiers at Atlantis and all 7 \textbf{Dysfunctional} clarifiers at Waterval are in the test set. The resulting number of images per class is given in Section~\ref{sec:exp_mixed}.
 
 \section{Relabelling}
 

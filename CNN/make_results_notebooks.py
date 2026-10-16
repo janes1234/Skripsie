@@ -11,8 +11,9 @@ cell template, so both notebooks report exactly the same things:
       (+ mean/std across held-out facilities for LOFO)
     - accuracy / AUC bar charts
     - per-class precision / recall / F1
-    - binary OK (Functional) vs not-OK ROC, a recall-driven threshold, the
-      confusion matrix at that threshold, and a per-test-set check of it
+    - binary OK (Functional) vs not-OK ROC, a recall-driven threshold chosen
+      on each run's development set, the confusion matrix at that threshold
+      on the test set, and a per-test-set check of it
     - every run's training curves / confusion matrix / ROC figure
   plus a summary table per experiment (also saved as CSV) and a
   with-vs-without augmentation comparison on the chronological split.
@@ -79,7 +80,7 @@ SPLITS = {
 }
 
 OK_CLASS = "Functional"
-TARGET_RECALL = 0.95   # fraction of not-OK images the chosen threshold must catch (on average)
+TARGET_RECALL = 0.95   # fraction of not-OK development images the chosen threshold must catch
 FPR_GRID = np.linspace(0.0, 1.0, 200)
 THRESH_GRID = np.linspace(0.0, 1.0, 500)
 
@@ -239,16 +240,21 @@ def show_figures(exp, split):
 
 # ---------------- binary OK vs not-OK ----------------
 
-def binary_scores(exp, split, save_name):
-    """test_id -> (y_true, y_score) with y=1 for not-OK and score = 1 - P(OK).
-    Kept per test set (NOT pooled): each LOFO fold is scored by a different model."""
+def binary_scores(exp, split, save_name, key="per_sample"):
+    """test_id -> (y_true, y_score) with y=1 for not-OK and score = 1 - P(OK),
+    from the test records (key="per_sample") or the development records
+    (key="dev_per_sample"). Kept per test set (NOT pooled): each LOFO fold is
+    scored by a different model."""
     out = {}
     for tid, by_model in RESULTS[exp][split].items():
         r = by_model.get(save_name)
         if r is None:
             continue
-        y_true = np.array([0 if s["true"] == OK_CLASS else 1 for s in r["per_sample"]])
-        y_score = np.array([1.0 - s["probs"][OK_CLASS] for s in r["per_sample"]])
+        if key not in r:
+            raise KeyError(f"{r['model_name']} / {tid} has no {key!r}: the run predates "
+                           "saving development-set outputs and has to be retrained")
+        y_true = np.array([0 if s["true"] == OK_CLASS else 1 for s in r[key]])
+        y_score = np.array([1.0 - s["probs"][OK_CLASS] for s in r[key]])
         out[tid] = (y_true, y_score)
     return out
 
@@ -266,16 +272,13 @@ def roc_per_test_set(scores):
     return curves
 
 
-def choose_threshold(scores):
-    """Most permissive threshold on P(not OK) whose MEAN recall across test
-    sets still reaches TARGET_RECALL (0.0 = flag everything, if none does)."""
-    recall_curves = []
-    for y_true, y_score in scores.values():
-        n_pos = y_true.sum()
-        if n_pos:
-            recall_curves.append([((y_score >= t) & (y_true == 1)).sum() / n_pos for t in THRESH_GRID])
-    mean_recall = np.mean(recall_curves, axis=0)
-    valid = np.where(mean_recall >= TARGET_RECALL)[0]
+def choose_threshold(y_true, y_score):
+    """Most permissive threshold on P(not OK) whose recall on the given
+    (development) images still reaches TARGET_RECALL (0.0 = flag everything,
+    if none does)."""
+    n_pos = y_true.sum()
+    recall = np.array([((y_score >= t) & (y_true == 1)).sum() / n_pos for t in THRESH_GRID])
+    valid = np.where(recall >= TARGET_RECALL)[0]
     return float(THRESH_GRID[int(valid.max()) if len(valid) else 0])
 
 
@@ -291,12 +294,13 @@ BINARY = {}   # (exp, split) -> dict(curves=..., thresholds=DataFrame, per_test_
 
 def binary_analysis(exp, split):
     figures_dir = EXPERIMENTS[exp][1] / "figures"
-    scores, curves = {}, {}
+    scores, dev_scores, curves = {}, {}, {}
     for save_name in MODELS:
         s = binary_scores(exp, split, save_name)
         c = roc_per_test_set(s)
         if c:
             scores[save_name], curves[save_name] = s, c
+            dev_scores[save_name] = binary_scores(exp, split, save_name, key="dev_per_sample")
     if not curves:
         print("No results yet.")
         return
@@ -323,25 +327,26 @@ def binary_analysis(exp, split):
     plt.savefig(figures_dir / f"{COMPONENT}_{split}_ok_vs_notok_roc.png", dpi=150)
     plt.show()
 
-    # Threshold at the target recall + mean metrics at it
+    # Threshold chosen on each run's development set, metrics on its test set
     rows, per_set_rows, thresholds = [], [], {}
     for save_name in curves:
-        t = choose_threshold(scores[save_name])
-        thresholds[save_name] = t
+        thresholds[save_name] = {tid: choose_threshold(*dev_scores[save_name][tid])
+                                 for tid in scores[save_name]}
         rec, spec, prec = [], [], []
         for tid, (y_true, y_score) in scores[save_name].items():
+            t = thresholds[save_name][tid]
             tn, fp, fn, tp = confusion_matrix(y_true, (y_score >= t).astype(int), labels=[0, 1]).ravel()
             r_ = tp / (tp + fn) if (tp + fn) else np.nan
             s_ = tn / (tn + fp) if (tn + fp) else np.nan
             p_ = tp / (tp + fp) if (tp + fp) else np.nan
             rec.append(r_); spec.append(s_); prec.append(p_)
-            per_set_rows.append({"model": MODELS[save_name], "test set": tid, "recall": r_,
+            per_set_rows.append({"model": MODELS[save_name], "test set": tid, "threshold": t, "recall": r_,
                                  "specificity": s_, "precision": p_,
                                  "n_not_ok": int(y_true.sum()), "n_images": len(y_true)})
         rows.append({"model": MODELS[save_name],
                      "OK/not-OK AUC": summary[save_name]["auc"],
                      "OK/not-OK AUC std": summary[save_name]["auc_std"] if split == "lofo" else np.nan,
-                     "threshold on P(not OK)": t,
+                     "threshold on P(not OK)": np.mean(list(thresholds[save_name].values())),
                      "recall (sensitivity)": np.nanmean(rec),
                      "specificity": np.nanmean(spec),
                      "precision": np.nanmean(prec),
@@ -350,7 +355,8 @@ def binary_analysis(exp, split):
     if split != "lofo":
         thr_table = thr_table.drop(columns=["OK/not-OK AUC std"])
     display(Markdown(f"**Operating point per model** - most permissive threshold reaching "
-                     f"{TARGET_RECALL:.0%} {'recall' if split != 'lofo' else 'mean recall across facilities'}:"))
+                     f"{TARGET_RECALL:.0%} recall on the development set, metrics on the test set"
+                     + ("" if split != "lofo" else " (threshold and metrics are means across folds)") + ":"))
     display(thr_table)
 
     # Confusion matrix at that threshold (row-normalised rates, averaged across test sets)
@@ -360,11 +366,12 @@ def binary_analysis(exp, split):
     fig, axes = plt.subplots(nrows, ncols, figsize=(4.2 * ncols, 4 * nrows))
     axes = np.atleast_1d(axes).flatten()
     for ax, save_name in zip(axes, curves):
-        t = thresholds[save_name]
-        cms = [rate_confusion(y, (s >= t).astype(int)) for y, s in scores[save_name].values()]
+        ts = thresholds[save_name]
+        cms = [rate_confusion(y, (s >= ts[tid]).astype(int)) for tid, (y, s) in scores[save_name].items()]
         ConfusionMatrixDisplay(np.mean(cms, axis=0), display_labels=["OK", "not OK"]).plot(
             ax=ax, cmap="Blues", colorbar=False, values_format=".2f")
-        ax.set_title(f"{MODELS[save_name]}\nthreshold = {t:.3f}")
+        t_label = "threshold" if split != "lofo" else "mean threshold"
+        ax.set_title(f"{MODELS[save_name]}\n{t_label} = {np.mean(list(ts.values())):.3f}")
     for ax in axes[n:]:
         ax.axis("off")
     fig.suptitle("OK vs not-OK at the chosen threshold - row-normalised rates"
@@ -375,7 +382,7 @@ def binary_analysis(exp, split):
 
     per_set = pd.DataFrame(per_set_rows).set_index(["model", "test set"])
     if split == "lofo":
-        display(Markdown("**Does the one threshold hold up on each held-out facility?**"))
+        display(Markdown("**Does the development-set threshold hold up on each held-out facility?**"))
         display(per_set)
         display(Markdown("Recall spread across held-out facilities at each model's threshold:"))
         display(per_set["recall"].groupby("model", sort=False).agg(["mean", "std", "min", "max"]))
@@ -472,7 +479,8 @@ Every architecture's results for **{component}**, for every evaluation approach 
 Classes: {cfg['classes_note']}
 
 For each approach: comparison table, accuracy/AUC charts, per-class precision/recall/F1, the binary
-**OK (`Functional`) vs not-OK** (every other class pooled) ROC with a recall-driven threshold,
+**OK (`Functional`) vs not-OK** (every other class pooled) ROC with a recall-driven threshold
+chosen on the development set,
 and every run's training curves / confusion matrix / ROC figure. The summary table at the end
 of each experiment is also saved as CSV next to its results.
 
@@ -513,11 +521,11 @@ print("Classes:", class_names)
             lofo_note = (" One row per (held-out facility, model), followed by the mean ± std across "
                          "facilities." if split == "lofo" else "")
             bin_note = ("One ROC per held-out facility, then averaged (interpolated onto a common FPR "
-                        "grid) rather than pooled, so each facility counts once; the threshold is the "
-                        "most permissive one whose *mean* recall across facilities reaches the target."
+                        "grid) rather than pooled, so each facility counts once. Each fold gets its own "
+                        "threshold, chosen on that fold's development set (drawn from the training "
+                        "facilities), so the held-out facility plays no part in it."
                         if split == "lofo" else
-                        "One test set, so this is a single ROC and the threshold is the most permissive "
-                        "one that reaches the target recall on it.")
+                        "One test set, so this is a single ROC.")
             cells += [
                 md(f"## {split_label} - {label}"),
                 md(f"### Comparison table\n\nMacro-averaged precision/recall/F1 (every class counts equally, "
@@ -533,7 +541,10 @@ print("Classes:", class_names)
 Collapses the problem to **OK** (`Functional`) vs **not OK** (all other classes), scored by
 `P(not OK) = 1 - P(Functional)`. What matters operationally is catching a component that is
 no longer working properly, even at the cost of some false alarms, so the operating point is
-chosen for a target recall rather than the default argmax rule. {bin_note}
+chosen for a target recall rather than the default argmax rule. The threshold is the most
+permissive one that reaches the target recall on the run's development set, and the recall,
+specificity and precision are then measured on the test set, so the test recall can fall
+below the target. {bin_note}
 """),
                 code(f'binary_analysis("{exp}", "{split}")'),
                 md("### Training curves, confusion matrices and ROC curves per run"),

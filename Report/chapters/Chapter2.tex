@@ -81,7 +81,7 @@ p_k = \frac{\exp(z_k)}{\sum_{j=1}^{K}\exp(z_j)}, \qquad k = 1, \dots, K,
 \end{equation}
 where $z_k$ is the logit for class $k$, $p_k$ is its resulting probability, and the sum in the denominator is over all $K$ classes so that the resulting values of $p_k$ sum to one. The classification decision is the class assigned the highest probability, and the network is trained by adjusting every learnable kernel and weight to make $p_k$ as close as possible to 1 for the correct class, most commonly via the cross-entropy loss.
 
-Training a CNN's convolutional layers entirely from scratch typically requires very large labelled datasets, since a randomly-initialised network has to learn everything from edge detection upward using only the available training images. This project instead relies on \textbf{transfer learning}: each architecture is first pretrained on ImageNet \citep{deng2009imagenet}, a benchmark dataset of over a million labelled natural images spanning a thousand object classes, so that its convolutional layers already encode a broad range of general-purpose visual features before ever seeing a wastewater treatment image. Its final classification layer is then removed and replaced with a small classifier head fitted to the classes used in this project, and the network is fine-tuned on the far smaller WWTW image dataset described in Chapter~\ref{chap:systemmethods}. Six such pretrained architectures, all originally developed for the ImageNet benchmark, were evaluated in this project: \textbf{ResNet-18} and \textbf{ResNet-50} \citep{he2016resnet}, \textbf{DenseNet-121} \citep{huang2017densenet}, \textbf{Inception-v3} \citep{szegedy2016inception}, \textbf{EfficientNet-B0} \citep{tan2019efficientnet}, and \textbf{ConvNeXt-Tiny} \citep{liu2022convnext}. Each combines the convolutional building blocks above in a different way, as described in the remainder of this section.
+Training a CNN's convolutional layers entirely from scratch typically requires very large labelled datasets, since a randomly-initialised network has to learn everything from edge detection upward using only the available training images. This project instead relies on \textbf{transfer learning}: each architecture is first pretrained on ImageNet \citep{deng2009imagenet}, a benchmark dataset of over a million labelled natural images spanning a thousand object classes, so that its convolutional layers already encode a broad range of general-purpose visual features before ever seeing a wastewater treatment image. Its final classification layer is then removed and replaced with a small classifier head fitted to the classes used in this project, and the network is fine-tuned on the far smaller WWTW image dataset described in Chapter~\ref{chap:systemmethods}. Six such pretrained architectures, all originally developed for the ImageNet benchmark, were evaluated in this project: \textbf{ResNet-18} and \textbf{ResNet-50} \citep{he2016resnet}, \textbf{DenseNet-121} \citep{huang2017densenet}, \textbf{Inception-v3} \citep{szegedy2016inception}, \textbf{EfficientNet-B0} \citep{tan2019efficientnet}, and \textbf{ConvNeXt-Tiny} \citep{liu2022convnext}. ResNet-18 is also trained a second time from randomly initialised weights, as a baseline that measures the effect of pretraining (Section~\ref{sec:exp_architectures}). Each combines the convolutional building blocks above in a different way, as described in the remainder of this section.
 
 \subsection{Residual Networks: ResNet-18 and ResNet-50}
 \label{sec:resnet}
@@ -251,31 +251,31 @@ ConvNeXt-Tiny arranges its blocks into four stages of 3, 3, 9, and 3 blocks, wit
 
 \subsection{Summary of Architectures}\label{sec:arch_summary}
 
-Table~\ref{tab:arch_summary} summarises the architectures used in this project. Besides the six pretrained architectures described above, it includes AlexNet \citep{krizhevsky2012alexnet}, a much older and simpler network of five convolutional layers followed by three fully connected layers, which is trained from scratch in this project as a baseline (Section~\ref{sec:exp_architectures}). The ImageNet column gives each architecture's size as defined in torchvision, with its original 1000-class output layer. The last two columns give the size of the final models trained in this project, after that output layer has been replaced with the tuned classifier head of each component (Section~\ref{sec:exp_hyperparams}).
+Table~\ref{tab:arch_summary} summarises the architectures used in this project. Besides the six pretrained architectures described above, it includes ResNet-18 (scratch), the ResNet-18 that is trained from randomly initialised weights as a baseline (Section~\ref{sec:exp_architectures}). The ImageNet column gives each architecture's size as defined in torchvision, with its original 1000-class output layer. The last two columns give the size of the final models trained in this project, after that output layer has been replaced with the tuned classifier head of each component (Section~\ref{sec:exp_hyperparams}).
 
 \begin{table}[htbp]
 \centering
 \footnotesize
 \setlength{\tabcolsep}{4pt}
-\caption{Summary of the seven architectures used in this project, ordered by year of publication, with their parameter counts in millions. The clarifier and aerobic zone columns include the tuned classifier head of each final model. Inception-v3's totals include its auxiliary classifier, which is only used during training.}\label{tab:arch_summary}
+\caption{Summary of the seven models used in this project, ordered by year of publication, with their parameter counts in millions. The clarifier and aerobic zone columns include the tuned classifier head of each final model. Inception-v3's totals include its auxiliary classifier, which is only used during training.}\label{tab:arch_summary}
 \begin{tabular}{llcccc}
 \toprule
  & & & \multicolumn{3}{c}{\textbf{Parameters}} \\
 \cmidrule(lr){4-6}
 \textbf{Architecture} & \textbf{Building block} & \textbf{Year} & \textbf{ImageNet} & \textbf{Clarifier} & \textbf{Aerobic} \\
 \midrule
-AlexNet         & Plain convolution       & 2012 & 61.1M & 57.0M & 57.0M \\
-ResNet-18       & Basic residual block    & 2016 & 11.7M & 16.4M & 12.0M \\
+ResNet-18       & Basic residual block    & 2016 & 11.7M & 11.4M & 11.2M \\
+ResNet-18 (scratch) & Basic residual block & 2016 & 11.7M & 13.8M & 13.8M \\
 ResNet-50       & Bottleneck block        & 2016 & 25.6M & 31.9M & 31.9M \\
-Inception-v3    & Inception module        & 2016 & 27.2M & 32.7M & 25.7M \\
-DenseNet-121    & Dense block             & 2017 & 8.0M  & 7.5M  & 13.3M \\
+Inception-v3    & Inception module        & 2016 & 27.2M & 25.9M & 25.9M \\
+DenseNet-121    & Dense block             & 2017 & 8.0M  & 13.3M & 7.0M  \\
 EfficientNet-B0 & MBConv                  & 2019 & 5.3M  & 4.0M  & 10.8M \\
-ConvNeXt-Tiny   & ConvNeXt block          & 2022 & 28.6M & 29.4M & 33.6M \\
+ConvNeXt-Tiny   & ConvNeXt block          & 2022 & 28.6M & 28.6M & 33.6M \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Two points stand out from Table~\ref{tab:arch_summary}. First, a network's parameter count says little about its age or depth: AlexNet, the oldest and shallowest network, is the largest, because about 58.6M of its 61.1M parameters sit in its three fully connected layers, while DenseNet-121, with 121 layers, is one of the smallest. Second, the classifier head can change a model's size considerably, since a single fully connected layer of 2048 neurons on top of a backbone with 2048 output features, as in ResNet-50, already adds about 4.2M parameters. EfficientNet-B0's aerobic zone model is the clearest example: its two-hidden-layer head of 2048 neurons adds about 6.8M parameters to a backbone of about 4.0M, more than doubling the size of the network.
+Two points stand out from Table~\ref{tab:arch_summary}. First, a network's parameter count says little about its depth: DenseNet-121, with 121 layers, is one of the smallest. Second, the classifier head can change a model's size considerably, since a single fully connected layer of 2048 neurons on top of a backbone with 2048 output features, as in ResNet-50, already adds about 4.2M parameters. EfficientNet-B0's aerobic zone model is the clearest example: its two-hidden-layer head of 2048 neurons adds about 6.8M parameters to a backbone of about 4.0M, more than doubling the size of the network.
 
 
 \section{Evaluation Metrics for Classification}\label{sec:metrics_background}
@@ -305,7 +305,7 @@ The \textbf{receiver operating characteristic (ROC) curve} plots the true positi
 
 \section{Gradient-Weighted Class Activation Mapping}\label{sec:gradcam_background}
 
-Gradient-weighted class activation mapping (Grad-CAM)~\citep{selvaraju2017gradcam} produces a heatmap that shows which regions of an input image contributed the most to the prediction of a CNN for a given class.
+Gradient-weighted class activation mapping (Grad-CAM)~\citep{selvaraju2017gradcam} produces a heatmap that shows which regions of an input image contributed the most to the output of a CNN for a given class.
 
 Grad-CAM uses the output of the last convolutional layer, which is the layer before the global pooling and the fully connected classification layers. This output consists of one feature map per channel, and $A^k$ denotes the feature map of channel $k$, with $A^k_{ij}$ the element in row $i$ and column $j$. A weight $\alpha_k^c$ is calculated for each channel by taking the gradient of the score $y^c$ of class $c$, which is the logit of that class before the softmax (Equation~\ref{eq:softmax}), with respect to every element of $A^k$, and averaging these gradients over the feature map:
 

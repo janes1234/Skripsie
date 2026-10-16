@@ -1,29 +1,20 @@
 """
 wwtw_utils.py
 =============
-Shared imports, configuration, dataset loading and helper functions for the
-WWTW CNN classifier notebooks.
+Shared config, data loading, training and evaluation code for the train_*.ipynb
+notebooks, which all start with `from wwtw_utils import *`.
 
-Every training notebook (train_resnet18.ipynb, train_resnet50.ipynb,
-train_densenet121.ipynb, train_inception_v3.ipynb) starts with:
-
-    from wwtw_utils import *
-
-This guarantees every notebook sees exactly the same config, data pipeline
-and helper functions, and removes the risk of one notebook's leftover
-GPU state bleeding into the next one (each notebook now runs in its own
-kernel / process).
+DATASET_ROOT, COMPONENT, AUGMENT and RESULTS_DIR are read from the environment
+at import time, so run.py / pipeline.py pick the split and component per run.
 """
 
 import os
-os.environ["CUDA_LAUNCH_BLOCKING"] = "1"
-
-import gc
 import copy
+import json
+import pickle
 from pathlib import Path
 
 import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
 from PIL import Image
 
@@ -31,9 +22,7 @@ import torch
 from torch import nn, optim
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms, models
-from torch.optim.lr_scheduler import ReduceLROnPlateau, StepLR
-import torch.nn.functional as F
-import torch.nn as nn
+from torch.optim.lr_scheduler import StepLR
 
 from sklearn.metrics import (
     confusion_matrix,
@@ -49,161 +38,59 @@ print(f"Using device: {device}")
 
 # ------------------------- CONFIG -------------------------
 
-default_root = "../cnn_dataset_split_facility_test-Waterval"
-DATASET_ROOT = Path(os.environ.get("DATASET_ROOT", default_root))  # adjust if your output folder is elsewhere
-COMPONENT = os.environ.get("COMPONENT", "clarifier")  # "aerobic_zone" or "clarifier" -- override with the COMPONENT env var
+DATASET_ROOT = Path(os.environ.get("DATASET_ROOT", "../cnn_dataset_split_facility_test-Waterval"))
+COMPONENT = os.environ.get("COMPONENT", "clarifier")  # "clarifier" or "aerobic_zone"
 
-# (height, width) — aerobic zones are ~2:1 (wide rectangles), clarifiers are
-# closer to square since they're circular tank crops. Adjust if your actual
-# crop aspect ratios differ noticeably — check a few images if unsure.
+# (height, width). Aerobic zones are wide rectangles, clarifiers roughly square.
 IMG_TARGET_SIZE = {
     "aerobic_zone": (112, 224),
     "clarifier": (224, 224),
 }[COMPONENT]
 
-# How an image is brought to IMG_TARGET_SIZE. "pad" (the default) keeps the
-# aspect ratio: it scales the image to fit inside (h, w) and fills the rest
-# with black, centred. "stretch" (used by older runs) resizes straight to
-# (h, w) instead, changing the aspect ratio. Override with the RESIZE_MODE
-# env var.
-RESIZE_MODE = os.environ.get("RESIZE_MODE", "pad")
-assert RESIZE_MODE in ("stretch", "pad"), RESIZE_MODE
-
-BATCH_SIZE = 32
-LR = 1e-3
-WEIGHT_DECAY = 1e-4     # L2 regularization — helps reduce the train/val gap
+WEIGHT_DECAY = 1e-4
 EPOCHS = 100
-EARLY_STOP_PATIENCE = 10   # stop if val loss hasn't improved for this many epochs
+EARLY_STOP_PATIENCE = 10
 SEED = 42
+ADAM_BETA2 = 0.999
 
-# AUGMENT=0 turns off every train-time augmentation (flip/rotation/color
-# jitter), so train images get exactly the same resize+normalize as val/test.
-# Used for the with-vs-without augmentation comparison; default is on.
+# Largest batch actually put on the GPU. Bigger tuned batch sizes are reached
+# with gradient accumulation (see run_epoch).
+MICRO_BATCH_CAP = 16
+
+# AUGMENT=0 turns off all train-time augmentation, for the with/without comparison.
 AUGMENT = os.environ.get("AUGMENT", "1") != "0"
 
-# Padded runs save their weights to models/pad/ so the stretched models are kept.
-MODEL_SAVE_PATH = Path(f"../models/{'pad/' if RESIZE_MODE == 'pad' else ''}{COMPONENT}_cnn.pt")
-# where per-model results_*.pkl files are written -- override with the
-# RESULTS_DIR env var so separate experiments (e.g. aerobic zones with and
-# without augmentation) don't overwrite each other's results.
+MODEL_SAVE_DIR = Path("../models/pad")
 RESULTS_DIR = Path(os.environ.get("RESULTS_DIR", "../results"))
-FIGURES_DIR = RESULTS_DIR / "figures"   # where every plot below also gets saved as a PNG
+FIGURES_DIR = RESULTS_DIR / "figures"
 
-
-def _slugify(name: str) -> str:
-    return name.strip().lower().replace(" ", "_").replace("-", "_")
-
-
-def _save_figure(fig, kind: str, model_name: str):
-    """Saves a copy of `fig` to FIGURES_DIR, on top of whatever plt.show()
-    does. Interactively (inside a notebook) plt.show() already displays it,
-    so this is easy to miss the point of -- but a headless run (e.g. via
-    run.py, driving several architectures across all 5 held-out facilities
-    with no one watching) never renders anything via plt.show() at all, so
-    without this every confusion matrix/ROC curve/loss graph from a batch
-    run would simply be lost. The filename encodes component, model and
-    held-out test facility so a full batch run never overwrites a plot
-    from a different combination."""
-    FIGURES_DIR.mkdir(parents=True, exist_ok=True)
-    fname = f"{COMPONENT}_{_slugify(model_name)}_{TEST_SET_ID}_{kind}.png"
-    fig.savefig(FIGURES_DIR / fname, dpi=150, bbox_inches="tight")
+IMAGENET_MEAN = [0.485, 0.456, 0.406]
+IMAGENET_STD = [0.229, 0.224, 0.225]
 
 
 def get_test_set_id():
-    """Derive a short, filename-safe identifier for the current test set
-    from DATASET_ROOT, e.g.
-    '../cnn_dataset_split_facility_test-NoordelikeWerke' -> 'NoordelikeWerke'.
-    Falls back to the folder's full name if there's no '-' to split on, so
-    results stay identifiable even for non-facility-holdout split folders.
-    This gets baked into the results filename so a downstream notebook
-    (e.g. the relabel-review notebook) can tell at a glance — and filter
-    reliably — which held-out test set a given results_*.pkl came from.
-    """
-    root_name = DATASET_ROOT.name
-    if "-" in root_name:
-        return root_name.split("-")[-1]
-    return root_name
+    """Test set name from DATASET_ROOT, e.g. '..._facility_test-Waterval' ->
+    'Waterval' and '..._split-chronological' -> 'chronological'."""
+    return DATASET_ROOT.name.split("-")[-1]
 
 
 TEST_SET_ID = get_test_set_id()
-print(f"Test set ID (derived from DATASET_ROOT): {TEST_SET_ID}")
-
-# ------------------------------------------------------------------
+print(f"Test set ID: {TEST_SET_ID}")
 
 data_dir = DATASET_ROOT / COMPONENT
-assert data_dir.exists(), f"Dataset folder not found: {data_dir}. Run prepare_cnn_dataset.py first."
+assert data_dir.exists(), f"Dataset folder not found: {data_dir}"
 
 torch.manual_seed(SEED)
 print(f"Train-time augmentation: {'on' if AUGMENT else 'off'}")
 
-
-class _EmptyImageFolder(torch.utils.data.Dataset):
-    """Stand-in for an ImageFolder split that has no images at all, e.g. the
-    aerobic_zone test split when NoordelikeWerke (which has no aerobic zones)
-    is the held-out facility, as it is for tuning. Only train/val are used
-    then, so an empty test set is fine."""
-    def __init__(self):
-        self.samples, self.targets, self.class_to_idx, self.classes = [], [], {}, []
-
-    def __len__(self):
-        return 0
-
-    def __getitem__(self, idx):
-        raise IndexError(idx)
+# The canonical class -> index mapping, taken from the training split. Every
+# other split is forced onto it (see align_dataset_to_classes).
+class_names, class_to_idx = datasets.folder.find_classes(data_dir / "train")
+num_classes = len(class_names)
+print(f"Classes found ({num_classes}): {class_names}")
 
 
-def load_image_folder(root, transform):
-    if not Path(root).is_dir():
-        print(f"[warn] {root} does not exist -- using an empty split.")
-        return _EmptyImageFolder()
-    return datasets.ImageFolder(root=root, transform=transform)
-
-
-def align_dataset_to_classes(ds, class_to_idx):
-    """Forces an already-built ImageFolder `ds` to use `class_to_idx`
-    instead of whatever class-to-index mapping it discovered on its own.
-
-    Why this is necessary: torchvision's ImageFolder assigns integer class
-    indices purely from which subfolders exist *in that split* -- it has
-    no idea what classes exist elsewhere. If a held-out facility's test
-    set happens to have zero images for some class (e.g. no "Empty"
-    clarifiers for that facility), that class's folder never gets created
-    by prep.py/split_data_facility.py, so the test set's local class list
-    ends up *shorter* than train's. Every class that comes after the
-    missing one alphabetically then silently lands on the wrong index --
-    e.g. actual "Functional" images get assigned whatever index train_ds
-    calls "Empty".
-
-    That corrupts two things at once: (1) the reported accuracy/confusion
-    matrix/ROC curves, because predictions (indexed by the model's output,
-    which matches train_ds's ordering) and true labels (indexed by the
-    test set's own, different ordering) are being compared in two
-    different index spaces; and (2) every "true"/"pred" string written to
-    per_sample for the relabel-review notebook.
-
-    Call this on every split (train/val/test) right after building it, and
-    again inside get_dataloaders() for each architecture's own freshly
-    built datasets, always passing the SAME canonical class_to_idx (see
-    below). That guarantees an index always means the same class
-    everywhere in the notebook, even for classes with zero images in a
-    particular split.
-    """
-    idx_remap = {
-        old_idx: class_to_idx[class_name]
-        for class_name, old_idx in ds.class_to_idx.items()
-    }
-    ds.samples = [(path, idx_remap[old_idx]) for path, old_idx in ds.samples]
-    ds.targets = [idx_remap[old_idx] for old_idx in ds.targets]
-    ds.class_to_idx = dict(class_to_idx)
-    ds.classes = [name for name, _ in sorted(class_to_idx.items(), key=lambda kv: kv[1])]
-    return ds
-
-
-# ------------------------- DEFAULT DATASET / LOADERS -------------------------
-# Built once at import time, at the "default" IMG_TARGET_SIZE / BATCH_SIZE
-# configured above. This is what the ResNet-18 baseline trains on directly.
-# The other architectures build their own loaders via get_dataloaders()
-# below (different image size and/or batch size per the tuned hyperparameters).
+# ------------------------- DATA -------------------------
 
 class LetterboxResize:
     """Scales a PIL image to fit inside `size` (h, w) without changing its
@@ -227,135 +114,77 @@ class LetterboxResize:
         return f"LetterboxResize(size={self.size})"
 
 
-def resize_transform(size):
-    """The resize step every loader uses, per RESIZE_MODE."""
-    return LetterboxResize(size) if RESIZE_MODE == "pad" else transforms.Resize(size)
-
-
 def augmentation_transforms():
-    """The train-time augmentations, in the order they are applied. Shared by
-    every training loader below and by the augmentation figure in
-    data_exploration.ipynb, so the report always shows what training uses."""
+    """The train-time augmentations, in order. Also used for the augmentation
+    figure in data_exploration.ipynb."""
     return [
         transforms.RandomHorizontalFlip(),
         transforms.RandomRotation(15),
-        # Aggressive color jitter to stop it from memorizing water color or sun glare
         transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.3, hue=0.1),
     ]
 
 
-train_transform = transforms.Compose([
-    resize_transform(IMG_TARGET_SIZE),
-    *(augmentation_transforms() if AUGMENT else []),
-    transforms.ToTensor(),
-    transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                          std=[0.229, 0.224, 0.225]),
-])
+def make_transform(img_size, train):
+    augment = augmentation_transforms() if (train and AUGMENT) else []
+    return transforms.Compose([
+        LetterboxResize(img_size),
+        *augment,
+        transforms.ToTensor(),
+        transforms.Normalize(mean=IMAGENET_MEAN, std=IMAGENET_STD),
+    ])
 
-eval_transform = transforms.Compose([
-    resize_transform(IMG_TARGET_SIZE),
-    transforms.ToTensor(),
-    transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                          std=[0.229, 0.224, 0.225]),
-])
 
-# Load explicitly from the predefined split folders
-train_ds = datasets.ImageFolder(root=data_dir / "train", transform=train_transform)
-val_ds = datasets.ImageFolder(root=data_dir / "val", transform=eval_transform)
-test_ds = load_image_folder(data_dir / "test", eval_transform)
+def align_dataset_to_classes(ds, class_to_idx):
+    """ImageFolder numbers classes by the folders present in that split, so a
+    split missing a class (e.g. no Empty clarifiers at Waterval) would shift
+    every later class onto the wrong index. This remaps `ds` onto the
+    canonical `class_to_idx`."""
+    idx_remap = {old_idx: class_to_idx[name] for name, old_idx in ds.class_to_idx.items()}
+    ds.samples = [(path, idx_remap[old_idx]) for path, old_idx in ds.samples]
+    ds.targets = [idx_remap[old_idx] for old_idx in ds.targets]
+    ds.class_to_idx = dict(class_to_idx)
+    ds.classes = [name for name, _ in sorted(class_to_idx.items(), key=lambda kv: kv[1])]
+    return ds
 
-# Canonical class_to_idx for the whole notebook, always taken from train_ds
-# -- train pools every non-held-out facility, so it's by far the split most
-# likely to actually contain every class. val_ds/test_ds get force-aligned
-# to this exact mapping, even if one of them is missing a class entirely,
-# so an index always means the same class in every split. See
-# align_dataset_to_classes() above for why this matters.
-class_to_idx = train_ds.class_to_idx
-class_names = train_ds.classes
-num_classes = len(class_names)
-print(f"Classes found ({num_classes}): {class_names}")
 
-align_dataset_to_classes(val_ds, class_to_idx)
-align_dataset_to_classes(test_ds, class_to_idx)
-
-print(f"Train: {len(train_ds)} | Val: {len(val_ds)} | Test: {len(test_ds)}")
-
-# multiprocessing_context="fork" -- Python 3.14 changed the default worker
-# start method on Linux from "fork" to "forkserver", which re-imports the
-# main module in each worker and crashes (RuntimeError: an attempt has been
-# made to start a new process before the current process has finished its
-# bootstrapping phase) once CUDA is already initialized in the parent, which
-# it always is by the time any loader is iterated here. "fork" is safe even
-# with a CUDA context already live in the parent, since these workers only
-# ever do CPU-side work (PIL load/resize/augment/ToTensor) -- the model
-# itself never touches CUDA until after a batch is collated back in the main
-# process.
+# Python 3.14 defaults to "forkserver" on Linux, which crashes once CUDA is
+# initialised in the parent. The workers only do CPU-side image loading, so
+# "fork" is safe.
 DATALOADER_MP_CONTEXT = "fork"
 
-train_loader = DataLoader(train_ds, batch_size=BATCH_SIZE, shuffle=True, num_workers=4, pin_memory=True,
-                          multiprocessing_context=DATALOADER_MP_CONTEXT)
-val_loader = DataLoader(val_ds, batch_size=BATCH_SIZE, shuffle=False, num_workers=4, pin_memory=True,
-                        multiprocessing_context=DATALOADER_MP_CONTEXT)
-test_loader = DataLoader(test_ds, batch_size=BATCH_SIZE, shuffle=False, num_workers=4, pin_memory=True,
-                         multiprocessing_context=DATALOADER_MP_CONTEXT)
+
+def get_dataloaders(img_size, batch_size):
+    """Train/val/test ImageFolder datasets and loaders for one architecture."""
+    tr_ds = datasets.ImageFolder(root=data_dir / "train", transform=make_transform(img_size, train=True))
+    va_ds = datasets.ImageFolder(root=data_dir / "val", transform=make_transform(img_size, train=False))
+    te_ds = datasets.ImageFolder(root=data_dir / "test", transform=make_transform(img_size, train=False))
+    for ds in (tr_ds, va_ds, te_ds):
+        align_dataset_to_classes(ds, class_to_idx)
+    print(f"Train: {len(tr_ds)} | Val: {len(va_ds)} | Test: {len(te_ds)}")
+
+    loader_args = dict(batch_size=batch_size, num_workers=4, pin_memory=True,
+                       multiprocessing_context=DATALOADER_MP_CONTEXT)
+    # A last training batch of one image crashes Inception-v3's aux classifier
+    # (BatchNorm on a 1x1 feature map), so it is dropped in that case only.
+    tr_loader = DataLoader(tr_ds, shuffle=True, drop_last=(len(tr_ds) % batch_size == 1), **loader_args)
+    va_loader = DataLoader(va_ds, shuffle=False, **loader_args)
+    te_loader = DataLoader(te_ds, shuffle=False, **loader_args)
+    return tr_ds, va_ds, te_ds, tr_loader, va_loader, te_loader
 
 
-def denormalize(img_tensor):
-    mean = torch.tensor([0.485, 0.456, 0.406]).view(3, 1, 1)
-    std = torch.tensor([0.229, 0.224, 0.225]).view(3, 1, 1)
-    return (img_tensor * std + mean).clamp(0, 1)
+def make_class_weights(train_ds_):
+    """Inverse-frequency class weights, normalised to sum to num_classes."""
+    counts = np.bincount([label for _, label in train_ds_.samples], minlength=num_classes)
+    w = 1.0 / torch.tensor(counts, dtype=torch.float32)
+    w = w / w.sum() * num_classes
+    return w.to(device)
 
 
-# ------------------------- TRAINING / EVAL HELPERS -------------------------
-
-# Collects the results (trained model + metrics) for whichever architecture(s)
-# are trained in *this* notebook/process. Each training notebook now only
-# ever trains one architecture, so this dict will hold a single entry — it
-# gets pickled to disk at the end of each training notebook (see the last
-# cell of each train_*.ipynb) so the results notebook can later load and
-# compare all four without needing the GPU or the trained models in memory.
-results = {}
-
-# Mixed precision roughly halves activation memory and speeds up training on
-# GPU, with negligible accuracy impact — a good default when GPU memory is
-# tight (e.g. the 7-8 GB cards common on shared/university machines).
-USE_AMP = torch.cuda.is_available()
-AMP_DTYPE = torch.float16
-
-
-def report_gpu_memory(label=""):
-    if torch.cuda.is_available():
-        alloc = torch.cuda.memory_allocated() / 1e9
-        reserved = torch.cuda.memory_reserved() / 1e9
-        tag = f" — {label}" if label else ""
-        print(f"[GPU memory{tag}] allocated: {alloc:.2f} GB | reserved: {reserved:.2f} GB")
-
-
-def free_gpu(*names, scope):
-    """Deletes the given variable names from `scope` (pass globals()) and
-    releases their GPU memory. Needed because optimizers/schedulers hold
-    references to GPU tensors (Adam's momentum buffers, in particular) and
-    stay alive as notebook globals until explicitly deleted — otherwise each
-    architecture's optimizer keeps accumulating in memory across sections."""
-    for name in names:
-        if name in scope:
-            del scope[name]
-    gc.collect()
-    if torch.cuda.is_available():
-        torch.cuda.empty_cache()
-    report_gpu_memory("after cleanup")
-
+# ------------------------- MODEL -------------------------
 
 def build_classifier_head(in_features, hidden_layers, neurons, num_classes):
-    """FC classifier head: `hidden_layers` ReLU-activated hidden layers of
-    `neurons` units each, ending in a Linear(-> num_classes) layer.
-
-    This mirrors the classifier design swept in the architecture grid search
-    (H = number of hidden layers, N = neurons per layer) — see
-    ARCH_HYPERPARAMS below. hidden_layers=0 just gives a single
-    Linear(in_features, num_classes) layer, which is what the ResNet-18
-    baseline uses.
-    """
+    """`hidden_layers` Linear+ReLU layers of `neurons` units, then a final
+    Linear to num_classes. hidden_layers=0 gives a single Linear layer."""
     layers = []
     in_f = in_features
     for _ in range(hidden_layers):
@@ -366,68 +195,19 @@ def build_classifier_head(in_features, hidden_layers, neurons, num_classes):
     return nn.Sequential(*layers)
 
 
-def get_dataloaders(img_size, batch_size):
-    """Builds train/val/test ImageFolder datasets + loaders for a given
-    image size and batch size. Separate from the module-level train_loader
-    /val_loader/test_loader above because each architecture uses its own
-    image size (InceptionNet v3 needs 299x299) and its own tuned batch size."""
-    train_tf = transforms.Compose([
-        resize_transform(img_size),
-        *(augmentation_transforms() if AUGMENT else []),
-        transforms.ToTensor(),
-        transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                              std=[0.229, 0.224, 0.225]),
-    ])
-    eval_tf = transforms.Compose([
-        resize_transform(img_size),
-        transforms.ToTensor(),
-        transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                              std=[0.229, 0.224, 0.225]),
-    ])
+# ------------------------- TRAINING -------------------------
 
-    tr_ds = datasets.ImageFolder(root=data_dir / "train", transform=train_tf)
-    va_ds = datasets.ImageFolder(root=data_dir / "val", transform=eval_tf)
-    te_ds = load_image_folder(data_dir / "test", eval_tf)
-
-    # Force every split built here onto the SAME canonical class_to_idx as
-    # the module-level train_ds/val_ds/test_ds, so this architecture's own
-    # freshly-built datasets can't drift onto a different local class
-    # ordering (e.g. if this split is missing a class some other split
-    # has). See align_dataset_to_classes() for the full explanation.
-    align_dataset_to_classes(tr_ds, class_to_idx)
-    align_dataset_to_classes(va_ds, class_to_idx)
-    align_dataset_to_classes(te_ds, class_to_idx)
-
-    # A final training batch of exactly 1 image crashes BatchNorm layers that
-    # see a 1x1 feature map (InceptionNet v3's aux classifier: "Expected more
-    # than 1 value per channel when training"), so drop it in that case only.
-    tr_loader = DataLoader(tr_ds, batch_size=batch_size, shuffle=True, num_workers=4, pin_memory=True,
-                           drop_last=(len(tr_ds) % batch_size == 1),
-                           multiprocessing_context=DATALOADER_MP_CONTEXT)
-    va_loader = DataLoader(va_ds, batch_size=batch_size, shuffle=False, num_workers=4, pin_memory=True,
-                           multiprocessing_context=DATALOADER_MP_CONTEXT)
-    te_loader = DataLoader(te_ds, batch_size=batch_size, shuffle=False, num_workers=4, pin_memory=True,
-                           multiprocessing_context=DATALOADER_MP_CONTEXT)
-    return tr_ds, va_ds, te_ds, tr_loader, va_loader, te_loader
+USE_AMP = torch.cuda.is_available()
+AMP_DTYPE = torch.float16
 
 
-def make_class_weights(train_ds_):
-    """Inverse-frequency class weights, normalized to sum to num_classes."""
-    counts = np.bincount([label for _, label in train_ds_.samples], minlength=num_classes)
-    w = 1.0 / torch.tensor(counts, dtype=torch.float32)
-    w = w / w.sum() * num_classes
-    return w.to(device)
-
-
-def run_epoch(model, loader, optimizer, criterion, train_mode, is_inception=False,
-              accum_steps=1, scaler=None):
-    """accum_steps > 1 implements gradient accumulation: the loader uses a
-    small "micro batch" that comfortably fits in GPU memory, but gradients
-    are accumulated over `accum_steps` micro-batches before each optimizer
-    step — so the effective batch size (and the resulting gradient
-    statistics) matches the larger tuned batch size without ever holding
-    that many samples' activations in memory at once."""
-    model.train() if train_mode else model.eval()
+def run_epoch(model, loader, criterion, optimizer=None, scaler=None, is_inception=False, accum_steps=1):
+    """One pass over `loader`. Trains when an optimizer is given, otherwise
+    only evaluates. With accum_steps > 1, gradients are summed over that many
+    micro-batches before each optimizer step, so the effective batch size
+    matches the tuned one. Returns (mean loss, accuracy)."""
+    train_mode = optimizer is not None
+    model.train(train_mode)
     total_loss, correct, total = 0.0, 0, 0
     if train_mode:
         optimizer.zero_grad()
@@ -439,9 +219,7 @@ def run_epoch(model, loader, optimizer, criterion, train_mode, is_inception=Fals
 
             with torch.autocast(device_type="cuda", dtype=AMP_DTYPE, enabled=USE_AMP):
                 if is_inception and train_mode:
-                    # Inception's aux classifier gets its own loss term, weighted
-                    # down (0.4x), which is the standard way to train it — it
-                    # acts as an auxiliary gradient signal earlier in the network.
+                    # Inception-v3's auxiliary classifier adds a 0.4-weighted loss term.
                     y_hat, aux_hat = model(images)
                     loss = criterion(y_hat, labels) + 0.4 * criterion(aux_hat, labels)
                 else:
@@ -449,17 +227,10 @@ def run_epoch(model, loader, optimizer, criterion, train_mode, is_inception=Fals
                     loss = criterion(y_hat, labels)
 
             if train_mode:
-                scaled_loss = loss / accum_steps
-                if scaler is not None:
-                    scaler.scale(scaled_loss).backward()
-                else:
-                    scaled_loss.backward()
+                scaler.scale(loss / accum_steps).backward()
                 if (step + 1) % accum_steps == 0:
-                    if scaler is not None:
-                        scaler.step(optimizer)
-                        scaler.update()
-                    else:
-                        optimizer.step()
+                    scaler.step(optimizer)
+                    scaler.update()
                     optimizer.zero_grad()
 
             total_loss += loss.item() * images.size(0)
@@ -467,74 +238,38 @@ def run_epoch(model, loader, optimizer, criterion, train_mode, is_inception=Fals
             total += images.size(0)
             step += 1
 
-        # Flush any leftover accumulated gradients from a final partial group
+        # Apply the gradients of a final, incomplete accumulation group.
         if train_mode and total > 0 and step % accum_steps != 0:
-            if scaler is not None:
-                scaler.step(optimizer)
-                scaler.update()
-            else:
-                optimizer.step()
+            scaler.step(optimizer)
+            scaler.update()
             optimizer.zero_grad()
 
     return total_loss / total, correct / total
 
 
 def train_model(model, train_loader, val_loader, optimizer, scheduler, criterion,
-                 epochs, patience, model_name, is_inception=False, accum_steps=1,
-                 test_loader=None, epoch_callback=None):
-    """Training loop with early stopping on validation loss: track val loss
-    each epoch, keep the best-performing weights in memory, stop once val
-    loss hasn't improved for `patience` epochs, then restore the best
-    checkpoint. patience=None disables early stopping (always runs all
-    `epochs`), but the best-val-loss checkpoint is still restored at the end.
-
-    test_loader is optional and purely diagnostic: if given, test loss/acc
-    get computed and logged every epoch too, purely so plot_training_curves
-    can plot a test line alongside train/val. It never influences training
-    in any way -- best_state is still selected on val_loss only, exactly as
-    before. Passing it does add a third forward pass over data each epoch
-    though, so expect roughly 30-50% longer epochs versus leaving it out.
-
-    epoch_callback, if given, is called as epoch_callback(epoch, val_loss,
-    val_acc) at the end of every epoch, after history/best-checkpoint
-    bookkeeping for that epoch. Every real training notebook leaves this as
-    None; it exists so tune.py can hook in Optuna's trial.report()/pruning
-    without duplicating this loop. Raising inside the callback (e.g.
-    optuna.TrialPruned) stops training immediately, same as any other
-    exception.
-    """
+                epochs, patience, model_name, is_inception=False, accum_steps=1,
+                epoch_callback=None):
+    """Trains with early stopping on validation loss and restores the weights
+    of the epoch with the lowest validation loss. epoch_callback(epoch,
+    val_loss, val_acc) is called after every epoch; tune.py uses it for Optuna
+    pruning."""
     history = {"train_loss": [], "train_acc": [], "val_loss": [], "val_acc": []}
-    if test_loader is not None:
-        history["test_loss"] = []
-        history["test_acc"] = []
     best_val_loss = float("inf")
     best_state = None
     epochs_no_improve = 0
-    scaler = torch.amp.GradScaler('cuda', enabled=USE_AMP)
+    scaler = torch.amp.GradScaler("cuda", enabled=USE_AMP)
 
     if accum_steps > 1:
-        print(f"[{model_name}] Using gradient accumulation: {accum_steps} micro-batches "
-              f"per optimizer step (effective batch size ≈ micro_batch x {accum_steps}).")
+        print(f"[{model_name}] Gradient accumulation: {accum_steps} micro-batches per optimizer step.")
 
     for epoch in range(1, epochs + 1):
-        train_loss, train_acc = run_epoch(model, train_loader, optimizer, criterion, True,
-                                           is_inception, accum_steps, scaler)
-        val_loss, val_acc = run_epoch(model, val_loader, optimizer, criterion, False,
-                                       is_inception, accum_steps, scaler)
+        train_loss, train_acc = run_epoch(model, train_loader, criterion, optimizer, scaler,
+                                          is_inception, accum_steps)
+        val_loss, val_acc = run_epoch(model, val_loader, criterion, is_inception=is_inception)
 
-        test_info = ""
-        if test_loader is not None:
-            test_loss, test_acc = run_epoch(model, test_loader, optimizer, criterion, False,
-                                             is_inception, accum_steps, scaler)
-            history["test_loss"].append(test_loss)
-            history["test_acc"].append(test_acc)
-            test_info = f" | test loss {test_loss:.4f} acc {test_acc:.3f}"
-
-        if isinstance(scheduler, ReduceLROnPlateau):
-            scheduler.step(val_loss)
-        else:
-            scheduler.step()
-        current_lr = optimizer.param_groups[0]['lr']
+        scheduler.step()
+        current_lr = optimizer.param_groups[0]["lr"]
 
         history["train_loss"].append(train_loss)
         history["train_acc"].append(train_acc)
@@ -552,13 +287,13 @@ def train_model(model, train_loader, val_loader, optimizer, scheduler, criterion
         flag = " *" if improved else ""
         print(f"[{model_name}] Epoch {epoch:3d}/{epochs} | LR: {current_lr:.2e} | "
               f"train loss {train_loss:.4f} acc {train_acc:.3f} | "
-              f"val loss {val_loss:.4f} acc {val_acc:.3f}{test_info}{flag}")
+              f"val loss {val_loss:.4f} acc {val_acc:.3f}{flag}")
 
         if epoch_callback is not None:
             epoch_callback(epoch, val_loss, val_acc)
 
         if patience is not None and epochs_no_improve >= patience:
-            print(f"\n[{model_name}] No val loss improvement for {patience} epochs — stopping early at epoch {epoch}.")
+            print(f"\n[{model_name}] No val loss improvement for {patience} epochs, stopping at epoch {epoch}.")
             break
 
     model.load_state_dict(best_state)
@@ -566,16 +301,26 @@ def train_model(model, train_loader, val_loader, optimizer, scheduler, criterion
     return history
 
 
+# ------------------------- EVALUATION -------------------------
+
+def _slugify(name: str) -> str:
+    return name.strip().lower().replace(" ", "_").replace("-", "_")
+
+
+def _save_figure(fig, kind: str, model_name: str):
+    """Saves `fig` to FIGURES_DIR, since headless runs never display plt.show()."""
+    FIGURES_DIR.mkdir(parents=True, exist_ok=True)
+    fname = f"{COMPONENT}_{_slugify(model_name)}_{TEST_SET_ID}_{kind}.png"
+    fig.savefig(FIGURES_DIR / fname, dpi=150, bbox_inches="tight")
+
+
 def plot_training_curves(history, model_name):
     best_epoch = int(np.argmin(history["val_loss"])) + 1
-    has_test = bool(history.get("test_loss"))
 
     fig, axes = plt.subplots(1, 2, figsize=(12, 4))
 
     axes[0].plot(history["train_loss"], label="train")
     axes[0].plot(history["val_loss"], label="val")
-    if has_test:
-        axes[0].plot(history["test_loss"], label="test", linestyle=":")
     axes[0].axvline(best_epoch - 1, color="gray", linestyle="--", linewidth=1, label="restored checkpoint")
     axes[0].set_title(f"{model_name} — Loss")
     axes[0].set_xlabel("Epoch")
@@ -583,8 +328,6 @@ def plot_training_curves(history, model_name):
 
     axes[1].plot(history["train_acc"], label="train")
     axes[1].plot(history["val_acc"], label="val")
-    if has_test:
-        axes[1].plot(history["test_acc"], label="test", linestyle=":")
     axes[1].axvline(best_epoch - 1, color="gray", linestyle="--", linewidth=1)
     axes[1].set_title(f"{model_name} — Accuracy")
     axes[1].set_xlabel("Epoch")
@@ -596,9 +339,7 @@ def plot_training_curves(history, model_name):
 
 
 def collect_predictions(model, loader):
-    """Runs the test set through the model once, returning predicted
-    labels, true labels and full class-probability vectors (the last one
-    is needed for the ROC/AUC curves)."""
+    """Returns (predicted labels, true labels, softmax probabilities)."""
     model.eval()
     all_preds, all_labels, all_probs = [], [], []
     with torch.no_grad():
@@ -625,47 +366,21 @@ def plot_confusion_and_report(all_labels, all_preds, class_names, model_name):
     _save_figure(fig, "confusion_matrix", model_name)
     plt.show()
 
-    print(classification_report(
-        all_labels,
-        all_preds,
-        labels=range(len(class_names)),
-        target_names=class_names,
-        digits=3,
-        zero_division=0
-    ))
-
-    # Same report, as a dict, so precision/recall/f1 per class can be
-    # persisted to the results pickle and reloaded later (e.g. by
-    # results_comparison.ipynb) without needing the model or GPU again.
-    report_dict = classification_report(
-        all_labels,
-        all_preds,
-        labels=range(len(class_names)),
-        target_names=class_names,
-        digits=3,
-        zero_division=0,
-        output_dict=True,
-    )
+    report_args = dict(labels=range(len(class_names)), target_names=class_names, digits=3, zero_division=0)
+    print(classification_report(all_labels, all_preds, **report_args))
+    report_dict = classification_report(all_labels, all_preds, output_dict=True, **report_args)
     return test_acc, cm, report_dict
 
 
 def plot_roc_auc(all_labels, all_probs, class_names, num_classes, model_name):
+    """One-vs-rest ROC curve and AUC per class. A class with no test images
+    gets an AUC of NaN, since AUC is undefined without positives."""
     y_true_bin = label_binarize(all_labels, classes=list(range(num_classes)))
 
     fig = plt.figure(figsize=(7, 6))
     roc_aucs = {}
     for i, name in enumerate(class_names):
-        n_positive = int(y_true_bin[:, i].sum())
-        if n_positive == 0:
-            # AUC is the probability a random positive example outranks a
-            # random negative one -- with zero positive examples of this
-            # class in this held-out facility's test set, that's genuinely
-            # undefined, not a bug. sklearn.roc_auc_score correctly raises
-            # on this rather than guessing a value, which used to crash the
-            # entire evaluation over one rare/absent class. Record it as
-            # NaN and keep going instead, so everything else for this run
-            # (test_acc, confusion matrix, the other classes' AUC) still
-            # gets computed and saved.
+        if y_true_bin[:, i].sum() == 0:
             roc_aucs[name] = float("nan")
             print(f"  [warn] '{name}' has 0 examples in this test set — AUC undefined, skipping.")
             continue
@@ -693,60 +408,45 @@ def plot_roc_auc(all_labels, all_probs, class_names, num_classes, model_name):
     return roc_aucs
 
 
-def evaluate_and_record(model, test_loader, model_name, history, img_size, hidden_layers, neurons):
-    """Runs the full evaluation block (confusion matrix, report, ROC/AUC)
-    for one trained model and stores everything in `results` for the
-    save/pickle cell at the end of the training notebook.
+# Results of the architecture trained in this process, written out by save_result().
+results = {}
 
-    Also captures a per-sample record (image path, true label, predicted
-    label, correct/incorrect) for every test image, in the same order as
-    test_loader.dataset.samples — this is what lets a downstream notebook
-    (e.g. the relabel-review notebook) just load the saved pickle and
-    display misclassified images directly, without reloading the model or
-    re-running inference.
-    """
-    # Guard against the class-index-mismatch bug align_dataset_to_classes()
-    # fixes: if test_loader.dataset ever ends up with a different
-    # class_to_idx than the canonical one (e.g. a future edit builds a
-    # dataset without calling align_dataset_to_classes), fail loudly here
-    # instead of silently writing wrong true/pred labels and a corrupted
-    # accuracy figure.
-    assert test_loader.dataset.class_to_idx == class_to_idx, (
-        "test_loader.dataset has a different class_to_idx than the "
-        "canonical one -- true/pred labels would be silently wrong. "
-        "Did you build this dataset without calling align_dataset_to_classes()?"
-    )
 
-    preds, labels_, probs = collect_predictions(model, test_loader)
-    test_acc, cm, report_dict = plot_confusion_and_report(labels_, preds, class_names, model_name)
-    roc_aucs = plot_roc_auc(labels_, probs, class_names, num_classes, model_name)
-
-    # loader.dataset.samples is in the same order collect_predictions iterated
-    # in, since test_loader uses shuffle=False (num_workers doesn't reorder a
-    # map-style dataset's iteration order).
-    sample_paths = [str(p) for p, _ in test_loader.dataset.samples]
-    per_sample = [
+def per_sample_records(loader, labels_, preds, probs):
+    """One record per image (path, true and assigned class, softmax
+    probabilities). The loader must not be shuffled, so dataset.samples is
+    in the same order as the outputs."""
+    sample_paths = [str(p) for p, _ in loader.dataset.samples]
+    return [
         {
             "path": path,
             "true": class_names[true_idx],
             "pred": class_names[pred_idx],
             "correct": bool(true_idx == pred_idx),
-            # Full softmax vector for this sample, keyed by class name. This
-            # is what lets a downstream notebook re-threshold predictions
-            # (e.g. collapse to a binary OK/not-OK decision and pick an
-            # operating point from an ROC curve) without needing the model
-            # or GPU again -- per_sample's "pred" above is fixed at the
-            # default argmax/0.5-equivalent threshold and can't be redone.
             "probs": {name: float(p) for name, p in zip(class_names, prob_vec)},
         }
         for path, true_idx, pred_idx, prob_vec in zip(sample_paths, labels_, preds, probs)
     ]
 
-    # Move the finished model to CPU before storing it. Keeping the trained
-    # model resident on the GPU is what causes later cells to run out of
-    # memory — we only need the weights (for saving), not for the model to
-    # stay on GPU. It can be moved back with .to(device) for any further
-    # inference.
+
+def evaluate_and_record(model, test_loader, model_name, history, img_size, hidden_layers, neurons,
+                        dev_loader):
+    """Evaluates `model` on the test set and stores the metrics, plus a
+    per-image record for the test set and the development set. The results
+    notebooks choose the binary OK/not-OK threshold on the development
+    records and report it on the test records."""
+    for loader in (test_loader, dev_loader):
+        assert loader.dataset.class_to_idx == class_to_idx, \
+            "split is not aligned to the canonical class_to_idx"
+
+    preds, labels_, probs = collect_predictions(model, test_loader)
+    test_acc, cm, report_dict = plot_confusion_and_report(labels_, preds, class_names, model_name)
+    roc_aucs = plot_roc_auc(labels_, probs, class_names, num_classes, model_name)
+    per_sample = per_sample_records(test_loader, labels_, preds, probs)
+
+    dev_preds, dev_labels, dev_probs = collect_predictions(model, dev_loader)
+    dev_per_sample = per_sample_records(dev_loader, dev_labels, dev_preds, dev_probs)
+
     model_cpu = model.to("cpu")
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
@@ -756,6 +456,7 @@ def evaluate_and_record(model, test_loader, model_name, history, img_size, hidde
         mean_auc=float(np.nanmean(list(roc_aucs.values()))),
         img_size=img_size, hidden_layers=hidden_layers, neurons=neurons,
         per_sample=per_sample,
+        dev_per_sample=dev_per_sample,
         confusion_matrix=cm,
         classification_report=report_dict,
         roc_aucs=roc_aucs,
@@ -764,19 +465,10 @@ def evaluate_and_record(model, test_loader, model_name, history, img_size, hidde
 
 
 def save_result(model_key, save_name):
-    """Pickles the metrics/history/per-sample predictions for `model_key`
-    (from `results`) to RESULTS_DIR/results_<COMPONENT>_<save_name>_<TEST_SET_ID>.pkl,
-    and separately saves the model weights via torch.save to
-    MODEL_SAVE_PATH.parent. Call this as the last cell of each training
-    notebook.
-
-    Including TEST_SET_ID in the filename means a downstream notebook can
-    identify (and glob for) exactly which held-out test set a given results
-    file corresponds to, without opening it. Including per_sample means that
-    notebook never needs the model or the GPU — it can fetch everything
-    (including which images were misclassified, with ground truth and
-    prediction) straight from this one file.
-    """
+    """Writes the results of `model_key` to
+    RESULTS_DIR/results_<COMPONENT>_<save_name>_<TEST_SET_ID>.pkl and its
+    weights to MODEL_SAVE_DIR/<RESULTS_DIR name>/<COMPONENT>_<save_name>_<TEST_SET_ID>.pt,
+    so every run keeps its own weights."""
     r = results[model_key]
 
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
@@ -786,25 +478,25 @@ def save_result(model_key, save_name):
         "test_acc": r["test_acc"],
         "mean_auc": r["mean_auc"],
         "img_size": r["img_size"],
-        "resize_mode": RESIZE_MODE,
         "hidden_layers": r["hidden_layers"],
         "neurons": r["neurons"],
         "class_names": class_names,
         "component": COMPONENT,
         "test_set_id": TEST_SET_ID,
         "per_sample": r["per_sample"],
-        "confusion_matrix": r.get("confusion_matrix"),
-        "classification_report": r.get("classification_report"),
-        "roc_aucs": r.get("roc_aucs"),
+        "dev_per_sample": r["dev_per_sample"],
+        "confusion_matrix": r["confusion_matrix"],
+        "classification_report": r["classification_report"],
+        "roc_aucs": r["roc_aucs"],
     }
-    import pickle
     pkl_path = RESULTS_DIR / f"results_{COMPONENT}_{save_name}_{TEST_SET_ID}.pkl"
     with open(pkl_path, "wb") as f:
         pickle.dump(pickle_payload, f)
     print(f"Saved results to {pkl_path}")
 
-    MODEL_SAVE_PATH.parent.mkdir(parents=True, exist_ok=True)
-    model_path = MODEL_SAVE_PATH.parent / f"{COMPONENT}_{save_name}_cnn.pt"
+    model_dir = MODEL_SAVE_DIR / RESULTS_DIR.name
+    model_dir.mkdir(parents=True, exist_ok=True)
+    model_path = model_dir / f"{COMPONENT}_{save_name}_{TEST_SET_ID}.pt"
     torch.save({
         "model_state_dict": r["model"].state_dict(),
         "class_names": class_names,
@@ -818,37 +510,11 @@ def save_result(model_key, save_name):
     print(f"Saved model weights to {model_path}")
 
 
-# ------------------------- ARCHITECTURE HYPERPARAMETERS -------------------------
-# Bundles everything each architecture's training notebook needs to build
-# its classifier head, optimizer and dataloaders. img_size defaults to
-# IMG_TARGET_SIZE (set above) except for InceptionNet v3, which requires
-# larger inputs (it downsamples aggressively and expects ~299x299).
-
-# All 6 below (everything except resnet18_scratch) are tuned by tune.py: one
-# Optuna study per architecture, jointly searching hidden_layers, neurons,
-# lr, beta1, step_size and batch_size, optimizing validation accuracy at the
-# best-val-loss checkpoint. Clarifier tuning holds NoordelikeWerke out;
-# aerobic zone tuning holds Atlantis out (NoordelikeWerke has no aerobic
-# zones, so holding it out there would validate nothing). Every
-# architecture's values are loaded from its tuned_hyperparams*.json below --
-# nothing is hardcoded here, so re-running tune.py --all is all that's
-# needed to pick up a fresh tuning round.
-_TUNED_ARCHITECTURES = [
-    "resnet18", "resnet50", "densenet121", "inception_v3", "efficientnet_b0", "convnext_tiny",
-]
-# img_size defaults to IMG_TARGET_SIZE except for InceptionNet v3, which
-# requires larger inputs (it downsamples aggressively and expects ~299x299)
-# -- an architectural constraint, not a tunable hyperparameter, so it's
-# fixed here rather than left to NO_TUNING_ARCH_HYPERPARAMS/tune.py's search.
-_ARCH_IMG_SIZE = {
-    arch: ((299, 299) if arch == "inception_v3" else IMG_TARGET_SIZE) for arch in _TUNED_ARCHITECTURES
-}
-
+# ------------------------- HYPERPARAMETERS -------------------------
 
 def _load_tuned_hyperparams(json_path):
     """Reads a tune.py results json into {arch: {hidden_layers, neurons, lr,
-    beta1, step_size, batch_size, img_size}}, dropping the val_acc record."""
-    import json
+    beta1, step_size, batch_size, img_size}}."""
     raw = json.loads(Path(json_path).read_text())
     return {
         arch: dict(
@@ -860,116 +526,16 @@ def _load_tuned_hyperparams(json_path):
     }
 
 
-# Clarifier tuning writes tuned_hyperparams.json; every other component
-# (aerobic_zone) gets its own tuned_hyperparams_<component>.json, so tuning
-# one component never resumes from or overwrites another's Optuna studies.
-_tuned_json_name = "tuned_hyperparams.json" if COMPONENT == "clarifier" else f"tuned_hyperparams_{COMPONENT}.json"
-_tuned_json = Path(__file__).resolve().parent / _tuned_json_name
-TUNED_ARCH_HYPERPARAMS = _load_tuned_hyperparams(_tuned_json) if _tuned_json.exists() else {}
-if not TUNED_ARCH_HYPERPARAMS:
+# Tuned values per architecture, written by tune.py (one json per component).
+_tuned_json = Path(__file__).resolve().parent / (
+    "tuned_hyperparams.json" if COMPONENT == "clarifier" else f"tuned_hyperparams_{COMPONENT}.json")
+ARCH_HYPERPARAMS = _load_tuned_hyperparams(_tuned_json) if _tuned_json.exists() else {}
+if not ARCH_HYPERPARAMS:
     print(f"[warn] {_tuned_json.name} not found -- no tuned hyperparameters for {COMPONENT} yet.")
 
-# A single, uniform "no tuning" recipe applied identically to all 6 tuned
-# architectures -- deliberately NOT hand-picked per architecture (that would
-# still be a mild form of expert tuning), so this isolates the effect of
-# "Optuna search" vs. "one reasonable default", nothing else. This mirrors
-# the sensible-defaults pattern efficientnet_b0/convnext_tiny used before
-# any of this retuning work started, and is also what train_resnet18_scratch
-# .ipynb uses for its resnet18 entry (see ARCH_HYPERPARAMS above). img_size
-# is left as each architecture's own architectural requirement (299x299 for
-# InceptionNet v3) since that's not a tunable hyperparameter, not an
-# ablation variable.
-NO_TUNING_ARCH_HYPERPARAMS = {
-    arch: dict(
-        hidden_layers=3, neurons=1024,
-        lr=1e-4, beta1=0.9, step_size=15, batch_size=32,
-        img_size=_ARCH_IMG_SIZE[arch],
-    )
-    for arch in _TUNED_ARCHITECTURES
-}
-
-# ---------------------------------------------------------------------
-# ACTIVE CONFIG -- this is what every train_*.ipynb actually reads via
-# ARCH_HYPERPARAMS[<name>]. See results/archive/README.md for what each
-# results/archive/phaseN_* snapshot (an earlier tuned-vs-untuned ablation)
-# is, if NO_TUNING_ARCH_HYPERPARAMS below is ever swapped in here again.
-#
-# resnet18_scratch (train_resnet18_scratch.ipynb) is the one architecture
-# that does NOT read from here -- like AlexNet before it, it's trained from
-# scratch (no ImageNet pretraining) and is deliberately left out of the
-# tuned-vs-untuned ablation, always using NO_TUNING_ARCH_HYPERPARAMS["resnet18"]
-# instead. It exists to isolate the effect of pretraining + tuning on the
-# *same* architecture as the tuned "resnet18" entry below, rather than
-# introducing a second, differently-sized architecture just to be "the
-# simple baseline" (which is the role AlexNet used to play, until it turned
-# out not to actually be smaller than the others).
-# ---------------------------------------------------------------------
-ARCH_HYPERPARAMS = TUNED_ARCH_HYPERPARAMS
-
-# beta2 (decay rate for the squared-gradient average) is held fixed at the
-# standard Adam default of 0.999 for all models -- beta1 (momentum) is the
-# one that gets tuned per architecture, via the retuning sweep in tune.py.
-ADAM_BETA2 = 0.999
-
-# Upper bound on the *actual* per-step batch size used on the GPU. Some of
-# the tuned batch sizes above (e.g. 121 for ResNet-50) are too large to fit
-# a deeper model's activations in memory alongside everything else — the
-# training loop uses gradient accumulation to still reach the tuned
-# effective batch size without needing that many samples in memory at once.
-# Lower this (e.g. to 8) if you still see CUDA out-of-memory errors.
-MICRO_BATCH_CAP = 16
-
-# Reference dataframes from the hyperparameter tuning sweep (grid search +
-# Bayesian optimization). Not used programmatically anywhere else — kept
-# here for documentation/reference. Call print_tuning_summary() from a
-# notebook cell if you want to see them.
-_architecture_grid_search = pd.DataFrame([
-    {"model": "ResNet-50",       "hidden_layers (H)": 3, "neurons (N)": 1024, "val_accuracy_%": 97.37},
-    {"model": "DenseNet-121",    "hidden_layers (H)": 3, "neurons (N)": 2048, "val_accuracy_%": 96.05},
-    {"model": "InceptionNet v3", "hidden_layers (H)": 3, "neurons (N)": 2048, "val_accuracy_%": 97.70},
-]).set_index("model")
-
-_bayesian_opt_results = pd.DataFrame([
-    {"model": "ResNet-50",       "learning_rate": 2.68014042e-05, "beta1": 0.1788129,   "step_size_Es": 34, "batch_size": 121},
-    {"model": "DenseNet-121",    "learning_rate": 2.74235159e-04, "beta1": 4.149011e-17, "step_size_Es": 7,  "batch_size": 14},
-    {"model": "InceptionNet v3", "learning_rate": 1.42756669e-04, "beta1": 5.190841e-17, "step_size_Es": 21, "batch_size": 17},
-]).set_index("model")
-
-
-def print_tuning_summary():
-    """Optional: call from a notebook cell to display the hyperparameter
-    tuning sweep results that ARCH_HYPERPARAMS above was derived from."""
-    print("Architecture grid search (best H, N per model):")
-    print(_architecture_grid_search)
-    print("\nBayesian-optimized learning hyperparameters:")
-    print(_bayesian_opt_results)
-
-class FocalLoss(nn.Module):
-    """
-    Multi-class Focal Loss implementation.
-    - weight (Tensor): 1D tensor of class weights (acts as the alpha parameter).
-    - gamma (float): The focusing parameter. Higher values down-weight easy examples more aggressively.
-    """
-    def __init__(self, weight=None, gamma=2.0, reduction='mean'):
-        super(FocalLoss, self).__init__()
-        self.weight = weight 
-        self.gamma = gamma
-        self.reduction = reduction
-
-    def forward(self, inputs, targets):
-        # Calculate the standard cross entropy loss (without reduction so we get it per-sample)
-        ce_loss = F.cross_entropy(inputs, targets, weight=self.weight, reduction='none')
-        
-        # Calculate the probability of the true class (pt)
-        pt = torch.exp(-ce_loss) 
-        
-        # Apply the focal loss modulating factor: (1 - pt)^gamma
-        focal_loss = ((1 - pt) ** self.gamma) * ce_loss
-
-        # Apply reduction
-        if self.reduction == 'mean':
-            return focal_loss.mean()
-        elif self.reduction == 'sum':
-            return focal_loss.sum()
-        else:
-            return focal_loss
+# Fixed, untuned values for ResNet-18 (scratch).
+SCRATCH_HYPERPARAMS = dict(
+    hidden_layers=3, neurons=1024,
+    lr=1e-4, beta1=0.9, step_size=15, batch_size=32,
+    img_size=IMG_TARGET_SIZE,
+)

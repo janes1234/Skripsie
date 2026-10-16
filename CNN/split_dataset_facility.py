@@ -1,36 +1,16 @@
 """
-Leave-one-facility-out split for the WWTW CNN dataset, with a stratified
-train/val mix across the remaining facilities.
+Leave-one-facility-out split: one facility is the test set, and the other
+facilities are split into train and val.
 
-The TEST set is a single facility, chosen by the user, held out entirely -
-the model never sees a single image from it during training or model
-selection. That measures generalization to a completely unseen WWTW
-facility.
-
-TRAIN and VAL are drawn from the other 4 facilities together, using the
-same kind of stratification as prepare_dataset_splits.py: images are
-grouped by (facility, unit, class), shuffled within each group (which mixes
-capture dates across train/val so one split doesn't end up all-early or
-all-late), and split by val_ratio. This keeps a healthy mix of every
-non-test facility in both train and val, rather than skewing val toward
-whichever facility happens to have the most images.
+Train/val images are grouped by (facility, unit, class), shuffled within each
+group and split by val_ratio, so every remaining facility, unit and class is
+represented in both train and val.
 
 Usage:
-    # See per-facility, per-class counts first, to pick a sensible held-out
-    # test facility (some facilities/classes are much smaller than others):
-    python split_data_facility.py --list
+    python split_dataset_facility.py --list            # images per facility and class
+    python split_dataset_facility.py --test CapeFlats
 
-    # Hold out CapeFlats for test, split the rest 80/20 train/val:
-    python split_data_facility.py --test CapeFlats
-
-    # Only split one component, with a different val ratio:
-    python split_data_facility.py --test CapeFlats --component clarifier --val-ratio 0.25
-
-Output goes to:
-    ../cnn_dataset_split_facility_test-{TEST}/{component}/{split}/{class}/
-so that different held-out choices don't overwrite each other - handy if you
-end up running several folds (e.g. rotating the test facility through all 5,
-see the note at the bottom of this file).
+Output: ../cnn_dataset_split_facility_test-{TEST}/{component}/{split}/{class}/
 """
 
 import argparse
@@ -39,6 +19,8 @@ import shutil
 from pathlib import Path
 from collections import defaultdict
 
+from crop_names import get_facility, get_facility_and_unit
+
 # ------------------------- CONFIG ------------------------
 INPUT_ROOT = Path("../cnn_dataset")
 OUTPUT_ROOT_TEMPLATE = "../cnn_dataset_split_facility_test-{test}"
@@ -46,42 +28,17 @@ COMPONENTS = ["aerobic_zone", "clarifier"]
 
 ALL_FACILITIES = ["Atlantis", "CapeFlats", "Waterval", "Fisantekraal", "NoordelikeWerke"]
 
-# Default train/val split among the non-test facilities.
 DEFAULT_VAL_RATIO = 0.20
 
-# If a (facility, unit, class) group has at least this many images, guarantee
-# at least 1 ends up in val even if the ratio would round it down to 0. Set
-# to None to disable and fall back to pure ratio-based rounding.
+# A group with at least this many images always gets at least one val image.
 MIN_GROUP_SIZE_FOR_GUARANTEE = 3
 
-# Seed for reproducibility so the random train/val shuffles are identical
-# across runs.
 RANDOM_SEED = 42
 # ---------------------------------------------------------
 
 
-def get_facility(filename: str) -> str:
-    """The crop filename convention (see prep.py) is
-    {facility}_{safe_unit_label}_{original_stem}_r{i}.jpg, so the facility
-    name is always the first underscore-separated token."""
-    return filename.split("_")[0]
-
-
-def get_facility_and_unit(filename: str) -> str:
-    """
-    Extracts (facility, unit) as a single grouping key, e.g. "CapeFlats_Images-CF1".
-    Same convention as prepare_dataset_splits.py, used here to stratify the
-    train/val split across the non-test facilities.
-    """
-    parts = filename.split("_")
-    if len(parts) >= 2:
-        return f"{parts[0]}_{parts[1]}"
-    return "Unknown_Unit"
-
-
 def gather_facility_class_counts(component_dir: Path):
-    """facility -> class -> count, used by --list to help you pick which
-    facility to hold out before you commit to a split."""
+    """facility -> class -> count."""
     counts = defaultdict(lambda: defaultdict(int))
     if not component_dir.exists():
         return counts
@@ -115,14 +72,7 @@ def print_facility_summary():
 
 
 def split_group_train_val(images, val_ratio, min_group_size_for_guarantee=MIN_GROUP_SIZE_FOR_GUARANTEE):
-    """
-    Split a single (facility, unit, class) group of images (already sorted +
-    shuffled) into train/val only. Mirrors split_group() in
-    prepare_dataset_splits.py but two-way, since test is handled separately
-    by facility.
-
-    Returns (train_imgs, val_imgs).
-    """
+    """Splits one already shuffled group into (train_imgs, val_imgs)."""
     n_total = len(images)
     if n_total == 0:
         return [], []
@@ -170,9 +120,6 @@ def split_facility(test_facility, component_filter=None, val_ratio=DEFAULT_VAL_R
             continue
         print(f"\nProcessing {component}...")
 
-        # Sanity check: does the held-out test facility even have any data
-        # for this component? (e.g. Fisantekraal/NoordelikeWerke have no
-        # aerobic_zone data at all)
         counts = gather_facility_class_counts(component_dir)
         if sum(counts.get(test_facility, {}).values()) == 0:
             empty_test_component.append(f"{component}/{test_facility}")
@@ -184,8 +131,6 @@ def split_facility(test_facility, component_filter=None, val_ratio=DEFAULT_VAL_R
 
             split_counts = {"train": 0, "val": 0, "test": 0}
 
-            # Test images: straight copy, no stratification needed since the
-            # whole facility is test.
             test_imgs = [
                 p for p in class_dir.glob("*.*") if get_facility(p.name) == test_facility
             ]
@@ -195,10 +140,6 @@ def split_facility(test_facility, component_filter=None, val_ratio=DEFAULT_VAL_R
                 shutil.copy2(img_path, dest_dir / img_path.name)
                 split_counts["test"] += 1
 
-            # Train/val images: group by (facility, unit) across the 4
-            # remaining facilities, shuffle within each group to mix capture
-            # dates, then split by val_ratio. This keeps every non-test
-            # facility represented in both train and val.
             grouped = defaultdict(list)
             for img_path in class_dir.glob("*.*"):
                 fac = get_facility(img_path.name)
@@ -208,8 +149,8 @@ def split_facility(test_facility, component_filter=None, val_ratio=DEFAULT_VAL_R
                 grouped[fac_unit].append(img_path)
 
             for fac_unit, images in sorted(grouped.items()):
-                # Sort first for deterministic ordering before shuffling, so
-                # OS-level file listing order doesn't affect reproducibility.
+                # Sort before shuffling so the result does not depend on the
+                # order the file system lists the files in.
                 images.sort(key=lambda p: p.name)
                 random.shuffle(images)
 
@@ -234,22 +175,14 @@ def split_facility(test_facility, component_filter=None, val_ratio=DEFAULT_VAL_R
     print(f"\nDataset successfully split into: {output_root.resolve()}")
 
     if empty_test_component:
-        print(
-            "\n=== Empty test facility warning ===\n"
-            "The held-out test facility has NO data at all for this component - "
-            "that component's test set will be entirely empty:"
-        )
+        print("\n=== Empty test facility warning ===\n"
+              "The held-out facility has no data for this component, so its test set is empty:")
         for line in sorted(set(empty_test_component)):
             print(f"  - {line}")
 
     if thin_val_coverage:
-        print(
-            "\n=== Thin val coverage warning ===\n"
-            "The following (component/class/facility_unit) groups from the\n"
-            "train/val facilities have zero val images, even after the\n"
-            "small-group guarantee. That facility/unit's images for this class\n"
-            "landed entirely in train:"
-        )
+        print("\n=== Thin val coverage warning ===\n"
+              "These (component/class/facility_unit) groups have no val images:")
         for line in thin_val_coverage:
             print(f"  - {line}")
     else:
@@ -262,13 +195,13 @@ def main():
     )
     parser.add_argument("--test", help=f"Facility to hold out entirely for testing. One of {ALL_FACILITIES}")
     parser.add_argument("--component", choices=COMPONENTS, default=None,
-                         help="Only split this component (default: both aerobic_zone and clarifier)")
+                        help="Only split this component (default: both aerobic_zone and clarifier)")
     parser.add_argument("--val-ratio", type=float, default=DEFAULT_VAL_RATIO,
-                         help=f"Fraction of the non-test facilities' images to put in val (default: {DEFAULT_VAL_RATIO})")
+                        help=f"Fraction of the non-test facilities' images to put in val (default: {DEFAULT_VAL_RATIO})")
     parser.add_argument("--seed", type=int, default=RANDOM_SEED,
-                         help=f"Random seed for the train/val shuffle (default: {RANDOM_SEED})")
+                        help=f"Random seed for the train/val shuffle (default: {RANDOM_SEED})")
     parser.add_argument("--list", action="store_true",
-                         help="Print per-facility, per-class image counts and exit (no split performed)")
+                        help="Print per-facility, per-class image counts and exit (no split performed)")
     args = parser.parse_args()
 
     if args.list:
@@ -283,26 +216,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-# ------------------------------------------------------------------------
-# Note on full leave-one-facility-out cross-validation
-# ------------------------------------------------------------------------
-# A single run of this script tells you how the model does on ONE held-out
-# test facility. With only 5 facilities that's a fairly noisy estimate of
-# "generalization to a new facility" in general - it's really a single
-# sample from a population of 5.
-#
-# If your thesis timeline allows it, the more defensible version is to
-# rotate the test facility through all 5 choices, train 5 separate models,
-# and report mean +/- spread of test accuracy / mean AUC across folds.
-# Something like:
-#
-#   for test_fac in ALL_FACILITIES:
-#       split_facility(test_fac, val_ratio=0.20)
-#       # then run your training notebooks against that fold's output dir
-#
-# Even if you don't have compute budget for all 5 folds, running 2-3 is far
-# more convincing evidence of generalization than a single held-out
-# facility, and it's easy to justify in the write-up as an acknowledged
-# limitation if you only do one.

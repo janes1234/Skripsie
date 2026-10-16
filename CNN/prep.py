@@ -1,8 +1,8 @@
 """
-Parses VIA2 (VGG Image Annotator) JSON label files for the Atlantis, Cape Flats,
-and Waterval WWTW image sets, crops each labelled region (aerobic zone or
-clarifier) out of the source image, and saves the crops into a class-folder
-structure suitable for CNN training:
+Parses the VIA2 (VGG Image Annotator) JSON label files of every facility, crops
+each labelled region (aerobic zone or clarifier) out of its source image, masks
+everything outside the annotated shape, and saves the crops in one folder per
+class:
 
     output_root/
         aerobic_zone/
@@ -15,6 +15,9 @@ structure suitable for CNN training:
             Scum/
             Empty/
 
+Label files are read from each facility's relabel/ folder when a corrected copy
+exists there, and from Labels/ otherwise. Also writes crop_manifest.json, which
+maps every crop back to its source image and region.
 """
 
 import json
@@ -128,14 +131,8 @@ def get_images_on_disk(images_dir: Path) -> set:
 
 
 def resolve_label_path(facility_root: Path, filename: str) -> Path:
-    """The single place that decides which copy of a label json to read.
-
-    Prefers facility_root/relabel/{filename} (the working copy the relabel
-    notebook edits) if it exists, otherwise falls back to
-    facility_root/Labels/{filename} (the pristine original). Every caller
-    should go through this instead of hardcoding either subfolder, so a
-    relabel edit is picked up everywhere the json is read from without
-    needing every facility/unit to already have a relabel/ folder."""
+    """Path of the label json to read: the relabelled copy in relabel/ if it
+    exists, otherwise the original in Labels/."""
     relabel_path = facility_root / RELABEL_SUBDIR / filename
     if relabel_path.exists():
         return relabel_path
@@ -193,17 +190,12 @@ def clamp_box(box, img_width, img_height):
 
 
 def apply_shape_mask(img, shape_attrs):
-    """
-    Draws a black mask outside the annotated VIA2 region to remove 
-    corners, background concrete, and facility-specific shortcut features.
-    """
-    # Create a blank mask (0 = black)
+    """Sets every pixel outside the annotated VIA2 shape to black."""
     mask = Image.new("L", img.size, 0)
     draw = ImageDraw.Draw(mask)
-    
+
     shape = shape_attrs.get("name")
-    
-    # Draw the annotated shape in white (255) onto the mask
+
     if shape == "circle":
         cx, cy, r = shape_attrs["cx"], shape_attrs["cy"], shape_attrs["r"]
         draw.ellipse((cx - r, cy - r, cx + r, cy + r), fill=255)
@@ -214,12 +206,9 @@ def apply_shape_mask(img, shape_attrs):
         x, y, w, h = shape_attrs["x"], shape_attrs["y"], shape_attrs["width"], shape_attrs["height"]
         draw.rectangle((x, y, x + w, y + h), fill=255)
     else:
-        return img  # Fallback if shape is unknown
-        
-    # Create a solid black background image
+        return img
+
     black_bg = Image.new("RGB", img.size, (0, 0, 0))
-    
-    # Composite the original image over the black background using the white mask
     return Image.composite(img, black_bg, mask)
 
 
@@ -306,19 +295,16 @@ def process_json_file(
             class_dir.mkdir(parents=True, exist_ok=True)
 
             safe_unit_label = unit_label.replace("/", "-").replace(" ", "_")
-            
-            # Always save using the actual file name on disk, not the JSON name, 
-            # to avoid extension mismatches downstream
+            # Named after the file on disk rather than the JSON entry, to avoid
+            # extension mismatches.
             out_name = f"{facility_name}_{safe_unit_label}_{image_path.stem}_r{i}.jpg"
             crop.save(class_dir / out_name, quality=95)
 
             counters[label] = counters.get(label, 0) + 1
             facility_class_counts[facility_name][label] += 1
 
-            # Record everything needed to find this exact region again later
-            # (e.g. from the relabel notebook) without having to reverse-parse
-            # the crop filename, which is unreliable since facility/unit
-            # names can themselves contain underscores or spaces.
+            # Facility/unit names can contain underscores and spaces, so the
+            # crop filename cannot be parsed back reliably; record the source here.
             manifest[out_name] = {
                 "facility": facility_name,
                 "unit_label": unit_label,
@@ -344,18 +330,8 @@ def print_facility_breakdown(title: str, facility_class_counts: dict, classes: s
 
 
 def main():
-    # Always rebuild OUTPUT_ROOT from scratch. Without this, a relabel that
-    # moves an image from one class to another (e.g. Functional -> Empty)
-    # would save a fresh copy under the new class folder but leave the
-    # stale old copy sitting under the old class folder forever, since the
-    # per-class crop.save() calls below only ever create files, never
-    # remove them. That stale duplicate then gets picked up by
-    # split_dataset_facility.py too, so the same image ends up in the
-    # training/test data under both its old AND new label at once -- which
-    # is exactly the kind of thing that makes a relabel "not stick" even
-    # after retraining. A clean wipe-and-rebuild guarantees cnn_dataset
-    # only ever reflects whatever the (relabel-aware) json files currently
-    # say, with nothing left over from a previous run.
+    # Rebuild from scratch, so a relabelled crop does not also stay behind in
+    # its old class folder.
     if OUTPUT_ROOT.exists():
         print(f"Cleaning up existing output directory: {OUTPUT_ROOT.resolve()}")
         shutil.rmtree(OUTPUT_ROOT)
@@ -367,9 +343,7 @@ def main():
     aerobic_by_facility = defaultdict(lambda: defaultdict(int))
     clarifier_by_facility = defaultdict(lambda: defaultdict(int))
 
-    # Keyed by crop filename (unique within a component, but aerobic_zone
-    # and clarifier crops can share a filename since region indices restart
-    # at 0 for each json file), so these stay separate.
+    # Separate per component: an aerobic zone and a clarifier crop can share a filename.
     aerobic_manifest = {}
     clarifier_manifest = {}
 
@@ -386,7 +360,6 @@ def main():
         print(f"\n=== {facility_name} ===")
 
         for unit in facility_cfg["units"]:
-            # Safely fetch the images directory 
             unit_img_dir = unit.get("images_dir")
             unit_label = unit_img_dir if unit_img_dir else facility_name
             images_dir = facility_root / unit_img_dir if unit_img_dir else facility_root
@@ -395,11 +368,9 @@ def main():
             on_disk = len(disk_paths)
             print(f" -- unit: {unit_label} ({images_dir}) — {on_disk} image(s) on disk")
 
-            # Safely get the filenames (returns None if the key doesn't exist)
             aerobic_json_name = unit.get("aerobic_json")
             clarifier_json_name = unit.get("clarifier_json")
 
-            # Process Aerobic JSON if it exists in the config
             if aerobic_json_name:
                 aerobic_json = resolve_label_path(facility_root, aerobic_json_name)
                 print(f"    [aerobic]   using: {aerobic_json}")
@@ -420,7 +391,6 @@ def main():
             else:
                 aerobic_processed, a_missing, a_used, a_excluded = 0, [], set(), []
 
-            # Process Clarifier JSON if it exists in the config
             if clarifier_json_name:
                 clarifier_json = resolve_label_path(facility_root, clarifier_json_name)
                 print(f"    [clarifier] using: {clarifier_json}")
@@ -444,7 +414,6 @@ def main():
             total_images_on_disk += on_disk
             total_images_processed += aerobic_processed + clarifier_processed
 
-            # Track exactly which files are missing from disk
             for f in a_missing:
                 global_missing_json.append(f"[{facility_name}/{unit_label} - Aerobic] {f}")
             for f in c_missing:
@@ -455,7 +424,7 @@ def main():
             for f in c_excluded:
                 global_excluded_files.append(f"[{facility_name}/{unit_label} - Clarifier] {f}")
                 
-            # Track exactly which files on disk were NEVER referenced in either JSON
+            # Files on disk that neither JSON refers to
             ignored_paths = disk_paths - (a_used | c_used)
             for p in ignored_paths:
                 global_ignored_disk.append(f"[{facility_name}/{unit_label}] {p.name}")

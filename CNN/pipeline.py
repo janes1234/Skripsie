@@ -1,47 +1,30 @@
 """
 pipeline.py
 ===========
-Runs the full retraining round end to end, in this order:
+Runs the full retraining round end to end:
 
-  0. Data prep: prep.py (clarifiers from relabel/, aerobic zones from Labels/),
-     the 5 leave-one-facility-out splits, and the chronological split (both
-     components).
+  0. Data prep: prep.py, the 5 leave-one-facility-out splits and the
+     chronological split (2020-01 cutoff), for both components.
   1. Clarifier, leave-one-facility-out, with augmentation (7 architectures x 5 facilities)
-  2. Clarifier, chronological (train before cutoff, test after), with augmentation (7 architectures)
-  3. Clarifier, chronological, without augmentation (7 architectures)
-  4. Aerobic zone hyperparameter tuning  (6 architectures, Atlantis held out --
-     the only aerobic facility small and balanced enough across all three
-     classes to hold out without starving one of them; NoordelikeWerke has no
-     aerobic zones at all, so holding it out would validate nothing)
+  2. Clarifier, chronological, with augmentation
+  3. Clarifier, chronological, without augmentation
+  4. Aerobic zone hyperparameter tuning (6 architectures, Atlantis held out,
+     since NoordelikeWerke has no aerobic zones)
   5. Aerobic zone, chronological, with augmentation
   6. Aerobic zone, chronological, without augmentation
   7. Aerobic zone, leave-one-facility-out, with augmentation (x 3 facilities)
 
-The chronological split (train before a 2020-01 cutoff, test after) replaced
-the old random 70/20/10 stratified split entirely, for both components --
-splitting randomly on cropped images was optimistic (same-date leakage
-across train/test, and random rather than future test dates; see
-split_dataset_chronological.py). With vs without augmentation is compared
-on the chronological split; leave-one-facility-out is run once, with
-augmentation.
+Clarifier tuning is not part of the pipeline; it is run separately with
+`python tune.py --all`.
 
-resnet18_scratch (no ImageNet pretraining, no tuning) replaces the old
-AlexNet baseline slot -- see wwtw_utils.py's ARCH_HYPERPARAMS comment for why
-it's the same architecture as the tuned "resnet18" entry rather than a
-different, smaller one.
+The GPU only rests REST_MINUTES after a failed run or a tuning crash. Runs whose results pickle (or tuned hyperparameters)
+already exist are skipped, so a crashed pipeline can simply be relaunched. The
+results notebooks are executed after the clarifier phases and at the end.
 
-The GPU rests REST_MINUTES after every architecture (all of its folds in that
-phase) and after each architecture's tuning. Anything whose results pickle (or
-tuned hyperparameters) already exists is skipped, so re-launching after a
-crash picks up where it stopped. After the clarifier phases and at the end,
-results_clarifier.ipynb / results_aerobic_zone.ipynb are executed in place so
-their outputs are always up to date.
+Progress: pipeline_progress.log (one line per event). Verbose output goes to
+stdout (see run_pipeline.sh) and to each run's log under results/<experiment>/logs/.
 
-Live overview: pipeline_progress.log (one line per event, nothing else).
-Everything verbose goes to stdout (see run_pipeline.sh) and to each run's own
-log under results/<experiment>/logs/.
-
-Usage (from CNN/, venv active -- or just use ./run_pipeline.sh):
+Usage (from CNN/, venv active, or use ./run_pipeline.sh):
     python -u pipeline.py
     python -u pipeline.py --prep-only
     python -u pipeline.py --skip-prep
@@ -60,7 +43,7 @@ from run import TRAIN_NOTEBOOKS, ALL_FACILITIES, AEROBIC_FACILITIES, CHRONOLOGIC
 
 PROGRESS_LOG = Path("pipeline_progress.log").resolve()
 REST_MINUTES = 5
-RUN_ATTEMPTS = 3          # per training run, in case the GPU driver kills a kernel
+RUN_ATTEMPTS = 3          # per training run, in case the GPU driver kills the kernel
 TUNE_ATTEMPTS = 10        # per architecture; tune.py resumes from optuna_tuning.db
 TUNE_TRIALS = 20
 KERNEL = "python3"
@@ -122,11 +105,9 @@ def data_prep():
     sh([sys.executable, "prep.py"])
     for fac in ALL_FACILITIES:
         sh([sys.executable, "split_dataset_facility.py", "--test", fac])
-    # Cutoff chosen from split_dataset_chronological.py --list: 2020-01 is the
-    # earliest point where every facility's test set still contains every
-    # class that facility has ever produced, for both components (see that
-    # script's docstring for the class/facility combinations no cutoff can
-    # fix, e.g. Atlantis has zero Dysfunctional clarifiers at any date).
+    # 2020-01 (from split_dataset_chronological.py --list) is the earliest
+    # cutoff where every facility's test set contains every class that
+    # facility has.
     sh([sys.executable, "split_dataset_chronological.py", "--cutoff", "2020-01"])
     progress(f"DATA PREP done in {fmt_min(time.time() - t0)}")
 
@@ -166,7 +147,6 @@ def train_phase(idx, n_phases, title, component, split, results_dir, augment, fa
             else:
                 counter["failed"].append(f"{title}: {name} / {where}")
         progress(f"  {name} finished in {fmt_min(time.time() - arch_t0)}")
-        rest(f"after {name}")
     progress(f"PHASE {idx}/{n_phases} done in {fmt_min(time.time() - phase_t0)}")
 
 
@@ -181,7 +161,6 @@ def tune_phase(idx, n_phases):
     env["COMPONENT"] = component
     env["DATASET_ROOT"] = "../cnn_dataset_split_facility_test-Atlantis"
     env["AUGMENT"] = "1"
-    env["RESIZE_MODE"] = "pad"
     for arch in TUNE_ARCHS:
         name = DISPLAY[arch]
         if tuned_json.exists() and arch in json.loads(tuned_json.read_text()):
@@ -205,7 +184,6 @@ def tune_phase(idx, n_phases):
                      f"training needs tuned hyperparameters for every architecture")
             sys.exit(1)
         progress(f"  {name} tuned in {fmt_min(time.time() - t0)}")
-        rest(f"after tuning {name}")
     progress(f"PHASE {idx}/{n_phases} done in {fmt_min(time.time() - phase_t0)}")
 
 
@@ -227,8 +205,7 @@ def main():
 
     progress()
     progress("=" * 70)
-    progress(f"PIPELINE START - {TOTAL_RUNS} training runs + aerobic tuning, "
-             f"{REST_MINUTES} min GPU rest after each architecture")
+    progress(f"PIPELINE START - {TOTAL_RUNS} training runs + aerobic tuning")
     progress("=" * 70)
     if not args.skip_prep:
         data_prep()

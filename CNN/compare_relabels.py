@@ -2,7 +2,7 @@
 compare_relabels.py
 ====================
 Compares each facility's Labels/ (original VIA2 annotations) against its
-relabel/ (working copy edited via relabel.ipynb / view_labels.ipynb) and
+relabel/ (working copy edited via view_labels.ipynb) and
 reports every relabel that's actually been made: which image, which region,
 what it used to be, and what it is now.
 
