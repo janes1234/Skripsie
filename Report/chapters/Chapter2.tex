@@ -72,7 +72,7 @@ which simply passes positive input values through unchanged while producing a ze
 Y_{i,j} = \max_{0 \le u,v < k} X_{i \cdot s + u,\ j \cdot s + v},
 \label{eq:maxpool}
 \end{equation}
-where $i,j$ again index the output position, and $u,v$ index the $k \times k$ pooling window itself, now taken over a single channel at a time rather than summed across channels as in Equation~\ref{eq:convolution}. Applied with a stride $s$ equal to the window size $k$, this reduces the resolution of the feature map, reducing the computation required by later layers while making the resulting representation somewhat more robust to small translations of the input.
+where $i,j$ again index the output position, and $u,v$ index the $k \times k$ pooling window itself, now taken over a single channel at a time rather than summed across channels as in Equation~\ref{eq:convolution}. Applied with a stride $s$ equal to the window size $k$, this reduces the resolution of the feature map, reducing the computation required by later layers while making the resulting representation somewhat more robust to small translations of the input. If a feature in the input shifts by a pixel but stays within the same pooling window, the maximum of that window, and therefore the output, does not change.
 
 By repeating convolutional, activation, and pooling layers, a CNN gradually trades spatial resolution for channel depth: early feature maps are large and shallow, and later ones are small and deep. Once the feature map is small enough, it is flattened, or globally pooled, into a single feature vector and passed through one or more fully-connected layers, ending in an output layer with one unit per class. A \textbf{softmax} function then converts these raw scores, or \textbf{logits} $z_k$, into a probability distribution over the $K$ possible classes:
 \begin{equation}
@@ -81,144 +81,186 @@ p_k = \frac{\exp(z_k)}{\sum_{j=1}^{K}\exp(z_j)}, \qquad k = 1, \dots, K,
 \end{equation}
 where $z_k$ is the logit for class $k$, $p_k$ is its resulting probability, and the sum in the denominator is over all $K$ classes so that the resulting values of $p_k$ sum to one. The classification decision is the class assigned the highest probability, and the network is trained by adjusting every learnable kernel and weight to make $p_k$ as close as possible to 1 for the correct class, most commonly via the cross-entropy loss.
 
-Training a CNN's convolutional layers entirely from scratch typically requires very large labelled datasets, since a randomly-initialised network has to learn everything from edge detection upward using only the available training images. This project instead relies on \textbf{transfer learning}: each architecture is first pretrained on ImageNet \citep{deng2009imagenet}, a benchmark dataset of over a million labelled natural images spanning a thousand object classes, so that its convolutional layers already encode a broad range of general-purpose visual features before ever seeing a wastewater treatment image. Its final classification layer is then removed and replaced with a small classifier head fitted to the classes used in this project, and the network is fine-tuned on the far smaller WWTW image dataset described in Chapter~\ref{chap:systemmethods}. Four such pretrained architectures, all originally developed for the ImageNet benchmark, were evaluated in this project: \textbf{ResNet-18} \citep{he2016resnet}, \textbf{DenseNet-121} \citep{huang2017densenet}, \textbf{EfficientNet-B0} \citep{tan2019efficientnet}, and \textbf{ConvNeXt-Tiny} \citep{liu2022convnext}. ResNet-18 is also trained a second time from randomly initialised weights, as a baseline that measures the effect of pretraining (Section~\ref{sec:exp_architectures}). Each combines the convolutional building blocks above in a different way, as described in the remainder of this section.
+Training a CNN's convolutional layers entirely from scratch typically requires very large labelled datasets, since a randomly-initialised network has to learn everything from edge detection upward using only the available training images. This project instead relies on \textbf{transfer learning}: each architecture is first pretrained on ImageNet \citep{deng2009imagenet, russakovsky2015imagenet}, a benchmark dataset of over a million labelled natural images spanning a thousand object classes, so that its convolutional layers already encode a broad range of general-purpose visual features before ever seeing a wastewater treatment image. Its final classification layer is then removed and replaced with a small classifier head fitted to the classes used in this project, and the network is fine-tuned on the far smaller WWTW image dataset described in Chapter~\ref{chap:systemmethods}. Four such pretrained architectures, all originally developed for the ImageNet benchmark, were evaluated in this project: \textbf{ResNet-18} \citep{he2016resnet}, \textbf{DenseNet-121} \citep{huang2017densenet}, \textbf{EfficientNet-B0} \citep{tan2019efficientnet}, and \textbf{ConvNeXt-Tiny} \citep{liu2022convnext}. ResNet-18 is also trained a second time from randomly initialised weights, as a baseline that measures the effect of pretraining (Section~\ref{sec:exp_architectures}). Each combines the convolutional building blocks above in a different way, as described in the remainder of this section.
 
+\clearpage
 \subsection{Residual Networks: ResNet-18}
 \label{sec:resnet}
 
-Residual Networks (ResNet) \citep{he2016resnet} address a specific problem for CNNs: gradients computed during backpropagation must pass back through every layer, and can shrink so much along the way that the earliest layers barely update at all (the \textbf{vanishing gradient} problem). Beyond a certain depth, plain networks made only of stacked convolutions begin to perform worse, even on the training set, purely because they become harder to optimise, not because they lack capacity. ResNet's solution is the \textbf{residual}, or \textbf{skip}, connection: instead of asking a stack of convolutional layers to learn a full mapping $H(x)$ of its input $x$, the stack is made to learn only the residual difference $F(x) = H(x) - x$, and the original input is added back in:
+Residual Networks (ResNet) \citep{he2016resnet} are built from \textbf{residual blocks}. Instead of learning a completely new mapping, the layers of a block learn a residual $F(x)$, and a \textbf{shortcut}, or \textbf{skip}, connection passes the input $x$ around the layers and adds it to their output:
 \begin{equation}
-y = F(x, \{W_i\}) + x.
+y = F(x) + x.
 \label{eq:residual}
 \end{equation}
-Because the shortcut path carries $x$ forward unchanged, a gradient flowing backward through the block always has a direct, unimpeded path to earlier layers, in addition to the path through $F$. This keeps even very deep residual networks trainable. The addition in Equation~\ref{eq:residual} requires $F(x)$ and $x$ to share the same shape, so whenever a block changes the spatial resolution or number of channels, a $1\times1$ convolution is applied to the shortcut path to match its output shape.
+In traditional networks, the gradient weakens exponentially as it backproagates through each layer, making it difficult to train very deep networks. The skip connection allows the gradient to flow to earlier layers during backpropagation.
 
-ResNet-18 uses a \textbf{basic block} of two stacked $3\times3$ convolutions. The deeper ResNet variants instead use a \textbf{bottleneck block}: a $1\times1$ convolution first reduces the number of channels, a $3\times3$ convolution operates on this reduced, cheaper representation, and a second $1\times1$ convolution restores the channel count before the shortcut is added. This keeps the computational cost of each block manageable even as the number of channels grows deep into the network. The bottleneck block is described here because the ConvNeXt block (Section~\ref{sec:convnext}) is derived from it. Table~\ref{tab:resnet_stages} summarises the stage-by-stage structure of ResNet-18 for a $224\times224$ input image.
+ResNet-18 uses a \textbf{basic block} of two $3\times3$ convolutions, each followed by batch normalisation and ReLU, except that the second ReLU is applied after the shortcut is added. Deeper variants such as ResNet-50 use a \textbf{bottleneck block}, in which a $1\times1$ convolution reduces the number of channels, a $3\times3$ convolution operates on the reduced representation, and a second $1\times1$ convolution restores the channel count.
 
-\begin{table}[htbp]
+Table~\ref{tab:resnet_layers} gives the layers of ResNet-18. The 18 counts the layers with weights: 17 convolutional layers and one fully-connected layer. The first convolution of each of the last three stages has a stride of 2, which halves the resolution, while the number of kernels doubles. $x$ and $F(x)$ then no longer have the same shape, so a $1\times1$ convolution with stride 2, followed by batch normalisation, is applied on the shortcut to make the shapes match for the element-wise addition.
+
+\vfill
+\noindent\begin{minipage}{\textwidth}
+\setstretch{1}
 \centering
-\small
-\caption{Stage-by-stage structure of ResNet-18 for a $224\times224$ input. Bracketed blocks are repeated the stated number of times, with the layers inside each bracket applied in sequence. FC: fully-connected layer.}
-\label{tab:resnet_stages}
-\begin{tabular}{lcc}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\captionof{table}{Structure of ResNet-18 for a $224\times224$ input. Each row is one layer or a group of identical consecutive layers. Kernel gives the dimensions of one kernel, Num the number of kernels, and $s$ and $p$ the stride and padding (Equation~\ref{eq:conv_output_size}). Shortcut rows are not counted in the 18 layers. In each block, the second ReLU is applied after the shortcut is added. Params includes batch normalisation. The parameter counts in this and the following tables are from torchvision \citep{torchvision2016}, with the 1000-class ImageNet output layer.}
+\label{tab:resnet_layers}
+\begin{tabular}{rlcccccccr}
 \toprule
-\textbf{Stage} & \textbf{Output size} & \textbf{ResNet-18} \\
+\textbf{\#} & \textbf{Type} & \textbf{Input} & \textbf{Kernel} & \textbf{Num} & $s$ & $p$ & \textbf{Act} & \textbf{Output} & \textbf{Params} \\
 \midrule
-conv1  & $112\times112$ & $7\times7$, 64, stride 2 \\
-pool   & $56\times56$   & $3\times3$ max pool, stride 2 \\
-conv2\_x & $56\times56$ &
-$\begin{bmatrix}3\times3, 64\\3\times3, 64\end{bmatrix}\times2$ \\[1.6em]
-conv3\_x & $28\times28$ &
-$\begin{bmatrix}3\times3, 128\\3\times3, 128\end{bmatrix}\times2$ \\[1.6em]
-conv4\_x & $14\times14$ &
-$\begin{bmatrix}3\times3, 256\\3\times3, 256\end{bmatrix}\times2$ \\[1.6em]
-conv5\_x & $7\times7$ &
-$\begin{bmatrix}3\times3, 512\\3\times3, 512\end{bmatrix}\times2$ \\[1.6em]
+1        & Conv            & $224\times224\times3$ & $7\times7\times3$     & 64   & 2 & 3 & ReLU    & $112\times112\times64$ & 9.5K  \\
+--       & Max pool        & $112\times112\times64$ & $3\times3$           & --   & 2 & 1 & --      & $56\times56\times64$   & 0     \\
+2--5     & Conv            & $56\times56\times64$  & $3\times3\times64$    & 64   & 1 & 1 & ReLU    & $56\times56\times64$   & 148K  \\
+6        & Conv            & $56\times56\times64$  & $3\times3\times64$    & 128  & 2 & 1 & ReLU    & $28\times28\times128$  & 74.0K \\
+--       & Shortcut        & $56\times56\times64$  & $1\times1\times64$    & 128  & 2 & 0 & --      & $28\times28\times128$  & 8.4K  \\
+7--9     & Conv            & $28\times28\times128$ & $3\times3\times128$   & 128  & 1 & 1 & ReLU    & $28\times28\times128$  & 443K  \\
+10       & Conv            & $28\times28\times128$ & $3\times3\times128$   & 256  & 2 & 1 & ReLU    & $14\times14\times256$  & 295K  \\
+--       & Shortcut        & $28\times28\times128$ & $1\times1\times128$   & 256  & 2 & 0 & --      & $14\times14\times256$  & 33.3K \\
+11--13   & Conv            & $14\times14\times256$ & $3\times3\times256$   & 256  & 1 & 1 & ReLU    & $14\times14\times256$  & 1.77M \\
+14       & Conv            & $14\times14\times256$ & $3\times3\times256$   & 512  & 2 & 1 & ReLU    & $7\times7\times512$    & 1.18M \\
+--       & Shortcut        & $14\times14\times256$ & $1\times1\times256$   & 512  & 2 & 0 & --      & $7\times7\times512$    & 132K  \\
+15--17   & Conv            & $7\times7\times512$   & $3\times3\times512$   & 512  & 1 & 1 & ReLU    & $7\times7\times512$    & 7.08M \\
+--       & Global avg pool & $7\times7\times512$   & $7\times7$            & --   & -- & -- & --     & 512                    & 0     \\
+18       & FC              & 512                   & --                    & 1000 & -- & -- & Softmax & 1000                  & 513K  \\
 \midrule
-\multicolumn{2}{l}{Global average pool + FC} & $\to$ softmax over output classes \\
-\midrule
-\textbf{Parameters} & & 11.7M \\
+\multicolumn{9}{l}{\textbf{Total}} & 11.7M \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{minipage}
 
+\clearpage
 \subsection{Densely Connected Networks: DenseNet-121}\label{sec:densenet}
 
-DenseNet \citep{huang2017densenet} takes the shortcut-connection idea underlying ResNet a step further. Within a \textbf{dense block}, every layer receives the feature maps produced by \emph{all} preceding layers in that block as its input, concatenated along the channel dimension, rather than only from the layer immediately before it:
+DenseNet \citep{huang2017densenet} extends the shortcut idea of ResNet. Within a \textbf{dense block}, each layer receives the feature maps of all preceding layers in the block, concatenated along the channel dimension:
 \begin{equation}
 x_l = H_l\big([x_0, x_1, \dots, x_{l-1}]\big),
 \label{eq:densenet}
 \end{equation}
-where $[x_0, x_1, \dots, x_{l-1}]$ denotes the concatenation of the feature maps produced by layers $0$ to $l-1$ along the channel dimension. $H_l$ is a composite function including batch normalisation, ReLU, and a convolution. Because feature maps are concatenated rather than summed as in Equation~\ref{eq:residual}, each layer only needs to contribute a small number of new feature maps, called the \textbf{growth rate} $k$, to the block's accumulated set; DenseNet-121 uses $k=32$. If a dense block starts with $k_0$ input channels, layer $l$ within that block therefore receives $k_0 + k(l-1)$ input channels, as calculated for the first dense block in Table~\ref{tab:densenet_growth}. This lets a very deep network reuse features computed earlier in a block directly, instead of re-deriving them, and keeps each individual layer narrow, so the network can be both deep and comparatively small in terms of parameter count. Because concatenation would otherwise let the channel count grow without bound, a \textbf{transition layer} is placed between dense blocks, using a $1\times1$ convolution to halve the number of channels and $2\times2$ average pooling to halve the spatial resolution.
+where $x_0$ is the input to the block and $x_l$ the output of layer $l$. Because the inputs are concatenated rather than added as in Equation~\ref{eq:residual}, each layer only adds $k$ new channels, called the \textbf{growth rate}. Layer $l$ of a block that starts with $k_0$ channels therefore receives $k_0 + k(l-1)$ channels. DenseNet-121 uses $k=32$, and its $H_l$ is a $1\times1$ convolution that produces $4k$ channels, followed by a $3\times3$ convolution that produces the $k$ new channels.
 
-DenseNet-121 stacks four dense blocks of 6, 12, 24, and 16 layers respectively, separated by three transition layers, after an initial $7\times7$ convolution and max pooling, and ending in a global average pooling and fully-connected classification layer, giving roughly 8.0M parameters in total. This is fewer than the 11.7M of ResNet-18, despite being considerably deeper.
+Between dense blocks, a \textbf{transition layer} halves the number of channels with a $1\times1$ convolution and halves the resolution with a $2\times2$ average pool. DenseNet-121 has four dense blocks of 6, 12, 24 and 16 layers (Table~\ref{tab:densenet_layers}). The 121 layers are the first convolution, the two convolutions in each of the 58 dense-block layers, the three transition convolutions and the fully-connected layer. Because each layer can reuse earlier features, every layer can be narrow, and the network has 8.0M parameters against the 11.7M of ResNet-18.
 
-\begin{table}[htbp]
+\vfill
+\noindent\begin{minipage}{\textwidth}
+\setstretch{1}
 \centering
 \footnotesize
-\caption{Growth in the number of feature-map channels available to each layer within DenseNet-121's first dense block ($k_0 = 64$ input channels, growth rate $k = 32$).}\label{tab:densenet_growth}
-\begin{tabular}{lccc}
+\setlength{\tabcolsep}{3pt}
+\captionof{table}{Structure of DenseNet-121 for a $224\times224$ input, with columns as in Table~\ref{tab:resnet_layers}. Within a dense block, the $1\times1$ and $3\times3$ convolutions alternate, and a range such as 64--224 means that the number of input channels grows by $k=32$ with each layer. Batch normalisation and ReLU precede each convolution, except in layer 1, where they follow it, and the global average pool.}
+\label{tab:densenet_layers}
+\begin{tabular}{rlccccccr}
 \toprule
-\textbf{Layer $l$} & \textbf{Input channels} & \textbf{New channels} & \textbf{Next layer's input} \\
+\textbf{\#} & \textbf{Type} & \textbf{Input} & \textbf{Kernel} & \textbf{Num} & $s$ & $p$ & \textbf{Output} & \textbf{Params} \\
 \midrule
-1 & 64  & 32 & 96  \\
-2 & 96  & 32 & 128 \\
-3 & 128 & 32 & 160 \\
-4 & 160 & 32 & 192 \\
-5 & 192 & 32 & 224 \\
-6 & 224 & 32 & 256 \\
+1                 & Conv            & $224\times224\times3$       & $7\times7\times3$       & 64   & 2 & 3 & $112\times112\times64$ & 9.5K  \\
+--                & Max pool        & $112\times112\times64$      & $3\times3$              & --   & 2 & 1 & $56\times56\times64$   & 0     \\
+\addlinespace
+\multirow{2}{*}{2--13} & Dense      & $56\times56\times(64\text{--}224)$ & $1\times1\times(64\text{--}224)$ & 128 & 1 & 0 & $56\times56\times128$ & 112K \\
+ & Dense      & $56\times56\times128$       & $3\times3\times128$     & 32   & 1 & 1 & $56\times56\times32$   & 223K  \\
+14                & Transition & $56\times56\times256$       & $1\times1\times256$     & 128  & 1 & 0 & $56\times56\times128$  & 33.3K \\
+--                & Avg pool        & $56\times56\times128$       & $2\times2$              & --   & 2 & 0 & $28\times28\times128$  & 0     \\
+\addlinespace
+\multirow{2}{*}{15--38} & Dense      & $28\times28\times(128\text{--}480)$ & $1\times1\times(128\text{--}480)$ & 128 & 1 & 0 & $28\times28\times128$ & 474K \\
+ & Dense      & $28\times28\times128$       & $3\times3\times128$     & 32   & 1 & 1 & $28\times28\times32$   & 445K  \\
+39                & Transition & $28\times28\times512$       & $1\times1\times512$     & 256  & 1 & 0 & $28\times28\times256$  & 132K  \\
+--                & Avg pool        & $28\times28\times256$       & $2\times2$              & --   & 2 & 0 & $14\times14\times256$  & 0     \\
+\addlinespace
+\multirow{2}{*}{40--87} & Dense      & $14\times14\times(256\text{--}992)$ & $1\times1\times(256\text{--}992)$ & 128 & 1 & 0 & $14\times14\times128$ & 1.95M \\
+ & Dense      & $14\times14\times128$       & $3\times3\times128$     & 32   & 1 & 1 & $14\times14\times32$   & 891K  \\
+88                & Transition & $14\times14\times1024$      & $1\times1\times1024$    & 512  & 1 & 0 & $14\times14\times512$  & 526K  \\
+--                & Avg pool        & $14\times14\times512$       & $2\times2$              & --   & 2 & 0 & $7\times7\times512$    & 0     \\
+\addlinespace
+\multirow{2}{*}{89--120} & Dense      & $7\times7\times(512\text{--}992)$ & $1\times1\times(512\text{--}992)$ & 128 & 1 & 0 & $7\times7\times128$ & 1.56M \\
+ & Dense      & $7\times7\times128$         & $3\times3\times128$     & 32   & 1 & 1 & $7\times7\times32$     & 594K  \\
+--                & Global avg pool & $7\times7\times1024$        & $7\times7$              & --   & -- & -- & 1024                   & 2.0K  \\
+121               & FC              & 1024                        & --                      & 1000 & -- & -- & 1000                  & 1.03M \\
+\midrule
+\multicolumn{8}{l}{\textbf{Total}} & 8.0M \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{minipage}
 
+\clearpage
 \subsection{Efficient Networks: EfficientNet-B0}\label{sec:efficientnet}
 
-The architectures described so far were all designed by hand, then made deeper. EfficientNet \citep{tan2019efficientnet} instead starts from the observation that a network's depth (number of layers), width (number of channels per layer), and input resolution should be scaled together, rather than increasing just one of them, and derives a small baseline network, EfficientNet-B0, using neural architecture search. EfficientNet-B0's building block is the \textbf{mobile inverted bottleneck convolution} (MBConv), composed of, in order: a $1\times1$ convolution that \emph{expands} the number of channels by an expansion ratio $t$; a $k\times k$ \textbf{depthwise} convolution, which applies a single filter per input channel independently rather than combining all channels as in Equation~\ref{eq:convolution}; a \textbf{squeeze-and-excitation} block \citep{hu2018squeeze}, which globally average-pools each channel and passes the result through two small fully-connected layers to produce a per-channel gate that reweights the feature map; and a final $1\times1$ convolution that \emph{projects} the result back down to a smaller number of output channels. A residual connection, as in Equation~\ref{eq:residual}, is added around the whole block whenever its input and output shapes match.
+EfficientNet \citep{tan2019efficientnet} is built from \textbf{mobile inverted bottleneck convolution} (MBConv) blocks, which split a normal convolution into cheaper steps. First, a $1\times1$ convolution increases the number of channels by a factor $t$. Second, a $k\times k$ \textbf{depthwise} convolution looks for spatial patterns, such as edges and texture, in each channel separately. Because it does not combine channels, it needs $C$ times fewer multiply-adds than a normal convolution with $C$ input and $C$ output channels (Equation~\ref{eq:convolution}). Third, a \textbf{squeeze-and-excitation} block \citep{hu2018squeeze} weights each channel by its importance for the current image. It averages each channel to a single value, passes these values through two small fully-connected layers, and multiplies each channel by the resulting weight between 0 and 1. Finally, a $1\times1$ convolution combines the channels and reduces their number again. The depthwise convolution therefore finds spatial patterns, and the $1\times1$ convolutions mix the channels. When the input and output of a block have the same shape, the input is added to the output through a residual connection, as in ResNet (Equation~\ref{eq:residual}). The activation is SiLU, $\mathrm{SiLU}(x) = x\sigma(x)$, where $\sigma$ is the sigmoid function, which is a smooth variant of ReLU.
 
-The depthwise convolution is the key source of MBConv's efficiency: applying a $k\times k$ convolution as a single per-channel filter followed by a $1\times1$ convolution to mix channels costs $k^2 C_{in} HW + C_{in}C_{out}HW$ multiply-adds, where $H$ and $W$ are the height and width of the feature map the convolution is applied to, versus $k^2 C_{in} C_{out} HW$ for an ordinary convolution that mixes channels and space at once, a saving of roughly a factor of $C_{out}$ for typical kernel sizes. Table~\ref{tab:efficientnet_stages} gives the resulting stage-by-stage structure of EfficientNet-B0. Scaling this baseline network up to the larger EfficientNet-B1 through B7 variants,  which are not used in this project, is done using a single \textbf{compound coefficient} $\phi$ that jointly scales depth, width, and resolution:
-\begin{equation}
-\text{depth} = \alpha^{\phi}, \qquad \text{width} = \beta^{\phi}, \qquad \text{resolution} = \gamma^{\phi}, \qquad \text{s.t. } \alpha\beta^2\gamma^2 \approx 2,
-\label{eq:compound_scaling}
-\end{equation}
-with $\alpha, \beta, \gamma \geq 1$ found by a small grid search, so that a single $\phi$ controls how much extra computation the network is allowed relative to the $\phi=0$ baseline used in this project.
-
-\begin{table}[htbp]
+\vfill
+\noindent\begin{minipage}{\textwidth}
+\setstretch{1}
 \centering
-\small
-\caption{Stage-by-stage structure of EfficientNet-B0 for a $224\times224$ input.}\label{tab:efficientnet_stages}
-\begin{tabular}{lllcc}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\captionof{table}{Structure of EfficientNet-B0 for a $224\times224$ input. Each row is one layer, one MBConv block, or a group of identical consecutive blocks. For a block, Kernel and $s$ refer to the depthwise convolution, and Expanded is the number of channels after the expansion. MBConv6 has an expansion ratio of $t=6$, and MBConv1 has no expansion convolution. For the two ordinary convolutions, the number of kernels equals the number of output channels.}
+\label{tab:efficientnet_layers}
+\begin{tabular}{rlcccccr}
 \toprule
-\textbf{Stage} & \textbf{Operator} & \textbf{Resolution} & \textbf{Channels} & \textbf{Layers} \\
+\textbf{Block} & \textbf{Type} & \textbf{Input} & \textbf{Kernel} & \textbf{Expanded} & $s$ & \textbf{Output} & \textbf{Params} \\
 \midrule
-1 & Conv $3\times3$             & $224\times224$ & 32   & 1 \\
-2 & MBConv1, $3\times3$         & $112\times112$ & 16   & 1 \\
-3 & MBConv6, $3\times3$         & $112\times112$ & 24   & 2 \\
-4 & MBConv6, $5\times5$         & $56\times56$   & 40   & 2 \\
-5 & MBConv6, $3\times3$         & $28\times28$   & 80   & 3 \\
-6 & MBConv6, $5\times5$         & $14\times14$   & 112  & 3 \\
-7 & MBConv6, $5\times5$         & $14\times14$   & 192  & 4 \\
-8 & MBConv6, $3\times3$         & $7\times7$     & 320  & 1 \\
-9 & Conv $1\times1$ + pool + FC & $7\times7$     & 1280 & 1 \\
+--      & Conv            & $224\times224\times3$  & $3\times3\times3$   & --   & 2  & $112\times112\times32$ & 0.9K  \\
+1       & MBConv1         & $112\times112\times32$ & $3\times3$          & 32   & 1  & $112\times112\times16$ & 1.4K  \\
+2       & MBConv6         & $112\times112\times16$ & $3\times3$          & 96   & 2  & $56\times56\times24$   & 6.0K  \\
+3       & MBConv6         & $56\times56\times24$   & $3\times3$          & 144  & 1  & $56\times56\times24$   & 10.7K \\
+4       & MBConv6         & $56\times56\times24$   & $5\times5$          & 144  & 2  & $28\times28\times40$   & 15.4K \\
+5       & MBConv6         & $28\times28\times40$   & $5\times5$          & 240  & 1  & $28\times28\times40$   & 31.3K \\
+6       & MBConv6         & $28\times28\times40$   & $3\times3$          & 240  & 2  & $14\times14\times80$   & 37.1K \\
+7--8    & MBConv6         & $14\times14\times80$   & $3\times3$          & 480  & 1  & $14\times14\times80$   & 206K  \\
+9       & MBConv6         & $14\times14\times80$   & $5\times5$          & 480  & 1  & $14\times14\times112$  & 126K  \\
+10--11  & MBConv6         & $14\times14\times112$  & $5\times5$          & 672  & 1  & $14\times14\times112$  & 417K  \\
+12      & MBConv6         & $14\times14\times112$  & $5\times5$          & 672  & 2  & $7\times7\times192$    & 262K  \\
+13--15  & MBConv6         & $7\times7\times192$    & $5\times5$          & 1152 & 1  & $7\times7\times192$    & 1.76M \\
+16      & MBConv6         & $7\times7\times192$    & $3\times3$          & 1152 & 1  & $7\times7\times320$    & 717K  \\
+--      & Conv            & $7\times7\times320$    & $1\times1\times320$ & --   & 1  & $7\times7\times1280$   & 412K  \\
+--      & Global avg pool & $7\times7\times1280$   & $7\times7$          & --   & -- & 1280                   & 0     \\
+--      & FC              & 1280                   & --                  & --   & -- & 1000                   & 1.28M \\
+\midrule
+\multicolumn{7}{l}{\textbf{Total}} & 5.3M \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{minipage}
 
+\clearpage
 \subsection{ConvNeXt-Tiny}\label{sec:convnext}
 
-ConvNeXt \citep{liu2022convnext} takes the opposite approach to EfficientNet: rather than searching for a new architecture, it starts with a standard ResNet and modernises it one design choice at a time, borrowing several ideas from Vision Transformers. Table~\ref{tab:convnext_block} contrasts the resulting ConvNeXt block with the ResNet bottleneck block described in Section~\ref{sec:resnet}.
-
-The main structural changes are as follows. The convolution is enlarged from $3\times3$ to $7\times7$, but is made \textbf{depthwise} (as described in Section~\ref{sec:efficientnet}) to keep the added cost manageable. The block is also turned into an \textbf{inverted bottleneck}. In a ResNet bottleneck block (Section~\ref{sec:resnet}), the residual connection joins two wide ends and the $3\times3$ convolution works on a narrow middle: a block in the first stage, for example, reduces 256 channels to 64, convolves them, and expands them back to 256 \citep{he2016resnet}. The ConvNeXt block reverses this, so that its ends are narrow and its middle is wide: the first $1\times1$ convolution expands the channel count by a factor of 4 and the second projects it back down, so a block in ConvNeXt-Tiny's first stage expands 96 channels to 384 and projects them back to 96. This is the same expand-then-project structure as the MBConv block in Section~\ref{sec:efficientnet}, and the ConvNeXt authors note that it also matches the MLP block of a Transformer, whose hidden layer is four times wider than its input \citep{liu2022convnext}. The depthwise convolution is then moved to the start of the block, before the expansion, so that the large $7\times7$ kernel operates on the narrow representation while the two $1\times1$ convolutions do most of the computation on the wide one. Batch normalisation is replaced with \textbf{layer normalisation}, which normalises across the channels of a single sample rather than across a batch of samples, making training less sensitive to batch size. ReLU is replaced with the smoother \textbf{GELU} activation (Gaussian Error Linear Unit):
+ConvNeXt \citep{liu2022convnext} starts from a standard ResNet-50 and changes it step by step to resemble Vision Transformers, a newer type of network that splits the image into small patches, while still using only convolutions. The ConvNeXt block has three steps. First, a $7\times7$ depthwise convolution looks for spatial patterns in each channel separately. The large kernel lets the block see a wider area of the image, and because the convolution is depthwise, it remains cheap. Second, a $1\times1$ convolution increases the number of channels by a factor of 4, and is followed by the GELU activation. Third, a second $1\times1$ convolution reduces the number of channels back to the original number. The input of the block is then added to its output through a residual connection, as in ResNet (Equation~\ref{eq:residual}). The block is therefore narrow at its ends and wide in the middle, which is the opposite of the ResNet bottleneck block (Section~\ref{sec:resnet}) and the same as MBConv (Section~\ref{sec:efficientnet}). The block uses \textbf{layer normalisation}, which normalises over the channels of each image instead of over a batch of images, and has only one normalisation and one activation, where the ResNet bottleneck block has three of each. GELU (Gaussian Error Linear Unit) is a smooth variant of ReLU \citep{hendrycks2016gelu}:
 \begin{equation}
-\mathrm{GELU}(x) = x \, \Phi(x),
+    \mathrm{GELU}(x) = x \cdot \Phi(x),
 \label{eq:gelu}
 \end{equation}
-where $\Phi(x)$ is the cumulative distribution function of the standard normal distribution, that is, the probability that a standard normal random variable is less than $x$. ReLU passes positive inputs through unchanged and sets every negative input to exactly zero, so its output depends only on the input's sign. GELU instead multiplies each input by $\Phi(x)$, which rises smoothly from 0 to 1: large positive inputs pass through almost unchanged ($\Phi(x) \approx 1$), large negative inputs are pushed towards zero ($\Phi(x) \approx 0$), and inputs near zero are scaled by a factor in between, so small negative inputs produce small negative outputs rather than zero. Its authors describe this as weighting inputs by their value rather than gating them by their sign \citep{hendrycks2016gelu}. Unlike ReLU, which has a sharp corner at zero, GELU is smooth everywhere.
+where $\Phi$ is the cumulative distribution function of the standard normal distribution. At the input, the $7\times7$ convolution and max pool of ResNet are replaced by a $4\times4$ convolution with stride 4, called a \textbf{patchify} layer, which divides the image into non-overlapping $4\times4$ patches. Between stages, the resolution is halved by a separate $2\times2$ convolution with stride 2. ConvNeXt-Tiny has four stages of 3, 3, 9 and 3 blocks with 96, 192, 384 and 768 channels (Table~\ref{tab:convnext_layers}).
 
-At the input of the network is the \textbf{stem}: the first layer, or small handful of layers, that processes the raw input image before it reaches the main stack of blocks. Because the input image is at full resolution, performing many channels of convolution would be prohibitively expensive. The stem shrinks the image down quickly within the first few layers. ResNet's stem does this with a $7\times7$ convolution followed by a max pool. ConvNeXt replaces this with a single non-overlapping $4\times4$ convolution with stride 4, sometimes called a \textbf{patchify} layer since it behaves like the patch-embedding step at the start of a Vision Transformer: the image is cut into non-overlapping $4\times4$ tiles, and each tile is linearly projected into a single vector. Downsampling between the network's four stages is likewise handled by a separate $2\times2$ convolution with stride 2, rather than being folded into the first block of each stage as it is in ResNet.
-
-ConvNeXt-Tiny arranges its blocks into four stages of 3, 3, 9, and 3 blocks, with channel counts of 96, 192, 384, and 768 respectively, giving roughly 28.6M parameters in total.
-
-\begin{table}[htbp]
+\vfill
+\noindent\begin{minipage}{\textwidth}
+\setstretch{1}
 \centering
-\small
-\caption{Operation-by-operation comparison of a ResNet bottleneck block and a ConvNeXt block. Both blocks add their input back onto their output via a residual connection.}\label{tab:convnext_block}
-\begin{tabular}{cll}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\captionof{table}{Structure of ConvNeXt-Tiny for a $224\times224$ input, with columns as in Table~\ref{tab:efficientnet_layers}. For a block, Kernel refers to the depthwise convolution and Expanded is the number of channels after the first $1\times1$ convolution. Layer normalisation follows the stem convolution and precedes each downsampling convolution and the FC layer.}
+\label{tab:convnext_layers}
+\begin{tabular}{rlcccccr}
 \toprule
-\textbf{Step} & \textbf{ResNet bottleneck block} & \textbf{ConvNeXt block} \\
+\textbf{Block} & \textbf{Type} & \textbf{Input} & \textbf{Kernel} & \textbf{Expanded} & $s$ & \textbf{Output} & \textbf{Params} \\
 \midrule
-1 & $1\times1$ conv (reduce channels) & $7\times7$ depthwise conv \\
-2 & Batch norm + ReLU                 & Layer norm \\
-3 & $3\times3$ conv                   & $1\times1$ conv (expand $\times4$ channels) \\
-4 & Batch norm + ReLU                 & GELU \\
-5 & $1\times1$ conv (expand channels) & $1\times1$ conv (project channels) \\
-6 & Batch norm                        & --- \\
+--      & Stem conv       & $224\times224\times3$  & $4\times4\times3$   & --   & 4  & $56\times56\times96$  & 4.9K  \\
+1--3    & ConvNeXt block  & $56\times56\times96$   & $7\times7$          & 384  & 1  & $56\times56\times96$  & 238K  \\
+--      & Downsample conv & $56\times56\times96$   & $2\times2\times96$  & --   & 2  & $28\times28\times192$ & 74.1K \\
+4--6    & ConvNeXt block  & $28\times28\times192$  & $7\times7$          & 768  & 1  & $28\times28\times192$ & 918K  \\
+--      & Downsample conv & $28\times28\times192$  & $2\times2\times192$ & --   & 2  & $14\times14\times384$ & 296K  \\
+7--15   & ConvNeXt block  & $14\times14\times384$  & $7\times7$          & 1536 & 1  & $14\times14\times384$ & 10.8M \\
+--      & Downsample conv & $14\times14\times384$  & $2\times2\times384$ & --   & 2  & $7\times7\times768$   & 1.18M \\
+16--18  & ConvNeXt block  & $7\times7\times768$    & $7\times7$          & 3072 & 1  & $7\times7\times768$   & 14.3M \\
+--      & Global avg pool & $7\times7\times768$    & $7\times7$          & --   & -- & 768                   & 0     \\
+--      & FC              & 768                    & --                  & --   & -- & 1000                  & 771K  \\
 \midrule
-\multicolumn{3}{l}{Add input via residual connection, then (ResNet only) apply a final ReLU} \\
+\multicolumn{7}{l}{\textbf{Total}} & 28.6M \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{minipage}
 
-
+\clearpage
+\FloatBarrier
 \subsection{Summary of Architectures}\label{sec:arch_summary}
 
 Table~\ref{tab:arch_summary} summarises the architectures used in this project. Besides the four pretrained architectures described above, it includes ResNet-18 (scratch), the ResNet-18 that is trained from randomly initialised weights as a baseline (Section~\ref{sec:exp_architectures}). The ImageNet column gives each architecture's size as defined in torchvision, with its original 1000-class output layer. The last two columns give the size of the final models trained in this project, after that output layer has been replaced with the tuned classifier head of each component (Section~\ref{sec:exp_hyperparams}).
@@ -243,32 +285,27 @@ ConvNeXt-Tiny   & ConvNeXt block          & 2022 & 28.6M & 28.6M & 33.6M \\
 \end{tabular}
 \end{table}
 
-Two points stand out from Table~\ref{tab:arch_summary}. First, a network's parameter count says little about its depth: DenseNet-121, with 121 layers, is one of the smallest. Second, the classifier head can change a model's size considerably, since a single fully connected layer of 2048 neurons on top of 2048 input features, as in the second hidden layer of the DenseNet-121 clarifier head, already adds about 4.2M parameters. EfficientNet-B0's aerobic zone model is the clearest example: its two-hidden-layer head of 2048 neurons adds about 6.8M parameters to a backbone of about 4.0M, more than doubling the size of the network.
+Table~\ref{tab:arch_summary} shows that a network's parameter count says little about its depth: DenseNet-121, with 121 layers, is one of the smallest. The classifier head can also change a model's size considerably. The head of the EfficientNet-B0 aerobic zone model adds about 6.8M parameters to a backbone of about 4.0M, more than doubling its size.
 
 
+\FloatBarrier
 \section{Evaluation Metrics for Classification}\label{sec:metrics_background}
 
-A classifier assigns every test image to one class, and the assigned class is compared with the true class of the image. The metrics in this section summarise these comparisons over a test set.
+\textbf{Accuracy} is the fraction of test images that are assigned to their true class. When the classes are imbalanced, it is dominated by the largest classes.
 
-\textbf{Accuracy} is the fraction of test images that are assigned to their true class. It is not suitable when the classes are imbalanced, since it is dominated by the common classes: a classifier that assigns every image to the majority class can reach a high accuracy while never identifying a rare class.
-
-\textbf{Precision, recall and F1 score} are calculated for every class separately. With $TP_c$, $FP_c$ and $FN_c$ the number of true positives, false positives and false negatives for class $c$,
-
+\textbf{Precision, recall and F1 score} are calculated for each class $c$ from the number of true positives $TP_c$, false positives $FP_c$ and false negatives $FN_c$:
 \begin{equation}
     \mathrm{Precision}_c = \frac{TP_c}{TP_c + FP_c}, \qquad
-    \mathrm{Recall}_c = \frac{TP_c}{TP_c + FN_c},
-\end{equation}
-\begin{equation}
+    \mathrm{Recall}_c = \frac{TP_c}{TP_c + FN_c}, \qquad
     F1_c = \frac{2 \cdot \mathrm{Precision}_c \cdot \mathrm{Recall}_c}{\mathrm{Precision}_c + \mathrm{Recall}_c}.
 \end{equation}
+The macro-averaged values are the unweighted means over the classes, so that every class has the same weight.
 
-Precision is the fraction of images assigned to class $c$ that belong to it, and recall is the fraction of the images of class $c$ that are assigned to it. The F1 score is the harmonic mean of the two, and is only high when both are high. The macro-averaged precision, recall and F1 score are the unweighted means of the per-class values, so that every class has the same weight regardless of its size.
+The \textbf{confusion matrix} counts, for every true class, how many images were assigned to each class.
 
-The \textbf{confusion matrix} counts, for every true class, how many of its test images were assigned to each class. It shows which classes are mistaken for each other, in addition to how many images are misclassified.
+The \textbf{receiver operating characteristic (ROC) curve} plots the true positive rate (recall) against the false positive rate as the decision threshold is varied. The \textbf{area under the curve (AUC)} is 1 when every positive image receives a higher score than every negative image, and 0.5 for random guessing. For more than two classes, the one-vs-rest AUC of each class is averaged.
 
-The \textbf{receiver operating characteristic (ROC) curve} plots the true positive rate (recall) against the false positive rate as the decision threshold on the output score of a classifier is varied. The \textbf{area under the ROC curve (AUC)} summarises this curve in a single number that does not depend on a specific threshold. An AUC of 1 means that every positive image receives a higher score than every negative image, while an AUC of 0.5 corresponds to random guessing. For more than two classes, a one-vs-rest ROC curve is calculated for every class from the softmax probability of that class, and the AUC values of the classes are averaged.
-
-\textbf{Loss and accuracy curves} record the training and development loss and accuracy after every epoch. They are not used to compare models, but show whether training converged and when the model started to overfit the training set.
+\textbf{Loss and accuracy curves} give the training and development loss and accuracy after every epoch.
 
 
 \section{Gradient-Weighted Class Activation Mapping}\label{sec:gradcam_background}

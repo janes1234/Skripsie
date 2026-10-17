@@ -1,15 +1,6 @@
-@misc{sun_thesis_guide,
-	author = {{Stellenbosch University}},
-    title = {Formatting your thesis},
-	year = {2024},
-    note = "\url{http://bit.ly/SUThesisFormat}",
-}
-@misc{sun_latex_template,
-	author = {Danie Els},
-    title = {Stellenbosch University thesis bundle},
-	year = {2024},
-    note = "\url{https://ctan.org/pkg/stellenbosch-2}",
-}
+% ---------------------------------------------------------------------
+% Background, methods and software (Chapters 2, 4 and 5)
+% ---------------------------------------------------------------------
 
 @article{lecun1998gradient,
 	author  = {LeCun, Yann and Bottou, L{\'e}on and Bengio, Yoshua and Haffner, Patrick},
@@ -19,6 +10,8 @@
 	number  = {11},
 	pages   = {2278--2324},
 	year    = {1998},
+	doi     = {10.1109/5.726791},
+	note      = "\url{https://doi.org/10.1109/5.726791}",
 }
 
 @inproceedings{krizhevsky2012alexnet,
@@ -26,8 +19,8 @@
 	title     = {{ImageNet} Classification with Deep Convolutional Neural Networks},
 	booktitle = {Advances in Neural Information Processing Systems},
 	volume    = {25},
-	pages     = {1097--1105},
 	year      = {2012},
+	note      = "\url{https://papers.nips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html}",
 }
 
 @inproceedings{deng2009imagenet,
@@ -36,6 +29,20 @@
 	booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
 	pages     = {248--255},
 	year      = {2009},
+	doi       = {10.1109/CVPR.2009.5206848},
+	note      = "\url{https://doi.org/10.1109/CVPR.2009.5206848}",
+}
+
+@article{russakovsky2015imagenet,
+	author  = {Russakovsky, Olga and Deng, Jia and Su, Hao and Krause, Jonathan and Satheesh, Sanjeev and Ma, Sean and Huang, Zhiheng and Karpathy, Andrej and Khosla, Aditya and Bernstein, Michael and Berg, Alexander C. and Fei-Fei, Li},
+	title   = {{ImageNet} Large Scale Visual Recognition Challenge},
+	journal = {International Journal of Computer Vision},
+	volume  = {115},
+	number  = {3},
+	pages   = {211--252},
+	year    = {2015},
+	doi     = {10.1007/s11263-015-0816-y},
+	note      = "\url{https://doi.org/10.1007/s11263-015-0816-y}",
 }
 
 @inproceedings{he2016resnet,
@@ -44,46 +51,97 @@
 	booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
 	pages     = {770--778},
 	year      = {2016},
+	doi       = {10.1109/CVPR.2016.90},
+	note      = "\url{https://doi.org/10.1109/CVPR.2016.90}",
 }
 
 @inproceedings{huang2017densenet,
 	author    = {Huang, Gao and Liu, Zhuang and van der Maaten, Laurens and Weinberger, Kilian Q.},
 	title     = {Densely Connected Convolutional Networks},
 	booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
-	pages     = {4700--4708},
+	pages     = {2261--2269},
 	year      = {2017},
+	doi       = {10.1109/CVPR.2017.243},
+	note      = "\url{https://doi.org/10.1109/CVPR.2017.243}",
 }
 
 @inproceedings{szegedy2016inception,
 	author    = {Szegedy, Christian and Vanhoucke, Vincent and Ioffe, Sergey and Shlens, Jon and Wojna, Zbigniew},
-	title     = {Rethinking the Inception Architecture for Computer Vision},
+	title     = {Rethinking the {Inception} Architecture for Computer Vision},
 	booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
 	pages     = {2818--2826},
 	year      = {2016},
+	doi       = {10.1109/CVPR.2016.308},
+	note      = "\url{https://doi.org/10.1109/CVPR.2016.308}",
 }
 
 @inproceedings{hu2018squeeze,
 	author    = {Hu, Jie and Shen, Li and Sun, Gang},
 	title     = {Squeeze-and-Excitation Networks},
-	booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+	booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
 	pages     = {7132--7141},
 	year      = {2018},
+	doi       = {10.1109/CVPR.2018.00745},
+	note      = "\url{https://doi.org/10.1109/CVPR.2018.00745}",
 }
 
 @inproceedings{tan2019efficientnet,
 	author    = {Tan, Mingxing and Le, Quoc V.},
 	title     = {{EfficientNet}: Rethinking Model Scaling for Convolutional Neural Networks},
 	booktitle = {Proceedings of the 36th International Conference on Machine Learning (ICML)},
+	series    = {Proceedings of Machine Learning Research},
+	volume    = {97},
 	pages     = {6105--6114},
+	publisher = {PMLR},
 	year      = {2019},
+	note      = "\url{https://proceedings.mlr.press/v97/tan19a.html}",
 }
 
 @inproceedings{liu2022convnext,
 	author    = {Liu, Zhuang and Mao, Hanzi and Wu, Chao-Yuan and Feichtenhofer, Christoph and Darrell, Trevor and Xie, Saining},
 	title     = {A {ConvNet} for the 2020s},
 	booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-	pages     = {11976--11986},
+	pages     = {11966--11976},
 	year      = {2022},
+	doi       = {10.1109/CVPR52688.2022.01167},
+	note      = "\url{https://doi.org/10.1109/CVPR52688.2022.01167}",
+}
+
+@misc{hendrycks2016gelu,
+	author        = {Hendrycks, Dan and Gimpel, Kevin},
+	title         = {Gaussian Error Linear Units ({GELUs})},
+	year          = {2016},
+	eprint        = {1606.08415},
+	archivePrefix = {arXiv},
+	howpublished  = {arXiv preprint arXiv:1606.08415},
+	doi           = {10.48550/arXiv.1606.08415},
+	note      = "\url{https://arxiv.org/abs/1606.08415}",
+}
+
+@inproceedings{paszke2019pytorch,
+	author    = {Paszke, Adam and others},
+	title     = {{PyTorch}: An Imperative Style, High-Performance Deep Learning Library},
+	booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+	year      = {2019},
+	doi       = {10.48550/arXiv.1912.01703},
+	note      = "\url{https://doi.org/10.48550/arXiv.1912.01703}",
+}
+
+@misc{torchvision2016,
+	author       = {{TorchVision maintainers and contributors}},
+	title        = {{TorchVision}: {PyTorch}'s Computer Vision library},
+	year         = {2016},
+	howpublished = {GitHub repository},
+	note         = "Version 0.28.0. \url{https://github.com/pytorch/vision}",
+}
+
+@inproceedings{kingma2015adam,
+	author    = {Kingma, Diederik P. and Ba, Jimmy},
+	title     = {{Adam}: A Method for Stochastic Optimization},
+	booktitle = {International Conference on Learning Representations (ICLR)},
+	year      = {2015},
+	doi       = {10.48550/arXiv.1412.6980},
+	note      = "\url{https://doi.org/10.48550/arXiv.1412.6980}",
 }
 
 @inproceedings{akiba2019optuna,
@@ -92,6 +150,18 @@
 	booktitle = {Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery \& Data Mining},
 	pages     = {2623--2631},
 	year      = {2019},
+	doi       = {10.1145/3292500.3330701},
+	note      = "\url{https://doi.org/10.1145/3292500.3330701}",
+}
+
+@inproceedings{bergstra2011tpe,
+	author    = {Bergstra, James and Bardenet, R{\'e}mi and Bengio, Yoshua and K{\'e}gl, Bal{\'a}zs},
+	title     = {Algorithms for Hyper-Parameter Optimization},
+	booktitle = {Advances in Neural Information Processing Systems},
+	volume    = {24},
+	pages     = {2546--2554},
+	year      = {2011},
+	note      = "\url{https://proceedings.nips.cc/paper_files/paper/2011/file/86e8f7ab32cfd12577bc2619bc635690-Paper.pdf}",
 }
 
 @inproceedings{selvaraju2017gradcam,
@@ -100,21 +170,27 @@
 	booktitle = {Proceedings of the IEEE International Conference on Computer Vision (ICCV)},
 	pages     = {618--626},
 	year      = {2017},
+	doi       = {10.1109/ICCV.2017.74},
+	note      = "\url{https://doi.org/10.1109/ICCV.2017.74}",
 }
 
 @misc{gildenblat2021pytorchcam,
-	author = {Gildenblat, Jacob and contributors},
-	title  = {{PyTorch} library for {CAM} methods},
-	year   = {2021},
-	note   = "\url{https://github.com/jacobgil/pytorch-grad-cam}",
+	author       = {Gildenblat, Jacob and contributors},
+	title        = {{PyTorch} library for {CAM} methods},
+	year         = {2021},
+	howpublished = {GitHub repository},
+	note         = "Version 1.5.7. \url{https://github.com/jacobgil/pytorch-grad-cam}",
 }
 
-
-@article{hendrycks2016gelu,
-	author  = {Hendrycks, Dan and Gimpel, Kevin},
-	title   = {Gaussian Error Linear Units ({GELUs})},
-	journal = {arXiv preprint arXiv:1606.08415},
-	year    = {2016},
+@inproceedings{dutta2019vgg,
+	author    = {Dutta, Abhishek and Zisserman, Andrew},
+	title     = {The {VIA} Annotation Software for Images, Audio and Video},
+	booktitle = {Proceedings of the 27th ACM International Conference on Multimedia (MM '19)},
+	pages     = {2276--2279},
+	publisher = {ACM},
+	year      = {2019},
+	doi       = {10.1145/3343031.3350535},
+	note      = "\url{https://doi.org/10.1145/3343031.3350535}",
 }
 
 % ---------------------------------------------------------------------
@@ -123,20 +199,12 @@
 
 @techreport{dws2022greendrop,
 	author      = {{Department of Water and Sanitation}},
-	title       = {Green Drop National Report 2022},
+	title       = {{Green Drop} National Report 2022},
 	type        = {Report},
 	institution = {Department of Water and Sanitation},
 	address     = {Pretoria, South Africa},
 	year        = {2022},
-	note      = "\url{https://ws.dws.gov.za/IRIS/latestresults.aspx}",
-}
-
-@misc{kretzmann2022,
-	author       = {Kretzmann, Steve},
-	title        = {`A tsunami of human waste': Half of {SA}'s sewage treatment works are failing, says report},
-	howpublished = {Daily Maverick, 21 June 2022. First published by GroundUp},
-	year         = {2022},
-	note         = "\url{https://www.dailymaverick.co.za/article/2022-06-21-a-tsunami-of-human-waste-half-of-sas-sewage-treatment-works-are-failing-says-study/}. Accessed 30 September 2026",
+	note        = "\url{https://ws.dws.gov.za/IRIS/releases/GD22\%20Report_NATIONAL_FINAL_16May22_MN\%20web.pdf}. Archived at \url{https://web.archive.org/web/20220710190541/https://ws.dws.gov.za/IRIS/releases/GD22\%20Report_NATIONAL_FINAL_16May22_MN\%20web.pdf}. Accessed 16 October 2026",
 }
 
 @article{costa2013,
@@ -144,8 +212,11 @@
 	title   = {Quantitative image analysis for the characterization of microbial aggregates in biological wastewater treatment: a review},
 	journal = {Environmental Science and Pollution Research},
 	volume  = {20},
+	number  = {9},
 	pages   = {5887--5912},
 	year    = {2013},
+	doi     = {10.1007/s11356-013-1824-5},
+	note      = "\url{https://doi.org/10.1007/s11356-013-1824-5}",
 }
 
 @article{satoh2021,
@@ -157,6 +228,7 @@
 	pages   = {298--305},
 	year    = {2021},
 	doi     = {10.1039/D0EW00908C},
+	note      = "\url{https://doi.org/10.1039/D0EW00908C}",
 }
 
 @article{borzooei2024,
@@ -167,6 +239,7 @@
 	pages   = {105692},
 	year    = {2024},
 	doi     = {10.1016/j.jwpe.2024.105692},
+	note      = "\url{https://doi.org/10.1016/j.jwpe.2024.105692}",
 }
 
 @article{carballomato2024,
@@ -178,6 +251,7 @@
 	pages   = {390},
 	year    = {2024},
 	doi     = {10.3390/w16030390},
+	note      = "\url{https://doi.org/10.3390/w16030390}",
 }
 
 @article{gholizadeh2016,
@@ -189,6 +263,7 @@
 	pages   = {1298},
 	year    = {2016},
 	doi     = {10.3390/s16081298},
+	note      = "\url{https://doi.org/10.3390/s16081298}",
 }
 
 @article{lopezbetancur2022,
@@ -200,6 +275,7 @@
 	pages   = {6079},
 	year    = {2022},
 	doi     = {10.3390/app12126079},
+	note      = "\url{https://doi.org/10.3390/app12126079}",
 }
 
 @article{lesiv2018,
@@ -211,12 +287,13 @@
 	pages   = {118},
 	year    = {2018},
 	doi     = {10.3390/land7040118},
+	note      = "\url{https://doi.org/10.3390/land7040118}",
 }
 
 @misc{eoportal_quickbird,
 	author       = {{eoPortal}},
 	title        = {{QuickBird-2}},
-	howpublished = {European Space Agency eoPortal satellite missions directory},
+	howpublished = {eoPortal satellite missions directory},
 	year         = {2025},
 	note         = "\url{https://www.eoportal.org/satellite-missions/quickbird-2}. Accessed 6 October 2026",
 }
@@ -230,6 +307,7 @@
 	pages   = {6026--6042},
 	year    = {2013},
 	doi     = {10.3390/rs5116026},
+	note      = "\url{https://doi.org/10.3390/rs5116026}",
 }
 
 @article{zhou2018patternnet,
@@ -240,6 +318,7 @@
 	pages   = {197--209},
 	year    = {2018},
 	doi     = {10.1016/j.isprsjprs.2018.01.004},
+	note      = "\url{https://doi.org/10.1016/j.isprsjprs.2018.01.004}",
 }
 
 @article{li2022wwtp,
@@ -250,6 +329,7 @@
 	pages   = {102804},
 	year    = {2022},
 	doi     = {10.1016/j.jag.2022.102804},
+	note      = "\url{https://doi.org/10.1016/j.jag.2022.102804}",
 }
 
 @article{shuai2023,
@@ -261,6 +341,7 @@
 	pages   = {5880},
 	year    = {2023},
 	doi     = {10.3390/su15075880},
+	note      = "\url{https://doi.org/10.3390/su15075880}",
 }
 
 @inproceedings{randhawa2023,
@@ -272,6 +353,7 @@
 	address   = {New York, NY, USA},
 	year      = {2023},
 	doi       = {10.1145/3615900.3628772},
+	note      = "\url{https://doi.org/10.1145/3615900.3628772}",
 }
 
 @article{handannader2019,
@@ -283,6 +365,7 @@
 	pages   = {298--306},
 	year    = {2019},
 	doi     = {10.1038/s41893-019-0246-x},
+	note      = "\url{https://doi.org/10.1038/s41893-019-0246-x}",
 }
 
 @misc{westbrook2016,
@@ -301,6 +384,7 @@
 	pages   = {539--556},
 	year    = {2017},
 	doi     = {10.1016/j.patcog.2016.07.001},
+	note      = "\url{https://doi.org/10.1016/j.patcog.2016.07.001}",
 }
 
 @inproceedings{penatti2015,
@@ -310,6 +394,7 @@
 	pages     = {44--51},
 	year      = {2015},
 	doi       = {10.1109/CVPRW.2015.7301382},
+	note      = "\url{https://doi.org/10.1109/CVPRW.2015.7301382}",
 }
 
 @inproceedings{geirhos2019,
@@ -328,15 +413,17 @@
 	pages   = {249--259},
 	year    = {2018},
 	doi     = {10.1016/j.neunet.2018.07.011},
+	note      = "\url{https://doi.org/10.1016/j.neunet.2018.07.011}",
 }
 
 @inproceedings{lin2017focal,
 	author    = {Lin, Tsung-Yi and Goyal, Priya and Girshick, Ross and He, Kaiming and Doll{\'a}r, Piotr},
-	title     = {Focal loss for dense object detection},
+	title     = {Focal Loss for Dense Object Detection},
 	booktitle = {Proceedings of the IEEE International Conference on Computer Vision (ICCV)},
-	pages     = {2980--2988},
+	pages     = {2999--3007},
 	year      = {2017},
 	doi       = {10.1109/ICCV.2017.324},
+	note      = "\url{https://doi.org/10.1109/ICCV.2017.324}",
 }
 
 @article{kattenborn2022,
@@ -347,6 +434,7 @@
 	pages   = {100018},
 	year    = {2022},
 	doi     = {10.1016/j.ophoto.2022.100018},
+	note      = "\url{https://doi.org/10.1016/j.ophoto.2022.100018}",
 }
 
 @article{geirhos2020,
@@ -358,6 +446,7 @@
 	pages   = {665--673},
 	year    = {2020},
 	doi     = {10.1038/s42256-020-00257-z},
+	note      = "\url{https://doi.org/10.1038/s42256-020-00257-z}",
 }
 
 @article{lapuschkin2019,
@@ -365,9 +454,11 @@
 	title   = {Unmasking {Clever Hans} predictors and assessing what machines really learn},
 	journal = {Nature Communications},
 	volume  = {10},
+	number  = {1},
 	pages   = {1096},
 	year    = {2019},
 	doi     = {10.1038/s41467-019-08987-4},
+	note      = "\url{https://doi.org/10.1038/s41467-019-08987-4}",
 }
 
 @article{saito2015,
@@ -379,4 +470,5 @@
 	pages   = {e0118432},
 	year    = {2015},
 	doi     = {10.1371/journal.pone.0118432},
+	note      = "\url{https://doi.org/10.1371/journal.pone.0118432}",
 }

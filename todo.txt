@@ -1,1 +1,16 @@
-sources double check
+Errors in your text you need to fix
+
+I didn't change these because they need rewording, and that's your call. The report has a short suggested rewrite for each.
+1. Ch2:89 (serious). You say ResNet solves vanishing gradients. The ResNet paper says the problem is "unlikely to be caused by vanishing gradients"; what it solves is what the authors call the degradation problem. Anyone who knows the paper will catch this.
+2. Ch3:23. You say a working clarifier "should look brighter". Your own source says suspended solids increase reflectance, so it should look darker. This also contradicts your Ch2:8 and Ch6:176.
+3. Ch3:9 (Green Drop).
+   - The 102-of-115 figure is real, but those are Department of Public Works prisons and border posts, not municipal plants.
+   - In those cases the site inspection scored higher than the paperwork, which argues against your point that paperwork hides poor plants.
+   - Use the municipal figures from the same report instead: 334 of 850 systems critical (p. xi), and gaps of up to 57% (p. 32).
+4. Ch3:44. Kattenborn says "up to 28%". That is the worst case, it is an F1-score rather than accuracy, and it is not a flat 28%.
+5. Ch3:25. QuickBird's sub-metre resolution is the single panchromatic band only. Its four colour bands are 2.4 m.
+6. Ch4:17. 400 Ml/day is the design capacity, and nobody found a source for "among the largest in SA". Cite Knight Piésold and drop that clause.
+7. Smaller ones:
+   - Lapuschkin's paper says "source tag", not "copyright tag".
+   - Buda studied oversampling; he didn't develop it.
+   - Your Penatti point goes further than the paper does.

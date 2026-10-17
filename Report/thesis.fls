@@ -711,8 +711,8 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmmi7.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmsy7.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmr8.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmr6.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmr7.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmr5.tfm
 INPUT ./chapters/Chapter3.tex
 INPUT ./chapters/Chapter3.tex
 INPUT ./chapters/Chapter3.tex
@@ -787,6 +787,7 @@ INPUT ./figures/relabel_process_example.png
 INPUT ./figures/relabel_process_example.png
 INPUT ./figures/relabel_process_example.png
 INPUT ./figures/relabel_process_example.png
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmr8.tfm
 INPUT ./chapters/Chapter5.tex
 INPUT ./chapters/Chapter5.tex
 INPUT chapters/Chapter5.tex

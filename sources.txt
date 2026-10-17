@@ -1,0 +1,47 @@
+ML and methods:
+- LeCun 1998 (changed): https://doi.org/10.1109/5.726791
+- AlexNet 2012 (changed): https://papers.nips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html
+- ImageNet, Deng 2009 (changed): https://doi.org/10.1109/CVPR.2009.5206848 (free PDF: https://www.image-net.org/static_files/papers/imagenet_cvpr09.pdf)
+- Russakovsky 2015 (added): https://doi.org/10.1007/s11263-015-0816-y
+- ResNet 2016 (changed): https://doi.org/10.1109/CVPR.2016.90 (free: https://arxiv.org/abs/1512.03385)
+- DenseNet 2017 (changed): https://doi.org/10.1109/CVPR.2017.243
+- Inception-v3 2016 (changed): https://doi.org/10.1109/CVPR.2016.308
+- SE-Net 2018 (changed): https://doi.org/10.1109/CVPR.2018.00745
+- EfficientNet 2019 (changed): https://proceedings.mlr.press/v97/tan19a.html
+- ConvNeXt 2022 (changed): https://doi.org/10.1109/CVPR52688.2022.01167
+- GELU 2016 (changed): https://arxiv.org/abs/1606.08415
+- PyTorch 2019 (added): https://doi.org/10.48550/arXiv.1912.01703
+- torchvision (added): https://github.com/pytorch/vision
+- Adam 2015 (added): https://doi.org/10.48550/arXiv.1412.6980
+- Optuna 2019 (changed): https://doi.org/10.1145/3292500.3330701
+- TPE 2011 (added): https://proceedings.nips.cc/paper_files/paper/2011/file/86e8f7ab32cfd12577bc2619bc635690-Paper.pdf
+- Grad-CAM 2017 (changed): https://doi.org/10.1109/ICCV.2017.74
+- pytorch-grad-cam (changed): https://github.com/jacobgil/pytorch-grad-cam
+- VIA 2019 (added): https://doi.org/10.1145/3343031.3350535
+
+Literature review:
+- Green Drop 2022 (changed): https://ws.dws.gov.za/IRIS/releases/GD22%20Report_NATIONAL_FINAL_16May22_MN%20web.pdf
+- Costa 2013 (changed): https://doi.org/10.1007/s11356-013-1824-5. Weakest check: paywalled, and we only saw the title and a search snippet.
+- Satoh 2021: https://doi.org/10.1039/D0EW00908C
+- Borzooei 2024: https://doi.org/10.1016/j.jwpe.2024.105692
+- Carballo Mato 2024: https://doi.org/10.3390/w16030390
+- Gholizadeh 2016: https://doi.org/10.3390/s16081298 (free: https://pmc.ncbi.nlm.nih.gov/articles/PMC5017463/)
+- Lopez-Betancur 2022: https://doi.org/10.3390/app12126079
+- Lesiv 2018: https://doi.org/10.3390/land7040118
+- QuickBird on eoPortal (changed): https://www.eoportal.org/satellite-missions/quickbird-2. ESA's own page is a more official alternative: https://earth.esa.int/eogateway/missions/quickbird-2
+- Hu 2013: https://doi.org/10.3390/rs5116026
+- PatternNet 2018: https://doi.org/10.1016/j.isprsjprs.2018.01.004
+- Li 2022: https://doi.org/10.1016/j.jag.2022.102804
+- Shuai 2023: https://doi.org/10.3390/su15075880
+- Randhawa 2023: https://doi.org/10.1145/3615900.3628772
+- Handan-Nader 2019: https://doi.org/10.1038/s41893-019-0246-x. Paywalled, but every number you quote is in the abstract.
+- Westbrook 2016 (not yet cited): https://ascecubadatabase.org/asce_proceedings/havanas-wastewater-treatment-plants-changes-over-time-and-estimate-of-replacement-cost/
+- Nogueira 2017: https://doi.org/10.1016/j.patcog.2016.07.001
+- Penatti 2015: https://doi.org/10.1109/CVPRW.2015.7301382
+- Geirhos 2019: https://arxiv.org/abs/1811.12231
+- Buda 2018: https://doi.org/10.1016/j.neunet.2018.07.011
+- Focal loss 2017 (changed): https://doi.org/10.1109/ICCV.2017.324
+- Kattenborn 2022: https://doi.org/10.1016/j.ophoto.2022.100018
+- Geirhos 2020: https://doi.org/10.1038/s42256-020-00257-z
+- Lapuschkin 2019 (changed): https://doi.org/10.1038/s41467-019-08987-4
+- Saito 2015: https://doi.org/10.1371/journal.pone.0118432
