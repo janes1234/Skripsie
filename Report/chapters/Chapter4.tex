@@ -6,132 +6,63 @@ The dataset used in this project consists of satellite imagery sourced from Goog
 
 \begin{figure}[htbp] 
     \centering 
-    \includegraphics[width=1\textwidth]{figures/heatmap.png} 
+    \includegraphics[width=0.8\textwidth]{figures/heatmap.png} 
     \caption{Number of labelled images per month for each of the five facilities. Cape Flats and Waterval have a separate image for each unit on most dates, so their cells can be larger than one.}\label{fig:heatmap} 
 \end{figure}
 
-The dataset contains 620 labelled images, captured between October 2006 and May 2025. As seen in Figure \ref{fig:heatmap}, most of them (423 of the 620) were captured between 2016 and 2022, and they are spread fairly evenly over the months of the year, with between 38 (November) and 62 (August) images per calendar month.
+The dataset contains 620 labelled images, captured between October 2006 and May 2025. As seen in Figure \ref{fig:heatmap}, most of them (423 of the 620) were captured between 2016 and 2022, and they are spread fairly evenly over the months of the year, with between 38 (November) and 62 (August) images per month.
 
 \section{WWTW Sites}
 
-Atlantis WWTW is located on Mission Express Way in Cape Farms, Cape Town. As part of the greater Cape Town municipality, this facility falls within the Western Cape province. Cape Flats WWTW is also situated in the Western Cape; this sewage treatment plant is located on Informal Road in the Southern Suburbs of Cape Town. Additionally, the Western Cape is home to Fisantekraal WWTW, which is situated approximately 10 kilometres north of Durbanville. Waterval WWTW is operated by ERWAT (Ekurhuleni Water Care Company) and is situated in the Gauteng province. Also located in Gauteng is Northern Works (Noordelike Werke) in Johannesburg. It is the largest wastewater treatment plant in Johannesburg and ranks among the largest in South Africa, treating approximately 400 million litres of wastewater every day. The locations of these sites are shown in Figure \ref{fig:map}. An overview of the Atlantis, Cape Flats, Waterval, Fisantekraal, and Northern Works WWTW facilities is shown in Figure \ref{fig:facility_overviews}.
+Atlantis, Cape Flats and Fisantekraal WWTW are located in the Western Cape, in and around Cape Town. Waterval WWTW, operated by ERWAT (Ekurhuleni Water Care Company), and Northern Works (Noordelike Werke) in Johannesburg are located in Gauteng. Northern Works is the largest plant in Johannesburg and among the largest in South Africa, treating approximately 400 million litres of wastewater per day. The locations of the sites are shown in Figure \ref{fig:map}, and an overview of the Cape Flats facility is shown in Figure \ref{fig:capeflats_overview}.
 
 \begin{figure}[htbp] 
     \centering 
-    \includegraphics[width=0.6\textwidth]{figures/map.png} 
+    \includegraphics[width=0.45\textwidth]{figures/map.png} 
     \caption{Location of the five WWTW facilities in the dataset.}\label{fig:map} 
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/atlantis_overview.png}
-        \caption{Atlantis}\label{fig:atlantis_overview}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/capeflats_overview.png}
-        \caption{Cape Flats}\label{fig:capeflats_overview}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.3\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/waterval_overview.png}
-        \caption{Waterval}\label{fig:waterval_overview}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.3\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/fisantekraal_overview.png}
-        \caption{Fisantekraal}\label{fig:fisantekraal_overview}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.3\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/noordelikewerke_overview.png}
-        \caption{Northern Works}\label{fig:noordelikewerke_overview}
-    \end{subfigure}
-    \caption{Overview of the Atlantis, Cape Flats, Waterval, Fisantekraal, and Northern Works WWTW facilities.}\label{fig:facility_overviews}
+    \includegraphics[width=0.4\textwidth]{figures/capeflats_overview.png}
+    \caption{Overview of the Cape Flats WWTW facility.}\label{fig:capeflats_overview}
 \end{figure}
 
 \section{Annotations}
 
 Images were manually annotated using the VGG Image Annotator (VIA2) tool \citep{dutta2019vgg}. Aerobic zones were labelled using rectangular bounding boxes, while clarifiers were labelled using circular regions, reflecting the physical shape of each structure. Each annotation carries a region attribute indicating the visible state of that component at the time the image was captured.
 
-Aerobic zones were labelled into one of three categories, based on how much of the surface exhibits the characteristic "leopard print" aeration pattern. Examples are shown in Figure \ref{fig:aerobic_examples}:
+Aerobic zones were labelled into one of three categories, based on how much of the surface exhibits the characteristic "leopard print" aeration pattern. Examples are shown in Figure \ref{fig:aerobic_examples}: \textbf{Functional}: the surface shows the leopard print pattern. \textbf{Suboptimal}: a third or more of the surface shows no leopard print, or the state is unclear. \textbf{Dysfunctional}: two thirds or more of the surface shows no leopard print, or is clearly dysfunctional.
 
-\begin{itemize}
-    \item \textbf{Functional}: the surface shows the leopard print pattern.
-    \item \textbf{Suboptimal}: a third or more of the surface shows no leopard print, or the state is unclear.
-    \item \textbf{Dysfunctional}: two thirds or more of the surface shows no leopard print, or is clearly dysfunctional.
-\end{itemize}
+Clarifiers were labelled into one of four categories, based on surface colour and visibility. Examples are shown in Figure \ref{fig:clarifier_examples}: \textbf{Functional}: surface appears uniformly black. \textbf{Dysfunctional}: surface appears green. \textbf{Scum}: surface is not uniformly black. \textbf{Empty}: shadows are visible inside the tank.
 
-Clarifiers were labelled into one of four categories, based on surface colour and visibility. Examples are shown in Figure \ref{fig:clarifier_examples}:
+Annotations are stored as VIA2 project files in JSON format. Each entry records the image filename, file size, and a list of regions, where each region specifies its shape (rectangle or circle), pixel coordinates, and the associated class label. An example entry for an aerobic zone annotation is given in Appendix~\ref{appen:dataset_details}.
 
-\begin{itemize}
-    \item \textbf{Functional}: surface appears uniformly black.
-    \item \textbf{Dysfunctional}: surface appears green.
-    \item \textbf{Scum}: surface is not uniformly black.
-    \item \textbf{Empty}: shadows are visible inside the tank.
-\end{itemize}
-
-
-
-Annotations are stored as VIA2 project files in JSON format. Each entry records the image filename, file size, and a list of regions, where each region specifies its shape (rectangle or circle), pixel coordinates, and the associated class label. An example entry for an aerobic zone annotation is shown below:
-
-\begin{verbatim}
-"Atlantis 01_2019.jpg3469910": {
-  "filename": "Atlantis 01_2019.jpg",
-  "size": 3469910,
-  "regions": [
-    {
-      "shape_attributes": {
-        "name": "rect",
-        "x": 2707, "y": 931,
-        "width": 2839, "height": 1381
-      },
-      "region_attributes": { "aerobic zone": "Dysfunctional" }
-    }
-  ],
-  "file_attributes": {}
-}
-\end{verbatim}
 
 Examples of the classes for aerobic zones and clarifiers are shown in Figures \ref{fig:aerobic_examples} and \ref{fig:clarifier_examples} respectively.
 
 \begin{figure}[htbp]
     \centering 
-    \includegraphics[width=\textwidth]{figures/aerobic_examples.png} 
+    \includegraphics[width=0.8\textwidth]{figures/aerobic_examples.png} 
     \caption{One example of each aerobic zone class, with the facility it comes from. Each example is the test image of the chronological split (Section~\ref{sec:exp_mixed}) that all four pretrained models classified correctly with the highest mean confidence, so that it is a clear case of its class.}\label{fig:aerobic_examples}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering 
-    \includegraphics[width=\textwidth]{figures/clarifier_examples.png} 
+    \includegraphics[width=0.8\textwidth]{figures/clarifier_examples.png} 
     \caption{One example of each clarifier class, with the facility it comes from, chosen in the same way as in Figure~\ref{fig:aerobic_examples}. The area outside each tank is masked to black by the preparation script (Section~\ref{sec:pipeline}).}\label{fig:clarifier_examples}
 \end{figure}
 
 \section{Facility Structure}
 
-The five facilities differ slightly in how their data is organised, reflecting differences in plant layout.
-
-\textbf{Atlantis} consists of a single biological reactor, so its 59 images are stored in one folder with no subdivisions. Two of these images have no labels, so 57 are part of the dataset. Aerobic zone and clarifier labels are each stored in a single JSON file.
-
-\textbf{Cape Flats} consists of four separate reactor units (CF1–CF4), each with its own image folder and containing between 92 and 100 images. Each unit has its own aerobic zone and clarifier label file.
-
-\textbf{Waterval} consists of two reactor units, referred to as Top and Bottom, with 37 and 36 images respectively. Each unit has its own aerobic zone and clarifier label file.
-
-\textbf{Fisantekraal} consists of a single reactor unit, with 63 images stored in one folder. Only clarifiers have been labelled and stored in a single JSON file.
-
-\textbf{Northern Works} consists of a single reactor unit, with 45 images stored in one folder. Only clarifiers have been labelled and stored in a single JSON file.
+The facilities differ slightly in how their data is organised, reflecting differences in plant layout. Atlantis, Fisantekraal and Northern Works each consist of a single reactor unit, with all images stored in one folder. Cape Flats consists of four units (CF1--CF4) and Waterval of two (Top and Bottom), each with its own image folder. Every unit has its own aerobic zone and clarifier label file, except at Fisantekraal and Northern Works, where only clarifiers were labelled. Two of the 59 Atlantis images have no labels and are not part of the dataset.
 
 Table~\ref{tab:dataset_summary} summarises the structure of the dataset across the five facilities.
 
 \begin{table}[ht]
 \centering
 \caption{Number of units and labelled images per facility.}\label{tab:dataset_summary}
+\footnotesize
 \begin{tabular}{lccc}
 \toprule
 \textbf{Facility} & \textbf{Units} & \textbf{Images} \\
@@ -147,30 +78,18 @@ Northern Works   & 1 & 45                 \\
 \end{tabular}
 \end{table}
 
-This structural difference between facilities, with a single unit at Atlantis, Fisantekraal and Northern Works, four at Cape Flats, and two at Waterval, is factored into the data pipeline described in Section~\ref{sec:pipeline}, since each facility's images and labels need to be parsed slightly differently before they can be fed into the CNN.
-
 
 \section{Data Preparation}\label{sec:pipeline}
 
 Before the labelled regions can be used to train a classifier, they need to be extracted from the full facility images and organised by class. This is handled by a preparation script (\texttt{prep.py}), which reads the VIA2 annotation files, crops out each labelled region, and saves the crops into a folder structure that can be loaded directly with \texttt{torchvision.datasets.ImageFolder}.
 
-The script processes each facility one unit at a time, since the facilities have different numbers of units and label files. For every unit, it opens the aerobic zone and clarifier JSON files separately and works through each image entry in turn.
-
-For each labelled region in an image, the script performs the following steps:
-
-\begin{itemize}
-    \item Reads the shape attributes of the region. Aerobic zones are stored as rectangles, defined by an x and y coordinate along with a width and height. Clarifiers are stored as circles, defined by a centre point and a radius.
-    \item Converts the shape into a bounding box that can be used to crop the image, since Python's Image Library crop function requires a rectangular box even for the circular clarifier regions.
-    \item Clamps the box to the edges of the image, in case a region was drawn slightly outside the image bounds during annotation.
-    \item Reads the class label from the region attributes and checks it against the expected set of classes for that component. Labels are also normalised, so that small inconsistencies in capitalisation from the manual annotation process do not create extra classes.
-    \item For a clarifier, sets every pixel outside the annotated circle to black, so that only the tank itself remains visible. A rectangular aerobic zone fills its whole bounding box, so nothing is masked for the aerobic zones.
-    \item Crops the region out of the source image and saves it as a JPG file inside the folder matching its class label.
-\end{itemize}
+The script processes each facility one unit at a time and works through the aerobic zone and clarifier label files separately. For each labelled region, it converts the shape (a rectangle for an aerobic zone, a circle for a clarifier) to a bounding box, clamped to the image edges in case a region was drawn slightly outside the image. The class label is normalised to remove capitalisation inconsistencies and checked against the expected classes for that component. For a clarifier, every pixel outside the annotated circle is set to black, so that only the tank remains visible. The region is then cropped and saved as a JPG file in the folder matching its class label.
 
 Each output filename encodes the facility, unit, and original image name, so that a crop can always be traced back to the source image it came from. For example, a crop from unit CF2 at Cape Flats would be saved with a filename beginning \texttt{CapeFlats\_Images-CF2\_...}, followed by the original image name and a region number.
 
 The result is a folder structure with one top-level folder per component and one subfolder per class:
 
+{\footnotesize
 \begin{verbatim}
 cnn_dataset/
     aerobic_zone/
@@ -183,12 +102,13 @@ cnn_dataset/
         Functional/
         Scum/
 \end{verbatim}
+}
 
 The two classes that are excluded from the dataset (Section~\ref{sec:excluded}) have no folder. This structure means the aerobic zone and clarifier sub-images are treated as two separate classification problems, each with its own set of class folders, rather than a single combined dataset.
 
 
 \section{Excluded from the dataset}\label{sec:excluded}
-During processing, two annotated classes were found to have too few examples to be usable for training. The aerobic zone dataset contained a single region labelled \textbf{Empty}, and the clarifier dataset contained four regions labelled \textbf{Stagnant}. Both classes were therefore excluded from the final dataset, and the corresponding regions were not cropped or saved. A class with only one or a handful of examples cannot be meaningfully split into training, development, and test sets, and would not give the CNN enough examples to learn a reliable representation of that class. Including such a small class also risks skewing the overall class balance and encouraging the model to simply ignore it during training, since the loss contribution from so few examples is negligible compared to the other classes. The excluded regions were still counted separately by the preparation script, so their presence in the original annotations is not lost, but they play no further part in the classification task.
+Two annotated classes had too few examples to be used: a single aerobic zone labelled \textbf{Empty} and four clarifiers labelled \textbf{Stagnant}. Both were excluded, since so few examples cannot be split into training, development and test sets, and would not allow the CNN to learn a reliable representation of the class.
 
 
 \section{Data Splitting}
@@ -196,7 +116,7 @@ In the following section the way the available data is split into training, deve
 
 \subsection{Leave-one-out Split}
 
-To evaluate how well the trained classifier generalises to WWTW facilities it has never encountered, the dataset was partitioned using a leave-one-out strategy rather than a random split. One facility, chosen from the five available (Atlantis, Cape Flats, Waterval, Fisantekraal, and Northern Works), was the test facility and withheld from training entirely: none of its images appear in the training or development sets, and it plays no part in training or in selecting the checkpoint that is kept. The hyperparameters, which were tuned once on a single fold, are the one exception, as discussed in Section~\ref{sec:exp_lofo}. Note that this is repeated once for each facility: five times for the clarifiers, and three times for the aerobic zones, which are only labelled at Atlantis, Cape Flats and Waterval. This guarantees that test performance reflects the model's ability to classify components at an unseen site.
+To evaluate how well the trained classifier generalises to WWTW facilities it has never encountered, the dataset was partitioned using a leave-one-out strategy rather than a random split. One facility, chosen from the five available (Atlantis, Cape Flats, Waterval, Fisantekraal, and Northern Works), was the test facility and withheld from training entirely: none of its images appear in the training or development sets, and it plays no part in training. Note that this is repeated once for each facility: five times for the clarifiers, and three times for the aerobic zones, which are only labelled at Atlantis, Cape Flats and Waterval. This guarantees that test performance reflects the model's ability to classify components at an unseen site.
 
 This split was applied independently for each facility component, aerobic zone and clarifier, since the two have different classes and different image sets.
 
@@ -204,50 +124,35 @@ Once the test facility was removed, the remaining four facilities' images were d
 
 To avoid this, images were first grouped by facility, unit and class (some facilities have more than one unit, for example Cape Flats has 4 units each with its own set of images). Different units at the same facility can differ in lighting, or capture date, so treating them as separate groups during shuffling keeps that variation spread across both training and development rather than concentrated in one. Within each group, images were shuffled using a fixed random seed to mix capture dates before being partitioned according to a fixed development ratio (20\%). Splitting within these smaller groups rather
 than across the whole set ensures that every facility, unit, and class combination among the four training facilities is represented in both
-the training and development sets, in proportion to how much data it contributes. Figure \ref{fig:leave_one_out approach} shows the resulting split for the clarifiers when Waterval is withheld as the test facility.
+the training and development sets, in proportion to how much data it contributes. Figure~\ref{fig:leave_one_out approach} in Appendix~\ref{appen:dataset_details} shows the resulting split for the clarifiers when Waterval is withheld as the test facility.
 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/leave_one_out.png}
-    \caption{Number of clarifier images from each facility in the training, development and test sets when Waterval is held out. The test set contains only Waterval, while the remaining four facilities are split into training and development sets.}
-    \label{fig:leave_one_out approach}
-\end{figure}
 
 \subsection{Chronological Split}
 In addition to the leave-one-out approach described above, a chronological split was used to produce training, development, and test sets directly from the dataset, without holding any facility out. This split is made by capture date: every image captured from January 2020 onwards is a test image, and the images captured before January 2020 are divided into training and development sets in an 80/20 ratio, using the same facility, unit, class grouping and shuffling procedure described in the previous section. The split is made by date rather than at random for two reasons. First, the system would classify images that are newer than every image it was trained on. Second, a random split of the cropped images would put crops from the same satellite image, captured on the same date and in the same conditions, into both the training and the test set. The cut-off of January 2020 was chosen so that the test set of every facility contains every class that occurs at that facility. As a result, all 3 \textbf{Empty} clarifiers at Atlantis and all 7 \textbf{Dysfunctional} clarifiers at Waterval are in the test set. The resulting number of images per class is given in Section~\ref{sec:exp_mixed}.
 
 \section{Relabelling}
 
-The dataset used in this project is completely new, and was prepared shortly before the project started by annotators under the supervision of Prof F. de Wet. Inspection of the data in the early phases of experimental design however identified the occasional occurrence of labelling inconsistencies or errors. To improve label quality, a relabelling notebook was built using Jupyter widgets to review the clarifier dataset in full and correct labels where
-necessary. Every clarifier image was reviewed manually, rather than considering only images the classifier identified incorrectly which could potentially introduce bias. For each image, the notebook displays the image alongside its current label and a row of per-class buttons; clicking a button records the corrected label without requiring any manual file editing. Corrections are written to a separate \texttt{relabel/} working copy of the annotation files rather than overwriting the originals, so the original VIA2 labels remain intact and every correction can be traced back to the annotations as originally supplied.
+The dataset is new and was prepared shortly before the project started by annotators under the supervision of Prof F. de Wet. Early inspection found occasional labelling errors, so every clarifier image was reviewed manually with a relabelling notebook built on Jupyter widgets. The full set was reviewed, not just the images the classifier got wrong, because reviewing only those could introduce bias. The notebook shows each image with its current label and a button for each class. Corrections are written to a separate \texttt{relabel/} copy of the annotation files, so the original VIA2 labels stay intact.
 
-Figure \ref{fig:relabel_example} shows a clarifier at Cape Flats that was originally labelled \textbf{Scum} and was corrected to \textbf{Empty} during the review, a correction the supervisor later accepted. The tank appears to have been drained: its floor is visible, and the dark band across it is the shadow of the bridge rather than scum on the water surface. Figure \ref{fig:relabel_process_example} shows the review interface itself, with the original label displayed in yellow next to the image and the correction buttons below it.
+Figure \ref{fig:relabel_example} shows a Cape Flats clarifier that was relabelled from \textbf{Scum} to \textbf{Empty}. The tank appears to have been drained: its floor is visible, and the dark band across it is the bridge's shadow, not scum. The review interface is shown in Figure~\ref{fig:relabel_process_example} in Appendix~\ref{appen:dataset_details}.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.3\textwidth]{figures/relabel_example.png}
+\includegraphics[width=0.22\textwidth]{figures/relabel_example.png}
 \caption{A relabelled clarifier from Cape Flats, shown with some of its surroundings. The original label was ``Scum'', but the label was corrected to ``Empty'', since the tank appears to be drained, with its floor and the shadow of the bridge visible inside it.}
 \label{fig:relabel_example}
 \end{figure}
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.7\textwidth]{figures/relabel_process_example.png}
-\caption{The relabelling interface, showing the original label and the
-per-class correction buttons.}
-\label{fig:relabel_process_example}
-\end{figure}
 
+The review proposed 293 corrections, and the supervisor checked each one. 166 were accepted, 99 were rejected, and 28 were given a different label, so 194 regions ended up with a label different from the original. A script applied these decisions to the \texttt{relabel/} copy. It first checked that each region still held the proposed label, and it logged every decision. These labels are used in every experiment in Chapter~\ref{chap:experimental_design}.
 
-The review proposed 293 corrections in total. Each proposed correction was then checked by the project supervisor, who could accept it, reject it and keep the original label, or assign a different label. Of the 293 proposed corrections, 166 were accepted, 99 were rejected, and for 28 the supervisor assigned a different label, so 194 regions ended up with a label different from the original annotation. These verdicts were applied to the \texttt{relabel/} working copy with a script that first checks that every region still holds the proposed label, and that records every decision in a separate file. The resulting labels are the ones used in every experiment in Chapter~\ref{chap:experimental_design}.
-
-Table \ref{tab:relabel_corrections} summarises the effect of relabelling on a per-class basis, broken down by facility. For each class, two columns are given: \textbf{Old}, the total number of clarifier regions at that facility carrying that label in the original annotations, and \textbf{New}, the total number carrying that label after relabelling and the supervisor's review. The rightmost \textbf{Relabels} column gives the number of regions at that facility whose final label differs from the original one.
+Table \ref{tab:relabel_corrections} gives the number of clarifier regions per class at each facility before (\textbf{Old}) and after (\textbf{New}) relabelling. The \textbf{Relabels} column gives the number of regions whose label changed.
 
 \begin{table}[htbp]
     \centering
-    \caption{Total number of clarifier regions per class, per facility, before and after relabelling. ``Old'' is the count in the original annotations; ``New'' is the count after relabelling and the supervisor's review. ``Relabels'' is the number of regions at that facility whose final label differs from the original one.}
+    \caption{Clarifier regions per class, per facility, before (Old) and after (New) relabelling. Relabels is the number of regions whose label changed.}
     \label{tab:relabel_corrections}
-    \small
+    \footnotesize
     \setlength{\tabcolsep}{3pt}
     \begin{tabular}{l cc cc cc cc r}
         \toprule
@@ -274,6 +179,7 @@ Tables~\ref{tab:aerobic_summary} and~\ref{tab:clarifier_summary} give the final 
     \centering
     \caption{Summary of image counts per class for the Aerobic Zones.}
     \label{tab:aerobic_summary}
+    \footnotesize
     \begin{tabular}{l rrr}
         \toprule
         \textbf{Facility} & \textbf{Dysfunctional} & \textbf{Functional} & \textbf{Suboptimal} \\
@@ -285,20 +191,19 @@ Tables~\ref{tab:aerobic_summary} and~\ref{tab:clarifier_summary} give the final 
         Cape Flats 4     & 166 & 12  & 22  \\
         Waterval Top     & 85  & 344 & 15  \\
         Waterval Bottom  & 144 & 199 & 77  \\
-        Fisantekraal     & 0   & 0   & 0   \\
-        Northern Works   & 0   & 0   & 0   \\
         \midrule
         \textbf{TOTAL}   & \textbf{813} & \textbf{707} & \textbf{223} \\
         \bottomrule
     \end{tabular}
 
 
-    Note that Fisantekraal and Northern Works do not have any aerobic zones labelled.
+    {\normalsize Note that Fisantekraal and Northern Works do not have any aerobic zones labelled.\par}
     
     \vspace{2.5em} 
     
     \caption{Summary of image counts per class for the Clarifiers.}
     \label{tab:clarifier_summary}
+    \footnotesize
     \begin{tabular}{l rrrr}
         \toprule
         \textbf{Facility} & \textbf{Dysfunctional} & \textbf{Empty} & \textbf{Functional} & \textbf{Scum} \\

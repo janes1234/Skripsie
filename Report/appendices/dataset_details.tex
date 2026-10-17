@@ -1,0 +1,48 @@
+\chapter{Dataset Details}{}
+\makeatletter\@mkboth{}{Appendix}\makeatother
+\label{appen:dataset_details}
+
+This appendix contains supporting material for Chapter~\ref{chap:systemmethods}: an example of the VIA2 annotation format, the leave-one-out split of the clarifiers, and the relabelling interface.
+
+\section{Annotation Format}
+
+An example entry of a VIA2 project file for an aerobic zone annotation is shown below. Each entry records the image filename, file size, and a list of regions, where each region specifies its shape, pixel coordinates, and class label.
+
+{\footnotesize
+\begin{verbatim}
+"Atlantis 01_2019.jpg3469910": {
+  "filename": "Atlantis 01_2019.jpg",
+  "size": 3469910,
+  "regions": [
+    {
+      "shape_attributes": {
+        "name": "rect",
+        "x": 2707, "y": 931,
+        "width": 2839, "height": 1381
+      },
+      "region_attributes": { "aerobic zone": "Dysfunctional" }
+    }
+  ],
+  "file_attributes": {}
+}
+\end{verbatim}
+}
+
+\section{Leave-one-out Split}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.55\textwidth]{figures/leave_one_out.png}
+    \caption{Number of clarifier images from each facility in the training, development and test sets when Waterval is held out. The test set contains only Waterval, while the remaining four facilities are split into training and development sets.}
+    \label{fig:leave_one_out approach}
+\end{figure}
+
+\section{Relabelling Interface}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.55\textwidth]{figures/relabel_process_example.png}
+\caption{The relabelling interface, showing the original label and the
+per-class correction buttons.}
+\label{fig:relabel_process_example}
+\end{figure}
