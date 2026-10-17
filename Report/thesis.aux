@@ -240,6 +240,7 @@
 \@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces Summary of image counts per class for the Clarifiers.}}{24}{table.caption.20}\protected@file@percent }
 \newlabel{tab:clarifier_summary}{{4.4}{24}{Summary of image counts per class for the Clarifiers}{table.caption.20}{}}
 \newlabel{tab:clarifier_summary@cref}{{[table][4][4]4.4}{[1][23][]24}{}{}{}}
+\citation{torchvision2016}
 \@writefile{toc}{\contentsline {chapter}{\numberline {5}Experimental Design}{25}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -248,142 +249,141 @@
 \@writefile{toc}{\contentsline {section}{\numberline {5.1}Overview}{25}{section.5.1}\protected@file@percent }
 \newlabel{sec:exp_overview}{{5.1}{25}{Overview}{section.5.1}{}}
 \newlabel{sec:exp_overview@cref}{{[section][1][5]5.1}{[1][25][]25}{}{}{}}
-\citation{torchvision2016}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces End-to-end experimental pipeline, from labelled satellite imagery to a saved, comparable results file per combination of component, architecture and test set.}}{26}{figure.caption.21}\protected@file@percent }
-\newlabel{fig:experimental_pipeline}{{5.1}{26}{End-to-end experimental pipeline, from labelled satellite imagery to a saved, comparable results file per combination of component, architecture and test set}{figure.caption.21}{}}
-\newlabel{fig:experimental_pipeline@cref}{{[figure][1][5]5.1}{[1][25][]26}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Experimental pipeline, from labelled satellite images to one results file per component, architecture and split.}}{25}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:experimental_pipeline}{{5.1}{25}{Experimental pipeline, from labelled satellite images to one results file per component, architecture and split}{figure.caption.21}{}}
+\newlabel{fig:experimental_pipeline@cref}{{[figure][1][5]5.1}{[1][25][]25}{}{}{}}
 \citation{he2016resnet}
 \citation{szegedy2016inception}
 \citation{deng2009imagenet,russakovsky2015imagenet}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Model Architectures and Transfer Learning}{27}{section.5.2}\protected@file@percent }
-\newlabel{sec:exp_architectures}{{5.2}{27}{Model Architectures and Transfer Learning}{section.5.2}{}}
-\newlabel{sec:exp_architectures@cref}{{[section][2][5]5.2}{[1][26][]27}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Parameter count of each of the four architectures evaluated, from smallest to largest, as defined in torchvision with the original 1000-class ImageNet classifier. The new classifier heads (Section~\ref {sec:exp_hyperparams}) change these totals.}}{27}{table.caption.22}\protected@file@percent }
-\newlabel{tab:arch_sizes}{{5.1}{27}{Parameter count of each of the four architectures evaluated, from smallest to largest, as defined in torchvision with the original 1000-class ImageNet classifier. The new classifier heads (Section~\ref {sec:exp_hyperparams}) change these totals}{table.caption.22}{}}
-\newlabel{tab:arch_sizes@cref}{{[table][1][5]5.1}{[1][27][]27}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Model Architectures and Transfer Learning}{26}{section.5.2}\protected@file@percent }
+\newlabel{sec:exp_architectures}{{5.2}{26}{Model Architectures and Transfer Learning}{section.5.2}{}}
+\newlabel{sec:exp_architectures@cref}{{[section][2][5]5.2}{[1][25][]26}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Parameter count of each of the four architectures evaluated, from smallest to largest, as defined in torchvision with the original 1000-class ImageNet classifier. The new classifier heads (Section~\ref {sec:exp_hyperparams}) change these totals.}}{26}{table.caption.22}\protected@file@percent }
+\newlabel{tab:arch_sizes}{{5.1}{26}{Parameter count of each of the four architectures evaluated, from smallest to largest, as defined in torchvision with the original 1000-class ImageNet classifier. The new classifier heads (Section~\ref {sec:exp_hyperparams}) change these totals}{table.caption.22}{}}
+\newlabel{tab:arch_sizes@cref}{{[table][1][5]5.1}{[1][26][]26}{}{}{}}
 \citation{paszke2019pytorch}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Augmentation}{28}{section.5.3}\protected@file@percent }
-\newlabel{sec:exp_augmentation}{{5.3}{28}{Augmentation}{section.5.3}{}}
-\newlabel{sec:exp_augmentation@cref}{{[section][3][5]5.3}{[1][28][]28}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Class Imbalance}{29}{section.5.4}\protected@file@percent }
-\newlabel{sec:exp_loss}{{5.4}{29}{Class Imbalance}{section.5.4}{}}
-\newlabel{sec:exp_loss@cref}{{[section][4][5]5.4}{[1][29][]29}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Augmentations applied to a single \textbf  {Scum} clarifier from Cape Flats. Top row: the original image, followed by a horizontal flip, a rotation of $15^\circ $, and a random colour jitter, each applied on its own. Bottom row: four random outputs of the full augmentation pipeline (flip, rotation and colour jitter combined).}}{30}{figure.caption.23}\protected@file@percent }
-\newlabel{fig:augmentation_examples}{{5.2}{30}{Augmentations applied to a single \textbf {Scum} clarifier from Cape Flats. Top row: the original image, followed by a horizontal flip, a rotation of $15^\circ $, and a random colour jitter, each applied on its own. Bottom row: four random outputs of the full augmentation pipeline (flip, rotation and colour jitter combined)}{figure.caption.23}{}}
-\newlabel{fig:augmentation_examples@cref}{{[figure][2][5]5.2}{[1][29][]30}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Number of training images per clarifier class and the resulting class weight $w_c$, for each held-out test facility and for the chronological split.}}{30}{table.caption.24}\protected@file@percent }
-\newlabel{tab:class_weights}{{5.2}{30}{Number of training images per clarifier class and the resulting class weight $w_c$, for each held-out test facility and for the chronological split}{table.caption.24}{}}
-\newlabel{tab:class_weights@cref}{{[table][2][5]5.2}{[1][30][]30}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Augmentation}{27}{section.5.3}\protected@file@percent }
+\newlabel{sec:exp_augmentation}{{5.3}{27}{Augmentation}{section.5.3}{}}
+\newlabel{sec:exp_augmentation@cref}{{[section][3][5]5.3}{[1][27][]27}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Class Imbalance}{27}{section.5.4}\protected@file@percent }
+\newlabel{sec:exp_loss}{{5.4}{27}{Class Imbalance}{section.5.4}{}}
+\newlabel{sec:exp_loss@cref}{{[section][4][5]5.4}{[1][27][]27}{}{}{}}
 \citation{kingma2015adam}
 \citation{akiba2019optuna}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Augmentations applied to a single \textbf  {Scum} clarifier from Cape Flats. Top row: the original image, followed by a horizontal flip, a rotation of $15^\circ $, and a random colour jitter, each applied on its own. Bottom row: four random outputs of the full augmentation pipeline (flip, rotation and colour jitter combined).}}{28}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:augmentation_examples}{{5.2}{28}{Augmentations applied to a single \textbf {Scum} clarifier from Cape Flats. Top row: the original image, followed by a horizontal flip, a rotation of $15^\circ $, and a random colour jitter, each applied on its own. Bottom row: four random outputs of the full augmentation pipeline (flip, rotation and colour jitter combined)}{figure.caption.23}{}}
+\newlabel{fig:augmentation_examples@cref}{{[figure][2][5]5.2}{[1][27][]28}{}{}{}}
 \citation{bergstra2011tpe}
-\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Number of training images per aerobic zone class and the resulting class weight $w_c$, for each held-out test facility and for the chronological split.}}{31}{table.caption.25}\protected@file@percent }
-\newlabel{tab:class_weights_aerobic}{{5.3}{31}{Number of training images per aerobic zone class and the resulting class weight $w_c$, for each held-out test facility and for the chronological split}{table.caption.25}{}}
-\newlabel{tab:class_weights_aerobic@cref}{{[table][3][5]5.3}{[1][30][]31}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Hyperparameter Tuning}{31}{section.5.5}\protected@file@percent }
-\newlabel{sec:exp_hyperparams}{{5.5}{31}{Hyperparameter Tuning}{section.5.5}{}}
-\newlabel{sec:exp_hyperparams@cref}{{[section][5][5]5.5}{[1][31][]31}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Why Optuna}{32}{subsection.5.5.1}\protected@file@percent }
-\newlabel{subsec:why_optuna}{{5.5.1}{32}{Why Optuna}{subsection.5.5.1}{}}
-\newlabel{subsec:why_optuna@cref}{{[subsection][1][5,5]5.5.1}{[1][31][]32}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Search Procedure}{32}{subsection.5.5.2}\protected@file@percent }
-\newlabel{subsec:search_procedure}{{5.5.2}{32}{Search Procedure}{subsection.5.5.2}{}}
-\newlabel{subsec:search_procedure@cref}{{[subsection][2][5,5]5.5.2}{[1][32][]32}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces Search range of each tuned hyperparameter, and the values used for each architecture and component, with the development accuracy of the selected trial. The learning rate is sampled log-uniformly, and the batch size from $\{8, 16, 24, 32, 48, 64, 96, 128\}$. $H{=}0$ means the classifier head is a single linear layer, and $N$ is unused. The ResNet-18 (scratch) values were not tuned (Section~\ref {subsec:defaults}).}}{32}{table.caption.26}\protected@file@percent }
-\newlabel{tab:hyperparams}{{5.4}{32}{Search range of each tuned hyperparameter, and the values used for each architecture and component, with the development accuracy of the selected trial. The learning rate is sampled log-uniformly, and the batch size from $\{8, 16, 24, 32, 48, 64, 96, 128\}$. $H{=}0$ means the classifier head is a single linear layer, and $N$ is unused. The ResNet-18 (scratch) values were not tuned (Section~\ref {subsec:defaults})}{table.caption.26}{}}
-\newlabel{tab:hyperparams@cref}{{[table][4][5]5.4}{[1][32][]32}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.3}ResNet-18 (Scratch)}{33}{subsection.5.5.3}\protected@file@percent }
-\newlabel{subsec:defaults}{{5.5.3}{33}{ResNet-18 (Scratch)}{subsection.5.5.3}{}}
-\newlabel{subsec:defaults@cref}{{[subsection][3][5,5]5.5.3}{[1][32][]33}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.6}Training Procedure}{33}{section.5.6}\protected@file@percent }
-\newlabel{sec:exp_training}{{5.6}{33}{Training Procedure}{section.5.6}{}}
-\newlabel{sec:exp_training@cref}{{[section][6][5]5.6}{[1][33][]33}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.7}Experiment 1: Mixed-Facility Baseline}{33}{section.5.7}\protected@file@percent }
-\newlabel{sec:exp_mixed}{{5.7}{33}{Experiment 1: Mixed-Facility Baseline}{section.5.7}{}}
-\newlabel{sec:exp_mixed@cref}{{[section][7][5]5.7}{[1][33][]33}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces The training loop used for every architecture: an epoch of training and development-set evaluation, a scheduler step, a checkpoint decision based on development loss, and a stopping check repeated every epoch until training ends.}}{34}{figure.caption.27}\protected@file@percent }
-\newlabel{fig:training_flow}{{5.3}{34}{The training loop used for every architecture: an epoch of training and development-set evaluation, a scheduler step, a checkpoint decision based on development loss, and a stopping check repeated every epoch until training ends}{figure.caption.27}{}}
-\newlabel{fig:training_flow@cref}{{[figure][3][5]5.3}{[1][33][]34}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces Number of images per class in the training, development and test sets of the chronological split used in Experiment~1. The test set contains every image captured from January 2020 onwards.}}{35}{table.caption.28}\protected@file@percent }
-\newlabel{tab:stratified_split}{{5.5}{35}{Number of images per class in the training, development and test sets of the chronological split used in Experiment~1. The test set contains every image captured from January 2020 onwards}{table.caption.28}{}}
-\newlabel{tab:stratified_split@cref}{{[table][5][5]5.5}{[1][35][]35}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.8}Experiment 2: Leave-One-Facility-Out Evaluation}{36}{section.5.8}\protected@file@percent }
-\newlabel{sec:exp_lofo}{{5.8}{36}{Experiment 2: Leave-One-Facility-Out Evaluation}{section.5.8}{}}
-\newlabel{sec:exp_lofo@cref}{{[section][8][5]5.8}{[1][36][]36}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.6}{\ignorespaces Number of training, development and test images in each leave-one-facility-out fold, and the number of test images per class. The test set is the held-out facility, and the training and development sets are drawn from the remaining facilities.}}{37}{table.caption.29}\protected@file@percent }
-\newlabel{tab:lofo_folds}{{5.6}{37}{Number of training, development and test images in each leave-one-facility-out fold, and the number of test images per class. The test set is the held-out facility, and the training and development sets are drawn from the remaining facilities}{table.caption.29}{}}
-\newlabel{tab:lofo_folds@cref}{{[table][6][5]5.6}{[1][36][]37}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.9}Experiment 3: Binary (OK / Not-OK) Reformulation}{37}{section.5.9}\protected@file@percent }
-\newlabel{sec:exp_binary}{{5.9}{37}{Experiment 3: Binary (OK / Not-OK) Reformulation}{section.5.9}{}}
-\newlabel{sec:exp_binary@cref}{{[section][9][5]5.9}{[1][37][]37}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Number of training images per clarifier class and the resulting class weight $w_c$, for each held-out test facility and for the chronological split.}}{29}{table.caption.24}\protected@file@percent }
+\newlabel{tab:class_weights}{{5.2}{29}{Number of training images per clarifier class and the resulting class weight $w_c$, for each held-out test facility and for the chronological split}{table.caption.24}{}}
+\newlabel{tab:class_weights@cref}{{[table][2][5]5.2}{[1][28][]29}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Number of training images per aerobic zone class and the resulting class weight $w_c$, for each held-out test facility and for the chronological split.}}{29}{table.caption.25}\protected@file@percent }
+\newlabel{tab:class_weights_aerobic}{{5.3}{29}{Number of training images per aerobic zone class and the resulting class weight $w_c$, for each held-out test facility and for the chronological split}{table.caption.25}{}}
+\newlabel{tab:class_weights_aerobic@cref}{{[table][3][5]5.3}{[1][28][]29}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Hyperparameter Tuning}{29}{section.5.5}\protected@file@percent }
+\newlabel{sec:exp_hyperparams}{{5.5}{29}{Hyperparameter Tuning}{section.5.5}{}}
+\newlabel{sec:exp_hyperparams@cref}{{[section][5][5]5.5}{[1][28][]29}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Why Optuna}{29}{subsection.5.5.1}\protected@file@percent }
+\newlabel{subsec:why_optuna}{{5.5.1}{29}{Why Optuna}{subsection.5.5.1}{}}
+\newlabel{subsec:why_optuna@cref}{{[subsection][1][5,5]5.5.1}{[1][29][]29}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Search Procedure}{30}{subsection.5.5.2}\protected@file@percent }
+\newlabel{subsec:search_procedure}{{5.5.2}{30}{Search Procedure}{subsection.5.5.2}{}}
+\newlabel{subsec:search_procedure@cref}{{[subsection][2][5,5]5.5.2}{[1][29][]30}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces Search range of each tuned hyperparameter, and the values used for each architecture and component, with the development accuracy of the selected trial. The learning rate is sampled log-uniformly, and the batch size from $\{8, 16, 24, 32, 48, 64, 96, 128\}$. $H{=}0$ means the classifier head is a single linear layer, and $N$ is unused. The ResNet-18 (scratch) values were not tuned (Section~\ref {subsec:defaults}).}}{30}{table.caption.26}\protected@file@percent }
+\newlabel{tab:hyperparams}{{5.4}{30}{Search range of each tuned hyperparameter, and the values used for each architecture and component, with the development accuracy of the selected trial. The learning rate is sampled log-uniformly, and the batch size from $\{8, 16, 24, 32, 48, 64, 96, 128\}$. $H{=}0$ means the classifier head is a single linear layer, and $N$ is unused. The ResNet-18 (scratch) values were not tuned (Section~\ref {subsec:defaults})}{table.caption.26}{}}
+\newlabel{tab:hyperparams@cref}{{[table][4][5]5.4}{[1][30][]30}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.3}ResNet-18 (Scratch)}{30}{subsection.5.5.3}\protected@file@percent }
+\newlabel{subsec:defaults}{{5.5.3}{30}{ResNet-18 (Scratch)}{subsection.5.5.3}{}}
+\newlabel{subsec:defaults@cref}{{[subsection][3][5,5]5.5.3}{[1][30][]30}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}Training Procedure}{31}{section.5.6}\protected@file@percent }
+\newlabel{sec:exp_training}{{5.6}{31}{Training Procedure}{section.5.6}{}}
+\newlabel{sec:exp_training@cref}{{[section][6][5]5.6}{[1][30][]31}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces The training loop used for every architecture: an epoch of training and development-set evaluation, a scheduler step, a checkpoint decision based on development loss, and a stopping check repeated every epoch until training ends.}}{31}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:training_flow}{{5.3}{31}{The training loop used for every architecture: an epoch of training and development-set evaluation, a scheduler step, a checkpoint decision based on development loss, and a stopping check repeated every epoch until training ends}{figure.caption.27}{}}
+\newlabel{fig:training_flow@cref}{{[figure][3][5]5.3}{[1][31][]31}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.7}Experiment 1: Mixed-Facility Baseline}{32}{section.5.7}\protected@file@percent }
+\newlabel{sec:exp_mixed}{{5.7}{32}{Experiment 1: Mixed-Facility Baseline}{section.5.7}{}}
+\newlabel{sec:exp_mixed@cref}{{[section][7][5]5.7}{[1][32][]32}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces Number of images per class in the training, development and test sets of the chronological split used in Experiment~1. The test set contains every image captured from January 2020 onwards.}}{32}{table.caption.28}\protected@file@percent }
+\newlabel{tab:stratified_split}{{5.5}{32}{Number of images per class in the training, development and test sets of the chronological split used in Experiment~1. The test set contains every image captured from January 2020 onwards}{table.caption.28}{}}
+\newlabel{tab:stratified_split@cref}{{[table][5][5]5.5}{[1][32][]32}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.8}Experiment 2: Leave-One-Facility-Out Evaluation}{33}{section.5.8}\protected@file@percent }
+\newlabel{sec:exp_lofo}{{5.8}{33}{Experiment 2: Leave-One-Facility-Out Evaluation}{section.5.8}{}}
+\newlabel{sec:exp_lofo@cref}{{[section][8][5]5.8}{[1][33][]33}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.6}{\ignorespaces Number of training, development and test images in each leave-one-facility-out fold, and the number of test images per class. The test set is the held-out facility, and the training and development sets are drawn from the remaining facilities.}}{34}{table.caption.29}\protected@file@percent }
+\newlabel{tab:lofo_folds}{{5.6}{34}{Number of training, development and test images in each leave-one-facility-out fold, and the number of test images per class. The test set is the held-out facility, and the training and development sets are drawn from the remaining facilities}{table.caption.29}{}}
+\newlabel{tab:lofo_folds@cref}{{[table][6][5]5.6}{[1][33][]34}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.9}Experiment 3: Binary (OK / Not-OK) Reformulation}{35}{section.5.9}\protected@file@percent }
+\newlabel{sec:exp_binary}{{5.9}{35}{Experiment 3: Binary (OK / Not-OK) Reformulation}{section.5.9}{}}
+\newlabel{sec:exp_binary@cref}{{[section][9][5]5.9}{[1][35][]35}{}{}{}}
 \citation{gildenblat2021pytorchcam}
-\@writefile{toc}{\contentsline {section}{\numberline {5.10}Evaluation Metrics}{39}{section.5.10}\protected@file@percent }
-\newlabel{sec:exp_metrics}{{5.10}{39}{Evaluation Metrics}{section.5.10}{}}
-\newlabel{sec:exp_metrics@cref}{{[section][10][5]5.10}{[1][39][]39}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.11}Qualitative Analysis: Grad-CAM}{39}{section.5.11}\protected@file@percent }
-\newlabel{sec:exp_gradcam}{{5.11}{39}{Qualitative Analysis: Grad-CAM}{section.5.11}{}}
-\newlabel{sec:exp_gradcam@cref}{{[section][11][5]5.11}{[1][39][]39}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.11.1}Method}{39}{subsection.5.11.1}\protected@file@percent }
-\newlabel{subsec:gradcam_method}{{5.11.1}{39}{Method}{subsection.5.11.1}{}}
-\newlabel{subsec:gradcam_method@cref}{{[subsection][1][5,11]5.11.1}{[1][39][]39}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.11.2}Models and Example Selection}{39}{subsection.5.11.2}\protected@file@percent }
-\newlabel{subsec:gradcam_setup}{{5.11.2}{39}{Models and Example Selection}{subsection.5.11.2}{}}
-\newlabel{subsec:gradcam_setup@cref}{{[subsection][2][5,11]5.11.2}{[1][39][]39}{}{}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Results}{40}{chapter.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.10}Evaluation Metrics}{36}{section.5.10}\protected@file@percent }
+\newlabel{sec:exp_metrics}{{5.10}{36}{Evaluation Metrics}{section.5.10}{}}
+\newlabel{sec:exp_metrics@cref}{{[section][10][5]5.10}{[1][36][]36}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.11}Qualitative Analysis: Grad-CAM}{36}{section.5.11}\protected@file@percent }
+\newlabel{sec:exp_gradcam}{{5.11}{36}{Qualitative Analysis: Grad-CAM}{section.5.11}{}}
+\newlabel{sec:exp_gradcam@cref}{{[section][11][5]5.11}{[1][36][]36}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.11.1}Method}{36}{subsection.5.11.1}\protected@file@percent }
+\newlabel{subsec:gradcam_method}{{5.11.1}{36}{Method}{subsection.5.11.1}{}}
+\newlabel{subsec:gradcam_method@cref}{{[subsection][1][5,11]5.11.1}{[1][36][]36}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.11.2}Models and Example Selection}{37}{subsection.5.11.2}\protected@file@percent }
+\newlabel{subsec:gradcam_setup}{{5.11.2}{37}{Models and Example Selection}{subsection.5.11.2}{}}
+\newlabel{subsec:gradcam_setup@cref}{{[subsection][2][5,11]5.11.2}{[1][36][]37}{}{}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Results}{38}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:results}{{6}{40}{Results}{chapter.6}{}}
-\newlabel{chap:results@cref}{{[chapter][6][]6}{[1][40][]40}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Overview}{40}{section.6.1}\protected@file@percent }
-\newlabel{sec:results_overview}{{6.1}{40}{Overview}{section.6.1}{}}
-\newlabel{sec:results_overview@cref}{{[section][1][6]6.1}{[1][40][]40}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Multi-Class Classification}{40}{section.6.2}\protected@file@percent }
-\newlabel{sec:results_multiclass}{{6.2}{40}{Multi-Class Classification}{section.6.2}{}}
-\newlabel{sec:results_multiclass@cref}{{[section][2][6]6.2}{[1][40][]40}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Macro-averaged F1 score and recall of every architecture on the chronological split (Exp.~1) and averaged across held-out facilities (Exp.~2, mean $\pm $ standard deviation). $\Delta $ is the change in the F1 score from Experiment~1 to Experiment~2, in percentage points.}}{40}{table.caption.30}\protected@file@percent }
-\newlabel{tab:res_multiclass}{{6.1}{40}{Macro-averaged F1 score and recall of every architecture on the chronological split (Exp.~1) and averaged across held-out facilities (Exp.~2, mean $\pm $ standard deviation). $\Delta $ is the change in the F1 score from Experiment~1 to Experiment~2, in percentage points}{table.caption.30}{}}
-\newlabel{tab:res_multiclass@cref}{{[table][1][6]6.1}{[1][40][]40}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6.2}{\ignorespaces Recall of every failure class on the chronological split (Exp.~1) and averaged across the held-out facilities at which the class occurs (Exp.~2).}}{41}{table.caption.31}\protected@file@percent }
-\newlabel{tab:res_failure_recall}{{6.2}{41}{Recall of every failure class on the chronological split (Exp.~1) and averaged across the held-out facilities at which the class occurs (Exp.~2)}{table.caption.31}{}}
-\newlabel{tab:res_failure_recall@cref}{{[table][2][6]6.2}{[1][41][]41}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Confusion matrices of the architecture with the highest mean macro F1 score in Experiment~2 for each component, on the held-out facility used for the Grad-CAM analysis (Section~\ref {sec:results_gradcam}). The confusion matrices of the other folds are given in Appendix~\ref {appen:res_lofo}.}}{42}{figure.caption.32}\protected@file@percent }
-\newlabel{fig:res_cm_examples}{{6.1}{42}{Confusion matrices of the architecture with the highest mean macro F1 score in Experiment~2 for each component, on the held-out facility used for the Grad-CAM analysis (Section~\ref {sec:results_gradcam}). The confusion matrices of the other folds are given in Appendix~\ref {appen:res_lofo}}{figure.caption.32}{}}
-\newlabel{fig:res_cm_examples@cref}{{[figure][1][6]6.1}{[1][41][]42}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Binary (OK / Not-OK) Classification}{42}{section.6.3}\protected@file@percent }
-\newlabel{sec:results_binary}{{6.3}{42}{Binary (OK / Not-OK) Classification}{section.6.3}{}}
-\newlabel{sec:results_binary@cref}{{[section][3][6]6.3}{[1][42][]42}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6.3}{\ignorespaces Binary OK / Not-OK results of every architecture on the chronological split (Exp.~1) and averaged across held-out facilities (Exp.~2). The AUC does not depend on a threshold. The recall, specificity and precision of the Not-OK class are given on the test set, at the threshold chosen for a Not-OK recall of 95\% on the development set (Section~\ref {sec:exp_binary}). The thresholds are listed in Appendix~\ref {appen:res_binary}.}}{42}{table.caption.33}\protected@file@percent }
-\newlabel{tab:res_binary}{{6.3}{42}{Binary OK / Not-OK results of every architecture on the chronological split (Exp.~1) and averaged across held-out facilities (Exp.~2). The AUC does not depend on a threshold. The recall, specificity and precision of the Not-OK class are given on the test set, at the threshold chosen for a Not-OK recall of 95\% on the development set (Section~\ref {sec:exp_binary}). The thresholds are listed in Appendix~\ref {appen:res_binary}}{table.caption.33}{}}
-\newlabel{tab:res_binary@cref}{{[table][3][6]6.3}{[1][42][]42}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6.4}{\ignorespaces Not-OK recall and specificity for each held-out facility at the threshold chosen on the development set of that fold, for the ConvNeXt-Tiny clarifier model and the DenseNet-121 aerobic zone model. The results of every architecture are given in Appendix~\ref {appen:res_binary}.}}{43}{table.caption.34}\protected@file@percent }
-\newlabel{tab:res_binary_facility}{{6.4}{43}{Not-OK recall and specificity for each held-out facility at the threshold chosen on the development set of that fold, for the ConvNeXt-Tiny clarifier model and the DenseNet-121 aerobic zone model. The results of every architecture are given in Appendix~\ref {appen:res_binary}}{table.caption.34}{}}
-\newlabel{tab:res_binary_facility@cref}{{[table][4][6]6.4}{[1][43][]43}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.4}Qualitative Analysis: Grad-CAM}{43}{section.6.4}\protected@file@percent }
-\newlabel{sec:results_gradcam}{{6.4}{43}{Qualitative Analysis: Grad-CAM}{section.6.4}{}}
-\newlabel{sec:results_gradcam@cref}{{[section][4][6]6.4}{[1][43][]43}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.1}Clarifiers}{43}{subsection.6.4.1}\protected@file@percent }
-\newlabel{sec:results_gradcam_clarifiers}{{6.4.1}{43}{Clarifiers}{subsection.6.4.1}{}}
-\newlabel{sec:results_gradcam_clarifiers@cref}{{[subsection][1][6,4]6.4.1}{[1][43][]43}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Grad-CAM heatmaps of the ConvNeXt-Tiny clarifier model, for test images from Fisantekraal, which was held out during training. Top: one correctly classified clarifier per class. Bottom: one clarifier from each of the four most common mistakes. Every heatmap is calculated for the assigned class, and $p$ is the softmax probability of that class. Red regions contributed the most to the classification.}}{44}{figure.caption.35}\protected@file@percent }
-\newlabel{fig:gradcam_clarifier}{{6.2}{44}{Grad-CAM heatmaps of the ConvNeXt-Tiny clarifier model, for test images from Fisantekraal, which was held out during training. Top: one correctly classified clarifier per class. Bottom: one clarifier from each of the four most common mistakes. Every heatmap is calculated for the assigned class, and $p$ is the softmax probability of that class. Red regions contributed the most to the classification}{figure.caption.35}{}}
-\newlabel{fig:gradcam_clarifier@cref}{{[figure][2][6]6.2}{[1][44][]44}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.2}Aerobic Zones}{45}{subsection.6.4.2}\protected@file@percent }
-\newlabel{sec:results_gradcam_aerobic}{{6.4.2}{45}{Aerobic Zones}{subsection.6.4.2}{}}
-\newlabel{sec:results_gradcam_aerobic@cref}{{[subsection][2][6,4]6.4.2}{[1][45][]45}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.3}Summary of Observations}{45}{subsection.6.4.3}\protected@file@percent }
-\newlabel{sec:results_gradcam_summary}{{6.4.3}{45}{Summary of Observations}{subsection.6.4.3}{}}
-\newlabel{sec:results_gradcam_summary@cref}{{[subsection][3][6,4]6.4.3}{[1][45][]45}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.5}Summary of Findings}{46}{section.6.5}\protected@file@percent }
-\newlabel{sec:results_summary}{{6.5}{46}{Summary of Findings}{section.6.5}{}}
-\newlabel{sec:results_summary@cref}{{[section][5][6]6.5}{[1][46][]46}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces Grad-CAM heatmaps of the DenseNet-121 aerobic zone model, for test images from Waterval, which was held out during training. Top: one correctly classified aerobic zone per class. Bottom: one aerobic zone from each of the three most common mistakes. Every heatmap is calculated for the assigned class, and $p$ is the softmax probability of that class. Red regions contributed the most to the classification.}}{46}{figure.caption.36}\protected@file@percent }
-\newlabel{fig:gradcam_aerobic}{{6.3}{46}{Grad-CAM heatmaps of the DenseNet-121 aerobic zone model, for test images from Waterval, which was held out during training. Top: one correctly classified aerobic zone per class. Bottom: one aerobic zone from each of the three most common mistakes. Every heatmap is calculated for the assigned class, and $p$ is the softmax probability of that class. Red regions contributed the most to the classification}{figure.caption.36}{}}
-\newlabel{fig:gradcam_aerobic@cref}{{[figure][3][6]6.3}{[1][45][]46}{}{}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Summary and conclusions}{48}{chapter.7}\protected@file@percent }
+\newlabel{chap:results}{{6}{38}{Results}{chapter.6}{}}
+\newlabel{chap:results@cref}{{[chapter][6][]6}{[1][38][]38}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Overview}{38}{section.6.1}\protected@file@percent }
+\newlabel{sec:results_overview}{{6.1}{38}{Overview}{section.6.1}{}}
+\newlabel{sec:results_overview@cref}{{[section][1][6]6.1}{[1][38][]38}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Multi-Class Classification}{38}{section.6.2}\protected@file@percent }
+\newlabel{sec:results_multiclass}{{6.2}{38}{Multi-Class Classification}{section.6.2}{}}
+\newlabel{sec:results_multiclass@cref}{{[section][2][6]6.2}{[1][38][]38}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Macro-averaged F1 score and recall of every architecture on the chronological split (Exp.~1) and averaged across held-out facilities (Exp.~2, mean $\pm $ standard deviation). $\Delta $ is the change in the F1 score from Experiment~1 to Experiment~2, in percentage points.}}{38}{table.caption.30}\protected@file@percent }
+\newlabel{tab:res_multiclass}{{6.1}{38}{Macro-averaged F1 score and recall of every architecture on the chronological split (Exp.~1) and averaged across held-out facilities (Exp.~2, mean $\pm $ standard deviation). $\Delta $ is the change in the F1 score from Experiment~1 to Experiment~2, in percentage points}{table.caption.30}{}}
+\newlabel{tab:res_multiclass@cref}{{[table][1][6]6.1}{[1][38][]38}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6.2}{\ignorespaces Recall of every failure class on the chronological split (Exp.~1) and averaged across the held-out facilities at which the class occurs (Exp.~2).}}{39}{table.caption.31}\protected@file@percent }
+\newlabel{tab:res_failure_recall}{{6.2}{39}{Recall of every failure class on the chronological split (Exp.~1) and averaged across the held-out facilities at which the class occurs (Exp.~2)}{table.caption.31}{}}
+\newlabel{tab:res_failure_recall@cref}{{[table][2][6]6.2}{[1][39][]39}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Confusion matrices of the architecture with the highest mean macro F1 score in Experiment~2 for each component, on the held-out facility used for the Grad-CAM analysis (Section~\ref {sec:results_gradcam}). The confusion matrices of the other folds are given in Appendix~\ref {appen:res_lofo}.}}{40}{figure.caption.32}\protected@file@percent }
+\newlabel{fig:res_cm_examples}{{6.1}{40}{Confusion matrices of the architecture with the highest mean macro F1 score in Experiment~2 for each component, on the held-out facility used for the Grad-CAM analysis (Section~\ref {sec:results_gradcam}). The confusion matrices of the other folds are given in Appendix~\ref {appen:res_lofo}}{figure.caption.32}{}}
+\newlabel{fig:res_cm_examples@cref}{{[figure][1][6]6.1}{[1][39][]40}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Binary (OK / Not-OK) Classification}{40}{section.6.3}\protected@file@percent }
+\newlabel{sec:results_binary}{{6.3}{40}{Binary (OK / Not-OK) Classification}{section.6.3}{}}
+\newlabel{sec:results_binary@cref}{{[section][3][6]6.3}{[1][40][]40}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6.3}{\ignorespaces Binary OK / Not-OK results of every architecture on the chronological split (Exp.~1) and averaged across held-out facilities (Exp.~2). The AUC does not depend on a threshold. The recall, specificity and precision of the Not-OK class are given on the test set, at the threshold chosen for a Not-OK recall of 95\% on the development set (Section~\ref {sec:exp_binary}). The thresholds are listed in Appendix~\ref {appen:res_binary}.}}{40}{table.caption.33}\protected@file@percent }
+\newlabel{tab:res_binary}{{6.3}{40}{Binary OK / Not-OK results of every architecture on the chronological split (Exp.~1) and averaged across held-out facilities (Exp.~2). The AUC does not depend on a threshold. The recall, specificity and precision of the Not-OK class are given on the test set, at the threshold chosen for a Not-OK recall of 95\% on the development set (Section~\ref {sec:exp_binary}). The thresholds are listed in Appendix~\ref {appen:res_binary}}{table.caption.33}{}}
+\newlabel{tab:res_binary@cref}{{[table][3][6]6.3}{[1][40][]40}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6.4}{\ignorespaces Not-OK recall and specificity for each held-out facility at the threshold chosen on the development set of that fold, for the ConvNeXt-Tiny clarifier model and the DenseNet-121 aerobic zone model. The results of every architecture are given in Appendix~\ref {appen:res_binary}.}}{41}{table.caption.34}\protected@file@percent }
+\newlabel{tab:res_binary_facility}{{6.4}{41}{Not-OK recall and specificity for each held-out facility at the threshold chosen on the development set of that fold, for the ConvNeXt-Tiny clarifier model and the DenseNet-121 aerobic zone model. The results of every architecture are given in Appendix~\ref {appen:res_binary}}{table.caption.34}{}}
+\newlabel{tab:res_binary_facility@cref}{{[table][4][6]6.4}{[1][41][]41}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.4}Qualitative Analysis: Grad-CAM}{41}{section.6.4}\protected@file@percent }
+\newlabel{sec:results_gradcam}{{6.4}{41}{Qualitative Analysis: Grad-CAM}{section.6.4}{}}
+\newlabel{sec:results_gradcam@cref}{{[section][4][6]6.4}{[1][41][]41}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.1}Clarifiers}{41}{subsection.6.4.1}\protected@file@percent }
+\newlabel{sec:results_gradcam_clarifiers}{{6.4.1}{41}{Clarifiers}{subsection.6.4.1}{}}
+\newlabel{sec:results_gradcam_clarifiers@cref}{{[subsection][1][6,4]6.4.1}{[1][41][]41}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Grad-CAM heatmaps of the ConvNeXt-Tiny clarifier model, for test images from Fisantekraal, which was held out during training. Top: one correctly classified clarifier per class. Bottom: one clarifier from each of the four most common mistakes. Every heatmap is calculated for the assigned class, and $p$ is the softmax probability of that class. Red regions contributed the most to the classification.}}{42}{figure.caption.35}\protected@file@percent }
+\newlabel{fig:gradcam_clarifier}{{6.2}{42}{Grad-CAM heatmaps of the ConvNeXt-Tiny clarifier model, for test images from Fisantekraal, which was held out during training. Top: one correctly classified clarifier per class. Bottom: one clarifier from each of the four most common mistakes. Every heatmap is calculated for the assigned class, and $p$ is the softmax probability of that class. Red regions contributed the most to the classification}{figure.caption.35}{}}
+\newlabel{fig:gradcam_clarifier@cref}{{[figure][2][6]6.2}{[1][42][]42}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.2}Aerobic Zones}{43}{subsection.6.4.2}\protected@file@percent }
+\newlabel{sec:results_gradcam_aerobic}{{6.4.2}{43}{Aerobic Zones}{subsection.6.4.2}{}}
+\newlabel{sec:results_gradcam_aerobic@cref}{{[subsection][2][6,4]6.4.2}{[1][43][]43}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces Grad-CAM heatmaps of the DenseNet-121 aerobic zone model, for test images from Waterval, which was held out during training. Top: one correctly classified aerobic zone per class. Bottom: one aerobic zone from each of the three most common mistakes. Every heatmap is calculated for the assigned class, and $p$ is the softmax probability of that class. Red regions contributed the most to the classification.}}{43}{figure.caption.36}\protected@file@percent }
+\newlabel{fig:gradcam_aerobic}{{6.3}{43}{Grad-CAM heatmaps of the DenseNet-121 aerobic zone model, for test images from Waterval, which was held out during training. Top: one correctly classified aerobic zone per class. Bottom: one aerobic zone from each of the three most common mistakes. Every heatmap is calculated for the assigned class, and $p$ is the softmax probability of that class. Red regions contributed the most to the classification}{figure.caption.36}{}}
+\newlabel{fig:gradcam_aerobic@cref}{{[figure][3][6]6.3}{[1][43][]43}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4.3}Summary of Observations}{44}{subsection.6.4.3}\protected@file@percent }
+\newlabel{sec:results_gradcam_summary}{{6.4.3}{44}{Summary of Observations}{subsection.6.4.3}{}}
+\newlabel{sec:results_gradcam_summary@cref}{{[subsection][3][6,4]6.4.3}{[1][44][]44}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.5}Summary of Findings}{44}{section.6.5}\protected@file@percent }
+\newlabel{sec:results_summary}{{6.5}{44}{Summary of Findings}{section.6.5}{}}
+\newlabel{sec:results_summary@cref}{{[section][5][6]6.5}{[1][44][]44}{}{}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Summary and conclusions}{45}{chapter.7}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:conclusion}{{7}{48}{Summary and conclusions}{chapter.7}{}}
-\newlabel{chap:conclusion@cref}{{[chapter][7][]7}{[1][48][]48}{}{}{}}
+\newlabel{chap:conclusion}{{7}{45}{Summary and conclusions}{chapter.7}{}}
+\newlabel{chap:conclusion@cref}{{[chapter][7][]7}{[1][45][]45}{}{}{}}
 \bibdata{mybib}
 \bibcite{torchvision2016}{{1}{2016}{{TorchVision maintainers and contributors}}{{}}}
 \bibcite{lecun1998gradient}{{2}{1998}{{LeCun et~al.}}{{LeCun, Bottou, Bengio, and Haffner}}}
@@ -395,7 +395,7 @@
 \bibcite{liu2022convnext}{{8}{2022}{{Liu et~al.}}{{Liu, Mao, Wu, Feichtenhofer, Darrell, and Xie}}}
 \bibcite{hu2018squeeze}{{9}{2018}{{Hu et~al.}}{{Hu, Shen, and Sun}}}
 \bibcite{hendrycks2016gelu}{{10}{2016}{{Hendrycks and Gimpel}}{{}}}
-\@writefile{toc}{\contentsline {chapter}{References}{49}{chapter*.37}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{References}{46}{chapter*.37}\protected@file@percent }
 \bibcite{selvaraju2017gradcam}{{11}{2017}{{Selvaraju et~al.}}{{Selvaraju, Cogswell, Das, Vedantam, Parikh, and Batra}}}
 \bibcite{dws2022greendrop}{{12}{2022}{{Department of Water and Sanitation}}{{}}}
 \bibcite{costa2013}{{13}{2013}{{Costa et~al.}}{{Costa, Mesquita, Amaral, Alves, and Ferreira}}}
@@ -426,20 +426,20 @@
 \bibcite{akiba2019optuna}{{38}{2019}{{Akiba et~al.}}{{Akiba, Sano, Yanase, Ohta, and Koyama}}}
 \bibcite{bergstra2011tpe}{{39}{2011}{{Bergstra et~al.}}{{Bergstra, Bardenet, Bengio, and K{\'e}gl}}}
 \bibcite{gildenblat2021pytorchcam}{{40}{2021}{{Gildenblat and contributors}}{{}}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Dataset Details}{54}{appendix.A}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Dataset Details}{51}{appendix.A}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{appen:dataset_details}{{A}{54}{Dataset Details}{appendix.A}{}}
-\newlabel{appen:dataset_details@cref}{{[chapter][1][]A}{[1][54][]54}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.1}Annotation Format}{54}{appendix.A.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {A.2}Leave-one-out Split}{54}{appendix.A.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {A.3}Relabelling Interface}{54}{appendix.A.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {A.1}{\ignorespaces Number of clarifier images from each facility in the training, development and test sets when Waterval is held out. The test set contains only Waterval, while the remaining four facilities are split into training and development sets.}}{55}{figure.caption.38}\protected@file@percent }
-\newlabel{fig:leave_one_out approach}{{A.1}{55}{Number of clarifier images from each facility in the training, development and test sets when Waterval is held out. The test set contains only Waterval, while the remaining four facilities are split into training and development sets}{figure.caption.38}{}}
-\newlabel{fig:leave_one_out approach@cref}{{[figure][1][1]A.1}{[1][54][]55}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.2}{\ignorespaces The relabelling interface, showing the original label and the per-class correction buttons.}}{55}{figure.caption.39}\protected@file@percent }
-\newlabel{fig:relabel_process_example}{{A.2}{55}{The relabelling interface, showing the original label and the per-class correction buttons}{figure.caption.39}{}}
-\newlabel{fig:relabel_process_example@cref}{{[figure][2][1]A.2}{[1][54][]55}{}{}{}}
+\newlabel{appen:dataset_details}{{A}{51}{Dataset Details}{appendix.A}{}}
+\newlabel{appen:dataset_details@cref}{{[chapter][1][]A}{[1][51][]51}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.1}Annotation Format}{51}{appendix.A.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A.2}Leave-one-out Split}{51}{appendix.A.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A.3}Relabelling Interface}{51}{appendix.A.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {A.1}{\ignorespaces Number of clarifier images from each facility in the training, development and test sets when Waterval is held out. The test set contains only Waterval, while the remaining four facilities are split into training and development sets.}}{52}{figure.caption.38}\protected@file@percent }
+\newlabel{fig:leave_one_out approach}{{A.1}{52}{Number of clarifier images from each facility in the training, development and test sets when Waterval is held out. The test set contains only Waterval, while the remaining four facilities are split into training and development sets}{figure.caption.38}{}}
+\newlabel{fig:leave_one_out approach@cref}{{[figure][1][1]A.1}{[1][51][]52}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.2}{\ignorespaces The relabelling interface, showing the original label and the per-class correction buttons.}}{52}{figure.caption.39}\protected@file@percent }
+\newlabel{fig:relabel_process_example}{{A.2}{52}{The relabelling interface, showing the original label and the per-class correction buttons}{figure.caption.39}{}}
+\newlabel{fig:relabel_process_example@cref}{{[figure][2][1]A.2}{[1][51][]52}{}{}{}}
 \gdef \LT@i {\LT@entry 
     {1}{35.76999pt}\LT@entry 
     {1}{21.12497pt}\LT@entry 
@@ -450,17 +450,17 @@
     {1}{41.46188pt}\LT@entry 
     {5}{59.22176pt}\LT@entry 
     {1}{59.47154pt}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}Hyperparameter Search Trials}{56}{appendix.B}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Hyperparameter Search Trials}{53}{appendix.B}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{appen:hyperparam_trials}{{B}{56}{Hyperparameter Search Trials}{appendix.B}{}}
-\newlabel{appen:hyperparam_trials@cref}{{[chapter][2][]B}{[1][56][]56}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B.1}Clarifiers}{56}{appendix.B.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.1}ResNet-18}{56}{subsection.B.1.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {B.1}{\ignorespaces All 20 clarifier Optuna trials for ResNet-18, in sampling order. \emph  {Pruned} trials were stopped before completion. The winning trial is shaded.}}{56}{table.B.1}\protected@file@percent }
-\newlabel{tab:trials_resnet18}{{B.1}{56}{All 20 clarifier Optuna trials for ResNet-18, in sampling order. \emph {Pruned} trials were stopped before completion. The winning trial is shaded}{table.B.1}{}}
-\newlabel{tab:trials_resnet18@cref}{{[table][1][2]B.1}{[1][56][]56}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.2}EfficientNet-B0}{56}{subsection.B.1.2}\protected@file@percent }
+\newlabel{appen:hyperparam_trials}{{B}{53}{Hyperparameter Search Trials}{appendix.B}{}}
+\newlabel{appen:hyperparam_trials@cref}{{[chapter][2][]B}{[1][53][]53}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B.1}Clarifiers}{53}{appendix.B.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.1}ResNet-18}{53}{subsection.B.1.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {B.1}{\ignorespaces All 20 clarifier Optuna trials for ResNet-18, in sampling order. \emph  {Pruned} trials were stopped before completion. The winning trial is shaded.}}{53}{table.B.1}\protected@file@percent }
+\newlabel{tab:trials_resnet18}{{B.1}{53}{All 20 clarifier Optuna trials for ResNet-18, in sampling order. \emph {Pruned} trials were stopped before completion. The winning trial is shaded}{table.B.1}{}}
+\newlabel{tab:trials_resnet18@cref}{{[table][1][2]B.1}{[1][53][]53}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.2}EfficientNet-B0}{53}{subsection.B.1.2}\protected@file@percent }
 \gdef \LT@ii {\LT@entry 
     {1}{35.76999pt}\LT@entry 
     {1}{21.12497pt}\LT@entry 
@@ -481,13 +481,13 @@
     {1}{41.46188pt}\LT@entry 
     {5}{59.22176pt}\LT@entry 
     {1}{59.47154pt}}
-\@writefile{lot}{\contentsline {table}{\numberline {B.2}{\ignorespaces All 20 clarifier Optuna trials for EfficientNet-B0, in sampling order. \emph  {Pruned} trials were stopped before completion. The winning trial is shaded.}}{57}{table.B.2}\protected@file@percent }
-\newlabel{tab:trials_effnetb0}{{B.2}{57}{All 20 clarifier Optuna trials for EfficientNet-B0, in sampling order. \emph {Pruned} trials were stopped before completion. The winning trial is shaded}{table.B.2}{}}
-\newlabel{tab:trials_effnetb0@cref}{{[table][2][2]B.2}{[1][56][]57}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.3}DenseNet-121}{57}{subsection.B.1.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {B.3}{\ignorespaces All 20 clarifier Optuna trials for DenseNet-121, in sampling order. \emph  {Pruned} trials were stopped before completion. The winning trial is shaded.}}{57}{table.B.3}\protected@file@percent }
-\newlabel{tab:trials_densenet121}{{B.3}{57}{All 20 clarifier Optuna trials for DenseNet-121, in sampling order. \emph {Pruned} trials were stopped before completion. The winning trial is shaded}{table.B.3}{}}
-\newlabel{tab:trials_densenet121@cref}{{[table][3][2]B.3}{[1][57][]57}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {B.2}{\ignorespaces All 20 clarifier Optuna trials for EfficientNet-B0, in sampling order. \emph  {Pruned} trials were stopped before completion. The winning trial is shaded.}}{54}{table.B.2}\protected@file@percent }
+\newlabel{tab:trials_effnetb0}{{B.2}{54}{All 20 clarifier Optuna trials for EfficientNet-B0, in sampling order. \emph {Pruned} trials were stopped before completion. The winning trial is shaded}{table.B.2}{}}
+\newlabel{tab:trials_effnetb0@cref}{{[table][2][2]B.2}{[1][53][]54}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.3}DenseNet-121}{54}{subsection.B.1.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {B.3}{\ignorespaces All 20 clarifier Optuna trials for DenseNet-121, in sampling order. \emph  {Pruned} trials were stopped before completion. The winning trial is shaded.}}{54}{table.B.3}\protected@file@percent }
+\newlabel{tab:trials_densenet121}{{B.3}{54}{All 20 clarifier Optuna trials for DenseNet-121, in sampling order. \emph {Pruned} trials were stopped before completion. The winning trial is shaded}{table.B.3}{}}
+\newlabel{tab:trials_densenet121@cref}{{[table][3][2]B.3}{[1][54][]54}{}{}{}}
 \gdef \LT@iv {\LT@entry 
     {1}{35.76999pt}\LT@entry 
     {1}{21.12497pt}\LT@entry 
@@ -498,12 +498,12 @@
     {1}{41.46188pt}\LT@entry 
     {5}{59.22176pt}\LT@entry 
     {1}{59.47154pt}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.4}ConvNeXt-Tiny}{58}{subsection.B.1.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {B.4}{\ignorespaces All 20 clarifier Optuna trials for ConvNeXt-Tiny, in sampling order. \emph  {Pruned} trials were stopped before completion. The winning trial is shaded.}}{58}{table.B.4}\protected@file@percent }
-\newlabel{tab:trials_convnext}{{B.4}{58}{All 20 clarifier Optuna trials for ConvNeXt-Tiny, in sampling order. \emph {Pruned} trials were stopped before completion. The winning trial is shaded}{table.B.4}{}}
-\newlabel{tab:trials_convnext@cref}{{[table][4][2]B.4}{[1][58][]58}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B.2}Aerobic Zones}{58}{appendix.B.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.2.1}ResNet-18}{58}{subsection.B.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.4}ConvNeXt-Tiny}{55}{subsection.B.1.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {B.4}{\ignorespaces All 20 clarifier Optuna trials for ConvNeXt-Tiny, in sampling order. \emph  {Pruned} trials were stopped before completion. The winning trial is shaded.}}{55}{table.B.4}\protected@file@percent }
+\newlabel{tab:trials_convnext}{{B.4}{55}{All 20 clarifier Optuna trials for ConvNeXt-Tiny, in sampling order. \emph {Pruned} trials were stopped before completion. The winning trial is shaded}{table.B.4}{}}
+\newlabel{tab:trials_convnext@cref}{{[table][4][2]B.4}{[1][55][]55}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B.2}Aerobic Zones}{55}{appendix.B.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.2.1}ResNet-18}{55}{subsection.B.2.1}\protected@file@percent }
 \gdef \LT@v {\LT@entry 
     {1}{35.76999pt}\LT@entry 
     {1}{21.12497pt}\LT@entry 
@@ -524,13 +524,13 @@
     {1}{41.46188pt}\LT@entry 
     {5}{59.22176pt}\LT@entry 
     {1}{59.47154pt}}
-\@writefile{lot}{\contentsline {table}{\numberline {B.5}{\ignorespaces All 20 aerobic zone Optuna trials for ResNet-18, in sampling order. \emph  {Pruned} trials were stopped early by the MedianPruner. The winning trial is shaded.}}{59}{table.B.5}\protected@file@percent }
-\newlabel{tab:trials_aerobic_resnet18}{{B.5}{59}{All 20 aerobic zone Optuna trials for ResNet-18, in sampling order. \emph {Pruned} trials were stopped early by the MedianPruner. The winning trial is shaded}{table.B.5}{}}
-\newlabel{tab:trials_aerobic_resnet18@cref}{{[table][5][2]B.5}{[1][58][]59}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.2.2}EfficientNet-B0}{59}{subsection.B.2.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {B.6}{\ignorespaces All 20 aerobic zone Optuna trials for EfficientNet-B0, in sampling order. \emph  {Pruned} trials were stopped early by the MedianPruner. The winning trial is shaded.}}{59}{table.B.6}\protected@file@percent }
-\newlabel{tab:trials_aerobic_efficientnet_b0}{{B.6}{59}{All 20 aerobic zone Optuna trials for EfficientNet-B0, in sampling order. \emph {Pruned} trials were stopped early by the MedianPruner. The winning trial is shaded}{table.B.6}{}}
-\newlabel{tab:trials_aerobic_efficientnet_b0@cref}{{[table][6][2]B.6}{[1][59][]59}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {B.5}{\ignorespaces All 20 aerobic zone Optuna trials for ResNet-18, in sampling order. \emph  {Pruned} trials were stopped early by the MedianPruner. The winning trial is shaded.}}{56}{table.B.5}\protected@file@percent }
+\newlabel{tab:trials_aerobic_resnet18}{{B.5}{56}{All 20 aerobic zone Optuna trials for ResNet-18, in sampling order. \emph {Pruned} trials were stopped early by the MedianPruner. The winning trial is shaded}{table.B.5}{}}
+\newlabel{tab:trials_aerobic_resnet18@cref}{{[table][5][2]B.5}{[1][55][]56}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.2.2}EfficientNet-B0}{56}{subsection.B.2.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {B.6}{\ignorespaces All 20 aerobic zone Optuna trials for EfficientNet-B0, in sampling order. \emph  {Pruned} trials were stopped early by the MedianPruner. The winning trial is shaded.}}{56}{table.B.6}\protected@file@percent }
+\newlabel{tab:trials_aerobic_efficientnet_b0}{{B.6}{56}{All 20 aerobic zone Optuna trials for EfficientNet-B0, in sampling order. \emph {Pruned} trials were stopped early by the MedianPruner. The winning trial is shaded}{table.B.6}{}}
+\newlabel{tab:trials_aerobic_efficientnet_b0@cref}{{[table][6][2]B.6}{[1][56][]56}{}{}{}}
 \gdef \LT@vii {\LT@entry 
     {1}{35.76999pt}\LT@entry 
     {1}{21.12497pt}\LT@entry 
@@ -541,11 +541,11 @@
     {1}{41.46188pt}\LT@entry 
     {5}{59.22176pt}\LT@entry 
     {1}{59.47154pt}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.2.3}DenseNet-121}{60}{subsection.B.2.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {B.7}{\ignorespaces All 20 aerobic zone Optuna trials for DenseNet-121, in sampling order. \emph  {Pruned} trials were stopped early by the MedianPruner. The winning trial is shaded.}}{60}{table.B.7}\protected@file@percent }
-\newlabel{tab:trials_aerobic_densenet121}{{B.7}{60}{All 20 aerobic zone Optuna trials for DenseNet-121, in sampling order. \emph {Pruned} trials were stopped early by the MedianPruner. The winning trial is shaded}{table.B.7}{}}
-\newlabel{tab:trials_aerobic_densenet121@cref}{{[table][7][2]B.7}{[1][60][]60}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.2.4}ConvNeXt-Tiny}{60}{subsection.B.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.2.3}DenseNet-121}{57}{subsection.B.2.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {B.7}{\ignorespaces All 20 aerobic zone Optuna trials for DenseNet-121, in sampling order. \emph  {Pruned} trials were stopped early by the MedianPruner. The winning trial is shaded.}}{57}{table.B.7}\protected@file@percent }
+\newlabel{tab:trials_aerobic_densenet121}{{B.7}{57}{All 20 aerobic zone Optuna trials for DenseNet-121, in sampling order. \emph {Pruned} trials were stopped early by the MedianPruner. The winning trial is shaded}{table.B.7}{}}
+\newlabel{tab:trials_aerobic_densenet121@cref}{{[table][7][2]B.7}{[1][57][]57}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.2.4}ConvNeXt-Tiny}{57}{subsection.B.2.4}\protected@file@percent }
 \gdef \LT@viii {\LT@entry 
     {1}{35.76999pt}\LT@entry 
     {1}{21.12497pt}\LT@entry 
@@ -556,81 +556,81 @@
     {1}{41.46188pt}\LT@entry 
     {5}{59.22176pt}\LT@entry 
     {1}{59.47154pt}}
-\@writefile{lot}{\contentsline {table}{\numberline {B.8}{\ignorespaces All 20 aerobic zone Optuna trials for ConvNeXt-Tiny, in sampling order. \emph  {Pruned} trials were stopped early by the MedianPruner. The winning trial is shaded.}}{61}{table.B.8}\protected@file@percent }
-\newlabel{tab:trials_aerobic_convnext_tiny}{{B.8}{61}{All 20 aerobic zone Optuna trials for ConvNeXt-Tiny, in sampling order. \emph {Pruned} trials were stopped early by the MedianPruner. The winning trial is shaded}{table.B.8}{}}
-\newlabel{tab:trials_aerobic_convnext_tiny@cref}{{[table][8][2]B.8}{[1][60][]61}{}{}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {C}Additional Results}{62}{appendix.C}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {B.8}{\ignorespaces All 20 aerobic zone Optuna trials for ConvNeXt-Tiny, in sampling order. \emph  {Pruned} trials were stopped early by the MedianPruner. The winning trial is shaded.}}{58}{table.B.8}\protected@file@percent }
+\newlabel{tab:trials_aerobic_convnext_tiny}{{B.8}{58}{All 20 aerobic zone Optuna trials for ConvNeXt-Tiny, in sampling order. \emph {Pruned} trials were stopped early by the MedianPruner. The winning trial is shaded}{table.B.8}{}}
+\newlabel{tab:trials_aerobic_convnext_tiny@cref}{{[table][8][2]B.8}{[1][57][]58}{}{}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {C}Additional Results}{59}{appendix.C}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{appen:additional_results}{{C}{62}{Additional Results}{appendix.C}{}}
-\newlabel{appen:additional_results@cref}{{[chapter][3][]C}{[1][62][]62}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {C.1}Experiment 1: Mixed-Facility Baseline}{62}{appendix.C.1}\protected@file@percent }
-\newlabel{appen:res_mixed}{{C.1}{62}{Experiment 1: Mixed-Facility Baseline}{appendix.C.1}{}}
-\newlabel{appen:res_mixed@cref}{{[section][1][3]C.1}{[1][62][]62}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.1}{\ignorespaces Clarifier test results of every architecture on the chronological split (Experiment~1). Macro-averaged scores give every class the same weight. The best value in every column is shown in bold.}}{62}{table.caption.40}\protected@file@percent }
-\newlabel{tab:res_mixed_clarifier}{{C.1}{62}{Clarifier test results of every architecture on the chronological split (Experiment~1). Macro-averaged scores give every class the same weight. The best value in every column is shown in bold}{table.caption.40}{}}
-\newlabel{tab:res_mixed_clarifier@cref}{{[table][1][3]C.1}{[1][62][]62}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.2}{\ignorespaces Per-class precision (P), recall (R) and F1 score of every clarifier architecture on the chronological split (Experiment~1).}}{62}{table.caption.41}\protected@file@percent }
-\newlabel{tab:res_mixed_clarifier_perclass}{{C.2}{62}{Per-class precision (P), recall (R) and F1 score of every clarifier architecture on the chronological split (Experiment~1)}{table.caption.41}{}}
-\newlabel{tab:res_mixed_clarifier_perclass@cref}{{[table][2][3]C.2}{[1][62][]62}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.3}{\ignorespaces Aerobic zone test results of every architecture on the chronological split (Experiment~1).}}{63}{table.caption.42}\protected@file@percent }
-\newlabel{tab:res_mixed_aerobic}{{C.3}{63}{Aerobic zone test results of every architecture on the chronological split (Experiment~1)}{table.caption.42}{}}
-\newlabel{tab:res_mixed_aerobic@cref}{{[table][3][3]C.3}{[1][63][]63}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.4}{\ignorespaces Per-class precision (P), recall (R) and F1 score of every aerobic zone architecture on the chronological split (Experiment~1).}}{63}{table.caption.43}\protected@file@percent }
-\newlabel{tab:res_mixed_aerobic_perclass}{{C.4}{63}{Per-class precision (P), recall (R) and F1 score of every aerobic zone architecture on the chronological split (Experiment~1)}{table.caption.43}{}}
-\newlabel{tab:res_mixed_aerobic_perclass@cref}{{[table][4][3]C.4}{[1][63][]63}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {C.2}Experiment 2: Leave-One-Facility-Out Evaluation}{64}{appendix.C.2}\protected@file@percent }
-\newlabel{appen:res_lofo}{{C.2}{64}{Experiment 2: Leave-One-Facility-Out Evaluation}{appendix.C.2}{}}
-\newlabel{appen:res_lofo@cref}{{[section][2][3]C.2}{[1][63][]64}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.5}{\ignorespaces Clarifier test results of every architecture in the leave-one-facility-out experiment (Experiment~2), given as the mean $\pm $ standard deviation across the five held-out facilities.}}{64}{table.caption.44}\protected@file@percent }
-\newlabel{tab:res_lofo_clarifier}{{C.5}{64}{Clarifier test results of every architecture in the leave-one-facility-out experiment (Experiment~2), given as the mean $\pm $ standard deviation across the five held-out facilities}{table.caption.44}{}}
-\newlabel{tab:res_lofo_clarifier@cref}{{[table][5][3]C.5}{[1][64][]64}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.6}{\ignorespaces Clarifier test accuracy and mean AUC of every architecture for each held-out facility.}}{64}{table.caption.45}\protected@file@percent }
-\newlabel{tab:res_lofo_clarifier_facility}{{C.6}{64}{Clarifier test accuracy and mean AUC of every architecture for each held-out facility}{table.caption.45}{}}
-\newlabel{tab:res_lofo_clarifier_facility@cref}{{[table][6][3]C.6}{[1][64][]64}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.7}{\ignorespaces Per-class precision (P), recall (R) and F1 score of every clarifier architecture in Experiment~2, averaged over the held-out facilities at which the class occurs.}}{65}{table.caption.46}\protected@file@percent }
-\newlabel{tab:res_lofo_clarifier_perclass}{{C.7}{65}{Per-class precision (P), recall (R) and F1 score of every clarifier architecture in Experiment~2, averaged over the held-out facilities at which the class occurs}{table.caption.46}{}}
-\newlabel{tab:res_lofo_clarifier_perclass@cref}{{[table][7][3]C.7}{[1][64][]65}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {C.1}{\ignorespaces Training and development loss and accuracy of the ConvNeXt-Tiny clarifier model for every leave-one-facility-out fold. The dashed line marks the epoch of the restored checkpoint.}}{65}{figure.caption.47}\protected@file@percent }
-\newlabel{fig:res_lofo_clarifier_curves}{{C.1}{65}{Training and development loss and accuracy of the ConvNeXt-Tiny clarifier model for every leave-one-facility-out fold. The dashed line marks the epoch of the restored checkpoint}{figure.caption.47}{}}
-\newlabel{fig:res_lofo_clarifier_curves@cref}{{[figure][1][3]C.1}{[1][65][]65}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {C.2}{\ignorespaces Confusion matrices of the ConvNeXt-Tiny clarifier model on each held-out facility.}}{66}{figure.caption.48}\protected@file@percent }
-\newlabel{fig:res_lofo_clarifier_cm}{{C.2}{66}{Confusion matrices of the ConvNeXt-Tiny clarifier model on each held-out facility}{figure.caption.48}{}}
-\newlabel{fig:res_lofo_clarifier_cm@cref}{{[figure][2][3]C.2}{[1][66][]66}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.8}{\ignorespaces Aerobic zone test results of every architecture in the leave-one-facility-out experiment (Experiment~2), given as the mean $\pm $ standard deviation across the three held-out facilities.}}{67}{table.caption.49}\protected@file@percent }
-\newlabel{tab:res_lofo_aerobic}{{C.8}{67}{Aerobic zone test results of every architecture in the leave-one-facility-out experiment (Experiment~2), given as the mean $\pm $ standard deviation across the three held-out facilities}{table.caption.49}{}}
-\newlabel{tab:res_lofo_aerobic@cref}{{[table][8][3]C.8}{[1][66][]67}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.9}{\ignorespaces Aerobic zone test accuracy and mean AUC of every architecture for each held-out facility.}}{67}{table.caption.50}\protected@file@percent }
-\newlabel{tab:res_lofo_aerobic_facility}{{C.9}{67}{Aerobic zone test accuracy and mean AUC of every architecture for each held-out facility}{table.caption.50}{}}
-\newlabel{tab:res_lofo_aerobic_facility@cref}{{[table][9][3]C.9}{[1][66][]67}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.10}{\ignorespaces Per-class precision (P), recall (R) and F1 score of every aerobic zone architecture in Experiment~2, averaged over the three held-out facilities.}}{68}{table.caption.51}\protected@file@percent }
-\newlabel{tab:res_lofo_aerobic_perclass}{{C.10}{68}{Per-class precision (P), recall (R) and F1 score of every aerobic zone architecture in Experiment~2, averaged over the three held-out facilities}{table.caption.51}{}}
-\newlabel{tab:res_lofo_aerobic_perclass@cref}{{[table][10][3]C.10}{[1][67][]68}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {C.3}{\ignorespaces Training and development loss and accuracy of the DenseNet-121 aerobic zone model for every leave-one-facility-out fold. The dashed line marks the epoch of the restored checkpoint.}}{68}{figure.caption.52}\protected@file@percent }
-\newlabel{fig:res_lofo_aerobic_curves}{{C.3}{68}{Training and development loss and accuracy of the DenseNet-121 aerobic zone model for every leave-one-facility-out fold. The dashed line marks the epoch of the restored checkpoint}{figure.caption.52}{}}
-\newlabel{fig:res_lofo_aerobic_curves@cref}{{[figure][3][3]C.3}{[1][67][]68}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {C.4}{\ignorespaces Confusion matrices of the DenseNet-121 aerobic zone model on each held-out facility.}}{68}{figure.caption.53}\protected@file@percent }
-\newlabel{fig:res_lofo_aerobic_cm}{{C.4}{68}{Confusion matrices of the DenseNet-121 aerobic zone model on each held-out facility}{figure.caption.53}{}}
-\newlabel{fig:res_lofo_aerobic_cm@cref}{{[figure][4][3]C.4}{[1][67][]68}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {C.3}Effect of Augmentation}{69}{appendix.C.3}\protected@file@percent }
-\newlabel{sec:results_augmentation}{{C.3}{69}{Effect of Augmentation}{appendix.C.3}{}}
-\newlabel{sec:results_augmentation@cref}{{[section][3][3]C.3}{[1][69][]69}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.11}{\ignorespaces Test results on the chronological split with (Aug.) and without (None) augmentation during training. $\Delta $ is the difference in percentage points, where a positive value means that augmentation helped.}}{69}{table.caption.54}\protected@file@percent }
-\newlabel{tab:res_augmentation}{{C.11}{69}{Test results on the chronological split with (Aug.) and without (None) augmentation during training. $\Delta $ is the difference in percentage points, where a positive value means that augmentation helped}{table.caption.54}{}}
-\newlabel{tab:res_augmentation@cref}{{[table][11][3]C.11}{[1][69][]69}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {C.4}Binary (OK / Not-OK) Results}{69}{appendix.C.4}\protected@file@percent }
-\newlabel{appen:res_binary}{{C.4}{69}{Binary (OK / Not-OK) Results}{appendix.C.4}{}}
-\newlabel{appen:res_binary@cref}{{[section][4][3]C.4}{[1][69][]69}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.12}{\ignorespaces Threshold $t$ on the Not-OK score chosen for a 95\% recall on the development set, with the test recall of the Not-OK class at that threshold. For the leave-one-facility-out split, every fold has its own threshold, and the threshold and recall are averaged across held-out facilities. The specificity and precision at these thresholds are given in Table~\ref {tab:res_binary} (Section~\ref {sec:results_binary}).}}{70}{table.caption.55}\protected@file@percent }
-\newlabel{tab:res_threshold}{{C.12}{70}{Threshold $t$ on the Not-OK score chosen for a 95\% recall on the development set, with the test recall of the Not-OK class at that threshold. For the leave-one-facility-out split, every fold has its own threshold, and the threshold and recall are averaged across held-out facilities. The specificity and precision at these thresholds are given in Table~\ref {tab:res_binary} (Section~\ref {sec:results_binary})}{table.caption.55}{}}
-\newlabel{tab:res_threshold@cref}{{[table][12][3]C.12}{[1][69][]70}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.13}{\ignorespaces Recall and specificity of the Not-OK class for each held-out facility at the clarifier threshold chosen on the development set of that fold, with the lowest recall and the standard deviation of the recall across facilities.}}{70}{table.caption.56}\protected@file@percent }
-\newlabel{tab:res_threshold_robustness_clarifier}{{C.13}{70}{Recall and specificity of the Not-OK class for each held-out facility at the clarifier threshold chosen on the development set of that fold, with the lowest recall and the standard deviation of the recall across facilities}{table.caption.56}{}}
-\newlabel{tab:res_threshold_robustness_clarifier@cref}{{[table][13][3]C.13}{[1][70][]70}{}{}{}}
+\newlabel{appen:additional_results}{{C}{59}{Additional Results}{appendix.C}{}}
+\newlabel{appen:additional_results@cref}{{[chapter][3][]C}{[1][59][]59}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C.1}Experiment 1: Mixed-Facility Baseline}{59}{appendix.C.1}\protected@file@percent }
+\newlabel{appen:res_mixed}{{C.1}{59}{Experiment 1: Mixed-Facility Baseline}{appendix.C.1}{}}
+\newlabel{appen:res_mixed@cref}{{[section][1][3]C.1}{[1][59][]59}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.1}{\ignorespaces Clarifier test results of every architecture on the chronological split (Experiment~1). Macro-averaged scores give every class the same weight. The best value in every column is shown in bold.}}{59}{table.caption.40}\protected@file@percent }
+\newlabel{tab:res_mixed_clarifier}{{C.1}{59}{Clarifier test results of every architecture on the chronological split (Experiment~1). Macro-averaged scores give every class the same weight. The best value in every column is shown in bold}{table.caption.40}{}}
+\newlabel{tab:res_mixed_clarifier@cref}{{[table][1][3]C.1}{[1][59][]59}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.2}{\ignorespaces Per-class precision (P), recall (R) and F1 score of every clarifier architecture on the chronological split (Experiment~1).}}{59}{table.caption.41}\protected@file@percent }
+\newlabel{tab:res_mixed_clarifier_perclass}{{C.2}{59}{Per-class precision (P), recall (R) and F1 score of every clarifier architecture on the chronological split (Experiment~1)}{table.caption.41}{}}
+\newlabel{tab:res_mixed_clarifier_perclass@cref}{{[table][2][3]C.2}{[1][59][]59}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.3}{\ignorespaces Aerobic zone test results of every architecture on the chronological split (Experiment~1).}}{60}{table.caption.42}\protected@file@percent }
+\newlabel{tab:res_mixed_aerobic}{{C.3}{60}{Aerobic zone test results of every architecture on the chronological split (Experiment~1)}{table.caption.42}{}}
+\newlabel{tab:res_mixed_aerobic@cref}{{[table][3][3]C.3}{[1][60][]60}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.4}{\ignorespaces Per-class precision (P), recall (R) and F1 score of every aerobic zone architecture on the chronological split (Experiment~1).}}{60}{table.caption.43}\protected@file@percent }
+\newlabel{tab:res_mixed_aerobic_perclass}{{C.4}{60}{Per-class precision (P), recall (R) and F1 score of every aerobic zone architecture on the chronological split (Experiment~1)}{table.caption.43}{}}
+\newlabel{tab:res_mixed_aerobic_perclass@cref}{{[table][4][3]C.4}{[1][60][]60}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C.2}Experiment 2: Leave-One-Facility-Out Evaluation}{61}{appendix.C.2}\protected@file@percent }
+\newlabel{appen:res_lofo}{{C.2}{61}{Experiment 2: Leave-One-Facility-Out Evaluation}{appendix.C.2}{}}
+\newlabel{appen:res_lofo@cref}{{[section][2][3]C.2}{[1][60][]61}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.5}{\ignorespaces Clarifier test results of every architecture in the leave-one-facility-out experiment (Experiment~2), given as the mean $\pm $ standard deviation across the five held-out facilities.}}{61}{table.caption.44}\protected@file@percent }
+\newlabel{tab:res_lofo_clarifier}{{C.5}{61}{Clarifier test results of every architecture in the leave-one-facility-out experiment (Experiment~2), given as the mean $\pm $ standard deviation across the five held-out facilities}{table.caption.44}{}}
+\newlabel{tab:res_lofo_clarifier@cref}{{[table][5][3]C.5}{[1][61][]61}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.6}{\ignorespaces Clarifier test accuracy and mean AUC of every architecture for each held-out facility.}}{61}{table.caption.45}\protected@file@percent }
+\newlabel{tab:res_lofo_clarifier_facility}{{C.6}{61}{Clarifier test accuracy and mean AUC of every architecture for each held-out facility}{table.caption.45}{}}
+\newlabel{tab:res_lofo_clarifier_facility@cref}{{[table][6][3]C.6}{[1][61][]61}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.7}{\ignorespaces Per-class precision (P), recall (R) and F1 score of every clarifier architecture in Experiment~2, averaged over the held-out facilities at which the class occurs.}}{62}{table.caption.46}\protected@file@percent }
+\newlabel{tab:res_lofo_clarifier_perclass}{{C.7}{62}{Per-class precision (P), recall (R) and F1 score of every clarifier architecture in Experiment~2, averaged over the held-out facilities at which the class occurs}{table.caption.46}{}}
+\newlabel{tab:res_lofo_clarifier_perclass@cref}{{[table][7][3]C.7}{[1][61][]62}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {C.1}{\ignorespaces Training and development loss and accuracy of the ConvNeXt-Tiny clarifier model for every leave-one-facility-out fold. The dashed line marks the epoch of the restored checkpoint.}}{62}{figure.caption.47}\protected@file@percent }
+\newlabel{fig:res_lofo_clarifier_curves}{{C.1}{62}{Training and development loss and accuracy of the ConvNeXt-Tiny clarifier model for every leave-one-facility-out fold. The dashed line marks the epoch of the restored checkpoint}{figure.caption.47}{}}
+\newlabel{fig:res_lofo_clarifier_curves@cref}{{[figure][1][3]C.1}{[1][62][]62}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {C.2}{\ignorespaces Confusion matrices of the ConvNeXt-Tiny clarifier model on each held-out facility.}}{63}{figure.caption.48}\protected@file@percent }
+\newlabel{fig:res_lofo_clarifier_cm}{{C.2}{63}{Confusion matrices of the ConvNeXt-Tiny clarifier model on each held-out facility}{figure.caption.48}{}}
+\newlabel{fig:res_lofo_clarifier_cm@cref}{{[figure][2][3]C.2}{[1][63][]63}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.8}{\ignorespaces Aerobic zone test results of every architecture in the leave-one-facility-out experiment (Experiment~2), given as the mean $\pm $ standard deviation across the three held-out facilities.}}{64}{table.caption.49}\protected@file@percent }
+\newlabel{tab:res_lofo_aerobic}{{C.8}{64}{Aerobic zone test results of every architecture in the leave-one-facility-out experiment (Experiment~2), given as the mean $\pm $ standard deviation across the three held-out facilities}{table.caption.49}{}}
+\newlabel{tab:res_lofo_aerobic@cref}{{[table][8][3]C.8}{[1][63][]64}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.9}{\ignorespaces Aerobic zone test accuracy and mean AUC of every architecture for each held-out facility.}}{64}{table.caption.50}\protected@file@percent }
+\newlabel{tab:res_lofo_aerobic_facility}{{C.9}{64}{Aerobic zone test accuracy and mean AUC of every architecture for each held-out facility}{table.caption.50}{}}
+\newlabel{tab:res_lofo_aerobic_facility@cref}{{[table][9][3]C.9}{[1][63][]64}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.10}{\ignorespaces Per-class precision (P), recall (R) and F1 score of every aerobic zone architecture in Experiment~2, averaged over the three held-out facilities.}}{65}{table.caption.51}\protected@file@percent }
+\newlabel{tab:res_lofo_aerobic_perclass}{{C.10}{65}{Per-class precision (P), recall (R) and F1 score of every aerobic zone architecture in Experiment~2, averaged over the three held-out facilities}{table.caption.51}{}}
+\newlabel{tab:res_lofo_aerobic_perclass@cref}{{[table][10][3]C.10}{[1][64][]65}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {C.3}{\ignorespaces Training and development loss and accuracy of the DenseNet-121 aerobic zone model for every leave-one-facility-out fold. The dashed line marks the epoch of the restored checkpoint.}}{65}{figure.caption.52}\protected@file@percent }
+\newlabel{fig:res_lofo_aerobic_curves}{{C.3}{65}{Training and development loss and accuracy of the DenseNet-121 aerobic zone model for every leave-one-facility-out fold. The dashed line marks the epoch of the restored checkpoint}{figure.caption.52}{}}
+\newlabel{fig:res_lofo_aerobic_curves@cref}{{[figure][3][3]C.3}{[1][64][]65}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {C.4}{\ignorespaces Confusion matrices of the DenseNet-121 aerobic zone model on each held-out facility.}}{65}{figure.caption.53}\protected@file@percent }
+\newlabel{fig:res_lofo_aerobic_cm}{{C.4}{65}{Confusion matrices of the DenseNet-121 aerobic zone model on each held-out facility}{figure.caption.53}{}}
+\newlabel{fig:res_lofo_aerobic_cm@cref}{{[figure][4][3]C.4}{[1][64][]65}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C.3}Effect of Augmentation}{66}{appendix.C.3}\protected@file@percent }
+\newlabel{sec:results_augmentation}{{C.3}{66}{Effect of Augmentation}{appendix.C.3}{}}
+\newlabel{sec:results_augmentation@cref}{{[section][3][3]C.3}{[1][66][]66}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.11}{\ignorespaces Test results on the chronological split with (Aug.) and without (None) augmentation during training. $\Delta $ is the difference in percentage points, where a positive value means that augmentation helped.}}{66}{table.caption.54}\protected@file@percent }
+\newlabel{tab:res_augmentation}{{C.11}{66}{Test results on the chronological split with (Aug.) and without (None) augmentation during training. $\Delta $ is the difference in percentage points, where a positive value means that augmentation helped}{table.caption.54}{}}
+\newlabel{tab:res_augmentation@cref}{{[table][11][3]C.11}{[1][66][]66}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C.4}Binary (OK / Not-OK) Results}{66}{appendix.C.4}\protected@file@percent }
+\newlabel{appen:res_binary}{{C.4}{66}{Binary (OK / Not-OK) Results}{appendix.C.4}{}}
+\newlabel{appen:res_binary@cref}{{[section][4][3]C.4}{[1][66][]66}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.12}{\ignorespaces Threshold $t$ on the Not-OK score chosen for a 95\% recall on the development set, with the test recall of the Not-OK class at that threshold. For the leave-one-facility-out split, every fold has its own threshold, and the threshold and recall are averaged across held-out facilities. The specificity and precision at these thresholds are given in Table~\ref {tab:res_binary} (Section~\ref {sec:results_binary}).}}{67}{table.caption.55}\protected@file@percent }
+\newlabel{tab:res_threshold}{{C.12}{67}{Threshold $t$ on the Not-OK score chosen for a 95\% recall on the development set, with the test recall of the Not-OK class at that threshold. For the leave-one-facility-out split, every fold has its own threshold, and the threshold and recall are averaged across held-out facilities. The specificity and precision at these thresholds are given in Table~\ref {tab:res_binary} (Section~\ref {sec:results_binary})}{table.caption.55}{}}
+\newlabel{tab:res_threshold@cref}{{[table][12][3]C.12}{[1][66][]67}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.13}{\ignorespaces Recall and specificity of the Not-OK class for each held-out facility at the clarifier threshold chosen on the development set of that fold, with the lowest recall and the standard deviation of the recall across facilities.}}{67}{table.caption.56}\protected@file@percent }
+\newlabel{tab:res_threshold_robustness_clarifier}{{C.13}{67}{Recall and specificity of the Not-OK class for each held-out facility at the clarifier threshold chosen on the development set of that fold, with the lowest recall and the standard deviation of the recall across facilities}{table.caption.56}{}}
+\newlabel{tab:res_threshold_robustness_clarifier@cref}{{[table][13][3]C.13}{[1][67][]67}{}{}{}}
 \ACRO{total-barriers}{1}
-\@writefile{lot}{\contentsline {table}{\numberline {C.14}{\ignorespaces Recall and specificity of the Not-OK class for each held-out facility at the aerobic zone threshold chosen on the development set of that fold, with the lowest recall and the standard deviation of the recall across facilities.}}{71}{table.caption.57}\protected@file@percent }
-\newlabel{tab:res_threshold_robustness_aerobic}{{C.14}{71}{Recall and specificity of the Not-OK class for each held-out facility at the aerobic zone threshold chosen on the development set of that fold, with the lowest recall and the standard deviation of the recall across facilities}{table.caption.57}{}}
-\newlabel{tab:res_threshold_robustness_aerobic@cref}{{[table][14][3]C.14}{[1][71][]71}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.14}{\ignorespaces Recall and specificity of the Not-OK class for each held-out facility at the aerobic zone threshold chosen on the development set of that fold, with the lowest recall and the standard deviation of the recall across facilities.}}{68}{table.caption.57}\protected@file@percent }
+\newlabel{tab:res_threshold_robustness_aerobic}{{C.14}{68}{Recall and specificity of the Not-OK class for each held-out facility at the aerobic zone threshold chosen on the development set of that fold, with the lowest recall and the standard deviation of the recall across facilities}{table.caption.57}{}}
+\newlabel{tab:res_threshold_robustness_aerobic@cref}{{[table][14][3]C.14}{[1][68][]68}{}{}{}}
 \ttl@finishall
 \ACRO{usage}{MFT=={0}}
-\gdef \@abspage@last{88}
+\gdef \@abspage@last{85}

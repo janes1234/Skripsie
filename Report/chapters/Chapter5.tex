@@ -3,34 +3,32 @@
 \section{Overview}
 \label{sec:exp_overview}
 
-This chapter describes how the classification system was designed and configured, and which experiments were run with it. The clarifiers and the aerobic zones are treated as two separate classification problems (Chapter~\ref{chap:systemmethods}), but both are handled by the same system, and every experiment is carried out for both components unless stated otherwise. The first part covers the parts of the system that are shared by every experiment: the model architectures and how transfer learning is applied to them (Section~\ref{sec:exp_architectures}), the augmentations applied to the training images (Section~\ref{sec:exp_augmentation}), how the class imbalance in the dataset is handled (Section~\ref{sec:exp_loss}), how the hyperparameters of each architecture were chosen (Section~\ref{sec:exp_hyperparams}), and the training loop itself (Section~\ref{sec:exp_training}).
-
-The second part describes the three experiments that were carried out using this system:
+This chapter describes the classification system and the experiments run with it. The clarifiers and the aerobic zones are separate classification problems (Chapter~\ref{chap:systemmethods}) but use the same system, and every experiment is run for both unless stated otherwise. Sections~\ref{sec:exp_architectures} to~\ref{sec:exp_training} describe the shared parts of the system: the architectures and transfer learning, augmentation, class imbalance, hyperparameter tuning and the training loop. Three experiments are then run:
 
 \begin{enumerate}
-    \item \textbf{Mixed-facility baseline} (Section~\ref{sec:exp_mixed}): the images of all five facilities are pooled and divided using the chronological split described in Chapter~\ref{chap:systemmethods}, in which every image captured from January 2020 onwards is a test image.
-    \item \textbf{Leave-one-facility-out evaluation} (Section~\ref{sec:exp_lofo}): each facility is held out in turn as an unseen test facility, while the model is trained on the remaining facilities, with part of them held out as a development set. This gives five folds for the clarifiers, and three for the aerobic zones, which are only labelled at three facilities. This experiment estimates how well a model would perform on a facility it has never seen before.
-    \item \textbf{Binary (OK / Not-OK) approach} (Section~\ref{sec:exp_binary}): the classes are collapsed into a two-class problem, where \textbf{Functional} is treated as OK and every other class is treated as Not-OK: \textbf{Dysfunctional}, \textbf{Empty} and \textbf{Scum} for the clarifiers, and \textbf{Suboptimal} and \textbf{Dysfunctional} for the aerobic zones.
+    \item \textbf{Mixed-facility baseline} (Section~\ref{sec:exp_mixed}): all five facilities are pooled and split chronologically. Images captured from January 2020 onwards are test images.
+    \item \textbf{Leave-one-facility-out} (Section~\ref{sec:exp_lofo}): each facility is held out in turn as the test set. This gives five folds for the clarifiers and three for the aerobic zones, and estimates performance on an unseen facility.
+    \item \textbf{Binary (OK / Not-OK)} (Section~\ref{sec:exp_binary}): \textbf{Functional} is OK and all other classes are Not-OK.
 \end{enumerate}
 
-The chapter ends with the metrics used to evaluate every run (Section~\ref{sec:exp_metrics}) and the Grad-CAM method used to inspect which parts of an image a model bases its classification on (Section~\ref{sec:exp_gradcam}).
+Section~\ref{sec:exp_metrics} gives the evaluation metrics and Section~\ref{sec:exp_gradcam} the Grad-CAM method. Figure~\ref{fig:experimental_pipeline} shows the pipeline. Each run, meaning one architecture trained for one component on one split, saves its test metrics, confusion matrix, training history and per-image predictions to a \texttt{results\_*.pkl} file.
 
 \begin{figure}[htbp]
 \centering
 \begin{tikzpicture}[
-    node distance=6mm and 12mm,
-    stage/.style={rectangle, rounded corners, draw, fill=gray!10, text width=6.8cm, align=center, minimum height=8mm, font=\small},
+    node distance=8mm and 7mm,
+    stage/.style={rectangle, rounded corners, draw, fill=gray!10, text width=3.0cm, align=center, minimum height=16mm, font=\small},
     arr/.style={-{Stealth[length=2mm]}, thick},
 ]
 
-\node[stage] (raw) {Raw labelled satellite images (Chapter~\ref{chap:systemmethods})};
-\node[stage, below=of raw] (prep) {\texttt{prep.py}: crop labelled regions into per-class image folders (Section~\ref{sec:pipeline})};
-\node[stage, below=of prep] (split) {Chronological or leave-one-facility-out train / development / test split (Chapter~\ref{chap:systemmethods})};
-\node[stage, below=of split] (aug) {Resize and normalise every image, and randomly augment training images (Section~\ref{sec:exp_augmentation})};
-\node[stage, below=of aug] (model) {CNN backbone with a new classifier head (Sections~\ref{sec:exp_architectures} and~\ref{sec:exp_hyperparams})};
-\node[stage, below=of model] (train) {Training loop: Adam, \texttt{StepLR}, early stopping (Section~\ref{sec:exp_training})};
-\node[stage, below=of train] (results) {Saved per-run results: \texttt{results\_*.pkl} (Section~\ref{sec:exp_lofo})};
-\node[stage, below=of results] (compare) {Results notebooks: cross-architecture, cross-facility results};
+\node[stage] (raw) {Labelled satellite images (Ch.~\ref{chap:systemmethods})};
+\node[stage, right=of raw] (prep) {\texttt{prep.py}: crop regions into class folders (Sec.~\ref{sec:pipeline})};
+\node[stage, right=of prep] (split) {Chronological or leave-one-facility-out split};
+\node[stage, right=of split] (aug) {Resize, normalise and augment (Sec.~\ref{sec:exp_augmentation})};
+\node[stage, below=of aug] (model) {Backbone with new head (Secs.~\ref{sec:exp_architectures}, \ref{sec:exp_hyperparams})};
+\node[stage, left=of model] (train) {Adam, \texttt{StepLR}, early stopping (Sec.~\ref{sec:exp_training})};
+\node[stage, left=of train] (results) {Per-run \texttt{results\_*.pkl} file};
+\node[stage, left=of results] (compare) {Notebooks that compare runs};
 
 \draw[arr] (raw) -- (prep);
 \draw[arr] (prep) -- (split);
@@ -41,13 +39,9 @@ The chapter ends with the metrics used to evaluate every run (Section~\ref{sec:e
 \draw[arr] (results) -- (compare);
 
 \end{tikzpicture}
-\caption{End-to-end experimental pipeline, from labelled satellite imagery to a saved, comparable results file per combination of component, architecture and test set.}
+\caption{Experimental pipeline, from labelled satellite images to one results file per component, architecture and split.}
 \label{fig:experimental_pipeline}
 \end{figure}
-
-Figure~\ref{fig:experimental_pipeline} summarises the pipeline from start to finish. It starts from the labelled satellite images described in Chapter~\ref{chap:systemmethods}, which \texttt{prep.py} crops into individual images sorted into one folder per class. These images are then divided into training, development and test sets, either with the chronological split of Experiment~1 or by facility, so that no image from the held-out test facility is ever used during training. Every image is resized and normalised before it is passed to the network, and images in the training set are also randomly augmented (Section~\ref{sec:exp_augmentation}). The network is one of the five models in Section~\ref{sec:exp_architectures}, with a classifier head sized by the hyperparameters chosen for that architecture (Section~\ref{sec:exp_hyperparams}), and is trained using the loop described in Section~\ref{sec:exp_training}.
-
-The results of every run, meaning one architecture trained for one component on one split, are saved to a separate \texttt{results\_*.pkl} file (Section~\ref{sec:exp_lofo}). Each file contains the test metrics, the confusion matrix, the training history and the classification made for every test image.
 
 
 \section{Model Architectures and Transfer Learning}\label{sec:exp_architectures}
@@ -74,33 +68,25 @@ ConvNeXt-Tiny   & 28.6M \\
 \end{tabular}
 \end{table}
 
-For each of the four pretrained architectures, transfer learning follows the same recipe. The architecture's convolutional backbone is loaded with weights pretrained on ImageNet~\citep{deng2009imagenet, russakovsky2015imagenet}, specifically torchvision's \texttt{IMAGENET1K\_V1} weights. Its original 1000-class ImageNet output layer is then discarded, and a new classifier head, sized by that architecture's own tuned hidden layers ($H$) and neurons ($N$) (Section~\ref{sec:exp_hyperparams}), is put in its place: a stack of $H$ \texttt{Linear+ReLU} pairs followed by a final \texttt{Linear} layer mapping to the project's number of classes. Every parameter in the network, backbone included, is then fine-tuned on the WWTW dataset. No layers are frozen, so pretraining only supplies a starting point for every weight rather than fixing any of them in place.
+For each of the four pretrained architectures, transfer learning follows the same recipe. The architecture's convolutional backbone is loaded with weights pretrained on ImageNet~\citep{deng2009imagenet, russakovsky2015imagenet}, specifically torchvision's \texttt{IMAGENET1K\_V1} weights. Its original 1000-class ImageNet output layer is then discarded, and a new classifier head, sized by that architecture's own tuned hidden layers ($H$) and neurons ($N$) (Section~\ref{sec:exp_hyperparams}), is put in its place: a stack of $H$ \texttt{Linear+ReLU} pairs followed by a final \texttt{Linear} layer mapping to the project's number of classes. Every parameter in the network, backbone included, is then fine-tuned on the WWTW dataset.
 
-Every one of these architectures ends in the same kind of structure: a convolutional backbone feeding into one or more fully connected layers that produce the 1000 ImageNet class scores. Replacing this final part therefore means locating whichever attribute of the model object torchvision happens to store it under, which differs from one architecture's implementation to the next. For ResNet-18, it is a single attribute named \texttt{model.fc}. DenseNet-121 stores the same kind of single layer under \texttt{model.classifier} instead, which is simply a difference in torchvision's naming convention rather than an architectural difference. For EfficientNet-B0 and ConvNeXt-Tiny, \texttt{model.classifier} is itself a short stack of several layers rather than a single one, so only the specific layer within it that produces the final class scores, the last \texttt{Linear} layer, is replaced, and everything before it is left as it was. In practice, this means EfficientNet-B0 keeps the dropout layer that is located just before the original output layer.
+As a design choice, ConvNeXt-Tiny's global average pooling layer is replaced with global max pooling, so the feature vector reaching its classifier head is composed of each channel's strongest activation rather than its average. This change is not required by the architecture, and the other architectures keep their default pooling.
 
-One architecture needs one further, architecture-specific adjustment. ConvNeXt-Tiny's global average pooling layer is replaced with global max pooling, so the feature vector reaching its classifier head is composed of each channel's strongest activation rather than its average.
-
-Every image is resized to a fixed input size before it is passed to the network, without changing its aspect ratio: the image is scaled until it fits inside the input size, and the remaining area is filled with black, with the image centred. The clarifier crops are close to square, since they are cut around a circular tank, and use an input size of $224\times224$ pixels. The aerobic zones are wide rectangles, with a median width of about 2.6 times their height, and use an input size of $112\times224$ pixels (height $\times$ width), so black bars are added above and below most of them. After resizing, every image is normalised with the mean and standard deviation of the ImageNet images, per colour channel, since the pretrained backbones were trained on inputs normalised in this way.
+Every image is scaled to fit the input size without changing its aspect ratio, and then padded with black to the full input size, with the image centred. The input size is $224\times224$ pixels for the clarifiers and $112\times224$ pixels for the aerobic zones. Every image is then normalised with the per-channel ImageNet mean and standard deviation since the pretrained backbones were trained on inputs normalised this way.
 
 
 \section{Augmentation}
 \label{sec:exp_augmentation}
 
-Data augmentation makes small, random changes to the training images, so that the network sees a slightly different version of every image each time it is used. This increases the variety in the training data without collecting any new images, and makes it harder for the network to memorise individual images. Augmentation is applied to the training set only. The development and test images are never augmented, so that they are evaluated exactly as they are.
-
-The augmentations are applied by PyTorch \citep{paszke2019pytorch} each time an image is loaded, rather than being generated once and saved to disk. The size of the training set therefore stays the same, but every epoch sees a new, randomly augmented version of each training image. Three augmentations are applied, in the following order:
+Augmentation is applied to the training images only, by PyTorch \citep{paszke2019pytorch} each time an image is loaded, so every epoch sees a new random version of each image. The development and test images are not augmented. Three augmentations are applied, in this order:
 
 \begin{itemize}
-    \item \textbf{Horizontal flip}: the image is mirrored from left to right with a probability of 50\%.
-    \item \textbf{Rotation}: the image is rotated by a random angle, chosen uniformly between $-15^\circ$ and $+15^\circ$. The output image keeps its original size, so the corners that are rotated out of the frame are cut off, and the empty corners that are rotated into the frame are filled with black.
-    \item \textbf{Colour jitter}: the brightness, contrast, saturation and hue of the image are changed by a random amount, with the four adjustments applied in a random order. The brightness and contrast are each multiplied by a random factor between $0.6$ and $1.4$, the saturation by a random factor between $0.7$ and $1.3$, and the hue is shifted by up to $\pm 0.1$ of the full colour wheel (at most $36^\circ$).
+    \item \textbf{Horizontal flip} with a probability of 50\%.
+    \item \textbf{Rotation} by a random angle between $-15^\circ$ and $+15^\circ$. The image keeps its size, so corners are cut off and the empty corners are filled with black.
+    \item \textbf{Colour jitter}: brightness and contrast are multiplied by a random factor in $[0.6, 1.4]$, saturation by a factor in $[0.7, 1.3]$, and the hue is shifted by up to $\pm 0.1$ of the colour wheel.
 \end{itemize}
 
-The flip and rotation are suited to this dataset because the images are taken from directly above. A clarifier seen from above has no fixed orientation, so a mirrored or slightly rotated clarifier is still a realistic example of the same class. When \texttt{prep.py} crops a clarifier, it also sets every pixel outside the annotated circle to black, which matches the black corners introduced by the rotation. The aerobic zones are not masked, since their annotations are rectangles, but have black bars above and below them from the resizing (Section~\ref{sec:exp_architectures}). For them, a rotation cuts off the ends of the zone and adds small black triangles along its edges. The rotation is limited to $\pm 15^\circ$, so most of the surface of the zone remains visible.
-
-The colour jitter targets a different problem. The images come from different facilities and were captured on different dates, so the lighting, sun glare and water colour vary between images. The colour jitter is intended to stop the network from memorising the exact colour or brightness of the water at a particular facility, and to make it rely on other features of the clarifier instead.
-
-Figure~\ref{fig:augmentation_examples} shows these augmentations applied to a single training image. The top row shows each augmentation on its own, while the bottom row shows four randomly chosen outputs of the full augmentation pipeline, as the network would see them during training.
+The images are taken from directly above, so a flipped or rotated clarifier or aerobic zone is still a realistic example of the same class. The black corners from rotation match the black mask that \texttt{prep.py} applies outside each clarifier and the padding added to the aerobic zones (Section~\ref{sec:exp_architectures}). The colour jitter accounts for differences in lighting, sun glare and water colour between facilities and capture dates. Figure~\ref{fig:augmentation_examples} shows the augmentations applied to one training image.
 
 \begin{figure}[htbp]
     \centering
@@ -167,11 +153,9 @@ None (chronological) & 454 & 0.53 & 357 & 0.68 & 136 & 1.79 \\
 \end{tabular}
 \end{table}
 
-For the clarifiers, the Cape Flats split stands out. Cape Flats contains 120 of the 145 \textbf{Empty} clarifiers in the dataset (Table~\ref{tab:clarifier_summary} in Section~\ref{sec:final_dataset}), so when it is held out for testing, only 25 \textbf{Empty} images are left, 21 of which are in the training set. The weight of the \textbf{Empty} class rises to 3.09 as a result, about twenty times the weight of the \textbf{Scum} class (0.15). In the same way, Northern Works contains 131 of the 292 \textbf{Dysfunctional} clarifiers, so holding it out raises the \textbf{Dysfunctional} weight to 1.55, compared with about 1.1 in the Atlantis, Fisantekraal and Waterval splits.
+The held-out facility can change the weights considerably. Cape Flats contains 120 of the 145 \textbf{Empty} clarifiers, so when it is held out, only 21 \textbf{Empty} images remain for training and the \textbf{Empty} weight rises to 3.09, about twenty times that of \textbf{Scum}. Waterval contains 543 of the 707 \textbf{Functional} aerobic zones, so when it is held out, \textbf{Functional} becomes a minority class in training (weight 1.19, compared with 0.34 to 0.68 in the other splits), while it dominates the test set.
 
-For the aerobic zones, \textbf{Suboptimal} has the highest weight in every split, between 1.48 and 1.89. The held-out facility again changes the weights of the other two classes. Waterval contains 543 of the 707 \textbf{Functional} aerobic zones, so when it is held out, \textbf{Functional} becomes a minority class in the training set, with a weight of 1.19 compared with 0.34 to 0.68 in the other splits. The Waterval test set is therefore dominated by a class that is comparatively scarce in its own training set. Similarly, Cape Flats contains 562 of the 813 \textbf{Dysfunctional} aerobic zones, and holding it out raises the \textbf{Dysfunctional} weight to 0.82, compared with 0.34 to 0.53 in the other splits.
-
-The same weighted loss is also used to calculate the development loss. Since the development loss decides when training stops early and which epoch's weights are kept (Section~\ref{sec:exp_training}), the class weighting also influences model selection, and not only the gradient updates during training.
+The development loss uses the same weights, so the weighting also affects early stopping and checkpoint selection (Section~\ref{sec:exp_training}).
 
 
 \section{Hyperparameter Tuning}
@@ -231,7 +215,7 @@ ResNet-18 (scratch) is trained from randomly initialised weights rather than fin
 \section{Training Procedure}
 \label{sec:exp_training}
 
-Every architecture is trained with the same procedure; only the specific hyperparameter values are different, as set out in Section~\ref{sec:exp_hyperparams}. 
+Every architecture is trained with the same procedure.
 
 Rather than using one fixed learning rate for an entire run, every architecture uses \texttt{StepLR} to cut the learning rate by a factor of ten every time a fixed, architecture-specific number of epochs (the step size) has passed (Section~\ref{sec:exp_hyperparams}), since large steps are useful early on to make fast progress but become counter-productive once the model is close to a good solution, where they cause it to overshoot instead of converging.
 
@@ -242,10 +226,10 @@ Training is allowed to run for up to 100 epochs, but is stopped early if develop
 \begin{figure}[htbp]
 \centering
 \begin{tikzpicture}[
-    node distance=7mm and 12mm,
-    process/.style={rectangle, rounded corners, draw, fill=gray!10, text width=4.3cm, align=center, minimum height=8mm, font=\small},
-    decision/.style={diamond, draw, fill=blue!5, aspect=2.2, text width=3.4cm, align=center, inner sep=1pt, font=\small},
-    terminal/.style={rectangle, rounded corners=3mm, draw, fill=gray!25, text width=3.4cm, align=center, minimum height=7mm, font=\small},
+    node distance=4mm and 12mm,
+    process/.style={rectangle, rounded corners, draw, fill=gray!10, text width=4.3cm, align=center, minimum height=6mm, font=\footnotesize},
+    decision/.style={diamond, draw, fill=blue!5, aspect=3.5, text width=3.6cm, align=center, inner sep=0pt, font=\footnotesize},
+    terminal/.style={rectangle, rounded corners=2mm, draw, fill=gray!25, text width=3.4cm, align=center, minimum height=5mm, font=\footnotesize},
     arr/.style={-{Stealth[length=2mm]}, thick},
     lbl/.style={font=\scriptsize}
 ]
@@ -254,11 +238,11 @@ Training is allowed to run for up to 100 epochs, but is stopped early if develop
 \node[process, below=of start] (trainval) {Train one epoch, then evaluate on the development set};
 \node[process, below=of trainval] (lrstep) {Step the \texttt{StepLR} schedule};
 \node[decision, below=of lrstep] (improved) {Development loss improved?};
-\node[process, below left=9mm and -8mm of improved] (savebest) {Save weights as new best checkpoint; reset counter to 0};
-\node[process, below right=9mm and -8mm of improved] (noimprove) {Increment no-improvement counter};
+\node[process, below left=4mm and -8mm of improved] (savebest) {Save weights as new best checkpoint; reset counter to 0};
+\node[process, below right=4mm and -8mm of improved] (noimprove) {Increment no-improvement counter};
 \coordinate (boxbottom) at (improved |- savebest.south);
-\coordinate[below=6mm of boxbottom] (join);
-\node[decision, below=12mm of boxbottom] (stopcheck) {Counter $\geq$ 10, or epoch 100 reached?};
+\coordinate[below=3mm of boxbottom] (join);
+\node[decision, below=6mm of boxbottom] (stopcheck) {Counter $\geq$ 10, or epoch 100 reached?};
 \node[terminal, below=of stopcheck] (restore) {Restore best checkpoint};
 \node[terminal, below=of restore] (end) {Proceed to testing};
 \coordinate[left=6mm of savebest.west] (loopx);
@@ -281,13 +265,13 @@ Training is allowed to run for up to 100 epochs, but is stopped early if develop
 \label{fig:training_flow}
 \end{figure}
 
-The same fixed seed used throughout this project (Section~\ref{sec:exp_hyperparams}) also covers the random initialisation of each architecture's new classifier head and the order in which the training images are shuffled, in addition to the dataset splitting described in Chapter~\ref{chap:systemmethods}. A repeated run therefore starts from the same weights and splits. It is not guaranteed to reproduce the results exactly, however, since some GPU operations are not deterministic and mixed precision adds small rounding differences, so repeated runs can differ slightly.
+The same fixed seed used throughout this project (Section~\ref{sec:exp_hyperparams}) also covers the random initialisation of each architecture's new classifier head and the order in which the training images are shuffled, in addition to the dataset splitting described in Chapter~\ref{chap:systemmethods}. A repeated run therefore starts from the same weights and splits.
 
 
 \section{Experiment 1: Mixed-Facility Baseline}
 \label{sec:exp_mixed}
 
-The first experiment does not take into account which facility an image comes from. The images of all five facilities are pooled and divided into training, development and test sets using the chronological split described in Chapter~\ref{chap:systemmethods}. Every image captured from January 2020 onwards is a test image. The images captured before January 2020 are grouped by facility, unit and class, each group is shuffled using the fixed random seed of 42, and the group is then divided in an 80/20 ratio into training and development images. A group with at least three images always receives at least one development image, even where rounding would otherwise leave it with none. Table~\ref{tab:stratified_split} gives the resulting number of images per class.
+The first experiment does not take into account which facility an image comes from. The images of all five facilities are pooled and divided into training, development and test sets using the chronological split described in Chapter~\ref{chap:systemmethods}. Every image captured from January 2020 onwards is a test image. The images captured before January 2020 are grouped by facility, unit and class, each group is shuffled using the fixed random seed of 42, and the group is then divided in an 80/20 ratio into training and development images. A group with at least three images always receives at least one development image. Table~\ref{tab:stratified_split} gives the resulting number of images per class.
 
 \begin{table}[htbp]
 \centering

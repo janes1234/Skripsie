@@ -13,7 +13,7 @@ Section~\ref{sec:results_multiclass} gives the multi-class results, Section~\ref
 
 \begin{table}[htbp]
 \centering
-\small
+\footnotesize
 \setlength{\tabcolsep}{4pt}
 \caption{Macro-averaged F1 score and recall of every architecture on the chronological split (Exp.~1) and averaged across held-out facilities (Exp.~2, mean $\pm$ standard deviation). $\Delta$ is the change in the F1 score from Experiment~1 to Experiment~2, in percentage points.}
 \label{tab:res_multiclass}
@@ -44,7 +44,7 @@ Table~\ref{tab:res_multiclass} shows that the macro F1 score of the aerobic zone
 
 \begin{table}[htbp]
 \centering
-\small
+\footnotesize
 \setlength{\tabcolsep}{5pt}
 \caption{Recall of every failure class on the chronological split (Exp.~1) and averaged across the held-out facilities at which the class occurs (Exp.~2).}
 \label{tab:res_failure_recall}
@@ -75,12 +75,12 @@ Table~\ref{tab:res_failure_recall} shows that the largest decreases in recall fr
 
 \begin{figure}[htbp]
     \centering
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{0.36\textwidth}
         \includegraphics[width=\textwidth]{figures/results/clarifier_convnext_tiny_Fisantekraal_confusion_matrix.png}
         \caption{Clarifiers, ConvNeXt-Tiny, Fisantekraal held out}
     \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.45\textwidth}
+    \hspace{1cm}
+    \begin{subfigure}{0.36\textwidth}
         \includegraphics[width=\textwidth]{figures/results/aerobic_zone_densenet_121_Waterval_confusion_matrix.png}
         \caption{Aerobic zones, DenseNet-121, Waterval held out}
     \end{subfigure}
@@ -98,7 +98,7 @@ Figure~\ref{fig:res_cm_examples} shows the most common mistakes of both selected
 
 \begin{table}[htbp]
 \centering
-\small
+\footnotesize
 \setlength{\tabcolsep}{3.5pt}
 \caption{Binary OK / Not-OK results of every architecture on the chronological split (Exp.~1) and averaged across held-out facilities (Exp.~2). The AUC does not depend on a threshold. The recall, specificity and precision of the Not-OK class are given on the test set, at the threshold chosen for a Not-OK recall of 95\% on the development set (Section~\ref{sec:exp_binary}). The thresholds are listed in Appendix~\ref{appen:res_binary}.}
 \label{tab:res_binary}
@@ -129,7 +129,7 @@ Table~\ref{tab:res_binary} gives the binary results at the threshold chosen on t
 
 \begin{table}[htbp]
 \centering
-\small
+\footnotesize
 \caption{Not-OK recall and specificity for each held-out facility at the threshold chosen on the development set of that fold, for the ConvNeXt-Tiny clarifier model and the DenseNet-121 aerobic zone model. The results of every architecture are given in Appendix~\ref{appen:res_binary}.}
 \label{tab:res_binary_facility}
 \begin{tabular}{l rr rr}
@@ -166,7 +166,7 @@ Most of the ConvNeXt-Tiny heatmaps highlight one or two small regions rather tha
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.85\textwidth]{figures/gradcam_clarifier.png}
+    \includegraphics[width=0.65\textwidth]{figures/gradcam_clarifier.png}
     \caption{Grad-CAM heatmaps of the ConvNeXt-Tiny clarifier model, for test images from Fisantekraal, which was held out during training. Top: one correctly classified clarifier per class. Bottom: one clarifier from each of the four most common mistakes. Every heatmap is calculated for the assigned class, and $p$ is the softmax probability of that class. Red regions contributed the most to the classification.}
     \label{fig:gradcam_clarifier}
 \end{figure}
@@ -182,7 +182,7 @@ Figure~\ref{fig:gradcam_aerobic} shows the aerobic zone examples. For the correc
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/gradcam_aerobic_zone.png}
+    \includegraphics[width=0.7\textwidth]{figures/gradcam_aerobic_zone.png}
     \caption{Grad-CAM heatmaps of the DenseNet-121 aerobic zone model, for test images from Waterval, which was held out during training. Top: one correctly classified aerobic zone per class. Bottom: one aerobic zone from each of the three most common mistakes. Every heatmap is calculated for the assigned class, and $p$ is the softmax probability of that class. Red regions contributed the most to the classification.}
     \label{fig:gradcam_aerobic}
 \end{figure}
