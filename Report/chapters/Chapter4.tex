@@ -44,13 +44,13 @@ Examples of the classes for aerobic zones and clarifiers are shown in Figures \r
 \begin{figure}[htbp]
     \centering 
     \includegraphics[width=0.8\textwidth]{figures/aerobic_examples.png} 
-    \caption{One example of each aerobic zone class, with the facility it comes from. Each example is the test image of the chronological split (Section~\ref{sec:exp_mixed}) that all four pretrained models classified correctly with the highest mean confidence, so that it is a clear case of its class.}\label{fig:aerobic_examples}
+    \caption{One example of each aerobic zone class, and the facility it comes from. Each example is a test image from the chronological split (Section~\ref{sec:exp_mixed}) that all four pretrained models classified correctly with the highest mean confidence, so that it is a clear case of its class.}\label{fig:aerobic_examples}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering 
     \includegraphics[width=0.8\textwidth]{figures/clarifier_examples.png} 
-    \caption{One example of each clarifier class, with the facility it comes from, chosen in the same way as in Figure~\ref{fig:aerobic_examples}. The area outside each tank is masked to black by the preparation script (Section~\ref{sec:pipeline}).}\label{fig:clarifier_examples}
+    \caption{One example of each clarifier class, and the facility it comes from, chosen in the same way as in Figure~\ref{fig:aerobic_examples}. The area outside each tank is masked to black by the preparation script (Section~\ref{sec:pipeline}).}\label{fig:clarifier_examples}
 \end{figure}
 
 \section{Facility Structure}
@@ -195,9 +195,6 @@ Tables~\ref{tab:aerobic_summary} and~\ref{tab:clarifier_summary} give the final 
         \textbf{TOTAL}   & \textbf{813} & \textbf{707} & \textbf{223} \\
         \bottomrule
     \end{tabular}
-
-
-    {\normalsize Note that Fisantekraal and Northern Works do not have any aerobic zones labelled.\par}
     
     \vspace{2.5em} 
     
@@ -222,3 +219,6 @@ Tables~\ref{tab:aerobic_summary} and~\ref{tab:clarifier_summary} give the final 
         \bottomrule
     \end{tabular}
 \end{table}
+\section{Conclusion}\label{sec:dataset_conclusion}
+
+In this chapter, we described the five WWTW facilities, how their images were annotated, cropped and relabelled, the two ways the data is split, and the final number of images per class. In the next chapter, we describe the classification system and the experiments performed.
