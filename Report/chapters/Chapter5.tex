@@ -3,7 +3,7 @@
 \section{Overview}
 \label{sec:exp_overview}
 
-This chapter describes the classification system and the experiments run with it. The clarifiers and the aerobic zones are separate classification problems (Chapter~\ref{chap:systemmethods}) but use the same system, and every experiment is run for both unless stated otherwise. Sections~\ref{sec:exp_architectures} to~\ref{sec:exp_training} describe the shared parts of the system: the architectures and transfer learning, augmentation, class imbalance, hyperparameter tuning and the training loop. Three experiments are then run:
+This chapter describes the classification system and the experiments performed with it. The clarifiers and the aerobic zones are separate classification problems (Chapter~\ref{chap:systemmethods}) but use the same classifier architecture, and every experiment is run for both unless stated otherwise. Sections~\ref{sec:exp_architectures} to~\ref{sec:exp_training} describe the shared parts of the system: the architectures and transfer learning, augmentation, class imbalance, hyperparameter tuning and the training loop. Three experiments are then performed:
 
 \begin{enumerate}
     \item \textbf{Mixed-facility baseline} (Section~\ref{sec:exp_mixed}): all five facilities are pooled and split chronologically. Images captured from January 2020 onwards are test images.
@@ -11,7 +11,7 @@ This chapter describes the classification system and the experiments run with it
     \item \textbf{Binary (OK / Not-OK)} (Section~\ref{sec:exp_binary}): \textbf{Functional} is OK and all other classes are Not-OK.
 \end{enumerate}
 
-Section~\ref{sec:exp_metrics} gives the evaluation metrics and Section~\ref{sec:exp_gradcam} the Grad-CAM method. Figure~\ref{fig:experimental_pipeline} shows the pipeline. Each run, meaning one architecture trained for one component on one split, saves its test metrics, confusion matrix, training history and per-image predictions to a \texttt{results\_*.pkl} file.
+Section~\ref{sec:exp_metrics} describes the evaluation metrics and Section~\ref{sec:exp_gradcam} the Grad-CAM method. Figure~\ref{fig:experimental_pipeline} shows the experimental procedure. Each experiment consists of one architecture trained for one component on one data split, saves its test metrics, confusion matrix, training history and per-image predictions to a \texttt{results\_*.pkl} file.
 
 \begin{figure}[htbp]
 \centering
@@ -39,18 +39,18 @@ Section~\ref{sec:exp_metrics} gives the evaluation metrics and Section~\ref{sec:
 \draw[arr] (results) -- (compare);
 
 \end{tikzpicture}
-\caption{Experimental pipeline, from labelled satellite images to one results file per component, architecture and split.}
+\caption{Experimental procedure, from labelled satellite images to one results file per component, architecture and data +split.}
 \label{fig:experimental_pipeline}
 \end{figure}
 
 
 \section{Model Architectures and Transfer Learning}\label{sec:exp_architectures}
 
-Four CNN architectures are compared in this project: ResNet-18 (Section~\ref{sec:resnet}), DenseNet-121 (Section~\ref{sec:densenet}), EfficientNet-B0 (Section~\ref{sec:efficientnet}) and ConvNeXt-Tiny (Section~\ref{sec:convnext}). ResNet-18 is trained twice, once fine-tuned from ImageNet weights and once from randomly initialised weights, which gives five models. Table~\ref{tab:arch_sizes} lists the sizes of the architectures, which range from 5.3 to 28.6 million parameters. All four are taken from the torchvision library \citep{torchvision2016}, and the same five models are trained for both the clarifiers and the aerobic zones.
+Four CNN architectures are compared in this project: ResNet-18 (Section~\ref{sec:resnet}), DenseNet-121 (Section~\ref{sec:densenet}), EfficientNet-B0 (Section~\ref{sec:efficientnet}) and ConvNeXt-Tiny (Section~\ref{sec:convnext}). ResNet-18 is evaluated in two ways: once fine-tuned from ImageNet weights and once from randomly initialised weights. Therefore, in total, five models are evaluated. Table~\ref{tab:arch_sizes} lists the sizes of the architectures, which range from 5.3 to 28.6 million parameters. All four are taken from the torchvision library \citep{torchvision2016}, and the same five models are trained for both the clarifiers and the aerobic zones.
 
-The ResNet-50~\citep{he2016resnet} and Inception-v3~\citep{szegedy2016inception} architectures were also included in this evaluation. However, neither had the highest macro F1 score for either component in either experiment, and due to space restrictions in this report, they are not reported on.
+The ResNet-50~\citep{he2016resnet} and Inception-v3~\citep{szegedy2016inception} architectures were also evaluated in this work. However, neither had the highest macro F1 score for either component in either experiment. Due to space restrictions, they are therefore not reported on.
 
-The ResNet-18 trained from randomly initialised weights is referred to as ResNet-18 (scratch). It is not tuned, and uses one fixed set of default hyperparameters (Section~\ref{subsec:defaults}). It was added to the project to measure the effect of pretraining, that is, whether the pretrained architectures outperform the same architecture trained only on this project's own, small dataset.
+The ResNet-18 trained from randomly initialised weights is referred to as ResNet-18 (scratch). It is not tuned, and uses one fixed set of default hyperparameters (Section~\ref{subsec:defaults}). It was added to the project to asses the benefit of pretraining, that is, whether the pretrained architectures outperform the same architecture trained only on this project's own, small dataset.
 
 \begin{table}[htbp]
 \centering
@@ -68,11 +68,11 @@ ConvNeXt-Tiny   & 28.6M \\
 \end{tabular}
 \end{table}
 
-For each of the four pretrained architectures, transfer learning follows the same recipe. The architecture's convolutional backbone is loaded with weights pretrained on ImageNet~\citep{deng2009imagenet, russakovsky2015imagenet}, specifically torchvision's \texttt{IMAGENET1K\_V1} weights. Its original 1000-class ImageNet output layer is then discarded, and a new classifier head, sized by that architecture's own tuned hidden layers ($H$) and neurons ($N$) (Section~\ref{sec:exp_hyperparams}), is put in its place: a stack of $H$ \texttt{Linear+ReLU} pairs followed by a final \texttt{Linear} layer mapping to the project's number of classes. Every parameter in the network, backbone included, is then fine-tuned on the WWTW dataset.
+For each of the four pretrained architectures, transfer learning follows the same procedure. The architecture's convolutional backbone is loaded with weights pretrained on ImageNet~\citep{deng2009imagenet, russakovsky2015imagenet}, specifically torchvision's \texttt{IMAGENET1K\_V1} weights. The original 1000-class ImageNet output layer is then discarded, and a new classifier head, is put in its place: a stack of $H$ \texttt{Linear+ReLU} pairs followed by a final \texttt{Linear} layer mapping to the project's number of classes. The dimensions of this head (number of hidden layers $H$ and neurons $N$) are hyperparameters that are optimised (Section~\ref{sec:exp_hyperparams}). Every parameter in the network, backbone included, is then fine-tuned on the WWTW dataset.
 
-As a design choice, ConvNeXt-Tiny's global average pooling layer is replaced with global max pooling, so the feature vector reaching its classifier head is composed of each channel's strongest activation rather than its average. This change is not required by the architecture, and the other architectures keep their default pooling.
+As a design choice, ConvNeXt-Tiny's global average pooling layer is replaced with global max pooling, so the feature vector reaching its classifier head is composed of each channel's strongest activation rather than its average. The other architectures keep their default pooling.
 
-Every image is scaled to fit the input size without changing its aspect ratio, and then padded with black to the full input size, with the image centred. The input size is $224\times224$ pixels for the clarifiers and $112\times224$ pixels for the aerobic zones. Every image is then normalised with the per-channel ImageNet mean and standard deviation since the pretrained backbones were trained on inputs normalised this way.
+Every image is scaled to fit the input size without changing its aspect ratio, and then padded with zeros to the full input size, with the image centred. The input size is $224\times224$ pixels for the clarifiers and $112\times224$ pixels for the aerobic zones. Every image is then normalised with the per-channel ImageNet mean and standard deviation since the pretrained backbones were trained on inputs normalised this way.
 
 
 \section{Augmentation}
@@ -161,26 +161,26 @@ The development loss uses the same weights, so the weighting also affects early 
 \section{Hyperparameter Tuning}
 \label{sec:exp_hyperparams}
 
-Some hyperparameters were fixed for every architecture: Adam's $\beta_2$ ($0.999$, the default from Adam's original paper \citep{kingma2015adam}), the $L_2$ weight decay ($10^{-4}$), a maximum of 100 epochs, an early-stopping patience of 10 epochs and a random seed of 42. The remaining hyperparameters, namely the number of hidden layers $H$ and neurons per layer $N$ of the classifier head, the learning rate, Adam's $\beta_1$, the \texttt{StepLR} step size and the batch size, were tuned with Optuna~\citep{akiba2019optuna}, a hyperparameter optimisation library. This was done for the four pretrained models, separately for the clarifiers and the aerobic zones, giving eight searches. ResNet-18 (scratch) was not tuned (Section~\ref{subsec:defaults}).
+Some hyperparameters were fixed for every architecture. These include Adam's $\beta_2$ ($0.999$, the default according to the original paper. \citep{kingma2015adam}), the $L_2$ weight decay ($10^{-4}$), a maximum of 100 epochs, an early-stopping patience of 10 epochs and a random seed of 42. The remaining hyperparameters, namely the number of hidden layers $H$ and neurons per layer $N$ of the classifier head, the learning rate, Adam's $\beta_1$, the \texttt{StepLR} step size and the batch size, were tuned with Optuna~\citep{akiba2019optuna}, a hyperparameter optimisation library. This was done for the four pretrained models, separately for the clarifiers and the aerobic zones, giving eight searches. ResNet-18 (scratch) was not tuned (Section~\ref{subsec:defaults}).
 
 \subsection{Why Optuna}
 \label{subsec:why_optuna}
 
-The six tuned hyperparameters interact, so tuning them one at a time can miss good combinations, and a grid search over all six is too expensive. Optuna searches all six jointly with a Tree-structured Parzen Estimator (TPE) sampler \citep{bergstra2011tpe}, which samples new candidates from the regions of the search space where earlier trials scored well. A \texttt{MedianPruner} also stops a trial early if its development accuracy falls below the median of the earlier trials at the same epoch.
+The six tuned hyperparameters interact, so tuning them one at a time can miss good combinations, and a grid search over all six is too expensive. Optuna searches all six jointly using a Tree-structured Parzen Estimator (TPE) sampler \citep{bergstra2011tpe}, which samples new candidates from the regions of the search space where earlier trials scored well. A \texttt{MedianPruner} also stops a trial early if its development accuracy falls below the median of the earlier trials at the same epoch.
 
 \subsection{Search Procedure}
 \label{subsec:search_procedure}
 
 The first ten trials of every search are sampled at random, and the last ten are guided by TPE. The pruner only becomes active after five trials have completed, and does not prune a trial before its fifth epoch. Every trial uses the same training loop as the final models (Section~\ref{sec:exp_training}) and is scored by its development accuracy at the epoch with the lowest development loss, which is the checkpoint that is kept when a model is trained.
 
-To limit the compute cost, each search was run once rather than on every fold: on the leave-one-facility-out fold with Northern Works held out for the clarifiers, and with Atlantis held out for the aerobic zones, since Northern Works has no aerobic zones. The selected values are used for every fold and for the chronological split (Sections~\ref{sec:exp_mixed} and~\ref{sec:exp_lofo}). 
+To limit the computational cost, each search was run once rather than on every fold: on the leave-one-facility-out fold with Northern Works held out for the clarifiers, and with Atlantis held out for the aerobic zones, since Northern Works has no aerobic zones. The selected values are used for every fold and for the chronological split (Sections~\ref{sec:exp_mixed} and~\ref{sec:exp_lofo}). It is possible that better performance can be achieved by more complete optimisation, but time did not permit this to be investigated. 
 
-Table~\ref{tab:hyperparams} gives the search range of each hyperparameter and the values selected for each architecture. All 160 trials are listed in Appendix~\ref{appen:hyperparam_trials}.
+Table~\ref{tab:hyperparams} gives the search range of each hyperparameter and the values selected for each architecture. The full set of 160 trials is listed in Appendix~\ref{appen:hyperparam_trials}.
 
 \begin{table}[htbp]
 \centering
 \footnotesize
-\caption{Search range of each tuned hyperparameter, and the values used for each architecture and component, with the development accuracy of the selected trial. The learning rate is sampled log-uniformly, and the batch size from $\{8, 16, 24, 32, 48, 64, 96, 128\}$. $H{=}0$ means the classifier head is a single linear layer, and $N$ is unused. The ResNet-18 (scratch) values were not tuned (Section~\ref{subsec:defaults}).}
+\caption{Search range of each tuned hyperparameter, and the values used for each architecture and component, with the development accuracy on the selected trial. The learning rate is sampled log-uniformly, and the batch size from $\{8, 16, 24, 32, 48, 64, 96, 128\}$. $H{=}0$ means the classifier head is a single linear layer, and $N$ is unused. The ResNet-18 (scratch) values were not tuned (Section~\ref{subsec:defaults}).}
 \label{tab:hyperparams}
 \setlength{\tabcolsep}{2.8pt}
 \begin{tabular}{lccccccc}
@@ -217,9 +217,9 @@ ResNet-18 (scratch) is trained from randomly initialised weights rather than fin
 
 Every architecture is trained with the same procedure.
 
-Rather than using one fixed learning rate for an entire run, every architecture uses \texttt{StepLR} to cut the learning rate by a factor of ten every time a fixed, architecture-specific number of epochs (the step size) has passed (Section~\ref{sec:exp_hyperparams}), since large steps are useful early on to make fast progress but become counter-productive once the model is close to a good solution, where they cause it to overshoot instead of converging.
+Rather than using one fixed learning rate for an entire run, every architecture uses \texttt{StepLR} to cut the learning rate by a factor of ten every time a fixed, architecture-specific number of epochs (the step size) has passed (Section~\ref{sec:exp_hyperparams}), since large steps are useful early on to make fast progress but become counter-productive once the model is close to a good solution, where they cause it to overshoot and hinder convergence.
 
-Training is allowed to run for up to 100 epochs, but is stopped early if development loss has not improved for 10 consecutive epochs, since the point at which a given architecture stops improving and starts overfitting is not known ahead of time and differs from one architecture to the next. Development \emph{loss}, rather than accuracy, is used to decide both when to stop and which epoch's weights to keep: whichever epoch achieved the lowest development loss is the one whose weights are restored and carried forward to testing, rather than simply whatever weights training happened to end on. Figure~\ref{fig:training_flow} summarises this loop.
+Training is allowed to run for up to 100 epochs, but is stopped early if development loss has not improved for 10 consecutive epochs, since the point at which a given architecture stops improving and starts overfitting is not known ahead of time and differs from one architecture to the next. Development \emph{loss}, rather than accuracy, is used to decide both when to stop and which epoch's weights to keep: whichever epoch achieved the lowest development loss is the one whose weights are restored and carried forward to testing. Figure~\ref{fig:training_flow} summarises the training process.
 
 
 
@@ -261,7 +261,7 @@ Training is allowed to run for up to 100 epochs, but is stopped early if develop
 \draw[arr] (stopcheck.west) -- node[lbl, pos=0.2, above]{No} (stopcheck.west -| loopx) |- node[lbl, pos=0.25, above, sloped]{Next epoch} (trainval.west);
 
 \end{tikzpicture}
-\caption{The training loop used for every architecture: an epoch of training and development-set evaluation, a scheduler step, a checkpoint decision based on development loss, and a stopping check repeated every epoch until training ends.}
+\caption{The training process used for every architecture: an epoch of training and development-set evaluation, a scheduler step, a checkpoint decision based on development loss, and a stopping check repeated every epoch until training ends.}
 \label{fig:training_flow}
 \end{figure}
 

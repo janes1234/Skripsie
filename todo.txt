@@ -14,3 +14,11 @@ I didn't change these because they need rewording, and that's your call. The rep
    - Lapuschkin's paper says "source tag", not "copyright tag".
    - Buda studied oversampling; he didn't develop it.
    - Your Penatti point goes further than the paper does.
+
+
+
+
+   the fact that the hyper params of the scratcch resnet are not optimised, while they are for the pretrained resnet, calls the results and the ensuing conclusions into question: perhaps the scarth resnet would be better if tuned. advice: optimise the same hyperparams for the scratch resnet that i optimised fot eh pretained resnet. 
+
+
+   do the padded zeros influence normalisation? Should they?

@@ -56,12 +56,12 @@
 \contentsline {subsection}{\numberline {5.5.2}Search Procedure}{31}{subsection.5.5.2}%
 \contentsline {subsection}{\numberline {5.5.3}ResNet-18 (Scratch)}{31}{subsection.5.5.3}%
 \contentsline {section}{\numberline {5.6}Training Procedure}{32}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Experiment 1: Mixed-Facility Baseline}{33}{section.5.7}%
+\contentsline {section}{\numberline {5.7}Experiment 1: Mixed-Facility Baseline}{32}{section.5.7}%
 \contentsline {section}{\numberline {5.8}Experiment 2: Leave-One-Facility-Out Evaluation}{34}{section.5.8}%
 \contentsline {section}{\numberline {5.9}Experiment 3: Binary (OK / Not-OK) Reformulation}{36}{section.5.9}%
 \contentsline {section}{\numberline {5.10}Evaluation Metrics}{37}{section.5.10}%
 \contentsline {section}{\numberline {5.11}Qualitative Analysis: Grad-CAM}{37}{section.5.11}%
-\contentsline {subsection}{\numberline {5.11.1}Method}{37}{subsection.5.11.1}%
+\contentsline {subsection}{\numberline {5.11.1}Method}{38}{subsection.5.11.1}%
 \contentsline {subsection}{\numberline {5.11.2}Models and Example Selection}{38}{subsection.5.11.2}%
 \contentsline {chapter}{\numberline {6}Results}{39}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Overview}{39}{section.6.1}%
