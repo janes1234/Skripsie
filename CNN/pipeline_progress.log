@@ -584,3 +584,145 @@
 [2026-10-15 22:55]   results_aerobic_zone.ipynb updated
 
 [2026-10-15 22:55] PIPELINE DONE in 3.0 h - 84/84 runs have results, 0 failed
+[2026-10-25 15:40] CLARIFIER scratch tuning start
+[2026-10-25 15:46]       tuning resnet18_scratch: trial 1/20 done in 5.9 min
+[2026-10-25 15:52]       tuning resnet18_scratch: trial 2/20 done in 6.7 min
+[2026-10-25 15:55]       tuning resnet18_scratch: trial 3/20 done in 2.7 min
+[2026-10-25 15:58]       tuning resnet18_scratch: trial 4/20 done in 2.6 min
+[2026-10-25 16:02]       tuning resnet18_scratch: trial 5/20 done in 3.9 min
+[2026-10-25 16:05]       tuning resnet18_scratch: trial 6/20 done in 2.9 min
+[2026-10-25 16:05]       tuning resnet18_scratch: trial 7/20 pruned after 0.5 min
+[2026-10-25 16:09]       tuning resnet18_scratch: trial 8/20 done in 4.0 min
+[2026-10-25 16:12]       tuning resnet18_scratch: trial 9/20 done in 3.2 min
+[2026-10-25 16:15]       tuning resnet18_scratch: trial 10/20 done in 2.4 min
+[2026-10-25 16:15]       tuning resnet18_scratch: trial 11/20 pruned after 0.4 min
+[2026-10-25 16:16]       tuning resnet18_scratch: trial 12/20 pruned after 0.4 min
+[2026-10-25 16:19]       tuning resnet18_scratch: trial 13/20 done in 3.1 min
+[2026-10-25 16:19]       tuning resnet18_scratch: trial 14/20 pruned after 0.4 min
+[2026-10-25 16:20]       tuning resnet18_scratch: trial 15/20 pruned after 0.4 min
+[2026-10-25 16:20]       tuning resnet18_scratch: trial 16/20 pruned after 0.4 min
+[2026-10-25 16:22]       tuning resnet18_scratch: trial 17/20 done in 1.8 min
+[2026-10-25 16:22]       tuning resnet18_scratch: trial 18/20 pruned after 0.4 min
+[2026-10-25 16:23]       tuning resnet18_scratch: trial 19/20 pruned after 0.5 min
+[2026-10-25 16:23]       tuning resnet18_scratch: trial 20/20 pruned after 0.4 min
+[2026-10-25 16:23] CLARIFIER scratch tuning done
+
+[2026-10-25 16:23] ======================================================================
+[2026-10-25 16:23] PIPELINE START - 84 training runs + aerobic tuning
+[2026-10-25 16:23] ======================================================================
+
+[2026-10-25 16:23] PHASE 1/7: Clarifier - leave-one-facility-out (augmented) - 35 runs -> ../results/clarifier_aug
+[2026-10-25 16:23]   ResNet-18: already done, skipping
+[2026-10-25 16:23]   ResNet-18 (scratch) training (5 runs)
+[2026-10-25 16:28]     ResNet-18 (scratch) - held-out Atlantis: done in 4.9 min   [6/84 runs overall]
+[2026-10-25 16:30]     ResNet-18 (scratch) - held-out CapeFlats: done in 1.6 min   [7/84 runs overall]
+[2026-10-25 16:34]     ResNet-18 (scratch) - held-out Waterval: done in 4.4 min   [8/84 runs overall]
+[2026-10-25 16:38]     ResNet-18 (scratch) - held-out Fisantekraal: done in 4.4 min   [9/84 runs overall]
+[2026-10-25 16:42]     ResNet-18 (scratch) - held-out NoordelikeWerke: done in 3.6 min   [10/84 runs overall]
+[2026-10-25 16:42]   ResNet-18 (scratch) finished in 18.8 min
+[2026-10-25 16:42]   ResNet-50: already done, skipping
+[2026-10-25 16:42]   DenseNet-121: already done, skipping
+[2026-10-25 16:42]   InceptionNet v3: already done, skipping
+[2026-10-25 16:42]   EfficientNet-B0: already done, skipping
+[2026-10-25 16:42]   ConvNeXt-Tiny: already done, skipping
+[2026-10-25 16:42] PHASE 1/7 done in 18.8 min
+
+[2026-10-25 16:42] PHASE 2/7: Clarifier - chronological (augmented) - 7 runs -> ../results/clarifier_aug
+[2026-10-25 16:42]   ResNet-18: already done, skipping
+[2026-10-25 16:42]   ResNet-18 (scratch) training (1 run)
+[2026-10-25 16:45]     ResNet-18 (scratch) - chronological split: done in 3.4 min   [37/84 runs overall]
+[2026-10-25 16:45]   ResNet-18 (scratch) finished in 3.4 min
+[2026-10-25 16:45]   ResNet-50: already done, skipping
+[2026-10-25 16:45]   DenseNet-121: already done, skipping
+[2026-10-25 16:45]   InceptionNet v3: already done, skipping
+[2026-10-25 16:45]   EfficientNet-B0: already done, skipping
+[2026-10-25 16:45]   ConvNeXt-Tiny: already done, skipping
+[2026-10-25 16:45] PHASE 2/7 done in 3.4 min
+
+[2026-10-25 16:45] PHASE 3/7: Clarifier - chronological (no augmentation) - 7 runs -> ../results/clarifier_noaug
+[2026-10-25 16:45]   ResNet-18: already done, skipping
+[2026-10-25 16:45]   ResNet-18 (scratch) training (1 run)
+[2026-10-25 16:47]     ResNet-18 (scratch) - chronological split: done in 1.1 min   [44/84 runs overall]
+[2026-10-25 16:47]   ResNet-18 (scratch) finished in 1.1 min
+[2026-10-25 16:47]   ResNet-50: already done, skipping
+[2026-10-25 16:47]   DenseNet-121: already done, skipping
+[2026-10-25 16:47]   InceptionNet v3: already done, skipping
+[2026-10-25 16:47]   EfficientNet-B0: already done, skipping
+[2026-10-25 16:47]   ConvNeXt-Tiny: already done, skipping
+[2026-10-25 16:47] PHASE 3/7 done in 1.1 min
+[2026-10-25 16:47] Updating results_clarifier.ipynb
+[2026-10-25 16:47]   results_clarifier.ipynb updated
+
+[2026-10-25 16:47] PHASE 4/7: Aerobic zone - hyperparameter tuning (7 architectures x 20 trials, Atlantis held out)
+[2026-10-25 16:47]   ResNet-18: already tuned, skipping
+[2026-10-25 16:47]   ResNet-18 (scratch) tuning
+[2026-10-25 16:56]       tuning resnet18_scratch: trial 1/20 done in 9.3 min
+[2026-10-25 17:05]       tuning resnet18_scratch: trial 2/20 done in 8.9 min
+[2026-10-25 17:07]       tuning resnet18_scratch: trial 3/20 done in 2.4 min
+[2026-10-25 17:15]       tuning resnet18_scratch: trial 4/20 done in 8.1 min
+[2026-10-25 17:26]       tuning resnet18_scratch: trial 5/20 done in 10.2 min
+[2026-10-25 17:28]       tuning resnet18_scratch: trial 6/20 done in 2.1 min
+[2026-10-25 17:33]       tuning resnet18_scratch: trial 7/20 done in 5.4 min
+[2026-10-25 17:38]       tuning resnet18_scratch: trial 8/20 done in 4.8 min
+[2026-10-25 17:44]       tuning resnet18_scratch: trial 9/20 done in 5.5 min
+[2026-10-25 17:48]       tuning resnet18_scratch: trial 10/20 done in 4.9 min
+[2026-10-25 17:52]       tuning resnet18_scratch: trial 11/20 done in 3.1 min
+[2026-10-25 17:52]       tuning resnet18_scratch: trial 12/20 pruned after 0.6 min
+[2026-10-25 17:53]       tuning resnet18_scratch: trial 13/20 pruned after 1.0 min
+[2026-10-25 17:55]       tuning resnet18_scratch: trial 14/20 pruned after 1.9 min
+[2026-10-25 18:03]       tuning resnet18_scratch: trial 15/20 done in 7.7 min
+[2026-10-25 18:03]       tuning resnet18_scratch: trial 16/20 pruned after 0.6 min
+[2026-10-25 18:08]       tuning resnet18_scratch: trial 17/20 done in 4.5 min
+[2026-10-25 18:09]       tuning resnet18_scratch: trial 18/20 pruned after 0.7 min
+[2026-10-25 18:14]       tuning resnet18_scratch: trial 19/20 done in 5.4 min
+[2026-10-25 18:19]       tuning resnet18_scratch: trial 20/20 done in 5.3 min
+[2026-10-25 18:19]   ResNet-18 (scratch) tuned in 1.5 h
+[2026-10-25 18:19]   EfficientNet-B0: already tuned, skipping
+[2026-10-25 18:19]   DenseNet-121: already tuned, skipping
+[2026-10-25 18:19]   ResNet-50: already tuned, skipping
+[2026-10-25 18:19]   ConvNeXt-Tiny: already tuned, skipping
+[2026-10-25 18:19]   InceptionNet v3: already tuned, skipping
+[2026-10-25 18:19] PHASE 4/7 done in 1.5 h
+
+[2026-10-25 18:19] PHASE 5/7: Aerobic zone - chronological (augmented) - 7 runs -> ../results/aerobic_zone_aug
+[2026-10-25 18:19]   ResNet-18: already done, skipping
+[2026-10-25 18:19]   ResNet-18 (scratch) training (1 run)
+[2026-10-25 18:22]     ResNet-18 (scratch) - chronological split: done in 2.2 min   [51/84 runs overall]
+[2026-10-25 18:22]   ResNet-18 (scratch) finished in 2.2 min
+[2026-10-25 18:22]   ResNet-50: already done, skipping
+[2026-10-25 18:22]   DenseNet-121: already done, skipping
+[2026-10-25 18:22]   InceptionNet v3: already done, skipping
+[2026-10-25 18:22]   EfficientNet-B0: already done, skipping
+[2026-10-25 18:22]   ConvNeXt-Tiny: already done, skipping
+[2026-10-25 18:22] PHASE 5/7 done in 2.2 min
+
+[2026-10-25 18:22] PHASE 6/7: Aerobic zone - chronological (no augmentation) - 7 runs -> ../results/aerobic_zone_noaug
+[2026-10-25 18:22]   ResNet-18: already done, skipping
+[2026-10-25 18:22]   ResNet-18 (scratch) training (1 run)
+[2026-10-25 18:24]     ResNet-18 (scratch) - chronological split: done in 2.6 min   [58/84 runs overall]
+[2026-10-25 18:24]   ResNet-18 (scratch) finished in 2.6 min
+[2026-10-25 18:24]   ResNet-50: already done, skipping
+[2026-10-25 18:24]   DenseNet-121: already done, skipping
+[2026-10-25 18:24]   InceptionNet v3: already done, skipping
+[2026-10-25 18:24]   EfficientNet-B0: already done, skipping
+[2026-10-25 18:24]   ConvNeXt-Tiny: already done, skipping
+[2026-10-25 18:24] PHASE 6/7 done in 2.6 min
+
+[2026-10-25 18:24] PHASE 7/7: Aerobic zone - leave-one-facility-out (augmented) - 21 runs -> ../results/aerobic_zone_aug
+[2026-10-25 18:24]   ResNet-18: already done, skipping
+[2026-10-25 18:24]   ResNet-18 (scratch) training (3 runs)
+[2026-10-25 18:32]     ResNet-18 (scratch) - held-out Atlantis: done in 7.4 min   [67/84 runs overall]
+[2026-10-25 18:32]     ResNet-18 (scratch) - held-out CapeFlats: done in 0.8 min   [68/84 runs overall]
+[2026-10-25 18:35]     ResNet-18 (scratch) - held-out Waterval: done in 2.4 min   [69/84 runs overall]
+[2026-10-25 18:35]   ResNet-18 (scratch) finished in 10.6 min
+[2026-10-25 18:35]   ResNet-50: already done, skipping
+[2026-10-25 18:35]   DenseNet-121: already done, skipping
+[2026-10-25 18:35]   InceptionNet v3: already done, skipping
+[2026-10-25 18:35]   EfficientNet-B0: already done, skipping
+[2026-10-25 18:35]   ConvNeXt-Tiny: already done, skipping
+[2026-10-25 18:35] PHASE 7/7 done in 10.6 min
+[2026-10-25 18:35] Updating results notebooks
+[2026-10-25 18:35]   results_clarifier.ipynb updated
+[2026-10-25 18:35]   results_aerobic_zone.ipynb updated
+
+[2026-10-25 18:35] PIPELINE DONE in 2.2 h - 84/84 runs have results, 0 failed

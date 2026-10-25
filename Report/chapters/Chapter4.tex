@@ -124,7 +124,7 @@ Once the test facility was removed, the remaining four facilities' images were d
 
 To avoid this, images were first grouped by facility, unit and class (some facilities have more than one unit, for example Cape Flats has 4 units each with its own set of images). Different units at the same facility can differ in lighting, or capture date, so treating them as separate groups during shuffling keeps that variation spread across both training and development rather than concentrated in one. Within each group, images were shuffled using a fixed random seed to mix capture dates before being partitioned according to a fixed development ratio (20\%). Splitting within these smaller groups rather
 than across the whole set ensures that every facility, unit, and class combination among the four training facilities is represented in both
-the training and development sets, in proportion to how much data it contributes. Figure~\ref{fig:leave_one_out approach} in Appendix~\ref{appen:dataset_details} shows the resulting split for the clarifiers when Waterval is withheld as the test facility.
+the training and development sets, in proportion to how much data it contributes.
 
 
 \subsection{Chronological Split}

@@ -3,50 +3,54 @@
 \section{Overview}
 \label{sec:results_overview}
 
-The results are presented for two situations. In the first, which is the usual situation in the intended use of the system, earlier images of a facility have been relabelled and are part of the training data. Experiment~1 estimates the performance in this situation, since all of its test images were taken after its training images (Section~\ref{sec:exp_mixed}). In the second, which occurs when a facility is added, none of its images have been labelled. Experiment~2 estimates the performance in this situation.
+The results are presented for two situations. In the first, which is the usual situation in the intended practical application of the system, earlier images of a facility have been labelled and are part of the training data. Experiment~1 estimates the performance in this situation, in which all of the test images are taken chronologically after the training images (Section~\ref{sec:exp_mixed}). The second situation reflects the scenario where the test images are from a new facility, not in the training set. Experiment~2 estimates the performance in this situation.
 
-Section~\ref{sec:results_multiclass} gives the multi-class results, Section~\ref{sec:results_binary} the binary OK / Not-OK results at a threshold chosen for a Not-OK recall of 95\% on the development set, and Section~\ref{sec:results_gradcam} the Grad-CAM heatmaps of the two selected models. The full results are given in Appendix~\ref{appen:additional_results}. In every table, the best value in every column is shown in bold.
+Section~\ref{sec:results_multiclass} gives the multi-class results, Section~\ref{sec:results_binary} the binary OK / Not-OK results at a threshold chosen for a Not-OK recall of 95\% on the development set, Section~\ref{sec:results_augmentation} the effect of augmentation, and Section~\ref{sec:results_gradcam} the Grad-CAM heatmaps of the two selected models. The complete set of results is given in Appendix~\ref{appen:additional_results}. 
 
 
 \section{Multi-Class Classification}
 \label{sec:results_multiclass}
 
+Table~\ref{tab:res_multiclass} shows that the macro recall of the aerobic zones decreases from Experiment~1 to Experiment~2 for every architecture, by between 12.2 and 30.5 percentage points, and the mean AUC by between 13.5 and 35.8 percentage points. For the clarifiers, the change in macro recall ranges from a decrease of 8.5 to an increase of 3.4 percentage points, and the change in mean AUC from a decrease of 3.8 to an increase of 0.4 percentage points, so the clarifier models perform about as well at a new facility as on new images of a known facility. The aerobic zone models therefore generalise less well to a new facility than the clarifier models. In Experiment~1, the \textbf{Empty} class has the lowest recall of the clarifier failure classes for every architecture (Table~\ref{tab:res_failure_recall}). DenseNet-121 has the highest clarifier macro recall in Experiment~1 and EfficientNet-B0 in Experiment~2, while ConvNeXt-Tiny has the highest clarifier mean AUC in both. EfficientNet-B0 has the highest aerobic zone macro recall in Experiment~1 and DenseNet-121 in Experiment~2, while ConvNeXt-Tiny has the highest aerobic zone mean AUC in Experiment~1 and DenseNet-121 in Experiment~2. In Experiment~2, the standard deviation of the clarifier macro recall across facilities (0.062 to 0.097) is of the same size as the differences between the pretrained architectures (0.648 to 0.749), so the test facility has about as large an effect on the result as the choice of architecture. Compared with the pretrained ResNet-18, the macro recall of ResNet-18 trained from scratch is 0.4 percentage points lower for the clarifiers and 1.6 percentage points higher for the aerobic zones in Experiment~1. In Experiment~2, it is 3.5 percentage points higher for the clarifiers and 16.7 percentage points lower for the aerobic zones. Pretraining therefore made little difference at a known facility, or for the clarifiers at a new facility. At a new facility, the aerobic zone model trained from scratch has the lowest macro recall (0.350) and mean AUC (0.510) of all architectures.
+
 \begin{table}[htbp]
 \centering
 \footnotesize
 \setlength{\tabcolsep}{4pt}
-\caption{Macro-averaged F1 score and recall of every architecture on the chronological split (Exp.~1) and averaged across held-out facilities (Exp.~2, mean $\pm$ standard deviation). $\Delta$ is the change in the F1 score from Experiment~1 to Experiment~2, in percentage points.}
+\caption{Macro-averaged recall and mean AUC of every architecture for the chronological split (Exp.~1) and averaged across held-out facilities (Exp.~2, mean $\pm$ standard deviation). Experiment~1 has a single test set, so no standard deviation is given. $\Delta$ is the change in the macro recall from Experiment~1 to Experiment~2, in percentage points.}
 \label{tab:res_multiclass}
 \begin{tabular}{l rrr rr}
 \toprule
-& \multicolumn{3}{c}{\textbf{Macro F1}} & \multicolumn{2}{c}{\textbf{Macro recall}} \\
+& \multicolumn{3}{c}{\textbf{Macro recall}} & \multicolumn{2}{c}{\textbf{Mean AUC}} \\
 \cmidrule(lr){2-4} \cmidrule(lr){5-6}
 \textbf{Architecture} & Exp.~1 & Exp.~2 & $\Delta$ & Exp.~1 & Exp.~2 \\
 \midrule
 \multicolumn{6}{l}{\textit{Clarifiers}} \\
-ResNet-18 & 0.732 & 0.668 $\pm$ 0.068 & -6.4 & 0.733 & 0.648 \\
-EfficientNet-B0 & 0.691 & 0.758 $\pm$ 0.098 & +6.7 & 0.715 & \textbf{0.749} \\
-DenseNet-121 & \textbf{0.772} & 0.724 $\pm$ 0.086 & -4.8 & \textbf{0.760} & 0.722 \\
-ConvNeXt-Tiny & 0.748 & \textbf{0.775} $\pm$ 0.062 & +2.7 & 0.743 & 0.748 \\
-ResNet-18 (scratch) & 0.667 & 0.662 $\pm$ 0.064 & -0.5 & 0.704 & 0.666 \\
+ResNet-18 & 0.733 & 0.648 $\pm$ 0.062 & -8.5 & 0.929 & 0.891 $\pm$ 0.033 \\
+EfficientNet-B0 & 0.715 & \textbf{0.749} $\pm$ 0.063 & +3.4 & 0.927 & 0.931 $\pm$ 0.034 \\
+DenseNet-121 & \textbf{0.760} & 0.722 $\pm$ 0.073 & -3.8 & 0.926 & 0.918 $\pm$ 0.025 \\
+ConvNeXt-Tiny & 0.743 & 0.748 $\pm$ 0.062 & +0.5 & \textbf{0.949} & \textbf{0.953} $\pm$ 0.014 \\
+ResNet-18 (scratch) & 0.729 & 0.683 $\pm$ 0.097 & -4.6 & 0.921 & 0.888 $\pm$ 0.055 \\
 \midrule
 \multicolumn{6}{l}{\textit{Aerobic zones}} \\
-ResNet-18 & 0.638 & 0.435 $\pm$ 0.081 & -20.3 & 0.639 & 0.517 \\
-EfficientNet-B0 & \textbf{0.740} & 0.413 $\pm$ 0.130 & -32.7 & \textbf{0.733} & 0.484 \\
-DenseNet-121 & 0.662 & \textbf{0.495} $\pm$ 0.033 & -16.7 & 0.664 & \textbf{0.541} \\
-ConvNeXt-Tiny & 0.724 & 0.451 $\pm$ 0.194 & -27.3 & 0.724 & 0.537 \\
-ResNet-18 (scratch) & 0.624 & 0.331 $\pm$ 0.101 & -29.3 & 0.624 & 0.399 \\
+ResNet-18 & 0.639 & 0.517 $\pm$ 0.029 & -12.2 & 0.860 & 0.694 $\pm$ 0.057 \\
+EfficientNet-B0 & \textbf{0.733} & 0.484 $\pm$ 0.040 & -24.9 & 0.924 & 0.705 $\pm$ 0.054 \\
+DenseNet-121 & 0.664 & \textbf{0.541} $\pm$ 0.028 & -12.3 & 0.898 & \textbf{0.763} $\pm$ 0.025 \\
+ConvNeXt-Tiny & 0.724 & 0.537 $\pm$ 0.116 & -18.7 & \textbf{0.938} & 0.758 $\pm$ 0.088 \\
+ResNet-18 (scratch) & 0.655 & 0.350 $\pm$ 0.066 & -30.5 & 0.868 & 0.510 $\pm$ 0.105 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Table~\ref{tab:res_multiclass} shows that the macro F1 score of the aerobic zones decreases from Experiment~1 to Experiment~2 for every architecture, by between 16.7 and 32.7 percentage points. For the clarifiers, the change ranges from a decrease of 6.4 to an increase of 6.7 percentage points, so the clarifier models perform about as well at a new facility as on new images of a known facility. The aerobic zone models therefore generalise worse to a new facility than the clarifier models. In Experiment~1, the \textbf{Empty} class has the lowest clarifier F1 score of every architecture (Appendix~\ref{appen:res_mixed}). DenseNet-121 has the highest clarifier F1 score in Experiment~1 and ConvNeXt-Tiny in Experiment~2, while EfficientNet-B0 has the highest aerobic zone F1 score in Experiment~1 and DenseNet-121 in Experiment~2. In Experiment~2, the standard deviation of the clarifier F1 score across facilities (0.062 to 0.098) is of the same size as the differences between the pretrained architectures (0.668 to 0.775), so the test facility has about as large an effect on the result as the architecture. ResNet-18 trained from scratch has the lowest macro F1 score for both components in both experiments. Compared with the pretrained ResNet-18, its clarifier F1 score is 6.5 and 0.6 percentage points lower in Experiments~1 and~2, and its aerobic zone F1 score is 1.4 and 10.4 percentage points lower. Part of this difference is due to tuning (Section~\ref{subsec:defaults}), but since pretraining gave a higher score in every case, it is worth using.
+
+
+Table~\ref{tab:res_failure_recall} shows that the largest decreases in recall from Experiment~1 to Experiment~2 occur for the \textbf{Dysfunctional} aerobic zones. The recall of the \textbf{Suboptimal} class is at most 0.389 in Experiment~1 and at most 0.224 in Experiment~2, so most \textbf{Suboptimal} aerobic zones are not identified, even at a known facility.
 
 \begin{table}[htbp]
 \centering
 \footnotesize
 \setlength{\tabcolsep}{5pt}
-\caption{Recall of every failure class on the chronological split (Exp.~1) and averaged across the held-out facilities at which the class occurs (Exp.~2).}
+\caption{Recall of every failure class on the chronological split (Exp.~1) and averaged across the held-out facilities at which the class occurs (Exp.~2). Each image is assigned to the class with the highest softmax probability.}
 \label{tab:res_failure_recall}
 \begin{tabular}{l rrr rr}
 \toprule
@@ -59,19 +63,17 @@ ResNet-18 & 0.792 & 0.588 & 0.827 & 0.932 & 0.167 \\
 EfficientNet-B0 & 0.750 & 0.500 & 0.746 & 0.884 & \textbf{0.389} \\
 DenseNet-121 & 0.844 & \textbf{0.647} & \textbf{0.859} & \textbf{0.940} & 0.241 \\
 ConvNeXt-Tiny & \textbf{0.885} & 0.382 & 0.852 & 0.916 & 0.370 \\
-ResNet-18 (scratch) & 0.823 & 0.559 & 0.607 & 0.811 & 0.185 \\
+ResNet-18 (scratch) & 0.740 & 0.588 & 0.741 & 0.884 & 0.185 \\
 \midrule
 \multicolumn{6}{l}{\textit{Experiment 2}} \\
 ResNet-18 & 0.623 & 0.461 & 0.756 & \textbf{0.726} & 0.072 \\
 EfficientNet-B0 & 0.661 & \textbf{0.662} & 0.802 & 0.458 & 0.198 \\
 DenseNet-121 & 0.728 & 0.560 & 0.763 & 0.712 & 0.184 \\
-ConvNeXt-Tiny & 0.710 & 0.505 & \textbf{0.833} & 0.593 & 0.224 \\
-ResNet-18 (scratch) & \textbf{0.772} & 0.361 & 0.717 & 0.244 & \textbf{0.294} \\
+ConvNeXt-Tiny & 0.710 & 0.505 & \textbf{0.833} & 0.593 & \textbf{0.224} \\
+ResNet-18 (scratch) & \textbf{0.746} & 0.435 & 0.754 & 0.231 & 0.113 \\
 \bottomrule
 \end{tabular}
 \end{table}
-
-Table~\ref{tab:res_failure_recall} shows that the largest decreases in recall from Experiment~1 to Experiment~2 occur for the \textbf{Dysfunctional} aerobic zones. The recall of the \textbf{Suboptimal} class is at most 0.389 in Experiment~1 and at most 0.294 in Experiment~2, so most \textbf{Suboptimal} aerobic zones are not identified, even at a known facility.
 
 \begin{figure}[htbp]
     \centering
@@ -84,11 +86,11 @@ Table~\ref{tab:res_failure_recall} shows that the largest decreases in recall fr
         \includegraphics[width=\textwidth]{figures/results/aerobic_zone_densenet_121_Waterval_confusion_matrix.png}
         \caption{Aerobic zones, DenseNet-121, Waterval held out}
     \end{subfigure}
-    \caption{Confusion matrices of the architecture with the highest mean macro F1 score in Experiment~2 for each component, on the held-out facility used for the Grad-CAM analysis (Section~\ref{sec:results_gradcam}). The confusion matrices of the other folds are given in Appendix~\ref{appen:res_lofo}.}
+    \caption{Confusion matrices of the architecture with the highest mean AUC in Experiment~2 for each component, on the held-out facility used for the Grad-CAM analysis (Section~\ref{sec:results_gradcam}). The confusion matrices of the other held-out facilities are given in Appendix~\ref{appen:res_lofo}.}
     \label{fig:res_cm_examples}
 \end{figure}
 
-Figure~\ref{fig:res_cm_examples} shows the most common mistakes of both selected models. At Fisantekraal, 28 of the 116 \textbf{Scum} clarifiers are classified as \textbf{Functional}. At Waterval, 93 of the 543 \textbf{Functional} aerobic zones are classified as \textbf{Dysfunctional}, and 50 and 41 of the 92 \textbf{Suboptimal} zones as \textbf{Dysfunctional} and \textbf{Functional} respectively. A failure class classified as \textbf{Functional} is a component that would not be flagged for inspection.
+Figure~\ref{fig:res_cm_examples} shows the most common mistakes made by both selected models. At Fisantekraal, 28 of the 116 \textbf{Scum} clarifiers are classified as \textbf{Functional}. At Waterval, 93 of the 543 \textbf{Functional} aerobic zones are classified as \textbf{Dysfunctional}, and 50 and 41 of the 92 \textbf{Suboptimal} zones as \textbf{Dysfunctional} and \textbf{Functional} respectively. A failure class classified as \textbf{Functional} is a component that would not be flagged for inspection.
 
 \FloatBarrier
 
@@ -96,11 +98,15 @@ Figure~\ref{fig:res_cm_examples} shows the most common mistakes of both selected
 \section{Binary (OK / Not-OK) Classification}
 \label{sec:results_binary}
 
+
+
+Table~\ref{tab:res_binary} gives the binary classification results at the thresholds chosen on the development set for 95\% recall, in the case of Experiment~2 as an average across facilities (Section~\ref{sec:exp_binary}). The specificity is the fraction of OK components that are not flagged. In Experiment~1, the test recall varies from 0.951 to 0.974 for the clarifiers, so the target of 95\% is reached by every architecture, and from 0.924 to 0.950 for the aerobic zones, so it is missed by four of the five. In Experiment~2, the mean test recall is between 0.867 and 0.902 for the clarifiers and between 0.562 and 0.864 for the aerobic zones, and no architecture reaches the target. The clarifier specificity is higher in Experiment~2 than in Experiment~1 for every architecture, but this is related to the lower recall: fewer components are flagged, both Not-OK and OK.
+
 \begin{table}[htbp]
 \centering
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
-\caption{Binary OK / Not-OK results of every architecture on the chronological split (Exp.~1) and averaged across held-out facilities (Exp.~2). The AUC does not depend on a threshold. The recall, specificity and precision of the Not-OK class are given on the test set, at the threshold chosen for a Not-OK recall of 95\% on the development set (Section~\ref{sec:exp_binary}). The thresholds are listed in Appendix~\ref{appen:res_binary}.}
+\caption{Binary OK / Not-OK results of every architecture on the chronological split (Exp.~1) and averaged across held-out facilities (Exp.~2). The AUC does not depend on a threshold. The recall, specificity and precision of the Not-OK class are given on the test set, at the threshold chosen for a Not-OK recall of 95\% on the development set (Section~\ref{sec:exp_binary}). The thresholds themselves are listed in Appendix~\ref{appen:res_binary}.}
 \label{tab:res_binary}
 \begin{tabular}{l rr rr rr rr}
 \toprule
@@ -110,27 +116,29 @@ Figure~\ref{fig:res_cm_examples} shows the most common mistakes of both selected
 \midrule
 \multicolumn{9}{l}{\textit{Clarifiers}} \\
 ResNet-18 & 0.914 & 0.892 $\pm$ 0.025 & \textbf{0.974} & 0.867 & 0.502 & 0.540 & 0.765 & 0.806 \\
-EfficientNet-B0 & 0.941 & 0.938 $\pm$ 0.039 & 0.961 & 0.902 & 0.595 & 0.702 & 0.798 & 0.858 \\
+EfficientNet-B0 & 0.941 & 0.938 $\pm$ 0.039 & 0.961 & \textbf{0.902} & 0.595 & 0.702 & 0.798 & 0.858 \\
 DenseNet-121 & 0.901 & 0.926 $\pm$ 0.029 & 0.959 & 0.897 & 0.502 & 0.710 & 0.762 & 0.857 \\
 ConvNeXt-Tiny & \textbf{0.949} & \textbf{0.953} $\pm$ 0.024 & 0.968 & 0.886 & \textbf{0.651} & \textbf{0.846} & \textbf{0.822} & \textbf{0.914} \\
-ResNet-18 (scratch) & 0.893 & 0.893 $\pm$ 0.077 & 0.964 & \textbf{0.916} & 0.464 & 0.508 & 0.750 & 0.795 \\
+ResNet-18 (scratch) & 0.916 & 0.882 $\pm$ 0.078 & 0.951 & 0.897 & 0.542 & 0.545 & 0.776 & 0.802 \\
 \midrule
 \multicolumn{9}{l}{\textit{Aerobic zones}} \\
 ResNet-18 & 0.959 & 0.814 $\pm$ 0.048 & 0.931 & 0.846 & 0.826 & 0.573 & 0.860 & 0.664 \\
 EfficientNet-B0 & 0.966 & 0.819 $\pm$ 0.020 & 0.941 & 0.740 & 0.795 & 0.701 & 0.841 & 0.748 \\
 DenseNet-121 & 0.959 & 0.846 $\pm$ 0.040 & 0.924 & \textbf{0.864} & 0.830 & 0.602 & 0.862 & 0.706 \\
-ConvNeXt-Tiny & \textbf{0.976} & \textbf{0.866} $\pm$ 0.029 & \textbf{0.950} & 0.692 & 0.833 & \textbf{0.831} & 0.867 & \textbf{0.780} \\
-ResNet-18 (scratch) & 0.949 & 0.697 $\pm$ 0.139 & 0.881 & 0.719 & \textbf{0.856} & 0.558 & \textbf{0.875} & 0.607 \\
+ConvNeXt-Tiny & \textbf{0.976} & \textbf{0.866} $\pm$ 0.029 & \textbf{0.950} & 0.692 & \textbf{0.833} & \textbf{0.831} & \textbf{0.867} & \textbf{0.780} \\
+ResNet-18 (scratch) & 0.938 & 0.590 $\pm$ 0.204 & 0.927 & 0.562 & 0.742 & 0.542 & 0.805 & 0.527 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Table~\ref{tab:res_binary} gives the binary results at the threshold chosen on the development set, in Experiment~2 as an average across facilities (Section~\ref{sec:exp_binary}). The specificity is the fraction of OK components that are not flagged. In Experiment~1, the test recall is 0.959 to 0.974 for the clarifiers, so the target of 95\% is reached by every architecture, and 0.881 to 0.950 for the aerobic zones, so it is missed by four of the five. In Experiment~2, the mean test recall is 0.867 to 0.916 for the clarifiers and 0.692 to 0.864 for the aerobic zones, and no architecture reaches the target. The clarifier specificity is higher in Experiment~2 than in Experiment~1 for every architecture, but this goes together with the lower recall: fewer components are flagged, both Not-OK and OK.
+
+
+Table~\ref{tab:res_binary_facility} shows that, at individual facilities, the clarifier recall ranges from 0.758 to 0.985 and the aerobic zone recall from 0.779 to 0.935. The target of 95\% is reached at two of the five clarifier facilities and at none of the aerobic zone facilities. Over all architectures, the lowest recall at a single facility is 0.667 for the clarifiers and 0.103 for the aerobic zones (ResNet-18 at Atlantis and ResNet-18 (scratch) at Waterval; the recall and specificity of every architecture at every held-out facility are given in Appendix~\ref{appen:res_binary}). A threshold chosen on the development set of other facilities therefore generally does not reach the target recall at a new facility. For a facility whose relabelled images are part of the training data (Section~\ref{sec:exp_mixed}), the clarifier threshold chosen on the development set did reach the target in Experiment~1, but the aerobic zone threshold did not for most architectures.
 
 \begin{table}[htbp]
 \centering
 \footnotesize
-\caption{Not-OK recall and specificity for each held-out facility at the threshold chosen on the development set of that fold, for the ConvNeXt-Tiny clarifier model and the DenseNet-121 aerobic zone model. The results of every architecture are given in Appendix~\ref{appen:res_binary}.}
+\caption{Not-OK recall and specificity for each held-out facility at the threshold chosen for a Not-OK recall of 95\% on the corresponding development set, for the ConvNeXt-Tiny clarifier model and the DenseNet-121 aerobic zone model. A full set of results of all architectures is given in Appendix~\ref{appen:res_binary}.}
 \label{tab:res_binary_facility}
 \begin{tabular}{l rr rr}
 \toprule
@@ -147,7 +155,44 @@ Waterval & 0.923 & 0.854 & 0.779 & 0.808 \\
 \end{tabular}
 \end{table}
 
-Table~\ref{tab:res_binary_facility} shows that at individual facilities, the clarifier recall ranges from 0.758 to 0.985 and the aerobic zone recall from 0.779 to 0.935. The target of 95\% is reached at two of the five clarifier facilities and at none of the aerobic zone facilities. Over all architectures, the lowest recall at a single facility is 0.667 for the clarifiers and 0.447 for the aerobic zones (Appendix~\ref{appen:res_binary}). A threshold chosen on the development set of other facilities therefore does not reach the target recall at a new facility. For a facility whose relabelled images are part of the training data, the clarifier threshold chosen on the development set did reach the target in Experiment~1, but the aerobic zone threshold did not for most architectures.
+\FloatBarrier
+
+
+\section{Effect of Augmentation}
+\label{sec:results_augmentation}
+
+Table~\ref{tab:res_augmentation} compares the chronological-split results of every architecture trained with and without the augmentations described in Section~\ref{sec:exp_augmentation}.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Test results on the chronological split with (Aug.) and without (None) augmentation during training. $\Delta$ is the difference in percentage points, where a positive value means that augmentation helped.}
+\label{tab:res_augmentation}
+\begin{tabular}{l rrr rrr rr}
+\toprule
+& \multicolumn{3}{c}{\textbf{Accuracy}} & \multicolumn{3}{c}{\textbf{Macro recall}} & \multicolumn{2}{c}{\textbf{Mean AUC}} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-9}
+\textbf{Architecture} & Aug. & None & $\Delta$ & Aug. & None & $\Delta$ & Aug. & None \\
+\midrule
+\multicolumn{9}{l}{\textit{Clarifiers}} \\
+ResNet-18 & 0.776 & 0.745 & +3.1 & 0.733 & 0.679 & +5.4 & 0.929 & 0.913 \\
+EfficientNet-B0 & 0.780 & 0.789 & -0.9 & 0.715 & 0.737 & -2.2 & 0.927 & 0.921 \\
+DenseNet-121 & 0.785 & 0.777 & +0.8 & 0.760 & 0.716 & +4.4 & 0.926 & 0.919 \\
+ConvNeXt-Tiny & 0.838 & 0.798 & +4.0 & 0.743 & 0.721 & +2.2 & 0.949 & 0.950 \\
+ResNet-18 (scratch) & 0.775 & 0.664 & +11.1 & 0.729 & 0.596 & +13.3 & 0.921 & 0.842 \\
+\midrule
+\multicolumn{9}{l}{\textit{Aerobic zones}} \\
+ResNet-18 & 0.806 & 0.810 & -0.4 & 0.639 & 0.611 & +2.8 & 0.860 & 0.885 \\
+EfficientNet-B0 & 0.857 & 0.808 & +4.9 & 0.733 & 0.639 & +9.4 & 0.924 & 0.849 \\
+DenseNet-121 & 0.813 & 0.852 & -3.9 & 0.664 & 0.681 & -1.7 & 0.898 & 0.925 \\
+ConvNeXt-Tiny & 0.850 & 0.843 & +0.7 & 0.724 & 0.743 & -1.9 & 0.938 & 0.940 \\
+ResNet-18 (scratch) & 0.824 & 0.764 & +6.0 & 0.655 & 0.582 & +7.3 & 0.868 & 0.814 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:res_augmentation} shows that augmentation increased the clarifier accuracy and macro recall of four of the five models, all except EfficientNet-B0. For the aerobic zones, it increased the macro recall of three models, but decreased the accuracy and macro recall of DenseNet-121 by 3.9 and 1.7 percentage points. The largest increases in macro recall are 13.3 percentage points for the ResNet-18 (scratch) clarifiers and 9.4 for the EfficientNet-B0 aerobic zones.
 
 \FloatBarrier
 
@@ -155,12 +200,12 @@ Table~\ref{tab:res_binary_facility} shows that at individual facilities, the cla
 \section{Qualitative Analysis: Grad-CAM}
 \label{sec:results_gradcam}
 
-The Grad-CAM method and example selection described in Section~\ref{sec:exp_gradcam} were applied to the ConvNeXt-Tiny clarifier model, tested on Fisantekraal, and the DenseNet-121 aerobic zone model, tested on Waterval (Figure~\ref{fig:res_cm_examples}). The last feature blocks of these networks have a spatial size of $7\times7$ and $3\times7$ respectively, so the heatmaps are coarse.
+The Grad-CAM method and example selection described in Section~\ref{sec:exp_gradcam} were applied to the ConvNeXt-Tiny clarifier model tested on Fisantekraal, and the DenseNet-121 aerobic zone model tested on Waterval (Figure~\ref{fig:res_cm_examples}). The last feature blocks of these networks have a spatial size of $7\times7$ and $3\times7$ respectively, so the heatmaps are coarse.
 
 \subsection{Clarifiers}
 \label{sec:results_gradcam_clarifiers}
 
-Figure~\ref{fig:gradcam_clarifier} shows the clarifier examples. For the correctly classified \textbf{Dysfunctional} and \textbf{Scum} clarifiers, the highest weights lie on the surface inside the tank: on the green surface, and on the uneven patches near the centre, respectively. For the \textbf{Empty} clarifier, the highest weight lies on the shadow at the top of the tank and on the rim and background next to it. For the \textbf{Functional} clarifier, the highest weights lie on the rim and the background at the top and bottom of the tank, where the bridge meets the rim, with low weights on the black surface.
+Figure~\ref{fig:gradcam_clarifier} shows the clarifier examples. For the correctly classified \textbf{Dysfunctional} and \textbf{Scum} clarifiers, most emphasis is placed on the green surface, and on the uneven patches near the centre, respectively. For the \textbf{Empty} clarifier, the highest weight lies on the shadow at the top of the tank and on the rim and background next to it. For the \textbf{Functional} clarifier, the highest weights lie on the rim and the background at the top and bottom of the tank, where the bridge meets the rim, with low weights on the black surface. The clarifier labels are based on the surface inside the tank (Chapter~\ref{chap:systemmethods}), so the heatmaps of the \textbf{Dysfunctional} and \textbf{Scum} clarifiers are as expected. For the \textbf{Empty} clarifier, the shadow is the feature that the label is based on, but the rim and background are not. For the \textbf{Functional} clarifier, the heatmap is not as expected, since the label requires the whole surface to be black. Part of the weight on the rim may be caused by the coarse heatmap: each cell of the $7\times7$ feature block covers about $32\times32$ pixels of the $224\times224$ input, so a cell on the rim also covers part of the surface next to it. This does not explain the weight on the background outside the tank. The rim and the masked background appear in every clarifier image, regardless of class, so on their own they carry no information about the state of the clarifier.
 
 Most of the ConvNeXt-Tiny heatmaps highlight one or two small regions rather than a large part of the surface. A possible cause is the global max pooling of ConvNeXt-Tiny (Section~\ref{sec:exp_architectures}), which passes only the largest activation of each feature map to the classifier head.
 
@@ -171,14 +216,14 @@ Most of the ConvNeXt-Tiny heatmaps highlight one or two small regions rather tha
     \label{fig:gradcam_clarifier}
 \end{figure}
 
-In the \textbf{Scum} clarifier classified as \textbf{Functional} ($p = 0.97$), the lighter surface around the centre of the tank receives little weight, and the highest weights lie on the rim at the top and bottom of the tank, as for the correctly classified \textbf{Functional} clarifier. The class requires the whole surface to be black, but the rim does not show this. In the \textbf{Functional} clarifier classified as \textbf{Scum}, the highest weight lies on a small region of the surface near the left edge of the tank, which is slightly lighter than the rest of the surface.
+In the \textbf{Scum} clarifier classified as \textbf{Functional} ($p = 0.97$), the lighter surface around the centre of the tank receives little weight, and the highest weights lie on the rim at the top and bottom of the tank, as for the correctly classified \textbf{Functional} clarifier. The class requires the whole surface to be black, but the rim does not show this. In the \textbf{Functional} clarifier classified as \textbf{Scum}, the highest weight lies on a small region of the surface near the left edge of the tank, which is slightly lighter than the rest of the surface. The weight lies on the surface, so the location is appropriate, and a lighter region is the kind of feature that the \textbf{Scum} label is based on.
 
-Of the 17 \textbf{Dysfunctional} clarifiers at Fisantekraal, 9 were misclassified. For the clarifier classified as \textbf{Functional}, the weight is spread over the rim and the surface, with the highest weight on the rim. The surface of this clarifier is pale grey rather than the darker green of the correctly classified example. For the clarifier classified as \textbf{Scum}, the highest weight lies on a dark spot on the surface below the centre of the tank.
+Of the 17 \textbf{Dysfunctional} clarifiers at Fisantekraal, 9 were misclassified. For the clarifier classified as \textbf{Functional}, the weight is spread over the rim and the surface, with the highest weight on the rim. The surface of this clarifier is pale grey rather than the darker green of the correctly classified example. The weight on the rim is not appropriate, for the reason given above, and the surface shows none of the green that the \textbf{Dysfunctional} label requires. For the clarifier classified as \textbf{Scum}, the highest weight lies on a dark spot on the surface below the centre of the tank. This location is appropriate. The two labels also overlap: a green surface is not uniformly black, so a \textbf{Dysfunctional} clarifier also fits the definition of \textbf{Scum} (Chapter~\ref{chap:systemmethods}).
 
 \subsection{Aerobic Zones}
 \label{sec:results_gradcam_aerobic}
 
-Figure~\ref{fig:gradcam_aerobic} shows the aerobic zone examples. For the correctly classified \textbf{Functional} zone ($p = 0.80$), the heatmap covers the centre of the zone, where the leopard print pattern is visible. For the correctly classified \textbf{Dysfunctional} zone ($p = 0.84$), it lies on the smooth surface in the right half of the zone. The correctly classified \textbf{Suboptimal} zone has $p = 0.40$, slightly above the $0.33$ of a random guess between three classes, and its heatmap lies on a darker band at the lower right of the zone. In several heatmaps, part of the weight lies on the black bars added by the padding (Section~\ref{sec:exp_architectures}). The last feature block has only three rows, so the bottom row covers both the bar and the lower edge of the zone, and these heatmaps do not show whether the model uses the bars.
+Figure~\ref{fig:gradcam_aerobic} shows the aerobic zone examples. For the correctly classified \textbf{Functional} zone ($p = 0.80$), the heatmap covers the centre of the zone, where the leopard print pattern is visible. For the correctly classified \textbf{Dysfunctional} zone ($p = 0.84$), it lies on the smooth surface in the right half of the zone. The correctly classified \textbf{Suboptimal} zone has $p = 0.40$, slightly above the $0.33$ of a random guess between three classes, and its heatmap lies on a darker band at the lower right of the zone. The aerobic zone labels are based on how much of the surface shows the leopard print pattern (Chapter~\ref{chap:systemmethods}), so the heatmaps of the \textbf{Functional} and \textbf{Dysfunctional} zones are as expected. The \textbf{Suboptimal} label depends on the fraction of the surface without leopard print, and also covers zones whose state is unclear, so a single band is not expected to be sufficient evidence for it. In several heatmaps, part of the weight lies on the black bars added by the padding (Section~\ref{sec:exp_architectures}). The last feature block has only three rows, so the bottom row covers both the bar and the lower edge of the zone, and these heatmaps do not show whether the model uses the bars. This would not be appropriate, since the bars are added by the padding and are not part of the zone. The low $p$ of the \textbf{Suboptimal} example is consistent with the results at Waterval, where only 1 of the 92 \textbf{Suboptimal} zones is classified correctly (Figure~\ref{fig:res_cm_examples}).
 
 \begin{figure}[htbp]
     \centering
@@ -187,19 +232,19 @@ Figure~\ref{fig:gradcam_aerobic} shows the aerobic zone examples. For the correc
     \label{fig:gradcam_aerobic}
 \end{figure}
 
-The \textbf{Functional} zone classified as \textbf{Dysfunctional} ($p = 0.70$) is blurred, and no leopard print pattern is visible on its surface. Its heatmap lies on the centre of the zone. In the \textbf{Suboptimal} zone classified as \textbf{Dysfunctional} ($p = 0.90$), the heatmap lies on the left end of the zone and on a band in the right half, where the surface shows dark patches. The \textbf{Suboptimal} zone classified as \textbf{Functional} ($p = 0.52$) has a plain grey surface, and its heatmap is spread over the centre of the zone. A zone is \textbf{Suboptimal} when a third or more of its surface shows no leopard print (Chapter~\ref{chap:systemmethods}), and in neither \textbf{Suboptimal} example is a pattern clearly visible. The aerobic zone labels were not reviewed (Chapter~\ref{chap:systemmethods}), so some of these mistakes may be caused by the labels.
+The \textbf{Functional} zone classified as \textbf{Dysfunctional} ($p = 0.70$) is blurred, and no leopard print pattern is visible on its surface. Its heatmap lies on the centre of the zone. The location is appropriate, and since no pattern is visible, the image fits the \textbf{Dysfunctional} definition, so the mistake is more likely caused by the image or the label than by where the model looks. In the \textbf{Suboptimal} zone classified as \textbf{Dysfunctional} ($p = 0.90$), the heatmap lies on the left end of the zone and on a band in the right half, where the surface shows dark patches. This location is also appropriate, since a surface without leopard print is evidence for \textbf{Dysfunctional}. The two classes differ only in how much of the surface shows no leopard print, a third or more against two thirds or more (Chapter~\ref{chap:systemmethods}), which a heatmap does not show. The \textbf{Suboptimal} zone classified as \textbf{Functional} ($p = 0.52$) has a plain grey surface, and its heatmap is spread over the centre of the zone. The area is appropriate, but no pattern is visible, so the image does not support the \textbf{Functional} class. The aerobic zone labels were not reviewed (Chapter~\ref{chap:systemmethods}), so some of these mistakes may be caused by the labels.
 
 \subsection{Summary of Observations}
 \label{sec:results_gradcam_summary}
 
-For the correctly classified \textbf{Dysfunctional} and \textbf{Scum} clarifiers and \textbf{Functional} and \textbf{Dysfunctional} aerobic zones, the heatmaps lie on the features that the labels are based on. For the \textbf{Functional} and \textbf{Empty} clarifiers, they lie largely on the rim and the background, which do not indicate the state of the clarifier. The most common clarifier mistake, a \textbf{Scum} clarifier classified as \textbf{Functional}, is also based on the rim. When the surface shows little evidence, as in the blurred or plain aerobic zones, the heatmaps spread over the zone. These observations are based on a few examples.
+For the correctly classified \textbf{Dysfunctional} and \textbf{Scum} clarifiers and \textbf{Functional} and \textbf{Dysfunctional} aerobic zones, the heatmaps identify the features that the labels are based on. For the \textbf{Functional} clarifier, they lie largely on the rim and the background, which appear in every clarifier image and do not indicate its state. For the \textbf{Empty} clarifier, the weight is split between the shadow inside the tank and the rim and background next to it. The most common clarifier mistake, a \textbf{Scum} clarifier classified as \textbf{Functional}, is also based on the rim. When the surface shows little evidence, as in the blurred or plain aerobic zones, the heatmaps spread over the zone. These observations are based on a few examples.
 
 
 \section{Summary of Findings}
 \label{sec:results_summary}
 
-In this chapter we have presented the multi-class and binary results of the two experiments, and the Grad-CAM heatmaps of the two selected models. At a known facility, the best clarifier and aerobic zone models reach a similar macro F1 score. At a new facility, the clarifier models perform about as well as at a known facility, while the aerobic zone models perform considerably worse. The differences between the pretrained architectures are of the same size as the differences between the held-out facilities, and ResNet-18 trained from scratch performs worst in both experiments. Most \textbf{Suboptimal} aerobic zones are not identified, even at a known facility.
+In this chapter we have presented the multi-class and binary results of the two experiments, the effect of augmentation, and the Grad-CAM heatmaps of the two selected models. At a known facility, the best clarifier and aerobic zone models reach a similar macro recall. At a new facility, the clarifier models perform about as well as at a known facility, while the aerobic zone models perform considerably worse. Most \textbf{Suboptimal} aerobic zones are not identified, even at a known facility.
 
-When the threshold is set so that 95\% of the Not-OK components in the development set are flagged, the test recall at a known facility is 0.959 to 0.974 for the clarifiers and 0.881 to 0.950 for the aerobic zones, and about a third of the OK clarifiers and 15\% of the OK aerobic zones are also flagged by the best models. At a new facility, the mean test recall is 0.867 to 0.916 for the clarifiers and 0.692 to 0.864 for the aerobic zones, so a threshold chosen on known facilities does not reach the target recall at a new facility. The Grad-CAM heatmaps of most correctly classified images lie on the features that the labels are based on, but for some clarifier classes they lie largely on the rim of the tank.
+When the decision threshold is selected so that 95\% of the Not-OK components in the development set are correctly identified, the test recall at a known facility is between 0.951 and 0.974 for the clarifiers and between 0.924 and 0.950 for the aerobic zones. The models with the highest specificity misclassify approximately a third of the OK clarifiers and 17\% of the OK aerobic zones as Not-OK. At a new facility, the mean test recall is 0.867 to 0.902 for the clarifiers and 0.562 to 0.864 for the aerobic zones, so a threshold chosen on known facilities does not reach the target recall at a new facility. The Grad-CAM heatmaps of most correctly classified images identify the features that the human labels are based on. However, for some clarifier classes they lie largely on the rim of the tank, which should be uninformative.
 
 In the next chapter we will draw conclusions from these results, discuss the limitations of the project, and suggest future work.

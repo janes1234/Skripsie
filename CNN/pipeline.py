@@ -8,7 +8,7 @@ Runs the full retraining round end to end:
   1. Clarifier, leave-one-facility-out, with augmentation (7 architectures x 5 facilities)
   2. Clarifier, chronological, with augmentation
   3. Clarifier, chronological, without augmentation
-  4. Aerobic zone hyperparameter tuning (6 architectures, Atlantis held out,
+  4. Aerobic zone hyperparameter tuning (7 architectures, Atlantis held out,
      since NoordelikeWerke has no aerobic zones)
   5. Aerobic zone, chronological, with augmentation
   6. Aerobic zone, chronological, without augmentation
@@ -54,7 +54,7 @@ DISPLAY = {
     "inception_v3": "InceptionNet v3", "efficientnet_b0": "EfficientNet-B0",
     "convnext_tiny": "ConvNeXt-Tiny",
 }
-TUNE_ARCHS = ["resnet18", "efficientnet_b0", "densenet121", "resnet50", "convnext_tiny", "inception_v3"]
+TUNE_ARCHS = ["resnet18", "resnet18_scratch", "efficientnet_b0", "densenet121", "resnet50", "convnext_tiny", "inception_v3"]
 
 TRAIN_PHASES = [
     # (title, component, split, results_dir, augment, facilities)

@@ -658,3 +658,124 @@
 [2026-10-15 22:55]   results_aerobic_zone.ipynb updated
 
 [2026-10-15 22:55] PIPELINE DONE in 3.0 h - 84/84 runs have results, 0 failed
+
+[2026-10-25 16:23] ======================================================================
+[2026-10-25 16:23] PIPELINE START - 84 training runs + aerobic tuning
+[2026-10-25 16:23] ======================================================================
+
+[2026-10-25 16:23] PHASE 1/7: Clarifier - leave-one-facility-out (augmented) - 35 runs -> ../results/clarifier_aug
+[2026-10-25 16:23]   ResNet-18: already done, skipping
+[2026-10-25 16:23]   ResNet-18 (scratch) training (5 runs)
+    ResNet-18 (scratch) / held-out Atlantis: OK in 4.9 min -- ../results/clarifier_aug/results_clarifier_resnet18_scratch_Atlantis.pkl
+[2026-10-25 16:28]     ResNet-18 (scratch) - held-out Atlantis: done in 4.9 min   [6/84 runs overall]
+    ResNet-18 (scratch) / held-out CapeFlats: OK in 1.6 min -- ../results/clarifier_aug/results_clarifier_resnet18_scratch_CapeFlats.pkl
+[2026-10-25 16:30]     ResNet-18 (scratch) - held-out CapeFlats: done in 1.6 min   [7/84 runs overall]
+    ResNet-18 (scratch) / held-out Waterval: OK in 4.4 min -- ../results/clarifier_aug/results_clarifier_resnet18_scratch_Waterval.pkl
+[2026-10-25 16:34]     ResNet-18 (scratch) - held-out Waterval: done in 4.4 min   [8/84 runs overall]
+    ResNet-18 (scratch) / held-out Fisantekraal: OK in 4.4 min -- ../results/clarifier_aug/results_clarifier_resnet18_scratch_Fisantekraal.pkl
+[2026-10-25 16:38]     ResNet-18 (scratch) - held-out Fisantekraal: done in 4.4 min   [9/84 runs overall]
+    ResNet-18 (scratch) / held-out NoordelikeWerke: OK in 3.6 min -- ../results/clarifier_aug/results_clarifier_resnet18_scratch_NoordelikeWerke.pkl
+[2026-10-25 16:42]     ResNet-18 (scratch) - held-out NoordelikeWerke: done in 3.6 min   [10/84 runs overall]
+[2026-10-25 16:42]   ResNet-18 (scratch) finished in 18.8 min
+[2026-10-25 16:42]   ResNet-50: already done, skipping
+[2026-10-25 16:42]   DenseNet-121: already done, skipping
+[2026-10-25 16:42]   InceptionNet v3: already done, skipping
+[2026-10-25 16:42]   EfficientNet-B0: already done, skipping
+[2026-10-25 16:42]   ConvNeXt-Tiny: already done, skipping
+[2026-10-25 16:42] PHASE 1/7 done in 18.8 min
+
+[2026-10-25 16:42] PHASE 2/7: Clarifier - chronological (augmented) - 7 runs -> ../results/clarifier_aug
+[2026-10-25 16:42]   ResNet-18: already done, skipping
+[2026-10-25 16:42]   ResNet-18 (scratch) training (1 run)
+    ResNet-18 (scratch) / chronological split: OK in 3.4 min -- ../results/clarifier_aug/results_clarifier_resnet18_scratch_chronological.pkl
+[2026-10-25 16:45]     ResNet-18 (scratch) - chronological split: done in 3.4 min   [37/84 runs overall]
+[2026-10-25 16:45]   ResNet-18 (scratch) finished in 3.4 min
+[2026-10-25 16:45]   ResNet-50: already done, skipping
+[2026-10-25 16:45]   DenseNet-121: already done, skipping
+[2026-10-25 16:45]   InceptionNet v3: already done, skipping
+[2026-10-25 16:45]   EfficientNet-B0: already done, skipping
+[2026-10-25 16:45]   ConvNeXt-Tiny: already done, skipping
+[2026-10-25 16:45] PHASE 2/7 done in 3.4 min
+
+[2026-10-25 16:45] PHASE 3/7: Clarifier - chronological (no augmentation) - 7 runs -> ../results/clarifier_noaug
+[2026-10-25 16:45]   ResNet-18: already done, skipping
+[2026-10-25 16:45]   ResNet-18 (scratch) training (1 run)
+    ResNet-18 (scratch) / chronological split: OK in 1.1 min -- ../results/clarifier_noaug/results_clarifier_resnet18_scratch_chronological.pkl
+[2026-10-25 16:47]     ResNet-18 (scratch) - chronological split: done in 1.1 min   [44/84 runs overall]
+[2026-10-25 16:47]   ResNet-18 (scratch) finished in 1.1 min
+[2026-10-25 16:47]   ResNet-50: already done, skipping
+[2026-10-25 16:47]   DenseNet-121: already done, skipping
+[2026-10-25 16:47]   InceptionNet v3: already done, skipping
+[2026-10-25 16:47]   EfficientNet-B0: already done, skipping
+[2026-10-25 16:47]   ConvNeXt-Tiny: already done, skipping
+[2026-10-25 16:47] PHASE 3/7 done in 1.1 min
+[2026-10-25 16:47] Updating results_clarifier.ipynb
+[NbConvertApp] Converting notebook results_clarifier.ipynb to notebook
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbConvertApp] Writing 17453441 bytes to results_clarifier.ipynb
+[2026-10-25 16:47]   results_clarifier.ipynb updated
+
+[2026-10-25 16:47] PHASE 4/7: Aerobic zone - hyperparameter tuning (7 architectures x 20 trials, Atlantis held out)
+[2026-10-25 16:47]   ResNet-18: already tuned, skipping
+[2026-10-25 16:47]   ResNet-18 (scratch) tuning
+[2026-10-25 18:19]   ResNet-18 (scratch) tuned in 1.5 h
+[2026-10-25 18:19]   EfficientNet-B0: already tuned, skipping
+[2026-10-25 18:19]   DenseNet-121: already tuned, skipping
+[2026-10-25 18:19]   ResNet-50: already tuned, skipping
+[2026-10-25 18:19]   ConvNeXt-Tiny: already tuned, skipping
+[2026-10-25 18:19]   InceptionNet v3: already tuned, skipping
+[2026-10-25 18:19] PHASE 4/7 done in 1.5 h
+
+[2026-10-25 18:19] PHASE 5/7: Aerobic zone - chronological (augmented) - 7 runs -> ../results/aerobic_zone_aug
+[2026-10-25 18:19]   ResNet-18: already done, skipping
+[2026-10-25 18:19]   ResNet-18 (scratch) training (1 run)
+    ResNet-18 (scratch) / chronological split: OK in 2.2 min -- ../results/aerobic_zone_aug/results_aerobic_zone_resnet18_scratch_chronological.pkl
+[2026-10-25 18:22]     ResNet-18 (scratch) - chronological split: done in 2.2 min   [51/84 runs overall]
+[2026-10-25 18:22]   ResNet-18 (scratch) finished in 2.2 min
+[2026-10-25 18:22]   ResNet-50: already done, skipping
+[2026-10-25 18:22]   DenseNet-121: already done, skipping
+[2026-10-25 18:22]   InceptionNet v3: already done, skipping
+[2026-10-25 18:22]   EfficientNet-B0: already done, skipping
+[2026-10-25 18:22]   ConvNeXt-Tiny: already done, skipping
+[2026-10-25 18:22] PHASE 5/7 done in 2.2 min
+
+[2026-10-25 18:22] PHASE 6/7: Aerobic zone - chronological (no augmentation) - 7 runs -> ../results/aerobic_zone_noaug
+[2026-10-25 18:22]   ResNet-18: already done, skipping
+[2026-10-25 18:22]   ResNet-18 (scratch) training (1 run)
+    ResNet-18 (scratch) / chronological split: OK in 2.6 min -- ../results/aerobic_zone_noaug/results_aerobic_zone_resnet18_scratch_chronological.pkl
+[2026-10-25 18:24]     ResNet-18 (scratch) - chronological split: done in 2.6 min   [58/84 runs overall]
+[2026-10-25 18:24]   ResNet-18 (scratch) finished in 2.6 min
+[2026-10-25 18:24]   ResNet-50: already done, skipping
+[2026-10-25 18:24]   DenseNet-121: already done, skipping
+[2026-10-25 18:24]   InceptionNet v3: already done, skipping
+[2026-10-25 18:24]   EfficientNet-B0: already done, skipping
+[2026-10-25 18:24]   ConvNeXt-Tiny: already done, skipping
+[2026-10-25 18:24] PHASE 6/7 done in 2.6 min
+
+[2026-10-25 18:24] PHASE 7/7: Aerobic zone - leave-one-facility-out (augmented) - 21 runs -> ../results/aerobic_zone_aug
+[2026-10-25 18:24]   ResNet-18: already done, skipping
+[2026-10-25 18:24]   ResNet-18 (scratch) training (3 runs)
+    ResNet-18 (scratch) / held-out Atlantis: OK in 7.4 min -- ../results/aerobic_zone_aug/results_aerobic_zone_resnet18_scratch_Atlantis.pkl
+[2026-10-25 18:32]     ResNet-18 (scratch) - held-out Atlantis: done in 7.4 min   [67/84 runs overall]
+    ResNet-18 (scratch) / held-out CapeFlats: OK in 0.8 min -- ../results/aerobic_zone_aug/results_aerobic_zone_resnet18_scratch_CapeFlats.pkl
+[2026-10-25 18:32]     ResNet-18 (scratch) - held-out CapeFlats: done in 0.8 min   [68/84 runs overall]
+    ResNet-18 (scratch) / held-out Waterval: OK in 2.4 min -- ../results/aerobic_zone_aug/results_aerobic_zone_resnet18_scratch_Waterval.pkl
+[2026-10-25 18:35]     ResNet-18 (scratch) - held-out Waterval: done in 2.4 min   [69/84 runs overall]
+[2026-10-25 18:35]   ResNet-18 (scratch) finished in 10.6 min
+[2026-10-25 18:35]   ResNet-50: already done, skipping
+[2026-10-25 18:35]   DenseNet-121: already done, skipping
+[2026-10-25 18:35]   InceptionNet v3: already done, skipping
+[2026-10-25 18:35]   EfficientNet-B0: already done, skipping
+[2026-10-25 18:35]   ConvNeXt-Tiny: already done, skipping
+[2026-10-25 18:35] PHASE 7/7 done in 10.6 min
+[2026-10-25 18:35] Updating results notebooks
+[NbConvertApp] Converting notebook results_clarifier.ipynb to notebook
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbConvertApp] Writing 17453441 bytes to results_clarifier.ipynb
+[2026-10-25 18:35]   results_clarifier.ipynb updated
+[NbConvertApp] Converting notebook results_aerobic_zone.ipynb to notebook
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbConvertApp] Writing 13049885 bytes to results_aerobic_zone.ipynb
+[2026-10-25 18:35]   results_aerobic_zone.ipynb updated
+
+[2026-10-25 18:35] PIPELINE DONE in 2.2 h - 84/84 runs have results, 0 failed

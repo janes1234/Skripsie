@@ -4082,3 +4082,972 @@ Train: 1310 | Val: 320 | Test: 113
 [08:13:32] Saved tuned hyperparameters for inception_v3 to tuned_hyperparams_aerobic_zone.json
 [08:13:32] [inception_v3] finished in 87.2 min
 [08:13:32] All requested architectures tuned in 87.2 min total.
+Using device: cuda
+Test set ID: Atlantis
+Train-time augmentation: on
+Classes found (3): ['Dysfunctional', 'Functional', 'Suboptimal']
+[16:47:09] Dataset root: ../cnn_dataset_split_facility_test-Atlantis  Component: aerobic_zone
+[16:47:09] Architectures to tune (1): ['resnet18_scratch']
+[16:47:09] Trials per architecture: 20
+[I 2026-10-25 16:47:09,363] A new study created in RDB with name: aerobic_zone_resnet18_scratch_tune
+[16:47:09] === resnet18_scratch: 0/20 trials already recorded, 20 remaining, img_size=(112, 224) ===
+[16:47:09] [resnet18_scratch] trial 0: H=1 N=512 lr=2.92e-03 beta1=0.800 step_size=30 batch_size=16 (micro_batch=16, accum_steps=1)
+Train: 1310 | Val: 320 | Test: 113
+[resnet18_scratch trial0] Epoch   1/100 | LR: 2.92e-03 | train loss 1.2616 acc 0.346 | val loss 1.0627 acc 0.409 *
+[resnet18_scratch trial0] Epoch   2/100 | LR: 2.92e-03 | train loss 1.1006 acc 0.428 | val loss 1.0939 acc 0.459
+[resnet18_scratch trial0] Epoch   3/100 | LR: 2.92e-03 | train loss 1.0955 acc 0.453 | val loss 1.1209 acc 0.391
+[resnet18_scratch trial0] Epoch   4/100 | LR: 2.92e-03 | train loss 1.0907 acc 0.482 | val loss 1.0875 acc 0.447
+[resnet18_scratch trial0] Epoch   5/100 | LR: 2.92e-03 | train loss 1.0777 acc 0.518 | val loss 1.0317 acc 0.588 *
+[resnet18_scratch trial0] Epoch   6/100 | LR: 2.92e-03 | train loss 1.0581 acc 0.549 | val loss 0.9935 acc 0.603 *
+[resnet18_scratch trial0] Epoch   7/100 | LR: 2.92e-03 | train loss 1.0133 acc 0.622 | val loss 1.1111 acc 0.425
+[resnet18_scratch trial0] Epoch   8/100 | LR: 2.92e-03 | train loss 1.0388 acc 0.597 | val loss 1.0081 acc 0.519
+[resnet18_scratch trial0] Epoch   9/100 | LR: 2.92e-03 | train loss 1.0340 acc 0.588 | val loss 0.9912 acc 0.594 *
+[resnet18_scratch trial0] Epoch  10/100 | LR: 2.92e-03 | train loss 0.9746 acc 0.627 | val loss 0.9011 acc 0.650 *
+[resnet18_scratch trial0] Epoch  11/100 | LR: 2.92e-03 | train loss 1.0011 acc 0.601 | val loss 0.9893 acc 0.641
+[resnet18_scratch trial0] Epoch  12/100 | LR: 2.92e-03 | train loss 0.9570 acc 0.653 | val loss 1.0608 acc 0.578
+[resnet18_scratch trial0] Epoch  13/100 | LR: 2.92e-03 | train loss 0.9328 acc 0.673 | val loss 1.0240 acc 0.594
+[resnet18_scratch trial0] Epoch  14/100 | LR: 2.92e-03 | train loss 0.8995 acc 0.636 | val loss 0.9291 acc 0.637
+[resnet18_scratch trial0] Epoch  15/100 | LR: 2.92e-03 | train loss 0.9379 acc 0.644 | val loss 0.8597 acc 0.641 *
+[resnet18_scratch trial0] Epoch  16/100 | LR: 2.92e-03 | train loss 0.9004 acc 0.660 | val loss 0.8391 acc 0.650 *
+[resnet18_scratch trial0] Epoch  17/100 | LR: 2.92e-03 | train loss 0.9015 acc 0.627 | val loss 0.9441 acc 0.625
+[resnet18_scratch trial0] Epoch  18/100 | LR: 2.92e-03 | train loss 0.8816 acc 0.669 | val loss 1.5236 acc 0.528
+[resnet18_scratch trial0] Epoch  19/100 | LR: 2.92e-03 | train loss 0.8936 acc 0.649 | val loss 0.8309 acc 0.678 *
+[resnet18_scratch trial0] Epoch  20/100 | LR: 2.92e-03 | train loss 0.8614 acc 0.692 | val loss 0.7919 acc 0.678 *
+[resnet18_scratch trial0] Epoch  21/100 | LR: 2.92e-03 | train loss 0.8541 acc 0.663 | val loss 0.7598 acc 0.716 *
+[resnet18_scratch trial0] Epoch  22/100 | LR: 2.92e-03 | train loss 0.8393 acc 0.687 | val loss 0.8275 acc 0.672
+[resnet18_scratch trial0] Epoch  23/100 | LR: 2.92e-03 | train loss 0.8685 acc 0.652 | val loss 0.8268 acc 0.672
+[resnet18_scratch trial0] Epoch  24/100 | LR: 2.92e-03 | train loss 0.8666 acc 0.656 | val loss 0.8309 acc 0.628
+[resnet18_scratch trial0] Epoch  25/100 | LR: 2.92e-03 | train loss 0.8405 acc 0.688 | val loss 0.7398 acc 0.703 *
+[resnet18_scratch trial0] Epoch  26/100 | LR: 2.92e-03 | train loss 0.8251 acc 0.672 | val loss 0.7660 acc 0.709
+[resnet18_scratch trial0] Epoch  27/100 | LR: 2.92e-03 | train loss 0.8454 acc 0.664 | val loss 0.8276 acc 0.628
+[resnet18_scratch trial0] Epoch  28/100 | LR: 2.92e-03 | train loss 0.8215 acc 0.650 | val loss 1.4042 acc 0.559
+[resnet18_scratch trial0] Epoch  29/100 | LR: 2.92e-03 | train loss 0.8360 acc 0.669 | val loss 0.7541 acc 0.694
+[resnet18_scratch trial0] Epoch  30/100 | LR: 2.92e-04 | train loss 0.8397 acc 0.652 | val loss 0.9640 acc 0.547
+[resnet18_scratch trial0] Epoch  31/100 | LR: 2.92e-04 | train loss 0.7851 acc 0.680 | val loss 0.7096 acc 0.694 *
+[resnet18_scratch trial0] Epoch  32/100 | LR: 2.92e-04 | train loss 0.7701 acc 0.688 | val loss 0.7040 acc 0.713 *
+[resnet18_scratch trial0] Epoch  33/100 | LR: 2.92e-04 | train loss 0.7530 acc 0.708 | val loss 0.6929 acc 0.734 *
+[resnet18_scratch trial0] Epoch  34/100 | LR: 2.92e-04 | train loss 0.7611 acc 0.709 | val loss 0.6750 acc 0.725 *
+[resnet18_scratch trial0] Epoch  35/100 | LR: 2.92e-04 | train loss 0.7718 acc 0.690 | val loss 0.6886 acc 0.731
+[resnet18_scratch trial0] Epoch  36/100 | LR: 2.92e-04 | train loss 0.7357 acc 0.701 | val loss 0.6711 acc 0.750 *
+[resnet18_scratch trial0] Epoch  37/100 | LR: 2.92e-04 | train loss 0.7618 acc 0.700 | val loss 0.6517 acc 0.747 *
+[resnet18_scratch trial0] Epoch  38/100 | LR: 2.92e-04 | train loss 0.7372 acc 0.712 | val loss 0.6517 acc 0.747
+[resnet18_scratch trial0] Epoch  39/100 | LR: 2.92e-04 | train loss 0.7384 acc 0.696 | val loss 0.6341 acc 0.753 *
+[resnet18_scratch trial0] Epoch  40/100 | LR: 2.92e-04 | train loss 0.7053 acc 0.727 | val loss 0.6800 acc 0.750
+[resnet18_scratch trial0] Epoch  41/100 | LR: 2.92e-04 | train loss 0.7332 acc 0.712 | val loss 0.6503 acc 0.756
+[resnet18_scratch trial0] Epoch  42/100 | LR: 2.92e-04 | train loss 0.7225 acc 0.711 | val loss 0.6455 acc 0.750
+[resnet18_scratch trial0] Epoch  43/100 | LR: 2.92e-04 | train loss 0.7237 acc 0.717 | val loss 0.6228 acc 0.725 *
+[resnet18_scratch trial0] Epoch  44/100 | LR: 2.92e-04 | train loss 0.7276 acc 0.694 | val loss 0.6411 acc 0.697
+[resnet18_scratch trial0] Epoch  45/100 | LR: 2.92e-04 | train loss 0.7254 acc 0.692 | val loss 0.6831 acc 0.725
+[resnet18_scratch trial0] Epoch  46/100 | LR: 2.92e-04 | train loss 0.7372 acc 0.705 | val loss 0.6672 acc 0.731
+[resnet18_scratch trial0] Epoch  47/100 | LR: 2.92e-04 | train loss 0.7298 acc 0.704 | val loss 0.6736 acc 0.731
+[resnet18_scratch trial0] Epoch  48/100 | LR: 2.92e-04 | train loss 0.7234 acc 0.693 | val loss 0.6124 acc 0.762 *
+[resnet18_scratch trial0] Epoch  49/100 | LR: 2.92e-04 | train loss 0.7168 acc 0.724 | val loss 0.6068 acc 0.747 *
+[resnet18_scratch trial0] Epoch  50/100 | LR: 2.92e-04 | train loss 0.7386 acc 0.685 | val loss 0.6027 acc 0.744 *
+[resnet18_scratch trial0] Epoch  51/100 | LR: 2.92e-04 | train loss 0.7153 acc 0.711 | val loss 0.6510 acc 0.744
+[resnet18_scratch trial0] Epoch  52/100 | LR: 2.92e-04 | train loss 0.7107 acc 0.701 | val loss 0.6847 acc 0.747
+[resnet18_scratch trial0] Epoch  53/100 | LR: 2.92e-04 | train loss 0.6884 acc 0.717 | val loss 0.5980 acc 0.775 *
+[resnet18_scratch trial0] Epoch  54/100 | LR: 2.92e-04 | train loss 0.7002 acc 0.699 | val loss 0.6304 acc 0.747
+[resnet18_scratch trial0] Epoch  55/100 | LR: 2.92e-04 | train loss 0.7186 acc 0.706 | val loss 0.6391 acc 0.728
+[resnet18_scratch trial0] Epoch  56/100 | LR: 2.92e-04 | train loss 0.7048 acc 0.704 | val loss 0.6011 acc 0.750
+[resnet18_scratch trial0] Epoch  57/100 | LR: 2.92e-04 | train loss 0.7004 acc 0.699 | val loss 0.6453 acc 0.722
+[resnet18_scratch trial0] Epoch  58/100 | LR: 2.92e-04 | train loss 0.7044 acc 0.707 | val loss 0.5873 acc 0.766 *
+[resnet18_scratch trial0] Epoch  59/100 | LR: 2.92e-04 | train loss 0.6704 acc 0.724 | val loss 0.6045 acc 0.775
+[resnet18_scratch trial0] Epoch  60/100 | LR: 2.92e-05 | train loss 0.6994 acc 0.712 | val loss 0.6045 acc 0.759
+[resnet18_scratch trial0] Epoch  61/100 | LR: 2.92e-05 | train loss 0.6814 acc 0.734 | val loss 0.6095 acc 0.756
+[resnet18_scratch trial0] Epoch  62/100 | LR: 2.92e-05 | train loss 0.6688 acc 0.717 | val loss 0.5924 acc 0.759
+[resnet18_scratch trial0] Epoch  63/100 | LR: 2.92e-05 | train loss 0.6877 acc 0.716 | val loss 0.5987 acc 0.756
+[resnet18_scratch trial0] Epoch  64/100 | LR: 2.92e-05 | train loss 0.6604 acc 0.737 | val loss 0.6000 acc 0.766
+[resnet18_scratch trial0] Epoch  65/100 | LR: 2.92e-05 | train loss 0.6690 acc 0.727 | val loss 0.5790 acc 0.762 *
+[resnet18_scratch trial0] Epoch  66/100 | LR: 2.92e-05 | train loss 0.6622 acc 0.733 | val loss 0.5903 acc 0.756
+[resnet18_scratch trial0] Epoch  67/100 | LR: 2.92e-05 | train loss 0.6620 acc 0.744 | val loss 0.5774 acc 0.769 *
+[resnet18_scratch trial0] Epoch  68/100 | LR: 2.92e-05 | train loss 0.6585 acc 0.728 | val loss 0.5923 acc 0.769
+[resnet18_scratch trial0] Epoch  69/100 | LR: 2.92e-05 | train loss 0.6579 acc 0.734 | val loss 0.5879 acc 0.759
+[resnet18_scratch trial0] Epoch  70/100 | LR: 2.92e-05 | train loss 0.6505 acc 0.731 | val loss 0.5751 acc 0.772 *
+[resnet18_scratch trial0] Epoch  71/100 | LR: 2.92e-05 | train loss 0.6816 acc 0.721 | val loss 0.5555 acc 0.766 *
+[resnet18_scratch trial0] Epoch  72/100 | LR: 2.92e-05 | train loss 0.6686 acc 0.711 | val loss 0.5579 acc 0.775
+[resnet18_scratch trial0] Epoch  73/100 | LR: 2.92e-05 | train loss 0.6593 acc 0.731 | val loss 0.5658 acc 0.766
+[resnet18_scratch trial0] Epoch  74/100 | LR: 2.92e-05 | train loss 0.6700 acc 0.726 | val loss 0.5978 acc 0.762
+[resnet18_scratch trial0] Epoch  75/100 | LR: 2.92e-05 | train loss 0.6698 acc 0.729 | val loss 0.5741 acc 0.766
+[resnet18_scratch trial0] Epoch  76/100 | LR: 2.92e-05 | train loss 0.6657 acc 0.727 | val loss 0.5845 acc 0.756
+[resnet18_scratch trial0] Epoch  77/100 | LR: 2.92e-05 | train loss 0.6619 acc 0.727 | val loss 0.5665 acc 0.769
+[resnet18_scratch trial0] Epoch  78/100 | LR: 2.92e-05 | train loss 0.6733 acc 0.727 | val loss 0.5908 acc 0.759
+[resnet18_scratch trial0] Epoch  79/100 | LR: 2.92e-05 | train loss 0.6677 acc 0.721 | val loss 0.5956 acc 0.759
+[resnet18_scratch trial0] Epoch  80/100 | LR: 2.92e-05 | train loss 0.6457 acc 0.734 | val loss 0.5769 acc 0.769
+[resnet18_scratch trial0] Epoch  81/100 | LR: 2.92e-05 | train loss 0.6449 acc 0.730 | val loss 0.5740 acc 0.759
+
+[resnet18_scratch trial0] No val loss improvement for 10 epochs, stopping at epoch 81.
+
+[resnet18_scratch trial0] Restored best checkpoint (val loss = 0.5555)
+[16:56:27] [resnet18_scratch] trial 0 finished: best val_acc=0.7656 (at val_loss=0.5555)
+[I 2026-10-25 16:56:27,529] Trial 0 finished with value: 0.765625 and parameters: {'hidden_layers': 1, 'neurons': 512, 'lr': 0.0029154431891537554, 'beta1': 0.7999563908598613, 'step_size': 30, 'batch_size': 16}. Best is trial 0 with value: 0.765625.
+[16:56:27] [resnet18_scratch] trial 1: H=2 N=2048 lr=1.38e-03 beta1=0.600 step_size=23 batch_size=96 (micro_batch=16, accum_steps=6)
+Train: 1310 | Val: 320 | Test: 113
+[resnet18_scratch trial1] Gradient accumulation: 6 micro-batches per optimizer step.
+[resnet18_scratch trial1] Epoch   1/100 | LR: 1.38e-03 | train loss 1.3727 acc 0.325 | val loss 1.5509 acc 0.300 *
+[resnet18_scratch trial1] Epoch   2/100 | LR: 1.38e-03 | train loss 1.0960 acc 0.476 | val loss 1.0987 acc 0.466 *
+[resnet18_scratch trial1] Epoch   3/100 | LR: 1.38e-03 | train loss 1.0671 acc 0.586 | val loss 1.1766 acc 0.438
+[resnet18_scratch trial1] Epoch   4/100 | LR: 1.38e-03 | train loss 1.0342 acc 0.602 | val loss 1.1848 acc 0.656
+[resnet18_scratch trial1] Epoch   5/100 | LR: 1.38e-03 | train loss 1.0665 acc 0.522 | val loss 0.9757 acc 0.603 *
+[resnet18_scratch trial1] Epoch   6/100 | LR: 1.38e-03 | train loss 1.0669 acc 0.510 | val loss 1.0544 acc 0.472
+[resnet18_scratch trial1] Epoch   7/100 | LR: 1.38e-03 | train loss 1.0678 acc 0.453 | val loss 0.9453 acc 0.641 *
+[resnet18_scratch trial1] Epoch   8/100 | LR: 1.38e-03 | train loss 1.0238 acc 0.587 | val loss 1.0076 acc 0.591
+[resnet18_scratch trial1] Epoch   9/100 | LR: 1.38e-03 | train loss 1.0011 acc 0.606 | val loss 0.9984 acc 0.606
+[resnet18_scratch trial1] Epoch  10/100 | LR: 1.38e-03 | train loss 0.9675 acc 0.646 | val loss 0.8693 acc 0.703 *
+[resnet18_scratch trial1] Epoch  11/100 | LR: 1.38e-03 | train loss 0.9600 acc 0.649 | val loss 1.0011 acc 0.656
+[resnet18_scratch trial1] Epoch  12/100 | LR: 1.38e-03 | train loss 0.9282 acc 0.669 | val loss 0.8173 acc 0.672 *
+[resnet18_scratch trial1] Epoch  13/100 | LR: 1.38e-03 | train loss 0.9210 acc 0.650 | val loss 0.9283 acc 0.634
+[resnet18_scratch trial1] Epoch  14/100 | LR: 1.38e-03 | train loss 0.9369 acc 0.642 | val loss 0.8466 acc 0.675
+[resnet18_scratch trial1] Epoch  15/100 | LR: 1.38e-03 | train loss 0.9779 acc 0.587 | val loss 1.0311 acc 0.584
+[resnet18_scratch trial1] Epoch  16/100 | LR: 1.38e-03 | train loss 0.9637 acc 0.611 | val loss 0.8021 acc 0.706 *
+[resnet18_scratch trial1] Epoch  17/100 | LR: 1.38e-03 | train loss 0.9288 acc 0.649 | val loss 0.8563 acc 0.694
+[resnet18_scratch trial1] Epoch  18/100 | LR: 1.38e-03 | train loss 0.8867 acc 0.684 | val loss 0.8258 acc 0.681
+[resnet18_scratch trial1] Epoch  19/100 | LR: 1.38e-03 | train loss 0.9084 acc 0.665 | val loss 0.8877 acc 0.622
+[resnet18_scratch trial1] Epoch  20/100 | LR: 1.38e-03 | train loss 0.9119 acc 0.642 | val loss 0.7625 acc 0.716 *
+[resnet18_scratch trial1] Epoch  21/100 | LR: 1.38e-03 | train loss 0.9170 acc 0.649 | val loss 0.7740 acc 0.669
+[resnet18_scratch trial1] Epoch  22/100 | LR: 1.38e-03 | train loss 0.8942 acc 0.650 | val loss 0.8503 acc 0.659
+[resnet18_scratch trial1] Epoch  23/100 | LR: 1.38e-04 | train loss 0.8928 acc 0.660 | val loss 0.8755 acc 0.659
+[resnet18_scratch trial1] Epoch  24/100 | LR: 1.38e-04 | train loss 0.8595 acc 0.679 | val loss 0.7246 acc 0.691 *
+[resnet18_scratch trial1] Epoch  25/100 | LR: 1.38e-04 | train loss 0.8234 acc 0.687 | val loss 0.7277 acc 0.672
+[resnet18_scratch trial1] Epoch  26/100 | LR: 1.38e-04 | train loss 0.8012 acc 0.680 | val loss 0.7189 acc 0.706 *
+[resnet18_scratch trial1] Epoch  27/100 | LR: 1.38e-04 | train loss 0.8013 acc 0.668 | val loss 0.7174 acc 0.684 *
+[resnet18_scratch trial1] Epoch  28/100 | LR: 1.38e-04 | train loss 0.7798 acc 0.673 | val loss 0.6971 acc 0.681 *
+[resnet18_scratch trial1] Epoch  29/100 | LR: 1.38e-04 | train loss 0.7844 acc 0.645 | val loss 0.6993 acc 0.659
+[resnet18_scratch trial1] Epoch  30/100 | LR: 1.38e-04 | train loss 0.8118 acc 0.660 | val loss 0.7150 acc 0.669
+[resnet18_scratch trial1] Epoch  31/100 | LR: 1.38e-04 | train loss 0.7718 acc 0.670 | val loss 0.7115 acc 0.700
+[resnet18_scratch trial1] Epoch  32/100 | LR: 1.38e-04 | train loss 0.7711 acc 0.662 | val loss 0.7155 acc 0.688
+[resnet18_scratch trial1] Epoch  33/100 | LR: 1.38e-04 | train loss 0.7516 acc 0.695 | val loss 0.6717 acc 0.678 *
+[resnet18_scratch trial1] Epoch  34/100 | LR: 1.38e-04 | train loss 0.7464 acc 0.680 | val loss 0.7473 acc 0.650
+[resnet18_scratch trial1] Epoch  35/100 | LR: 1.38e-04 | train loss 0.7584 acc 0.673 | val loss 0.6993 acc 0.697
+[resnet18_scratch trial1] Epoch  36/100 | LR: 1.38e-04 | train loss 0.7400 acc 0.689 | val loss 0.6436 acc 0.719 *
+[resnet18_scratch trial1] Epoch  37/100 | LR: 1.38e-04 | train loss 0.7473 acc 0.700 | val loss 0.6785 acc 0.713
+[resnet18_scratch trial1] Epoch  38/100 | LR: 1.38e-04 | train loss 0.7392 acc 0.696 | val loss 0.6117 acc 0.738 *
+[resnet18_scratch trial1] Epoch  39/100 | LR: 1.38e-04 | train loss 0.7361 acc 0.691 | val loss 0.6873 acc 0.709
+[resnet18_scratch trial1] Epoch  40/100 | LR: 1.38e-04 | train loss 0.7232 acc 0.694 | val loss 0.6795 acc 0.691
+[resnet18_scratch trial1] Epoch  41/100 | LR: 1.38e-04 | train loss 0.7207 acc 0.698 | val loss 0.6542 acc 0.728
+[resnet18_scratch trial1] Epoch  42/100 | LR: 1.38e-04 | train loss 0.7072 acc 0.717 | val loss 0.6609 acc 0.725
+[resnet18_scratch trial1] Epoch  43/100 | LR: 1.38e-04 | train loss 0.7251 acc 0.675 | val loss 0.6363 acc 0.734
+[resnet18_scratch trial1] Epoch  44/100 | LR: 1.38e-04 | train loss 0.7068 acc 0.703 | val loss 0.7336 acc 0.684
+[resnet18_scratch trial1] Epoch  45/100 | LR: 1.38e-04 | train loss 0.7154 acc 0.715 | val loss 0.6848 acc 0.703
+[resnet18_scratch trial1] Epoch  46/100 | LR: 1.38e-05 | train loss 0.7062 acc 0.712 | val loss 0.6214 acc 0.741
+[resnet18_scratch trial1] Epoch  47/100 | LR: 1.38e-05 | train loss 0.7300 acc 0.699 | val loss 0.6455 acc 0.703
+[resnet18_scratch trial1] Epoch  48/100 | LR: 1.38e-05 | train loss 0.6815 acc 0.727 | val loss 0.6089 acc 0.725 *
+[resnet18_scratch trial1] Epoch  49/100 | LR: 1.38e-05 | train loss 0.6895 acc 0.718 | val loss 0.6404 acc 0.713
+[resnet18_scratch trial1] Epoch  50/100 | LR: 1.38e-05 | train loss 0.6755 acc 0.720 | val loss 0.6025 acc 0.738 *
+[resnet18_scratch trial1] Epoch  51/100 | LR: 1.38e-05 | train loss 0.6773 acc 0.709 | val loss 0.6195 acc 0.719
+[resnet18_scratch trial1] Epoch  52/100 | LR: 1.38e-05 | train loss 0.6908 acc 0.708 | val loss 0.6197 acc 0.719
+[resnet18_scratch trial1] Epoch  53/100 | LR: 1.38e-05 | train loss 0.6951 acc 0.714 | val loss 0.6097 acc 0.719
+[resnet18_scratch trial1] Epoch  54/100 | LR: 1.38e-05 | train loss 0.6792 acc 0.708 | val loss 0.6167 acc 0.722
+[resnet18_scratch trial1] Epoch  55/100 | LR: 1.38e-05 | train loss 0.6831 acc 0.717 | val loss 0.6012 acc 0.725 *
+[resnet18_scratch trial1] Epoch  56/100 | LR: 1.38e-05 | train loss 0.6909 acc 0.715 | val loss 0.6136 acc 0.709
+[resnet18_scratch trial1] Epoch  57/100 | LR: 1.38e-05 | train loss 0.6744 acc 0.714 | val loss 0.6067 acc 0.716
+[resnet18_scratch trial1] Epoch  58/100 | LR: 1.38e-05 | train loss 0.6788 acc 0.711 | val loss 0.6119 acc 0.722
+[resnet18_scratch trial1] Epoch  59/100 | LR: 1.38e-05 | train loss 0.6901 acc 0.708 | val loss 0.5997 acc 0.731 *
+[resnet18_scratch trial1] Epoch  60/100 | LR: 1.38e-05 | train loss 0.6700 acc 0.713 | val loss 0.6064 acc 0.725
+[resnet18_scratch trial1] Epoch  61/100 | LR: 1.38e-05 | train loss 0.6926 acc 0.724 | val loss 0.6242 acc 0.716
+[resnet18_scratch trial1] Epoch  62/100 | LR: 1.38e-05 | train loss 0.6791 acc 0.708 | val loss 0.6103 acc 0.725
+[resnet18_scratch trial1] Epoch  63/100 | LR: 1.38e-05 | train loss 0.6910 acc 0.713 | val loss 0.5959 acc 0.716 *
+[resnet18_scratch trial1] Epoch  64/100 | LR: 1.38e-05 | train loss 0.6940 acc 0.707 | val loss 0.6177 acc 0.716
+[resnet18_scratch trial1] Epoch  65/100 | LR: 1.38e-05 | train loss 0.6383 acc 0.744 | val loss 0.6019 acc 0.722
+[resnet18_scratch trial1] Epoch  66/100 | LR: 1.38e-05 | train loss 0.6821 acc 0.717 | val loss 0.5990 acc 0.719
+[resnet18_scratch trial1] Epoch  67/100 | LR: 1.38e-05 | train loss 0.6582 acc 0.725 | val loss 0.6025 acc 0.719
+[resnet18_scratch trial1] Epoch  68/100 | LR: 1.38e-05 | train loss 0.6605 acc 0.729 | val loss 0.5950 acc 0.725 *
+[resnet18_scratch trial1] Epoch  69/100 | LR: 1.38e-06 | train loss 0.6641 acc 0.707 | val loss 0.6043 acc 0.719
+[resnet18_scratch trial1] Epoch  70/100 | LR: 1.38e-06 | train loss 0.6557 acc 0.745 | val loss 0.6135 acc 0.716
+[resnet18_scratch trial1] Epoch  71/100 | LR: 1.38e-06 | train loss 0.6835 acc 0.719 | val loss 0.6067 acc 0.722
+[resnet18_scratch trial1] Epoch  72/100 | LR: 1.38e-06 | train loss 0.6532 acc 0.721 | val loss 0.6097 acc 0.725
+[resnet18_scratch trial1] Epoch  73/100 | LR: 1.38e-06 | train loss 0.6683 acc 0.719 | val loss 0.6252 acc 0.719
+[resnet18_scratch trial1] Epoch  74/100 | LR: 1.38e-06 | train loss 0.6713 acc 0.725 | val loss 0.6116 acc 0.722
+[resnet18_scratch trial1] Epoch  75/100 | LR: 1.38e-06 | train loss 0.6889 acc 0.721 | val loss 0.6089 acc 0.719
+[resnet18_scratch trial1] Epoch  76/100 | LR: 1.38e-06 | train loss 0.6869 acc 0.717 | val loss 0.5954 acc 0.731
+[resnet18_scratch trial1] Epoch  77/100 | LR: 1.38e-06 | train loss 0.6841 acc 0.715 | val loss 0.6086 acc 0.725
+[resnet18_scratch trial1] Epoch  78/100 | LR: 1.38e-06 | train loss 0.6693 acc 0.718 | val loss 0.5994 acc 0.719
+
+[resnet18_scratch trial1] No val loss improvement for 10 epochs, stopping at epoch 78.
+
+[resnet18_scratch trial1] Restored best checkpoint (val loss = 0.5950)
+[17:05:23] [resnet18_scratch] trial 1 finished: best val_acc=0.7250 (at val_loss=0.5950)
+[I 2026-10-25 17:05:23,486] Trial 1 finished with value: 0.725 and parameters: {'hidden_layers': 2, 'neurons': 2048, 'lr': 0.0013826232179369874, 'beta1': 0.5996372172970215, 'step_size': 23, 'batch_size': 96}. Best is trial 0 with value: 0.765625.
+[17:05:23] [resnet18_scratch] trial 2: H=2 N=1024 lr=4.34e-03 beta1=0.629 step_size=28 batch_size=48 (micro_batch=16, accum_steps=3)
+Train: 1310 | Val: 320 | Test: 113
+[resnet18_scratch trial2] Gradient accumulation: 3 micro-batches per optimizer step.
+[resnet18_scratch trial2] Epoch   1/100 | LR: 4.34e-03 | train loss 1.8661 acc 0.380 | val loss 1.0984 acc 0.403 *
+[resnet18_scratch trial2] Epoch   2/100 | LR: 4.34e-03 | train loss 1.1008 acc 0.380 | val loss 1.0876 acc 0.487 *
+[resnet18_scratch trial2] Epoch   3/100 | LR: 4.34e-03 | train loss 1.0973 acc 0.452 | val loss 1.0796 acc 0.463 *
+[resnet18_scratch trial2] Epoch   4/100 | LR: 4.34e-03 | train loss 1.0994 acc 0.464 | val loss 1.1942 acc 0.456
+[resnet18_scratch trial2] Epoch   5/100 | LR: 4.34e-03 | train loss 1.1021 acc 0.376 | val loss 1.0824 acc 0.503
+[resnet18_scratch trial2] Epoch   6/100 | LR: 4.34e-03 | train loss 1.1046 acc 0.475 | val loss 1.0813 acc 0.491
+[resnet18_scratch trial2] Epoch   7/100 | LR: 4.34e-03 | train loss 1.1031 acc 0.447 | val loss 8.2065 acc 0.487
+[resnet18_scratch trial2] Epoch   8/100 | LR: 4.34e-03 | train loss 1.1021 acc 0.492 | val loss 1.0669 acc 0.581 *
+[resnet18_scratch trial2] Epoch   9/100 | LR: 4.34e-03 | train loss 1.0924 acc 0.501 | val loss 1.0815 acc 0.469
+[resnet18_scratch trial2] Epoch  10/100 | LR: 4.34e-03 | train loss 1.0951 acc 0.493 | val loss 1.0860 acc 0.412
+[resnet18_scratch trial2] Epoch  11/100 | LR: 4.34e-03 | train loss 1.0931 acc 0.496 | val loss 1.0322 acc 0.512 *
+[resnet18_scratch trial2] Epoch  12/100 | LR: 4.34e-03 | train loss 1.0992 acc 0.472 | val loss 1.0794 acc 0.487
+[resnet18_scratch trial2] Epoch  13/100 | LR: 4.34e-03 | train loss 1.0820 acc 0.508 | val loss 1.0337 acc 0.356
+[resnet18_scratch trial2] Epoch  14/100 | LR: 4.34e-03 | train loss 1.0795 acc 0.527 | val loss 1.0554 acc 0.463
+[resnet18_scratch trial2] Epoch  15/100 | LR: 4.34e-03 | train loss 1.1162 acc 0.479 | val loss 1.1115 acc 0.466
+[resnet18_scratch trial2] Epoch  16/100 | LR: 4.34e-03 | train loss 1.0872 acc 0.523 | val loss 1.0370 acc 0.578
+[resnet18_scratch trial2] Epoch  17/100 | LR: 4.34e-03 | train loss 1.0766 acc 0.497 | val loss 1.0372 acc 0.550
+[resnet18_scratch trial2] Epoch  18/100 | LR: 4.34e-03 | train loss 1.0826 acc 0.527 | val loss 1.0355 acc 0.500
+[resnet18_scratch trial2] Epoch  19/100 | LR: 4.34e-03 | train loss 1.0653 acc 0.545 | val loss 1.0968 acc 0.500
+[resnet18_scratch trial2] Epoch  20/100 | LR: 4.34e-03 | train loss 1.0767 acc 0.540 | val loss 1.1168 acc 0.431
+[resnet18_scratch trial2] Epoch  21/100 | LR: 4.34e-03 | train loss 1.1101 acc 0.415 | val loss 1.0935 acc 0.391
+
+[resnet18_scratch trial2] No val loss improvement for 10 epochs, stopping at epoch 21.
+
+[resnet18_scratch trial2] Restored best checkpoint (val loss = 1.0322)
+[17:07:48] [resnet18_scratch] trial 2 finished: best val_acc=0.5125 (at val_loss=1.0322)
+[I 2026-10-25 17:07:48,899] Trial 2 finished with value: 0.5125 and parameters: {'hidden_layers': 2, 'neurons': 1024, 'lr': 0.004337920697490943, 'beta1': 0.6291312108184084, 'step_size': 28, 'batch_size': 48}. Best is trial 0 with value: 0.765625.
+[17:07:48] [resnet18_scratch] trial 3: H=1 N=2048 lr=1.22e-05 beta1=0.914 step_size=17 batch_size=64 (micro_batch=16, accum_steps=4)
+Train: 1310 | Val: 320 | Test: 113
+[resnet18_scratch trial3] Gradient accumulation: 4 micro-batches per optimizer step.
+[resnet18_scratch trial3] Epoch   1/100 | LR: 1.22e-05 | train loss 1.0967 acc 0.387 | val loss 1.0777 acc 0.456 *
+[resnet18_scratch trial3] Epoch   2/100 | LR: 1.22e-05 | train loss 1.0678 acc 0.515 | val loss 1.0385 acc 0.497 *
+[resnet18_scratch trial3] Epoch   3/100 | LR: 1.22e-05 | train loss 1.0532 acc 0.584 | val loss 1.0018 acc 0.578 *
+[resnet18_scratch trial3] Epoch   4/100 | LR: 1.22e-05 | train loss 1.0228 acc 0.589 | val loss 0.9767 acc 0.559 *
+[resnet18_scratch trial3] Epoch   5/100 | LR: 1.22e-05 | train loss 0.9857 acc 0.608 | val loss 0.9521 acc 0.562 *
+[resnet18_scratch trial3] Epoch   6/100 | LR: 1.22e-05 | train loss 0.9773 acc 0.627 | val loss 0.8884 acc 0.622 *
+[resnet18_scratch trial3] Epoch   7/100 | LR: 1.22e-05 | train loss 0.9357 acc 0.638 | val loss 0.8699 acc 0.619 *
+[resnet18_scratch trial3] Epoch   8/100 | LR: 1.22e-05 | train loss 0.9245 acc 0.650 | val loss 0.8341 acc 0.647 *
+[resnet18_scratch trial3] Epoch   9/100 | LR: 1.22e-05 | train loss 0.8871 acc 0.659 | val loss 0.7974 acc 0.675 *
+[resnet18_scratch trial3] Epoch  10/100 | LR: 1.22e-05 | train loss 0.8857 acc 0.650 | val loss 0.7735 acc 0.672 *
+[resnet18_scratch trial3] Epoch  11/100 | LR: 1.22e-05 | train loss 0.8734 acc 0.652 | val loss 0.7832 acc 0.669
+[resnet18_scratch trial3] Epoch  12/100 | LR: 1.22e-05 | train loss 0.8733 acc 0.657 | val loss 0.7312 acc 0.713 *
+[resnet18_scratch trial3] Epoch  13/100 | LR: 1.22e-05 | train loss 0.8501 acc 0.650 | val loss 0.7305 acc 0.697 *
+[resnet18_scratch trial3] Epoch  14/100 | LR: 1.22e-05 | train loss 0.8318 acc 0.689 | val loss 0.7063 acc 0.719 *
+[resnet18_scratch trial3] Epoch  15/100 | LR: 1.22e-05 | train loss 0.8391 acc 0.637 | val loss 0.7293 acc 0.675
+[resnet18_scratch trial3] Epoch  16/100 | LR: 1.22e-05 | train loss 0.8195 acc 0.660 | val loss 0.7277 acc 0.697
+[resnet18_scratch trial3] Epoch  17/100 | LR: 1.22e-06 | train loss 0.8105 acc 0.677 | val loss 0.6984 acc 0.741 *
+[resnet18_scratch trial3] Epoch  18/100 | LR: 1.22e-06 | train loss 0.7923 acc 0.694 | val loss 0.7145 acc 0.700
+[resnet18_scratch trial3] Epoch  19/100 | LR: 1.22e-06 | train loss 0.7786 acc 0.698 | val loss 0.7387 acc 0.678
+[resnet18_scratch trial3] Epoch  20/100 | LR: 1.22e-06 | train loss 0.8154 acc 0.675 | val loss 0.6993 acc 0.700
+[resnet18_scratch trial3] Epoch  21/100 | LR: 1.22e-06 | train loss 0.7954 acc 0.689 | val loss 0.6999 acc 0.706
+[resnet18_scratch trial3] Epoch  22/100 | LR: 1.22e-06 | train loss 0.7968 acc 0.675 | val loss 0.7014 acc 0.706
+[resnet18_scratch trial3] Epoch  23/100 | LR: 1.22e-06 | train loss 0.7928 acc 0.683 | val loss 0.6888 acc 0.703 *
+[resnet18_scratch trial3] Epoch  24/100 | LR: 1.22e-06 | train loss 0.7778 acc 0.697 | val loss 0.7123 acc 0.694
+[resnet18_scratch trial3] Epoch  25/100 | LR: 1.22e-06 | train loss 0.7876 acc 0.673 | val loss 0.6892 acc 0.694
+[resnet18_scratch trial3] Epoch  26/100 | LR: 1.22e-06 | train loss 0.8162 acc 0.660 | val loss 0.6989 acc 0.694
+[resnet18_scratch trial3] Epoch  27/100 | LR: 1.22e-06 | train loss 0.7842 acc 0.685 | val loss 0.6908 acc 0.700
+[resnet18_scratch trial3] Epoch  28/100 | LR: 1.22e-06 | train loss 0.7951 acc 0.676 | val loss 0.6941 acc 0.700
+[resnet18_scratch trial3] Epoch  29/100 | LR: 1.22e-06 | train loss 0.7884 acc 0.679 | val loss 0.6930 acc 0.694
+[resnet18_scratch trial3] Epoch  30/100 | LR: 1.22e-06 | train loss 0.7737 acc 0.689 | val loss 0.6864 acc 0.713 *
+[resnet18_scratch trial3] Epoch  31/100 | LR: 1.22e-06 | train loss 0.7947 acc 0.679 | val loss 0.6866 acc 0.709
+[resnet18_scratch trial3] Epoch  32/100 | LR: 1.22e-06 | train loss 0.7630 acc 0.695 | val loss 0.7162 acc 0.697
+[resnet18_scratch trial3] Epoch  33/100 | LR: 1.22e-06 | train loss 0.7788 acc 0.677 | val loss 0.6903 acc 0.697
+[resnet18_scratch trial3] Epoch  34/100 | LR: 1.22e-07 | train loss 0.7965 acc 0.674 | val loss 0.7044 acc 0.703
+[resnet18_scratch trial3] Epoch  35/100 | LR: 1.22e-07 | train loss 0.7817 acc 0.692 | val loss 0.6845 acc 0.706 *
+[resnet18_scratch trial3] Epoch  36/100 | LR: 1.22e-07 | train loss 0.7644 acc 0.707 | val loss 0.6996 acc 0.709
+[resnet18_scratch trial3] Epoch  37/100 | LR: 1.22e-07 | train loss 0.7621 acc 0.705 | val loss 0.7000 acc 0.703
+[resnet18_scratch trial3] Epoch  38/100 | LR: 1.22e-07 | train loss 0.7843 acc 0.680 | val loss 0.7031 acc 0.703
+[resnet18_scratch trial3] Epoch  39/100 | LR: 1.22e-07 | train loss 0.7740 acc 0.692 | val loss 0.6788 acc 0.706 *
+[resnet18_scratch trial3] Epoch  40/100 | LR: 1.22e-07 | train loss 0.7721 acc 0.698 | val loss 0.6775 acc 0.703 *
+[resnet18_scratch trial3] Epoch  41/100 | LR: 1.22e-07 | train loss 0.7591 acc 0.688 | val loss 0.6936 acc 0.697
+[resnet18_scratch trial3] Epoch  42/100 | LR: 1.22e-07 | train loss 0.7647 acc 0.708 | val loss 0.6974 acc 0.703
+[resnet18_scratch trial3] Epoch  43/100 | LR: 1.22e-07 | train loss 0.7684 acc 0.693 | val loss 0.6768 acc 0.706 *
+[resnet18_scratch trial3] Epoch  44/100 | LR: 1.22e-07 | train loss 0.7798 acc 0.685 | val loss 0.6931 acc 0.700
+[resnet18_scratch trial3] Epoch  45/100 | LR: 1.22e-07 | train loss 0.7786 acc 0.696 | val loss 0.7078 acc 0.713
+[resnet18_scratch trial3] Epoch  46/100 | LR: 1.22e-07 | train loss 0.7927 acc 0.676 | val loss 0.6897 acc 0.709
+[resnet18_scratch trial3] Epoch  47/100 | LR: 1.22e-07 | train loss 0.7653 acc 0.693 | val loss 0.6887 acc 0.700
+[resnet18_scratch trial3] Epoch  48/100 | LR: 1.22e-07 | train loss 0.7607 acc 0.695 | val loss 0.6834 acc 0.703
+[resnet18_scratch trial3] Epoch  49/100 | LR: 1.22e-07 | train loss 0.7721 acc 0.693 | val loss 0.6925 acc 0.700
+[resnet18_scratch trial3] Epoch  50/100 | LR: 1.22e-07 | train loss 0.7910 acc 0.679 | val loss 0.6961 acc 0.700
+[resnet18_scratch trial3] Epoch  51/100 | LR: 1.22e-08 | train loss 0.7811 acc 0.686 | val loss 0.7014 acc 0.709
+[resnet18_scratch trial3] Epoch  52/100 | LR: 1.22e-08 | train loss 0.7689 acc 0.695 | val loss 0.6787 acc 0.716
+[resnet18_scratch trial3] Epoch  53/100 | LR: 1.22e-08 | train loss 0.7698 acc 0.696 | val loss 0.6745 acc 0.709 *
+[resnet18_scratch trial3] Epoch  54/100 | LR: 1.22e-08 | train loss 0.7713 acc 0.689 | val loss 0.6882 acc 0.700
+[resnet18_scratch trial3] Epoch  55/100 | LR: 1.22e-08 | train loss 0.7631 acc 0.699 | val loss 0.6907 acc 0.709
+[resnet18_scratch trial3] Epoch  56/100 | LR: 1.22e-08 | train loss 0.7468 acc 0.698 | val loss 0.7001 acc 0.697
+[resnet18_scratch trial3] Epoch  57/100 | LR: 1.22e-08 | train loss 0.7731 acc 0.709 | val loss 0.6866 acc 0.706
+[resnet18_scratch trial3] Epoch  58/100 | LR: 1.22e-08 | train loss 0.7774 acc 0.696 | val loss 0.6776 acc 0.719
+[resnet18_scratch trial3] Epoch  59/100 | LR: 1.22e-08 | train loss 0.7717 acc 0.684 | val loss 0.6866 acc 0.700
+[resnet18_scratch trial3] Epoch  60/100 | LR: 1.22e-08 | train loss 0.7733 acc 0.703 | val loss 0.6797 acc 0.703
+[resnet18_scratch trial3] Epoch  61/100 | LR: 1.22e-08 | train loss 0.7649 acc 0.689 | val loss 0.6713 acc 0.713 *
+[resnet18_scratch trial3] Epoch  62/100 | LR: 1.22e-08 | train loss 0.7699 acc 0.705 | val loss 0.6835 acc 0.703
+[resnet18_scratch trial3] Epoch  63/100 | LR: 1.22e-08 | train loss 0.7612 acc 0.702 | val loss 0.6736 acc 0.713
+[resnet18_scratch trial3] Epoch  64/100 | LR: 1.22e-08 | train loss 0.7743 acc 0.692 | val loss 0.6870 acc 0.703
+[resnet18_scratch trial3] Epoch  65/100 | LR: 1.22e-08 | train loss 0.7894 acc 0.674 | val loss 0.6902 acc 0.703
+[resnet18_scratch trial3] Epoch  66/100 | LR: 1.22e-08 | train loss 0.7726 acc 0.685 | val loss 0.6906 acc 0.700
+[resnet18_scratch trial3] Epoch  67/100 | LR: 1.22e-08 | train loss 0.7865 acc 0.679 | val loss 0.6893 acc 0.697
+[resnet18_scratch trial3] Epoch  68/100 | LR: 1.22e-09 | train loss 0.7796 acc 0.676 | val loss 0.6800 acc 0.697
+[resnet18_scratch trial3] Epoch  69/100 | LR: 1.22e-09 | train loss 0.7727 acc 0.691 | val loss 0.6827 acc 0.706
+[resnet18_scratch trial3] Epoch  70/100 | LR: 1.22e-09 | train loss 0.7717 acc 0.686 | val loss 0.6922 acc 0.703
+[resnet18_scratch trial3] Epoch  71/100 | LR: 1.22e-09 | train loss 0.7663 acc 0.692 | val loss 0.6776 acc 0.703
+
+[resnet18_scratch trial3] No val loss improvement for 10 epochs, stopping at epoch 71.
+
+[resnet18_scratch trial3] Restored best checkpoint (val loss = 0.6713)
+[17:15:57] [resnet18_scratch] trial 3 finished: best val_acc=0.7125 (at val_loss=0.6713)
+[I 2026-10-25 17:15:57,172] Trial 3 finished with value: 0.7125 and parameters: {'hidden_layers': 1, 'neurons': 2048, 'lr': 1.2172958098369984e-05, 'beta1': 0.9135400170668128, 'step_size': 17, 'batch_size': 64}. Best is trial 0 with value: 0.765625.
+[17:15:57] [resnet18_scratch] trial 4: H=1 N=512 lr=2.91e-06 beta1=0.931 step_size=27 batch_size=96 (micro_batch=16, accum_steps=6)
+Train: 1310 | Val: 320 | Test: 113
+[resnet18_scratch trial4] Gradient accumulation: 6 micro-batches per optimizer step.
+[resnet18_scratch trial4] Epoch   1/100 | LR: 2.91e-06 | train loss 1.1117 acc 0.350 | val loss 1.0961 acc 0.463 *
+[resnet18_scratch trial4] Epoch   2/100 | LR: 2.91e-06 | train loss 1.0999 acc 0.404 | val loss 1.0818 acc 0.459 *
+[resnet18_scratch trial4] Epoch   3/100 | LR: 2.91e-06 | train loss 1.0943 acc 0.394 | val loss 1.0736 acc 0.447 *
+[resnet18_scratch trial4] Epoch   4/100 | LR: 2.91e-06 | train loss 1.0925 acc 0.425 | val loss 1.0689 acc 0.487 *
+[resnet18_scratch trial4] Epoch   5/100 | LR: 2.91e-06 | train loss 1.0875 acc 0.492 | val loss 1.0633 acc 0.528 *
+[resnet18_scratch trial4] Epoch   6/100 | LR: 2.91e-06 | train loss 1.0854 acc 0.480 | val loss 1.0596 acc 0.556 *
+[resnet18_scratch trial4] Epoch   7/100 | LR: 2.91e-06 | train loss 1.0814 acc 0.521 | val loss 1.0567 acc 0.556 *
+[resnet18_scratch trial4] Epoch   8/100 | LR: 2.91e-06 | train loss 1.0698 acc 0.554 | val loss 1.0465 acc 0.559 *
+[resnet18_scratch trial4] Epoch   9/100 | LR: 2.91e-06 | train loss 1.0740 acc 0.528 | val loss 1.0457 acc 0.569 *
+[resnet18_scratch trial4] Epoch  10/100 | LR: 2.91e-06 | train loss 1.0705 acc 0.520 | val loss 1.0461 acc 0.531
+[resnet18_scratch trial4] Epoch  11/100 | LR: 2.91e-06 | train loss 1.0649 acc 0.534 | val loss 1.0320 acc 0.569 *
+[resnet18_scratch trial4] Epoch  12/100 | LR: 2.91e-06 | train loss 1.0634 acc 0.537 | val loss 1.0272 acc 0.584 *
+[resnet18_scratch trial4] Epoch  13/100 | LR: 2.91e-06 | train loss 1.0611 acc 0.553 | val loss 1.0232 acc 0.609 *
+[resnet18_scratch trial4] Epoch  14/100 | LR: 2.91e-06 | train loss 1.0584 acc 0.569 | val loss 1.0148 acc 0.628 *
+[resnet18_scratch trial4] Epoch  15/100 | LR: 2.91e-06 | train loss 1.0472 acc 0.595 | val loss 1.0091 acc 0.625 *
+[resnet18_scratch trial4] Epoch  16/100 | LR: 2.91e-06 | train loss 1.0459 acc 0.583 | val loss 0.9996 acc 0.637 *
+[resnet18_scratch trial4] Epoch  17/100 | LR: 2.91e-06 | train loss 1.0394 acc 0.589 | val loss 0.9936 acc 0.628 *
+[resnet18_scratch trial4] Epoch  18/100 | LR: 2.91e-06 | train loss 1.0315 acc 0.593 | val loss 0.9899 acc 0.634 *
+[resnet18_scratch trial4] Epoch  19/100 | LR: 2.91e-06 | train loss 1.0353 acc 0.583 | val loss 0.9761 acc 0.622 *
+[resnet18_scratch trial4] Epoch  20/100 | LR: 2.91e-06 | train loss 1.0235 acc 0.603 | val loss 0.9686 acc 0.631 *
+[resnet18_scratch trial4] Epoch  21/100 | LR: 2.91e-06 | train loss 1.0165 acc 0.604 | val loss 0.9572 acc 0.656 *
+[resnet18_scratch trial4] Epoch  22/100 | LR: 2.91e-06 | train loss 1.0039 acc 0.631 | val loss 0.9446 acc 0.653 *
+[resnet18_scratch trial4] Epoch  23/100 | LR: 2.91e-06 | train loss 0.9988 acc 0.618 | val loss 0.9405 acc 0.631 *
+[resnet18_scratch trial4] Epoch  24/100 | LR: 2.91e-06 | train loss 0.9994 acc 0.599 | val loss 0.9333 acc 0.625 *
+[resnet18_scratch trial4] Epoch  25/100 | LR: 2.91e-06 | train loss 0.9773 acc 0.626 | val loss 0.9190 acc 0.637 *
+[resnet18_scratch trial4] Epoch  26/100 | LR: 2.91e-06 | train loss 0.9771 acc 0.627 | val loss 0.9060 acc 0.644 *
+[resnet18_scratch trial4] Epoch  27/100 | LR: 2.91e-07 | train loss 0.9737 acc 0.618 | val loss 0.8918 acc 0.672 *
+[resnet18_scratch trial4] Epoch  28/100 | LR: 2.91e-07 | train loss 0.9611 acc 0.637 | val loss 0.8871 acc 0.678 *
+[resnet18_scratch trial4] Epoch  29/100 | LR: 2.91e-07 | train loss 0.9609 acc 0.631 | val loss 0.8941 acc 0.678
+[resnet18_scratch trial4] Epoch  30/100 | LR: 2.91e-07 | train loss 0.9731 acc 0.621 | val loss 0.8833 acc 0.681 *
+[resnet18_scratch trial4] Epoch  31/100 | LR: 2.91e-07 | train loss 0.9754 acc 0.614 | val loss 0.8892 acc 0.688
+[resnet18_scratch trial4] Epoch  32/100 | LR: 2.91e-07 | train loss 0.9606 acc 0.632 | val loss 0.8804 acc 0.672 *
+[resnet18_scratch trial4] Epoch  33/100 | LR: 2.91e-07 | train loss 0.9677 acc 0.629 | val loss 0.8846 acc 0.675
+[resnet18_scratch trial4] Epoch  34/100 | LR: 2.91e-07 | train loss 0.9673 acc 0.637 | val loss 0.8811 acc 0.684
+[resnet18_scratch trial4] Epoch  35/100 | LR: 2.91e-07 | train loss 0.9625 acc 0.630 | val loss 0.8783 acc 0.688 *
+[resnet18_scratch trial4] Epoch  36/100 | LR: 2.91e-07 | train loss 0.9716 acc 0.640 | val loss 0.8821 acc 0.684
+[resnet18_scratch trial4] Epoch  37/100 | LR: 2.91e-07 | train loss 0.9642 acc 0.638 | val loss 0.8748 acc 0.672 *
+[resnet18_scratch trial4] Epoch  38/100 | LR: 2.91e-07 | train loss 0.9673 acc 0.632 | val loss 0.8769 acc 0.672
+[resnet18_scratch trial4] Epoch  39/100 | LR: 2.91e-07 | train loss 0.9664 acc 0.618 | val loss 0.8778 acc 0.666
+[resnet18_scratch trial4] Epoch  40/100 | LR: 2.91e-07 | train loss 0.9610 acc 0.630 | val loss 0.8758 acc 0.662
+[resnet18_scratch trial4] Epoch  41/100 | LR: 2.91e-07 | train loss 0.9563 acc 0.637 | val loss 0.8759 acc 0.681
+[resnet18_scratch trial4] Epoch  42/100 | LR: 2.91e-07 | train loss 0.9649 acc 0.634 | val loss 0.8705 acc 0.681 *
+[resnet18_scratch trial4] Epoch  43/100 | LR: 2.91e-07 | train loss 0.9595 acc 0.630 | val loss 0.8696 acc 0.669 *
+[resnet18_scratch trial4] Epoch  44/100 | LR: 2.91e-07 | train loss 0.9551 acc 0.643 | val loss 0.8734 acc 0.678
+[resnet18_scratch trial4] Epoch  45/100 | LR: 2.91e-07 | train loss 0.9630 acc 0.621 | val loss 0.8813 acc 0.672
+[resnet18_scratch trial4] Epoch  46/100 | LR: 2.91e-07 | train loss 0.9524 acc 0.644 | val loss 0.8764 acc 0.675
+[resnet18_scratch trial4] Epoch  47/100 | LR: 2.91e-07 | train loss 0.9474 acc 0.656 | val loss 0.8709 acc 0.678
+[resnet18_scratch trial4] Epoch  48/100 | LR: 2.91e-07 | train loss 0.9574 acc 0.627 | val loss 0.8711 acc 0.672
+[resnet18_scratch trial4] Epoch  49/100 | LR: 2.91e-07 | train loss 0.9547 acc 0.647 | val loss 0.8716 acc 0.675
+[resnet18_scratch trial4] Epoch  50/100 | LR: 2.91e-07 | train loss 0.9565 acc 0.633 | val loss 0.8711 acc 0.669
+[resnet18_scratch trial4] Epoch  51/100 | LR: 2.91e-07 | train loss 0.9471 acc 0.644 | val loss 0.8616 acc 0.681 *
+[resnet18_scratch trial4] Epoch  52/100 | LR: 2.91e-07 | train loss 0.9483 acc 0.654 | val loss 0.8654 acc 0.678
+[resnet18_scratch trial4] Epoch  53/100 | LR: 2.91e-07 | train loss 0.9493 acc 0.631 | val loss 0.8641 acc 0.681
+[resnet18_scratch trial4] Epoch  54/100 | LR: 2.91e-08 | train loss 0.9493 acc 0.635 | val loss 0.8621 acc 0.675
+[resnet18_scratch trial4] Epoch  55/100 | LR: 2.91e-08 | train loss 0.9571 acc 0.631 | val loss 0.8661 acc 0.678
+[resnet18_scratch trial4] Epoch  56/100 | LR: 2.91e-08 | train loss 0.9467 acc 0.639 | val loss 0.8717 acc 0.662
+[resnet18_scratch trial4] Epoch  57/100 | LR: 2.91e-08 | train loss 0.9556 acc 0.639 | val loss 0.8635 acc 0.688
+[resnet18_scratch trial4] Epoch  58/100 | LR: 2.91e-08 | train loss 0.9447 acc 0.655 | val loss 0.8607 acc 0.681 *
+[resnet18_scratch trial4] Epoch  59/100 | LR: 2.91e-08 | train loss 0.9534 acc 0.627 | val loss 0.8664 acc 0.672
+[resnet18_scratch trial4] Epoch  60/100 | LR: 2.91e-08 | train loss 0.9468 acc 0.637 | val loss 0.8642 acc 0.672
+[resnet18_scratch trial4] Epoch  61/100 | LR: 2.91e-08 | train loss 0.9466 acc 0.644 | val loss 0.8686 acc 0.672
+[resnet18_scratch trial4] Epoch  62/100 | LR: 2.91e-08 | train loss 0.9458 acc 0.644 | val loss 0.8721 acc 0.659
+[resnet18_scratch trial4] Epoch  63/100 | LR: 2.91e-08 | train loss 0.9557 acc 0.640 | val loss 0.8662 acc 0.675
+[resnet18_scratch trial4] Epoch  64/100 | LR: 2.91e-08 | train loss 0.9511 acc 0.649 | val loss 0.8606 acc 0.681 *
+[resnet18_scratch trial4] Epoch  65/100 | LR: 2.91e-08 | train loss 0.9509 acc 0.645 | val loss 0.8701 acc 0.650
+[resnet18_scratch trial4] Epoch  66/100 | LR: 2.91e-08 | train loss 0.9364 acc 0.656 | val loss 0.8661 acc 0.666
+[resnet18_scratch trial4] Epoch  67/100 | LR: 2.91e-08 | train loss 0.9605 acc 0.633 | val loss 0.8637 acc 0.678
+[resnet18_scratch trial4] Epoch  68/100 | LR: 2.91e-08 | train loss 0.9506 acc 0.650 | val loss 0.8653 acc 0.684
+[resnet18_scratch trial4] Epoch  69/100 | LR: 2.91e-08 | train loss 0.9459 acc 0.631 | val loss 0.8620 acc 0.669
+[resnet18_scratch trial4] Epoch  70/100 | LR: 2.91e-08 | train loss 0.9455 acc 0.649 | val loss 0.8592 acc 0.688 *
+[resnet18_scratch trial4] Epoch  71/100 | LR: 2.91e-08 | train loss 0.9445 acc 0.653 | val loss 0.8593 acc 0.691
+[resnet18_scratch trial4] Epoch  72/100 | LR: 2.91e-08 | train loss 0.9617 acc 0.636 | val loss 0.8685 acc 0.666
+[resnet18_scratch trial4] Epoch  73/100 | LR: 2.91e-08 | train loss 0.9515 acc 0.634 | val loss 0.8611 acc 0.672
+[resnet18_scratch trial4] Epoch  74/100 | LR: 2.91e-08 | train loss 0.9466 acc 0.654 | val loss 0.8673 acc 0.675
+[resnet18_scratch trial4] Epoch  75/100 | LR: 2.91e-08 | train loss 0.9498 acc 0.619 | val loss 0.8622 acc 0.688
+[resnet18_scratch trial4] Epoch  76/100 | LR: 2.91e-08 | train loss 0.9536 acc 0.656 | val loss 0.8592 acc 0.688
+[resnet18_scratch trial4] Epoch  77/100 | LR: 2.91e-08 | train loss 0.9548 acc 0.632 | val loss 0.8665 acc 0.675
+[resnet18_scratch trial4] Epoch  78/100 | LR: 2.91e-08 | train loss 0.9407 acc 0.644 | val loss 0.8668 acc 0.675
+[resnet18_scratch trial4] Epoch  79/100 | LR: 2.91e-08 | train loss 0.9423 acc 0.646 | val loss 0.8571 acc 0.672 *
+[resnet18_scratch trial4] Epoch  80/100 | LR: 2.91e-08 | train loss 0.9458 acc 0.659 | val loss 0.8644 acc 0.681
+[resnet18_scratch trial4] Epoch  81/100 | LR: 2.91e-09 | train loss 0.9586 acc 0.631 | val loss 0.8710 acc 0.659
+[resnet18_scratch trial4] Epoch  82/100 | LR: 2.91e-09 | train loss 0.9475 acc 0.640 | val loss 0.8691 acc 0.666
+[resnet18_scratch trial4] Epoch  83/100 | LR: 2.91e-09 | train loss 0.9529 acc 0.641 | val loss 0.8694 acc 0.688
+[resnet18_scratch trial4] Epoch  84/100 | LR: 2.91e-09 | train loss 0.9514 acc 0.645 | val loss 0.8575 acc 0.681
+[resnet18_scratch trial4] Epoch  85/100 | LR: 2.91e-09 | train loss 0.9570 acc 0.639 | val loss 0.8674 acc 0.681
+[resnet18_scratch trial4] Epoch  86/100 | LR: 2.91e-09 | train loss 0.9505 acc 0.648 | val loss 0.8627 acc 0.681
+[resnet18_scratch trial4] Epoch  87/100 | LR: 2.91e-09 | train loss 0.9625 acc 0.640 | val loss 0.8677 acc 0.669
+[resnet18_scratch trial4] Epoch  88/100 | LR: 2.91e-09 | train loss 0.9524 acc 0.636 | val loss 0.8574 acc 0.669
+[resnet18_scratch trial4] Epoch  89/100 | LR: 2.91e-09 | train loss 0.9553 acc 0.638 | val loss 0.8596 acc 0.675
+
+[resnet18_scratch trial4] No val loss improvement for 10 epochs, stopping at epoch 89.
+
+[resnet18_scratch trial4] Restored best checkpoint (val loss = 0.8571)
+[17:26:11] [resnet18_scratch] trial 4 finished: best val_acc=0.6719 (at val_loss=0.8571)
+[I 2026-10-25 17:26:11,929] Trial 4 finished with value: 0.671875 and parameters: {'hidden_layers': 1, 'neurons': 512, 'lr': 2.907208890659845e-06, 'beta1': 0.9306886095119211, 'step_size': 27, 'batch_size': 96}. Best is trial 0 with value: 0.765625.
+[17:26:12] [resnet18_scratch] trial 5: H=2 N=512 lr=5.13e-05 beta1=0.513 step_size=8 batch_size=48 (micro_batch=16, accum_steps=3)
+Train: 1310 | Val: 320 | Test: 113
+[resnet18_scratch trial5] Gradient accumulation: 3 micro-batches per optimizer step.
+[resnet18_scratch trial5] Epoch   1/100 | LR: 5.13e-05 | train loss 1.0902 acc 0.434 | val loss 1.0553 acc 0.397 *
+[resnet18_scratch trial5] Epoch   2/100 | LR: 5.13e-05 | train loss 1.0199 acc 0.589 | val loss 0.8529 acc 0.662 *
+[resnet18_scratch trial5] Epoch   3/100 | LR: 5.13e-05 | train loss 0.9363 acc 0.653 | val loss 0.7893 acc 0.669 *
+[resnet18_scratch trial5] Epoch   4/100 | LR: 5.13e-05 | train loss 0.8991 acc 0.650 | val loss 0.8762 acc 0.594
+[resnet18_scratch trial5] Epoch   5/100 | LR: 5.13e-05 | train loss 0.8723 acc 0.641 | val loss 0.8090 acc 0.603
+[resnet18_scratch trial5] Epoch   6/100 | LR: 5.13e-05 | train loss 0.8376 acc 0.670 | val loss 0.7932 acc 0.709
+[resnet18_scratch trial5] Epoch   7/100 | LR: 5.13e-05 | train loss 0.8472 acc 0.650 | val loss 0.7451 acc 0.656 *
+[resnet18_scratch trial5] Epoch   8/100 | LR: 5.13e-06 | train loss 0.8126 acc 0.652 | val loss 0.6538 acc 0.762 *
+[resnet18_scratch trial5] Epoch   9/100 | LR: 5.13e-06 | train loss 0.7712 acc 0.693 | val loss 0.7355 acc 0.650
+[resnet18_scratch trial5] Epoch  10/100 | LR: 5.13e-06 | train loss 0.7593 acc 0.696 | val loss 0.6830 acc 0.700
+[resnet18_scratch trial5] Epoch  11/100 | LR: 5.13e-06 | train loss 0.7772 acc 0.691 | val loss 0.6872 acc 0.697
+[resnet18_scratch trial5] Epoch  12/100 | LR: 5.13e-06 | train loss 0.7420 acc 0.702 | val loss 0.6693 acc 0.719
+[resnet18_scratch trial5] Epoch  13/100 | LR: 5.13e-06 | train loss 0.7475 acc 0.712 | val loss 0.6683 acc 0.703
+[resnet18_scratch trial5] Epoch  14/100 | LR: 5.13e-06 | train loss 0.7307 acc 0.696 | val loss 0.7003 acc 0.691
+[resnet18_scratch trial5] Epoch  15/100 | LR: 5.13e-06 | train loss 0.7356 acc 0.701 | val loss 0.6630 acc 0.688
+[resnet18_scratch trial5] Epoch  16/100 | LR: 5.13e-07 | train loss 0.7345 acc 0.704 | val loss 0.6645 acc 0.691
+[resnet18_scratch trial5] Epoch  17/100 | LR: 5.13e-07 | train loss 0.7202 acc 0.712 | val loss 0.6690 acc 0.697
+[resnet18_scratch trial5] Epoch  18/100 | LR: 5.13e-07 | train loss 0.7196 acc 0.705 | val loss 0.6619 acc 0.703
+
+[resnet18_scratch trial5] No val loss improvement for 10 epochs, stopping at epoch 18.
+
+[resnet18_scratch trial5] Restored best checkpoint (val loss = 0.6538)
+[17:28:16] [resnet18_scratch] trial 5 finished: best val_acc=0.7625 (at val_loss=0.6538)
+[I 2026-10-25 17:28:16,494] Trial 5 finished with value: 0.7625 and parameters: {'hidden_layers': 2, 'neurons': 512, 'lr': 5.1305517605898387e-05, 'beta1': 0.5126841442453035, 'step_size': 8, 'batch_size': 48}. Best is trial 0 with value: 0.765625.
+[17:28:16] [resnet18_scratch] trial 6: H=2 N=512 lr=3.06e-03 beta1=0.901 step_size=11 batch_size=32 (micro_batch=16, accum_steps=2)
+Train: 1310 | Val: 320 | Test: 113
+[resnet18_scratch trial6] Gradient accumulation: 2 micro-batches per optimizer step.
+[resnet18_scratch trial6] Epoch   1/100 | LR: 3.06e-03 | train loss 1.1973 acc 0.327 | val loss 1.0926 acc 0.434 *
+[resnet18_scratch trial6] Epoch   2/100 | LR: 3.06e-03 | train loss 1.1003 acc 0.455 | val loss 1.0910 acc 0.487 *
+[resnet18_scratch trial6] Epoch   3/100 | LR: 3.06e-03 | train loss 1.1003 acc 0.438 | val loss 1.0879 acc 0.425 *
+[resnet18_scratch trial6] Epoch   4/100 | LR: 3.06e-03 | train loss 1.0992 acc 0.376 | val loss 1.0712 acc 0.441 *
+[resnet18_scratch trial6] Epoch   5/100 | LR: 3.06e-03 | train loss 1.0983 acc 0.449 | val loss 1.0762 acc 0.591
+[resnet18_scratch trial6] Epoch   6/100 | LR: 3.06e-03 | train loss 1.0866 acc 0.524 | val loss 1.0483 acc 0.550 *
+[resnet18_scratch trial6] Epoch   7/100 | LR: 3.06e-03 | train loss 1.0714 acc 0.558 | val loss 1.0851 acc 0.553
+[resnet18_scratch trial6] Epoch   8/100 | LR: 3.06e-03 | train loss 1.0214 acc 0.608 | val loss 1.1155 acc 0.491
+[resnet18_scratch trial6] Epoch   9/100 | LR: 3.06e-03 | train loss 1.0294 acc 0.621 | val loss 0.9521 acc 0.706 *
+[resnet18_scratch trial6] Epoch  10/100 | LR: 3.06e-03 | train loss 1.0030 acc 0.640 | val loss 0.9330 acc 0.659 *
+[resnet18_scratch trial6] Epoch  11/100 | LR: 3.06e-04 | train loss 1.0008 acc 0.628 | val loss 0.8937 acc 0.675 *
+[resnet18_scratch trial6] Epoch  12/100 | LR: 3.06e-04 | train loss 0.9693 acc 0.663 | val loss 0.8408 acc 0.716 *
+[resnet18_scratch trial6] Epoch  13/100 | LR: 3.06e-04 | train loss 0.9482 acc 0.682 | val loss 0.8346 acc 0.713 *
+[resnet18_scratch trial6] Epoch  14/100 | LR: 3.06e-04 | train loss 0.9528 acc 0.684 | val loss 0.8232 acc 0.725 *
+[resnet18_scratch trial6] Epoch  15/100 | LR: 3.06e-04 | train loss 0.9403 acc 0.694 | val loss 0.8283 acc 0.738
+[resnet18_scratch trial6] Epoch  16/100 | LR: 3.06e-04 | train loss 0.9231 acc 0.696 | val loss 0.8269 acc 0.722
+[resnet18_scratch trial6] Epoch  17/100 | LR: 3.06e-04 | train loss 0.9212 acc 0.692 | val loss 0.8273 acc 0.725
+[resnet18_scratch trial6] Epoch  18/100 | LR: 3.06e-04 | train loss 0.9202 acc 0.688 | val loss 0.8141 acc 0.747 *
+[resnet18_scratch trial6] Epoch  19/100 | LR: 3.06e-04 | train loss 0.9182 acc 0.676 | val loss 0.8299 acc 0.703
+[resnet18_scratch trial6] Epoch  20/100 | LR: 3.06e-04 | train loss 0.9276 acc 0.675 | val loss 0.8546 acc 0.675
+[resnet18_scratch trial6] Epoch  21/100 | LR: 3.06e-04 | train loss 0.9074 acc 0.675 | val loss 0.8234 acc 0.719
+[resnet18_scratch trial6] Epoch  22/100 | LR: 3.06e-05 | train loss 0.8953 acc 0.692 | val loss 0.8305 acc 0.688
+[resnet18_scratch trial6] Epoch  23/100 | LR: 3.06e-05 | train loss 0.8982 acc 0.676 | val loss 0.7994 acc 0.725 *
+[resnet18_scratch trial6] Epoch  24/100 | LR: 3.06e-05 | train loss 0.8734 acc 0.711 | val loss 0.8019 acc 0.738
+[resnet18_scratch trial6] Epoch  25/100 | LR: 3.06e-05 | train loss 0.8751 acc 0.695 | val loss 0.7973 acc 0.728 *
+[resnet18_scratch trial6] Epoch  26/100 | LR: 3.06e-05 | train loss 0.8814 acc 0.687 | val loss 0.8099 acc 0.716
+[resnet18_scratch trial6] Epoch  27/100 | LR: 3.06e-05 | train loss 0.8861 acc 0.688 | val loss 0.7931 acc 0.731 *
+[resnet18_scratch trial6] Epoch  28/100 | LR: 3.06e-05 | train loss 0.8728 acc 0.683 | val loss 0.7928 acc 0.750 *
+[resnet18_scratch trial6] Epoch  29/100 | LR: 3.06e-05 | train loss 0.8748 acc 0.680 | val loss 0.7914 acc 0.741 *
+[resnet18_scratch trial6] Epoch  30/100 | LR: 3.06e-05 | train loss 0.8785 acc 0.679 | val loss 0.8040 acc 0.722
+[resnet18_scratch trial6] Epoch  31/100 | LR: 3.06e-05 | train loss 0.8845 acc 0.679 | val loss 0.8017 acc 0.719
+[resnet18_scratch trial6] Epoch  32/100 | LR: 3.06e-05 | train loss 0.8680 acc 0.690 | val loss 0.8085 acc 0.722
+[resnet18_scratch trial6] Epoch  33/100 | LR: 3.06e-06 | train loss 0.8532 acc 0.689 | val loss 0.7998 acc 0.734
+[resnet18_scratch trial6] Epoch  34/100 | LR: 3.06e-06 | train loss 0.8734 acc 0.680 | val loss 0.7984 acc 0.741
+[resnet18_scratch trial6] Epoch  35/100 | LR: 3.06e-06 | train loss 0.8734 acc 0.676 | val loss 0.8060 acc 0.709
+[resnet18_scratch trial6] Epoch  36/100 | LR: 3.06e-06 | train loss 0.8528 acc 0.708 | val loss 0.8056 acc 0.719
+[resnet18_scratch trial6] Epoch  37/100 | LR: 3.06e-06 | train loss 0.8612 acc 0.675 | val loss 0.7904 acc 0.728 *
+[resnet18_scratch trial6] Epoch  38/100 | LR: 3.06e-06 | train loss 0.8795 acc 0.679 | val loss 0.7964 acc 0.725
+[resnet18_scratch trial6] Epoch  39/100 | LR: 3.06e-06 | train loss 0.8433 acc 0.689 | val loss 0.7960 acc 0.741
+[resnet18_scratch trial6] Epoch  40/100 | LR: 3.06e-06 | train loss 0.8625 acc 0.685 | val loss 0.7961 acc 0.722
+[resnet18_scratch trial6] Epoch  41/100 | LR: 3.06e-06 | train loss 0.8717 acc 0.689 | val loss 0.8049 acc 0.716
+[resnet18_scratch trial6] Epoch  42/100 | LR: 3.06e-06 | train loss 0.8646 acc 0.679 | val loss 0.7940 acc 0.738
+[resnet18_scratch trial6] Epoch  43/100 | LR: 3.06e-06 | train loss 0.8758 acc 0.685 | val loss 0.7972 acc 0.731
+[resnet18_scratch trial6] Epoch  44/100 | LR: 3.06e-07 | train loss 0.8637 acc 0.686 | val loss 0.7955 acc 0.725
+[resnet18_scratch trial6] Epoch  45/100 | LR: 3.06e-07 | train loss 0.8647 acc 0.688 | val loss 0.7926 acc 0.734
+[resnet18_scratch trial6] Epoch  46/100 | LR: 3.06e-07 | train loss 0.8819 acc 0.681 | val loss 0.7981 acc 0.731
+[resnet18_scratch trial6] Epoch  47/100 | LR: 3.06e-07 | train loss 0.8739 acc 0.689 | val loss 0.8047 acc 0.716
+
+[resnet18_scratch trial6] No val loss improvement for 10 epochs, stopping at epoch 47.
+
+[resnet18_scratch trial6] Restored best checkpoint (val loss = 0.7904)
+[17:33:42] [resnet18_scratch] trial 6 finished: best val_acc=0.7281 (at val_loss=0.7904)
+[I 2026-10-25 17:33:42,302] Trial 6 finished with value: 0.728125 and parameters: {'hidden_layers': 2, 'neurons': 512, 'lr': 0.0030608522106722507, 'beta1': 0.901032366372658, 'step_size': 11, 'batch_size': 32}. Best is trial 0 with value: 0.765625.
+[17:33:42] [resnet18_scratch] trial 7: H=1 N=512 lr=2.24e-05 beta1=0.971 step_size=16 batch_size=32 (micro_batch=16, accum_steps=2)
+Train: 1310 | Val: 320 | Test: 113
+[resnet18_scratch trial7] Gradient accumulation: 2 micro-batches per optimizer step.
+[resnet18_scratch trial7] Epoch   1/100 | LR: 2.24e-05 | train loss 1.0862 acc 0.411 | val loss 0.9863 acc 0.606 *
+[resnet18_scratch trial7] Epoch   2/100 | LR: 2.24e-05 | train loss 1.0478 acc 0.578 | val loss 0.9451 acc 0.662 *
+[resnet18_scratch trial7] Epoch   3/100 | LR: 2.24e-05 | train loss 0.9990 acc 0.557 | val loss 0.9040 acc 0.631 *
+[resnet18_scratch trial7] Epoch   4/100 | LR: 2.24e-05 | train loss 0.9414 acc 0.617 | val loss 0.8264 acc 0.669 *
+[resnet18_scratch trial7] Epoch   5/100 | LR: 2.24e-05 | train loss 0.9058 acc 0.648 | val loss 0.7420 acc 0.706 *
+[resnet18_scratch trial7] Epoch   6/100 | LR: 2.24e-05 | train loss 0.9003 acc 0.631 | val loss 0.7783 acc 0.653
+[resnet18_scratch trial7] Epoch   7/100 | LR: 2.24e-05 | train loss 0.8782 acc 0.615 | val loss 0.7705 acc 0.637
+[resnet18_scratch trial7] Epoch   8/100 | LR: 2.24e-05 | train loss 0.8592 acc 0.651 | val loss 0.7075 acc 0.700 *
+[resnet18_scratch trial7] Epoch   9/100 | LR: 2.24e-05 | train loss 0.8387 acc 0.672 | val loss 0.7414 acc 0.675
+[resnet18_scratch trial7] Epoch  10/100 | LR: 2.24e-05 | train loss 0.8225 acc 0.649 | val loss 0.7218 acc 0.678
+[resnet18_scratch trial7] Epoch  11/100 | LR: 2.24e-05 | train loss 0.8455 acc 0.622 | val loss 0.7639 acc 0.684
+[resnet18_scratch trial7] Epoch  12/100 | LR: 2.24e-05 | train loss 0.8036 acc 0.672 | val loss 0.6857 acc 0.697 *
+[resnet18_scratch trial7] Epoch  13/100 | LR: 2.24e-05 | train loss 0.8257 acc 0.654 | val loss 0.6850 acc 0.725 *
+[resnet18_scratch trial7] Epoch  14/100 | LR: 2.24e-05 | train loss 0.7901 acc 0.678 | val loss 0.7138 acc 0.675
+[resnet18_scratch trial7] Epoch  15/100 | LR: 2.24e-05 | train loss 0.7533 acc 0.674 | val loss 0.6762 acc 0.700 *
+[resnet18_scratch trial7] Epoch  16/100 | LR: 2.24e-06 | train loss 0.7606 acc 0.672 | val loss 0.6920 acc 0.703
+[resnet18_scratch trial7] Epoch  17/100 | LR: 2.24e-06 | train loss 0.7739 acc 0.676 | val loss 0.6606 acc 0.741 *
+[resnet18_scratch trial7] Epoch  18/100 | LR: 2.24e-06 | train loss 0.7436 acc 0.682 | val loss 0.6748 acc 0.728
+[resnet18_scratch trial7] Epoch  19/100 | LR: 2.24e-06 | train loss 0.7151 acc 0.706 | val loss 0.6507 acc 0.747 *
+[resnet18_scratch trial7] Epoch  20/100 | LR: 2.24e-06 | train loss 0.7403 acc 0.691 | val loss 0.6482 acc 0.759 *
+[resnet18_scratch trial7] Epoch  21/100 | LR: 2.24e-06 | train loss 0.7275 acc 0.704 | val loss 0.6529 acc 0.750
+[resnet18_scratch trial7] Epoch  22/100 | LR: 2.24e-06 | train loss 0.7174 acc 0.701 | val loss 0.6657 acc 0.734
+[resnet18_scratch trial7] Epoch  23/100 | LR: 2.24e-06 | train loss 0.7438 acc 0.701 | val loss 0.6688 acc 0.716
+[resnet18_scratch trial7] Epoch  24/100 | LR: 2.24e-06 | train loss 0.7095 acc 0.712 | val loss 0.6534 acc 0.738
+[resnet18_scratch trial7] Epoch  25/100 | LR: 2.24e-06 | train loss 0.7126 acc 0.711 | val loss 0.6487 acc 0.753
+[resnet18_scratch trial7] Epoch  26/100 | LR: 2.24e-06 | train loss 0.7348 acc 0.689 | val loss 0.6557 acc 0.738
+[resnet18_scratch trial7] Epoch  27/100 | LR: 2.24e-06 | train loss 0.7288 acc 0.711 | val loss 0.6418 acc 0.756 *
+[resnet18_scratch trial7] Epoch  28/100 | LR: 2.24e-06 | train loss 0.7235 acc 0.716 | val loss 0.6518 acc 0.728
+[resnet18_scratch trial7] Epoch  29/100 | LR: 2.24e-06 | train loss 0.7133 acc 0.713 | val loss 0.6472 acc 0.741
+[resnet18_scratch trial7] Epoch  30/100 | LR: 2.24e-06 | train loss 0.7034 acc 0.715 | val loss 0.6477 acc 0.741
+[resnet18_scratch trial7] Epoch  31/100 | LR: 2.24e-06 | train loss 0.7566 acc 0.689 | val loss 0.6374 acc 0.766 *
+[resnet18_scratch trial7] Epoch  32/100 | LR: 2.24e-07 | train loss 0.7034 acc 0.717 | val loss 0.6463 acc 0.756
+[resnet18_scratch trial7] Epoch  33/100 | LR: 2.24e-07 | train loss 0.7278 acc 0.708 | val loss 0.6641 acc 0.719
+[resnet18_scratch trial7] Epoch  34/100 | LR: 2.24e-07 | train loss 0.7029 acc 0.725 | val loss 0.6738 acc 0.706
+[resnet18_scratch trial7] Epoch  35/100 | LR: 2.24e-07 | train loss 0.7299 acc 0.704 | val loss 0.6486 acc 0.744
+[resnet18_scratch trial7] Epoch  36/100 | LR: 2.24e-07 | train loss 0.7018 acc 0.714 | val loss 0.6516 acc 0.725
+[resnet18_scratch trial7] Epoch  37/100 | LR: 2.24e-07 | train loss 0.7134 acc 0.710 | val loss 0.6523 acc 0.728
+[resnet18_scratch trial7] Epoch  38/100 | LR: 2.24e-07 | train loss 0.7368 acc 0.696 | val loss 0.6481 acc 0.744
+[resnet18_scratch trial7] Epoch  39/100 | LR: 2.24e-07 | train loss 0.6889 acc 0.721 | val loss 0.6533 acc 0.734
+[resnet18_scratch trial7] Epoch  40/100 | LR: 2.24e-07 | train loss 0.7096 acc 0.713 | val loss 0.6382 acc 0.750
+[resnet18_scratch trial7] Epoch  41/100 | LR: 2.24e-07 | train loss 0.7211 acc 0.708 | val loss 0.6463 acc 0.747
+
+[resnet18_scratch trial7] No val loss improvement for 10 epochs, stopping at epoch 41.
+
+[resnet18_scratch trial7] Restored best checkpoint (val loss = 0.6374)
+[17:38:30] [resnet18_scratch] trial 7 finished: best val_acc=0.7656 (at val_loss=0.6374)
+[I 2026-10-25 17:38:30,754] Trial 7 finished with value: 0.765625 and parameters: {'hidden_layers': 1, 'neurons': 512, 'lr': 2.2410971619109514e-05, 'beta1': 0.970511942252347, 'step_size': 16, 'batch_size': 32}. Best is trial 0 with value: 0.765625.
+[17:38:30] [resnet18_scratch] trial 8: H=2 N=2048 lr=9.08e-06 beta1=0.572 step_size=22 batch_size=8 (micro_batch=8, accum_steps=1)
+Train: 1310 | Val: 320 | Test: 113
+[resnet18_scratch trial8] Epoch   1/100 | LR: 9.08e-06 | train loss 1.0863 acc 0.445 | val loss 1.1129 acc 0.231 *
+[resnet18_scratch trial8] Epoch   2/100 | LR: 9.08e-06 | train loss 1.0675 acc 0.535 | val loss 0.9444 acc 0.588 *
+[resnet18_scratch trial8] Epoch   3/100 | LR: 9.08e-06 | train loss 0.9990 acc 0.610 | val loss 0.8596 acc 0.653 *
+[resnet18_scratch trial8] Epoch   4/100 | LR: 9.08e-06 | train loss 0.9477 acc 0.630 | val loss 0.7784 acc 0.675 *
+[resnet18_scratch trial8] Epoch   5/100 | LR: 9.08e-06 | train loss 0.9144 acc 0.634 | val loss 0.7493 acc 0.678 *
+[resnet18_scratch trial8] Epoch   6/100 | LR: 9.08e-06 | train loss 0.9059 acc 0.625 | val loss 0.7488 acc 0.675 *
+[resnet18_scratch trial8] Epoch   7/100 | LR: 9.08e-06 | train loss 0.8662 acc 0.637 | val loss 0.7138 acc 0.734 *
+[resnet18_scratch trial8] Epoch   8/100 | LR: 9.08e-06 | train loss 0.8542 acc 0.669 | val loss 0.6886 acc 0.728 *
+[resnet18_scratch trial8] Epoch   9/100 | LR: 9.08e-06 | train loss 0.8488 acc 0.647 | val loss 0.7080 acc 0.694
+[resnet18_scratch trial8] Epoch  10/100 | LR: 9.08e-06 | train loss 0.8507 acc 0.648 | val loss 0.7621 acc 0.631
+[resnet18_scratch trial8] Epoch  11/100 | LR: 9.08e-06 | train loss 0.8574 acc 0.647 | val loss 0.6916 acc 0.697
+[resnet18_scratch trial8] Epoch  12/100 | LR: 9.08e-06 | train loss 0.8371 acc 0.662 | val loss 0.8949 acc 0.619
+[resnet18_scratch trial8] Epoch  13/100 | LR: 9.08e-06 | train loss 0.8300 acc 0.658 | val loss 0.7133 acc 0.678
+[resnet18_scratch trial8] Epoch  14/100 | LR: 9.08e-06 | train loss 0.8000 acc 0.670 | val loss 0.6884 acc 0.684 *
+[resnet18_scratch trial8] Epoch  15/100 | LR: 9.08e-06 | train loss 0.8203 acc 0.665 | val loss 0.6837 acc 0.709 *
+[resnet18_scratch trial8] Epoch  16/100 | LR: 9.08e-06 | train loss 0.7876 acc 0.670 | val loss 0.6319 acc 0.738 *
+[resnet18_scratch trial8] Epoch  17/100 | LR: 9.08e-06 | train loss 0.8006 acc 0.697 | val loss 0.6531 acc 0.738
+[resnet18_scratch trial8] Epoch  18/100 | LR: 9.08e-06 | train loss 0.7847 acc 0.686 | val loss 0.6425 acc 0.728
+[resnet18_scratch trial8] Epoch  19/100 | LR: 9.08e-06 | train loss 0.8172 acc 0.655 | val loss 0.6141 acc 0.766 *
+[resnet18_scratch trial8] Epoch  20/100 | LR: 9.08e-06 | train loss 0.7954 acc 0.679 | val loss 0.6701 acc 0.722
+[resnet18_scratch trial8] Epoch  21/100 | LR: 9.08e-06 | train loss 0.7692 acc 0.707 | val loss 0.7484 acc 0.672
+[resnet18_scratch trial8] Epoch  22/100 | LR: 9.08e-07 | train loss 0.7826 acc 0.686 | val loss 0.6381 acc 0.750
+[resnet18_scratch trial8] Epoch  23/100 | LR: 9.08e-07 | train loss 0.7580 acc 0.708 | val loss 0.6128 acc 0.759 *
+[resnet18_scratch trial8] Epoch  24/100 | LR: 9.08e-07 | train loss 0.7206 acc 0.705 | val loss 0.6012 acc 0.769 *
+[resnet18_scratch trial8] Epoch  25/100 | LR: 9.08e-07 | train loss 0.7260 acc 0.722 | val loss 0.6300 acc 0.734
+[resnet18_scratch trial8] Epoch  26/100 | LR: 9.08e-07 | train loss 0.7372 acc 0.708 | val loss 0.6074 acc 0.766
+[resnet18_scratch trial8] Epoch  27/100 | LR: 9.08e-07 | train loss 0.7514 acc 0.709 | val loss 0.6311 acc 0.744
+[resnet18_scratch trial8] Epoch  28/100 | LR: 9.08e-07 | train loss 0.7549 acc 0.705 | val loss 0.6717 acc 0.700
+[resnet18_scratch trial8] Epoch  29/100 | LR: 9.08e-07 | train loss 0.6872 acc 0.735 | val loss 0.6001 acc 0.762 *
+[resnet18_scratch trial8] Epoch  30/100 | LR: 9.08e-07 | train loss 0.7233 acc 0.731 | val loss 0.6183 acc 0.766
+[resnet18_scratch trial8] Epoch  31/100 | LR: 9.08e-07 | train loss 0.7036 acc 0.730 | val loss 0.6263 acc 0.738
+[resnet18_scratch trial8] Epoch  32/100 | LR: 9.08e-07 | train loss 0.7284 acc 0.697 | val loss 0.6113 acc 0.747
+[resnet18_scratch trial8] Epoch  33/100 | LR: 9.08e-07 | train loss 0.7296 acc 0.708 | val loss 0.6150 acc 0.759
+[resnet18_scratch trial8] Epoch  34/100 | LR: 9.08e-07 | train loss 0.7079 acc 0.718 | val loss 0.6299 acc 0.741
+[resnet18_scratch trial8] Epoch  35/100 | LR: 9.08e-07 | train loss 0.7101 acc 0.722 | val loss 0.6221 acc 0.731
+[resnet18_scratch trial8] Epoch  36/100 | LR: 9.08e-07 | train loss 0.7215 acc 0.714 | val loss 0.6402 acc 0.728
+[resnet18_scratch trial8] Epoch  37/100 | LR: 9.08e-07 | train loss 0.7216 acc 0.728 | val loss 0.6137 acc 0.753
+[resnet18_scratch trial8] Epoch  38/100 | LR: 9.08e-07 | train loss 0.7362 acc 0.711 | val loss 0.6142 acc 0.753
+[resnet18_scratch trial8] Epoch  39/100 | LR: 9.08e-07 | train loss 0.7306 acc 0.723 | val loss 0.5904 acc 0.772 *
+[resnet18_scratch trial8] Epoch  40/100 | LR: 9.08e-07 | train loss 0.7187 acc 0.717 | val loss 0.6163 acc 0.744
+[resnet18_scratch trial8] Epoch  41/100 | LR: 9.08e-07 | train loss 0.6980 acc 0.723 | val loss 0.6323 acc 0.738
+[resnet18_scratch trial8] Epoch  42/100 | LR: 9.08e-07 | train loss 0.7057 acc 0.715 | val loss 0.6250 acc 0.741
+[resnet18_scratch trial8] Epoch  43/100 | LR: 9.08e-07 | train loss 0.7036 acc 0.722 | val loss 0.6104 acc 0.744
+[resnet18_scratch trial8] Epoch  44/100 | LR: 9.08e-08 | train loss 0.7255 acc 0.712 | val loss 0.6183 acc 0.741
+[resnet18_scratch trial8] Epoch  45/100 | LR: 9.08e-08 | train loss 0.7122 acc 0.720 | val loss 0.6221 acc 0.734
+[resnet18_scratch trial8] Epoch  46/100 | LR: 9.08e-08 | train loss 0.7045 acc 0.716 | val loss 0.6084 acc 0.750
+[resnet18_scratch trial8] Epoch  47/100 | LR: 9.08e-08 | train loss 0.7168 acc 0.701 | val loss 0.6304 acc 0.734
+[resnet18_scratch trial8] Epoch  48/100 | LR: 9.08e-08 | train loss 0.7010 acc 0.720 | val loss 0.6082 acc 0.762
+[resnet18_scratch trial8] Epoch  49/100 | LR: 9.08e-08 | train loss 0.7156 acc 0.718 | val loss 0.6098 acc 0.750
+
+[resnet18_scratch trial8] No val loss improvement for 10 epochs, stopping at epoch 49.
+
+[resnet18_scratch trial8] Restored best checkpoint (val loss = 0.5904)
+[17:44:03] [resnet18_scratch] trial 8 finished: best val_acc=0.7719 (at val_loss=0.5904)
+[I 2026-10-25 17:44:03,057] Trial 8 finished with value: 0.771875 and parameters: {'hidden_layers': 2, 'neurons': 2048, 'lr': 9.083381663660597e-06, 'beta1': 0.5723025411735203, 'step_size': 22, 'batch_size': 8}. Best is trial 8 with value: 0.771875.
+[17:44:03] [resnet18_scratch] trial 9: H=3 N=512 lr=2.31e-04 beta1=0.838 step_size=5 batch_size=96 (micro_batch=16, accum_steps=6)
+Train: 1310 | Val: 320 | Test: 113
+[resnet18_scratch trial9] Gradient accumulation: 6 micro-batches per optimizer step.
+[resnet18_scratch trial9] Epoch   1/100 | LR: 2.31e-04 | train loss 1.0767 acc 0.553 | val loss 0.9119 acc 0.644 *
+[resnet18_scratch trial9] Epoch   2/100 | LR: 2.31e-04 | train loss 0.9639 acc 0.621 | val loss 0.8790 acc 0.644 *
+[resnet18_scratch trial9] Epoch   3/100 | LR: 2.31e-04 | train loss 0.9289 acc 0.620 | val loss 0.9641 acc 0.656
+[resnet18_scratch trial9] Epoch   4/100 | LR: 2.31e-04 | train loss 0.9305 acc 0.621 | val loss 0.8399 acc 0.591 *
+[resnet18_scratch trial9] Epoch   5/100 | LR: 2.31e-05 | train loss 0.8828 acc 0.631 | val loss 0.7423 acc 0.694 *
+[resnet18_scratch trial9] Epoch   6/100 | LR: 2.31e-05 | train loss 0.8520 acc 0.661 | val loss 0.7166 acc 0.731 *
+[resnet18_scratch trial9] Epoch   7/100 | LR: 2.31e-05 | train loss 0.8145 acc 0.673 | val loss 0.6877 acc 0.738 *
+[resnet18_scratch trial9] Epoch   8/100 | LR: 2.31e-05 | train loss 0.8126 acc 0.681 | val loss 0.6726 acc 0.734 *
+[resnet18_scratch trial9] Epoch   9/100 | LR: 2.31e-05 | train loss 0.7807 acc 0.682 | val loss 0.6863 acc 0.734
+[resnet18_scratch trial9] Epoch  10/100 | LR: 2.31e-06 | train loss 0.7677 acc 0.691 | val loss 0.6614 acc 0.744 *
+[resnet18_scratch trial9] Epoch  11/100 | LR: 2.31e-06 | train loss 0.7599 acc 0.694 | val loss 0.6594 acc 0.728 *
+[resnet18_scratch trial9] Epoch  12/100 | LR: 2.31e-06 | train loss 0.7625 acc 0.679 | val loss 0.6527 acc 0.744 *
+[resnet18_scratch trial9] Epoch  13/100 | LR: 2.31e-06 | train loss 0.7356 acc 0.688 | val loss 0.6517 acc 0.750 *
+[resnet18_scratch trial9] Epoch  14/100 | LR: 2.31e-06 | train loss 0.7504 acc 0.688 | val loss 0.6476 acc 0.747 *
+[resnet18_scratch trial9] Epoch  15/100 | LR: 2.31e-07 | train loss 0.7553 acc 0.706 | val loss 0.6476 acc 0.741
+[resnet18_scratch trial9] Epoch  16/100 | LR: 2.31e-07 | train loss 0.7324 acc 0.705 | val loss 0.6528 acc 0.747
+[resnet18_scratch trial9] Epoch  17/100 | LR: 2.31e-07 | train loss 0.7514 acc 0.699 | val loss 0.6548 acc 0.747
+[resnet18_scratch trial9] Epoch  18/100 | LR: 2.31e-07 | train loss 0.7424 acc 0.712 | val loss 0.6440 acc 0.756 *
+[resnet18_scratch trial9] Epoch  19/100 | LR: 2.31e-07 | train loss 0.7379 acc 0.703 | val loss 0.6617 acc 0.750
+[resnet18_scratch trial9] Epoch  20/100 | LR: 2.31e-08 | train loss 0.7576 acc 0.679 | val loss 0.6427 acc 0.747 *
+[resnet18_scratch trial9] Epoch  21/100 | LR: 2.31e-08 | train loss 0.7540 acc 0.705 | val loss 0.6408 acc 0.753 *
+[resnet18_scratch trial9] Epoch  22/100 | LR: 2.31e-08 | train loss 0.7524 acc 0.686 | val loss 0.6419 acc 0.747
+[resnet18_scratch trial9] Epoch  23/100 | LR: 2.31e-08 | train loss 0.7475 acc 0.695 | val loss 0.6570 acc 0.734
+[resnet18_scratch trial9] Epoch  24/100 | LR: 2.31e-08 | train loss 0.7542 acc 0.702 | val loss 0.6631 acc 0.741
+[resnet18_scratch trial9] Epoch  25/100 | LR: 2.31e-09 | train loss 0.7592 acc 0.692 | val loss 0.6475 acc 0.747
+[resnet18_scratch trial9] Epoch  26/100 | LR: 2.31e-09 | train loss 0.7432 acc 0.704 | val loss 0.6377 acc 0.753 *
+[resnet18_scratch trial9] Epoch  27/100 | LR: 2.31e-09 | train loss 0.7455 acc 0.708 | val loss 0.6598 acc 0.750
+[resnet18_scratch trial9] Epoch  28/100 | LR: 2.31e-09 | train loss 0.7543 acc 0.692 | val loss 0.6462 acc 0.762
+[resnet18_scratch trial9] Epoch  29/100 | LR: 2.31e-09 | train loss 0.7594 acc 0.689 | val loss 0.6457 acc 0.744
+[resnet18_scratch trial9] Epoch  30/100 | LR: 2.31e-10 | train loss 0.7467 acc 0.688 | val loss 0.6402 acc 0.750
+[resnet18_scratch trial9] Epoch  31/100 | LR: 2.31e-10 | train loss 0.7589 acc 0.697 | val loss 0.6445 acc 0.753
+[resnet18_scratch trial9] Epoch  32/100 | LR: 2.31e-10 | train loss 0.7426 acc 0.705 | val loss 0.6555 acc 0.744
+[resnet18_scratch trial9] Epoch  33/100 | LR: 2.31e-10 | train loss 0.7612 acc 0.692 | val loss 0.6367 acc 0.744 *
+[resnet18_scratch trial9] Epoch  34/100 | LR: 2.31e-10 | train loss 0.7266 acc 0.726 | val loss 0.6453 acc 0.738
+[resnet18_scratch trial9] Epoch  35/100 | LR: 2.31e-11 | train loss 0.7360 acc 0.691 | val loss 0.6496 acc 0.741
+[resnet18_scratch trial9] Epoch  36/100 | LR: 2.31e-11 | train loss 0.7543 acc 0.689 | val loss 0.6477 acc 0.744
+[resnet18_scratch trial9] Epoch  37/100 | LR: 2.31e-11 | train loss 0.7480 acc 0.689 | val loss 0.6405 acc 0.756
+[resnet18_scratch trial9] Epoch  38/100 | LR: 2.31e-11 | train loss 0.7423 acc 0.709 | val loss 0.6389 acc 0.753
+[resnet18_scratch trial9] Epoch  39/100 | LR: 2.31e-11 | train loss 0.7547 acc 0.689 | val loss 0.6462 acc 0.741
+[resnet18_scratch trial9] Epoch  40/100 | LR: 2.31e-12 | train loss 0.7495 acc 0.702 | val loss 0.6418 acc 0.747
+[resnet18_scratch trial9] Epoch  41/100 | LR: 2.31e-12 | train loss 0.7382 acc 0.715 | val loss 0.6520 acc 0.741
+[resnet18_scratch trial9] Epoch  42/100 | LR: 2.31e-12 | train loss 0.7725 acc 0.682 | val loss 0.6429 acc 0.753
+[resnet18_scratch trial9] Epoch  43/100 | LR: 2.31e-12 | train loss 0.7716 acc 0.679 | val loss 0.6566 acc 0.744
+
+[resnet18_scratch trial9] No val loss improvement for 10 epochs, stopping at epoch 43.
+
+[resnet18_scratch trial9] Restored best checkpoint (val loss = 0.6367)
+[17:48:59] [resnet18_scratch] trial 9 finished: best val_acc=0.7438 (at val_loss=0.6367)
+[I 2026-10-25 17:48:59,723] Trial 9 finished with value: 0.74375 and parameters: {'hidden_layers': 3, 'neurons': 512, 'lr': 0.00023097861492693574, 'beta1': 0.8381046165592989, 'step_size': 5, 'batch_size': 96}. Best is trial 8 with value: 0.771875.
+[17:48:59] [resnet18_scratch] trial 10: H=2 N=2048 lr=1.45e-05 beta1=0.571 step_size=30 batch_size=24 (micro_batch=16, accum_steps=2)
+Train: 1310 | Val: 320 | Test: 113
+[resnet18_scratch trial10] Gradient accumulation: 2 micro-batches per optimizer step.
+[resnet18_scratch trial10] Epoch   1/100 | LR: 1.45e-05 | train loss 1.0970 acc 0.428 | val loss 1.0652 acc 0.397 *
+[resnet18_scratch trial10] Epoch   2/100 | LR: 1.45e-05 | train loss 1.0705 acc 0.518 | val loss 0.9742 acc 0.641 *
+[resnet18_scratch trial10] Epoch   3/100 | LR: 1.45e-05 | train loss 1.0061 acc 0.611 | val loss 0.9264 acc 0.606 *
+[resnet18_scratch trial10] Epoch   4/100 | LR: 1.45e-05 | train loss 0.9341 acc 0.625 | val loss 0.8264 acc 0.672 *
+[resnet18_scratch trial10] Epoch   5/100 | LR: 1.45e-05 | train loss 0.8986 acc 0.639 | val loss 0.8353 acc 0.641
+[resnet18_scratch trial10] Epoch   6/100 | LR: 1.45e-05 | train loss 0.8539 acc 0.653 | val loss 0.7603 acc 0.703 *
+[resnet18_scratch trial10] Epoch   7/100 | LR: 1.45e-05 | train loss 0.8619 acc 0.616 | val loss 0.7359 acc 0.703 *
+[resnet18_scratch trial10] Epoch   8/100 | LR: 1.45e-05 | train loss 0.8659 acc 0.629 | val loss 0.7596 acc 0.672
+[resnet18_scratch trial10] Epoch   9/100 | LR: 1.45e-05 | train loss 0.8230 acc 0.660 | val loss 0.6941 acc 0.728 *
+[resnet18_scratch trial10] Epoch  10/100 | LR: 1.45e-05 | train loss 0.8241 acc 0.653 | val loss 0.7418 acc 0.684
+[resnet18_scratch trial10] Epoch  11/100 | LR: 1.45e-05 | train loss 0.8224 acc 0.624 | val loss 0.7722 acc 0.650
+[resnet18_scratch trial10] Epoch  12/100 | LR: 1.45e-05 | train loss 0.8109 acc 0.663 | val loss 0.7756 acc 0.641
+[resnet18_scratch trial10] Epoch  13/100 | LR: 1.45e-05 | train loss 0.8093 acc 0.647 | val loss 0.8074 acc 0.644
+[resnet18_scratch trial10] Epoch  14/100 | LR: 1.45e-05 | train loss 0.7748 acc 0.674 | val loss 0.7732 acc 0.637
+[resnet18_scratch trial10] Epoch  15/100 | LR: 1.45e-05 | train loss 0.7828 acc 0.676 | val loss 0.7303 acc 0.647
+[resnet18_scratch trial10] Epoch  16/100 | LR: 1.45e-05 | train loss 0.8113 acc 0.656 | val loss 0.7015 acc 0.716
+[resnet18_scratch trial10] Epoch  17/100 | LR: 1.45e-05 | train loss 0.7590 acc 0.678 | val loss 0.6350 acc 0.769 *
+[resnet18_scratch trial10] Epoch  18/100 | LR: 1.45e-05 | train loss 0.7622 acc 0.675 | val loss 0.6686 acc 0.716
+[resnet18_scratch trial10] Epoch  19/100 | LR: 1.45e-05 | train loss 0.7439 acc 0.680 | val loss 0.7058 acc 0.713
+[resnet18_scratch trial10] Epoch  20/100 | LR: 1.45e-05 | train loss 0.7748 acc 0.672 | val loss 0.6908 acc 0.678
+[resnet18_scratch trial10] Epoch  21/100 | LR: 1.45e-05 | train loss 0.7500 acc 0.681 | val loss 0.7630 acc 0.656
+[resnet18_scratch trial10] Epoch  22/100 | LR: 1.45e-05 | train loss 0.7675 acc 0.666 | val loss 0.6738 acc 0.716
+[resnet18_scratch trial10] Epoch  23/100 | LR: 1.45e-05 | train loss 0.7802 acc 0.673 | val loss 0.7416 acc 0.666
+[resnet18_scratch trial10] Epoch  24/100 | LR: 1.45e-05 | train loss 0.7332 acc 0.709 | val loss 0.6400 acc 0.747
+[resnet18_scratch trial10] Epoch  25/100 | LR: 1.45e-05 | train loss 0.7187 acc 0.712 | val loss 0.6672 acc 0.728
+[resnet18_scratch trial10] Epoch  26/100 | LR: 1.45e-05 | train loss 0.7132 acc 0.696 | val loss 0.6866 acc 0.709
+[resnet18_scratch trial10] Epoch  27/100 | LR: 1.45e-05 | train loss 0.7167 acc 0.696 | val loss 0.6636 acc 0.744
+
+[resnet18_scratch trial10] No val loss improvement for 10 epochs, stopping at epoch 27.
+
+[resnet18_scratch trial10] Restored best checkpoint (val loss = 0.6350)
+[17:52:06] [resnet18_scratch] trial 10 finished: best val_acc=0.7688 (at val_loss=0.6350)
+[I 2026-10-25 17:52:06,516] Trial 10 finished with value: 0.76875 and parameters: {'hidden_layers': 2, 'neurons': 2048, 'lr': 1.4507630561073118e-05, 'beta1': 0.5708063966841861, 'step_size': 30, 'batch_size': 24}. Best is trial 8 with value: 0.771875.
+[17:52:06] [resnet18_scratch] trial 11: H=2 N=2048 lr=1.31e-06 beta1=0.671 step_size=26 batch_size=8 (micro_batch=8, accum_steps=1)
+Train: 1310 | Val: 320 | Test: 113
+[resnet18_scratch trial11] Epoch   1/100 | LR: 1.31e-06 | train loss 1.0900 acc 0.456 | val loss 1.0501 acc 0.487 *
+[resnet18_scratch trial11] Epoch   2/100 | LR: 1.31e-06 | train loss 1.0867 acc 0.493 | val loss 1.0522 acc 0.478
+[resnet18_scratch trial11] Epoch   3/100 | LR: 1.31e-06 | train loss 1.0857 acc 0.480 | val loss 1.0356 acc 0.534 *
+[resnet18_scratch trial11] Epoch   4/100 | LR: 1.31e-06 | train loss 1.0852 acc 0.488 | val loss 1.0474 acc 0.525
+[resnet18_scratch trial11] Epoch   5/100 | LR: 1.31e-06 | train loss 1.0799 acc 0.517 | val loss 1.0430 acc 0.550
+[I 2026-10-25 17:52:40,986] Trial 11 pruned. 
+[17:52:41] [resnet18_scratch] trial 12: H=2 N=2048 lr=4.57e-05 beta1=0.713 step_size=37 batch_size=24 (micro_batch=16, accum_steps=2)
+Train: 1310 | Val: 320 | Test: 113
+[resnet18_scratch trial12] Gradient accumulation: 2 micro-batches per optimizer step.
+[resnet18_scratch trial12] Epoch   1/100 | LR: 4.57e-05 | train loss 1.0862 acc 0.438 | val loss 0.9387 acc 0.622 *
+[resnet18_scratch trial12] Epoch   2/100 | LR: 4.57e-05 | train loss 0.9824 acc 0.618 | val loss 0.8368 acc 0.656 *
+[resnet18_scratch trial12] Epoch   3/100 | LR: 4.57e-05 | train loss 0.9385 acc 0.609 | val loss 0.8273 acc 0.647 *
+[resnet18_scratch trial12] Epoch   4/100 | LR: 4.57e-05 | train loss 0.9144 acc 0.608 | val loss 0.7855 acc 0.641 *
+[resnet18_scratch trial12] Epoch   5/100 | LR: 4.57e-05 | train loss 0.9002 acc 0.606 | val loss 0.7565 acc 0.662 *
+[resnet18_scratch trial12] Epoch   6/100 | LR: 4.57e-05 | train loss 0.8770 acc 0.634 | val loss 0.8258 acc 0.637
+[resnet18_scratch trial12] Epoch   7/100 | LR: 4.57e-05 | train loss 0.8510 acc 0.644 | val loss 0.8206 acc 0.616
+[resnet18_scratch trial12] Epoch   8/100 | LR: 4.57e-05 | train loss 0.8371 acc 0.647 | val loss 0.8123 acc 0.584
+[resnet18_scratch trial12] Epoch   9/100 | LR: 4.57e-05 | train loss 0.8307 acc 0.650 | val loss 0.7554 acc 0.662 *
+[I 2026-10-25 17:53:43,434] Trial 12 pruned. 
+[17:53:43] [resnet18_scratch] trial 13: H=2 N=2048 lr=8.32e-06 beta1=0.565 step_size=20 batch_size=24 (micro_batch=16, accum_steps=2)
+Train: 1310 | Val: 320 | Test: 113
+[resnet18_scratch trial13] Gradient accumulation: 2 micro-batches per optimizer step.
+[resnet18_scratch trial13] Epoch   1/100 | LR: 8.32e-06 | train loss 1.0897 acc 0.395 | val loss 1.0395 acc 0.472 *
+[resnet18_scratch trial13] Epoch   2/100 | LR: 8.32e-06 | train loss 1.0766 acc 0.501 | val loss 1.0364 acc 0.566 *
+[resnet18_scratch trial13] Epoch   3/100 | LR: 8.32e-06 | train loss 1.0650 acc 0.523 | val loss 0.9903 acc 0.650 *
+[resnet18_scratch trial13] Epoch   4/100 | LR: 8.32e-06 | train loss 1.0268 acc 0.603 | val loss 0.9329 acc 0.644 *
+[resnet18_scratch trial13] Epoch   5/100 | LR: 8.32e-06 | train loss 0.9684 acc 0.625 | val loss 0.8401 acc 0.678 *
+[resnet18_scratch trial13] Epoch   6/100 | LR: 8.32e-06 | train loss 0.9305 acc 0.659 | val loss 0.8195 acc 0.675 *
+[resnet18_scratch trial13] Epoch   7/100 | LR: 8.32e-06 | train loss 0.9127 acc 0.621 | val loss 0.7553 acc 0.709 *
+[resnet18_scratch trial13] Epoch   8/100 | LR: 8.32e-06 | train loss 0.8958 acc 0.640 | val loss 0.7954 acc 0.681
+[resnet18_scratch trial13] Epoch   9/100 | LR: 8.32e-06 | train loss 0.8794 acc 0.642 | val loss 0.7688 acc 0.684
+[resnet18_scratch trial13] Epoch  10/100 | LR: 8.32e-06 | train loss 0.8690 acc 0.638 | val loss 0.7323 acc 0.694 *
+[resnet18_scratch trial13] Epoch  11/100 | LR: 8.32e-06 | train loss 0.8203 acc 0.684 | val loss 0.7349 acc 0.697
+[resnet18_scratch trial13] Epoch  12/100 | LR: 8.32e-06 | train loss 0.8381 acc 0.660 | val loss 0.7414 acc 0.681
+[resnet18_scratch trial13] Epoch  13/100 | LR: 8.32e-06 | train loss 0.8379 acc 0.653 | val loss 0.7457 acc 0.641
+[resnet18_scratch trial13] Epoch  14/100 | LR: 8.32e-06 | train loss 0.8292 acc 0.638 | val loss 0.7632 acc 0.669
+[resnet18_scratch trial13] Epoch  15/100 | LR: 8.32e-06 | train loss 0.8373 acc 0.651 | val loss 0.7953 acc 0.622
+[resnet18_scratch trial13] Epoch  16/100 | LR: 8.32e-06 | train loss 0.8144 acc 0.638 | val loss 0.7261 acc 0.700 *
+[resnet18_scratch trial13] Epoch  17/100 | LR: 8.32e-06 | train loss 0.7987 acc 0.659 | val loss 0.7511 acc 0.697
+[I 2026-10-25 17:55:39,829] Trial 13 pruned. 
+[17:55:39] [resnet18_scratch] trial 14: H=2 N=2048 lr=3.42e-04 beta1=0.532 step_size=29 batch_size=24 (micro_batch=16, accum_steps=2)
+Train: 1310 | Val: 320 | Test: 113
+[resnet18_scratch trial14] Gradient accumulation: 2 micro-batches per optimizer step.
+[resnet18_scratch trial14] Epoch   1/100 | LR: 3.42e-04 | train loss 1.1239 acc 0.402 | val loss 1.0178 acc 0.531 *
+[resnet18_scratch trial14] Epoch   2/100 | LR: 3.42e-04 | train loss 1.0468 acc 0.582 | val loss 0.9268 acc 0.594 *
+[resnet18_scratch trial14] Epoch   3/100 | LR: 3.42e-04 | train loss 0.9984 acc 0.629 | val loss 0.8336 acc 0.672 *
+[resnet18_scratch trial14] Epoch   4/100 | LR: 3.42e-04 | train loss 0.9581 acc 0.640 | val loss 0.9643 acc 0.641
+[resnet18_scratch trial14] Epoch   5/100 | LR: 3.42e-04 | train loss 0.9310 acc 0.642 | val loss 0.8216 acc 0.659 *
+[resnet18_scratch trial14] Epoch   6/100 | LR: 3.42e-04 | train loss 0.8936 acc 0.647 | val loss 0.8820 acc 0.659
+[resnet18_scratch trial14] Epoch   7/100 | LR: 3.42e-04 | train loss 0.8834 acc 0.669 | val loss 0.7264 acc 0.703 *
+[resnet18_scratch trial14] Epoch   8/100 | LR: 3.42e-04 | train loss 0.8735 acc 0.671 | val loss 0.7573 acc 0.681
+[resnet18_scratch trial14] Epoch   9/100 | LR: 3.42e-04 | train loss 0.8691 acc 0.634 | val loss 0.6759 acc 0.747 *
+[resnet18_scratch trial14] Epoch  10/100 | LR: 3.42e-04 | train loss 0.8701 acc 0.663 | val loss 0.8393 acc 0.653
+[resnet18_scratch trial14] Epoch  11/100 | LR: 3.42e-04 | train loss 0.8419 acc 0.629 | val loss 0.8482 acc 0.669
+[resnet18_scratch trial14] Epoch  12/100 | LR: 3.42e-04 | train loss 0.8423 acc 0.676 | val loss 0.7515 acc 0.653
+[resnet18_scratch trial14] Epoch  13/100 | LR: 3.42e-04 | train loss 0.8461 acc 0.640 | val loss 0.6560 acc 0.756 *
+[resnet18_scratch trial14] Epoch  14/100 | LR: 3.42e-04 | train loss 0.8143 acc 0.687 | val loss 0.7363 acc 0.659
+[resnet18_scratch trial14] Epoch  15/100 | LR: 3.42e-04 | train loss 0.8342 acc 0.661 | val loss 0.7720 acc 0.688
+[resnet18_scratch trial14] Epoch  16/100 | LR: 3.42e-04 | train loss 0.8254 acc 0.652 | val loss 0.6902 acc 0.747
+[resnet18_scratch trial14] Epoch  17/100 | LR: 3.42e-04 | train loss 0.8291 acc 0.655 | val loss 0.6433 acc 0.719 *
+[resnet18_scratch trial14] Epoch  18/100 | LR: 3.42e-04 | train loss 0.8269 acc 0.630 | val loss 0.7593 acc 0.700
+[resnet18_scratch trial14] Epoch  19/100 | LR: 3.42e-04 | train loss 0.8132 acc 0.675 | val loss 0.6433 acc 0.756 *
+[resnet18_scratch trial14] Epoch  20/100 | LR: 3.42e-04 | train loss 0.7857 acc 0.697 | val loss 0.7262 acc 0.650
+[resnet18_scratch trial14] Epoch  21/100 | LR: 3.42e-04 | train loss 0.7850 acc 0.677 | val loss 0.6667 acc 0.725
+[resnet18_scratch trial14] Epoch  22/100 | LR: 3.42e-04 | train loss 0.8063 acc 0.667 | val loss 0.7096 acc 0.709
+[resnet18_scratch trial14] Epoch  23/100 | LR: 3.42e-04 | train loss 0.7792 acc 0.666 | val loss 0.7392 acc 0.628
+[resnet18_scratch trial14] Epoch  24/100 | LR: 3.42e-04 | train loss 0.7675 acc 0.679 | val loss 0.6300 acc 0.766 *
+[resnet18_scratch trial14] Epoch  25/100 | LR: 3.42e-04 | train loss 0.7507 acc 0.682 | val loss 0.5996 acc 0.778 *
+[resnet18_scratch trial14] Epoch  26/100 | LR: 3.42e-04 | train loss 0.8114 acc 0.660 | val loss 0.6500 acc 0.744
+[resnet18_scratch trial14] Epoch  27/100 | LR: 3.42e-04 | train loss 0.7699 acc 0.671 | val loss 0.6783 acc 0.669
+[resnet18_scratch trial14] Epoch  28/100 | LR: 3.42e-04 | train loss 0.7608 acc 0.673 | val loss 0.6277 acc 0.744
+[resnet18_scratch trial14] Epoch  29/100 | LR: 3.42e-05 | train loss 0.7504 acc 0.672 | val loss 0.6769 acc 0.706
+[resnet18_scratch trial14] Epoch  30/100 | LR: 3.42e-05 | train loss 0.6938 acc 0.706 | val loss 0.6019 acc 0.741
+[resnet18_scratch trial14] Epoch  31/100 | LR: 3.42e-05 | train loss 0.7199 acc 0.692 | val loss 0.6069 acc 0.741
+[resnet18_scratch trial14] Epoch  32/100 | LR: 3.42e-05 | train loss 0.6740 acc 0.719 | val loss 0.5857 acc 0.769 *
+[resnet18_scratch trial14] Epoch  33/100 | LR: 3.42e-05 | train loss 0.6572 acc 0.734 | val loss 0.5703 acc 0.772 *
+[resnet18_scratch trial14] Epoch  34/100 | LR: 3.42e-05 | train loss 0.6561 acc 0.722 | val loss 0.6082 acc 0.759
+[resnet18_scratch trial14] Epoch  35/100 | LR: 3.42e-05 | train loss 0.6763 acc 0.724 | val loss 0.6047 acc 0.741
+[resnet18_scratch trial14] Epoch  36/100 | LR: 3.42e-05 | train loss 0.6625 acc 0.725 | val loss 0.5652 acc 0.775 *
+[resnet18_scratch trial14] Epoch  37/100 | LR: 3.42e-05 | train loss 0.6662 acc 0.727 | val loss 0.5753 acc 0.747
+[resnet18_scratch trial14] Epoch  38/100 | LR: 3.42e-05 | train loss 0.6468 acc 0.744 | val loss 0.5905 acc 0.744
+[resnet18_scratch trial14] Epoch  39/100 | LR: 3.42e-05 | train loss 0.6683 acc 0.728 | val loss 0.5598 acc 0.759 *
+[resnet18_scratch trial14] Epoch  40/100 | LR: 3.42e-05 | train loss 0.6500 acc 0.718 | val loss 0.5843 acc 0.744
+[resnet18_scratch trial14] Epoch  41/100 | LR: 3.42e-05 | train loss 0.6368 acc 0.742 | val loss 0.5801 acc 0.750
+[resnet18_scratch trial14] Epoch  42/100 | LR: 3.42e-05 | train loss 0.6423 acc 0.721 | val loss 0.5539 acc 0.756 *
+[resnet18_scratch trial14] Epoch  43/100 | LR: 3.42e-05 | train loss 0.6411 acc 0.734 | val loss 0.5459 acc 0.778 *
+[resnet18_scratch trial14] Epoch  44/100 | LR: 3.42e-05 | train loss 0.6224 acc 0.756 | val loss 0.5649 acc 0.762
+[resnet18_scratch trial14] Epoch  45/100 | LR: 3.42e-05 | train loss 0.6200 acc 0.742 | val loss 0.5553 acc 0.766
+[resnet18_scratch trial14] Epoch  46/100 | LR: 3.42e-05 | train loss 0.6217 acc 0.734 | val loss 0.5392 acc 0.769 *
+[resnet18_scratch trial14] Epoch  47/100 | LR: 3.42e-05 | train loss 0.6152 acc 0.747 | val loss 0.5633 acc 0.772
+[resnet18_scratch trial14] Epoch  48/100 | LR: 3.42e-05 | train loss 0.6044 acc 0.747 | val loss 0.5543 acc 0.772
+[resnet18_scratch trial14] Epoch  49/100 | LR: 3.42e-05 | train loss 0.6364 acc 0.733 | val loss 0.5435 acc 0.781
+[resnet18_scratch trial14] Epoch  50/100 | LR: 3.42e-05 | train loss 0.6148 acc 0.741 | val loss 0.5335 acc 0.797 *
+[resnet18_scratch trial14] Epoch  51/100 | LR: 3.42e-05 | train loss 0.5943 acc 0.750 | val loss 0.5679 acc 0.762
+[resnet18_scratch trial14] Epoch  52/100 | LR: 3.42e-05 | train loss 0.6200 acc 0.751 | val loss 0.5250 acc 0.816 *
+[resnet18_scratch trial14] Epoch  53/100 | LR: 3.42e-05 | train loss 0.5763 acc 0.764 | val loss 0.5559 acc 0.772
+[resnet18_scratch trial14] Epoch  54/100 | LR: 3.42e-05 | train loss 0.6205 acc 0.748 | val loss 0.5381 acc 0.787
+[resnet18_scratch trial14] Epoch  55/100 | LR: 3.42e-05 | train loss 0.6039 acc 0.753 | val loss 0.5740 acc 0.744
+[resnet18_scratch trial14] Epoch  56/100 | LR: 3.42e-05 | train loss 0.5853 acc 0.756 | val loss 0.5264 acc 0.794
+[resnet18_scratch trial14] Epoch  57/100 | LR: 3.42e-05 | train loss 0.5882 acc 0.759 | val loss 0.5507 acc 0.778
+[resnet18_scratch trial14] Epoch  58/100 | LR: 3.42e-06 | train loss 0.5724 acc 0.769 | val loss 0.5041 acc 0.828 *
+[resnet18_scratch trial14] Epoch  59/100 | LR: 3.42e-06 | train loss 0.5763 acc 0.758 | val loss 0.5119 acc 0.797
+[resnet18_scratch trial14] Epoch  60/100 | LR: 3.42e-06 | train loss 0.5657 acc 0.765 | val loss 0.5091 acc 0.806
+[resnet18_scratch trial14] Epoch  61/100 | LR: 3.42e-06 | train loss 0.5767 acc 0.766 | val loss 0.5164 acc 0.800
+[resnet18_scratch trial14] Epoch  62/100 | LR: 3.42e-06 | train loss 0.5750 acc 0.762 | val loss 0.5186 acc 0.794
+[resnet18_scratch trial14] Epoch  63/100 | LR: 3.42e-06 | train loss 0.5812 acc 0.762 | val loss 0.5289 acc 0.794
+[resnet18_scratch trial14] Epoch  64/100 | LR: 3.42e-06 | train loss 0.5636 acc 0.760 | val loss 0.5101 acc 0.803
+[resnet18_scratch trial14] Epoch  65/100 | LR: 3.42e-06 | train loss 0.5888 acc 0.750 | val loss 0.5272 acc 0.778
+[resnet18_scratch trial14] Epoch  66/100 | LR: 3.42e-06 | train loss 0.5569 acc 0.759 | val loss 0.5176 acc 0.787
+[resnet18_scratch trial14] Epoch  67/100 | LR: 3.42e-06 | train loss 0.5671 acc 0.776 | val loss 0.5355 acc 0.772
+[resnet18_scratch trial14] Epoch  68/100 | LR: 3.42e-06 | train loss 0.5597 acc 0.752 | val loss 0.5216 acc 0.800
+
+[resnet18_scratch trial14] No val loss improvement for 10 epochs, stopping at epoch 68.
+
+[resnet18_scratch trial14] Restored best checkpoint (val loss = 0.5041)
+[18:03:22] [resnet18_scratch] trial 14 finished: best val_acc=0.8281 (at val_loss=0.5041)
+[I 2026-10-25 18:03:22,712] Trial 14 finished with value: 0.828125 and parameters: {'hidden_layers': 2, 'neurons': 2048, 'lr': 0.0003422078923791186, 'beta1': 0.531798491739625, 'step_size': 29, 'batch_size': 24}. Best is trial 14 with value: 0.828125.
+[18:03:22] [resnet18_scratch] trial 15: H=2 N=2048 lr=1.35e-03 beta1=0.509 step_size=31 batch_size=16 (micro_batch=16, accum_steps=1)
+Train: 1310 | Val: 320 | Test: 113
+[resnet18_scratch trial15] Epoch   1/100 | LR: 1.35e-03 | train loss 1.3058 acc 0.337 | val loss 1.1546 acc 0.122 *
+[resnet18_scratch trial15] Epoch   2/100 | LR: 1.35e-03 | train loss 1.1101 acc 0.355 | val loss 1.1017 acc 0.375 *
+[resnet18_scratch trial15] Epoch   3/100 | LR: 1.35e-03 | train loss 1.1021 acc 0.327 | val loss 1.1009 acc 0.125 *
+[resnet18_scratch trial15] Epoch   4/100 | LR: 1.35e-03 | train loss 1.1060 acc 0.381 | val loss 1.0935 acc 0.394 *
+[resnet18_scratch trial15] Epoch   5/100 | LR: 1.35e-03 | train loss 1.1096 acc 0.431 | val loss 1.0930 acc 0.391 *
+[I 2026-10-25 18:03:58,443] Trial 15 pruned. 
+[18:03:58] [resnet18_scratch] trial 16: H=2 N=2048 lr=1.48e-04 beta1=0.593 step_size=25 batch_size=8 (micro_batch=8, accum_steps=1)
+Train: 1310 | Val: 320 | Test: 113
+[resnet18_scratch trial16] Epoch   1/100 | LR: 1.48e-04 | train loss 1.1160 acc 0.456 | val loss 0.9838 acc 0.637 *
+[resnet18_scratch trial16] Epoch   2/100 | LR: 1.48e-04 | train loss 1.0377 acc 0.589 | val loss 0.9481 acc 0.603 *
+[resnet18_scratch trial16] Epoch   3/100 | LR: 1.48e-04 | train loss 0.9858 acc 0.636 | val loss 0.8073 acc 0.700 *
+[resnet18_scratch trial16] Epoch   4/100 | LR: 1.48e-04 | train loss 0.9527 acc 0.666 | val loss 0.8350 acc 0.703
+[resnet18_scratch trial16] Epoch   5/100 | LR: 1.48e-04 | train loss 0.9445 acc 0.648 | val loss 0.7566 acc 0.738 *
+[resnet18_scratch trial16] Epoch   6/100 | LR: 1.48e-04 | train loss 0.9189 acc 0.667 | val loss 0.8135 acc 0.694
+[resnet18_scratch trial16] Epoch   7/100 | LR: 1.48e-04 | train loss 0.9088 acc 0.660 | val loss 0.7670 acc 0.684
+[resnet18_scratch trial16] Epoch   8/100 | LR: 1.48e-04 | train loss 0.9096 acc 0.680 | val loss 0.7552 acc 0.750 *
+[resnet18_scratch trial16] Epoch   9/100 | LR: 1.48e-04 | train loss 0.8988 acc 0.668 | val loss 0.7140 acc 0.744 *
+[resnet18_scratch trial16] Epoch  10/100 | LR: 1.48e-04 | train loss 0.8773 acc 0.700 | val loss 0.7327 acc 0.716
+[resnet18_scratch trial16] Epoch  11/100 | LR: 1.48e-04 | train loss 0.8792 acc 0.663 | val loss 0.7335 acc 0.722
+[resnet18_scratch trial16] Epoch  12/100 | LR: 1.48e-04 | train loss 0.8521 acc 0.656 | val loss 0.6951 acc 0.725 *
+[resnet18_scratch trial16] Epoch  13/100 | LR: 1.48e-04 | train loss 0.8422 acc 0.685 | val loss 0.7709 acc 0.662
+[resnet18_scratch trial16] Epoch  14/100 | LR: 1.48e-04 | train loss 0.8421 acc 0.656 | val loss 0.7513 acc 0.659
+[resnet18_scratch trial16] Epoch  15/100 | LR: 1.48e-04 | train loss 0.8388 acc 0.674 | val loss 0.7142 acc 0.688
+[resnet18_scratch trial16] Epoch  16/100 | LR: 1.48e-04 | train loss 0.8212 acc 0.664 | val loss 0.7529 acc 0.678
+[resnet18_scratch trial16] Epoch  17/100 | LR: 1.48e-04 | train loss 0.8149 acc 0.682 | val loss 0.6437 acc 0.750 *
+[resnet18_scratch trial16] Epoch  18/100 | LR: 1.48e-04 | train loss 0.7898 acc 0.690 | val loss 0.7408 acc 0.719
+[resnet18_scratch trial16] Epoch  19/100 | LR: 1.48e-04 | train loss 0.7970 acc 0.688 | val loss 0.6229 acc 0.766 *
+[resnet18_scratch trial16] Epoch  20/100 | LR: 1.48e-04 | train loss 0.7955 acc 0.711 | val loss 0.8104 acc 0.647
+[resnet18_scratch trial16] Epoch  21/100 | LR: 1.48e-04 | train loss 0.7797 acc 0.694 | val loss 0.7067 acc 0.688
+[resnet18_scratch trial16] Epoch  22/100 | LR: 1.48e-04 | train loss 0.8356 acc 0.656 | val loss 0.6610 acc 0.741
+[resnet18_scratch trial16] Epoch  23/100 | LR: 1.48e-04 | train loss 0.8018 acc 0.686 | val loss 0.6479 acc 0.741
+[resnet18_scratch trial16] Epoch  24/100 | LR: 1.48e-04 | train loss 0.7676 acc 0.705 | val loss 0.8426 acc 0.637
+[resnet18_scratch trial16] Epoch  25/100 | LR: 1.48e-05 | train loss 0.7991 acc 0.669 | val loss 0.6187 acc 0.725 *
+[resnet18_scratch trial16] Epoch  26/100 | LR: 1.48e-05 | train loss 0.7403 acc 0.666 | val loss 0.6017 acc 0.731 *
+[resnet18_scratch trial16] Epoch  27/100 | LR: 1.48e-05 | train loss 0.7085 acc 0.724 | val loss 0.5742 acc 0.756 *
+[resnet18_scratch trial16] Epoch  28/100 | LR: 1.48e-05 | train loss 0.6826 acc 0.727 | val loss 0.5625 acc 0.747 *
+[resnet18_scratch trial16] Epoch  29/100 | LR: 1.48e-05 | train loss 0.6659 acc 0.722 | val loss 0.5563 acc 0.756 *
+[resnet18_scratch trial16] Epoch  30/100 | LR: 1.48e-05 | train loss 0.6412 acc 0.739 | val loss 0.5393 acc 0.775 *
+[resnet18_scratch trial16] Epoch  31/100 | LR: 1.48e-05 | train loss 0.6465 acc 0.740 | val loss 0.5443 acc 0.769
+[resnet18_scratch trial16] Epoch  32/100 | LR: 1.48e-05 | train loss 0.6302 acc 0.750 | val loss 0.5686 acc 0.762
+[resnet18_scratch trial16] Epoch  33/100 | LR: 1.48e-05 | train loss 0.6240 acc 0.750 | val loss 0.5455 acc 0.766
+[resnet18_scratch trial16] Epoch  34/100 | LR: 1.48e-05 | train loss 0.6235 acc 0.742 | val loss 0.5473 acc 0.753
+[resnet18_scratch trial16] Epoch  35/100 | LR: 1.48e-05 | train loss 0.6380 acc 0.741 | val loss 0.5714 acc 0.744
+[resnet18_scratch trial16] Epoch  36/100 | LR: 1.48e-05 | train loss 0.6374 acc 0.744 | val loss 0.5514 acc 0.762
+[resnet18_scratch trial16] Epoch  37/100 | LR: 1.48e-05 | train loss 0.6246 acc 0.762 | val loss 0.5492 acc 0.759
+[resnet18_scratch trial16] Epoch  38/100 | LR: 1.48e-05 | train loss 0.6179 acc 0.752 | val loss 0.5552 acc 0.759
+[resnet18_scratch trial16] Epoch  39/100 | LR: 1.48e-05 | train loss 0.5967 acc 0.772 | val loss 0.5432 acc 0.756
+[resnet18_scratch trial16] Epoch  40/100 | LR: 1.48e-05 | train loss 0.6241 acc 0.759 | val loss 0.5411 acc 0.762
+
+[resnet18_scratch trial16] No val loss improvement for 10 epochs, stopping at epoch 40.
+
+[resnet18_scratch trial16] Restored best checkpoint (val loss = 0.5393)
+[18:08:28] [resnet18_scratch] trial 16 finished: best val_acc=0.7750 (at val_loss=0.5393)
+[I 2026-10-25 18:08:28,382] Trial 16 finished with value: 0.775 and parameters: {'hidden_layers': 2, 'neurons': 2048, 'lr': 0.0001481554764107724, 'beta1': 0.5929832860076109, 'step_size': 25, 'batch_size': 8}. Best is trial 14 with value: 0.828125.
+[18:08:28] [resnet18_scratch] trial 17: H=1 N=2048 lr=4.55e-04 beta1=0.531 step_size=18 batch_size=8 (micro_batch=8, accum_steps=1)
+Train: 1310 | Val: 320 | Test: 113
+[resnet18_scratch trial17] Epoch   1/100 | LR: 4.55e-04 | train loss 1.1460 acc 0.458 | val loss 0.9630 acc 0.619 *
+[resnet18_scratch trial17] Epoch   2/100 | LR: 4.55e-04 | train loss 1.0624 acc 0.561 | val loss 0.9050 acc 0.634 *
+[resnet18_scratch trial17] Epoch   3/100 | LR: 4.55e-04 | train loss 1.0859 acc 0.516 | val loss 0.9879 acc 0.637
+[resnet18_scratch trial17] Epoch   4/100 | LR: 4.55e-04 | train loss 1.0639 acc 0.513 | val loss 0.9898 acc 0.528
+[resnet18_scratch trial17] Epoch   5/100 | LR: 4.55e-04 | train loss 1.0598 acc 0.550 | val loss 0.8552 acc 0.641 *
+[resnet18_scratch trial17] Epoch   6/100 | LR: 4.55e-04 | train loss 0.9952 acc 0.625 | val loss 0.9001 acc 0.650
+[I 2026-10-25 18:09:08,963] Trial 17 pruned. 
+[18:09:09] [resnet18_scratch] trial 18: H=2 N=2048 lr=9.83e-05 beta1=0.794 step_size=21 batch_size=8 (micro_batch=8, accum_steps=1)
+Train: 1310 | Val: 320 | Test: 113
+[resnet18_scratch trial18] Epoch   1/100 | LR: 9.83e-05 | train loss 1.0886 acc 0.467 | val loss 0.9559 acc 0.600 *
+[resnet18_scratch trial18] Epoch   2/100 | LR: 9.83e-05 | train loss 0.9892 acc 0.610 | val loss 0.8333 acc 0.672 *
+[resnet18_scratch trial18] Epoch   3/100 | LR: 9.83e-05 | train loss 0.9423 acc 0.647 | val loss 0.8210 acc 0.681 *
+[resnet18_scratch trial18] Epoch   4/100 | LR: 9.83e-05 | train loss 0.9195 acc 0.663 | val loss 0.7413 acc 0.716 *
+[resnet18_scratch trial18] Epoch   5/100 | LR: 9.83e-05 | train loss 0.9105 acc 0.676 | val loss 0.7509 acc 0.681
+[resnet18_scratch trial18] Epoch   6/100 | LR: 9.83e-05 | train loss 0.8958 acc 0.678 | val loss 0.7563 acc 0.688
+[resnet18_scratch trial18] Epoch   7/100 | LR: 9.83e-05 | train loss 0.8957 acc 0.685 | val loss 0.7403 acc 0.700 *
+[resnet18_scratch trial18] Epoch   8/100 | LR: 9.83e-05 | train loss 0.8914 acc 0.635 | val loss 0.7792 acc 0.656
+[resnet18_scratch trial18] Epoch   9/100 | LR: 9.83e-05 | train loss 0.8853 acc 0.659 | val loss 0.8245 acc 0.606
+[resnet18_scratch trial18] Epoch  10/100 | LR: 9.83e-05 | train loss 0.8690 acc 0.656 | val loss 0.7677 acc 0.731
+[resnet18_scratch trial18] Epoch  11/100 | LR: 9.83e-05 | train loss 0.8516 acc 0.654 | val loss 0.6606 acc 0.738 *
+[resnet18_scratch trial18] Epoch  12/100 | LR: 9.83e-05 | train loss 0.8518 acc 0.641 | val loss 0.7468 acc 0.694
+[resnet18_scratch trial18] Epoch  13/100 | LR: 9.83e-05 | train loss 0.8322 acc 0.662 | val loss 0.7714 acc 0.697
+[resnet18_scratch trial18] Epoch  14/100 | LR: 9.83e-05 | train loss 0.8358 acc 0.653 | val loss 0.6573 acc 0.744 *
+[resnet18_scratch trial18] Epoch  15/100 | LR: 9.83e-05 | train loss 0.8350 acc 0.656 | val loss 0.7770 acc 0.688
+[resnet18_scratch trial18] Epoch  16/100 | LR: 9.83e-05 | train loss 0.8109 acc 0.688 | val loss 0.7200 acc 0.706
+[resnet18_scratch trial18] Epoch  17/100 | LR: 9.83e-05 | train loss 0.8189 acc 0.666 | val loss 0.6919 acc 0.734
+[resnet18_scratch trial18] Epoch  18/100 | LR: 9.83e-05 | train loss 0.8151 acc 0.689 | val loss 0.7367 acc 0.713
+[resnet18_scratch trial18] Epoch  19/100 | LR: 9.83e-05 | train loss 0.8039 acc 0.676 | val loss 0.6783 acc 0.744
+[resnet18_scratch trial18] Epoch  20/100 | LR: 9.83e-05 | train loss 0.7871 acc 0.682 | val loss 0.8465 acc 0.637
+[resnet18_scratch trial18] Epoch  21/100 | LR: 9.83e-06 | train loss 0.7734 acc 0.686 | val loss 0.7390 acc 0.703
+[resnet18_scratch trial18] Epoch  22/100 | LR: 9.83e-06 | train loss 0.7349 acc 0.724 | val loss 0.5909 acc 0.772 *
+[resnet18_scratch trial18] Epoch  23/100 | LR: 9.83e-06 | train loss 0.6994 acc 0.731 | val loss 0.5701 acc 0.753 *
+[resnet18_scratch trial18] Epoch  24/100 | LR: 9.83e-06 | train loss 0.7195 acc 0.726 | val loss 0.5783 acc 0.775
+[resnet18_scratch trial18] Epoch  25/100 | LR: 9.83e-06 | train loss 0.6869 acc 0.733 | val loss 0.5902 acc 0.750
+[resnet18_scratch trial18] Epoch  26/100 | LR: 9.83e-06 | train loss 0.6740 acc 0.726 | val loss 0.5629 acc 0.775 *
+[resnet18_scratch trial18] Epoch  27/100 | LR: 9.83e-06 | train loss 0.6612 acc 0.737 | val loss 0.5774 acc 0.778
+[resnet18_scratch trial18] Epoch  28/100 | LR: 9.83e-06 | train loss 0.6675 acc 0.737 | val loss 0.5566 acc 0.787 *
+[resnet18_scratch trial18] Epoch  29/100 | LR: 9.83e-06 | train loss 0.6623 acc 0.734 | val loss 0.5620 acc 0.762
+[resnet18_scratch trial18] Epoch  30/100 | LR: 9.83e-06 | train loss 0.6515 acc 0.746 | val loss 0.5326 acc 0.800 *
+[resnet18_scratch trial18] Epoch  31/100 | LR: 9.83e-06 | train loss 0.6402 acc 0.734 | val loss 0.5701 acc 0.747
+[resnet18_scratch trial18] Epoch  32/100 | LR: 9.83e-06 | train loss 0.6577 acc 0.737 | val loss 0.5587 acc 0.775
+[resnet18_scratch trial18] Epoch  33/100 | LR: 9.83e-06 | train loss 0.6337 acc 0.741 | val loss 0.5502 acc 0.750
+[resnet18_scratch trial18] Epoch  34/100 | LR: 9.83e-06 | train loss 0.6022 acc 0.748 | val loss 0.5475 acc 0.762
+[resnet18_scratch trial18] Epoch  35/100 | LR: 9.83e-06 | train loss 0.6478 acc 0.753 | val loss 0.5631 acc 0.759
+[resnet18_scratch trial18] Epoch  36/100 | LR: 9.83e-06 | train loss 0.6009 acc 0.757 | val loss 0.5273 acc 0.791 *
+[resnet18_scratch trial18] Epoch  37/100 | LR: 9.83e-06 | train loss 0.6488 acc 0.737 | val loss 0.5415 acc 0.794
+[resnet18_scratch trial18] Epoch  38/100 | LR: 9.83e-06 | train loss 0.6199 acc 0.746 | val loss 0.5095 acc 0.797 *
+[resnet18_scratch trial18] Epoch  39/100 | LR: 9.83e-06 | train loss 0.6040 acc 0.768 | val loss 0.5399 acc 0.762
+[resnet18_scratch trial18] Epoch  40/100 | LR: 9.83e-06 | train loss 0.6188 acc 0.740 | val loss 0.5686 acc 0.731
+[resnet18_scratch trial18] Epoch  41/100 | LR: 9.83e-06 | train loss 0.6084 acc 0.756 | val loss 0.5247 acc 0.756
+[resnet18_scratch trial18] Epoch  42/100 | LR: 9.83e-07 | train loss 0.6075 acc 0.744 | val loss 0.5512 acc 0.766
+[resnet18_scratch trial18] Epoch  43/100 | LR: 9.83e-07 | train loss 0.5782 acc 0.773 | val loss 0.5598 acc 0.762
+[resnet18_scratch trial18] Epoch  44/100 | LR: 9.83e-07 | train loss 0.5911 acc 0.760 | val loss 0.5506 acc 0.762
+[resnet18_scratch trial18] Epoch  45/100 | LR: 9.83e-07 | train loss 0.5649 acc 0.782 | val loss 0.5323 acc 0.772
+[resnet18_scratch trial18] Epoch  46/100 | LR: 9.83e-07 | train loss 0.5863 acc 0.771 | val loss 0.5394 acc 0.778
+[resnet18_scratch trial18] Epoch  47/100 | LR: 9.83e-07 | train loss 0.5706 acc 0.770 | val loss 0.5167 acc 0.803
+[resnet18_scratch trial18] Epoch  48/100 | LR: 9.83e-07 | train loss 0.5818 acc 0.762 | val loss 0.5527 acc 0.772
+
+[resnet18_scratch trial18] No val loss improvement for 10 epochs, stopping at epoch 48.
+
+[resnet18_scratch trial18] Restored best checkpoint (val loss = 0.5095)
+[18:14:35] [resnet18_scratch] trial 18 finished: best val_acc=0.7969 (at val_loss=0.5095)
+[I 2026-10-25 18:14:35,248] Trial 18 finished with value: 0.796875 and parameters: {'hidden_layers': 2, 'neurons': 2048, 'lr': 9.833994604713798e-05, 'beta1': 0.7936763959132651, 'step_size': 21, 'batch_size': 8}. Best is trial 14 with value: 0.828125.
+[18:14:35] [resnet18_scratch] trial 19: H=2 N=2048 lr=3.19e-05 beta1=0.781 step_size=17 batch_size=8 (micro_batch=8, accum_steps=1)
+Train: 1310 | Val: 320 | Test: 113
+[resnet18_scratch trial19] Epoch   1/100 | LR: 3.19e-05 | train loss 1.0680 acc 0.460 | val loss 0.8396 acc 0.672 *
+[resnet18_scratch trial19] Epoch   2/100 | LR: 3.19e-05 | train loss 0.9850 acc 0.630 | val loss 0.8311 acc 0.650 *
+[resnet18_scratch trial19] Epoch   3/100 | LR: 3.19e-05 | train loss 0.9265 acc 0.662 | val loss 0.7908 acc 0.662 *
+[resnet18_scratch trial19] Epoch   4/100 | LR: 3.19e-05 | train loss 0.8865 acc 0.659 | val loss 0.7525 acc 0.713 *
+[resnet18_scratch trial19] Epoch   5/100 | LR: 3.19e-05 | train loss 0.8754 acc 0.675 | val loss 0.7258 acc 0.697 *
+[resnet18_scratch trial19] Epoch   6/100 | LR: 3.19e-05 | train loss 0.8574 acc 0.669 | val loss 0.6749 acc 0.719 *
+[resnet18_scratch trial19] Epoch   7/100 | LR: 3.19e-05 | train loss 0.8377 acc 0.672 | val loss 0.6420 acc 0.772 *
+[resnet18_scratch trial19] Epoch   8/100 | LR: 3.19e-05 | train loss 0.7971 acc 0.678 | val loss 0.6586 acc 0.719
+[resnet18_scratch trial19] Epoch   9/100 | LR: 3.19e-05 | train loss 0.8081 acc 0.685 | val loss 0.6276 acc 0.731 *
+[resnet18_scratch trial19] Epoch  10/100 | LR: 3.19e-05 | train loss 0.8144 acc 0.685 | val loss 0.6338 acc 0.759
+[resnet18_scratch trial19] Epoch  11/100 | LR: 3.19e-05 | train loss 0.7728 acc 0.705 | val loss 0.6382 acc 0.713
+[resnet18_scratch trial19] Epoch  12/100 | LR: 3.19e-05 | train loss 0.7781 acc 0.676 | val loss 0.6526 acc 0.731
+[resnet18_scratch trial19] Epoch  13/100 | LR: 3.19e-05 | train loss 0.7624 acc 0.687 | val loss 0.6944 acc 0.678
+[resnet18_scratch trial19] Epoch  14/100 | LR: 3.19e-05 | train loss 0.7563 acc 0.683 | val loss 0.6396 acc 0.722
+[resnet18_scratch trial19] Epoch  15/100 | LR: 3.19e-05 | train loss 0.7558 acc 0.698 | val loss 0.6625 acc 0.709
+[resnet18_scratch trial19] Epoch  16/100 | LR: 3.19e-05 | train loss 0.7283 acc 0.694 | val loss 0.6183 acc 0.747 *
+[resnet18_scratch trial19] Epoch  17/100 | LR: 3.19e-06 | train loss 0.7353 acc 0.698 | val loss 0.6116 acc 0.744 *
+[resnet18_scratch trial19] Epoch  18/100 | LR: 3.19e-06 | train loss 0.6899 acc 0.699 | val loss 0.5858 acc 0.747 *
+[resnet18_scratch trial19] Epoch  19/100 | LR: 3.19e-06 | train loss 0.6551 acc 0.727 | val loss 0.5989 acc 0.722
+[resnet18_scratch trial19] Epoch  20/100 | LR: 3.19e-06 | train loss 0.6676 acc 0.724 | val loss 0.5736 acc 0.753 *
+[resnet18_scratch trial19] Epoch  21/100 | LR: 3.19e-06 | train loss 0.6441 acc 0.753 | val loss 0.5653 acc 0.769 *
+[resnet18_scratch trial19] Epoch  22/100 | LR: 3.19e-06 | train loss 0.6158 acc 0.766 | val loss 0.5620 acc 0.769 *
+[resnet18_scratch trial19] Epoch  23/100 | LR: 3.19e-06 | train loss 0.6442 acc 0.757 | val loss 0.5633 acc 0.766
+[resnet18_scratch trial19] Epoch  24/100 | LR: 3.19e-06 | train loss 0.6223 acc 0.757 | val loss 0.5423 acc 0.791 *
+[resnet18_scratch trial19] Epoch  25/100 | LR: 3.19e-06 | train loss 0.6225 acc 0.741 | val loss 0.5425 acc 0.772
+[resnet18_scratch trial19] Epoch  26/100 | LR: 3.19e-06 | train loss 0.6338 acc 0.741 | val loss 0.5351 acc 0.781 *
+[resnet18_scratch trial19] Epoch  27/100 | LR: 3.19e-06 | train loss 0.6352 acc 0.748 | val loss 0.5643 acc 0.791
+[resnet18_scratch trial19] Epoch  28/100 | LR: 3.19e-06 | train loss 0.6065 acc 0.747 | val loss 0.5593 acc 0.775
+[resnet18_scratch trial19] Epoch  29/100 | LR: 3.19e-06 | train loss 0.6185 acc 0.747 | val loss 0.5662 acc 0.756
+[resnet18_scratch trial19] Epoch  30/100 | LR: 3.19e-06 | train loss 0.6389 acc 0.743 | val loss 0.5453 acc 0.791
+[resnet18_scratch trial19] Epoch  31/100 | LR: 3.19e-06 | train loss 0.6288 acc 0.750 | val loss 0.5624 acc 0.772
+[resnet18_scratch trial19] Epoch  32/100 | LR: 3.19e-06 | train loss 0.6085 acc 0.749 | val loss 0.5471 acc 0.772
+[resnet18_scratch trial19] Epoch  33/100 | LR: 3.19e-06 | train loss 0.6048 acc 0.760 | val loss 0.5855 acc 0.759
+[resnet18_scratch trial19] Epoch  34/100 | LR: 3.19e-07 | train loss 0.5933 acc 0.760 | val loss 0.5588 acc 0.769
+[resnet18_scratch trial19] Epoch  35/100 | LR: 3.19e-07 | train loss 0.6035 acc 0.758 | val loss 0.5346 acc 0.791 *
+[resnet18_scratch trial19] Epoch  36/100 | LR: 3.19e-07 | train loss 0.5766 acc 0.763 | val loss 0.5290 acc 0.794 *
+[resnet18_scratch trial19] Epoch  37/100 | LR: 3.19e-07 | train loss 0.6037 acc 0.745 | val loss 0.5754 acc 0.756
+[resnet18_scratch trial19] Epoch  38/100 | LR: 3.19e-07 | train loss 0.6003 acc 0.769 | val loss 0.5387 acc 0.787
+[resnet18_scratch trial19] Epoch  39/100 | LR: 3.19e-07 | train loss 0.6090 acc 0.768 | val loss 0.5636 acc 0.762
+[resnet18_scratch trial19] Epoch  40/100 | LR: 3.19e-07 | train loss 0.5623 acc 0.774 | val loss 0.5410 acc 0.781
+[resnet18_scratch trial19] Epoch  41/100 | LR: 3.19e-07 | train loss 0.5744 acc 0.766 | val loss 0.5474 acc 0.775
+[resnet18_scratch trial19] Epoch  42/100 | LR: 3.19e-07 | train loss 0.5807 acc 0.766 | val loss 0.5541 acc 0.762
+[resnet18_scratch trial19] Epoch  43/100 | LR: 3.19e-07 | train loss 0.6015 acc 0.766 | val loss 0.5433 acc 0.762
+[resnet18_scratch trial19] Epoch  44/100 | LR: 3.19e-07 | train loss 0.5804 acc 0.769 | val loss 0.5726 acc 0.756
+[resnet18_scratch trial19] Epoch  45/100 | LR: 3.19e-07 | train loss 0.5896 acc 0.759 | val loss 0.5392 acc 0.784
+[resnet18_scratch trial19] Epoch  46/100 | LR: 3.19e-07 | train loss 0.5936 acc 0.767 | val loss 0.5374 acc 0.778
+
+[resnet18_scratch trial19] No val loss improvement for 10 epochs, stopping at epoch 46.
+
+[resnet18_scratch trial19] Restored best checkpoint (val loss = 0.5290)
+[18:19:53] [resnet18_scratch] trial 19 finished: best val_acc=0.7937 (at val_loss=0.5290)
+[I 2026-10-25 18:19:53,727] Trial 19 finished with value: 0.79375 and parameters: {'hidden_layers': 2, 'neurons': 2048, 'lr': 3.190775608559434e-05, 'beta1': 0.7809684700458768, 'step_size': 17, 'batch_size': 8}. Best is trial 14 with value: 0.828125.
+[18:19:53] === resnet18_scratch done: 15 completed, 5 pruned. Best trial #14: val_acc=0.8281 params={'hidden_layers': 2, 'neurons': 2048, 'lr': 0.0003422078923791186, 'beta1': 0.531798491739625, 'step_size': 29, 'batch_size': 24} ===
+[18:19:53] Saved tuned hyperparameters for resnet18_scratch to tuned_hyperparams_aerobic_zone.json
+[18:19:53] [resnet18_scratch] finished in 92.7 min
+[18:19:53] All requested architectures tuned in 92.7 min total.

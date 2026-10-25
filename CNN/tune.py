@@ -1,7 +1,7 @@
 """
 tune.py
 =======
-Optuna hyperparameter search for the pretrained architectures.
+Optuna hyperparameter search for every architecture, including ResNet-18 (scratch).
 
 One study per architecture and component (TPE sampler + MedianPruner) jointly
 searches hidden_layers, neurons, lr, beta1, step_size and batch_size, scoring
@@ -61,7 +61,7 @@ PROGRESS_LOG = None
 
 # Fastest architectures first.
 ARCHITECTURES = [
-    "resnet18", "efficientnet_b0", "densenet121",
+    "resnet18", "resnet18_scratch", "efficientnet_b0", "densenet121",
     "resnet50", "convnext_tiny", "inception_v3",
 ]
 
@@ -91,6 +91,11 @@ def build_model(arch: str, hidden_layers: int, neurons: int):
     head size of this trial. Returns (model_on_device, is_inception)."""
     if arch == "resnet18":
         m = models.resnet18(weights=models.ResNet18_Weights.IMAGENET1K_V1)
+        in_f = m.fc.in_features
+        m.fc = build_classifier_head(in_f, hidden_layers, neurons, num_classes)
+        is_inception = False
+    elif arch == "resnet18_scratch":
+        m = models.resnet18(weights=None)
         in_f = m.fc.in_features
         m.fc = build_classifier_head(in_f, hidden_layers, neurons, num_classes)
         is_inception = False
@@ -250,7 +255,7 @@ def main():
     parser.add_argument("--arch", choices=ARCHITECTURES, default=None,
                          help="Tune just this architecture")
     parser.add_argument("--all", action="store_true",
-                         help="Tune all 6 pretrained architectures")
+                         help="Tune all 7 architectures")
     parser.add_argument("--n-trials", type=int, default=20,
                          help="Optuna trials per architecture (default: 20)")
     parser.add_argument("--progress-log", default=None,

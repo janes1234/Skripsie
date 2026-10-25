@@ -54,44 +54,49 @@
 \contentsline {section}{\numberline {5.5}Hyperparameter Tuning}{30}{section.5.5}%
 \contentsline {subsection}{\numberline {5.5.1}Why Optuna}{30}{subsection.5.5.1}%
 \contentsline {subsection}{\numberline {5.5.2}Search Procedure}{31}{subsection.5.5.2}%
-\contentsline {subsection}{\numberline {5.5.3}ResNet-18 (Scratch)}{31}{subsection.5.5.3}%
-\contentsline {section}{\numberline {5.6}Training Procedure}{32}{section.5.6}%
+\contentsline {section}{\numberline {5.6}Training Procedure}{31}{section.5.6}%
 \contentsline {section}{\numberline {5.7}Experiment 1: Mixed-Facility Baseline}{32}{section.5.7}%
 \contentsline {section}{\numberline {5.8}Experiment 2: Leave-One-Facility-Out Evaluation}{34}{section.5.8}%
-\contentsline {section}{\numberline {5.9}Experiment 3: Binary (OK / Not-OK) Reformulation}{36}{section.5.9}%
+\contentsline {section}{\numberline {5.9}Experiment 3: Binary (OK / Not-OK) Reformulation}{35}{section.5.9}%
 \contentsline {section}{\numberline {5.10}Evaluation Metrics}{37}{section.5.10}%
 \contentsline {section}{\numberline {5.11}Qualitative Analysis: Grad-CAM}{37}{section.5.11}%
-\contentsline {subsection}{\numberline {5.11.1}Method}{38}{subsection.5.11.1}%
-\contentsline {subsection}{\numberline {5.11.2}Models and Example Selection}{38}{subsection.5.11.2}%
+\contentsline {subsection}{\numberline {5.11.1}Method}{37}{subsection.5.11.1}%
+\contentsline {subsection}{\numberline {5.11.2}Models and Example Selection}{37}{subsection.5.11.2}%
+\contentsline {section}{\numberline {5.12}Conclusion}{38}{section.5.12}%
 \contentsline {chapter}{\numberline {6}Results}{39}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Overview}{39}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Multi-Class Classification}{39}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Binary (OK / Not-OK) Classification}{41}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Qualitative Analysis: Grad-CAM}{42}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Clarifiers}{42}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Aerobic Zones}{44}{subsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.4.3}Summary of Observations}{45}{subsection.6.4.3}%
-\contentsline {section}{\numberline {6.5}Summary of Findings}{45}{section.6.5}%
-\contentsline {chapter}{\numberline {7}Summary and conclusions}{46}{chapter.7}%
-\contentsline {chapter}{References}{47}{chapter*.41}%
-\contentsline {chapter}{\numberline {A}Dataset Details}{52}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Annotation Format}{52}{appendix.A.1}%
-\contentsline {section}{\numberline {A.2}Leave-one-out Split}{52}{appendix.A.2}%
-\contentsline {section}{\numberline {A.3}Relabelling Interface}{52}{appendix.A.3}%
-\contentsline {chapter}{\numberline {B}Hyperparameter Search Trials}{54}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Clarifiers}{54}{appendix.B.1}%
-\contentsline {subsection}{\numberline {B.1.1}ResNet-18}{54}{subsection.B.1.1}%
-\contentsline {subsection}{\numberline {B.1.2}EfficientNet-B0}{54}{subsection.B.1.2}%
-\contentsline {subsection}{\numberline {B.1.3}DenseNet-121}{55}{subsection.B.1.3}%
-\contentsline {subsection}{\numberline {B.1.4}ConvNeXt-Tiny}{56}{subsection.B.1.4}%
-\contentsline {section}{\numberline {B.2}Aerobic Zones}{56}{appendix.B.2}%
-\contentsline {subsection}{\numberline {B.2.1}ResNet-18}{56}{subsection.B.2.1}%
-\contentsline {subsection}{\numberline {B.2.2}EfficientNet-B0}{57}{subsection.B.2.2}%
-\contentsline {subsection}{\numberline {B.2.3}DenseNet-121}{58}{subsection.B.2.3}%
-\contentsline {subsection}{\numberline {B.2.4}ConvNeXt-Tiny}{58}{subsection.B.2.4}%
-\contentsline {chapter}{\numberline {C}Additional Results}{60}{appendix.C}%
-\contentsline {section}{\numberline {C.1}Experiment 1: Mixed-Facility Baseline}{60}{appendix.C.1}%
-\contentsline {section}{\numberline {C.2}Experiment 2: Leave-One-Facility-Out Evaluation}{62}{appendix.C.2}%
-\contentsline {section}{\numberline {C.3}Effect of Augmentation}{67}{appendix.C.3}%
-\contentsline {section}{\numberline {C.4}Binary (OK / Not-OK) Results}{67}{appendix.C.4}%
+\contentsline {section}{\numberline {6.4}Effect of Augmentation}{42}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Qualitative Analysis: Grad-CAM}{43}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Clarifiers}{43}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Aerobic Zones}{45}{subsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.5.3}Summary of Observations}{46}{subsection.6.5.3}%
+\contentsline {section}{\numberline {6.6}Summary of Findings}{47}{section.6.6}%
+\contentsline {chapter}{\numberline {7}Summary and conclusions}{48}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Summary}{48}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Conclusions}{48}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Limitations}{48}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Future Work}{48}{section.7.4}%
+\contentsline {chapter}{References}{49}{chapter*.42}%
+\contentsline {chapter}{\numberline {A}Dataset Details}{54}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Annotation Format}{54}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Relabelling Interface}{54}{section.A.2}%
+\contentsline {chapter}{\numberline {B}Hyperparameter Search Trials}{56}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Clarifiers}{56}{section.B.1}%
+\contentsline {subsection}{\numberline {B.1.1}ResNet-18}{56}{subsection.B.1.1}%
+\contentsline {subsection}{\numberline {B.1.2}EfficientNet-B0}{56}{subsection.B.1.2}%
+\contentsline {subsection}{\numberline {B.1.3}DenseNet-121}{57}{subsection.B.1.3}%
+\contentsline {subsection}{\numberline {B.1.4}ConvNeXt-Tiny}{58}{subsection.B.1.4}%
+\contentsline {subsection}{\numberline {B.1.5}ResNet-18 (Scratch)}{58}{subsection.B.1.5}%
+\contentsline {section}{\numberline {B.2}Aerobic Zones}{59}{section.B.2}%
+\contentsline {subsection}{\numberline {B.2.1}ResNet-18}{59}{subsection.B.2.1}%
+\contentsline {subsection}{\numberline {B.2.2}EfficientNet-B0}{60}{subsection.B.2.2}%
+\contentsline {subsection}{\numberline {B.2.3}DenseNet-121}{60}{subsection.B.2.3}%
+\contentsline {subsection}{\numberline {B.2.4}ConvNeXt-Tiny}{61}{subsection.B.2.4}%
+\contentsline {subsection}{\numberline {B.2.5}ResNet-18 (Scratch)}{62}{subsection.B.2.5}%
+\contentsline {chapter}{\numberline {C}Additional Results}{63}{appendix.C}%
+\contentsline {section}{\numberline {C.1}Experiment 1: Mixed-Facility Baseline}{63}{section.C.1}%
+\contentsline {section}{\numberline {C.2}Experiment 2: Leave-One-Facility-Out Evaluation}{65}{section.C.2}%
+\contentsline {section}{\numberline {C.3}Binary (OK / Not-OK) Results}{70}{section.C.3}%
 \contentsfinish 

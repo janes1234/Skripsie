@@ -76,5 +76,18 @@
       299,
       299
     ]
+  },
+  "resnet18_scratch": {
+    "hidden_layers": 1,
+    "neurons": 512,
+    "lr": 6.83316159794172e-05,
+    "beta1": 0.9335825009701367,
+    "step_size": 35,
+    "batch_size": 32,
+    "val_acc": 0.7686746987951807,
+    "img_size": [
+      224,
+      224
+    ]
   }
 }

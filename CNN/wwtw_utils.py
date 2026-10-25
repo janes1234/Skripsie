@@ -532,10 +532,3 @@ _tuned_json = Path(__file__).resolve().parent / (
 ARCH_HYPERPARAMS = _load_tuned_hyperparams(_tuned_json) if _tuned_json.exists() else {}
 if not ARCH_HYPERPARAMS:
     print(f"[warn] {_tuned_json.name} not found -- no tuned hyperparameters for {COMPONENT} yet.")
-
-# Fixed, untuned values for ResNet-18 (scratch).
-SCRATCH_HYPERPARAMS = dict(
-    hidden_layers=3, neurons=1024,
-    lr=1e-4, beta1=0.9, step_size=15, batch_size=32,
-    img_size=IMG_TARGET_SIZE,
-)
