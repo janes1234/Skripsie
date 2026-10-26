@@ -18,10 +18,6 @@ I didn't change these because they need rewording, and that's your call. The rep
 
 
 
-   the fact that the hyper params of the scratcch resnet are not optimised, while they are for the pretrained resnet, calls the results and the ensuing conclusions into question: perhaps the scarth resnet would be better if tuned. advice: optimise the same hyperparams for the scratch resnet that i optimised fot eh pretained resnet. 
-
-
-
 Know for the oral:
    do the padded zeros influence normalisation? Should they?
 
@@ -43,14 +39,3 @@ Should they influence it?
 No. If you worked out a mean and std from your own dataset, the padding and masks would pull them down: about 22% of each clarifier input and 19% of each aerobic zone input is black. But for the four pretrained models, using ImageNet statistics is correct because the backbones expect that input distribution. The scratch ResNet-18 could have used dataset statistics, but the first conv layer and BatchNorm absorb a fixed per-channel affine transform, so it hardly matters.
 
 The report's wording is accurate (Chapter5.tex:75): it pads first, then normalises with the ImageNet mean and std "since the pretrained backbones were trained on inputs normalised this way." That matches the code.
-
-
-
-
-
-
-
-
-
-
-experiment 11 retune must be added to report double check when cluade is done. 

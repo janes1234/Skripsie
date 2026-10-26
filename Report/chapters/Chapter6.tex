@@ -15,7 +15,6 @@ Table~\ref{tab:res_multiclass} shows that the macro recall of the aerobic zones 
 
 \begin{table}[htbp]
 \centering
-\footnotesize
 \setlength{\tabcolsep}{4pt}
 \caption{Macro-averaged recall and mean AUC of every architecture for the chronological split (Exp.~1) and averaged across held-out facilities (Exp.~2, mean $\pm$ standard deviation). Experiment~1 has a single test set, so no standard deviation is given. $\Delta$ is the change in the macro recall from Experiment~1 to Experiment~2, in percentage points.}
 \label{tab:res_multiclass}
@@ -44,11 +43,10 @@ ResNet-18 (scratch) & 0.655 & 0.350 $\pm$ 0.066 & -30.5 & 0.868 & 0.510 $\pm$ 0.
 
 
 
-Table~\ref{tab:res_failure_recall} shows that the largest decreases in recall from Experiment~1 to Experiment~2 occur for the \textbf{Dysfunctional} aerobic zones. The recall of the \textbf{Suboptimal} class is at most 0.389 in Experiment~1 and at most 0.224 in Experiment~2, so most \textbf{Suboptimal} aerobic zones are not identified, even at a known facility.
+Table~\ref{tab:res_failure_recall} shows that the largest decrease in recall from Experiment~1 to Experiment~2 occur for the \textbf{Dysfunctional} aerobic zones. The recall of the \textbf{Suboptimal} class is at most 0.389 in Experiment~1 and at most 0.224 in Experiment~2, so most \textbf{Suboptimal} aerobic zones are not identified, even at a known facility.
 
 \begin{table}[htbp]
 \centering
-\footnotesize
 \setlength{\tabcolsep}{5pt}
 \caption{Recall of every failure class on the chronological split (Exp.~1) and averaged across the held-out facilities at which the class occurs (Exp.~2). Each image is assigned to the class with the highest softmax probability.}
 \label{tab:res_failure_recall}
@@ -75,6 +73,10 @@ ResNet-18 (scratch) & \textbf{0.746} & 0.435 & 0.754 & 0.231 & 0.113 \\
 \end{tabular}
 \end{table}
 
+
+
+Figure~\ref{fig:res_cm_examples} shows the most common mistakes made by both selected models. At Fisantekraal, 28 of the 116 \textbf{Scum} clarifiers are classified as \textbf{Functional}. At Waterval, 93 of the 543 \textbf{Functional} aerobic zones are classified as \textbf{Dysfunctional}, and 50 and 41 of the 92 \textbf{Suboptimal} zones as \textbf{Dysfunctional} and \textbf{Functional} respectively. A component of a failure class that is classified as \textbf{Functional} would not be inspected by an operator.
+
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.36\textwidth}
@@ -90,8 +92,6 @@ ResNet-18 (scratch) & \textbf{0.746} & 0.435 & 0.754 & 0.231 & 0.113 \\
     \label{fig:res_cm_examples}
 \end{figure}
 
-Figure~\ref{fig:res_cm_examples} shows the most common mistakes made by both selected models. At Fisantekraal, 28 of the 116 \textbf{Scum} clarifiers are classified as \textbf{Functional}. At Waterval, 93 of the 543 \textbf{Functional} aerobic zones are classified as \textbf{Dysfunctional}, and 50 and 41 of the 92 \textbf{Suboptimal} zones as \textbf{Dysfunctional} and \textbf{Functional} respectively. A failure class classified as \textbf{Functional} is a component that would not be flagged for inspection.
-
 \FloatBarrier
 
 
@@ -100,11 +100,10 @@ Figure~\ref{fig:res_cm_examples} shows the most common mistakes made by both sel
 
 
 
-Table~\ref{tab:res_binary} gives the binary classification results at the thresholds chosen on the development set for 95\% recall, in the case of Experiment~2 as an average across facilities (Section~\ref{sec:exp_binary}). The specificity is the fraction of OK components that are not flagged. In Experiment~1, the test recall varies from 0.951 to 0.974 for the clarifiers, so the target of 95\% is reached by every architecture, and from 0.924 to 0.950 for the aerobic zones, so it is missed by four of the five. In Experiment~2, the mean test recall is between 0.867 and 0.902 for the clarifiers and between 0.562 and 0.864 for the aerobic zones, and no architecture reaches the target. The clarifier specificity is higher in Experiment~2 than in Experiment~1 for every architecture, but this is related to the lower recall: fewer components are flagged, both Not-OK and OK.
+Table~\ref{tab:res_binary} gives the binary classification results at the thresholds chosen on the development set for 95\% recall, in the case of Experiment~2 as an average across facilities (Section~\ref{sec:exp_binary}). The specificity is the fraction of OK components that are classified as OK. In Experiment~1, the test recall varies from 0.951 to 0.974 for the clarifiers, so the target of 95\% is reached by every architecture, and from 0.924 to 0.950 for the aerobic zones, so it is missed by four of the five. In Experiment~2, the mean test recall is between 0.867 and 0.902 for the clarifiers and between 0.562 and 0.864 for the aerobic zones, and no architecture reaches the target. The clarifier specificity is higher in Experiment~2 than in Experiment~1 for every architecture, but this is related to the lower recall: fewer components of both classes are classified as Not-OK.
 
 \begin{table}[htbp]
 \centering
-\footnotesize
 \setlength{\tabcolsep}{3.5pt}
 \caption{Binary OK / Not-OK results of every architecture on the chronological split (Exp.~1) and averaged across held-out facilities (Exp.~2). The AUC does not depend on a threshold. The recall, specificity and precision of the Not-OK class are given on the test set, at the threshold chosen for a Not-OK recall of 95\% on the development set (Section~\ref{sec:exp_binary}). The thresholds themselves are listed in Appendix~\ref{appen:res_binary}.}
 \label{tab:res_binary}
@@ -137,7 +136,6 @@ Table~\ref{tab:res_binary_facility} shows that, at individual facilities, the cl
 
 \begin{table}[htbp]
 \centering
-\footnotesize
 \caption{Not-OK recall and specificity for each held-out facility at the threshold chosen for a Not-OK recall of 95\% on the corresponding development set, for the ConvNeXt-Tiny clarifier model and the DenseNet-121 aerobic zone model. A full set of results of all architectures is given in Appendix~\ref{appen:res_binary}.}
 \label{tab:res_binary_facility}
 \begin{tabular}{l rr rr}
@@ -165,7 +163,6 @@ Table~\ref{tab:res_augmentation} compares the chronological-split results of eve
 
 \begin{table}[htbp]
 \centering
-\footnotesize
 \setlength{\tabcolsep}{4pt}
 \caption{Test results on the chronological split with (Aug.) and without (None) augmentation during training. $\Delta$ is the difference in percentage points, where a positive value means that augmentation helped.}
 \label{tab:res_augmentation}
@@ -205,7 +202,7 @@ The Grad-CAM method and example selection described in Section~\ref{sec:exp_grad
 \subsection{Clarifiers}
 \label{sec:results_gradcam_clarifiers}
 
-Figure~\ref{fig:gradcam_clarifier} shows the clarifier examples. For the correctly classified \textbf{Dysfunctional} and \textbf{Scum} clarifiers, most emphasis is placed on the green surface, and on the uneven patches near the centre, respectively. For the \textbf{Empty} clarifier, the highest weight lies on the shadow at the top of the tank and on the rim and background next to it. For the \textbf{Functional} clarifier, the highest weights lie on the rim and the background at the top and bottom of the tank, where the bridge meets the rim, with low weights on the black surface. The clarifier labels are based on the surface inside the tank (Chapter~\ref{chap:systemmethods}), so the heatmaps of the \textbf{Dysfunctional} and \textbf{Scum} clarifiers are as expected. For the \textbf{Empty} clarifier, the shadow is the feature that the label is based on, but the rim and background are not. For the \textbf{Functional} clarifier, the heatmap is not as expected, since the label requires the whole surface to be black. Part of the weight on the rim may be caused by the coarse heatmap: each cell of the $7\times7$ feature block covers about $32\times32$ pixels of the $224\times224$ input, so a cell on the rim also covers part of the surface next to it. This does not explain the weight on the background outside the tank. The rim and the masked background appear in every clarifier image, regardless of class, so on their own they carry no information about the state of the clarifier.
+Figure~\ref{fig:gradcam_clarifier} shows the clarifier examples. For the correctly classified \textbf{Dysfunctional} and \textbf{Scum} clarifiers, most emphasis is placed on the green surface, and on the uneven patches near the centre, respectively. For the \textbf{Empty} clarifier, the highest weight lies on the shadow at the top of the tank and on the rim and background next to it. For the \textbf{Functional} clarifier, the highest weights lie on the rim and the background at the top and bottom of the tank, where the bridge meets the rim, with low weights on the black surface. The clarifier labels are based on the surface inside the tank (Chapter~\ref{chap:systemmethods}), so the heatmaps of the \textbf{Dysfunctional}, \textbf{Scum} and \textbf{Empty} clarifiers are as expected. For the \textbf{Functional} clarifier, the heatmap is not as expected, since the label requires the whole surface to be black. Part of the weight on the rim may be caused by the coarse heatmap. The rim and the masked background appear in every clarifier image, regardless of class, so on their own they carry no information about the state of the clarifier.
 
 Most of the ConvNeXt-Tiny heatmaps highlight one or two small regions rather than a large part of the surface. A possible cause is the global max pooling of ConvNeXt-Tiny (Section~\ref{sec:exp_architectures}), which passes only the largest activation of each feature map to the classifier head.
 
@@ -234,17 +231,12 @@ Figure~\ref{fig:gradcam_aerobic} shows the aerobic zone examples. For the correc
 
 The \textbf{Functional} zone classified as \textbf{Dysfunctional} ($p = 0.70$) is blurred, and no leopard print pattern is visible on its surface. Its heatmap lies on the centre of the zone. The location is appropriate, and since no pattern is visible, the image fits the \textbf{Dysfunctional} definition, so the mistake is more likely caused by the image or the label than by where the model looks. In the \textbf{Suboptimal} zone classified as \textbf{Dysfunctional} ($p = 0.90$), the heatmap lies on the left end of the zone and on a band in the right half, where the surface shows dark patches. This location is also appropriate, since a surface without leopard print is evidence for \textbf{Dysfunctional}. The two classes differ only in how much of the surface shows no leopard print, a third or more against two thirds or more (Chapter~\ref{chap:systemmethods}), which a heatmap does not show. The \textbf{Suboptimal} zone classified as \textbf{Functional} ($p = 0.52$) has a plain grey surface, and its heatmap is spread over the centre of the zone. The area is appropriate, but no pattern is visible, so the image does not support the \textbf{Functional} class. The aerobic zone labels were not reviewed (Chapter~\ref{chap:systemmethods}), so some of these mistakes may be caused by the labels.
 
-\subsection{Summary of Observations}
-\label{sec:results_gradcam_summary}
-
-For the correctly classified \textbf{Dysfunctional} and \textbf{Scum} clarifiers and \textbf{Functional} and \textbf{Dysfunctional} aerobic zones, the heatmaps identify the features that the labels are based on. For the \textbf{Functional} clarifier, they lie largely on the rim and the background, which appear in every clarifier image and do not indicate its state. For the \textbf{Empty} clarifier, the weight is split between the shadow inside the tank and the rim and background next to it. The most common clarifier mistake, a \textbf{Scum} clarifier classified as \textbf{Functional}, is also based on the rim. When the surface shows little evidence, as in the blurred or plain aerobic zones, the heatmaps spread over the zone. These observations are based on a few examples.
-
 
 \section{Summary of Findings}
 \label{sec:results_summary}
 
-In this chapter we have presented the multi-class and binary results of the two experiments, the effect of augmentation, and the Grad-CAM heatmaps of the two selected models. At a known facility, the best clarifier and aerobic zone models reach a similar macro recall. At a new facility, the clarifier models perform about as well as at a known facility, while the aerobic zone models perform considerably worse. Most \textbf{Suboptimal} aerobic zones are not identified, even at a known facility.
+In this chapter we have presented the multi-class and binary results of the two experiments, the effect of augmentation, and the Grad-CAM heatmaps of the two selected models. At a known facility, the best clarifier and aerobic zone models reach a similar macro recall. At a new facility, the clarifier models perform about as well as at a known facility, while the aerobic zone models perform considerably worse. 
 
-When the decision threshold is selected so that 95\% of the Not-OK components in the development set are correctly identified, the test recall at a known facility is between 0.951 and 0.974 for the clarifiers and between 0.924 and 0.950 for the aerobic zones. The models with the highest specificity misclassify approximately a third of the OK clarifiers and 17\% of the OK aerobic zones as Not-OK. At a new facility, the mean test recall is 0.867 to 0.902 for the clarifiers and 0.562 to 0.864 for the aerobic zones, so a threshold chosen on known facilities does not reach the target recall at a new facility. The Grad-CAM heatmaps of most correctly classified images identify the features that the human labels are based on. However, for some clarifier classes they lie largely on the rim of the tank, which should be uninformative.
+When the decision threshold is selected so that 95\% of the Not-OK components in the development set are correctly identified, the test recall at a known facility is between 0.951 and 0.974 for the clarifiers and between 0.924 and 0.950 for the aerobic zones. The models with the highest specificity misclassify approximately a third of the OK clarifiers and 17\% of the OK aerobic zones as Not-OK. At a new facility, the mean test recall is between 0.867 and 0.902 for the clarifiers and 0.562 to 0.864 for the aerobic zones, so a threshold chosen on known facilities does not reach the target recall at a new facility. The Grad-CAM heatmaps of most correctly classified images identify the features that the human labels are based on. However, for some clarifier classes they lie largely on the rim of the tank, which should be uninformative.
 
 In the next chapter we will draw conclusions from these results, discuss the limitations of the project, and suggest future work.

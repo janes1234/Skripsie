@@ -12,88 +12,84 @@ This appendix contains the detailed results that are summarised in Chapter~\ref{
 \caption{Clarifier test results of every architecture on the chronological split (Experiment~1). Macro-averaged scores give every class the same weight. The best value in every column is shown in bold.}
 \label{tab:res_mixed_clarifier}
 \setlength{\tabcolsep}{4pt}
-\begin{tabular}{lrrrrr}
+\begin{tabular}{lrrrr}
 \toprule
-\textbf{Architecture} & \textbf{Accuracy} & \textbf{Mean AUC} & \textbf{\makecell[r]{Macro\\precision}} & \textbf{\makecell[r]{Macro\\recall}} & \textbf{\makecell[r]{Macro\\F1}} \\
+\textbf{Architecture} & \textbf{Accuracy} & \textbf{Mean AUC} & \textbf{\makecell[r]{Macro\\precision}} & \textbf{\makecell[r]{Macro\\recall}} \\
 \midrule
-ResNet-18 & 0.776 & 0.929 & 0.734 & 0.733 & 0.732 \\
-EfficientNet-B0 & 0.780 & 0.927 & 0.679 & 0.715 & 0.691 \\
-DenseNet-121 & 0.785 & 0.926 & \textbf{0.798} & \textbf{0.760} & \textbf{0.772} \\
-ConvNeXt-Tiny & \textbf{0.838} & \textbf{0.949} & 0.770 & 0.743 & 0.748 \\
-ResNet-18 (scratch) & 0.775 & 0.921 & 0.723 & 0.729 & 0.725 \\
+ResNet-18 & 0.776 & 0.929 & 0.734 & 0.733 \\
+EfficientNet-B0 & 0.780 & 0.927 & 0.679 & 0.715 \\
+DenseNet-121 & 0.785 & 0.926 & \textbf{0.798} & \textbf{0.760} \\
+ConvNeXt-Tiny & \textbf{0.838} & \textbf{0.949} & 0.770 & 0.743 \\
+ResNet-18 (scratch) & 0.775 & 0.921 & 0.723 & 0.729 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Table~\ref{tab:res_mixed_clarifier} shows that the macro F1 score of the pretrained clarifier models ranges from 0.691 (EfficientNet-B0) to 0.772 (DenseNet-121). ConvNeXt-Tiny has the highest accuracy (0.838) and mean AUC (0.949). EfficientNet-B0 has the third-highest accuracy but the lowest macro F1 score of the pretrained models, because of its low F1 score for the \textbf{Empty} class (Table~\ref{tab:res_mixed_clarifier_perclass}). ResNet-18 (scratch) has the lowest accuracy and mean AUC, but a higher macro F1 score than EfficientNet-B0.
+Table~\ref{tab:res_mixed_clarifier} shows that the macro recall of the pretrained clarifier models ranges from 0.715 (EfficientNet-B0) to 0.760 (DenseNet-121). ConvNeXt-Tiny has the highest accuracy (0.838) and mean AUC (0.949). EfficientNet-B0 has the third-highest accuracy but the lowest macro precision of the pretrained models, because of its low precision for the \textbf{Empty} class (Table~\ref{tab:res_mixed_clarifier_perclass}). ResNet-18 (scratch) has the lowest accuracy and mean AUC, but a higher macro precision and macro recall than EfficientNet-B0.
 
 \begin{table}[htbp]
 \centering
-\footnotesize
 \setlength{\tabcolsep}{3pt}
-\caption{Per-class precision (P), recall (R) and F1 score of every clarifier architecture on the chronological split (Experiment~1).}
+\caption{Per-class precision (P) and recall (R) of every clarifier architecture on the chronological split (Experiment~1).}
 \label{tab:res_mixed_clarifier_perclass}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{l rrr rrr rrr rrr}
+\begin{tabular}{l rr rr rr rr}
 \toprule
-& \multicolumn{3}{c}{\textbf{Dysfunctional}} & \multicolumn{3}{c}{\textbf{Empty}} & \multicolumn{3}{c}{\textbf{Functional}} & \multicolumn{3}{c}{\textbf{Scum}} \\
-\cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-10} \cmidrule(lr){11-13}
-\textbf{Architecture} & P & R & F1 & P & R & F1 & P & R & F1 & P & R & F1 \\
+& \multicolumn{2}{c}{\textbf{Dysfunctional}} & \multicolumn{2}{c}{\textbf{Empty}} & \multicolumn{2}{c}{\textbf{Functional}} & \multicolumn{2}{c}{\textbf{Scum}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7} \cmidrule(lr){8-9}
+\textbf{Architecture} & P & R & P & R & P & R & P & R \\
 \midrule
-ResNet-18 & 0.738 & 0.792 & 0.764 & 0.606 & 0.588 & 0.597 & 0.829 & 0.726 & 0.774 & 0.763 & 0.827 & 0.794 \\
-EfficientNet-B0 & 0.766 & 0.750 & 0.758 & 0.315 & 0.500 & 0.386 & 0.812 & \textbf{0.863} & 0.837 & 0.823 & 0.746 & 0.782 \\
-DenseNet-121 & 0.750 & 0.844 & 0.794 & \textbf{0.846} & \textbf{0.647} & \textbf{0.733} & 0.837 & 0.688 & 0.756 & 0.760 & \textbf{0.859} & 0.806 \\
-ConvNeXt-Tiny & 0.746 & \textbf{0.885} & \textbf{0.810} & 0.619 & 0.382 & 0.473 & \textbf{0.851} & 0.854 & \textbf{0.852} & \textbf{0.865} & 0.852 & \textbf{0.858} \\
-ResNet-18 (scratch) & \textbf{0.780} & 0.740 & 0.759 & 0.541 & 0.588 & 0.563 & 0.766 & 0.847 & 0.805 & 0.804 & 0.741 & 0.771 \\
+ResNet-18 & 0.738 & 0.792 & 0.606 & 0.588 & 0.829 & 0.726 & 0.763 & 0.827 \\
+EfficientNet-B0 & 0.766 & 0.750 & 0.315 & 0.500 & 0.812 & \textbf{0.863} & 0.823 & 0.746 \\
+DenseNet-121 & 0.750 & 0.844 & \textbf{0.846} & \textbf{0.647} & 0.837 & 0.688 & 0.760 & \textbf{0.859} \\
+ConvNeXt-Tiny & 0.746 & \textbf{0.885} & 0.619 & 0.382 & \textbf{0.851} & 0.854 & \textbf{0.865} & 0.852 \\
+ResNet-18 (scratch) & \textbf{0.780} & 0.740 & 0.541 & 0.588 & 0.766 & 0.847 & 0.804 & 0.741 \\
 \bottomrule
-\end{tabular}}
+\end{tabular}
 \end{table}
 
-Table~\ref{tab:res_mixed_clarifier_perclass} shows that the \textbf{Empty} class has the lowest F1 score of every architecture, from 0.386 to 0.733. The F1 scores of the other three classes range from 0.756 to 0.858 for the pretrained models. The architectures differ most in the \textbf{Empty} precision, which ranges from 0.315 (EfficientNet-B0) to 0.846 (DenseNet-121).
+Table~\ref{tab:res_mixed_clarifier_perclass} shows that the \textbf{Empty} class has the lowest recall of every architecture, from 0.382 to 0.647. The recall of the other three classes ranges from 0.688 to 0.885 for the pretrained models. The architectures differ most in the \textbf{Empty} precision, which ranges from 0.315 (EfficientNet-B0) to 0.846 (DenseNet-121).
 
 \begin{table}[htbp]
 \centering
 \caption{Aerobic zone test results of every architecture on the chronological split (Experiment~1).}
 \label{tab:res_mixed_aerobic}
 \setlength{\tabcolsep}{4pt}
-\begin{tabular}{lrrrrr}
+\begin{tabular}{lrrrr}
 \toprule
-\textbf{Architecture} & \textbf{Accuracy} & \textbf{Mean AUC} & \textbf{\makecell[r]{Macro\\precision}} & \textbf{\makecell[r]{Macro\\recall}} & \textbf{\makecell[r]{Macro\\F1}} \\
+\textbf{Architecture} & \textbf{Accuracy} & \textbf{Mean AUC} & \textbf{\makecell[r]{Macro\\precision}} & \textbf{\makecell[r]{Macro\\recall}} \\
 \midrule
-ResNet-18 & 0.806 & 0.860 & 0.641 & 0.639 & 0.638 \\
-EfficientNet-B0 & \textbf{0.857} & 0.924 & \textbf{0.748} & \textbf{0.733} & \textbf{0.740} \\
-DenseNet-121 & 0.813 & 0.898 & 0.663 & 0.664 & 0.662 \\
-ConvNeXt-Tiny & 0.850 & \textbf{0.938} & 0.724 & 0.724 & 0.724 \\
-ResNet-18 (scratch) & 0.824 & 0.868 & 0.723 & 0.655 & 0.665 \\
+ResNet-18 & 0.806 & 0.860 & 0.641 & 0.639 \\
+EfficientNet-B0 & \textbf{0.857} & 0.924 & \textbf{0.748} & \textbf{0.733} \\
+DenseNet-121 & 0.813 & 0.898 & 0.663 & 0.664 \\
+ConvNeXt-Tiny & 0.850 & \textbf{0.938} & 0.724 & 0.724 \\
+ResNet-18 (scratch) & 0.824 & 0.868 & 0.723 & 0.655 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Table~\ref{tab:res_mixed_aerobic} shows that EfficientNet-B0 and ConvNeXt-Tiny have the highest aerobic zone macro F1 scores (0.740 and 0.724), and the other two pretrained models have 0.638 and 0.662. The accuracy of every architecture is 0.12 to 0.17 higher than its macro F1 score, since the accuracy is dominated by the two large classes and the macro F1 score includes the \textbf{Suboptimal} class. ResNet-18 (scratch) has a higher accuracy and macro F1 score than the pretrained ResNet-18 and DenseNet-121.
+Table~\ref{tab:res_mixed_aerobic} shows that EfficientNet-B0 and ConvNeXt-Tiny have the highest aerobic zone macro recall (0.733 and 0.724), and the other two pretrained models have 0.639 and 0.664. The accuracy of every architecture is 0.12 to 0.17 higher than its macro recall, since the accuracy is dominated by the two large classes and the macro recall includes the \textbf{Suboptimal} class. ResNet-18 (scratch) has a higher accuracy and macro precision than the pretrained ResNet-18 and DenseNet-121.
 
 \begin{table}[htbp]
 \centering
-\small
 \setlength{\tabcolsep}{4pt}
-\caption{Per-class precision (P), recall (R) and F1 score of every aerobic zone architecture on the chronological split (Experiment~1).}
+\caption{Per-class precision (P) and recall (R) of every aerobic zone architecture on the chronological split (Experiment~1).}
 \label{tab:res_mixed_aerobic_perclass}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{l rrr rrr rrr}
+\begin{tabular}{l rr rr rr}
 \toprule
-& \multicolumn{3}{c}{\textbf{Dysfunctional}} & \multicolumn{3}{c}{\textbf{Functional}} & \multicolumn{3}{c}{\textbf{Suboptimal}} \\
-\cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-10}
-\textbf{Architecture} & P & R & F1 & P & R & F1 & P & R & F1 \\
+& \multicolumn{2}{c}{\textbf{Dysfunctional}} & \multicolumn{2}{c}{\textbf{Functional}} & \multicolumn{2}{c}{\textbf{Suboptimal}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+\textbf{Architecture} & P & R & P & R & P & R \\
 \midrule
-ResNet-18 & 0.817 & 0.932 & 0.871 & 0.911 & 0.818 & 0.862 & 0.196 & 0.167 & 0.180 \\
-EfficientNet-B0 & \textbf{0.913} & 0.884 & \textbf{0.898} & 0.875 & \textbf{0.928} & 0.901 & 0.457 & \textbf{0.389} & \textbf{0.420} \\
-DenseNet-121 & 0.854 & \textbf{0.940} & 0.895 & 0.903 & 0.811 & 0.854 & 0.232 & 0.241 & 0.236 \\
-ConvNeXt-Tiny & 0.877 & 0.916 & 0.896 & \textbf{0.925} & 0.886 & \textbf{0.905} & 0.370 & 0.370 & 0.370 \\
-ResNet-18 (scratch) & 0.824 & 0.884 & 0.853 & 0.846 & 0.898 & 0.871 & \textbf{0.500} & 0.185 & 0.270 \\
+ResNet-18 & 0.817 & 0.932 & 0.911 & 0.818 & 0.196 & 0.167 \\
+EfficientNet-B0 & \textbf{0.913} & 0.884 & 0.875 & \textbf{0.928} & 0.457 & \textbf{0.389} \\
+DenseNet-121 & 0.854 & \textbf{0.940} & 0.903 & 0.811 & 0.232 & 0.241 \\
+ConvNeXt-Tiny & 0.877 & 0.916 & \textbf{0.925} & 0.886 & 0.370 & 0.370 \\
+ResNet-18 (scratch) & 0.824 & 0.884 & 0.846 & 0.898 & \textbf{0.500} & 0.185 \\
 \bottomrule
-\end{tabular}}
+\end{tabular}
 \end{table}
 
-Table~\ref{tab:res_mixed_aerobic_perclass} shows that the \textbf{Dysfunctional} and \textbf{Functional} F1 scores range from 0.853 to 0.905, while the \textbf{Suboptimal} F1 score ranges from 0.180 to 0.420. The \textbf{Suboptimal} precision is at most 0.500, so for every architecture at most half of the aerobic zones classified as \textbf{Suboptimal} are \textbf{Suboptimal}.
+Table~\ref{tab:res_mixed_aerobic_perclass} shows that the \textbf{Dysfunctional} and \textbf{Functional} recall ranges from 0.811 to 0.940, while the \textbf{Suboptimal} recall ranges from 0.167 to 0.389. The \textbf{Suboptimal} precision is at most 0.500, so for every architecture at most half of the aerobic zones classified as \textbf{Suboptimal} are \textbf{Suboptimal}.
 
 \FloatBarrier
 
@@ -104,33 +100,29 @@ The training curves and confusion matrices are shown for the architecture with t
 
 \begin{table}[htbp]
 \centering
-\small
 \setlength{\tabcolsep}{4pt}
 \caption{Clarifier test results of every architecture in the leave-one-facility-out experiment (Experiment~2), given as the mean $\pm$ standard deviation across the five held-out facilities.}
 \label{tab:res_lofo_clarifier}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{lrrrrr}
+\begin{tabular}{lrrrr}
 \toprule
-\textbf{Architecture} & \textbf{Accuracy} & \textbf{Mean AUC} & \textbf{\makecell[r]{Macro\\precision}} & \textbf{\makecell[r]{Macro\\recall}} & \textbf{\makecell[r]{Macro\\F1}} \\
+\textbf{Architecture} & \textbf{Accuracy} & \textbf{Mean AUC} & \textbf{\makecell[r]{Macro\\precision}} & \textbf{\makecell[r]{Macro\\recall}} \\
 \midrule
-ResNet-18 & 0.731 $\pm$ 0.089 & 0.891 $\pm$ 0.033 & 0.770 $\pm$ 0.101 & 0.648 $\pm$ 0.062 & 0.668 $\pm$ 0.068 \\
-EfficientNet-B0 & 0.805 $\pm$ 0.093 & 0.931 $\pm$ 0.034 & 0.806 $\pm$ 0.126 & \textbf{0.749} $\pm$ 0.063 & 0.758 $\pm$ 0.098 \\
-DenseNet-121 & 0.770 $\pm$ 0.108 & 0.918 $\pm$ 0.025 & 0.767 $\pm$ 0.086 & 0.722 $\pm$ 0.073 & 0.724 $\pm$ 0.086 \\
-ConvNeXt-Tiny & \textbf{0.838} $\pm$ 0.063 & \textbf{0.953} $\pm$ 0.014 & \textbf{0.861} $\pm$ 0.079 & 0.748 $\pm$ 0.062 & \textbf{0.775} $\pm$ 0.062 \\
-ResNet-18 (scratch) & 0.740 $\pm$ 0.131 & 0.888 $\pm$ 0.055 & 0.752 $\pm$ 0.150 & 0.683 $\pm$ 0.097 & 0.691 $\pm$ 0.127 \\
+ResNet-18 & 0.731 $\pm$ 0.089 & 0.891 $\pm$ 0.033 & 0.770 $\pm$ 0.101 & 0.648 $\pm$ 0.062 \\
+EfficientNet-B0 & 0.805 $\pm$ 0.093 & 0.931 $\pm$ 0.034 & 0.806 $\pm$ 0.126 & \textbf{0.749} $\pm$ 0.063 \\
+DenseNet-121 & 0.770 $\pm$ 0.108 & 0.918 $\pm$ 0.025 & 0.767 $\pm$ 0.086 & 0.722 $\pm$ 0.073 \\
+ConvNeXt-Tiny & \textbf{0.838} $\pm$ 0.063 & \textbf{0.953} $\pm$ 0.014 & \textbf{0.861} $\pm$ 0.079 & 0.748 $\pm$ 0.062 \\
+ResNet-18 (scratch) & 0.740 $\pm$ 0.131 & 0.888 $\pm$ 0.055 & 0.752 $\pm$ 0.150 & 0.683 $\pm$ 0.097 \\
 \bottomrule
-\end{tabular}}
+\end{tabular}
 \end{table}
 
-Table~\ref{tab:res_lofo_clarifier} shows that ConvNeXt-Tiny has the highest mean accuracy, mean AUC, macro precision and macro F1 score, and the lowest standard deviation of the accuracy, mean AUC and macro F1 score across facilities. The standard deviation of the macro F1 score ranges from 0.062 (ConvNeXt-Tiny) to 0.127 (ResNet-18 (scratch)). The macro precision is higher than the macro recall for every architecture.
+Table~\ref{tab:res_lofo_clarifier} shows that ConvNeXt-Tiny has the highest mean accuracy, mean AUC and macro precision, and the lowest standard deviation of the accuracy, mean AUC and macro precision across facilities. EfficientNet-B0 has the highest macro recall (0.749), 0.001 above ConvNeXt-Tiny. The standard deviation of the macro recall ranges from 0.062 (ResNet-18 and ConvNeXt-Tiny) to 0.097 (ResNet-18 (scratch)). The macro precision is higher than the macro recall for every architecture.
 
 \begin{table}[htbp]
 \centering
-\small
 \setlength{\tabcolsep}{4pt}
 \caption{Clarifier test accuracy and mean AUC of every architecture for each held-out facility.}
 \label{tab:res_lofo_clarifier_facility}
-\resizebox{\textwidth}{!}{%
 \begin{tabular}{lrrrrrr}
 \toprule
 \textbf{Architecture} & \textbf{Atlantis} & \textbf{Cape Flats} & \textbf{Fisantekraal} & \textbf{\makecell[r]{Northern\\Works}} & \textbf{Waterval} & \textbf{Mean} \\
@@ -149,31 +141,29 @@ DenseNet-121 & 0.941 & 0.876 & 0.926 & 0.926 & 0.920 & 0.918 \\
 ConvNeXt-Tiny & \textbf{0.966} & \textbf{0.938} & \textbf{0.940} & 0.953 & \textbf{0.967} & \textbf{0.953} \\
 ResNet-18 (scratch) & 0.888 & 0.795 & 0.902 & 0.927 & 0.931 & 0.888 \\
 \bottomrule
-\end{tabular}}
+\end{tabular}
 \end{table}
 
 Table~\ref{tab:res_lofo_clarifier_facility} shows that Cape Flats has the lowest accuracy and the lowest mean AUC of every architecture. The accuracy at Cape Flats ranges from 0.518 to 0.755, against 0.730 to 0.906 at the other facilities. ConvNeXt-Tiny has the highest accuracy at four of the five facilities.
 
 \begin{table}[htbp]
 \centering
-\footnotesize
 \setlength{\tabcolsep}{3pt}
-\caption{Per-class precision (P), recall (R) and F1 score of every clarifier architecture in Experiment~2, averaged over the held-out facilities at which the class occurs.}
+\caption{Per-class precision (P) and recall (R) of every clarifier architecture in Experiment~2, averaged over the held-out facilities at which the class occurs.}
 \label{tab:res_lofo_clarifier_perclass}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{l rrr rrr rrr rrr}
+\begin{tabular}{l rr rr rr rr}
 \toprule
-& \multicolumn{3}{c}{\textbf{Dysfunctional}} & \multicolumn{3}{c}{\textbf{Empty}} & \multicolumn{3}{c}{\textbf{Functional}} & \multicolumn{3}{c}{\textbf{Scum}} \\
-\cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-10} \cmidrule(lr){11-13}
-\textbf{Architecture} & P & R & F1 & P & R & F1 & P & R & F1 & P & R & F1 \\
+& \multicolumn{2}{c}{\textbf{Dysfunctional}} & \multicolumn{2}{c}{\textbf{Empty}} & \multicolumn{2}{c}{\textbf{Functional}} & \multicolumn{2}{c}{\textbf{Scum}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7} \cmidrule(lr){8-9}
+\textbf{Architecture} & P & R & P & R & P & R & P & R \\
 \midrule
-ResNet-18 & 0.743 & 0.623 & 0.675 & 0.821 & 0.461 & 0.553 & 0.722 & 0.695 & 0.667 & 0.785 & 0.756 & 0.745 \\
-EfficientNet-B0 & 0.772 & 0.661 & 0.710 & 0.729 & \textbf{0.662} & \textbf{0.649} & \textbf{0.820} & 0.818 & 0.806 & 0.848 & 0.802 & 0.809 \\
-DenseNet-121 & 0.786 & 0.728 & 0.754 & 0.634 & 0.560 & 0.565 & 0.780 & 0.777 & 0.749 & 0.823 & 0.763 & 0.773 \\
-ConvNeXt-Tiny & \textbf{0.871} & 0.710 & \textbf{0.776} & \textbf{0.868} & 0.505 & 0.598 & 0.819 & \textbf{0.879} & \textbf{0.836} & \textbf{0.872} & \textbf{0.833} & \textbf{0.843} \\
-ResNet-18 (scratch) & 0.763 & \textbf{0.746} & 0.741 & 0.665 & 0.435 & 0.494 & 0.738 & 0.722 & 0.703 & 0.778 & 0.754 & 0.753 \\
+ResNet-18 & 0.743 & 0.623 & 0.821 & 0.461 & 0.722 & 0.695 & 0.785 & 0.756 \\
+EfficientNet-B0 & 0.772 & 0.661 & 0.729 & \textbf{0.662} & \textbf{0.820} & 0.818 & 0.848 & 0.802 \\
+DenseNet-121 & 0.786 & 0.728 & 0.634 & 0.560 & 0.780 & 0.777 & 0.823 & 0.763 \\
+ConvNeXt-Tiny & \textbf{0.871} & 0.710 & \textbf{0.868} & 0.505 & 0.819 & \textbf{0.879} & \textbf{0.872} & \textbf{0.833} \\
+ResNet-18 (scratch) & 0.763 & \textbf{0.746} & 0.665 & 0.435 & 0.738 & 0.722 & 0.778 & 0.754 \\
 \bottomrule
-\end{tabular}}
+\end{tabular}
 \end{table}
 
 Table~\ref{tab:res_lofo_clarifier_perclass} shows that the \textbf{Empty} class has the lowest recall for four of the five architectures, from 0.435 to 0.560. For EfficientNet-B0 it is 0.662, against a \textbf{Dysfunctional} recall of 0.661. The \textbf{Empty} precision is higher than the \textbf{Empty} recall for every architecture, so the main error is that \textbf{Empty} clarifiers are missed, not that other clarifiers are classified as \textbf{Empty}.
@@ -240,29 +230,26 @@ Figure~\ref{fig:res_lofo_clarifier_cm} shows that the most common mistake at eve
 
 \begin{table}[htbp]
 \centering
-\small
 \setlength{\tabcolsep}{4pt}
 \caption{Aerobic zone test results of every architecture in the leave-one-facility-out experiment (Experiment~2), given as the mean $\pm$ standard deviation across the three held-out facilities.}
 \label{tab:res_lofo_aerobic}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{lrrrrr}
+\begin{tabular}{lrrrr}
 \toprule
-\textbf{Architecture} & \textbf{Accuracy} & \textbf{Mean AUC} & \textbf{\makecell[r]{Macro\\precision}} & \textbf{\makecell[r]{Macro\\recall}} & \textbf{\makecell[r]{Macro\\F1}} \\
+\textbf{Architecture} & \textbf{Accuracy} & \textbf{Mean AUC} & \textbf{\makecell[r]{Macro\\precision}} & \textbf{\makecell[r]{Macro\\recall}} \\
 \midrule
-ResNet-18 & 0.598 $\pm$ 0.052 & 0.694 $\pm$ 0.057 & 0.438 $\pm$ 0.070 & 0.517 $\pm$ 0.029 & 0.435 $\pm$ 0.081 \\
-EfficientNet-B0 & 0.529 $\pm$ 0.255 & 0.705 $\pm$ 0.054 & 0.487 $\pm$ 0.051 & 0.484 $\pm$ 0.040 & 0.413 $\pm$ 0.130 \\
-DenseNet-121 & \textbf{0.628} $\pm$ 0.096 & \textbf{0.763} $\pm$ 0.025 & 0.498 $\pm$ 0.025 & \textbf{0.541} $\pm$ 0.028 & \textbf{0.495} $\pm$ 0.033 \\
-ConvNeXt-Tiny & 0.540 $\pm$ 0.219 & 0.758 $\pm$ 0.088 & \textbf{0.514} $\pm$ 0.114 & 0.537 $\pm$ 0.116 & 0.451 $\pm$ 0.194 \\
-ResNet-18 (scratch) & 0.363 $\pm$ 0.137 & 0.510 $\pm$ 0.105 & 0.354 $\pm$ 0.104 & 0.350 $\pm$ 0.066 & 0.260 $\pm$ 0.109 \\
+ResNet-18 & 0.598 $\pm$ 0.052 & 0.694 $\pm$ 0.057 & 0.438 $\pm$ 0.070 & 0.517 $\pm$ 0.029 \\
+EfficientNet-B0 & 0.529 $\pm$ 0.255 & 0.705 $\pm$ 0.054 & 0.487 $\pm$ 0.051 & 0.484 $\pm$ 0.040 \\
+DenseNet-121 & \textbf{0.628} $\pm$ 0.096 & \textbf{0.763} $\pm$ 0.025 & 0.498 $\pm$ 0.025 & \textbf{0.541} $\pm$ 0.028 \\
+ConvNeXt-Tiny & 0.540 $\pm$ 0.219 & 0.758 $\pm$ 0.088 & \textbf{0.514} $\pm$ 0.114 & 0.537 $\pm$ 0.116 \\
+ResNet-18 (scratch) & 0.363 $\pm$ 0.137 & 0.510 $\pm$ 0.105 & 0.354 $\pm$ 0.104 & 0.350 $\pm$ 0.066 \\
 \bottomrule
-\end{tabular}}
+\end{tabular}
 \end{table}
 
-Table~\ref{tab:res_lofo_aerobic} shows that DenseNet-121 has the highest mean accuracy, mean AUC, macro recall and macro F1 score, and ConvNeXt-Tiny the highest macro precision. The standard deviation of the macro F1 score ranges from 0.033 (DenseNet-121) to 0.194 (ConvNeXt-Tiny), and that of the accuracy from 0.052 (ResNet-18) to 0.255 (EfficientNet-B0). The accuracy of ResNet-18 (scratch) is 0.363, which is 0.166 below the lowest accuracy of a pretrained model, and its mean AUC is 0.510.
+Table~\ref{tab:res_lofo_aerobic} shows that DenseNet-121 has the highest mean accuracy, mean AUC and macro recall, and ConvNeXt-Tiny the highest macro precision. The standard deviation of the macro recall ranges from 0.028 (DenseNet-121) to 0.116 (ConvNeXt-Tiny), and that of the accuracy from 0.052 (ResNet-18) to 0.255 (EfficientNet-B0). The accuracy of ResNet-18 (scratch) is 0.363, which is 0.166 below the lowest accuracy of a pretrained model, and its mean AUC is 0.510.
 
 \begin{table}[htbp]
 \centering
-\small
 \caption{Aerobic zone test accuracy and mean AUC of every architecture for each held-out facility.}
 \label{tab:res_lofo_aerobic_facility}
 \begin{tabular}{lrrrr}
@@ -290,27 +277,25 @@ Table~\ref{tab:res_lofo_aerobic_facility} shows that Cape Flats has the lowest a
 
 \begin{table}[htbp]
 \centering
-\small
 \setlength{\tabcolsep}{4pt}
-\caption{Per-class precision (P), recall (R) and F1 score of every aerobic zone architecture in Experiment~2, averaged over the three held-out facilities.}
+\caption{Per-class precision (P) and recall (R) of every aerobic zone architecture in Experiment~2, averaged over the three held-out facilities.}
 \label{tab:res_lofo_aerobic_perclass}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{l rrr rrr rrr}
+\begin{tabular}{l rr rr rr}
 \toprule
-& \multicolumn{3}{c}{\textbf{Dysfunctional}} & \multicolumn{3}{c}{\textbf{Functional}} & \multicolumn{3}{c}{\textbf{Suboptimal}} \\
-\cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-10}
-\textbf{Architecture} & P & R & F1 & P & R & F1 & P & R & F1 \\
+& \multicolumn{2}{c}{\textbf{Dysfunctional}} & \multicolumn{2}{c}{\textbf{Functional}} & \multicolumn{2}{c}{\textbf{Suboptimal}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+\textbf{Architecture} & P & R & P & R & P & R \\
 \midrule
-ResNet-18 & 0.609 & \textbf{0.726} & 0.616 & 0.647 & 0.752 & 0.625 & 0.057 & 0.072 & 0.064 \\
-EfficientNet-B0 & 0.703 & 0.458 & 0.451 & 0.628 & \textbf{0.796} & \textbf{0.669} & 0.130 & 0.198 & 0.118 \\
-DenseNet-121 & 0.696 & 0.712 & \textbf{0.680} & \textbf{0.675} & 0.728 & 0.664 & 0.124 & 0.184 & 0.141 \\
-ConvNeXt-Tiny & \textbf{0.712} & 0.593 & 0.550 & 0.639 & 0.793 & 0.599 & \textbf{0.192} & \textbf{0.224} & \textbf{0.203} \\
-ResNet-18 (scratch) & 0.461 & 0.231 & 0.219 & 0.542 & 0.706 & 0.482 & 0.060 & 0.113 & 0.077 \\
+ResNet-18 & 0.609 & \textbf{0.726} & 0.647 & 0.752 & 0.057 & 0.072 \\
+EfficientNet-B0 & 0.703 & 0.458 & 0.628 & \textbf{0.796} & 0.130 & 0.198 \\
+DenseNet-121 & 0.696 & 0.712 & \textbf{0.675} & 0.728 & 0.124 & 0.184 \\
+ConvNeXt-Tiny & \textbf{0.712} & 0.593 & 0.639 & 0.793 & \textbf{0.192} & \textbf{0.224} \\
+ResNet-18 (scratch) & 0.461 & 0.231 & 0.542 & 0.706 & 0.060 & 0.113 \\
 \bottomrule
-\end{tabular}}
+\end{tabular}
 \end{table}
 
-Table~\ref{tab:res_lofo_aerobic_perclass} shows that the \textbf{Suboptimal} recall ranges from 0.072 to 0.224 and the \textbf{Suboptimal} F1 score from 0.064 to 0.203. The \textbf{Dysfunctional} recall ranges from 0.231 to 0.726, against 0.884 to 0.940 in Experiment~1 (Table~\ref{tab:res_mixed_aerobic_perclass}).
+Table~\ref{tab:res_lofo_aerobic_perclass} shows that the \textbf{Suboptimal} recall ranges from 0.072 to 0.224 and the \textbf{Suboptimal} precision from 0.057 to 0.192. The \textbf{Dysfunctional} recall ranges from 0.231 to 0.726, against 0.884 to 0.940 in Experiment~1 (Table~\ref{tab:res_mixed_aerobic_perclass}).
 
 \begin{figure}[htbp]
     \centering
@@ -364,7 +349,6 @@ Table~\ref{tab:res_threshold} gives the threshold chosen on the development set 
 
 \begin{table}[htbp]
 \centering
-\small
 \setlength{\tabcolsep}{4pt}
 \caption{Threshold $t$ on the Not-OK score chosen for a 95\% recall on the development set, with the test recall of the Not-OK class at that threshold. For the leave-one-facility-out split, each model has its own threshold, and the threshold and recall are averaged across held-out facilities. The specificity and precision at these thresholds are given in Table~\ref{tab:res_binary} (Section~\ref{sec:results_binary}).}
 \label{tab:res_threshold}
@@ -395,11 +379,9 @@ Table~\ref{tab:res_threshold} shows that the chosen threshold differs between ar
 
 \begin{table}[htbp]
 \centering
-\small
 \setlength{\tabcolsep}{4pt}
 \caption{Recall and specificity of the Not-OK class for each held-out facility at the clarifier threshold chosen on the corresponding development set, with the lowest recall and the standard deviation of the recall across facilities.}
 \label{tab:res_threshold_robustness_clarifier}
-\resizebox{\textwidth}{!}{%
 \begin{tabular}{l rrrrr rr}
 \toprule
 \textbf{Architecture} & \textbf{Atlantis} & \textbf{\makecell[r]{Cape\\Flats}} & \textbf{\makecell[r]{Fisante-\\kraal}} & \textbf{\makecell[r]{Northern\\Works}} & \textbf{Waterval} & \textbf{Min.} & \textbf{Std.} \\
@@ -418,14 +400,13 @@ DenseNet-121 & 0.977 & 0.236 & 0.845 & 0.741 & 0.753 \\
 ConvNeXt-Tiny & 1.000 & 0.704 & 0.882 & 0.790 & 0.854 \\
 ResNet-18 (scratch) & 0.977 & 0.168 & 0.609 & 0.309 & 0.663 \\
 \bottomrule
-\end{tabular}}
+\end{tabular}
 \end{table}
 
-Table~\ref{tab:res_threshold_robustness_clarifier} shows that the lowest clarifier recall of every architecture occurs at Atlantis or Fisantekraal, and ranges from 0.667 to 0.788. At these two facilities the specificity is 0.609 to 1.000, so the threshold flags too few components there. At Cape Flats and Northern Works the recall is at least 0.956, and at Cape Flats the specificity is at most 0.297 for every architecture except ConvNeXt-Tiny (0.704), so most OK clarifiers there are flagged.
+Table~\ref{tab:res_threshold_robustness_clarifier} shows that the lowest clarifier recall of every architecture occurs at Atlantis or Fisantekraal, and ranges from 0.667 to 0.788. At these two facilities the specificity is 0.609 to 1.000, so too few components are classified as Not-OK there. At Cape Flats and Northern Works the recall is at least 0.956, and at Cape Flats the specificity is at most 0.297 for every architecture except ConvNeXt-Tiny (0.704), so most OK clarifiers there are classified as Not-OK.
 
 \begin{table}[htbp]
 \centering
-\small
 \caption{Recall and specificity of the Not-OK class for each held-out facility at the aerobic zone threshold chosen on the corresponding development set, with the lowest recall and the standard deviation of the recall across facilities.}
 \label{tab:res_threshold_robustness_aerobic}
 \begin{tabular}{l rrr rr}

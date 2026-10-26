@@ -656,8 +656,8 @@ INPUT ./thesis.lof
 INPUT thesis.lof
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
-OUTPUT thesis.lof
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
+OUTPUT thesis.lof
 INPUT ./thesis.lot
 INPUT ./thesis.lot
 INPUT thesis.lot
@@ -758,7 +758,6 @@ INPUT ./figures/relabel_example.png
 INPUT ./figures/relabel_example.png
 INPUT ./figures/relabel_example.png
 INPUT ./figures/relabel_example.png
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmr8.tfm
 INPUT ./chapters/Chapter5.tex
 INPUT ./chapters/Chapter5.tex
 INPUT chapters/Chapter5.tex
@@ -769,7 +768,7 @@ INPUT ./figures/augmentation_examples.png
 INPUT ./figures/augmentation_examples.png
 INPUT ./figures/augmentation_examples.png
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmri10.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmri10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmr8.tfm
 INPUT ./chapters/Chapter6.tex
 INPUT ./chapters/Chapter6.tex
 INPUT chapters/Chapter6.tex
@@ -821,6 +820,7 @@ INPUT ./appendices/an_appendix.tex
 INPUT ./appendices/an_appendix.tex
 INPUT ./appendices/an_appendix.tex
 INPUT appendices/an_appendix.tex
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmri10.tfm
 INPUT ./appendices/additional_results.tex
 INPUT ./appendices/additional_results.tex
 INPUT ./appendices/additional_results.tex
@@ -914,6 +914,7 @@ INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi7.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb

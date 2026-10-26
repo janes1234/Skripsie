@@ -7,7 +7,7 @@
 	\newpage}
 
 % Page layout
-\usepackage[a4paper,left=25mm,right=25mm,top=25mm,bottom=25mm,headheight=29pt,headsep=8mm]{geometry}
+\usepackage[a4paper,left=20mm,right=20mm,top=20mm,bottom=20mm,headheight=29pt,headsep=8mm]{geometry}
 
 % Subsections
 \setcounter{secnumdepth}{3}
@@ -389,6 +389,13 @@
 \makeatletter
 \patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
 \patchcmd{\ttlh@hang}{\noindent}{}{}{}
+\makeatother
+
+% One font size for the contents of every table (longtables set it in the appendix)
+\makeatletter
+\def\tablecaptype@{table}
+\let\tablefont@xfloat\@xfloat  % setspace's version, which ends in \normalsize
+\def\@xfloat#1[#2]{\tablefont@xfloat#1[#2]\ifx\@captype\tablecaptype@\footnotesize\fi}
 \makeatother
 
 % Bibliography

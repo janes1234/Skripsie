@@ -100,7 +100,6 @@ Table~\ref{tab:resnet_layers} lists the layers of ResNet-18. The 18 counts the l
 \begin{table}[!b]
 \setstretch{1}
 \centering
-\footnotesize
 \setlength{\tabcolsep}{3.5pt}
 \caption{Structure of ResNet-18 for a $224\times224$ input. Each row is one layer or a group of identical consecutive layers. Kernel gives the dimensions of one kernel, Num the number of kernels, and $s$ and $p$ the stride and padding (Equation~\ref{eq:conv_output_size}). Shortcut rows are not counted in the 18 layers. In each block, the second ReLU is applied after the shortcut is added. Params includes batch normalisation. The parameter counts in this and the following tables are from torchvision \citep{torchvision2016}, with the 1000-class ImageNet output layer.}
 \label{tab:resnet_layers}
@@ -142,7 +141,6 @@ Between dense blocks, a \textbf{transition layer} halves the number of channels 
 \begin{table}[!b]
 \setstretch{1}
 \centering
-\footnotesize
 \setlength{\tabcolsep}{3pt}
 \caption{Structure of DenseNet-121 for a $224\times224$ input, with columns as in Table~\ref{tab:resnet_layers}. Each dense layer is a $1\times1$ convolution followed by a $3\times3$ convolution, and a range such as 64--224 means that the number of input channels grows by $k=32$ with each dense layer. Batch normalisation and ReLU precede each convolution and the global average pool, except for convolution 1, which they follow.}
 \label{tab:densenet_layers}
@@ -185,7 +183,6 @@ EfficientNet \citep{tan2019efficientnet} is built using \textbf{mobile inverted 
 \begin{table}[!b]
 \setstretch{1}
 \centering
-\footnotesize
 \setlength{\tabcolsep}{4pt}
 \caption{Structure of EfficientNet-B0 for a $224\times224$ input. Each row is one layer, one MBConv block, or a group of identical consecutive blocks. For a block, Kernel and $s$ refer to the depthwise convolution, while Expanded is the number of channels after the expansion. MBConv6 has an expansion ratio of $t=6$, and MBConv1 has no expansion convolution. For the two ordinary convolutions, the number of kernels equals the number of output channels.}
 \label{tab:efficientnet_layers}
@@ -227,7 +224,6 @@ where $\Phi$ is the cumulative distribution function of the standard normal dist
 \begin{table}[!b]
 \setstretch{1}
 \centering
-\footnotesize
 \setlength{\tabcolsep}{4pt}
 \caption{Structure of ConvNeXt-Tiny for a $224\times224$ input, with columns as in Table~\ref{tab:efficientnet_layers}. For a block, Kernel refers to the depthwise convolution and Expanded is the number of channels after the first $1\times1$ convolution. Layer normalisation follows the stem convolution and precedes each downsampling convolution and the FC layer.}
 \label{tab:convnext_layers}
@@ -258,7 +254,6 @@ Table~\ref{tab:arch_summary} summarises the architectures used in this project. 
 
 \begin{table}[htbp]
 \centering
-\footnotesize
 \setlength{\tabcolsep}{4pt}
 \caption{Summary of the five models used in this project, ordered by year of publication, with their number of layers and parameter counts in millions. Layers counts the convolutional and fully-connected layers on the main path of each network, so shortcut convolutions and the fully-connected layers inside squeeze-and-excitation blocks are not counted. The clarifier and aerobic zone columns include the tuned classifier head of each final model.}\label{tab:arch_summary}
 \begin{tabular}{llccccc}
@@ -286,17 +281,17 @@ The performance of a classifier can be measured in several ways.
 
 \textbf{Accuracy} is the fraction of test images that are assigned to their true class. When the classes are imbalanced, it is dominated by the largest classes.
 
-\textbf{Precision, recall and F1 score} are calculated for each class $c$ from the number of true positives $TP_c$, false positives $FP_c$ and false negatives $FN_c$:
+\textbf{Precision, recall and specificity} are calculated for each class $c$ from the number of true positives $TP_c$, false positives $FP_c$, true negatives $TN_c$ and false negatives $FN_c$:
 \begin{equation}
     \mathrm{Precision}_c = \frac{TP_c}{TP_c + FP_c}, \qquad
     \mathrm{Recall}_c = \frac{TP_c}{TP_c + FN_c}, \qquad
-    F1_c = \frac{2 \cdot \mathrm{Precision}_c \cdot \mathrm{Recall}_c}{\mathrm{Precision}_c + \mathrm{Recall}_c}.
+    \mathrm{Specificity}_c = \frac{TN_c}{TN_c + FP_c}.
 \end{equation}
-The macro-averaged values are the unweighted means over the classes, so that every class has the same weight. The \textbf{confusion matrix} counts, for every true class, how many images were assigned to each class. It therefore reflects classes that are often confused. 
+The precision is the fraction of images assigned to class $c$ that belong to $c$, the recall is the fraction of images of class $c$ that are assigned to $c$, and the specificity is the fraction of images of the other classes that are not assigned to $c$. The macro-averaged values are the unweighted means over the classes, so that every class has the same weight. The \textbf{confusion matrix} counts, for every true class, how many images were assigned to each class. It therefore reflects classes that are often confused. 
 
-The \textbf{receiver operating characteristic (ROC) curve} plots the true positive rate (recall) against the false positive rate as the decision threshold is varied. The \textbf{area under the curve (AUC)} is 1 when every positive image receives a higher score than every negative image, and 0.5 for random guessing. For more than two classes, the one-vs-rest AUC of each class can be averaged.
+The \textbf{receiver operating characteristic (ROC) curve} plots the true positive rate (recall) against the false positive rate (1 minus the specificity) as the decision threshold is varied. The \textbf{area under the curve (AUC)} is 1 when every positive image receives a higher score than every negative image, and 0.5 for random guessing. For more than two classes, the one-vs-rest AUC of each class can be averaged.
 
-\textbf{Loss and accuracy curves} give the training and development loss and accuracy after every epoch.
+\textbf{Loss and accuracy curves} give the training and development loss and accuracy per epoch.
 
 
 \section{Gradient-Weighted Class Activation Mapping}\label{sec:gradcam_background}
@@ -321,7 +316,7 @@ The feature maps of all channels are then multiplied by their weights and summed
 
 The map $L^c$ has the same height and width as the feature maps of the last convolutional layer, and is much smaller than the input image. It is therefore resized to the dimensions of the input image, normalised to the range $[0, 1]$, and superimposed on the image as a heatmap.
 
-Because the weights $\alpha_k^c$ depend on $c$, a separate heatmap is obtained for each class $c = 1, \dots, K$ from the same image. The heatmap of class $c$ highlights the regions whose features increase the score $y^c$. Regions that lower this score are set to zero by the ReLU. Comparing the heatmaps of different classes therefore shows which parts of the image the network associates with each class, and whether a prediction is based on the relevant object or on unrelated parts of the image.
+Because the weights $\alpha_k^c$ depend on $c$, a separate heatmap is obtained for each class $c = 1, \dots, K$ from the same image. The heatmap of class $c$ highlights the regions whose features increase the score $y^c$. Regions that lower this score are set to zero by the ReLU. Comparing the heatmaps of different classes therefore shows which parts of the image the network associates with each class, and whether the output is based on the relevant object or on other regions.
 
 \section{Conclusion}\label{sec:background_conclusion}
 

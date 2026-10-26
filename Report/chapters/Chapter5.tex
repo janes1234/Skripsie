@@ -115,13 +115,12 @@ The weights are calculated from the training set only, and are recalculated for 
 \centering
 \caption{Number of training images per clarifier class and the resulting class weight $w_c$, for each held-out test facility and for the chronological split.}
 \label{tab:class_weights}
-\small
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{l cc cc cc cc}
 \toprule
 & \multicolumn{2}{c}{\textbf{Dysfunctional}} & \multicolumn{2}{c}{\textbf{Empty}} & \multicolumn{2}{c}{\textbf{Functional}} & \multicolumn{2}{c}{\textbf{Scum}} \\
 \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7} \cmidrule(lr){8-9}
-\textbf{Test facility} & \scriptsize{Images} & \scriptsize{$w_c$} & \scriptsize{Images} & \scriptsize{$w_c$} & \scriptsize{Images} & \scriptsize{$w_c$} & \scriptsize{Images} & \scriptsize{$w_c$} \\
+\textbf{Test facility} & Images & $w_c$ & Images & $w_c$ & Images & $w_c$ & Images & $w_c$ \\
 \midrule
 Atlantis       & 236 & 1.10 & 116 & 2.24 & 769 & 0.34 & 822 & 0.32 \\
 Cape Flats     & 125 & 0.52 & 21  & 3.09 & 261 & 0.25 & 439 & 0.15 \\
@@ -142,7 +141,7 @@ None (chronological) & 159 & 1.20 & 91 & 2.10 & 549 & 0.35 & 549 & 0.35 \\
 \toprule
 & \multicolumn{2}{c}{\textbf{Dysfunctional}} & \multicolumn{2}{c}{\textbf{Functional}} & \multicolumn{2}{c}{\textbf{Suboptimal}} \\
 \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
-\textbf{Test facility} & \scriptsize{Images} & \scriptsize{$w_c$} & \scriptsize{Images} & \scriptsize{$w_c$} & \scriptsize{Images} & \scriptsize{$w_c$} \\
+\textbf{Test facility} & Images & $w_c$ & Images & $w_c$ & Images & $w_c$ \\
 \midrule
 Atlantis          & 635 & 0.49 & 510 & 0.61 & 165 & 1.89 \\
 Cape Flats        & 202 & 0.82 & 493 & 0.34 & 90  & 1.84 \\
@@ -179,15 +178,14 @@ Table~\ref{tab:hyperparams} gives the search range of each hyperparameter and th
 
 \begin{table}[htbp]
 \centering
-\footnotesize
-\caption{Search range of each tuned hyperparameter, and the values used for each architecture and component, with the development accuracy on the selected trial. The learning rate is sampled log-uniformly, and the batch size from $\{8, 16, 24, 32, 48, 64, 96, 128\}$. $H{=}0$ means the classifier head is a single linear layer, and $N$ is unused.}
+\caption{Search range of each tuned hyperparameter, and the values used for each architecture and component, with the development accuracy on the selected trial. The learning rate is sampled log-uniformly, $N$ from $\{512, 1024, 2048\}$ and the batch size from $\{8, 16, 24, 32, 48, 64, 96, 128\}$. $H{=}0$ means the classifier head is a single linear layer, and $N$ is unused.}
 \label{tab:hyperparams}
-\setlength{\tabcolsep}{2.8pt}
+\setlength{\tabcolsep}{2.2pt}
 \begin{tabular}{lccccccc}
 \toprule
 \textbf{Architecture} & \textbf{$H$} & \textbf{$N$} & \textbf{LR} & \textbf{$\beta_1$} & \textbf{Step} & \textbf{Batch} & \textbf{Dev. acc.} \\
 \midrule
-Search range & $\{0,\ldots,3\}$ & $\{512,1024,2048\}$ & $[10^{-6},10^{-2}]$ & $[0.5,0.999]$ & $[5,40]$ & $\{8,\ldots,128\}$ & -- \\
+Search range & $\{0,\ldots,3\}$ & $\{512,\ldots,2048\}$ & $[10^{-6},10^{-2}]$ & $[0.5,0.999]$ & $[5,40]$ & $\{8,\ldots,128\}$ & -- \\
 \midrule
 \multicolumn{8}{l}{\emph{Clarifiers}} \\
 ResNet-18               & 1 & 512  & $2.24\times10^{-5}$ & 0.971 & 16 & 32 & 85.78\% \\
@@ -295,7 +293,7 @@ All five models are trained using this division of the data, for both the clarif
 
 Experiment~1 is also used to measure the effect of augmentation. Every model is trained a second time on the same data but without augmentation (resizing and normalisation is maintained for all train, development and test images). The data, hyperparameters, class weights and random seed are the same in both experiments, to ensure that augmentation is the only difference. In Experiment~1, 20 models are therefore trained: five models for each of the two components, each trained with and without augmentation. The results are given in Section~\ref{sec:results_augmentation}.
 
-The purpose of this experiment is to estimate how well the models perform at facilities whose earlier images are part of the training data. This is the usual situation in the intended use of the system (Chapter~\ref{chap:introduction}): new images of a facility are classified, an operator relabels the flagged images, and the relabelled images are added to the training data. The test images were all captured after the training and development images, as they would be in practice. Since a satellite image has a single capture date, no test image comes from the same satellite image as a training or development image.
+The purpose of this experiment is to estimate how well the models perform at facilities whose earlier images are part of the training data. This is the usual situation in the intended use of the system (Chapter~\ref{chap:introduction}): new images of a facility are classified, an operator relabels the images of components classified as not working, and the relabelled images are added to the training data. The test images were all captured after the training and development images, as they would be in practice. Since a satellite image has a single capture date, no test image comes from the same satellite image as a training or development image.
 
 A facility that is added to the system has no labelled images until its first images have been reviewed. A model could also learn cues that are specific to one facility, such as the colour of the water at that facility, and still perform well on this split, since the same cues are present in the test set. The results of Experiment~1 therefore do not show how a model would perform at a facility it has never seen, which is the reason for Experiment~2. The difference between the two experiments gives an indication of how much performance is lost when a model is applied to a facility it was not trained on.
 
@@ -309,7 +307,6 @@ Every architecture is trained separately for every held-out facility, using the 
 
 \begin{table}[htbp]
 \centering
-\small
 \setlength{\tabcolsep}{4pt}
 \caption{Number of training, development and test images for each held-out facility, and the number of test images per class. The test set is the held-out facility, and the training and development sets are drawn from the remaining facilities.}
 \label{tab:lofo_folds}
@@ -319,7 +316,7 @@ Every architecture is trained separately for every held-out facility, using the 
 \cmidrule(lr){5-8}
 \textbf{Test facility} & \textbf{Train} & \textbf{Dev.} & \textbf{Test} & & & & \\
 \midrule
-\textit{Clarifiers} & & & & \scriptsize{Dysfunctional} & \scriptsize{Empty} & \scriptsize{Functional} & \scriptsize{Scum} \\
+\textit{Clarifiers} & & & & Dysfunctional & Empty & Functional & Scum \\
 \cmidrule(lr){5-8}
 Atlantis       & 1943 & 474 & 110  & 0   & 3   & 44  & 63  \\
 Cape Flats     & 846  & 205 & 1476 & 137 & 120 & 679 & 540 \\
@@ -327,7 +324,7 @@ Fisantekraal   & 1829 & 446 & 252  & 17  & 9   & 110 & 116 \\
 Northern Works & 1707 & 415 & 405  & 131 & 13  & 81  & 180 \\
 Waterval       & 1803 & 440 & 284  & 7   & 0   & 89  & 188 \\
 \midrule
-\textit{Aerobic zones} & & & & \scriptsize{Dysfunctional} & \scriptsize{Functional} & \scriptsize{Suboptimal} & \\
+\textit{Aerobic zones} & & & & Dysfunctional & Functional & Suboptimal & \\
 \cmidrule(lr){5-7}
 Atlantis       & 1310 & 320 & 113  & 22  & 72  & 19  & \\
 Cape Flats     & 785  & 192 & 766  & 562 & 92  & 112 & \\
@@ -346,7 +343,7 @@ One part of this experiment is not fully independent of the test facility. The h
 \section{Experiment 3: Binary (OK / Not-OK) Reformulation}
 \label{sec:exp_binary}
 
-The multi-class models distinguish between several ways in which a component can fail, but for an operator the most important question is whether a component needs attention or not. A \textbf{Scum} clarifier classified as \textbf{Dysfunctional} is still flagged for inspection, whereas a \textbf{Scum} clarifier classified as \textbf{Functional} is missed completely. Experiment~3 therefore evaluates the models as binary classifiers, which only decide whether a component is functioning correctly (OK) or not (Not-OK). For the clarifiers, \textbf{Functional} means OK, while \textbf{Dysfunctional}, \textbf{Empty} and \textbf{Scum} are Not-OK. For the aerobic zones, \textbf{Functional} means OK, while \textbf{Suboptimal} and \textbf{Dysfunctional} are Not-OK.
+The multi-class models distinguish between several ways in which a component can fail, but for an operator the most important question is whether a component needs attention or not. A \textbf{Scum} clarifier classified as \textbf{Dysfunctional} would still be inspected by an operator, whereas a \textbf{Scum} clarifier classified as \textbf{Functional} would not be. Experiment~3 therefore evaluates the models as binary classifiers, which only decide whether a component is functioning correctly (OK) or not (Not-OK). For the clarifiers, \textbf{Functional} means OK, while \textbf{Dysfunctional}, \textbf{Empty} and \textbf{Scum} are Not-OK. For the aerobic zones, \textbf{Functional} means OK, while \textbf{Suboptimal} and \textbf{Dysfunctional} are Not-OK.
 
 No separate binary models are trained. Instead, the binary decision is derived from the multi-class models of Experiments~1 and~2. The Not-OK score of an image is the total probability that the model assigns to the Not-OK classes,
 
@@ -356,7 +353,7 @@ No separate binary models are trained. Instead, the binary decision is derived f
 
 and the image is classified as Not-OK when $s \geq t$, for a threshold $t$. The binary results therefore come from exactly the same models as the multi-class results, so the two can be compared directly. The binary evaluation is carried out on both the chronological split of Experiment~1 and the leave-one-facility-out split of Experiment~2.
 
-With Not-OK treated as the positive class, the recall (or sensitivity) is the fraction of Not-OK components that are flagged as such, while the specificity is the fraction of OK components that are correctly left unflagged. These two kinds of mistake do not have the same cost. A false alarm only costs an operator the time to look at the image and make his or her own confirmatory assessment, while a missed Not-OK component may go unnoticed until the next satellite image of the facility becomes available. The decision threshold was therefore chosen so that the recall of the Not-OK class reaches a target of 95\% on the development set used to train the same model. The recall is evaluated at 500 evenly spaced thresholds between 0 and 1, and the largest threshold that still reaches the target is selected, since this is the threshold that also raises the fewest false alarms. The recall, specificity and precision are then calculated on the test set at this threshold. For the leave-one-facility-out models of Experiment~2, each model has its own threshold, chosen on its own development set, which contains no images of the held-out facility.
+With Not-OK treated as the positive class, the recall (or sensitivity) is the fraction of Not-OK components that are classified as Not-OK ($s \geq t$), while the specificity is the fraction of OK components that are classified as OK ($s < t$). These two kinds of mistake do not have the same cost. A false alarm only costs an operator the time to look at the image and make his or her own confirmatory assessment, while a missed Not-OK component may go unnoticed until the next satellite image of the facility becomes available. The decision threshold was therefore chosen so that the recall of the Not-OK class reaches a target of 95\% on the development set used to train the same model. The recall is evaluated at 500 evenly spaced thresholds between 0 and 1, and the largest threshold that still reaches the target is selected, since this is the threshold that also raises the fewest false alarms. The recall, specificity and precision are then calculated on the test set at this threshold. For the leave-one-facility-out models of Experiment~2, each model has its own threshold, chosen on its own development set, which contains no images of the held-out facility.
 
 The ROC curve and its AUC are also calculated for the binary problem, since they describe the trade-off between recall and specificity over all thresholds rather than at a single one. For the leave-one-facility-out models, the binary results are summarised across held-out facilities in the same way as the multi-class results (Section~\ref{sec:exp_lofo}). The ROC curve of every held-out facility is interpolated onto a common set of false positive rates before the curves are averaged, and the binary confusion matrix at the chosen threshold is normalised per row, so that it shows rates rather than counts, before it is averaged.
 
@@ -368,7 +365,7 @@ Since the test set plays no part in choosing the threshold, the test recall can 
 
 Every trained model is evaluated once on its test set, after training has finished and the checkpoint with the lowest development loss has been restored (Section~\ref{sec:exp_training}). A test image is assigned to the class with the highest softmax probability, and the metrics described in Section~\ref{sec:metrics_background} are calculated from these classifications and probabilities.
 
-Of these metrics, recall is the most important in the context of this project. The system is meant to flag components that are not working properly, so that an operator can inspect them. A component with low recall for a failure class, such as a \textbf{Dysfunctional} clarifier or a \textbf{Suboptimal} aerobic zone, would be missed and could go unnoticed until the next satellite image of the facility, whereas a false positive only costs an operator the time to look at an image. For this reason, the recall of the failure classes is reported alongside the macro-averaged scores, and the operating point in Experiment~3 is chosen to reach a target recall rather than the highest accuracy.
+Of these metrics, recall is the most important in the context of this project. The system is meant to identify components that are not working properly, so that an operator can inspect them. A component with low recall for a failure class, such as a \textbf{Dysfunctional} clarifier or a \textbf{Suboptimal} aerobic zone, would be missed and could go unnoticed until the next satellite image of the facility, whereas a false positive only costs an operator the time to look at an image. For this reason, the recall of the failure classes is reported alongside the macro-averaged scores, and the operating point in Experiment~3 is chosen to reach a target recall rather than the highest accuracy.
 
 
 \section{Qualitative Analysis: Grad-CAM}
