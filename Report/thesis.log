@@ -1548,4 +1548,292 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 ]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2.
- (/usr/share/texmf-dist/tex/l
+ (/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)) (./frontmatter/abstract.tex [2
+
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}] [3
+
+]) [4
+
+] (./thesis.toc [5
+
+
+]
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/lmr/m/sc/12'.
+(microtype)             Ignoring protrusion settings for this character.
+ [6])
+\tf@toc=\write6
+\openout6 = `thesis.toc'.
+
+ [7] (./thesis.lof [8
+
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}])
+\tf@lof=\write7
+\openout7 = `thesis.lof'.
+
+ [9{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}] (./thesis.lot [10
+
+] [11] [12])
+\tf@lot=\write8
+\openout8 = `thesis.lot'.
+
+ [13] (./frontmatter/nomenclature.tex
+No file thesis.nls.
+(./frontmatter/variables_and_functions.tex) [14
+
+
+] [15]) (./chapters/Chapter1.tex
+Chapter 1.
+[1
+
+]) (./chapters/Chapter2.tex [2]
+Chapter 2.
+<figures/aerobicfunc_background.png, id=1013, 652.4375pt x 649.42625pt>
+File: figures/aerobicfunc_background.png Graphic file (type png)
+<use figures/aerobicfunc_background.png>
+Package pdftex.def Info: figures/aerobicfunc_background.png  used on input line 15.
+(pdftex.def)             Requested size: 149.94484pt x 149.25589pt.
+<figures/aerobicdysfunc_background.png, id=1015, 652.4375pt x 649.42625pt>
+File: figures/aerobicdysfunc_background.png Graphic file (type png)
+<use figures/aerobicdysfunc_background.png>
+Package pdftex.def Info: figures/aerobicdysfunc_background.png  used on input line 21.
+(pdftex.def)             Requested size: 149.94484pt x 149.25589pt.
+<figures/clarifier_background.png, id=1016, 318.18875pt x 163.61125pt>
+File: figures/clarifier_background.png Graphic file (type png)
+<use figures/clarifier_background.png>
+Package pdftex.def Info: figures/clarifier_background.png  used on input line 27.
+(pdftex.def)             Requested size: 149.94484pt x 77.0995pt.
+[3
+
+] [4{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc} <./figures/aerobicfunc_background.png> <./figures/aerobicdysfunc_background.png> <./figures/clarifier_background.png>] [5] [6]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 104.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 106.
+ [7] [8] [9] [10] [11]) (./chapters/Chapter3.tex [12]
+Chapter 3.
+[13
+
+] [14] [15]) (./chapters/Chapter4.tex [16]
+Chapter 4.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4.
+(/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+<figures/heatmap.png, id=1203, 2662.94875pt x 1647.15375pt>
+File: figures/heatmap.png Graphic file (type png)
+<use figures/heatmap.png>
+Package pdftex.def Info: figures/heatmap.png  used on input line 9.
+(pdftex.def)             Requested size: 386.95897pt x 239.34642pt.
+<figures/map.png, id=1207, 1344.02126pt x 742.775pt>
+File: figures/map.png Graphic file (type png)
+<use figures/map.png>
+Package pdftex.def Info: figures/map.png  used on input line 21.
+(pdftex.def)             Requested size: 217.66211pt x 120.28581pt.
+ [17
+
+ <./figures/heatmap.png>]
+<figures/capeflats_overview.png, id=1214, 542.025pt x 278.03876pt>
+File: figures/capeflats_overview.png Graphic file (type png)
+<use figures/capeflats_overview.png>
+Package pdftex.def Info: figures/capeflats_overview.png  used on input line 27.
+(pdftex.def)             Requested size: 193.47578pt x 99.24536pt.
+ [18 <./figures/map.png (PNG copy)> <./figures/capeflats_overview.png (PNG copy)>]
+<figures/aerobic_examples.png, id=1226, 1074.414pt x 220.6644pt>
+File: figures/aerobic_examples.png Graphic file (type png)
+<use figures/aerobic_examples.png>
+Package pdftex.def Info: figures/aerobic_examples.png  used on input line 46.
+(pdftex.def)             Requested size: 386.95897pt x 79.47278pt.
+<figures/clarifier_examples.png, id=1229, 1076.823pt x 306.4248pt>
+File: figures/clarifier_examples.png Graphic file (type png)
+<use figures/clarifier_examples.png>
+Package pdftex.def Info: figures/clarifier_examples.png  used on input line 52.
+(pdftex.def)             Requested size: 386.95897pt x 110.11179pt.
+ [19 <./figures/aerobic_examples.png> <./figures/clarifier_examples.png>] [20] [21]
+<figures/relabel_example.png, id=1257, 401.5pt x 401.5pt>
+File: figures/relabel_example.png Graphic file (type png)
+<use figures/relabel_example.png>
+Package pdftex.def Info: figures/relabel_example.png  used on input line 140.
+(pdftex.def)             Requested size: 106.4139pt x 106.41536pt.
+ [22 <./figures/relabel_example.png (PNG copy)>]) [23] (./chapters/Chapter5.tex [24]
+Chapter 5.
+[25
+
+] [26]
+<figures/augmentation_examples.png, id=1322, 1942.25626pt x 1031.855pt>
+File: figures/augmentation_examples.png Graphic file (type png)
+<use figures/augmentation_examples.png>
+Package pdftex.def Info: figures/augmentation_examples.png  used on input line 93.
+(pdftex.def)             Requested size: 435.32422pt x 231.2599pt.
+ [27 <./figures/augmentation_examples.png>] [28] [29] [30] [31] [32] [33] [34] [35]) (./chapters/Chapter6.tex [36]
+Chapter 6.
+[37
+
+]
+<figures/results/clarifier_convnext_tiny_Fisantekraal_confusion_matrix.png, id=1431, 421.575pt x 399.4122pt>
+File: figures/results/clarifier_convnext_tiny_Fisantekraal_confusion_matrix.png Graphic file (type png)
+<use figures/results/clarifier_convnext_tiny_Fisantekraal_confusion_matrix.png>
+Package pdftex.def Info: figures/results/clarifier_convnext_tiny_Fisantekraal_confusion_matrix.png  used on input line 83.
+(pdftex.def)             Requested size: 174.13116pt x 164.97896pt.
+<figures/results/aerobic_zone_densenet_121_Waterval_confusion_matrix.png, id=1432, 421.575pt x 396.0396pt>
+File: figures/results/aerobic_zone_densenet_121_Waterval_confusion_matrix.png Graphic file (type png)
+<use figures/results/aerobic_zone_densenet_121_Waterval_confusion_matrix.png>
+Package pdftex.def Info: figures/results/aerobic_zone_densenet_121_Waterval_confusion_matrix.png  used on input line 88.
+(pdftex.def)             Requested size: 174.13116pt x 163.58589pt.
+ [38] [39 <./figures/results/clarifier_convnext_tiny_Fisantekraal_confusion_matrix.png> <./figures/results/aerobic_zone_densenet_121_Waterval_confusion_matrix.png>] [40] [41
+
+]
+<figures/gradcam_clarifier.png, id=1476, 658.74104pt x 823.878pt>
+File: figures/gradcam_clarifier.png Graphic file (type png)
+<use figures/gradcam_clarifier.png>
+Package pdftex.def Info: figures/gradcam_clarifier.png  used on input line 211.
+(pdftex.def)             Requested size: 314.40001pt x 393.21925pt.
+ [42 <./figures/gradcam_clarifier.png>]
+<figures/gradcam_aerobic_zone.png, id=1487, 658.74104pt x 608.87476pt>
+File: figures/gradcam_aerobic_zone.png Graphic file (type png)
+<use figures/gradcam_aerobic_zone.png>
+Package pdftex.def Info: figures/gradcam_aerobic_zone.png  used on input line 227.
+(pdftex.def)             Requested size: 338.58632pt x 312.95616pt.
+ [43]) (./chapters/conclusion.tex [44 <./figures/gradcam_aerobic_zone.png>]
+Chapter 7.
+) [45
+
+] (./thesis.bbl [46
+
+] [47]
+Overfull \hbox (0.64203pt too wide) in paragraph at lines 103--104
+\T1/lmr/m/n/12 (-20) ``ImageNet-trained CNNs are biased towards texture; increasing shape bias improves accuracy
+ []
+
+[48]) (./appendices/appendices.tex (./appendices/dataset_details.tex [49]
+Appendix A.
+<figures/relabel_process_example.png, id=1580, 1436.36626pt x 910.40125pt>
+File: figures/relabel_process_example.png Graphic file (type png)
+<use figures/relabel_process_example.png>
+Package pdftex.def Info: figures/relabel_process_example.png  used on input line 35.
+(pdftex.def)             Requested size: 266.03474pt x 168.61607pt.
+) (./appendices/an_appendix.tex [50
+
+ <./figures/relabel_process_example.png>]
+Appendix B.
+[51
+
+]
+ignored: Infinite glue shrinkage found in box being split [52]
+ignored: Infinite glue shrinkage found in box being split [53]
+ignored: Infinite glue shrinkage found in box being split [54]
+ignored: Infinite glue shrinkage found in box being split [55] [56]) (./appendices/additional_results.tex [57]
+Appendix C.
+[58
+
+] [59]
+<figures/results/clarifier_convnext_tiny_Atlantis_training_curves.png, id=1635, 860.013pt x 281.3712pt>
+File: figures/results/clarifier_convnext_tiny_Atlantis_training_curves.png Graphic file (type png)
+<use figures/results/clarifier_convnext_tiny_Atlantis_training_curves.png>
+Package pdftex.def Info: figures/results/clarifier_convnext_tiny_Atlantis_training_curves.png  used on input line 174.
+(pdftex.def)             Requested size: 237.01411pt x 77.5426pt.
+<figures/results/clarifier_convnext_tiny_CapeFlats_training_curves.png, id=1636, 859.0494pt x 281.3712pt>
+File: figures/results/clarifier_convnext_tiny_CapeFlats_training_curves.png Graphic file (type png)
+<use figures/results/clarifier_convnext_tiny_CapeFlats_training_curves.png>
+Package pdftex.def Info: figures/results/clarifier_convnext_tiny_CapeFlats_training_curves.png  used on input line 179.
+(pdftex.def)             Requested size: 237.01411pt x 77.62848pt.
+<figures/results/clarifier_convnext_tiny_Fisantekraal_training_curves.png, id=1637, 860.013pt x 281.3712pt>
+File: figures/results/clarifier_convnext_tiny_Fisantekraal_training_curves.png Graphic file (type png)
+<use figures/results/clarifier_convnext_tiny_Fisantekraal_training_curves.png>
+Package pdftex.def Info: figures/results/clarifier_convnext_tiny_Fisantekraal_training_curves.png  used on input line 183.
+(pdftex.def)             Requested size: 237.01411pt x 77.5426pt.
+<figures/results/clarifier_convnext_tiny_NoordelikeWerke_training_curves.png, id=1638, 860.013pt x 281.3712pt>
+File: figures/results/clarifier_convnext_tiny_NoordelikeWerke_training_curves.png Graphic file (type png)
+<use figures/results/clarifier_convnext_tiny_NoordelikeWerke_training_curves.png>
+Package pdftex.def Info: figures/results/clarifier_convnext_tiny_NoordelikeWerke_training_curves.png  used on input line 188.
+(pdftex.def)             Requested size: 237.01411pt x 77.5426pt.
+<figures/results/clarifier_convnext_tiny_Waterval_training_curves.png, id=1639, 860.013pt x 281.3712pt>
+File: figures/results/clarifier_convnext_tiny_Waterval_training_curves.png Graphic file (type png)
+<use figures/results/clarifier_convnext_tiny_Waterval_training_curves.png>
+Package pdftex.def Info: figures/results/clarifier_convnext_tiny_Waterval_training_curves.png  used on input line 192.
+(pdftex.def)             Requested size: 237.01411pt x 77.5426pt.
+ [60]
+<figures/results/clarifier_convnext_tiny_Atlantis_confusion_matrix.png, id=1646, 415.3116pt x 399.4122pt>
+File: figures/results/clarifier_convnext_tiny_Atlantis_confusion_matrix.png Graphic file (type png)
+<use figures/results/clarifier_convnext_tiny_Atlantis_confusion_matrix.png>
+Package pdftex.def Info: figures/results/clarifier_convnext_tiny_Atlantis_confusion_matrix.png  used on input line 204.
+(pdftex.def)             Requested size: 154.78653pt x 148.86502pt.
+<figures/results/clarifier_convnext_tiny_CapeFlats_confusion_matrix.png, id=1647, 421.575pt x 399.4122pt>
+File: figures/results/clarifier_convnext_tiny_CapeFlats_confusion_matrix.png Graphic file (type png)
+<use figures/results/clarifier_convnext_tiny_CapeFlats_confusion_matrix.png>
+Package pdftex.def Info: figures/results/clarifier_convnext_tiny_CapeFlats_confusion_matrix.png  used on input line 209.
+(pdftex.def)             Requested size: 154.78653pt x 146.65271pt.
+File: figures/results/clarifier_convnext_tiny_Fisantekraal_confusion_matrix.png Graphic file (type png)
+<use figures/results/clarifier_convnext_tiny_Fisantekraal_confusion_matrix.png>
+Package pdftex.def Info: figures/results/clarifier_convnext_tiny_Fisantekraal_confusion_matrix.png  used on input line 214.
+(pdftex.def)             Requested size: 154.78653pt x 146.65271pt.
+<figures/results/clarifier_convnext_tiny_NoordelikeWerke_confusion_matrix.png, id=1648, 421.575pt x 399.4122pt>
+File: figures/results/clarifier_convnext_tiny_NoordelikeWerke_confusion_matrix.png Graphic file (type png)
+<use figures/results/clarifier_convnext_tiny_NoordelikeWerke_confusion_matrix.png>
+Package pdftex.def Info: figures/results/clarifier_convnext_tiny_NoordelikeWerke_confusion_matrix.png  used on input line 218.
+(pdftex.def)             Requested size: 154.78653pt x 146.65271pt.
+<figures/results/clarifier_convnext_tiny_Waterval_confusion_matrix.png, id=1649, 421.575pt x 399.4122pt>
+File: figures/results/clarifier_convnext_tiny_Waterval_confusion_matrix.png Graphic file (type png)
+<use figures/results/clarifier_convnext_tiny_Waterval_confusion_matrix.png>
+Package pdftex.def Info: figures/results/clarifier_convnext_tiny_Waterval_confusion_matrix.png  used on input line 222.
+(pdftex.def)             Requested size: 154.78653pt x 146.65271pt.
+ [61 <./figures/results/clarifier_convnext_tiny_Atlantis_training_curves.png> <./figures/results/clarifier_convnext_tiny_CapeFlats_training_curves.png> <./figures/results/clarifier_convnext_tiny_Fisantekraal_training_curves.png> <./figures/results/clarifier_convnext_tiny_NoordelikeWerke_training_curves.png> <./figures/results/clarifier_convnext_tiny_Waterval_training_curves.png>] [62 <./figures/results/clarifier_convnext_tiny_Atlantis_confusion_matrix.png> <./figures/results/clarifier_convnext_tiny_CapeFlats_confusion_matrix.png> <./figures/results/clarifier_convnext_tiny_NoordelikeWerke_confusion_matrix.png> <./figures/results/clarifier_convnext_tiny_Waterval_confusion_matrix.png>]
+<figures/results/aerobic_zone_densenet_121_Atlantis_training_curves.png, id=1675, 860.013pt x 281.3712pt>
+File: figures/results/aerobic_zone_densenet_121_Atlantis_training_curves.png Graphic file (type png)
+<use figures/results/aerobic_zone_densenet_121_Atlantis_training_curves.png>
+Package pdftex.def Info: figures/results/aerobic_zone_densenet_121_Atlantis_training_curves.png  used on input line 303.
+(pdftex.def)             Requested size: 237.01411pt x 77.5426pt.
+<figures/results/aerobic_zone_densenet_121_CapeFlats_training_curves.png, id=1676, 860.013pt x 281.3712pt>
+File: figures/results/aerobic_zone_densenet_121_CapeFlats_training_curves.png Graphic file (type png)
+<use figures/results/aerobic_zone_densenet_121_CapeFlats_training_curves.png>
+Package pdftex.def Info: figures/results/aerobic_zone_densenet_121_CapeFlats_training_curves.png  used on input line 308.
+(pdftex.def)             Requested size: 237.01411pt x 77.5426pt.
+<figures/results/aerobic_zone_densenet_121_Waterval_training_curves.png, id=1677, 858.0858pt x 281.3712pt>
+File: figures/results/aerobic_zone_densenet_121_Waterval_training_curves.png Graphic file (type png)
+<use figures/results/aerobic_zone_densenet_121_Waterval_training_curves.png>
+Package pdftex.def Info: figures/results/aerobic_zone_densenet_121_Waterval_training_curves.png  used on input line 312.
+(pdftex.def)             Requested size: 237.01411pt x 77.71864pt.
+<figures/results/aerobic_zone_densenet_121_Atlantis_confusion_matrix.png, id=1680, 415.3116pt x 396.0396pt>
+File: figures/results/aerobic_zone_densenet_121_Atlantis_confusion_matrix.png Graphic file (type png)
+<use figures/results/aerobic_zone_densenet_121_Atlantis_confusion_matrix.png>
+Package pdftex.def Info: figures/results/aerobic_zone_densenet_121_Atlantis_confusion_matrix.png  used on input line 324.
+(pdftex.def)             Requested size: 154.78653pt x 147.60802pt.
+<figures/results/aerobic_zone_densenet_121_CapeFlats_confusion_matrix.png, id=1681, 421.575pt x 396.0396pt>
+File: figures/results/aerobic_zone_densenet_121_CapeFlats_confusion_matrix.png Graphic file (type png)
+<use figures/results/aerobic_zone_densenet_121_CapeFlats_confusion_matrix.png>
+Package pdftex.def Info: figures/results/aerobic_zone_densenet_121_CapeFlats_confusion_matrix.png  used on input line 329.
+(pdftex.def)             Requested size: 154.78653pt x 145.41438pt.
+File: figures/results/aerobic_zone_densenet_121_Waterval_confusion_matrix.png Graphic file (type png)
+<use figures/results/aerobic_zone_densenet_121_Waterval_confusion_matrix.png>
+Package pdftex.def Info: figures/results/aerobic_zone_densenet_121_Waterval_confusion_matrix.png  used on input line 334.
+(pdftex.def)             Requested size: 154.78653pt x 145.41438pt.
+ [63] [64 <./figures/results/aerobic_zone_densenet_121_Atlantis_training_curves.png> <./figures/results/aerobic_zone_densenet_121_CapeFlats_training_curves.png> <./figures/results/aerobic_zone_densenet_121_Waterval_training_curves.png> <./figures/results/aerobic_zone_densenet_121_Atlantis_confusion_matrix.png> <./figures/results/aerobic_zone_densenet_121_CapeFlats_confusion_matrix.png>] [65])) [66] (./thesis.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+ ***********
+Package rerunfilecheck Info: File `thesis.out' has not changed.
+(rerunfilecheck)             Checksum: 16B1FE24255596D154A6A06EA72BD3C2;15685.
+ ) 
+Here is how much of TeX's memory you used:
+ 53592 strings out of 469515
+ 1082060 string characters out of 5470808
+ 1808780 words of memory out of 5000000
+ 80583 multiletter control sequences out of 15000+600000
+ 759523 words of font info for 347 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 115i,17n,110p,2583b,835s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmro12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on thesis.pdf (83 pages, 19131691 bytes).
+PDF statistics:
+ 1896 PDF objects out of 2073 (max. 8388607)
+ 1671 compressed objects within 17 object streams
+ 301 named destinations out of 1000 (max. 500000)
+ 63907 words of extra memory for PDF output out of 74296 (max. 10000000)
+
