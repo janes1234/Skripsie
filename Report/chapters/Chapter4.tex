@@ -25,7 +25,7 @@ Atlantis, Cape Flats and Fisantekraal WWTW are located in the Western Cape, in a
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.4\textwidth]{figures/capeflats_overview.png}
-    \caption{Overview of the Cape Flats WWTW facility.}\label{fig:capeflats_overview}
+    \caption{Overview of the Cape Flats WWTW facility. The facility consists of four reactor units (CF1--CF4) placed side by side. Each unit has rectangular aerobic zones at the top and four circular clarifiers below them.}\label{fig:capeflats_overview}
 \end{figure}
 
 \section{Annotations}
@@ -44,13 +44,13 @@ Examples of the classes for aerobic zones and clarifiers are shown in Figures \r
 \begin{figure}[htbp]
     \centering 
     \includegraphics[width=0.8\textwidth]{figures/aerobic_examples.png} 
-    \caption{One example of each aerobic zone class, and the facility it comes from. Each example is a test image from the chronological split (Section~\ref{sec:exp_mixed}) that all four pretrained models classified correctly with the highest mean confidence, so that it is a clear case of its class.}\label{fig:aerobic_examples}
+    \caption{One example of each aerobic zone class, and the facility to which it belongs. Each example is a test image from the chronological split (Section~\ref{sec:exp_mixed}) that all four pretrained models classified correctly with the highest mean confidence, so that it is a clear case of its class.}\label{fig:aerobic_examples}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering 
     \includegraphics[width=0.8\textwidth]{figures/clarifier_examples.png} 
-    \caption{One example of each clarifier class, and the facility it comes from, chosen in the same way as in Figure~\ref{fig:aerobic_examples}. The area outside each tank is masked to black by the preparation script (Section~\ref{sec:pipeline}).}\label{fig:clarifier_examples}
+    \caption{One example of each clarifier class, and the facility to which it belongs, chosen in the same way as in Figure~\ref{fig:aerobic_examples}. The area outside each tank is masked to black by the preparation script (Section~\ref{sec:pipeline}).}\label{fig:clarifier_examples}
 \end{figure}
 
 \section{Facility Structure}
@@ -131,7 +131,7 @@ In addition to the leave-one-out approach described above, a chronological split
 
 \section{Relabelling}
 
-The dataset is new and was prepared shortly before the project started by annotators under the supervision of Prof F. de Wet. Early inspection found occasional labelling errors, so every clarifier image was reviewed manually with a relabelling notebook built on Jupyter widgets. The full set was reviewed, not just the images the classifier got wrong, because reviewing only those could introduce bias. The notebook shows each image with its current label and a button for each class. Corrections are written to a separate \texttt{relabel/} copy of the annotation files, so the original VIA2 labels stay intact.
+The dataset is new and was prepared shortly before the project started by annotators under the supervision of Prof F. de Wet. Early inspection found occasional labelling errors, so every clarifier image was reviewed manually with a relabelling notebook built on Jupyter widgets. The full set was reviewed, not just the images the classifier got wrong, because reviewing only those could introduce bias. The aerobic zone images were not reviewed, since reviewing every image takes a long time. The notebook shows each image with its current label and a button for each class. Corrections are written to a separate \texttt{relabel/} copy of the annotation files, so the original VIA2 labels stay intact.
 
 Figure \ref{fig:relabel_example} shows a Cape Flats clarifier that was relabelled from \textbf{Scum} to \textbf{Empty}. The tank appears to have been drained: its floor is visible, and the dark band across it is the bridge's shadow, not scum. The review interface is shown in Figure~\ref{fig:relabel_process_example} in Appendix~\ref{appen:dataset_details}.
 

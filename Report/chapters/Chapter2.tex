@@ -5,7 +5,7 @@ Municipal wastewater treatment plants purify our water using a series of steps. 
 
 Once this active treatment is complete, the mixture flows into large circular settling tanks called \textbf{clarifiers}. The dense microbial biomass gradually settles to the bottom of the tank. This settling process leaves clear, treated water at the surface. Rather than discarding this settled biomass, the system continuously circulates it back to the initial tanks. Returning this activated sludge maintains a sufficient concentration of active microorganisms, ensuring the system can efficiently metabolise incoming organic matter.
 
-Interestingly, it is possible to tell a lot about how well these systems are performing just from aerial or satellite photos. A healthy FBDA unit churns the surface into a ``leopard print'' pattern, while a struggling one looks noticeably smoother. Well functioning clarifiers separate out the solids and leave behind a clear liquid that looks black from above. When they are operating poorly, solids escape into the effluent and the surface turns green, cloudy, or uneven. Shown in Figure~\ref{fig:treatment_comparison} are examples of functional and dysfunctional aerators and clarifiers, highlighting the visual cues that indicate their performance levels.
+Interestingly, it is possible to tell a lot about how well these systems are performing just from aerial or satellite photos. A healthy FBDA unit churns the surface into a ``leopard print'' pattern, while a struggling one looks noticeably smoother. Well functioning clarifiers separate out the solids and leave behind a clear liquid that looks black from above. When they are operating poorly, solids escape into the effluent and the surface turns green, cloudy, or uneven. Figure~\ref{fig:treatment_comparison} shows examples of functional and dysfunctional aerators and clarifiers, highlighting the visual cues that indicate their performance levels.
 
 \begin{figure}[htbp]
     \centering 
@@ -28,7 +28,7 @@ Interestingly, it is possible to tell a lot about how well these systems are per
         \caption{Functional clarifier and, dysfunctional clarifier. The functional clarifier has a clear surface, while the dysfunctional one has solids floating on top.}\label{fig:clarifier}
     \end{subfigure}
     
-    \caption{Examples of functional and dysfunctional wastewater treatment components.}\label{fig:treatment_comparison}
+    \caption{Examples of functional and dysfunctional wastewater treatment components. The straight structures crossing the aerators are walkways that carry the air pipes feeding the diffusers. The bar across each clarifier is a rotating scraper bridge.}\label{fig:treatment_comparison}
 \end{figure}
 \section{Convolutional Neural Networks}\label{sec:cnn_background}
 
@@ -221,7 +221,7 @@ ConvNeXt \citep{liu2022convnext} starts from a standard ResNet-50 and changes it
 \end{equation}
 where $\Phi$ is the cumulative distribution function of the standard normal distribution. At the input, the $7\times7$ convolution and max pool of ResNet are replaced by a $4\times4$ convolution with stride 4, called a \textbf{patchify} layer, which divides the image into non-overlapping $4\times4$ patches. Between stages, the resolution is halved by a separate $2\times2$ convolution with stride 2. ConvNeXt-Tiny has four stages of 3, 3, 9 and 3 blocks with 96, 192, 384 and 768 channels (Table~\ref{tab:convnext_layers}).
 
-\begin{table}[!b]
+\begin{table}[!htb]
 \setstretch{1}
 \centering
 \setlength{\tabcolsep}{4pt}
@@ -298,7 +298,7 @@ The \textbf{receiver operating characteristic (ROC) curve} plots the true positi
 
 Gradient-weighted class activation mapping (Grad-CAM)~\citep{selvaraju2017gradcam} produces a heatmap that shows which regions of an input image contributed the most to the output of a CNN for a given class.
 
-Grad-CAM uses the output of the last convolutional layer, which is the layer before the global pooling and the fully connected classification layers. This output consists of one feature map per channel.Let $A^k$ denote the feature map of channel $k$, $A^k_{ij}$ the element in row $i$ and column $j$. A weight $\alpha_k^c$ is calculated for each channel by taking the gradient of the score $y^c$ of class $c$, which is the logit of that class before the softmax (Equation~\ref{eq:softmax}), with respect to every element of $A^k$, and averaging these gradients over the feature map:
+Grad-CAM uses the output of the last convolutional layer, which is the layer before the global pooling and the fully connected classification layers. This output consists of one feature map per channel. Let $A^k$ denote the feature map of channel $k$, $A^k_{ij}$ the element in row $i$ and column $j$. A weight $\alpha_k^c$ is calculated for each channel by taking the gradient of the score $y^c$ of class $c$, which is the logit of that class before the softmax (Equation~\ref{eq:softmax}), with respect to every element of $A^k$, and averaging these gradients over the feature map:
 
 \begin{equation}
     \alpha_k^c = \frac{1}{Z} \sum_{i} \sum_{j} \frac{\partial y^c}{\partial A^k_{ij}},

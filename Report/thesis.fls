@@ -656,8 +656,8 @@ INPUT ./thesis.lof
 INPUT thesis.lof
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
-INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
 OUTPUT thesis.lof
+INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
 INPUT ./thesis.lot
 INPUT ./thesis.lot
 INPUT thesis.lot
