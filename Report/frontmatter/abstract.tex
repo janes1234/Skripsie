@@ -2,12 +2,4 @@
 \addcontentsline{toc}{chapter}{Abstract}
 \makeatletter\@mkboth{}{\scshape Abstract}\makeatother
 
-
-\newpage
-\selectlanguage{afrikaans}
-
-\chapter*{Uittreksel}
-\addcontentsline{toc}{chapter}{Uittreksel}
-\makeatletter\@mkboth{}{\scshape Uittreksel}\makeatother
-
-\selectlanguage{english}
+South African wastewater treatment works (WWTW) are monitored mainly by on-site personnel and by physical inspections, which are expensive and infrequent. This project investigates whether a convolutional neural network (CNN) can determine the state of the aerobic zones and secondary clarifiers of a WWTW from Google Earth satellite images. Each aerobic zone and clarifier in 620 labelled images of five facilities was extracted as a separate image. Four pretrained architectures and a randomly initialised ResNet-18 were trained for each component and evaluated on a chronological split, which represents a known facility, and on a leave-one-facility-out split, which represents a new facility. At a known facility, the clarifier models reach a mean AUC of 0.921 to 0.949 and the aerobic zone models 0.860 to 0.938. At a new facility, the clarifier models perform about as well, but the aerobic zone macro recall decreases by 12.2 to 30.5 percentage points.

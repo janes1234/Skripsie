@@ -58,7 +58,7 @@ Convolutions are usually applied with a \textbf{stride} $s$ (the step size the k
 O = \left\lfloor \frac{W - k + 2p}{s} \right\rfloor + 1,
 \label{eq:conv_output_size}
 \end{equation}
-where $O$ is the resulting width and height of the output feature map such that the output feature map has dimensions $O \times O$. A stride greater than one causes the filter to take larger steps accross the input feature map, which shrinks the output feature map and reduces computional work.
+where $O$ is the resulting width and height of the output feature map such that the output feature map has dimensions $O \times O$. A stride greater than one causes the filter to take larger steps across the input feature map, which shrinks the output feature map and reduces computational work.
 
 After each convolution, an element-wise, non-linear \textbf{activation function} is applied to every value of $Y$. This allows it to learn more complex patterns in the data. All of the architectures used in this project use the Rectified Linear Unit (ReLU), or a smooth variant of it:
 \begin{equation}
@@ -91,7 +91,7 @@ Residual Networks (ResNet) \citep{he2016resnet} are built from \textbf{residual 
 y = F(x) + x.
 \label{eq:residual}
 \end{equation}
-In traditional networks, the gradient weakens exponentially as it backproagates through each layer, making it difficult to train very deep networks. The skip connection allows the gradient to flow to earlier layers during backpropagation.
+In traditional networks, the gradient weakens exponentially as it backpropagates through each layer, making it difficult to train very deep networks. The skip connection allows the gradient to flow to earlier layers during backpropagation.
 
 ResNet-18 uses a \textbf{basic block} of two $3\times3$ convolutions, each followed by batch normalisation and ReLU, except that the second ReLU is applied after the shortcut is added. Deeper variants such as ResNet-50 use a \textbf{bottleneck block}, in which a $1\times1$ convolution reduces the number of channels, a $3\times3$ convolution operates on the reduced representation, and a second $1\times1$ convolution restores the channel count.
 
@@ -307,7 +307,7 @@ Grad-CAM uses the output of the last convolutional layer, which is the layer bef
 
 where the sums run over all rows $i$ and columns $j$ of the feature map, and $Z$ is the number of elements in the feature map (its height multiplied by its width).
 
-The feature maps of all channels are then multiplied by their weights and summed.Finally only the positive elements of this matrix are kept:
+The feature maps of all channels are then multiplied by their weights and summed. Finally, only the positive elements of this matrix are kept:
 
 \begin{equation}
     L^c = \mathrm{ReLU}\left( \sum_{k} \alpha_k^c A^k \right).

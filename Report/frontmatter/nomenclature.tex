@@ -1,23 +1,47 @@
 \chapter*{Nomenclature\markboth{}{Nomenclature}}
 \addcontentsline{toc}{chapter}{Nomenclature}
 
-\renewcommand{\nomname}{Variables and Functions}
-\renewcommand{\altnomname}{Variables and functions}
-\markboth{}{\scshape \nomname}
-\setlength{\nomlabelwidth}{3cm}
-\printnomenclature{}
-\input{frontmatter/variables_and_functions}
+\section*{Symbols}
+\phantomsection
+\addcontentsline{toc}{section}{Symbols}
 
-\newpage
+\begin{longtable}{@{}>{\bfseries}lp{.7\linewidth}}
+$A^k$ & Feature map of channel $k$ of the last convolutional layer (Grad-CAM) \\[1.0ex]
+$\alpha_k^c$ & Grad-CAM weight of channel $k$ for class $c$ \\[1.0ex]
+$b_m$ & Bias of output channel $m$ of a convolutional layer \\[1.0ex]
+$\beta_1$ & Exponential decay rate of the first moment estimate of the Adam optimiser \\[1.0ex]
+$C_{in}$, $C_{out}$ & Number of input and output channels of a convolutional layer \\[1.0ex]
+$c$ & Input channel index (convolution), or class index \\[1.0ex]
+$F(x)$ & Residual function learnt by a residual block \\[1.0ex]
+$H$ & Number of hidden layers in the classifier head \\[1.0ex]
+$H_l$ & Composite function of layer $l$ in a dense block \\[1.0ex]
+$K$ & Number of classes \\[1.0ex]
+$K_{u,v,c,m}$ & Convolution kernel weights \\[1.0ex]
+$k$ & Kernel or pooling window size, DenseNet growth rate, or class or channel index \\[1.0ex]
+$L^c$ & Grad-CAM heatmap of class $c$ \\[1.0ex]
+$N$ & Number of neurons per hidden layer in the classifier head \\[1.0ex]
+$n_c$ & Number of training images in class $c$ \\[1.0ex]
+$O$ & Width and height of the output feature map of a convolution \\[1.0ex]
+$P(\cdot)$ & Softmax probability of a class \\[1.0ex]
+$p$ & Zero-padding of a convolution \\[1.0ex]
+$p_k$ & Softmax probability of class $k$ \\[1.0ex]
+$s$ & Stride of a convolution or pooling layer, or the Not-OK score $1 - P(\mathrm{Functional})$ \\[1.0ex]
+$t$ & Decision threshold on the Not-OK score \\[1.0ex]
+$W$ & Width and height of the input feature map of a convolution \\[1.0ex]
+$w_c$ & Loss weight of class $c$ \\[1.0ex]
+$X$, $Y$ & Input and output feature maps of a layer \\[1.0ex]
+$x_l$ & Output of layer $l$ in a dense block \\[1.0ex]
+$y^c$ & Logit (pre-softmax score) of class $c$ \\[1.0ex]
+$Z$ & Number of elements in a feature map (Grad-CAM) \\[1.0ex]
+$z_k$ & Logit of class $k$ \\[1.0ex]
+$\Delta$ & Change in a metric from Experiment~1 to Experiment~2, in percentage points \\[1.0ex]
+$\Phi$ & Cumulative distribution function of the standard normal distribution \\
+\end{longtable}
+
 \section*{Acronyms and Abbreviations}
 \phantomsection
 \addcontentsline{toc}{section}{Acronyms and abbreviations}
 
-\printacronyms[display=all]
-
-\glsaddall{}
-\newpage
-\renewcommand\glossaryname{Definitions}
-%\printnoidxglossaries{}  % needs \makenoidxglossaries in the preamble
+\printacronyms[display=all, heading=none]
 
 \newpage
