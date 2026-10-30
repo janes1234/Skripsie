@@ -307,6 +307,17 @@
 \setcounter{bottomnumber}{9}
 \setcounter{totalnumber}{20}
 \setcounter{dbltopnumber}{2}
+% Tighter spacing around floats and lists to save space
+\setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
+\setlist{itemsep=0pt, parsep=0pt, topsep=3pt, partopsep=0pt}
+\setlength{\abovecaptionskip}{5pt}
+\AtBeginDocument{%
+  \setlength{\abovedisplayskip}{6pt plus 2pt minus 2pt}%
+  \setlength{\belowdisplayskip}{6pt plus 2pt minus 2pt}%
+  \setlength{\abovedisplayshortskip}{3pt plus 2pt}%
+  \setlength{\belowdisplayshortskip}{3pt plus 2pt minus 2pt}}
 
 % Descriptions
 \usepackage[T1]{fontenc}
