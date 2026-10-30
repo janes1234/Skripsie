@@ -2,7 +2,26 @@
 \makeatletter\@mkboth{}{Appendix}\makeatother
 \label{appen:hyperparam_trials}
 
-Section~\ref{sec:exp_hyperparams} describes the Optuna hyperparameter search used for the five models, which was run separately for the clarifiers and for the aerobic zones. This appendix lists every trial of these ten searches, so the results in that section can be checked in full without cluttering the main text with 200 rows of trial data. For each search, the winning trial (the one whose values were carried forward to training) is shaded.
+Section~\ref{sec:exp_hyperparams} describes the Optuna hyperparameter search used for the five models, which was run separately for the clarifiers and for the aerobic zones. This appendix first describes the TPE sampler used to guide these searches, and then lists every trial of the ten searches, so the results in that section can be checked in full without cluttering the main text with 200 rows of trial data. For each search, the winning trial (the one whose values were carried forward to training) is shaded.
+
+\section{Tree-Structured Parzen Estimator}
+\label{sec:appen_tpe}
+
+The TPE sampler \citep{bergstra2011tpe} chooses the hyperparameter values of each new trial based on the results of the earlier trials. It does this in the following steps:
+
+\begin{enumerate}
+    \item \textbf{Random start.} The first trials are sampled at random from the search space, so that there are results to learn from. In this project, the first ten trials of every search are random (Section~\ref{subsec:search_procedure}).
+    \item \textbf{Splitting into good and bad trials.} The completed trials are sorted by their score. A small fraction of the best trials (by default the best 10\% in Optuna) is labelled \emph{good}, and the remaining trials are labelled \emph{bad}.
+    \item \textbf{Modelling each group.} For each group, TPE estimates how the hyperparameter values are distributed. It places a small bell-shaped curve around every value tried in the group and adds the curves together. This gives one density $l(x)$ for the good trials and one density $g(x)$ for the bad trials, where $x$ is a set of hyperparameter values. A density is high where many trials of that group lie close together.
+    \item \textbf{Choosing the next trial.} A number of candidate values are drawn from $l(x)$, so they lie close to the good trials. For each candidate, the ratio
+    \begin{equation}
+        \frac{l(x)}{g(x)}
+    \end{equation}
+    is calculated, and the candidate with the highest ratio is used for the next trial. A high ratio means that the candidate lies close to the good trials and far from the bad trials.
+    \item \textbf{Repeating.} Once the new trial is complete, it is added to the results, the trials are split again, and the process is repeated until all trials have been run.
+\end{enumerate}
+
+The densities are estimated separately for each hyperparameter, which is why the method is described as tree-structured: it can handle search spaces in which some hyperparameters only exist for certain values of others. This is not the case in this project, since all six hyperparameters are sampled in every trial. Compared with random search, TPE spends more of the remaining trials near values that have already scored well, while still sampling some values away from them.
 
 \Needspace*{0.6\textheight}
 \section{Clarifiers}

@@ -16,8 +16,8 @@ Section~\ref{sec:exp_metrics} describes the evaluation metrics and Section~\ref{
 \begin{figure}[htbp]
 \centering
 \begin{tikzpicture}[
-    node distance=8mm and 7mm,
-    stage/.style={rectangle, rounded corners, draw, fill=gray!10, text width=3.0cm, align=center, minimum height=16mm, font=\small},
+    node distance=5mm and 7mm,
+    stage/.style={rectangle, rounded corners, draw, fill=gray!10, text width=3.0cm, align=center, minimum height=12mm, font=\small},
     arr/.style={-{Stealth[length=2mm]}, thick},
 ]
 
@@ -90,7 +90,7 @@ The images are taken from directly above, so a flipped or rotated clarifier or a
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/augmentation_examples.png}
+    \includegraphics[width=0.65\textwidth]{figures/augmentation_examples.png}
     \caption{Augmentations applied to a single \textbf{Scum} clarifier from Cape Flats. Top row: the original image, followed by a horizontal flip, a rotation of $15^\circ$, and a random colour jitter, each applied on its own. Bottom row: four random outputs of the full augmentation pipeline (flip, rotation and colour jitter combined).}
     \label{fig:augmentation_examples}
 \end{figure}
@@ -107,7 +107,11 @@ To counter this, the cross-entropy loss is weighted per class, so that the netwo
     w_c = K \cdot \frac{1/n_c}{\sum_{j=1}^{K} 1/n_j}.
 \end{equation}
 
-A class with average representation therefore gets a weight close to one, a rare class gets a weight larger than one, and a common class gets a weight smaller than one. These weights are passed to PyTorch's \texttt{CrossEntropyLoss}, which multiplies the loss of each image by the weight of its true class, and divides the sum over a batch by the sum of these weights rather than by the number of images. The training data itself is not resampled, so every training image is still used exactly once per epoch.
+A class with average representation therefore gets a weight close to one, a rare class gets a weight larger than one, and a common class gets a weight smaller than one. These weights are passed to PyTorch's \texttt{CrossEntropyLoss}, which multiplies the loss of each image by the weight of its true class, and divides the sum over a batch by the sum of these weights rather than by the number of images. For a batch of $B$ images, where image $i$ has true class $c_i$ and predicted probability $p_{c_i}$ for that class, the cross-entropy loss of Equation~\ref{eq:cross_entropy} therefore becomes
+\begin{equation}
+    \mathcal{L} = -\frac{\sum_{i=1}^{B} w_{c_i} \log p_{c_i}}{\sum_{i=1}^{B} w_{c_i}}.
+\end{equation}
+The training data itself is not resampled, so every training image is still used exactly once per epoch.
 
 The weights are calculated from the training set only, and are recalculated for every split, since the class counts change depending on which facility is held out. Tables~\ref{tab:class_weights} and~\ref{tab:class_weights_aerobic} list the number of training images per class and the resulting weights for every leave-one-facility-out split, and for the chronological split of Experiment~1.
 
@@ -215,12 +219,12 @@ Training is allowed to run for up to 100 epochs, but is stopped early if develop
 
 
 
-\begin{figure}[htbp]
+\begin{figure}[!htb]
 \centering
 \begin{tikzpicture}[
-    node distance=4mm and 12mm,
+    node distance=2.5mm and 12mm,
     process/.style={rectangle, rounded corners, draw, fill=gray!10, text width=4.3cm, align=center, minimum height=6mm, font=\footnotesize},
-    decision/.style={diamond, draw, fill=blue!5, aspect=3.5, text width=3.6cm, align=center, inner sep=0pt, font=\footnotesize},
+    decision/.style={diamond, draw, fill=blue!5, aspect=5, text width=3.6cm, align=center, inner sep=0pt, font=\footnotesize},
     terminal/.style={rectangle, rounded corners=2mm, draw, fill=gray!25, text width=3.4cm, align=center, minimum height=5mm, font=\footnotesize},
     arr/.style={-{Stealth[length=2mm]}, thick},
     lbl/.style={font=\scriptsize}
@@ -230,11 +234,11 @@ Training is allowed to run for up to 100 epochs, but is stopped early if develop
 \node[process, below=of start] (trainval) {Train one epoch, then evaluate on the development set};
 \node[process, below=of trainval] (lrstep) {Step the \texttt{StepLR} schedule};
 \node[decision, below=of lrstep] (improved) {Development loss improved?};
-\node[process, below left=4mm and -8mm of improved] (savebest) {Save weights as new best checkpoint; reset counter to 0};
-\node[process, below right=4mm and -8mm of improved] (noimprove) {Increment no-improvement counter};
+\node[process, below left=2.5mm and -8mm of improved] (savebest) {Save weights as new best checkpoint; reset counter to 0};
+\node[process, below right=2.5mm and -8mm of improved] (noimprove) {Increment no-improvement counter};
 \coordinate (boxbottom) at (improved |- savebest.south);
-\coordinate[below=3mm of boxbottom] (join);
-\node[decision, below=6mm of boxbottom] (stopcheck) {Counter $\geq$ 10, or epoch 100 reached?};
+\coordinate[below=2mm of boxbottom] (join);
+\node[decision, below=4mm of boxbottom] (stopcheck) {Counter $\geq$ 10, or epoch 100 reached?};
 \node[terminal, below=of stopcheck] (restore) {Restore best checkpoint};
 \node[terminal, below=of restore] (end) {Proceed to testing};
 \coordinate[left=6mm of savebest.west] (loopx);
@@ -265,7 +269,7 @@ The same fixed seed used throughout this project (Section~\ref{sec:exp_hyperpara
 
 The first experiment does not take into account which facility an image comes from. The images of all five facilities are pooled and divided into training, development and test sets using the chronological split described in Chapter~\ref{chap:systemmethods}. Every image captured from January 2020 onwards is a test image. The images captured before January 2020 are grouped by facility, unit and class, each group is shuffled using the fixed random seed of 42, and the group is then divided in an 80/20 ratio into training and development images. A group with at least three images always receives at least one development image. Table~\ref{tab:stratified_split} gives the resulting number of images per class.
 
-\begin{table}[htbp]
+\begin{table}[!htb]
 \centering
 \caption{Number of images per class in the training, development and test sets of the chronological split used in Experiment~1. The test set contains every image captured from January 2020 onwards.}
 \label{tab:stratified_split}

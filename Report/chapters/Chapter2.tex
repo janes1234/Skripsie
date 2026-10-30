@@ -34,7 +34,7 @@ Interestingly, it is possible to tell a lot about how well these systems are per
 
 \subsection{Building Blocks of a Convolutional Neural Network}\label{sec:cnn_building_blocks}
 
-A Convolutional Neural Network (CNN) \citep{lecun1998gradient} is a type of artificial neural network designed for data with a grid-like structure, such as the pixel grid of an image. A CNN slides a small filter, or \textbf{kernel}, across the image, reusing the same weights at every position. This weight sharing keeps the number of learnable parameters low even for large images, and reflects a reasonable assumption about images of physical objects: a pattern that is useful for identifying, say, the rippled surface of a functioning aerator is just as useful whether it appears in the top-left or bottom-right corner of the image. This makes CNNs particularly well suited to the classification task in this project, where the relevant visual cues, such as the ``leopard print'' texture of a functional aerator or the colour and clarity of a clarifier's surface, can appear anywhere within an image and at different scales.
+A Convolutional Neural Network (CNN) \citep{lecun1998gradient} is a type of artificial neural network designed for data with a grid-like structure, such as the pixel grid of an image. A CNN slides a small filter, or \textbf{kernel}, across the image, reusing the same weights at every position. This weight sharing keeps the number of learnable parameters low even for large images, and reflects the assumption that the appearance of an object does not dedpend on where it is located in the image: a pattern that is useful for identifying, say, the rippled surface of a functioning aerator is just as useful whether it appears in the top-left or bottom-right corner of the image. This makes CNNs particularly well suited to the classification task in this project, where the relevant visual cues, such as the ``leopard print'' texture of a functional aerator or the colour and clarity of a clarifier's surface, can appear anywhere within an image and at different scales.
 
 Formally, given an input feature map $X$ with $C_{in}$ channels and a kernel $K$ of size $k \times k$, a convolutional layer computes an output feature map $Y$ where each output value is a weighted sum of a small $k \times k$ neighbourhood of the input, taken across all input channels:
 \begin{equation}
@@ -79,7 +79,12 @@ By repeating convolutional, activation, and pooling layers, a CNN gradually trad
 p_k = \frac{\exp(z_k)}{\sum_{j=1}^{K}\exp(z_j)}, \qquad k = 1, \dots, K,
 \label{eq:softmax}
 \end{equation}
-where $z_k$ is the logit for class $k$, $p_k$ is its resulting probability, and the sum in the denominator is over all $K$ classes so that the resulting values of $p_k$ sum to one. The classification decision is the class assigned the highest probability, and the network is trained by adjusting every learnable kernel and weight to make $p_k$ as close as possible to 1 for the correct class, most commonly via the cross-entropy loss.
+where $z_k$ is the logit for class $k$, $p_k$ is its resulting probability, and the sum in the denominator is over all $K$ classes so that the resulting values of $p_k$ sum to one. The classification decision is the class assigned the highest probability. The network is trained by adjusting every learnable kernel and weight to minimise the \textbf{cross-entropy loss}, which for a single image with true class $c$ is
+\begin{equation}
+\mathcal{L} = -\log p_c.
+\label{eq:cross_entropy}
+\end{equation}
+The loss is zero when the network assigns a probability of 1 to the correct class, and grows without bound as $p_c$ approaches 0, so confident mistakes are penalised far more heavily than uncertain ones. The loss is averaged over a batch of images, and its gradient with respect to every weight is computed by backpropagation and used to update the weights.
 
 Training a CNN's convolutional layers entirely from random weight initialisations typically requires very large labelled datasets, since the network has to learn everything from edge detection upward using only the available training images. This project instead relies on \textbf{transfer learning}: each architecture is first pretrained on ImageNet \citep{deng2009imagenet, russakovsky2015imagenet}, a benchmark dataset consisting of over a million labelled natural images spanning a thousand object classes, so that its convolutional layers already encode a broad range of general-purpose visual features before ever seeing a wastewater treatment image. Its final classification layer is then removed and replaced with a small classifier head fitted to the classes used in this project, and the network is fine-tuned on the WWTW image dataset. Four such pretrained architectures, all originally developed for the ImageNet benchmark, were evaluated in this project: \textbf{ResNet-18} \citep{he2016resnet}, \textbf{DenseNet-121} \citep{huang2017densenet}, \textbf{EfficientNet-B0} \citep{tan2019efficientnet}, and \textbf{ConvNeXt-Tiny} \citep{liu2022convnext}. ResNet-18 is also trained a second time from randomly initialised weights, as a baseline that measures the effect of pretraining (Section~\ref{sec:exp_architectures}). Each combines the convolutional building blocks above in a different way, as described in the remainder of this section.
 
@@ -97,7 +102,7 @@ ResNet-18 uses a \textbf{basic block} of two $3\times3$ convolutions, each follo
 
 Table~\ref{tab:resnet_layers} lists the layers of ResNet-18. The 18 counts the layers with weights: 17 convolutional layers and one fully-connected layer. The first convolution of each of the last three stages has a stride of 2, which halves the resolution, while the number of kernels doubles. This means that $x$ and $F(x)$ then no longer have the same shape, so a $1\times1$ convolution with stride 2, followed by batch normalisation, is applied on the shortcut to make the shapes match for the element-wise addition.
 
-\begin{table}[!b]
+\begin{table}[!htb]
 \setstretch{1}
 \centering
 \setlength{\tabcolsep}{3.5pt}
@@ -127,6 +132,7 @@ Table~\ref{tab:resnet_layers} lists the layers of ResNet-18. The 18 counts the l
 \end{tabular}
 \end{table}
 
+\FloatBarrier
 \subsection{Densely Connected Networks: DenseNet-121}\label{sec:densenet}
 
 DenseNet \citep{huang2017densenet} extends the shortcut idea of ResNet. Within a \textbf{dense block}, each layer receives the feature maps of all preceding layers in the block, concatenated along the channel dimension:
@@ -138,7 +144,7 @@ where $x_0$ is the input to the block and $x_l$ the output of layer $l$. Because
 
 Between dense blocks, a \textbf{transition layer} halves the number of channels with a $1\times1$ convolution and halves the resolution with a $2\times2$ average pool. DenseNet-121 has four dense blocks with 6, 12, 24 and 16 dense layers respectively (Table~\ref{tab:densenet_layers}). Each dense layer contains two convolutions, so the blocks contribute $2(6+12+24+16) = 116$ convolutions. The initial convolution, the three transition convolutions and the fully-connected layer bring the total to the 121 layers. Because each layer can reuse the features of all earlier layers in its block, every layer can be narrow. The network has 8.0M parameters, fewer than the 11.7M of ResNet-18.
 
-\begin{table}[!b]
+\begin{table}[!htb]
 \setstretch{1}
 \centering
 \setlength{\tabcolsep}{3pt}
@@ -176,11 +182,12 @@ Between dense blocks, a \textbf{transition layer} halves the number of channels 
 \end{tabular}
 \end{table}
 
+\FloatBarrier
 \subsection{Efficient Networks: EfficientNet-B0}\label{sec:efficientnet}
 
 EfficientNet \citep{tan2019efficientnet} is built using \textbf{mobile inverted bottleneck convolution} (MBConv) blocks, which split a full convolution into cheaper steps. First, a $1\times1$ convolution increases the number of channels by a factor $t$. Second, a $k\times k$ \textbf{depthwise} convolution looks for spatial patterns, such as edges and texture, in each channel separately. Because it does not combine channels, it needs $C$ times fewer multiply-adds than a full convolution with $C$ input and $C$ output channels (Equation~\ref{eq:convolution}). Third, a \textbf{squeeze-and-excitation} block \citep{hu2018squeeze} weights each channel by its importance for the current image. To compute this importance, the average of the feature map in each channel is computed and passed through two small fully-connected layers, the second of which ends in a sigmoid. The resulting outputs, which lie between 0 and 1, are viewed as importance values and are used to multiplicatively scale the feature map of each channel. Finally, a $1\times1$ convolution combines the channels and reduces their number again. The depthwise convolution therefore finds spatial patterns, while the $1\times1$ convolutions mix the channels. When the input and output of a block have the same shape, the input is added to the output through a residual connection, as in ResNet (Equation~\ref{eq:residual}). The activation is SiLU, $\mathrm{SiLU}(x) = x\sigma(x)$, where $\sigma$ is the sigmoid function, which is a smooth variant of ReLU.
 
-\begin{table}[!b]
+\begin{table}[!htb]
 \setstretch{1}
 \centering
 \setlength{\tabcolsep}{4pt}
@@ -212,6 +219,7 @@ EfficientNet \citep{tan2019efficientnet} is built using \textbf{mobile inverted 
 \end{tabular}
 \end{table}
 
+\FloatBarrier
 \subsection{ConvNeXt-Tiny}\label{sec:convnext}
 
 ConvNeXt \citep{liu2022convnext} starts from a standard ResNet-50 and changes it step by step to resemble a Vision Transformer, a newer type of network that splits the image into small patches, while still using only convolutions. The ConvNeXt block has three steps. First, a $7\times7$ depthwise convolution looks for spatial patterns in each channel separately. The large kernel lets the block see a wider area of the image, and because the convolution is depthwise, it remains cheap. Second, a $1\times1$ convolution increases the number of channels by a factor of 4, and is followed by the GELU activation. Third, a second $1\times1$ convolution reduces the number of channels back to the original number. The input of the block is then added to its output through a residual connection, as in ResNet (Equation~\ref{eq:residual}). The block is therefore narrow at its ends and wide in the middle, which is the opposite of the ResNet bottleneck block (Section~\ref{sec:resnet}) but similar to MBConv (Section~\ref{sec:efficientnet}). The block uses \textbf{layer normalisation}, which normalises over the channels of each image instead of over a batch of images, and has only one normalisation and one activation, where the ResNet bottleneck block has three of each. GELU (Gaussian Error Linear Unit) is a smooth variant of ReLU \citep{hendrycks2016gelu}:
